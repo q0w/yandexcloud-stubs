@@ -49,15 +49,13 @@ class ListDatabasesRequest(google.protobuf.message.Message):
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListDatabasesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, Set `page_token` to the [ListDatabasesResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListDatabasesResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -77,10 +75,11 @@ class ListDatabasesResponse(google.protobuf.message.Message):
         """List of SQL Server databases."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListDatabasesRequest.page_size], use the `next_page_token` as the value
-    for the [ListDatabasesRequest.page_token] parameter in the next list request. Each subsequent
-    list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListDatabasesRequest.page_size], use the [next_page_token] as the value for the [ListDatabasesRequest.page_token] parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -182,22 +181,23 @@ class RestoreDatabaseRequest(google.protobuf.message.Message):
     BACKUP_ID_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the SQL Server cluster to restore a database in.
-    To get the cluster ID, use a [ClusterService.List] request
+    """ID of the SQL Server cluster to restore a database in.
+
+    To get the cluster ID, use a [ClusterService.List] request.
     """
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being restored."""
+    """Name of the SQL Server database that is being restored."""
 
     from_database: typing.Text
-    """name of the database which backup will be used to restore the database"""
+    """Name of the database which backup is used to restore the database."""
 
     backup_id: typing.Text
-    """ID of a backup to be used"""
+    """ID of a backup to be used."""
 
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Timestamp which is used for Point-in-Time recovery"""
+        """Timestamp which is used for Point-in-Time recovery."""
         pass
     def __init__(self,
         *,
@@ -218,16 +218,16 @@ class RestoreDatabaseMetadata(google.protobuf.message.Message):
     FROM_DATABASE_FIELD_NUMBER: builtins.int
     BACKUP_ID_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the SQLServer cluster where a database is being created."""
+    """ID of the SQL Server cluster where a database is being created."""
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being created."""
+    """Name of an SQL Server database that is being created."""
 
     from_database: typing.Text
-    """name of the database which backup will be used to restore the database"""
+    """Name of the database which backup is used to restore the database."""
 
     backup_id: typing.Text
-    """ID of a backup to be used"""
+    """ID of a backup to be used."""
 
     def __init__(self,
         *,
@@ -247,12 +247,13 @@ class ImportDatabaseBackupRequest(google.protobuf.message.Message):
     S3_PATH_FIELD_NUMBER: builtins.int
     FILES_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the SQL Server cluster to import a database in.
-    To get the cluster ID, use a [ClusterService.List] request
+    """ID of the SQL Server cluster to import a database in.
+
+    To get the cluster ID, use a [ClusterService.List] request.
     """
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being imported."""
+    """Name of the SQL Server database that is being imported."""
 
     s3_bucket: typing.Text
     """Name of object storage bucket to import backups from."""
@@ -262,7 +263,7 @@ class ImportDatabaseBackupRequest(google.protobuf.message.Message):
 
     @property
     def files(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """List of .bak files in bucket containing database backup"""
+        """List of .bak files in bucket containing database backup."""
         pass
     def __init__(self,
         *,
@@ -282,10 +283,10 @@ class ImportDatabaseBackupMetadata(google.protobuf.message.Message):
     S3_BUCKET_FIELD_NUMBER: builtins.int
     S3_PATH_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the SQLServer cluster where a database is being imported."""
+    """ID of the SQL Server cluster where a database is being imported."""
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being imported."""
+    """Name of the SQL Server database that is being imported."""
 
     s3_bucket: typing.Text
     """Name of object storage bucket to import backups from."""
@@ -311,21 +312,22 @@ class ExportDatabaseBackupRequest(google.protobuf.message.Message):
     S3_PATH_FIELD_NUMBER: builtins.int
     PREFIX_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the SQL Server cluster to export a database from.
-    To get the cluster ID, use a [ClusterService.List] request
+    """ID of the SQL Server cluster to export a database from.
+
+    To get the cluster ID, use a [ClusterService.List] request.
     """
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being exported."""
+    """Name of the SQL Server database that is being exported."""
 
     s3_bucket: typing.Text
-    """Name of object storage bucket to export backups to"""
+    """Name of object storage bucket to export backups to."""
 
     s3_path: typing.Text
     """Path in object storage bucket to export backups to."""
 
     prefix: typing.Text
-    """Prefix for .bak files to"""
+    """Prefix for .bak files to export."""
 
     def __init__(self,
         *,
@@ -345,16 +347,16 @@ class ExportDatabaseBackupMetadata(google.protobuf.message.Message):
     S3_BUCKET_FIELD_NUMBER: builtins.int
     S3_PATH_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the SQLServer cluster where a database is being exported."""
+    """ID of the SQL Server cluster where a database is being exported."""
 
     database_name: typing.Text
-    """Name of the SQLServer database that is being exported."""
+    """Name of the SQL Server database that is being exported."""
 
     s3_bucket: typing.Text
-    """Name of object storage bucket to import backups from."""
+    """Name of object storage bucket to export backups to."""
 
     s3_path: typing.Text
-    """Path in object storage bucket to import backups from."""
+    """Path in object storage bucket to export backups to."""
 
     def __init__(self,
         *,

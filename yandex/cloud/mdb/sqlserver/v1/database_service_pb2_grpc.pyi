@@ -32,17 +32,17 @@ class DatabaseServiceStub:
     Restore: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.RestoreDatabaseRequest,
         yandex.cloud.operation.operation_pb2.Operation]
-    """Creates a new SQL Server database in the specified cluster from a backup"""
+    """Creates a new SQL Server database in the specified cluster from a backup."""
 
     ImportBackup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ImportDatabaseBackupRequest,
         yandex.cloud.operation.operation_pb2.Operation]
-    """Imports a new SQL Server database from external backup"""
+    """Imports a new SQL Server database from an external backup."""
 
     ExportBackup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ExportDatabaseBackupRequest,
         yandex.cloud.operation.operation_pb2.Operation]
-    """Exports database backup to external backup"""
+    """Exports the last database backup to an external backup."""
 
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.DeleteDatabaseRequest,
@@ -84,7 +84,7 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.RestoreDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
-        """Creates a new SQL Server database in the specified cluster from a backup"""
+        """Creates a new SQL Server database in the specified cluster from a backup."""
         pass
 
     @abc.abstractmethod
@@ -92,7 +92,7 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ImportDatabaseBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
-        """Imports a new SQL Server database from external backup"""
+        """Imports a new SQL Server database from an external backup."""
         pass
 
     @abc.abstractmethod
@@ -100,7 +100,7 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ExportDatabaseBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
-        """Exports database backup to external backup"""
+        """Exports the last database backup to an external backup."""
         pass
 
     @abc.abstractmethod

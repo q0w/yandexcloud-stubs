@@ -284,9 +284,11 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     CONFIG_FIELD_NUMBER: builtins.int
     MASTER_CONFIG_FIELD_NUMBER: builtins.int
     SEGMENT_CONFIG_FIELD_NUMBER: builtins.int
+    USER_PASSWORD_FIELD_NUMBER: builtins.int
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
+    CONFIG_SPEC_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
     """ID of the Greenplum® Cluster resource to update.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
@@ -323,6 +325,9 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     def segment_config(self) -> global___SegmentSubclusterConfigSpec:
         """Configuration of the Greenplum® segment subcluster."""
         pass
+    user_password: typing.Text
+    """Owner user password. Must be 8-128 characters long"""
+
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
         """Window of maintenance operations."""
@@ -334,6 +339,10 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     deletion_protection: builtins.bool
     """Whether or not cluster is protected from being deleted."""
 
+    @property
+    def config_spec(self) -> global___ConfigSpec:
+        """Settings of the Greenplum® cluster."""
+        pass
     def __init__(self,
         *,
         cluster_id: typing.Text = ...,
@@ -344,12 +353,14 @@ class UpdateClusterRequest(google.protobuf.message.Message):
         config: typing.Optional[yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig] = ...,
         master_config: typing.Optional[global___MasterSubclusterConfigSpec] = ...,
         segment_config: typing.Optional[global___SegmentSubclusterConfigSpec] = ...,
+        user_password: typing.Text = ...,
         maintenance_window: typing.Optional[yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow] = ...,
         security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
         deletion_protection: builtins.bool = ...,
+        config_spec: typing.Optional[global___ConfigSpec] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config",b"config","maintenance_window",b"maintenance_window","master_config",b"master_config","segment_config",b"segment_config","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","config",b"config","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","maintenance_window",b"maintenance_window","master_config",b"master_config","name",b"name","security_group_ids",b"security_group_ids","segment_config",b"segment_config","update_mask",b"update_mask"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config",b"config","config_spec",b"config_spec","maintenance_window",b"maintenance_window","master_config",b"master_config","segment_config",b"segment_config","update_mask",b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","config",b"config","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","maintenance_window",b"maintenance_window","master_config",b"master_config","name",b"name","security_group_ids",b"security_group_ids","segment_config",b"segment_config","update_mask",b"update_mask","user_password",b"user_password"]) -> None: ...
 global___UpdateClusterRequest = UpdateClusterRequest
 
 class UpdateClusterMetadata(google.protobuf.message.Message):

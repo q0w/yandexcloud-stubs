@@ -145,6 +145,7 @@ class Certificate(google.protobuf.message.Message):
     NOT_AFTER_FIELD_NUMBER: builtins.int
     NOT_BEFORE_FIELD_NUMBER: builtins.int
     CHALLENGES_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     id: typing.Text
     """ID of the certificate. Generated at creation time."""
 
@@ -206,6 +207,9 @@ class Certificate(google.protobuf.message.Message):
     def challenges(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Challenge]:
         """Domains validation challenges of the certificate. Used only for managed certificates."""
         pass
+    deletion_protection: builtins.bool
+    """Flag that protects deletion of the certificate"""
+
     def __init__(self,
         *,
         id: typing.Text = ...,
@@ -225,9 +229,10 @@ class Certificate(google.protobuf.message.Message):
         not_after: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         not_before: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
         challenges: typing.Optional[typing.Iterable[global___Challenge]] = ...,
+        deletion_protection: builtins.bool = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","issued_at",b"issued_at","not_after",b"not_after","not_before",b"not_before","updated_at",b"updated_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["challenges",b"challenges","created_at",b"created_at","description",b"description","domains",b"domains","folder_id",b"folder_id","id",b"id","issued_at",b"issued_at","issuer",b"issuer","labels",b"labels","name",b"name","not_after",b"not_after","not_before",b"not_before","serial",b"serial","status",b"status","subject",b"subject","type",b"type","updated_at",b"updated_at"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["challenges",b"challenges","created_at",b"created_at","deletion_protection",b"deletion_protection","description",b"description","domains",b"domains","folder_id",b"folder_id","id",b"id","issued_at",b"issued_at","issuer",b"issuer","labels",b"labels","name",b"name","not_after",b"not_after","not_before",b"not_before","serial",b"serial","status",b"status","subject",b"subject","type",b"type","updated_at",b"updated_at"]) -> None: ...
 global___Certificate = Certificate
 
 class Challenge(google.protobuf.message.Message):

@@ -14,6 +14,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Backup(google.protobuf.message.Message):
     """An SQL Server backup resource.
+
     For more information, see the [Backup](/docs/managed-sqlserver/concepts/backup) section in the documentation.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -31,7 +32,7 @@ class Backup(google.protobuf.message.Message):
 
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Creation timestamp (i.e. when the backup operation was completed)."""
+        """Time when the backup operation was completed."""
         pass
     source_cluster_id: typing.Text
     """ID of the SQL Server cluster that the backup was created for."""
@@ -42,7 +43,7 @@ class Backup(google.protobuf.message.Message):
         pass
     @property
     def databases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """List databases included in the backup"""
+        """List of databases included in the backup."""
         pass
     def __init__(self,
         *,

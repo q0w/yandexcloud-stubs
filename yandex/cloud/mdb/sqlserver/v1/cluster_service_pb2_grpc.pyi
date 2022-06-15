@@ -90,7 +90,7 @@ class ClusterServiceStub:
     ListHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.cluster_service_pb2.ListClusterHostsRequest,
         yandex.cloud.mdb.sqlserver.v1.cluster_service_pb2.ListClusterHostsResponse]
-    """Retrieves a list of hosts for the specified SQL Server cluster."""
+    """Retrieves the list of hosts for the specified SQL Server cluster."""
 
     UpdateHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.cluster_service_pb2.UpdateClusterHostsRequest,
@@ -223,7 +223,7 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.sqlserver.v1.cluster_service_pb2.ListClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.sqlserver.v1.cluster_service_pb2.ListClusterHostsResponse:
-        """Retrieves a list of hosts for the specified SQL Server cluster."""
+        """Retrieves the list of hosts for the specified SQL Server cluster."""
         pass
 
     @abc.abstractmethod

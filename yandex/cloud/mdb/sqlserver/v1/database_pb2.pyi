@@ -12,6 +12,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Database(google.protobuf.message.Message):
     """An SQL Server database.
+
     For more information, see the [Concepts](/docs/managed-sqlserver/concepts) section of the documentation.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -21,7 +22,7 @@ class Database(google.protobuf.message.Message):
     """Name of the database."""
 
     cluster_id: typing.Text
-    """ID of the SQL Server cluster the database belongs to."""
+    """ID of the SQL Server cluster that the database belongs to."""
 
     def __init__(self,
         *,

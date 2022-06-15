@@ -15,6 +15,8 @@ import typing_extensions
 import yandex.cloud.mdb.sqlserver.v1.backup_pb2
 import yandex.cloud.mdb.sqlserver.v1.cluster_pb2
 import yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2
+import yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2
+import yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2
 import yandex.cloud.mdb.sqlserver.v1.database_pb2
 import yandex.cloud.mdb.sqlserver.v1.user_pb2
 import yandex.cloud.operation.operation_pb2
@@ -50,24 +52,24 @@ class ListClustersRequest(google.protobuf.message.Message):
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token] returned by the previous list request."""
 
     filter: typing.Text
     """A filter expression that filters resources listed in the response.
-    The expression must specify:
-    1. The field name to filter by. Currently you can only use filtering with the [Cluster.name] field.
-    2. An `=` operator.
-    3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
-    Example of a filter: `name NOT IN 'test,beta'`.
+    The expression must specify:
+
+    1. A field name to filter by. Currently you can only use filtering with the [Cluster.name] field.
+    2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+    3. A value. Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+
+    Example of a filter expression: `name NOT IN 'test,beta'`.
     """
 
     def __init__(self,
@@ -89,10 +91,9 @@ class ListClustersResponse(google.protobuf.message.Message):
         """List of SQL Server clusters."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClustersRequest.page_size], use the `next_page_token` as the value
-    for the [ListClustersRequest.page_token] parameter in the next list request. Each subsequent
-    list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClustersRequest.page_size], use the `next_page_token` as the value for the [ListClustersRequest.page_token] parameter in the next list request. Each subsequent list request has its own `next_page_token` to continue paging through the results.
     """
 
     def __init__(self,
@@ -148,7 +149,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
         """Custom labels for the SQL Server cluster as `key:value` pairs.
-        For example, "project": "mvp" or "source": "dictionary".
+        For example, "project":"mvp" or "source":"dictionary".
         """
         pass
     environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType
@@ -156,7 +157,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
 
     @property
     def config_spec(self) -> global___ConfigSpec:
-        """SQL Server and hosts configuration for the cluster."""
+        """Configurations of SQL Server and hosts of the cluster."""
         pass
     @property
     def database_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.database_pb2.DatabaseSpec]:
@@ -175,13 +176,13 @@ class CreateClusterRequest(google.protobuf.message.Message):
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """User security groups"""
+        """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Deletion Protection inhibits deletion of the cluster"""
+    """Determines whether the cluster is protected from being deleted."""
 
     sqlcollation: typing.Text
-    """name of SQL Collation that cluster will be created with"""
+    """Name of SQL Collation that cluster will be created with."""
 
     @property
     def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -264,11 +265,12 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Custom labels for the SQL Server cluster as `key:value` pairs. Maximum 64 per resource.
+        """Custom labels for the SQL Server cluster as `key:value` pairs.
 
-        For example, "project": "mvp" or "source": "dictionary".
+        For example, `"project":"mvp"` or `"source":"dictionary"`.
 
-        The new set of labels will completely replace the old ones.
+        The new set of labels completely replaces the old one.
+
         To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
         """
         pass
@@ -281,10 +283,10 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """User security groups"""
+        """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Deletion Protection inhibits deletion of the cluster"""
+    """Determines whether the cluster is protected from being deleted."""
 
     service_account_id: typing.Text
     """ID of the service account used for access to Yandex Object Storage."""
@@ -423,8 +425,9 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Custom labels for the new SQL Server cluster to be created from the backup as `key:value` pairs. Maximum 64 per resource.
-        For example, "project": "mvp" or "source": "dictionary".
+        """Custom labels for the new SQL Server cluster to be created from the backup as `key:value` pairs.
+
+        For example, `"project":"mvp"` or `"source":"dictionary"`.
         """
         pass
     environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType
@@ -449,10 +452,10 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """User security groups"""
+        """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Deletion Protection inhibits deletion of the cluster"""
+    """Determines whether the cluster is protected from being deleted."""
 
     @property
     def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -505,7 +508,7 @@ class StartClusterFailoverRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of sqlserver cluster."""
+    """ID of SQL Server cluster."""
 
     host_name: typing.Text
     """Host name to switch master role to.
@@ -525,7 +528,7 @@ class StartClusterFailoverMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the sqlserver cluster being failovered."""
+    """ID of the SQL Server cluster being failovered."""
 
     def __init__(self,
         *,
@@ -620,35 +623,34 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Start timestamp for the logs request."""
+        """Specifies a moment that the logs are requested from."""
         pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """End timestamp for the logs request."""
+        """Specifies a moment that the logs are requested till."""
         pass
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set `page_token` to the
-    [ListClusterLogsResponse.next_page_token] returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request."""
 
     always_next_page_token: builtins.bool
-    """Always return `next_page_token`, even if current page is empty."""
+    """The service returns [next_page_token] even if the current page is empty."""
 
     filter: typing.Text
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
-    1. The field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field.
-    2. An `=` operator.
-    3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 
-    Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+    1. A field name to filter by. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field only.
+    2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+    3. A value. Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+
+    Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`.
     """
 
     def __init__(self,
@@ -676,10 +678,11 @@ class ListClusterLogsResponse(google.protobuf.message.Message):
         """Requested log records."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterLogsRequest.page_size], use the `next_page_token` as the value
-    for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -702,15 +705,13 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -730,10 +731,11 @@ class ListClusterOperationsResponse(google.protobuf.message.Message):
         """List of operations for the specified SQL Server cluster."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterOperationsRequest.page_size], use the `next_page_token` as the value
-    for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -756,15 +758,13 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -784,10 +784,11 @@ class ListClusterBackupsResponse(google.protobuf.message.Message):
         """List of SQL Server backups."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterBackupsRequest.page_size], use the `next_page_token` as the value
-    for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -810,15 +811,13 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -838,10 +837,11 @@ class ListClusterHostsResponse(google.protobuf.message.Message):
         """List of SQL Server hosts."""
         pass
     next_page_token: typing.Text
-    """Token that allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterHostsRequest.page_size], use the `next_page_token` as the value
-    for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own `next_page_token` to continue paging through the results.
+    """Token that allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -988,20 +988,19 @@ class HostSpec(google.protobuf.message.Message):
     """
 
     subnet_id: typing.Text
-    """ID of the subnet that the host should belong to. This subnet should be a part
-    of the network that the cluster belongs to.
+    """ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
+
     The ID of the network is set in the field [Cluster.network_id].
     """
 
     assign_public_ip: builtins.bool
-    """Whether the host should get a public IP address on creation.
+    """Determines whether the host gets a public IP address on creation.
 
-    After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-    a public IP to a host without one, recreate the host with [assign_public_ip] set as needed.
+    After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed.
 
     Possible values:
-    * false - don't assign a public IP to the host.
-    * true - the host should have a public IP address.
+    * `false` - do not assign a public IP to the host;
+    * `true` - assign a public IP to the host.
     """
 
     def __init__(self,
@@ -1020,6 +1019,7 @@ class UpdateHostSpec(google.protobuf.message.Message):
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
     host_name: typing.Text
     """Name of the host to update.
+
     To get the SQL Server host name, use a [ClusterService.ListHosts] request.
     """
 
@@ -1028,7 +1028,7 @@ class UpdateHostSpec(google.protobuf.message.Message):
         """Field mask that specifies which fields of the SQL Server host should be updated."""
         pass
     assign_public_ip: builtins.bool
-    """Whether the host should get a public IP address on creation."""
+    """Determines whether the host gets a public IP address on creation."""
 
     def __init__(self,
         *,
@@ -1066,14 +1066,24 @@ class ConfigSpec(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     SQLSERVER_CONFIG_2016SP2STD_FIELD_NUMBER: builtins.int
     SQLSERVER_CONFIG_2016SP2ENT_FIELD_NUMBER: builtins.int
+    SQLSERVER_CONFIG_2017STD_FIELD_NUMBER: builtins.int
+    SQLSERVER_CONFIG_2017ENT_FIELD_NUMBER: builtins.int
+    SQLSERVER_CONFIG_2019STD_FIELD_NUMBER: builtins.int
+    SQLSERVER_CONFIG_2019ENT_FIELD_NUMBER: builtins.int
     RESOURCES_FIELD_NUMBER: builtins.int
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
+    SECONDARY_CONNECTIONS_FIELD_NUMBER: builtins.int
     version: typing.Text
     """Version of SQL Server used in the cluster.
 
     Possible values:
-    * 2016sp2
+    * 2016sp2std,
+    * 2016sp2ent,
+    * 2017std,
+    * 2017ent,
+    * 2019std,
+    * 2019ent.
     No formal validation, a list of supported versions should suffice.
     """
 
@@ -1086,27 +1096,51 @@ class ConfigSpec(google.protobuf.message.Message):
         """Configuration for an SQL Server 2016 SP2 Enterprise edition cluster."""
         pass
     @property
+    def sqlserver_config_2017std(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017std:
+        """Configuration for an SQL Server 2017 Standard edition cluster."""
+        pass
+    @property
+    def sqlserver_config_2017ent(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017ent:
+        """Configuration for an SQL Server 2017 Enterprise edition cluster."""
+        pass
+    @property
+    def sqlserver_config_2019std(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019std:
+        """Configuration for an SQL Server 2019 Standard edition cluster."""
+        pass
+    @property
+    def sqlserver_config_2019ent(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019ent:
+        """Configuration for an SQL Server 2019 Enterprise edition cluster."""
+        pass
+    @property
     def resources(self) -> yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Resources:
         """Resources allocated to SQL Server hosts."""
         pass
     @property
     def backup_window_start(self) -> google.type.timeofday_pb2.TimeOfDay:
-        """Start time for the daily backup in UTC timezone"""
+        """Start time for the daily backup in UTC timezone."""
         pass
     @property
     def access(self) -> yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Access:
-        """Access policy to DB"""
+        """Database access policy."""
         pass
+    secondary_connections: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.ClusterConfig.SecondaryConnections.ValueType
+    """Secondary replicas connection mode"""
+
     def __init__(self,
         *,
         version: typing.Text = ...,
         sqlserver_config_2016sp2std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2std] = ...,
         sqlserver_config_2016sp2ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2ent] = ...,
+        sqlserver_config_2017std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017std] = ...,
+        sqlserver_config_2017ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017ent] = ...,
+        sqlserver_config_2019std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019std] = ...,
+        sqlserver_config_2019ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019ent] = ...,
         resources: typing.Optional[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Resources] = ...,
         backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
         access: typing.Optional[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Access] = ...,
+        secondary_connections: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.ClusterConfig.SecondaryConnections.ValueType = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std","version",b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["sqlserver_config",b"sqlserver_config"]) -> typing.Optional[typing_extensions.Literal["sqlserver_config_2016sp2std","sqlserver_config_2016sp2ent"]]: ...
+    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std","sqlserver_config_2017ent",b"sqlserver_config_2017ent","sqlserver_config_2017std",b"sqlserver_config_2017std","sqlserver_config_2019ent",b"sqlserver_config_2019ent","sqlserver_config_2019std",b"sqlserver_config_2019std"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","secondary_connections",b"secondary_connections","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std","sqlserver_config_2017ent",b"sqlserver_config_2017ent","sqlserver_config_2017std",b"sqlserver_config_2017std","sqlserver_config_2019ent",b"sqlserver_config_2019ent","sqlserver_config_2019std",b"sqlserver_config_2019std","version",b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["sqlserver_config",b"sqlserver_config"]) -> typing.Optional[typing_extensions.Literal["sqlserver_config_2016sp2std","sqlserver_config_2016sp2ent","sqlserver_config_2017std","sqlserver_config_2017ent","sqlserver_config_2019std","sqlserver_config_2019ent"]]: ...
 global___ConfigSpec = ConfigSpec
