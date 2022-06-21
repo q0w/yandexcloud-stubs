@@ -241,3 +241,17 @@ class AccessBindingDelta(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["access_binding",b"access_binding"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["access_binding",b"access_binding","action",b"action"]) -> None: ...
 global___AccessBindingDelta = AccessBindingDelta
+
+class AccessBindingsOperationResult(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    EFFECTIVE_DELTAS_FIELD_NUMBER: builtins.int
+    @property
+    def effective_deltas(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AccessBindingDelta]:
+        """Result access binding deltas."""
+        pass
+    def __init__(self,
+        *,
+        effective_deltas: typing.Optional[typing.Iterable[global___AccessBindingDelta]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["effective_deltas",b"effective_deltas"]) -> None: ...
+global___AccessBindingsOperationResult = AccessBindingsOperationResult

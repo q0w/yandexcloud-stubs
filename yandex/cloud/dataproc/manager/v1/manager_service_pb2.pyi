@@ -5,12 +5,48 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import typing
 import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _InitActsState:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _InitActsStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InitActsState.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    INIT_ACTS_STATE_UNSPECIFIED: _InitActsState.ValueType  # 0
+    """No init acts on cluster"""
+
+    FAILED: _InitActsState.ValueType  # 1
+    """At least one failed init act"""
+
+    SUCCESSFUL: _InitActsState.ValueType  # 2
+    """All init acts succeeded"""
+
+    IN_PROGRESS: _InitActsState.ValueType  # 3
+    """Some init acts not finished"""
+
+class InitActsState(_InitActsState, metaclass=_InitActsStateEnumTypeWrapper):
+    pass
+
+INIT_ACTS_STATE_UNSPECIFIED: InitActsState.ValueType  # 0
+"""No init acts on cluster"""
+
+FAILED: InitActsState.ValueType  # 1
+"""At least one failed init act"""
+
+SUCCESSFUL: InitActsState.ValueType  # 2
+"""All init acts succeeded"""
+
+IN_PROGRESS: InitActsState.ValueType  # 3
+"""Some init acts not finished"""
+
+global___InitActsState = InitActsState
+
 
 class HbaseNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -246,6 +282,23 @@ class LivyInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["alive",b"alive"]) -> None: ...
 global___LivyInfo = LivyInfo
 
+class InitActs(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    STATE_FIELD_NUMBER: builtins.int
+    FQDNS_FIELD_NUMBER: builtins.int
+    state: global___InitActsState.ValueType
+    @property
+    def fqdns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+        """fqdns of nodes for error message"""
+        pass
+    def __init__(self,
+        *,
+        state: global___InitActsState.ValueType = ...,
+        fqdns: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fqdns",b"fqdns","state",b"state"]) -> None: ...
+global___InitActs = InitActs
+
 class Info(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     HDFS_FIELD_NUMBER: builtins.int
@@ -256,6 +309,7 @@ class Info(google.protobuf.message.Message):
     OOZIE_FIELD_NUMBER: builtins.int
     REPORT_COUNT_FIELD_NUMBER: builtins.int
     LIVY_FIELD_NUMBER: builtins.int
+    INIT_ACTS_FIELD_NUMBER: builtins.int
     @property
     def hdfs(self) -> global___HDFSInfo: ...
     @property
@@ -276,6 +330,8 @@ class Info(google.protobuf.message.Message):
 
     @property
     def livy(self) -> global___LivyInfo: ...
+    @property
+    def init_acts(self) -> global___InitActs: ...
     def __init__(self,
         *,
         hdfs: typing.Optional[global___HDFSInfo] = ...,
@@ -286,9 +342,10 @@ class Info(google.protobuf.message.Message):
         oozie: typing.Optional[global___OozieInfo] = ...,
         report_count: builtins.int = ...,
         livy: typing.Optional[global___LivyInfo] = ...,
+        init_acts: typing.Optional[global___InitActs] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","livy",b"livy","oozie",b"oozie","yarn",b"yarn","zookeeper",b"zookeeper"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","livy",b"livy","oozie",b"oozie","report_count",b"report_count","yarn",b"yarn","zookeeper",b"zookeeper"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","init_acts",b"init_acts","livy",b"livy","oozie",b"oozie","yarn",b"yarn","zookeeper",b"zookeeper"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","init_acts",b"init_acts","livy",b"livy","oozie",b"oozie","report_count",b"report_count","yarn",b"yarn","zookeeper",b"zookeeper"]) -> None: ...
 global___Info = Info
 
 class ReportRequest(google.protobuf.message.Message):

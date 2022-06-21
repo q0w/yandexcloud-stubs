@@ -102,7 +102,11 @@ class ContainerAudio(google.protobuf.message.Message):
         """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
 
         OGG_OPUS: ContainerAudio._ContainerAudioType.ValueType  # 2
+        """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
+
         MP3: ContainerAudio._ContainerAudioType.ValueType  # 3
+        """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
+
     class ContainerAudioType(_ContainerAudioType, metaclass=_ContainerAudioTypeEnumTypeWrapper):
         pass
 
@@ -111,7 +115,11 @@ class ContainerAudio(google.protobuf.message.Message):
     """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
 
     OGG_OPUS: ContainerAudio.ContainerAudioType.ValueType  # 2
+    """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
+
     MP3: ContainerAudio.ContainerAudioType.ValueType  # 3
+    """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
+
 
     CONTAINER_AUDIO_TYPE_FIELD_NUMBER: builtins.int
     container_audio_type: global___ContainerAudio.ContainerAudioType.ValueType
@@ -258,12 +266,14 @@ class Hints(google.protobuf.message.Message):
         """Template for synthesizing."""
         pass
     speed: builtins.float
-    """hint to change speed"""
+    """Hint to change speed."""
 
     volume: builtins.float
-    """hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0)."""
+    """Hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0)."""
 
     role: typing.Text
+    """Hint to specify pronunciation character for the speaker."""
+
     def __init__(self,
         *,
         voice: typing.Text = ...,
@@ -286,14 +296,30 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 0
         MAX_PEAK: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 1
+        """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
+        The volume changes in a range (0;1], default value is 0.7.
+        """
+
         LUFS: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 2
+        """The type of normalization based on EBU R 128 recommendation.
+        the volume changes in a range [-145;0], default value is -19.
+        """
+
     class LoudnessNormalizationType(_LoudnessNormalizationType, metaclass=_LoudnessNormalizationTypeEnumTypeWrapper):
         """Normalization type"""
         pass
 
     LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 0
     MAX_PEAK: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 1
+    """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
+    The volume changes in a range (0;1], default value is 0.7.
+    """
+
     LUFS: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 2
+    """The type of normalization based on EBU R 128 recommendation.
+    the volume changes in a range [-145;0], default value is -19.
+    """
+
 
     MODEL_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
@@ -304,7 +330,7 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
     UNSAFE_MODE_FIELD_NUMBER: builtins.int
     model: typing.Text
     """The name of the model.
-    Specifies basic synthesis functionality. Currently should be empty. Do not use it
+    Specifies basic synthesis functionality. Currently should be empty. Do not use it.
     """
 
     text: typing.Text
@@ -323,7 +349,7 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
         """Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header"""
         pass
     loudness_normalization_type: global___UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType
-    """Optional. Default: LUFS, type of loudness normalization, default value -19."""
+    """Optional. Default: LUFS type of loudness normalization."""
 
     unsafe_mode: builtins.bool
     """Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible."""

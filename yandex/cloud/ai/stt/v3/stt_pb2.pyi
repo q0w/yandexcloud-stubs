@@ -22,10 +22,10 @@ class _CodeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumT
     """all good"""
 
     WARNING: _CodeType.ValueType  # 2
-    """for example, if speech is sent not in real time. or unknown context (and we've made fallback)"""
+    """for example, if speech is sent not in real time. or unknown context (and we've made fallback)."""
 
     CLOSED: _CodeType.ValueType  # 3
-    """after session was closed"""
+    """after session was closed."""
 
 class CodeType(_CodeType, metaclass=_CodeTypeEnumTypeWrapper):
     pass
@@ -35,10 +35,10 @@ WORKING: CodeType.ValueType  # 1
 """all good"""
 
 WARNING: CodeType.ValueType  # 2
-"""for example, if speech is sent not in real time. or unknown context (and we've made fallback)"""
+"""for example, if speech is sent not in real time. or unknown context (and we've made fallback)."""
 
 CLOSED: CodeType.ValueType  # 3
-"""after session was closed"""
+"""after session was closed."""
 
 global___CodeType = CodeType
 
@@ -75,10 +75,10 @@ class TextNormalizationOptions(google.protobuf.message.Message):
     LITERATURE_TEXT_FIELD_NUMBER: builtins.int
     text_normalization: global___TextNormalizationOptions.TextNormalization.ValueType
     profanity_filter: builtins.bool
-    """Filter profanity (default: false)"""
+    """Filter profanity (default: false)."""
 
     literature_text: builtins.bool
-    """Rewrite text in literature style (default: false)"""
+    """Rewrite text in literature style (default: false)."""
 
     def __init__(self,
         *,
@@ -109,10 +109,10 @@ class DefaultEouClassifier(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     MAX_PAUSE_BETWEEN_WORDS_HINT_MS_FIELD_NUMBER: builtins.int
     type: global___DefaultEouClassifier.EouSensitivity.ValueType
-    """EOU sensitivity.  Currently two levels, faster with more error and more conservative (our default)"""
+    """EOU sensitivity. Currently two levels, faster with more error and more conservative (our default)."""
 
     max_pause_between_words_hint_ms: builtins.int
-    """hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc)"""
+    """Hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc)."""
 
     def __init__(self,
         *,
@@ -123,7 +123,7 @@ class DefaultEouClassifier(google.protobuf.message.Message):
 global___DefaultEouClassifier = DefaultEouClassifier
 
 class ExternalEouClassifier(google.protobuf.message.Message):
-    """use EOU provided by user"""
+    """Use EOU provided by user"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     def __init__(self,
         ) -> None: ...
@@ -135,11 +135,11 @@ class EouClassifierOptions(google.protobuf.message.Message):
     EXTERNAL_CLASSIFIER_FIELD_NUMBER: builtins.int
     @property
     def default_classifier(self) -> global___DefaultEouClassifier:
-        """EOU classifier provided by SpeechKit. Default"""
+        """EOU classifier provided by SpeechKit. Default."""
         pass
     @property
     def external_classifier(self) -> global___ExternalEouClassifier:
-        """EoU is enforced by external messages from user"""
+        """EoU is enforced by external messages from user."""
         pass
     def __init__(self,
         *,
@@ -152,7 +152,7 @@ class EouClassifierOptions(google.protobuf.message.Message):
 global___EouClassifierOptions = EouClassifierOptions
 
 class RawAudio(google.protobuf.message.Message):
-    """RAW Audio format spec (no container to infer type). used in AudioFormat options"""
+    """RAW Audio format spec (no container to infer type). Used in AudioFormat options."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _AudioEncoding:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -161,23 +161,27 @@ class RawAudio(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         AUDIO_ENCODING_UNSPECIFIED: RawAudio._AudioEncoding.ValueType  # 0
         LINEAR16_PCM: RawAudio._AudioEncoding.ValueType  # 1
+        """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
+
     class AudioEncoding(_AudioEncoding, metaclass=_AudioEncodingEnumTypeWrapper):
         pass
 
     AUDIO_ENCODING_UNSPECIFIED: RawAudio.AudioEncoding.ValueType  # 0
     LINEAR16_PCM: RawAudio.AudioEncoding.ValueType  # 1
+    """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
+
 
     AUDIO_ENCODING_FIELD_NUMBER: builtins.int
     SAMPLE_RATE_HERTZ_FIELD_NUMBER: builtins.int
     AUDIO_CHANNEL_COUNT_FIELD_NUMBER: builtins.int
     audio_encoding: global___RawAudio.AudioEncoding.ValueType
-    """ type of audio encoding"""
+    """ Type of audio encoding"""
 
     sample_rate_hertz: builtins.int
     """ PCM sample rate"""
 
     audio_channel_count: builtins.int
-    """ PCM channel count. Currently only single channel audio is supported in real-time recognition"""
+    """ PCM channel count. Currently only single channel audio is supported in real-time recognition."""
 
     def __init__(self,
         *,
@@ -189,7 +193,7 @@ class RawAudio(google.protobuf.message.Message):
 global___RawAudio = RawAudio
 
 class ContainerAudio(google.protobuf.message.Message):
-    """Audio with fixed type in container. used in AudioFormat options"""
+    """Audio with fixed type in container. Used in AudioFormat options."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _ContainerAudioType:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -198,19 +202,31 @@ class ContainerAudio(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         CONTAINER_AUDIO_TYPE_UNSPECIFIED: ContainerAudio._ContainerAudioType.ValueType  # 0
         WAV: ContainerAudio._ContainerAudioType.ValueType  # 1
+        """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
+
         OGG_OPUS: ContainerAudio._ContainerAudioType.ValueType  # 2
+        """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
+
         MP3: ContainerAudio._ContainerAudioType.ValueType  # 3
+        """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
+
     class ContainerAudioType(_ContainerAudioType, metaclass=_ContainerAudioTypeEnumTypeWrapper):
         pass
 
     CONTAINER_AUDIO_TYPE_UNSPECIFIED: ContainerAudio.ContainerAudioType.ValueType  # 0
     WAV: ContainerAudio.ContainerAudioType.ValueType  # 1
+    """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
+
     OGG_OPUS: ContainerAudio.ContainerAudioType.ValueType  # 2
+    """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
+
     MP3: ContainerAudio.ContainerAudioType.ValueType  # 3
+    """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
+
 
     CONTAINER_AUDIO_TYPE_FIELD_NUMBER: builtins.int
     container_audio_type: global___ContainerAudio.ContainerAudioType.ValueType
-    """ type of audio container"""
+    """ Type of audio container."""
 
     def __init__(self,
         *,
@@ -220,17 +236,17 @@ class ContainerAudio(google.protobuf.message.Message):
 global___ContainerAudio = ContainerAudio
 
 class AudioFormatOptions(google.protobuf.message.Message):
-    """audio format options"""
+    """Audio format options."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RAW_AUDIO_FIELD_NUMBER: builtins.int
     CONTAINER_AUDIO_FIELD_NUMBER: builtins.int
     @property
     def raw_audio(self) -> global___RawAudio:
-        """   audio without container"""
+        """Audio without container."""
         pass
     @property
     def container_audio(self) -> global___ContainerAudio:
-        """   audio is wrapped in container"""
+        """Audio is wrapped in container."""
         pass
     def __init__(self,
         *,
@@ -295,22 +311,22 @@ class RecognitionModelOptions(google.protobuf.message.Message):
     LANGUAGE_RESTRICTION_FIELD_NUMBER: builtins.int
     AUDIO_PROCESSING_TYPE_FIELD_NUMBER: builtins.int
     model: typing.Text
-    """ reserved for future, do not use"""
+    """ Reserved for future, do not use."""
 
     @property
     def audio_format(self) -> global___AudioFormatOptions:
-        """ config for input audio"""
+        """ Specified input audio."""
         pass
     @property
     def text_normalization(self) -> global___TextNormalizationOptions:
-        """ text normalization options"""
+        """ Text normalization options."""
         pass
     @property
     def language_restriction(self) -> global___LanguageRestrictionOptions:
-        """possible languages in audio"""
+        """Possible languages in audio."""
         pass
     audio_processing_type: global___RecognitionModelOptions.AudioProcessingType.ValueType
-    """how to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME"""
+    """How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME."""
 
     def __init__(self,
         *,
@@ -330,11 +346,11 @@ class StreamingOptions(google.protobuf.message.Message):
     EOU_CLASSIFIER_FIELD_NUMBER: builtins.int
     @property
     def recognition_model(self) -> global___RecognitionModelOptions:
-        """ configuration for speech recognition model"""
+        """ Configuration for speech recognition model."""
         pass
     @property
     def eou_classifier(self) -> global___EouClassifierOptions:
-        """ configuration for end of utterance detection model"""
+        """ Configuration for end of utterance detection model."""
         pass
     def __init__(self,
         *,
@@ -346,11 +362,11 @@ class StreamingOptions(google.protobuf.message.Message):
 global___StreamingOptions = StreamingOptions
 
 class AudioChunk(google.protobuf.message.Message):
-    """data chunk with audio"""
+    """Data chunk with audio."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATA_FIELD_NUMBER: builtins.int
     data: builtins.bytes
-    """ bytes with audio data"""
+    """Bytes with audio data."""
 
     def __init__(self,
         *,
@@ -363,7 +379,7 @@ class SilenceChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DURATION_MS_FIELD_NUMBER: builtins.int
     duration_ms: builtins.int
-    """ duration of silence chunk in ms"""
+    """Duration of silence chunk in ms."""
 
     def __init__(self,
         *,
@@ -373,17 +389,17 @@ class SilenceChunk(google.protobuf.message.Message):
 global___SilenceChunk = SilenceChunk
 
 class Eou(google.protobuf.message.Message):
-    """force EOU"""
+    """Force EOU"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     def __init__(self,
         ) -> None: ...
 global___Eou = Eou
 
 class StreamingRequest(google.protobuf.message.Message):
-    """streaming audio request
-    Events are control messages from user
-    first message should be session options
-    the next messages are audio data chunks or control messages
+    """Streaming audio request
+    Events are control messages from user.
+    First message should be session options.
+    The next messages are audio data chunks or control messages.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     SESSION_OPTIONS_FIELD_NUMBER: builtins.int
@@ -392,19 +408,19 @@ class StreamingRequest(google.protobuf.message.Message):
     EOU_FIELD_NUMBER: builtins.int
     @property
     def session_options(self) -> global___StreamingOptions:
-        """   Session options. should be first message from user"""
+        """Session options. should be first message from user"""
         pass
     @property
     def chunk(self) -> global___AudioChunk:
-        """   chunk with audio data"""
+        """Chunk with audio data."""
         pass
     @property
     def silence_chunk(self) -> global___SilenceChunk:
-        """   chunk with silence"""
+        """Chunk with silence."""
         pass
     @property
     def eou(self) -> global___Eou:
-        """   request to end current utterance. Works only with external EoU detector"""
+        """Request to end current utterance. Works only with external EoU detector."""
         pass
     def __init__(self,
         *,
@@ -419,22 +435,22 @@ class StreamingRequest(google.protobuf.message.Message):
 global___StreamingRequest = StreamingRequest
 
 class Word(google.protobuf.message.Message):
-    """now response
+    """Now response
 
-    recognized word
+    Recognized word.
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     TEXT_FIELD_NUMBER: builtins.int
     START_TIME_MS_FIELD_NUMBER: builtins.int
     END_TIME_MS_FIELD_NUMBER: builtins.int
     text: typing.Text
-    """ word text"""
+    """ Word text."""
 
     start_time_ms: builtins.int
-    """ estimation of word start time in ms"""
+    """ Estimation of word start time in ms"""
 
     end_time_ms: builtins.int
-    """ estimation of word end time in ms"""
+    """ Estimation of word end time in ms"""
 
     def __init__(self,
         *,
@@ -446,7 +462,7 @@ class Word(google.protobuf.message.Message):
 global___Word = Word
 
 class Alternative(google.protobuf.message.Message):
-    """recognition of specific time frame"""
+    """Recognition of specific time frame."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     WORDS_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
@@ -455,19 +471,19 @@ class Alternative(google.protobuf.message.Message):
     CONFIDENCE_FIELD_NUMBER: builtins.int
     @property
     def words(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Word]:
-        """ words in time frame"""
+        """ Words in time frame."""
         pass
     text: typing.Text
-    """ text in time frame"""
+    """ Text in time frame."""
 
     start_time_ms: builtins.int
-    """ start of time frame"""
+    """Start of time frame."""
 
     end_time_ms: builtins.int
-    """ end of time frame"""
+    """End of time frame."""
 
     confidence: builtins.float
-    """ hypothesis confidence. Currently is not used"""
+    """Hypothesis confidence. Currently is not used."""
 
     def __init__(self,
         *,
@@ -485,7 +501,7 @@ class EouUpdate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     TIME_MS_FIELD_NUMBER: builtins.int
     time_ms: builtins.int
-    """ end of utterance estimated time"""
+    """End of utterance estimated time."""
 
     def __init__(self,
         *,
@@ -495,16 +511,16 @@ class EouUpdate(google.protobuf.message.Message):
 global___EouUpdate = EouUpdate
 
 class AlternativeUpdate(google.protobuf.message.Message):
-    """update of hypothesis"""
+    """Update of hypothesis."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ALTERNATIVES_FIELD_NUMBER: builtins.int
     CHANNEL_TAG_FIELD_NUMBER: builtins.int
     @property
     def alternatives(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Alternative]:
-        """ list of hypothesis for timeframes"""
+        """List of hypothesis for timeframes."""
         pass
     channel_tag: typing.Text
-    """ tag for distinguish audio channels."""
+    """Tag for distinguish audio channels."""
 
     def __init__(self,
         *,
@@ -515,7 +531,7 @@ class AlternativeUpdate(google.protobuf.message.Message):
 global___AlternativeUpdate = AlternativeUpdate
 
 class AudioCursors(google.protobuf.message.Message):
-    """AudioCursors are state of ASR recognition stream"""
+    """AudioCursors are state of ASR recognition stream."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RECEIVED_DATA_MS_FIELD_NUMBER: builtins.int
     RESET_TIME_MS_FIELD_NUMBER: builtins.int
@@ -524,28 +540,28 @@ class AudioCursors(google.protobuf.message.Message):
     FINAL_INDEX_FIELD_NUMBER: builtins.int
     EOU_TIME_MS_FIELD_NUMBER: builtins.int
     received_data_ms: builtins.int
-    """amount of audio chunks server received. This cursor is moved after each audio chunk was received by server."""
+    """Amount of audio chunks server received. This cursor is moved after each audio chunk was received by server."""
 
     reset_time_ms: builtins.int
-    """input stream reset data"""
+    """Input stream reset data."""
 
     partial_time_ms: builtins.int
-    """ how much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
-     to update recognition results (includes silence as well)
+    """ How much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
+     to update recognition results (includes silence as well).
     """
 
     final_time_ms: builtins.int
     """ Time of last final. This cursor is moved when server decides that recognition from start of audio until final_time_ms will not change anymore
-     usually this even is followed by EOU detection (but this could change in future)
+     usually this even is followed by EOU detection (but this could change in future).
     """
 
     final_index: builtins.int
     """ This is index of last final server send. Incremented after each new final."""
 
     eou_time_ms: builtins.int
-    """ Estimated time of EOU. Cursor is updated after each new EOU is sent
-     For external classifier this equals to received_data_ms at the moment EOU event arrives
-     For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings
+    """ Estimated time of EOU. Cursor is updated after each new EOU is sent.
+     For external classifier this equals to received_data_ms at the moment EOU event arrives.
+     For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings.
     """
 
     def __init__(self,
@@ -561,16 +577,16 @@ class AudioCursors(google.protobuf.message.Message):
 global___AudioCursors = AudioCursors
 
 class FinalRefinement(google.protobuf.message.Message):
-    """refinement for final hypo. For example, text normalization is refinement."""
+    """Refinement for final hypo. For example, text normalization is refinement."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     FINAL_INDEX_FIELD_NUMBER: builtins.int
     NORMALIZED_TEXT_FIELD_NUMBER: builtins.int
     final_index: builtins.int
-    """ index of final for which server sends additional information"""
+    """Index of final for which server sends additional information."""
 
     @property
     def normalized_text(self) -> global___AlternativeUpdate:
-        """  normalized text instead of raw one"""
+        """Normalized text instead of raw one."""
         pass
     def __init__(self,
         *,
@@ -583,15 +599,15 @@ class FinalRefinement(google.protobuf.message.Message):
 global___FinalRefinement = FinalRefinement
 
 class StatusCode(google.protobuf.message.Message):
-    """status message"""
+    """Status message"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CODE_TYPE_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     code_type: global___CodeType.ValueType
-    """ code type"""
+    """Code type."""
 
     message: typing.Text
-    """ human readable message"""
+    """Human readable message."""
 
     def __init__(self,
         *,
@@ -602,15 +618,15 @@ class StatusCode(google.protobuf.message.Message):
 global___StatusCode = StatusCode
 
 class SessionUuid(google.protobuf.message.Message):
-    """session identifier"""
+    """Session identifier."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     UUID_FIELD_NUMBER: builtins.int
     USER_REQUEST_ID_FIELD_NUMBER: builtins.int
     uuid: typing.Text
-    """ internal session identifier"""
+    """Internal session identifier."""
 
     user_request_id: typing.Text
-    """ user session identifier"""
+    """User session identifier."""
 
     def __init__(self,
         *,
@@ -621,10 +637,10 @@ class SessionUuid(google.protobuf.message.Message):
 global___SessionUuid = SessionUuid
 
 class StreamingResponse(google.protobuf.message.Message):
-    """responses from server
-    each response contains session uuid
+    """Responses from server.
+    Each response contains session uuid
     AudioCursors
-    plus specific even
+    plus specific event
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     SESSION_UUID_FIELD_NUMBER: builtins.int
@@ -637,40 +653,40 @@ class StreamingResponse(google.protobuf.message.Message):
     STATUS_CODE_FIELD_NUMBER: builtins.int
     @property
     def session_uuid(self) -> global___SessionUuid:
-        """ session identifier"""
+        """Session identifier"""
         pass
     @property
     def audio_cursors(self) -> global___AudioCursors:
-        """ progress bar for stream session recognition: how many data we obtained; final and partial times; etc"""
+        """Progress bar for stream session recognition: how many data we obtained; final and partial times; etc."""
         pass
     response_wall_time_ms: builtins.int
-    """wall clock on server side. This is time when server wrote results to stream"""
+    """Wall clock on server side. This is time when server wrote results to stream"""
 
     @property
     def partial(self) -> global___AlternativeUpdate:
-        """   partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
-           from final_time_ms to partial_time_ms. Could change after new data will arrive
+        """Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
+         from final_time_ms to partial_time_ms. Could change after new data will arrive.
         """
         pass
     @property
     def final(self) -> global___AlternativeUpdate:
-        """   final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases"""
+        """ Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases."""
         pass
     @property
     def eou_update(self) -> global___EouUpdate:
         """ After EOU classifier, send the message with final, send the EouUpdate with time of EOU
-         before eou_update we send final with the same time. there could be several finals before eou update
+         before eou_update we send final with the same time. there could be several finals before eou update.
         """
         pass
     @property
     def final_refinement(self) -> global___FinalRefinement:
         """   For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
-           Final normalization will introduce additional latency
+           Final normalization will introduce additional latency.
         """
         pass
     @property
     def status_code(self) -> global___StatusCode:
-        """   Status messages, send by server with fixed interval (keep-alive)"""
+        """   Status messages, send by server with fixed interval (keep-alive)."""
         pass
     def __init__(self,
         *,
