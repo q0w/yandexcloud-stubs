@@ -124,7 +124,7 @@ class CreateBucketRequest(google.protobuf.message.Message):
     name: typing.Text
     """Name of the bucket.
 
-    The name must be unique within Yandex Cloud. For naming limitations and rules, see
+    The name must be unique within the platform. For naming limitations and rules, see
     [documentation](/docs/storage/concepts/bucket#naming).
     """
 
@@ -366,7 +366,7 @@ class SelfManagedHTTPSConfigParams(google.protobuf.message.Message):
 global___SelfManagedHTTPSConfigParams = SelfManagedHTTPSConfigParams
 
 class CertificateManagerHTTPSConfigParams(google.protobuf.message.Message):
-    """A resource for a TLS certificate from Yandex Certificate Manager."""
+    """A resource for a TLS certificate from Certificate Manager."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     certificate_id: typing.Text
@@ -400,7 +400,7 @@ class SetBucketHTTPSConfigRequest(google.protobuf.message.Message):
         pass
     @property
     def certificate_manager(self) -> global___CertificateManagerHTTPSConfigParams:
-        """TLS certificate from Yandex Certificate Manager.
+        """TLS certificate from Certificate Manager.
 
         To create a certificate in Certificate Manager, make a
         [yandex.cloud.certificatemanager.v1.CertificateService.Create] request.

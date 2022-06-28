@@ -106,7 +106,7 @@ class CreateMlModelRequest(google.protobuf.message.Message):
     """Type of the model."""
 
     uri: typing.Text
-    """Model file URL. You can only use models stored in Yandex Object Storage."""
+    """Model file URL. You can only use models stored in Object Storage."""
 
     def __init__(self,
         *,
@@ -154,7 +154,7 @@ class UpdateMlModelRequest(google.protobuf.message.Message):
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask: ...
     uri: typing.Text
-    """The new model file URL. You can only use models stored in Yandex Object Storage."""
+    """The new model file URL. You can only use models stored in Object Storage."""
 
     def __init__(self,
         *,

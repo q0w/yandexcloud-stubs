@@ -46,7 +46,7 @@ class MlModel(google.protobuf.message.Message):
     """Type of the model."""
 
     uri: typing.Text
-    """Model file URL. You can only use models stored in Yandex Object Storage."""
+    """Model file URL. You can only use models stored in Object Storage."""
 
     def __init__(self,
         *,

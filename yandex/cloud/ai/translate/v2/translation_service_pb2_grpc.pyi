@@ -7,7 +7,7 @@ import grpc
 import yandex.cloud.ai.translate.v2.translation_service_pb2
 
 class TranslationServiceStub:
-    """A set of methods for the Yandex Translate service."""
+    """A set of methods for the Translate service."""
     def __init__(self, channel: grpc.Channel) -> None: ...
     Translate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ai.translate.v2.translation_service_pb2.TranslateRequest,
@@ -26,7 +26,7 @@ class TranslationServiceStub:
 
 
 class TranslationServiceServicer(metaclass=abc.ABCMeta):
-    """A set of methods for the Yandex Translate service."""
+    """A set of methods for the Translate service."""
     @abc.abstractmethod
     def Translate(self,
         request: yandex.cloud.ai.translate.v2.translation_service_pb2.TranslateRequest,

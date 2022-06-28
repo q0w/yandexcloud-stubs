@@ -179,7 +179,7 @@ class Cluster(google.protobuf.message.Message):
     id: typing.Text
     """ID of the cluster.
 
-    This ID is assigned by Yandex Cloud at the time of creation.
+    This ID is assigned by the platform at the time of creation.
     """
 
     folder_id: typing.Text
@@ -414,8 +414,8 @@ class Host(google.protobuf.message.Message):
     name: typing.Text
     """Name of the host.
 
-    This name is assigned by Yandex Cloud at the time of creation.
-    The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+    This name is assigned by the platform at the time of creation.
+    The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
     """
 
     cluster_id: typing.Text
@@ -582,7 +582,7 @@ class Access(google.protobuf.message.Message):
     """
 
     web_sql: builtins.bool
-    """Allows SQL queries to the cluster databases from Yandex Cloud management console.
+    """Allows SQL queries to the cluster databases from management console.
 
     See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details.
     """

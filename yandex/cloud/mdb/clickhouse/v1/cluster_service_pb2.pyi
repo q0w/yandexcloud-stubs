@@ -171,7 +171,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
     """Name of the first shard in cluster. If not set, defaults to the value 'shard1'."""
 
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -268,7 +268,7 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     """New name for the cluster."""
 
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.clickhouse.v1.maintenance_pb2.MaintenanceWindow:
@@ -571,7 +571,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     """ID of the folder to create the ClickHouse cluster in."""
 
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:

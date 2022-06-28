@@ -233,7 +233,7 @@ class Cluster(google.protobuf.message.Message):
         """Host groups hosting VMs of the cluster."""
         pass
     service_account_id: typing.Text
-    """ID of the service account which is used for access to Yandex Object Storage."""
+    """ID of the service account which is used for access to Object Storage."""
 
     def __init__(self,
         *,
@@ -455,7 +455,7 @@ class Host(google.protobuf.message.Message):
 
     The host name is assigned by Managed Service for SQL Server at the moment of creation and cannot be changed. 1-63 characters long.
 
-    The name is unique across all existing database hosts in Yandex Cloud as it defines the FQDN of the host.
+    The name is unique across all database hosts that exist on the platform as it defines the FQDN of the host.
     """
 
     cluster_id: typing.Text

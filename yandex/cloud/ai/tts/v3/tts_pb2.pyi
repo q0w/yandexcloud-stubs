@@ -269,7 +269,10 @@ class Hints(google.protobuf.message.Message):
     """Hint to change speed."""
 
     volume: builtins.float
-    """Hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0)."""
+    """Hint to regulate normalization level.
+    * For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
+    * For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
+    """
 
     role: typing.Text
     """Hint to specify pronunciation character for the speaker."""
@@ -296,29 +299,20 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 0
         MAX_PEAK: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 1
-        """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
-        The volume changes in a range (0;1], default value is 0.7.
-        """
+        """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level."""
 
         LUFS: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 2
-        """The type of normalization based on EBU R 128 recommendation.
-        the volume changes in a range [-145;0], default value is -19.
-        """
+        """The type of normalization based on EBU R 128 recommendation."""
 
     class LoudnessNormalizationType(_LoudnessNormalizationType, metaclass=_LoudnessNormalizationTypeEnumTypeWrapper):
-        """Normalization type"""
         pass
 
     LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 0
     MAX_PEAK: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 1
-    """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level.
-    The volume changes in a range (0;1], default value is 0.7.
-    """
+    """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level."""
 
     LUFS: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 2
-    """The type of normalization based on EBU R 128 recommendation.
-    the volume changes in a range [-145;0], default value is -19.
-    """
+    """The type of normalization based on EBU R 128 recommendation."""
 
 
     MODEL_FIELD_NUMBER: builtins.int
@@ -349,7 +343,9 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
         """Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header"""
         pass
     loudness_normalization_type: global___UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType
-    """Optional. Default: LUFS type of loudness normalization."""
+    """Specifies type of loudness normalization.
+    Optional. Default: `LUFS`.
+    """
 
     unsafe_mode: builtins.bool
     """Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible."""

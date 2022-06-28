@@ -57,7 +57,7 @@ class MysqlConnection(google.protobuf.message.Message):
     mdb_cluster_id: typing.Text
     """Managed cluster
 
-    Yandex.Cloud Managed MySQL cluster ID
+    Managed Service for MySQL cluster ID
     """
 
     @property

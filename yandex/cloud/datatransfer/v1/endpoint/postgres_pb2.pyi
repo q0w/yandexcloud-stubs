@@ -201,7 +201,7 @@ class PostgresConnection(google.protobuf.message.Message):
     mdb_cluster_id: typing.Text
     """Managed cluster
 
-    Yandex.Cloud Managed PostgreSQL cluster ID
+    Managed Service for PostgreSQL cluster ID
     """
 
     @property

@@ -96,14 +96,14 @@ class Host(google.protobuf.message.Message):
     SUBNET_ID_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
     name: typing.Text
-    """Name of the Greenplum® host. The host name is assigned by Yandex Cloud at creation time and cannot be changed.
+    """Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed.
     1-63 characters long.
 
-    The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+    The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
     """
 
     cluster_id: typing.Text
-    """ID of the Greenplum® cluster. The ID is assigned by Yandex Cloud at creation time."""
+    """ID of the Greenplum® cluster. The ID is assigned by the platform at creation time."""
 
     zone_id: typing.Text
     """ID of the availability zone the Greenplum® host belongs to."""

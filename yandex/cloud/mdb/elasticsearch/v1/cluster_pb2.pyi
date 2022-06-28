@@ -214,7 +214,7 @@ class Cluster(google.protobuf.message.Message):
         """User security groups"""
         pass
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     deletion_protection: builtins.bool
     """Deletion Protection inhibits deletion of the cluster"""

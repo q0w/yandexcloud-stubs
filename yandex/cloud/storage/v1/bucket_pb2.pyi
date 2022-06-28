@@ -102,7 +102,7 @@ class Bucket(google.protobuf.message.Message):
     name: typing.Text
     """Name of the bucket.
 
-    The name is unique within Yandex Cloud. For naming limitations and rules, see
+    The name is unique within the platform. For naming limitations and rules, see
     [documentation](/docs/storage/concepts/bucket#naming).
     """
 
@@ -282,7 +282,7 @@ class ACL(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             GRANT_TYPE_UNSPECIFIED: ACL.Grant._GrantType.ValueType  # 0
             GRANT_TYPE_ACCOUNT: ACL.Grant._GrantType.ValueType  # 1
-            """A grantee is a [Yandex Cloud account](/docs/iam/concepts/#accounts).
+            """A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
             For this grantee type, you need to specify the user ID in [Bucket.acl.grants.grantee_id] field. To get user ID, see
             [instruction](/docs/iam/operations/users/get).
@@ -292,8 +292,8 @@ class ACL(google.protobuf.message.Message):
             """
 
             GRANT_TYPE_ALL_AUTHENTICATED_USERS: ACL.Grant._GrantType.ValueType  # 2
-            """Grantees are all authenticated Yandex Cloud users, both from your clouds and other users' clouds. Access
-            permission to this group allows any Yandex Cloud account to access the resource via a signed (authenticated)
+            """Grantees are all authenticated users, both from your clouds and other users' clouds. Access
+            permission to this group allows any account on the platform to access the resource via a signed (authenticated)
             request.
 
             Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
@@ -313,7 +313,7 @@ class ACL(google.protobuf.message.Message):
 
         GRANT_TYPE_UNSPECIFIED: ACL.Grant.GrantType.ValueType  # 0
         GRANT_TYPE_ACCOUNT: ACL.Grant.GrantType.ValueType  # 1
-        """A grantee is a [Yandex Cloud account](/docs/iam/concepts/#accounts).
+        """A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
         For this grantee type, you need to specify the user ID in [Bucket.acl.grants.grantee_id] field. To get user ID, see
         [instruction](/docs/iam/operations/users/get).
@@ -323,8 +323,8 @@ class ACL(google.protobuf.message.Message):
         """
 
         GRANT_TYPE_ALL_AUTHENTICATED_USERS: ACL.Grant.GrantType.ValueType  # 2
-        """Grantees are all authenticated Yandex Cloud users, both from your clouds and other users' clouds. Access
-        permission to this group allows any Yandex Cloud account to access the resource via a signed (authenticated)
+        """Grantees are all authenticated users, both from your clouds and other users' clouds. Access
+        permission to this group allows any account on the platform to access the resource via a signed (authenticated)
         request.
 
         Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
@@ -350,7 +350,7 @@ class ACL(google.protobuf.message.Message):
         """The grantee type for the grant."""
 
         grantee_id: typing.Text
-        """ID of the Yandex Cloud user who is a grantee. Required when the [grant_type] is `GRANT_TYPE_ACCOUNT`."""
+        """ID of the account who is a grantee. Required when the [grant_type] is `GRANT_TYPE_ACCOUNT`."""
 
         def __init__(self,
             *,
@@ -1132,7 +1132,7 @@ class HTTPSConfig(google.protobuf.message.Message):
         """Your certificate, uploaded directly."""
 
         SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: HTTPSConfig._SourceType.ValueType  # 2
-        """Certificate managed by Yandex Certificate Manager."""
+        """Certificate managed by Certificate Manager."""
 
     class SourceType(_SourceType, metaclass=_SourceTypeEnumTypeWrapper):
         """A resource for type of TLS certificate source."""
@@ -1143,7 +1143,7 @@ class HTTPSConfig(google.protobuf.message.Message):
     """Your certificate, uploaded directly."""
 
     SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: HTTPSConfig.SourceType.ValueType  # 2
-    """Certificate managed by Yandex Certificate Manager."""
+    """Certificate managed by Certificate Manager."""
 
 
     NAME_FIELD_NUMBER: builtins.int
@@ -1181,7 +1181,7 @@ class HTTPSConfig(google.protobuf.message.Message):
         """End of the TLS certificate validity period (Not After field)"""
         pass
     certificate_id: typing.Text
-    """ID of the TLS certificate in Yandex Certificate Manager.
+    """ID of the TLS certificate in Certificate Manager.
 
     To get information about the certificate from Certificate Manager, make a
     [yandex.cloud.certificatemanager.v1.CertificateService.Get] request.

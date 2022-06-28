@@ -27,11 +27,11 @@ class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     MESSAGE_QUEUE: _TriggerType.ValueType  # 3
     """The trigger is activated by messages from a message queue.
 
-    Only Yandex Message Queue is currently supported.
+    Only Message Queue is currently supported.
     """
 
     IOT_MESSAGE: _TriggerType.ValueType  # 4
-    """The trigger is activated by messages from Yandex IoT Core."""
+    """The trigger is activated by messages from IoT Core."""
 
     OBJECT_STORAGE: _TriggerType.ValueType  # 5
     CONTAINER_REGISTRY: _TriggerType.ValueType  # 6
@@ -57,11 +57,11 @@ TIMER: TriggerType.ValueType  # 2
 MESSAGE_QUEUE: TriggerType.ValueType  # 3
 """The trigger is activated by messages from a message queue.
 
-Only Yandex Message Queue is currently supported.
+Only Message Queue is currently supported.
 """
 
 IOT_MESSAGE: TriggerType.ValueType  # 4
-"""The trigger is activated by messages from Yandex IoT Core."""
+"""The trigger is activated by messages from IoT Core."""
 
 OBJECT_STORAGE: TriggerType.ValueType  # 5
 CONTAINER_REGISTRY: TriggerType.ValueType  # 6
@@ -169,7 +169,7 @@ class Trigger(google.protobuf.message.Message):
             pass
         @property
         def iot_message(self) -> global___Trigger.IoTMessage:
-            """Rule for a Yandex IoT Core trigger."""
+            """Rule for a IoT Core trigger."""
             pass
         @property
         def object_storage(self) -> global___Trigger.ObjectStorage: ...
@@ -242,7 +242,7 @@ class Trigger(google.protobuf.message.Message):
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
         queue_id: typing.Text
-        """ID of the message queue in Yandex Message Queue."""
+        """ID of the message queue in Message Queue."""
 
         service_account_id: typing.Text
         """ID of the service account which has read access to the message queue."""
@@ -277,7 +277,7 @@ class Trigger(google.protobuf.message.Message):
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
 
     class IoTMessage(google.protobuf.message.Message):
-        """Rule for activating a Yandex IoT Core trigger."""
+        """Rule for activating a IoT Core trigger."""
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
         REGISTRY_ID_FIELD_NUMBER: builtins.int
         DEVICE_ID_FIELD_NUMBER: builtins.int
@@ -285,10 +285,10 @@ class Trigger(google.protobuf.message.Message):
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
         registry_id: typing.Text
-        """ID of the Yandex IoT Core registry."""
+        """ID of the IoT Core registry."""
 
         device_id: typing.Text
-        """ID of the Yandex IoT Core device in the registry."""
+        """ID of the IoT Core device in the registry."""
 
         mqtt_topic: typing.Text
         """MQTT topic whose messages activate the trigger."""

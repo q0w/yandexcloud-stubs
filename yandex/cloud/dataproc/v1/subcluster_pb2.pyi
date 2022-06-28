@@ -223,8 +223,8 @@ class Host(google.protobuf.message.Message):
     ROLE_FIELD_NUMBER: builtins.int
     name: typing.Text
     """Name of the Data Proc host. The host name is assigned by Data Proc at creation time
-    and cannot be changed. The name is generated to be unique across all existing Data Proc
-    hosts in Yandex Cloud, as it defines the FQDN of the host.
+    and cannot be changed. The name is generated to be unique across all Data Proc
+    hosts that exist on the platform, as it defines the FQDN of the host.
     """
 
     subcluster_id: typing.Text

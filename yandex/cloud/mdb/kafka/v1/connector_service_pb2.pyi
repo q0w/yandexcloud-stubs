@@ -18,13 +18,15 @@ class GetConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Apache Kafka Cluster resource to return.
-    To get the cluster ID use a [ClusterService.List] request.
+    """ID of the cluster the connector belongs to.
+
+    To get this ID, make a [ClusterService.List] request.
     """
 
     connector_name: typing.Text
-    """Name of the Apache Kafka Connector resource to return.
-    To get the name of the connector use a [ConnectorService.List] request.
+    """Name of the Apache Kafka® connector to return information about.
+
+    To get this name, make a [ConnectorService.List] request.
     """
 
     def __init__(self,
@@ -41,20 +43,21 @@ class ListConnectorsRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Apache Kafka cluster to list connectors in.
-    To get the cluster ID use a [ClusterService.List] request.
+    """ID of the Apache Kafka® cluster to list connectors in.
+
+    To get this ID, make a [ClusterService.List] request.
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListConnectorsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
 
+    If the number of available results is larger than [page_size], the API returns a [ListConnectorsResponse.next_page_token] that can be used to get the next page of results in the subsequent [ConnectorService.List] requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, Set [page_token] to the [ListConnectorsResponse.next_page_token]
-    returned by a previous list request.
+    """Page token that can be used to iterate through multiple pages of results.
+
+    To get the next page of results, set [page_token] to the [ListConnectorsResponse.next_page_token] returned by the previous [ConnectorService.List] request.
     """
 
     def __init__(self,
@@ -72,13 +75,12 @@ class ListConnectorsResponse(google.protobuf.message.Message):
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def connectors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.kafka.v1.connector_pb2.Connector]:
-        """List of Apache Kafka Connector resources."""
+        """List of Apache Kafka® Connectors."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListConnectorsRequest.page_size], use the [next_page_token] as the value
-    for the [ListConnectorsRequest.page_token] parameter in the next list request. Each subsequent
-    list request will have its own [next_page_token] to continue paging through the results.
+    """The token that can be used to get the next page of results.
+
+    If the number of results is larger than [ListConnectorsRequest.page_size], use the [next_page_token] as the value for the [ListConnectorsRequest.page_token] in the subsequent [ConnectorService.List] request to iterate through multiple pages of results.
     """
 
     def __init__(self,
@@ -94,13 +96,14 @@ class CreateConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_SPEC_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster to create a connector in.
-    To get the cluster ID use a [ClusterService.List] request.
+    """ID of the Apache Kafka® cluster to create the connector in.
+
+    To get this ID, make a [ClusterService.List] request.
     """
 
     @property
     def connector_spec(self) -> yandex.cloud.mdb.kafka.v1.connector_pb2.ConnectorSpec:
-        """Required. Configuration of the connector to create."""
+        """Configuration of the connector to create."""
         pass
     def __init__(self,
         *,
@@ -116,10 +119,10 @@ class CreateConnectorMetadata(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Apache Kafka cluster where a connector is being created."""
+    """ID of the Apache Kafka® cluster the connector is being created in."""
 
     connector_name: typing.Text
-    """Name of the Apache Kafka connector that is being created."""
+    """Name of the Apache Kafka® connector that is being created."""
 
     def __init__(self,
         *,
@@ -136,22 +139,24 @@ class UpdateConnectorRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     CONNECTOR_SPEC_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster to update a connector in.
-    To get the cluster ID use a [ClusterService.List] request.
+    """ID of the Apache Kafka® cluster to update the connector in.
+
+    To get this ID, make a [ClusterService.List] request.
     """
 
     connector_name: typing.Text
-    """Required. Name of the connector to update.
-    To get the name of the connector, use a [ConnectorService.List] request.
+    """Name of the connector to update.
+
+    To get this name, make a [ConnectorService.List] request.
     """
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Field mask that specifies which fields of the Connector resource should be updated."""
+        """Field mask that specifies which settings of the connector should be updated."""
         pass
     @property
     def connector_spec(self) -> yandex.cloud.mdb.kafka.v1.connector_pb2.UpdateConnectorSpec:
-        """Required. Configuration of the connector to update."""
+        """Configuration of the connector to update."""
         pass
     def __init__(self,
         *,
@@ -169,7 +174,7 @@ class UpdateConnectorMetadata(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Apache Kafka cluster where a connector is being updated."""
+    """ID of the Apache Kafka® cluster the connector is being updated in."""
 
     connector_name: typing.Text
     """Name of the Apache Kafka connector that is being updated."""
@@ -187,13 +192,15 @@ class DeleteConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster to delete a connector in.
-    To get the cluster ID, use a [ClusterService.List] request.
+    """ID of the Apache Kafka® cluster to delete the connector from.
+
+    To get this ID, make a [ClusterService.List] request.
     """
 
     connector_name: typing.Text
-    """Required. Name of the connector to delete.
-    To get the name of the connector, use a [ConnectorService.List] request.
+    """Name of the connector to delete.
+
+    To get this name, make a [ConnectorService.List] request.
     """
 
     def __init__(self,
@@ -209,10 +216,10 @@ class DeleteConnectorMetadata(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Apache Kafka cluster where a connector is being deleted."""
+    """ID of the Apache Kafka® cluster the connector is being deleted from."""
 
     connector_name: typing.Text
-    """Name of the Apache Kafka connector that is being deleted."""
+    """Name of the Apache Kafka® connector that is being deleted."""
 
     def __init__(self,
         *,
@@ -227,11 +234,15 @@ class ResumeConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster to resume connector in."""
+    """ID of the Apache Kafka® cluster to resume the connector in.
+
+    To get this ID, make a [ClusterService.List] request.
+    """
 
     connector_name: typing.Text
-    """Name of the Apache Kafka Connector resource to resume.
-    To get the name of the connector use a [ConnectorService.List] request.
+    """Name of the Apache Kafka® connector to resume.
+
+    To get this name, make a [ConnectorService.List] request.
     """
 
     def __init__(self,
@@ -247,10 +258,10 @@ class ResumeConnectorMetadata(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster."""
+    """ID of the Apache Kafka® cluster the connector is being resumed in."""
 
     connector_name: typing.Text
-    """Name of the Apache Kafka Connector resource that is beign resumed."""
+    """Name of the Apache Kafka® connector that is beign resumed."""
 
     def __init__(self,
         *,
@@ -265,11 +276,15 @@ class PauseConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster to pause connector in."""
+    """ID of the Apache Kafka® cluster to pause the connector in.
+
+    To get this ID, make a [ClusterService.List] request.
+    """
 
     connector_name: typing.Text
-    """Name of the Apache Kafka Connector resource to pause.
-    To get the name of the connector use a [ConnectorService.List] request.
+    """Name of the Apache Kafka® connector to pause.
+
+    To get this name, make a [ConnectorService.List] request.
     """
 
     def __init__(self,
@@ -285,10 +300,10 @@ class PauseConnectorMetadata(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Apache Kafka cluster."""
+    """ID of the Apache Kafka® cluster the connector is being paused in."""
 
     connector_name: typing.Text
-    """Name of the Apache Kafka Connector resource that is being paused."""
+    """Name of the Apache Kafka® connector that is being paused."""
 
     def __init__(self,
         *,

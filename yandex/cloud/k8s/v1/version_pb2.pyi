@@ -21,7 +21,7 @@ class VersionInfo(google.protobuf.message.Message):
 
     new_revision_available: builtins.bool
     """Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
-    as some internal component updates - new features or bug fixes in Yandex specific
+    as some internal component updates - new features or bug fixes in platform specific
     components either on the master or nodes.
     """
 

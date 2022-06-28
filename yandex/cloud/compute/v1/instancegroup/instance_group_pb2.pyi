@@ -486,15 +486,15 @@ class ScalePolicy(google.protobuf.message.Message):
         def cpu_utilization_rule(self) -> global___ScalePolicy.CpuUtilizationRule:
             """Defines an autoscaling rule based on the average CPU utilization of the instance group.
 
-            If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics ([custom_rules]),
+            If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics ([custom_rules]),
             the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
             """
             pass
         @property
         def custom_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ScalePolicy.CustomRule]:
-            """Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Yandex Monitoring.
+            """Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Monitoring.
 
-            If more than one rule is specified, e.g. CPU utilization ([cpu_utilization_rule]) and one or more Yandex Monitoring
+            If more than one rule is specified, e.g. CPU utilization ([cpu_utilization_rule]) and one or more Monitoring
             metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
             """
             pass
@@ -637,20 +637,20 @@ class ScalePolicy(google.protobuf.message.Message):
         """Type of custom metric. This field affects how Instance Groups calculates the average metric value."""
 
         metric_name: typing.Text
-        """Name of custom metric in Yandex Monitoring that should be used for scaling."""
+        """Name of custom metric in Monitoring that should be used for scaling."""
 
         @property
         def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-            """Labels of custom metric in Yandex Monitoring that should be used for scaling."""
+            """Labels of custom metric in Monitoring that should be used for scaling."""
             pass
         target: builtins.float
         """Target value for the custom metric. Instance Groups maintains this level for each availability zone."""
 
         folder_id: typing.Text
-        """Folder id of custom metric in Yandex Monitoring that should be used for scaling."""
+        """Folder id of custom metric in Monitoring that should be used for scaling."""
 
         service: typing.Text
-        """Service of custom metric in Yandex Monitoring that should be used for scaling."""
+        """Service of custom metric in Monitoring that should be used for scaling."""
 
         def __init__(self,
             *,

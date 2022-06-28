@@ -52,7 +52,7 @@ class ExtensionSpec(google.protobuf.message.Message):
     """Name of the extension."""
 
     uri: typing.Text
-    """URI of the zip archive to create the new extension from. Currently only supports links that are stored in Yandex Object Storage."""
+    """URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage."""
 
     disabled: builtins.bool
     """The flag shows whether to create the extension in disabled state."""

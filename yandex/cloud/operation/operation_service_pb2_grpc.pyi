@@ -20,7 +20,7 @@ class OperationServiceStub:
         yandex.cloud.operation.operation_pb2.Operation]
     """Cancels the specified operation.
 
-    Note that currently Yandex Object Storage API does not support cancelling operations.
+    Note that currently Object Storage API does not support cancelling operations.
     """
 
 
@@ -41,7 +41,7 @@ class OperationServiceServicer(metaclass=abc.ABCMeta):
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Cancels the specified operation.
 
-        Note that currently Yandex Object Storage API does not support cancelling operations.
+        Note that currently Object Storage API does not support cancelling operations.
         """
         pass
 

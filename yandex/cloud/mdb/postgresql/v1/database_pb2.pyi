@@ -12,7 +12,7 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Database(google.protobuf.message.Message):
-    """A PostgreSQL Database resource. For more information, see 
+    """A PostgreSQL Database resource. For more information, see
     the [Developer's Guide](/docs/managed-postgresql/concepts).
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -22,6 +22,7 @@ class Database(google.protobuf.message.Message):
     LC_COLLATE_FIELD_NUMBER: builtins.int
     LC_CTYPE_FIELD_NUMBER: builtins.int
     EXTENSIONS_FIELD_NUMBER: builtins.int
+    TEMPLATE_DB_FIELD_NUMBER: builtins.int
     name: typing.Text
     """Name of the database."""
 
@@ -45,6 +46,9 @@ class Database(google.protobuf.message.Message):
     def extensions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Extension]:
         """PostgreSQL extensions enabled for the database."""
         pass
+    template_db: typing.Text
+    """Name of the database template."""
+
     def __init__(self,
         *,
         name: typing.Text = ...,
@@ -53,8 +57,9 @@ class Database(google.protobuf.message.Message):
         lc_collate: typing.Text = ...,
         lc_ctype: typing.Text = ...,
         extensions: typing.Optional[typing.Iterable[global___Extension]] = ...,
+        template_db: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner","template_db",b"template_db"]) -> None: ...
 global___Database = Database
 
 class Extension(google.protobuf.message.Message):
@@ -84,6 +89,7 @@ class DatabaseSpec(google.protobuf.message.Message):
     LC_COLLATE_FIELD_NUMBER: builtins.int
     LC_CTYPE_FIELD_NUMBER: builtins.int
     EXTENSIONS_FIELD_NUMBER: builtins.int
+    TEMPLATE_DB_FIELD_NUMBER: builtins.int
     name: typing.Text
     """Name of the PostgreSQL database. 1-63 characters long."""
 
@@ -106,6 +112,9 @@ class DatabaseSpec(google.protobuf.message.Message):
     def extensions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Extension]:
         """PostgreSQL extensions to be enabled for the database."""
         pass
+    template_db: typing.Text
+    """Name of the PostgreSQL database template."""
+
     def __init__(self,
         *,
         name: typing.Text = ...,
@@ -113,6 +122,7 @@ class DatabaseSpec(google.protobuf.message.Message):
         lc_collate: typing.Text = ...,
         lc_ctype: typing.Text = ...,
         extensions: typing.Optional[typing.Iterable[global___Extension]] = ...,
+        template_db: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner","template_db",b"template_db"]) -> None: ...
 global___DatabaseSpec = DatabaseSpec

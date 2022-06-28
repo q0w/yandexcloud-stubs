@@ -189,7 +189,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
         """Host groups hosting VMs of the cluster."""
         pass
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     def __init__(self,
         *,
@@ -289,7 +289,7 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     """Determines whether the cluster is protected from being deleted."""
 
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     def __init__(self,
         *,
@@ -462,7 +462,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
         """Host groups hosting VMs of the cluster."""
         pass
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     def __init__(self,
         *,

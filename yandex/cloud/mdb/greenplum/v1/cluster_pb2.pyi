@@ -186,7 +186,7 @@ class Cluster(google.protobuf.message.Message):
     CLUSTER_CONFIG_FIELD_NUMBER: builtins.int
     id: typing.Text
     """ID of the Greenplum® cluster.
-    This ID is assigned by Yandex Cloud at the time of cluster creation.
+    This ID is assigned by the platform at the time of cluster creation.
     """
 
     folder_id: typing.Text
@@ -406,10 +406,10 @@ class Access(google.protobuf.message.Message):
     WEB_SQL_FIELD_NUMBER: builtins.int
     DATA_TRANSFER_FIELD_NUMBER: builtins.int
     data_lens: builtins.bool
-    """Allows data export from the cluster to Yandex DataLens."""
+    """Allows data export from the cluster to DataLens."""
 
     web_sql: builtins.bool
-    """Allows SQL queries to the cluster databases from the Yandex Cloud management console."""
+    """Allows SQL queries to the cluster databases from the management console."""
 
     data_transfer: builtins.bool
     """Allow access for DataTransfer."""

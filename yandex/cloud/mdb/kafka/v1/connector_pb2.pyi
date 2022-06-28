@@ -14,7 +14,10 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ConnectorSpec(google.protobuf.message.Message):
-    """An Apache Kafka® connector specification"""
+    """An object that represents an Apache Kafka® connector.
+
+    See [the documentation](/docs/managed-kafka/concepts/connectors) for details.
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -38,19 +41,17 @@ class ConnectorSpec(google.protobuf.message.Message):
 
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Maximum number of connector tasks.
-        Default is the number of brokers.
-        """
+        """Maximum number of connector tasks. Default value is the number of brokers."""
         pass
     @property
     def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Properties passed with connector config to Connect service.
-        Example: 'sync.topics.config.enabled: true'.
+        """A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+        Example: `sync.topics.config.enabled: true`.
         """
         pass
     @property
     def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMakerSpec:
-        """Configuration of MirrorMaker connector"""
+        """Configuration of the MirrorMaker connector."""
         pass
     def __init__(self,
         *,
@@ -65,7 +66,6 @@ class ConnectorSpec(google.protobuf.message.Message):
 global___ConnectorSpec = ConnectorSpec
 
 class UpdateConnectorSpec(google.protobuf.message.Message):
-    """An Apache Kafka® connector's update specification."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -85,18 +85,17 @@ class UpdateConnectorSpec(google.protobuf.message.Message):
     CONNECTOR_CONFIG_MIRRORMAKER_FIELD_NUMBER: builtins.int
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Maximum number of tasks to update."""
+        """Maximum number of connector tasks to update."""
         pass
     @property
     def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Properties passed with connector config to Connect service, that
-        we should change or add in existing Properties-set of connector.
-        Example: 'sync.topics.config.enabled: false'
+        """A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
+        Example: `sync.topics.config.enabled: false`.
         """
         pass
     @property
     def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMakerSpec:
-        """Update specification for MirrorMaker."""
+        """Configuration of the MirrorMaker connector."""
         pass
     def __init__(self,
         *,
@@ -110,9 +109,6 @@ class UpdateConnectorSpec(google.protobuf.message.Message):
 global___UpdateConnectorSpec = UpdateConnectorSpec
 
 class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
-    """An An Apache Kafka® MirrorMaker
-    connector specification.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     SOURCE_CLUSTER_FIELD_NUMBER: builtins.int
     TARGET_CLUSTER_FIELD_NUMBER: builtins.int
@@ -120,14 +116,14 @@ class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
     REPLICATION_FACTOR_FIELD_NUMBER: builtins.int
     @property
     def source_cluster(self) -> global___ClusterConnectionSpec:
-        """Source cluster configuration."""
+        """Source cluster configuration for the MirrorMaker connector."""
         pass
     @property
     def target_cluster(self) -> global___ClusterConnectionSpec:
-        """Target cluster configuration."""
+        """Target cluster configuration for the MirrorMaker connector."""
         pass
     topics: typing.Text
-    """List of Kafka topics, separated by ','"""
+    """List of Kafka topics, separated by `,`."""
 
     @property
     def replication_factor(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -145,33 +141,22 @@ class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
 global___ConnectorConfigMirrorMakerSpec = ConnectorConfigMirrorMakerSpec
 
 class ClusterConnectionSpec(google.protobuf.message.Message):
-    """Specification of ClusterConnection -
-    connection to clusters, that
-    are source or target of MirrorMaker
-    clusters.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ALIAS_FIELD_NUMBER: builtins.int
     THIS_CLUSTER_FIELD_NUMBER: builtins.int
     EXTERNAL_CLUSTER_FIELD_NUMBER: builtins.int
     alias: typing.Text
-    """Alias of ClusterConnection.
-    For example: 'source', 'target', ...
+    """Alias of cluster connection configuration.
+    Examples: `source`, `target`.
     """
 
     @property
     def this_cluster(self) -> global___ThisClusterSpec:
-        """If type is 'this_cluster' - we connect to
-        cluster that is handle Kafka Connect Worker,
-        on which we try to register connector.
-        """
+        """Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty."""
         pass
     @property
     def external_cluster(self) -> global___ExternalClusterConnectionSpec:
-        """If type is 'external_cluster' - we connect
-        to cluster that is not handle Kafka Connect Worker,
-        on which we try to register connector.
-        """
+        """Configuration of connection to an external cluster with all the necessary credentials."""
         pass
     def __init__(self,
         *,
@@ -185,22 +170,12 @@ class ClusterConnectionSpec(google.protobuf.message.Message):
 global___ClusterConnectionSpec = ClusterConnectionSpec
 
 class ThisClusterSpec(google.protobuf.message.Message):
-    """Specification of cluster_connection
-    type 'this_cluster'. This means
-    that we already have all credentials,
-    so this spec is empty.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     def __init__(self,
         ) -> None: ...
 global___ThisClusterSpec = ThisClusterSpec
 
 class ExternalClusterConnectionSpec(google.protobuf.message.Message):
-    """Specification of connection to
-    external cluster. It contains
-    all necessary credentials to
-    connect to external cluster.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     BOOTSTRAP_SERVERS_FIELD_NUMBER: builtins.int
     SASL_USERNAME_FIELD_NUMBER: builtins.int
@@ -209,30 +184,19 @@ class ExternalClusterConnectionSpec(google.protobuf.message.Message):
     SECURITY_PROTOCOL_FIELD_NUMBER: builtins.int
     SSL_TRUSTSTORE_CERTIFICATES_FIELD_NUMBER: builtins.int
     bootstrap_servers: typing.Text
-    """List bootstrap servers of cluster,
-    separated by ','.
-    """
+    """List of bootstrap servers of the cluster, separated by `,`."""
 
     sasl_username: typing.Text
-    """Sasl username which
-    we use to connect to cluster.
-    """
+    """SASL username to use for connection to the cluster."""
 
     sasl_password: typing.Text
-    """Sasl password which we use
-    to connect to cluster.
-    """
+    """SASL password to use for connection to the cluster."""
 
     sasl_mechanism: typing.Text
-    """Sasl mechanism, which we
-    should use to connect to cluster.
-    """
+    """SASL mechanism to use for connection to the cluster."""
 
     security_protocol: typing.Text
-    """Security protocol, which
-    we should use to connect
-    to cluster.
-    """
+    """Security protocol to use for connection to the cluster."""
 
     ssl_truststore_certificates: typing.Text
     """CA in PEM format to connect to external cluster.
@@ -252,7 +216,6 @@ class ExternalClusterConnectionSpec(google.protobuf.message.Message):
 global___ExternalClusterConnectionSpec = ExternalClusterConnectionSpec
 
 class Connector(google.protobuf.message.Message):
-    """An Apache Kafka® connector resource."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _Health:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -260,25 +223,25 @@ class Connector(google.protobuf.message.Message):
     class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Health.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         HEALTH_UNKNOWN: Connector._Health.ValueType  # 0
-        """State of the connector is unknown."""
+        """Health of the connector is unknown."""
 
         ALIVE: Connector._Health.ValueType  # 1
         """Connector is running."""
 
         DEAD: Connector._Health.ValueType  # 2
-        """Connector is failed to start."""
+        """Connector has failed to start."""
 
     class Health(_Health, metaclass=_HealthEnumTypeWrapper):
         pass
 
     HEALTH_UNKNOWN: Connector.Health.ValueType  # 0
-    """State of the connector is unknown."""
+    """Health of the connector is unknown."""
 
     ALIVE: Connector.Health.ValueType  # 1
     """Connector is running."""
 
     DEAD: Connector.Health.ValueType  # 2
-    """Connector is failed to start."""
+    """Connector has failed to start."""
 
 
     class _Status:
@@ -293,10 +256,10 @@ class Connector(google.protobuf.message.Message):
         """Connector is running normally."""
 
         ERROR: Connector._Status.ValueType  # 2
-        """Connector encountered a problem and cannot operate."""
+        """Connector has encountered a problem and cannot operate."""
 
         PAUSED: Connector._Status.ValueType  # 3
-        """Connector paused."""
+        """Connector is paused."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper):
         pass
@@ -308,10 +271,10 @@ class Connector(google.protobuf.message.Message):
     """Connector is running normally."""
 
     ERROR: Connector.Status.ValueType  # 2
-    """Connector encountered a problem and cannot operate."""
+    """Connector has encountered a problem and cannot operate."""
 
     PAUSED: Connector.Status.ValueType  # 3
-    """Connector paused."""
+    """Connector is paused."""
 
 
     class PropertiesEntry(google.protobuf.message.Message):
@@ -339,12 +302,12 @@ class Connector(google.protobuf.message.Message):
 
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Maximum number of tasks. Default is the number of brokers"""
+        """Maximum number of connector tasks. Default value is the number of brokers."""
         pass
     @property
     def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Properties passed with connector config to Connect service
-        Example: 'sync.topics.config.enabled: true'
+        """A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+        Example: `sync.topics.config.enabled: true`.
         """
         pass
     health: global___Connector.Health.ValueType
@@ -354,10 +317,12 @@ class Connector(google.protobuf.message.Message):
     """Current status of the connector."""
 
     cluster_id: typing.Text
-    """ID of the Apache Kafka cluster that the connector belongs to."""
+    """ID of the Apache Kafka® cluster that the connector belongs to."""
 
     @property
-    def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMaker: ...
+    def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMaker:
+        """Configuration of the MirrorMaker connector."""
+        pass
     def __init__(self,
         *,
         name: typing.Text = ...,
@@ -374,9 +339,6 @@ class Connector(google.protobuf.message.Message):
 global___Connector = Connector
 
 class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
-    """An An Apache Kafka® MirrorMaker
-    connector resource.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     SOURCE_CLUSTER_FIELD_NUMBER: builtins.int
     TARGET_CLUSTER_FIELD_NUMBER: builtins.int
@@ -384,18 +346,14 @@ class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
     REPLICATION_FACTOR_FIELD_NUMBER: builtins.int
     @property
     def source_cluster(self) -> global___ClusterConnection:
-        """Source cluster resource
-        settings.
-        """
+        """Source cluster connection configuration."""
         pass
     @property
     def target_cluster(self) -> global___ClusterConnection:
-        """Target cluster resource
-        settings.
-        """
+        """Target cluster connection configuration."""
         pass
     topics: typing.Text
-    """List of Kafka topics, separated by ','"""
+    """List of Kafka topics, separated by `,`."""
 
     @property
     def replication_factor(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -413,34 +371,22 @@ class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
 global___ConnectorConfigMirrorMaker = ConnectorConfigMirrorMaker
 
 class ClusterConnection(google.protobuf.message.Message):
-    """Resource ClusterConnection -
-    settings of
-    connection to clusters, that
-    are source or target of MirrorMaker
-    clusters.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ALIAS_FIELD_NUMBER: builtins.int
     THIS_CLUSTER_FIELD_NUMBER: builtins.int
     EXTERNAL_CLUSTER_FIELD_NUMBER: builtins.int
     alias: typing.Text
-    """Alias of ClusterConnection resource.
-    For example: 'source', 'target', ...
+    """Alias of cluster connection configuration.
+    Examples: `source`, `target`.
     """
 
     @property
     def this_cluster(self) -> global___ThisCluster:
-        """If type is 'this_cluster' - we connect to
-        cluster that is handle Kafka Connect Worker,
-        on which we try to register connector.
-        """
+        """Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty."""
         pass
     @property
     def external_cluster(self) -> global___ExternalClusterConnection:
-        """If type is 'external_cluster' - we connect
-        to cluster that is not handle Kafka Connect Worker,
-        on which we try to register connector.
-        """
+        """Configuration of connection to an external cluster with all the necessary credentials."""
         pass
     def __init__(self,
         *,
@@ -454,45 +400,28 @@ class ClusterConnection(google.protobuf.message.Message):
 global___ClusterConnection = ClusterConnection
 
 class ThisCluster(google.protobuf.message.Message):
-    """Resource of cluster_connection
-    type 'this_cluster'.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     def __init__(self,
         ) -> None: ...
 global___ThisCluster = ThisCluster
 
 class ExternalClusterConnection(google.protobuf.message.Message):
-    """Resource of connection to
-    external cluster. It contains
-    all settings of connection
-    to external cluster.
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     BOOTSTRAP_SERVERS_FIELD_NUMBER: builtins.int
     SASL_USERNAME_FIELD_NUMBER: builtins.int
     SASL_MECHANISM_FIELD_NUMBER: builtins.int
     SECURITY_PROTOCOL_FIELD_NUMBER: builtins.int
     bootstrap_servers: typing.Text
-    """List bootstrap servers of cluster,
-    separated by ','
-    """
+    """List of bootstrap servers of the cluster, separated by `,`."""
 
     sasl_username: typing.Text
-    """Sasl username which
-    we use to connect to cluster.
-    """
+    """SASL username to use for connection to the cluster."""
 
     sasl_mechanism: typing.Text
-    """Sasl mechanism, which we
-    should use to connect to cluster.
-    """
+    """SASL mechanism to use for connection to the cluster."""
 
     security_protocol: typing.Text
-    """Security protocol, which
-    we should use to connect
-    to cluster.
-    """
+    """Security protocol to use for connection to the cluster."""
 
     def __init__(self,
         *,

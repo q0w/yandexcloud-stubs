@@ -49,7 +49,7 @@ class ListMembersResponse(google.protobuf.message.Message):
         SUBJECT_CLAIMS_FIELD_NUMBER: builtins.int
         @property
         def subject_claims(self) -> yandex.cloud.oauth.claims_pb2.SubjectClaims:
-            """OpenID standard claims with additional Yandex Cloud Organization claims."""
+            """OpenID standard claims with additional Cloud Organization claims."""
             pass
         def __init__(self,
             *,

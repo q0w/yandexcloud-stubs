@@ -218,7 +218,7 @@ class Cluster(google.protobuf.message.Message):
     """Current state of the cluster."""
 
     service_account_id: typing.Text
-    """ID of the service account used for access to Yandex Object Storage."""
+    """ID of the service account used for access to Object Storage."""
 
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.clickhouse.v1.maintenance_pb2.MaintenanceWindow:
@@ -546,7 +546,7 @@ class Host(google.protobuf.message.Message):
     """Name of the ClickHouse host. The host name is assigned by MDB at creation time, and cannot be changed.
     1-63 characters long.
 
-    The name is unique across all existing MDB hosts in Yandex Cloud, as it defines the FQDN of the host.
+    The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
     """
 
     cluster_id: typing.Text
@@ -700,10 +700,10 @@ class Access(google.protobuf.message.Message):
     DATA_TRANSFER_FIELD_NUMBER: builtins.int
     YANDEX_QUERY_FIELD_NUMBER: builtins.int
     data_lens: builtins.bool
-    """Allow to export data from the cluster to Yandex DataLens."""
+    """Allow to export data from the cluster to DataLens."""
 
     web_sql: builtins.bool
-    """Allow SQL queries to the cluster databases from the Yandex Cloud management console.
+    """Allow SQL queries to the cluster databases from the management console.
 
     See [SQL queries in the management console](/docs/managed-clickhouse/operations/web-sql-query) for more details.
     """
@@ -711,7 +711,7 @@ class Access(google.protobuf.message.Message):
     metrika: builtins.bool
     """Allow to import data from Yandex Metrica and AppMetrica to the cluster.
 
-    See [Export data to Yandex Cloud](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
+    See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details.
     """
 
     serverless: builtins.bool
@@ -721,7 +721,7 @@ class Access(google.protobuf.message.Message):
     """Allow access for DataTransfer"""
 
     yandex_query: builtins.bool
-    """Allow access for YandexQuery"""
+    """Allow access for Query"""
 
     def __init__(self,
         *,
@@ -738,12 +738,25 @@ global___Access = Access
 class CloudStorage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ENABLED_FIELD_NUMBER: builtins.int
+    MOVE_FACTOR_FIELD_NUMBER: builtins.int
+    DATA_CACHE_ENABLED_FIELD_NUMBER: builtins.int
+    DATA_CACHE_MAX_SIZE_FIELD_NUMBER: builtins.int
     enabled: builtins.bool
-    """Whether to use Yandex Object Storage for storing ClickHouse data."""
+    """Whether to use Object Storage for storing ClickHouse data."""
 
+    @property
+    def move_factor(self) -> google.protobuf.wrappers_pb2.DoubleValue: ...
+    @property
+    def data_cache_enabled(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
+    @property
+    def data_cache_max_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     def __init__(self,
         *,
         enabled: builtins.bool = ...,
+        move_factor: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
+        data_cache_enabled: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        data_cache_max_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["enabled",b"enabled"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["data_cache_enabled",b"data_cache_enabled","data_cache_max_size",b"data_cache_max_size","move_factor",b"move_factor"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data_cache_enabled",b"data_cache_enabled","data_cache_max_size",b"data_cache_max_size","enabled",b"enabled","move_factor",b"move_factor"]) -> None: ...
 global___CloudStorage = CloudStorage

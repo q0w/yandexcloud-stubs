@@ -131,7 +131,7 @@ class InstanceServiceStub:
 
     The instance must be stopped before moving. To stop the instance, make a [Stop] request.
 
-    After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics
+    After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics
     that have been recorded to the source folder prior to moving will be retained.
     """
 
@@ -314,7 +314,7 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
 
         The instance must be stopped before moving. To stop the instance, make a [Stop] request.
 
-        After moving, the instance will start recording its Yandex Monitoring default metrics to its new folder. Metrics
+        After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics
         that have been recorded to the source folder prior to moving will be retained.
         """
         pass

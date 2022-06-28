@@ -118,15 +118,15 @@ class OriginMeta(google.protobuf.message.Message):
         pass
     @property
     def bucket(self) -> global___OriginNamedMeta:
-        """A Yandex Object Storage bucket not configured as a static site hosting."""
+        """An Object Storage bucket not configured as a static site hosting."""
         pass
     @property
     def website(self) -> global___OriginNamedMeta:
-        """A Yandex Object Storage bucket configured as a static site hosting."""
+        """An Object Storage bucket configured as a static site hosting."""
         pass
     @property
     def balancer(self) -> global___OriginBalancerMeta:
-        """An L7 load balancer from Yandex Application Load Balancer.
+        """An L7 load balancer from Application Load Balancer.
         CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
         """
         pass
@@ -157,7 +157,7 @@ class OriginNamedMeta(google.protobuf.message.Message):
 global___OriginNamedMeta = OriginNamedMeta
 
 class OriginBalancerMeta(google.protobuf.message.Message):
-    """Yandex Application Load Balancer origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
+    """Application Load Balancer origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ID_FIELD_NUMBER: builtins.int
     id: typing.Text
