@@ -15,22 +15,28 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 class GetResourcePresetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCE_PRESET_ID_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     resource_preset_id: typing.Text
     """Required. ID of the resource preset to return.
     To get the resource preset ID, use a [ResourcePresetService.List] request.
     """
 
+    type: yandex.cloud.mdb.greenplum.v1.resource_preset_pb2.ResourcePreset.Type.ValueType
+    """Required. ResourcePreset type - master or segment."""
+
     def __init__(self,
         *,
         resource_preset_id: typing.Text = ...,
+        type: yandex.cloud.mdb.greenplum.v1.resource_preset_pb2.ResourcePreset.Type.ValueType = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_preset_id",b"resource_preset_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_preset_id",b"resource_preset_id","type",b"type"]) -> None: ...
 global___GetResourcePresetRequest = GetResourcePresetRequest
 
 class ListResourcePresetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    TYPE_FIELD_NUMBER: builtins.int
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListResourcePresetsResponse.next_page_token]
@@ -42,12 +48,16 @@ class ListResourcePresetsRequest(google.protobuf.message.Message):
     returned by a previous list request.
     """
 
+    type: yandex.cloud.mdb.greenplum.v1.resource_preset_pb2.ResourcePreset.Type.ValueType
+    """Required. ResourcePreset type - master or segment."""
+
     def __init__(self,
         *,
         page_size: builtins.int = ...,
         page_token: typing.Text = ...,
+        type: yandex.cloud.mdb.greenplum.v1.resource_preset_pb2.ResourcePreset.Type.ValueType = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","type",b"type"]) -> None: ...
 global___ListResourcePresetsRequest = ListResourcePresetsRequest
 
 class ListResourcePresetsResponse(google.protobuf.message.Message):

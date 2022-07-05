@@ -326,6 +326,19 @@ global___AttachedVolume = AttachedVolume
 
 class NodeTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class LabelsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: typing.Text
+        value: typing.Text
+        def __init__(self,
+            *,
+            key: typing.Text = ...,
+            value: typing.Text = ...,
+            ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
         KEY_FIELD_NUMBER: builtins.int
@@ -398,6 +411,7 @@ class NodeTemplate(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["type",b"type"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
+    LABELS_FIELD_NUMBER: builtins.int
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     RESOURCES_SPEC_FIELD_NUMBER: builtins.int
     BOOT_DISK_SPEC_FIELD_NUMBER: builtins.int
@@ -419,6 +433,10 @@ class NodeTemplate(google.protobuf.message.Message):
     It may also contain another placeholders, see metadata doc for full list.
     """
 
+    @property
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+        """these labels will be assigned to compute nodes (instances), created by the nodegroup"""
+        pass
     platform_id: typing.Text
     """ID of the hardware platform configuration for the node."""
 
@@ -465,6 +483,7 @@ class NodeTemplate(google.protobuf.message.Message):
     def __init__(self,
         *,
         name: typing.Text = ...,
+        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
         platform_id: typing.Text = ...,
         resources_spec: typing.Optional[global___ResourcesSpec] = ...,
         boot_disk_spec: typing.Optional[global___DiskSpec] = ...,
@@ -477,7 +496,7 @@ class NodeTemplate(google.protobuf.message.Message):
         container_runtime_settings: typing.Optional[global___NodeTemplate.ContainerRuntimeSettings] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","container_runtime_settings",b"container_runtime_settings","network_settings",b"network_settings","placement_policy",b"placement_policy","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","v4_address_spec",b"v4_address_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","container_runtime_settings",b"container_runtime_settings","metadata",b"metadata","name",b"name","network_interface_specs",b"network_interface_specs","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","v4_address_spec",b"v4_address_spec"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","container_runtime_settings",b"container_runtime_settings","labels",b"labels","metadata",b"metadata","name",b"name","network_interface_specs",b"network_interface_specs","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","v4_address_spec",b"v4_address_spec"]) -> None: ...
 global___NodeTemplate = NodeTemplate
 
 class NetworkInterfaceSpec(google.protobuf.message.Message):

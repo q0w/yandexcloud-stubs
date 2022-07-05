@@ -125,9 +125,7 @@ class LogGroup(google.protobuf.message.Message):
         """
         pass
     data_stream: typing.Text
-    """Data stream name
-
-    """
+    """Data stream name"""
 
     def __init__(self,
         *,

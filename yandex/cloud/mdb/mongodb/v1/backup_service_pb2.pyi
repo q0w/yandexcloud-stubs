@@ -41,7 +41,6 @@ class ListBackupsRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListBackupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text

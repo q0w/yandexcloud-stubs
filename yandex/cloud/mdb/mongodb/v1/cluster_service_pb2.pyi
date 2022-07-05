@@ -59,7 +59,6 @@ class ListClustersRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text
@@ -741,7 +740,6 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text
@@ -906,7 +904,6 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text
@@ -960,7 +957,6 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text
@@ -1014,7 +1010,6 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
-
     """
 
     page_token: typing.Text

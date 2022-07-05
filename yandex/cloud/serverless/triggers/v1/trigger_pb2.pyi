@@ -47,6 +47,9 @@ class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     YDS: _TriggerType.ValueType  # 10
     """The trigger is activated by YDS events"""
 
+    MAIL: _TriggerType.ValueType  # 11
+    """The trigger is activated by email"""
+
 class TriggerType(_TriggerType, metaclass=_TriggerTypeEnumTypeWrapper):
     pass
 
@@ -76,6 +79,9 @@ BILLING_BUDGET: TriggerType.ValueType  # 9
 
 YDS: TriggerType.ValueType  # 10
 """The trigger is activated by YDS events"""
+
+MAIL: TriggerType.ValueType  # 11
+"""The trigger is activated by email"""
 
 global___TriggerType = TriggerType
 
@@ -159,6 +165,7 @@ class Trigger(google.protobuf.message.Message):
         LOGGING_FIELD_NUMBER: builtins.int
         BILLING_BUDGET_FIELD_NUMBER: builtins.int
         DATA_STREAM_FIELD_NUMBER: builtins.int
+        MAIL_FIELD_NUMBER: builtins.int
         @property
         def timer(self) -> global___Trigger.Timer:
             """Rule for a timed trigger."""
@@ -183,6 +190,8 @@ class Trigger(google.protobuf.message.Message):
         def billing_budget(self) -> global___BillingBudget: ...
         @property
         def data_stream(self) -> global___DataStream: ...
+        @property
+        def mail(self) -> global___Mail: ...
         def __init__(self,
             *,
             timer: typing.Optional[global___Trigger.Timer] = ...,
@@ -194,10 +203,11 @@ class Trigger(google.protobuf.message.Message):
             logging: typing.Optional[global___Trigger.Logging] = ...,
             billing_budget: typing.Optional[global___BillingBudget] = ...,
             data_stream: typing.Optional[global___DataStream] = ...,
+            mail: typing.Optional[global___Mail] = ...,
             ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["timer","message_queue","iot_message","object_storage","container_registry","cloud_logs","logging","billing_budget","data_stream"]]: ...
+        def HasField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["timer","message_queue","iot_message","object_storage","container_registry","cloud_logs","logging","billing_budget","data_stream","mail"]]: ...
 
     class Timer(google.protobuf.message.Message):
         """Rule for activating a timed trigger."""
@@ -849,3 +859,28 @@ class DataStream(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","database",b"database","endpoint",b"endpoint","invoke_container",b"invoke_container","invoke_function",b"invoke_function","service_account_id",b"service_account_id","stream",b"stream"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
 global___DataStream = DataStream
+
+class Mail(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    EMAIL_FIELD_NUMBER: builtins.int
+    INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
+    INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
+    email: typing.Text
+    """Address to receive emails for trigger activation.
+    Field is ignored for write requests and populated on trigger creation.
+    """
+
+    @property
+    def invoke_function(self) -> global___InvokeFunctionWithRetry: ...
+    @property
+    def invoke_container(self) -> global___InvokeContainerWithRetry: ...
+    def __init__(self,
+        *,
+        email: typing.Text = ...,
+        invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
+        invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","email",b"email","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+global___Mail = Mail
