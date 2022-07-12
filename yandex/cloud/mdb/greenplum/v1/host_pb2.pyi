@@ -66,7 +66,7 @@ class Host(google.protobuf.message.Message):
         """The host is working below capacity or not fully functional."""
 
         UNBALANCED: Host._Health.ValueType  # 4
-        """One or more segments are not in preferred role."""
+        """One or more segments are not in the preferred role."""
 
     class Health(_Health, metaclass=_HealthEnumTypeWrapper):
         pass
@@ -84,7 +84,7 @@ class Host(google.protobuf.message.Message):
     """The host is working below capacity or not fully functional."""
 
     UNBALANCED: Host.Health.ValueType  # 4
-    """One or more segments are not in preferred role."""
+    """One or more segments are not in the preferred role."""
 
 
     NAME_FIELD_NUMBER: builtins.int
@@ -96,8 +96,9 @@ class Host(google.protobuf.message.Message):
     SUBNET_ID_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
     name: typing.Text
-    """Name of the Greenplum® host. The host name is assigned by the platform at creation time and cannot be changed.
-    1-63 characters long.
+    """Name of the Greenplum® host.
+
+    The host name is assigned by the platform at creation time and cannot be changed.
 
     The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
     """
@@ -122,7 +123,7 @@ class Host(google.protobuf.message.Message):
     """ID of the subnet that the host belongs to."""
 
     assign_public_ip: builtins.bool
-    """Whether or not a public IP is assigned to the host."""
+    """Determines whether a public IP is assigned to the host."""
 
     def __init__(self,
         *,

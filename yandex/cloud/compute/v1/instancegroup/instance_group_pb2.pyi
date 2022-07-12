@@ -970,7 +970,7 @@ global___InstanceTemplate = InstanceTemplate
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class HostAffinityRule(google.protobuf.message.Message):
-        """Affinitity definition"""
+        """Affinity definition"""
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
         class _Operator:
             ValueType = typing.NewType('ValueType', builtins.int)

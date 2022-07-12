@@ -8,6 +8,7 @@ import yandex.cloud.mdb.greenplum.v1.backup_pb2
 import yandex.cloud.mdb.greenplum.v1.backup_service_pb2
 
 class BackupServiceStub:
+    """A set of methods for managing backups."""
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.backup_service_pb2.GetBackupRequest,
@@ -21,6 +22,7 @@ class BackupServiceStub:
 
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
+    """A set of methods for managing backups."""
     @abc.abstractmethod
     def Get(self,
         request: yandex.cloud.mdb.greenplum.v1.backup_service_pb2.GetBackupRequest,

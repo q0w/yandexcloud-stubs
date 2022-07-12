@@ -17,7 +17,7 @@ class ClusterServiceStub:
         yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster]
     """Returns the specified Greenplum® cluster.
 
-    To get the list of available Greenplum® clusters, make a [List] request.
+    To get the list of all available Greenplum® clusters, make a [List] request.
     """
 
     List: grpc.UnaryUnaryMultiCallable[
@@ -73,12 +73,12 @@ class ClusterServiceStub:
     StreamLogs: grpc.UnaryStreamMultiCallable[
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.StreamClusterLogsRequest,
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.StreamLogRecord]
-    """Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics."""
+    """Same as [ListLogs] but using server-side streaming. Also allows for `tail -f` semantics."""
 
     ListBackups: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ListClusterBackupsRequest,
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ListClusterBackupsResponse]
-    """Retrieves the list of available backups for the specified Greenplum cluster."""
+    """Retrieves a list of available backups for the specified Greenplum® cluster."""
 
     Restore: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.RestoreClusterRequest,
@@ -95,7 +95,7 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
     ) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster:
         """Returns the specified Greenplum® cluster.
 
-        To get the list of available Greenplum® clusters, make a [List] request.
+        To get the list of all available Greenplum® clusters, make a [List] request.
         """
         pass
 
@@ -184,7 +184,7 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.StreamClusterLogsRequest,
         context: grpc.ServicerContext,
     ) -> typing.Iterator[yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.StreamLogRecord]:
-        """Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics."""
+        """Same as [ListLogs] but using server-side streaming. Also allows for `tail -f` semantics."""
         pass
 
     @abc.abstractmethod
@@ -192,7 +192,7 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ListClusterBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ListClusterBackupsResponse:
-        """Retrieves the list of available backups for the specified Greenplum cluster."""
+        """Retrieves a list of available backups for the specified Greenplum® cluster."""
         pass
 
     @abc.abstractmethod

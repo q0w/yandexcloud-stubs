@@ -162,6 +162,7 @@ class CreateInstanceRequest(google.protobuf.message.Message):
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     RESOURCES_SPEC_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
+    METADATA_OPTIONS_FIELD_NUMBER: builtins.int
     BOOT_DISK_SPEC_FIELD_NUMBER: builtins.int
     SECONDARY_DISK_SPECS_FIELD_NUMBER: builtins.int
     LOCAL_DISK_SPECS_FIELD_NUMBER: builtins.int
@@ -218,6 +219,10 @@ class CreateInstanceRequest(google.protobuf.message.Message):
         For example, you may use the metadata in order to provide your public SSH key to the instance.
         For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
         """
+        pass
+    @property
+    def metadata_options(self) -> yandex.cloud.compute.v1.instance_pb2.MetadataOptions:
+        """Options allow user to configure access to instance's metadata"""
         pass
     @property
     def boot_disk_spec(self) -> global___AttachedDiskSpec:
@@ -283,6 +288,7 @@ class CreateInstanceRequest(google.protobuf.message.Message):
         platform_id: typing.Text = ...,
         resources_spec: typing.Optional[global___ResourcesSpec] = ...,
         metadata: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        metadata_options: typing.Optional[yandex.cloud.compute.v1.instance_pb2.MetadataOptions] = ...,
         boot_disk_spec: typing.Optional[global___AttachedDiskSpec] = ...,
         secondary_disk_specs: typing.Optional[typing.Iterable[global___AttachedDiskSpec]] = ...,
         local_disk_specs: typing.Optional[typing.Iterable[global___AttachedLocalDiskSpec]] = ...,
@@ -294,8 +300,8 @@ class CreateInstanceRequest(google.protobuf.message.Message):
         network_settings: typing.Optional[yandex.cloud.compute.v1.instance_pb2.NetworkSettings] = ...,
         placement_policy: typing.Optional[yandex.cloud.compute.v1.instance_pb2.PlacementPolicy] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","network_settings",b"network_settings","placement_policy",b"placement_policy","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","description",b"description","filesystem_specs",b"filesystem_specs","folder_id",b"folder_id","hostname",b"hostname","labels",b"labels","local_disk_specs",b"local_disk_specs","metadata",b"metadata","name",b"name","network_interface_specs",b"network_interface_specs","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","secondary_disk_specs",b"secondary_disk_specs","service_account_id",b"service_account_id","zone_id",b"zone_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","metadata_options",b"metadata_options","network_settings",b"network_settings","placement_policy",b"placement_policy","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec",b"boot_disk_spec","description",b"description","filesystem_specs",b"filesystem_specs","folder_id",b"folder_id","hostname",b"hostname","labels",b"labels","local_disk_specs",b"local_disk_specs","metadata",b"metadata","metadata_options",b"metadata_options","name",b"name","network_interface_specs",b"network_interface_specs","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","secondary_disk_specs",b"secondary_disk_specs","service_account_id",b"service_account_id","zone_id",b"zone_id"]) -> None: ...
 global___CreateInstanceRequest = CreateInstanceRequest
 
 class CreateInstanceMetadata(google.protobuf.message.Message):
@@ -347,6 +353,7 @@ class UpdateInstanceRequest(google.protobuf.message.Message):
     PLATFORM_ID_FIELD_NUMBER: builtins.int
     RESOURCES_SPEC_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
+    METADATA_OPTIONS_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     NETWORK_SETTINGS_FIELD_NUMBER: builtins.int
     PLACEMENT_POLICY_FIELD_NUMBER: builtins.int
@@ -402,6 +409,10 @@ class UpdateInstanceRequest(google.protobuf.message.Message):
         For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
         """
         pass
+    @property
+    def metadata_options(self) -> yandex.cloud.compute.v1.instance_pb2.MetadataOptions:
+        """Options allow user to configure access to instance's metadata"""
+        pass
     service_account_id: typing.Text
     """ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
     To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
@@ -429,13 +440,14 @@ class UpdateInstanceRequest(google.protobuf.message.Message):
         platform_id: typing.Text = ...,
         resources_spec: typing.Optional[global___ResourcesSpec] = ...,
         metadata: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        metadata_options: typing.Optional[yandex.cloud.compute.v1.instance_pb2.MetadataOptions] = ...,
         service_account_id: typing.Text = ...,
         network_settings: typing.Optional[yandex.cloud.compute.v1.instance_pb2.NetworkSettings] = ...,
         placement_policy: typing.Optional[yandex.cloud.compute.v1.instance_pb2.PlacementPolicy] = ...,
         scheduling_policy: typing.Optional[yandex.cloud.compute.v1.instance_pb2.SchedulingPolicy] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["network_settings",b"network_settings","placement_policy",b"placement_policy","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","instance_id",b"instance_id","labels",b"labels","metadata",b"metadata","name",b"name","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","service_account_id",b"service_account_id","update_mask",b"update_mask"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["metadata_options",b"metadata_options","network_settings",b"network_settings","placement_policy",b"placement_policy","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","update_mask",b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","instance_id",b"instance_id","labels",b"labels","metadata",b"metadata","metadata_options",b"metadata_options","name",b"name","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources_spec",b"resources_spec","scheduling_policy",b"scheduling_policy","service_account_id",b"service_account_id","update_mask",b"update_mask"]) -> None: ...
 global___UpdateInstanceRequest = UpdateInstanceRequest
 
 class UpdateInstanceMetadata(google.protobuf.message.Message):

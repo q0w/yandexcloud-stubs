@@ -39,7 +39,7 @@ class ListResourcePresetsRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token. To get the next page of results, set [page_token] to the 
-    [ListResourcePresetsResponse.next_page_token] returned by a previous list request.
+    [ListResourcePresetsResponse.next_page_token] returned by the previous list request.
     """
 
     def __init__(self,

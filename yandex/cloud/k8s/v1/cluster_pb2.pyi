@@ -377,18 +377,23 @@ class MasterEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     INTERNAL_V4_ENDPOINT_FIELD_NUMBER: builtins.int
     EXTERNAL_V4_ENDPOINT_FIELD_NUMBER: builtins.int
+    EXTERNAL_V6_ENDPOINT_FIELD_NUMBER: builtins.int
     internal_v4_endpoint: typing.Text
     """Internal endpoint that can be used to connect to the master from cloud networks."""
 
     external_v4_endpoint: typing.Text
     """External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud)."""
 
+    external_v6_endpoint: typing.Text
+    """External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud)."""
+
     def __init__(self,
         *,
         internal_v4_endpoint: typing.Text = ...,
         external_v4_endpoint: typing.Text = ...,
+        external_v6_endpoint: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["external_v4_endpoint",b"external_v4_endpoint","internal_v4_endpoint",b"internal_v4_endpoint"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["external_v4_endpoint",b"external_v4_endpoint","external_v6_endpoint",b"external_v6_endpoint","internal_v4_endpoint",b"internal_v4_endpoint"]) -> None: ...
 global___MasterEndpoints = MasterEndpoints
 
 class IPAllocationPolicy(google.protobuf.message.Message):

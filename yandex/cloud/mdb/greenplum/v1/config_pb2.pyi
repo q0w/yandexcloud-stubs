@@ -19,28 +19,47 @@ class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     LOG_STATEMENT_UNSPECIFIED: _LogStatement.ValueType  # 0
     NONE: _LogStatement.ValueType  # 1
+    """None statements are logged."""
+
     DDL: _LogStatement.ValueType  # 2
+    """Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value."""
+
     MOD: _LogStatement.ValueType  # 3
+    """Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`."""
+
     ALL: _LogStatement.ValueType  # 4
+    """Logs all statements."""
+
 class LogStatement(_LogStatement, metaclass=_LogStatementEnumTypeWrapper):
     pass
 
 LOG_STATEMENT_UNSPECIFIED: LogStatement.ValueType  # 0
 NONE: LogStatement.ValueType  # 1
+"""None statements are logged."""
+
 DDL: LogStatement.ValueType  # 2
+"""Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value."""
+
 MOD: LogStatement.ValueType  # 3
+"""Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`."""
+
 ALL: LogStatement.ValueType  # 4
+"""Logs all statements."""
+
 global___LogStatement = LogStatement
 
 
 class Resources(google.protobuf.message.Message):
-    """A list of computational resources allocated to a host."""
+    """A list of computational resources allocated to a host.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCE_PRESET_ID_FIELD_NUMBER: builtins.int
     DISK_SIZE_FIELD_NUMBER: builtins.int
     DISK_TYPE_ID_FIELD_NUMBER: builtins.int
     resource_preset_id: typing.Text
     """ID of the preset for computational resources allocated to a host.
+
     Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
     """
 
@@ -60,7 +79,9 @@ class Resources(google.protobuf.message.Message):
 global___Resources = Resources
 
 class ConnectionPoolerConfig(google.protobuf.message.Message):
-    """Route server configuration."""
+    """Route server configuration.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _PoolMode:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -75,7 +96,9 @@ class ConnectionPoolerConfig(google.protobuf.message.Message):
         """Assign server connection to a client for a transaction processing."""
 
     class PoolMode(_PoolMode, metaclass=_PoolModeEnumTypeWrapper):
-        """Route server pool mode."""
+        """Route server pool mode.
+
+        """
         pass
 
     POOL_MODE_UNSPECIFIED: ConnectionPoolerConfig.PoolMode.ValueType  # 0
@@ -95,12 +118,16 @@ class ConnectionPoolerConfig(google.protobuf.message.Message):
     @property
     def size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
+
         Set to zero to disable the limit.
         """
         pass
     @property
     def client_idle_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Server pool idle timeout, in seconds. A server connection closes after it has been idle for the specified duration.
+        """Server pool idle timeout, in seconds.
+
+        A server connection closes after being idle for the specified time.
+
         Set to zero to disable the limit.
         """
         pass
@@ -115,7 +142,9 @@ class ConnectionPoolerConfig(google.protobuf.message.Message):
 global___ConnectionPoolerConfig = ConnectionPoolerConfig
 
 class MasterSubclusterConfig(google.protobuf.message.Message):
-    """Configuration of the master subcluster."""
+    """Configuration of the master subcluster.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
@@ -131,7 +160,9 @@ class MasterSubclusterConfig(google.protobuf.message.Message):
 global___MasterSubclusterConfig = MasterSubclusterConfig
 
 class SegmentSubclusterConfig(google.protobuf.message.Message):
-    """Configuration of the segment subcluster."""
+    """Configuration of the segment subcluster.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
@@ -157,48 +188,62 @@ class GreenplumConfig6_17(google.protobuf.message.Message):
     GP_WORKFILE_COMPRESSION_FIELD_NUMBER: builtins.int
     @property
     def max_connections(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Maximum number of inbound connections on master segment"""
+        """Maximum number of inbound connections on master segment."""
         pass
     @property
     def max_slot_wal_keep_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-        https://www.postgresql.org/docs/current/runtime-config-replication.html
+        """The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+        More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
         """
         pass
     @property
     def gp_workfile_limit_per_segment(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-        The default value is 0, which means a limit is not enforced.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+        """The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+        The default value is 0 (no limit).
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
         """
         pass
     @property
     def gp_workfile_limit_per_query(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-        The default value is 0, which means a limit is not enforced.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+        """The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+        The default value is 0 (no limit).
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
         """
         pass
     @property
     def gp_workfile_limit_files_per_query(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-        Spill files are created when executing a query that requires more memory than it is allocated.
-        The current query is terminated when the limit is exceeded.
-        Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-        Default value is 10000
+        """The maximum number of temporary spill files allowed per query at each segment.
+
+        Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+        The current query is terminated if the limit is exceeded.
+
+        Set to zero to disable the limit.
+
+        Master session reloads if the parameter changes.
+
+        Default value is 10000.
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
         """
         pass
     @property
     def max_prepared_transactions(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-        https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+        """The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+        More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
         """
         pass
     @property
     def gp_workfile_compression(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+        """Whether the spill files are compressed or not.
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
         """
         pass
     def __init__(self,
@@ -228,67 +273,86 @@ class GreenplumConfig6_19(google.protobuf.message.Message):
     LOG_STATEMENT_FIELD_NUMBER: builtins.int
     @property
     def max_connections(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Maximum number of inbound connections on master segment"""
+        """Maximum number of inbound connections on master segment."""
         pass
     @property
     def max_slot_wal_keep_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
-        https://www.postgresql.org/docs/current/runtime-config-replication.html
+        """The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
+
+        More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
         """
         pass
     @property
     def gp_workfile_limit_per_segment(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
-        The default value is 0, which means a limit is not enforced.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+        """The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+
+        The default value is 0 (no limit).
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment).
         """
         pass
     @property
     def gp_workfile_limit_per_query(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
-        The default value is 0, which means a limit is not enforced.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+        """The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
+
+        The default value is 0 (no limit).
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query).
         """
         pass
     @property
     def gp_workfile_limit_files_per_query(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
-        Spill files are created when executing a query that requires more memory than it is allocated.
-        The current query is terminated when the limit is exceeded.
-        Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
-        Default value is 10000
+        """The maximum number of temporary spill files allowed per query at each segment.
+
+        Spill files, also known as workfiles, are created when a query requires more memory than there is allocated.
+
+        The current query is terminated if the limit is exceeded.
+
+        Set to zero to disable the limit.
+
+        Master session reloads if the parameter changes.
+
+        Default value is 10000.
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query).
         """
         pass
     @property
     def max_prepared_transactions(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum number of transactions that can be in the "prepared" state simultaneously
-        https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+        """The maximum number of transactions that can be in the `prepared` state simultaneously.
+
+        More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html).
         """
         pass
     @property
     def gp_workfile_compression(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
-        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+        """Whether the spill files are compressed or not.
+
+        More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression).
         """
         pass
     @property
     def max_statement_mem(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
-        Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
-        (seghost_physical_memory) / (average_number_concurrent_queries)
-        When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
-        https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
-        Default value is 2097152000 (2000MB)
+        """The maximum memory limit for a query, in bytes.
+
+        Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
+
+        Taking into account the configuration of a single segment host, calculate [max_statement_mem] as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+
+        When changing both [max_statement_mem] and `statement_mem`, [max_statement_mem] must be changed first, or listed first in the `postgresql.conf` file.
+
+        Default value is 2097152000 (2000 MB).
+
+        More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem).
         in bytes
         """
         pass
     log_statement: global___LogStatement.ValueType
-    """Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
-    MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
-    PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
-    https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement
-    Default value is ddl
+    """Logged SQL statements.
+
+    `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
+
+    More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement).
     """
 
     def __init__(self,
@@ -308,23 +372,22 @@ class GreenplumConfig6_19(google.protobuf.message.Message):
 global___GreenplumConfig6_19 = GreenplumConfig6_19
 
 class GreenplumConfigSet6_17(google.protobuf.message.Message):
+    """Configuration settings version 6.17"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___GreenplumConfig6_17:
-        """Effective settings for a Greenplum (a combination of settings defined
-        in [user_config] and [default_config]).
-        """
+        """Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_17.user_config] and [GreenplumConfigSet6_17.default_config])."""
         pass
     @property
     def user_config(self) -> global___GreenplumConfig6_17:
-        """User-defined settings for a Greenplum."""
+        """User-defined settings for a Greenplum® cluster."""
         pass
     @property
     def default_config(self) -> global___GreenplumConfig6_17:
-        """Default configuration for a Greenplum."""
+        """Default configuration for a Greenplum® cluster."""
         pass
     def __init__(self,
         *,
@@ -337,23 +400,22 @@ class GreenplumConfigSet6_17(google.protobuf.message.Message):
 global___GreenplumConfigSet6_17 = GreenplumConfigSet6_17
 
 class GreenplumConfigSet6_19(google.protobuf.message.Message):
+    """Configuration settings version 6.19"""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___GreenplumConfig6_19:
-        """Effective settings for a Greenplum (a combination of settings defined
-        in [user_config] and [default_config]).
-        """
+        """Effective settings for a Greenplum® cluster (a combination of settings defined in [GreenplumConfigSet6_19.user_config] and [GreenplumConfigSet6_19.default_config])."""
         pass
     @property
     def user_config(self) -> global___GreenplumConfig6_19:
-        """User-defined settings for a Greenplum."""
+        """User-defined settings for a Greenplum® cluster."""
         pass
     @property
     def default_config(self) -> global___GreenplumConfig6_19:
-        """Default configuration for a Greenplum."""
+        """Default configuration for a Greenplum® cluster."""
         pass
     def __init__(self,
         *,
@@ -372,17 +434,15 @@ class ConnectionPoolerConfigSet(google.protobuf.message.Message):
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___ConnectionPoolerConfig:
-        """Effective settings for a odyssey (a combination of settings defined
-        in [user_config] and [default_config]).
-        """
+        """Effective settings for an Odyssey® pooler (a combination of settings defined in [ConnectionPoolerConfigSet.user_config] and [ConnectionPoolerConfigSet.default_config])."""
         pass
     @property
     def user_config(self) -> global___ConnectionPoolerConfig:
-        """User-defined settings for a odyssey."""
+        """User-defined settings for an Odyssey® pooler."""
         pass
     @property
     def default_config(self) -> global___ConnectionPoolerConfig:
-        """Default configuration for a odyssey."""
+        """Default configuration for an Odyssey® pooler."""
         pass
     def __init__(self,
         *,

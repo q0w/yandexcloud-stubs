@@ -43,7 +43,7 @@ class ListUsersRequest(google.protobuf.message.Message):
     """The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListUsersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests."""
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set [page_token] to the [ListUsersResponse.next_page_token] returned by a previous list request."""
+    """Page token. To get the next page of results, set [page_token] to the [ListUsersResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,

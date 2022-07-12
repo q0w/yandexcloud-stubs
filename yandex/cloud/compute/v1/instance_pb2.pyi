@@ -38,6 +38,31 @@ IPV6: IpVersion.ValueType  # 2
 global___IpVersion = IpVersion
 
 
+class _MetadataOption:
+    ValueType = typing.NewType('ValueType', builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+class _MetadataOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MetadataOption.ValueType], builtins.type):
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    METADATA_OPTION_UNSPECIFIED: _MetadataOption.ValueType  # 0
+    ENABLED: _MetadataOption.ValueType  # 1
+    """Option is enabled"""
+
+    DISABLED: _MetadataOption.ValueType  # 2
+    """Option is disabled"""
+
+class MetadataOption(_MetadataOption, metaclass=_MetadataOptionEnumTypeWrapper):
+    pass
+
+METADATA_OPTION_UNSPECIFIED: MetadataOption.ValueType  # 0
+ENABLED: MetadataOption.ValueType  # 1
+"""Option is enabled"""
+
+DISABLED: MetadataOption.ValueType  # 2
+"""Option is disabled"""
+
+global___MetadataOption = MetadataOption
+
+
 class Instance(google.protobuf.message.Message):
     """An Instance resource. For more information, see [Instances](/docs/compute/concepts/vm)."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -149,6 +174,7 @@ class Instance(google.protobuf.message.Message):
     RESOURCES_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     METADATA_FIELD_NUMBER: builtins.int
+    METADATA_OPTIONS_FIELD_NUMBER: builtins.int
     BOOT_DISK_FIELD_NUMBER: builtins.int
     SECONDARY_DISKS_FIELD_NUMBER: builtins.int
     LOCAL_DISKS_FIELD_NUMBER: builtins.int
@@ -197,6 +223,10 @@ class Instance(google.protobuf.message.Message):
         For example, you may use the metadata in order to provide your public SSH key to the instance.
         For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
         """
+        pass
+    @property
+    def metadata_options(self) -> global___MetadataOptions:
+        """Options allow user to configure access to instance's metadata"""
         pass
     @property
     def boot_disk(self) -> global___AttachedDisk:
@@ -255,6 +285,7 @@ class Instance(google.protobuf.message.Message):
         resources: typing.Optional[global___Resources] = ...,
         status: global___Instance.Status.ValueType = ...,
         metadata: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        metadata_options: typing.Optional[global___MetadataOptions] = ...,
         boot_disk: typing.Optional[global___AttachedDisk] = ...,
         secondary_disks: typing.Optional[typing.Iterable[global___AttachedDisk]] = ...,
         local_disks: typing.Optional[typing.Iterable[global___AttachedLocalDisk]] = ...,
@@ -266,8 +297,8 @@ class Instance(google.protobuf.message.Message):
         network_settings: typing.Optional[global___NetworkSettings] = ...,
         placement_policy: typing.Optional[global___PlacementPolicy] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["boot_disk",b"boot_disk","created_at",b"created_at","network_settings",b"network_settings","placement_policy",b"placement_policy","resources",b"resources","scheduling_policy",b"scheduling_policy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boot_disk",b"boot_disk","created_at",b"created_at","description",b"description","filesystems",b"filesystems","folder_id",b"folder_id","fqdn",b"fqdn","id",b"id","labels",b"labels","local_disks",b"local_disks","metadata",b"metadata","name",b"name","network_interfaces",b"network_interfaces","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources",b"resources","scheduling_policy",b"scheduling_policy","secondary_disks",b"secondary_disks","service_account_id",b"service_account_id","status",b"status","zone_id",b"zone_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["boot_disk",b"boot_disk","created_at",b"created_at","metadata_options",b"metadata_options","network_settings",b"network_settings","placement_policy",b"placement_policy","resources",b"resources","scheduling_policy",b"scheduling_policy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boot_disk",b"boot_disk","created_at",b"created_at","description",b"description","filesystems",b"filesystems","folder_id",b"folder_id","fqdn",b"fqdn","id",b"id","labels",b"labels","local_disks",b"local_disks","metadata",b"metadata","metadata_options",b"metadata_options","name",b"name","network_interfaces",b"network_interfaces","network_settings",b"network_settings","placement_policy",b"placement_policy","platform_id",b"platform_id","resources",b"resources","scheduling_policy",b"scheduling_policy","secondary_disks",b"secondary_disks","service_account_id",b"service_account_id","status",b"status","zone_id",b"zone_id"]) -> None: ...
 global___Instance = Instance
 
 class Resources(google.protobuf.message.Message):
@@ -609,7 +640,7 @@ global___NetworkSettings = NetworkSettings
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class HostAffinityRule(google.protobuf.message.Message):
-        """Affinitity definition"""
+        """Affinity definition"""
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
         class _Operator:
             ValueType = typing.NewType('ValueType', builtins.int)
@@ -663,3 +694,31 @@ class PlacementPolicy(google.protobuf.message.Message):
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["host_affinity_rules",b"host_affinity_rules","placement_group_id",b"placement_group_id"]) -> None: ...
 global___PlacementPolicy = PlacementPolicy
+
+class MetadataOptions(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    GCE_HTTP_ENDPOINT_FIELD_NUMBER: builtins.int
+    AWS_V1_HTTP_ENDPOINT_FIELD_NUMBER: builtins.int
+    GCE_HTTP_TOKEN_FIELD_NUMBER: builtins.int
+    AWS_V1_HTTP_TOKEN_FIELD_NUMBER: builtins.int
+    gce_http_endpoint: global___MetadataOption.ValueType
+    """Enabled access to GCE flavored metadata"""
+
+    aws_v1_http_endpoint: global___MetadataOption.ValueType
+    """Enabled access to AWS flavored metadata (IMDSv1)"""
+
+    gce_http_token: global___MetadataOption.ValueType
+    """Enabled access to IAM credentials with GCE flavored metadata"""
+
+    aws_v1_http_token: global___MetadataOption.ValueType
+    """Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)"""
+
+    def __init__(self,
+        *,
+        gce_http_endpoint: global___MetadataOption.ValueType = ...,
+        aws_v1_http_endpoint: global___MetadataOption.ValueType = ...,
+        gce_http_token: global___MetadataOption.ValueType = ...,
+        aws_v1_http_token: global___MetadataOption.ValueType = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["aws_v1_http_endpoint",b"aws_v1_http_endpoint","aws_v1_http_token",b"aws_v1_http_token","gce_http_endpoint",b"gce_http_endpoint","gce_http_token",b"gce_http_token"]) -> None: ...
+global___MetadataOptions = MetadataOptions

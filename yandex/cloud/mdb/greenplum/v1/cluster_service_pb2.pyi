@@ -24,7 +24,8 @@ class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Greenplum® Cluster resource to return.
+    """ID of the Greenplum® cluster resource to return.
+
     To get the cluster ID, use a [ClusterService.List] request.
     """
 
@@ -43,25 +44,28 @@ class ListClustersRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     folder_id: typing.Text
     """ID of the folder to list Greenplum® clusters in.
+
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token] returned by the previous list request."""
 
     filter: typing.Text
     """A filter expression that filters resources listed in the response.
+
     The expression must specify:
+
     1. The field name. Currently you can only use filtering with the [Cluster.name] field.
+
     2. An `=` operator.
+
     3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
     """
 
@@ -81,13 +85,14 @@ class ListClustersResponse(google.protobuf.message.Message):
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def clusters(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster]:
-        """List of Greenplum Cluster resources."""
+        """List of Greenplum® cluster resources."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClustersRequest.page_size], use the [next_page_token] as the value
-    for the [ListClustersRequest.page_token] parameter in the next list request. Each subsequent
-    list request will have its own [next_page_token] to continue paging through the results.
+    """This token allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClustersRequest.page_size], use the [next_page_token] as the value for the [ListClustersRequest.page_token] parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -136,15 +141,15 @@ class CreateClusterRequest(google.protobuf.message.Message):
     """ID of the folder to create the Greenplum® cluster in."""
 
     name: typing.Text
-    """Name of the Greenplum® cluster. The name must be unique within the folder. Maximum 63 characters."""
+    """Name of the Greenplum® cluster. The name must be unique within the folder."""
 
     description: typing.Text
     """Description of the Greenplum® cluster."""
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-        For example, "project":"mvp" or "source":"dictionary".
+        """Custom labels for the Greenplum® cluster as `key:value` pairs.
+        For example, `"project":"mvp"` or `"source":"dictionary"`.
         """
         pass
     environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType
@@ -175,7 +180,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
     """Owner user name."""
 
     user_password: typing.Text
-    """Owner user password. Must be 8-128 characters long"""
+    """Owner user password."""
 
     network_id: typing.Text
     """ID of the network to create the cluster in."""
@@ -185,7 +190,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
         """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Whether or not cluster is protected from being deleted."""
+    """Determines whether the cluster is protected from being deleted."""
 
     @property
     def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -193,10 +198,12 @@ class CreateClusterRequest(google.protobuf.message.Message):
         pass
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
-        """Window of maintenance operations."""
+        """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
         pass
     @property
-    def config_spec(self) -> global___ConfigSpec: ...
+    def config_spec(self) -> global___ConfigSpec:
+        """Configuration of Greenplum® and Odyssey®."""
+        pass
     def __init__(self,
         *,
         folder_id: typing.Text = ...,
@@ -224,7 +231,9 @@ class CreateClusterRequest(google.protobuf.message.Message):
 global___CreateClusterRequest = CreateClusterRequest
 
 class ConfigSpec(google.protobuf.message.Message):
-    """Configuration of greenplum and odyssey"""
+    """Configuration of Greenplum® and Odyssey®.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     GREENPLUM_CONFIG_6_17_FIELD_NUMBER: builtins.int
     GREENPLUM_CONFIG_6_19_FIELD_NUMBER: builtins.int
@@ -235,7 +244,7 @@ class ConfigSpec(google.protobuf.message.Message):
     def greenplum_config_6_19(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfig6_19: ...
     @property
     def pool(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.ConnectionPoolerConfig:
-        """Odyssey pool settings"""
+        """Odyssey® pool settings."""
         pass
     def __init__(self,
         *,
@@ -290,24 +299,24 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     CONFIG_SPEC_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Greenplum® Cluster resource to update.
+    """ID of the Greenplum® cluster resource to update.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
 
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
-        """Field mask that specifies which fields of the Greenplum® Cluster resource should be updated."""
+        """Field mask that specifies which fields of the Greenplum® cluster resource should be updated."""
         pass
     description: typing.Text
     """New description of the Greenplum® cluster."""
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-        For example, "project":"mvp" or "source":"dictionary".
+        """Custom labels for the Greenplum® cluster as `key:value` pairs.
+        For example, `"project":"mvp"` or `"source":"dictionary"`.
 
-        The new set of labels will completely replace the old ones. To add a label, request the current
-        set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
+        The new set of labels completely replaces the old one.
+        To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
         """
         pass
     name: typing.Text
@@ -315,7 +324,7 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
     @property
     def config(self) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig:
-        """Greenplum® cluster configuration."""
+        """The Greenplum® cluster configuration."""
         pass
     @property
     def master_config(self) -> global___MasterSubclusterConfigSpec:
@@ -326,18 +335,18 @@ class UpdateClusterRequest(google.protobuf.message.Message):
         """Configuration of the Greenplum® segment subcluster."""
         pass
     user_password: typing.Text
-    """Owner user password. Must be 8-128 characters long"""
+    """Owner user password."""
 
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
-        """Window of maintenance operations."""
+        """The Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
         pass
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
         """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Whether or not cluster is protected from being deleted."""
+    """Determines whether the cluster is protected from being deleted."""
 
     @property
     def config_spec(self) -> global___ConfigSpec:
@@ -367,7 +376,7 @@ class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Greenplum® Cluster resource that is being updated."""
+    """ID of the Greenplum® cluster resource that is being updated."""
 
     def __init__(self,
         *,
@@ -466,18 +475,16 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the Greenplum® Cluster resource to list operations for."""
+    """ID of the Greenplum® cluster resource to list operations for."""
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -497,10 +504,11 @@ class ListClusterOperationsResponse(google.protobuf.message.Message):
         """List of Operation resources for the specified Greenplum® cluster."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value
-    for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
+    """This token allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -518,19 +526,18 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
     """ID of the Greenplum® cluster.
+
     To get the Greenplum® cluster ID use a [ClusterService.List] request.
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -550,10 +557,11 @@ class ListClusterHostsResponse(google.protobuf.message.Message):
         """Requested list of hosts for the cluster."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value
-    for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
+    """This token allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -565,7 +573,9 @@ class ListClusterHostsResponse(google.protobuf.message.Message):
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
 class MasterSubclusterConfigSpec(google.protobuf.message.Message):
-    """Configuration of the master subcluster."""
+    """Configuration of the master subcluster.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
@@ -581,7 +591,9 @@ class MasterSubclusterConfigSpec(google.protobuf.message.Message):
 global___MasterSubclusterConfigSpec = MasterSubclusterConfigSpec
 
 class SegmentSubclusterConfigSpec(google.protobuf.message.Message):
-    """Configuration of the segment subcluster."""
+    """Configuration of the segment subcluster.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
@@ -605,11 +617,13 @@ class ListClusterLogsResponse(google.protobuf.message.Message):
         """Requested log records."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value
-    for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
-    This value is interchangeable with the [StreamLogRecord.next_record_token] from StreamLogs method.
+    """This token allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
+
+    This value is interchangeable with the [StreamLogRecord.next_record_token] from [StreamLogs] method.
     """
 
     def __init__(self,
@@ -639,7 +653,7 @@ class LogRecord(google.protobuf.message.Message):
     MESSAGE_FIELD_NUMBER: builtins.int
     @property
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
+        """Time when the log was recorded."""
         pass
     @property
     def message(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
@@ -671,7 +685,6 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
         """Greenplum® pooler logs."""
 
     class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        """Type of the service to request logs about."""
         pass
 
     SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest.ServiceType.ValueType  # 0
@@ -695,12 +708,13 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     FILTER_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
     """ID of the Greenplum® cluster to request logs for.
+
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
 
     @property
     def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """Columns from logs table to request.
+        """Columns from log table to request.
         If no columns are specified, entire log records are returned.
         """
         pass
@@ -709,36 +723,38 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
+        """Start timestamp for the logs request."""
         pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
+        """End timestamp for the logs request."""
         pass
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request."""
 
     always_next_page_token: builtins.bool
-    """Always return `next_page_token`, even if the current page is empty."""
+    """The service always returns a [ListClusterLogsResponse.next_page_token], even if the current page is empty."""
 
     filter: typing.Text
     """A filter expression that filters resources listed in the response.
+
     The expression must specify:
-    1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
-    [LogRecord.logs.message.error_severity] (for `GREENPLUM` service) and [LogRecord.logs.message.level] (for `GREENPLUM_POOLER` service) fields.
+
+    1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for `GREENPLUM` service) and [LogRecord.logs.message.level] (for `GREENPLUM_POOLER` service) fields.
+
     2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-    3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+
+    3. A value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+
     Examples of a filter:
-    * `message.hostname='node1.db.cloud.yandex.net'`
-    * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+    * `message.hostname='node1.db.cloud.yandex.net'`;
+    * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
     """
 
     def __init__(self,
@@ -764,19 +780,18 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
     """ID of the Greenplum® cluster.
+
     To get the Greenplum® cluster ID use a [ClusterService.List] request.
     """
 
     page_size: builtins.int
-    """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token]
-    that can be used to get the next page of results in subsequent list requests.
+    """The maximum number of results per page to return.
+
+    If the number of available results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
 
     page_token: typing.Text
-    """Page token.  To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token]
-    returned by a previous list request.
-    """
+    """Page token. To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous list request."""
 
     def __init__(self,
         *,
@@ -796,10 +811,11 @@ class StreamLogRecord(google.protobuf.message.Message):
         """One of the requested log records."""
         pass
     next_record_token: typing.Text
-    """This token allows you to continue streaming logs starting from the exact
-    same record. To continue streaming, specify value of `next_record_token`
-    as value for `record_token` parameter in the next StreamLogs request.
-    This value is interchangeable with `next_page_token` from ListLogs method.
+    """This token allows you to continue streaming logs starting from the exact same record.
+
+    To do that, specify value of [next_record_token] as the value for [StreamLogs.record_token] parameter in the next [StreamLogs] request.
+
+    This value is interchangeable with [ListLogs.next_page_token] from [ListLogs] method.
     """
 
     def __init__(self,
@@ -848,13 +864,17 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     RECORD_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """Required. ID of the Greenplum cluster."""
+    """ID of the Greenplum® cluster."""
 
     @property
     def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """Columns from logs table to get in the response."""
+        """Columns from log table to get in the response.
+        If no columns are specified, entire log records are returned.
+        """
         pass
     service_type: global___StreamClusterLogsRequest.ServiceType.ValueType
+    """Type of the service to request logs about."""
+
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start timestamp for the logs request."""
@@ -862,25 +882,30 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End timestamp for the logs request.
-        If this field is not set, all existing logs will be sent and then the new ones as
-        they appear. In essence it has 'tail -f' semantics.
+
+        If this field is not set, all existing logs are sent as well as the new ones as they appear.
+
+        In essence it has `tail -f` semantics.
         """
         pass
     record_token: typing.Text
-    """Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
-    request to start streaming from next log record.
-    """
+    """Record token. Set [record_token] to the [StreamLogs.next_record_token] returned by the previous [StreamLogs] request to start streaming from the next log record."""
 
     filter: typing.Text
     """A filter expression that filters resources listed in the response.
+
     The expression must specify:
-    1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
-    [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
+
+    1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
+
     2. An `=` operator.
-    3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+
+    3. A value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+
     Examples of a filter:
-    `message.hostname='node1.db.cloud.yandex.net'`
-    `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+    * `message.hostname='node1.db.cloud.yandex.net'`;
+    * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
     """
 
     def __init__(self,
@@ -906,10 +931,11 @@ class ListClusterBackupsResponse(google.protobuf.message.Message):
         """List of Greenplum® backups."""
         pass
     next_page_token: typing.Text
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value
-    for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
+    """This token allows you to get the next page of results for list requests.
+
+    If the number of results is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
+
+    Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
 
     def __init__(self,
@@ -952,6 +978,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
     backup_id: typing.Text
     """ID of the backup to create a cluster from.
+
     To get the backup ID, use a [ClusterService.ListBackups] request.
     """
 
@@ -966,8 +993,8 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
-        """Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 per resource.
-        For example, "project": "mvp" or "source": "dictionary".
+        """Custom labels for the Greenplum® cluster as `key:value` pairs.
+        For example, "project":"mvp" or "source":"dictionary".
         """
         pass
     environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType
@@ -975,7 +1002,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
     @property
     def config(self) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumRestoreConfig:
-        """Greenplum® cluster config"""
+        """Greenplum® cluster config."""
         pass
     @property
     def master_resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
@@ -990,21 +1017,21 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
-        """User security groups"""
+        """User security groups."""
         pass
     deletion_protection: builtins.bool
-    """Deletion Protection inhibits deletion of the cluster"""
+    """Determines whether the cluster is protected from being deleted."""
 
     @property
     def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
         """Host groups to place VMs of cluster on."""
         pass
     placement_group_id: typing.Text
-    """ID of placement group"""
+    """ID of the placement group."""
 
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
-        """Window of maintenance operations."""
+        """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
         pass
     def __init__(self,
         *,

@@ -27,19 +27,17 @@ class Backup(google.protobuf.message.Message):
 
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
-        (i.e. when the backup operation was completed).
-        """
+        """Time when the backup operation was completed."""
         pass
     source_cluster_id: typing.Text
-    """ID of the PostgreSQL cluster that the backup was created for."""
+    """ID of the Greenplum® cluster that the backup was created for."""
 
     @property
     def started_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the backup operation was started."""
         pass
     size: builtins.int
-    """Size of backup in bytes"""
+    """Size of the backup in bytes."""
 
     def __init__(self,
         *,

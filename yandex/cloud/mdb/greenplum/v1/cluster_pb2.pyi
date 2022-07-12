@@ -26,28 +26,20 @@ class Cluster(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         ENVIRONMENT_UNSPECIFIED: Cluster._Environment.ValueType  # 0
         PRODUCTION: Cluster._Environment.ValueType  # 1
-        """Stable environment with a conservative update policy:
-        only hotfixes are applied during regular maintenance.
-        """
+        """Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance."""
 
         PRESTABLE: Cluster._Environment.ValueType  # 2
-        """Environment with more aggressive update policy: new versions
-        are rolled out irrespective of backward compatibility.
-        """
+        """Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility."""
 
     class Environment(_Environment, metaclass=_EnvironmentEnumTypeWrapper):
         pass
 
     ENVIRONMENT_UNSPECIFIED: Cluster.Environment.ValueType  # 0
     PRODUCTION: Cluster.Environment.ValueType  # 1
-    """Stable environment with a conservative update policy:
-    only hotfixes are applied during regular maintenance.
-    """
+    """Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance."""
 
     PRESTABLE: Cluster.Environment.ValueType  # 2
-    """Environment with more aggressive update policy: new versions
-    are rolled out irrespective of backward compatibility.
-    """
+    """Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility."""
 
 
     class _Health:
@@ -119,7 +111,9 @@ class Cluster(google.protobuf.message.Message):
         """Cluster is starting."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        """Current state of the cluster."""
+        """Current state of the cluster.
+
+        """
         pass
 
     STATUS_UNKNOWN: Cluster.Status.ValueType  # 0
@@ -186,7 +180,7 @@ class Cluster(google.protobuf.message.Message):
     CLUSTER_CONFIG_FIELD_NUMBER: builtins.int
     id: typing.Text
     """ID of the Greenplum® cluster.
-    This ID is assigned by the platform at the time of cluster creation.
+    This ID is assigned by the platform at the moment of cluster creation.
     """
 
     folder_id: typing.Text
@@ -194,11 +188,11 @@ class Cluster(google.protobuf.message.Message):
 
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """Cluster creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
+        """Time when the cluster was created."""
         pass
     name: typing.Text
     """Name of the Greenplum® cluster.
-    The name is unique within the folder and is 1-63 characters long.
+    The name is unique within the folder.
     """
 
     @property
@@ -206,7 +200,7 @@ class Cluster(google.protobuf.message.Message):
         """Greenplum® cluster configuration."""
         pass
     description: typing.Text
-    """Description of the Greenplum® cluster. 0-256 characters long."""
+    """Description of the Greenplum® cluster."""
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
@@ -247,7 +241,7 @@ class Cluster(google.protobuf.message.Message):
 
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
-        """Window of maintenance operations."""
+        """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
         pass
     @property
     def planned_operation(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceOperation:
@@ -261,7 +255,7 @@ class Cluster(google.protobuf.message.Message):
     """Owner user name."""
 
     deletion_protection: builtins.bool
-    """Whether or not cluster is protected from being deleted."""
+    """Determines whether the cluster is protected from being deleted."""
 
     @property
     def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
@@ -269,7 +263,7 @@ class Cluster(google.protobuf.message.Message):
         pass
     @property
     def cluster_config(self) -> global___ClusterConfigSet:
-        """Greenplum and Odyssey configuration;"""
+        """Greenplum® and Odyssey® configuration."""
         pass
     def __init__(self,
         *,
@@ -313,7 +307,7 @@ class ClusterConfigSet(google.protobuf.message.Message):
     def greenplum_config_set_6_19(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfigSet6_19: ...
     @property
     def pool(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.ConnectionPoolerConfigSet:
-        """Odyssey pool settings"""
+        """Odyssey® pool settings."""
         pass
     def __init__(self,
         *,
@@ -351,7 +345,9 @@ class Monitoring(google.protobuf.message.Message):
 global___Monitoring = Monitoring
 
 class GreenplumConfig(google.protobuf.message.Message):
-    """Greenplum® cluster configuration."""
+    """Greenplum® cluster configuration.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     VERSION_FIELD_NUMBER: builtins.int
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
@@ -376,12 +372,10 @@ class GreenplumConfig(google.protobuf.message.Message):
     """
 
     subnet_id: typing.Text
-    """ID of the subnet the cluster belongs to. This subnet should be a part
-    of the cloud network the cluster belongs to (see [Cluster.network_id]).
-    """
+    """ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id])."""
 
     assign_public_ip: builtins.bool
-    """Whether or not the cluster has a public IP address.
+    """Determines whether the cluster has a public IP address.
 
     After the cluster has been created, this setting cannot be changed.
     """
@@ -400,7 +394,9 @@ class GreenplumConfig(google.protobuf.message.Message):
 global___GreenplumConfig = GreenplumConfig
 
 class Access(google.protobuf.message.Message):
-    """Greenplum® cluster access options."""
+    """Greenplum® cluster access options.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     DATA_LENS_FIELD_NUMBER: builtins.int
     WEB_SQL_FIELD_NUMBER: builtins.int
@@ -412,7 +408,7 @@ class Access(google.protobuf.message.Message):
     """Allows SQL queries to the cluster databases from the management console."""
 
     data_transfer: builtins.bool
-    """Allow access for DataTransfer."""
+    """Allows access for DataTransfer."""
 
     def __init__(self,
         *,
@@ -440,24 +436,25 @@ class GreenplumRestoreConfig(google.protobuf.message.Message):
         pass
     zone_id: typing.Text
     """ID of the availability zone where the host resides.
+
     To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
     """
 
     subnet_id: typing.Text
-    """ID of the subnet that the host should belong to. This subnet should be a part
-    of the network that the cluster belongs to.
+    """ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
     The ID of the network is set in the field [Cluster.network_id].
     """
 
     assign_public_ip: builtins.bool
-    """Whether the host should get a public IP address on creation.
+    """Determines whether the host should get a public IP address on creation.
 
-    After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-    a public IP to a host without one, recreate the host with [assign_public_ip] set as needed.
+    After a host has been created, this setting cannot be changed.
+
+    To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assign_public_ip] set as needed.
 
     Possible values:
-    * false - don't assign a public IP to the master hosts.
-    * true - the master hosts should have a public IP address.
+    * `false` - do not assign a public IP to the master host.
+    * `true` - assign a public IP to the master host.
     """
 
     def __init__(self,
@@ -477,7 +474,7 @@ class RestoreResources(google.protobuf.message.Message):
     RESOURCE_PRESET_ID_FIELD_NUMBER: builtins.int
     DISK_SIZE_FIELD_NUMBER: builtins.int
     resource_preset_id: typing.Text
-    """ID of the preset for computational resources available to a host (CPU, memory etc.)."""
+    """ID of the preset for computational resources available to a host (CPU, memory, etc.)."""
 
     disk_size: builtins.int
     """Volume of the storage available to a host."""

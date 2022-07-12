@@ -74,7 +74,7 @@ class ListClustersRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token]
-    returned by a previous list request.
+    returned by the previous list request.
     """
 
     filter: typing.Text
@@ -799,7 +799,7 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token. To get the next page of results, set [page_token] to the
-    [ListClusterLogsResponse.next_page_token] returned by a previous list request.
+    [ListClusterLogsResponse.next_page_token] returned by the previous list request.
     """
 
     always_next_page_token: builtins.bool
@@ -966,7 +966,7 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token.  To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token]
-    returned by a previous list request.
+    returned by the previous list request.
     """
 
     def __init__(self,
@@ -1019,7 +1019,7 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token.  To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token]
-    returned by a previous list request.
+    returned by the previous list request.
     """
 
     def __init__(self,
@@ -1072,7 +1072,7 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
 
     page_token: typing.Text
     """Page token.  To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token]
-    returned by a previous list request.
+    returned by the previous list request.
     """
 
     def __init__(self,

@@ -361,7 +361,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
 
     @property
     def master_spec(self) -> global___MasterSpec:
-        """IP allocation policy of the Kubernetes cluster."""
+        """Master specification of the Kubernetes cluster."""
         pass
     @property
     def ip_allocation_policy(self) -> yandex.cloud.k8s.v1.cluster_pb2.IPAllocationPolicy:
@@ -691,6 +691,7 @@ class RegionalMasterSpec(google.protobuf.message.Message):
     REGION_ID_FIELD_NUMBER: builtins.int
     LOCATIONS_FIELD_NUMBER: builtins.int
     EXTERNAL_V4_ADDRESS_SPEC_FIELD_NUMBER: builtins.int
+    EXTERNAL_V6_ADDRESS_SPEC_FIELD_NUMBER: builtins.int
     region_id: typing.Text
     """ID of the availability zone where the master resides."""
 
@@ -702,14 +703,19 @@ class RegionalMasterSpec(google.protobuf.message.Message):
     def external_v4_address_spec(self) -> global___ExternalAddressSpec:
         """Specify to allocate a static public IP for the master."""
         pass
+    @property
+    def external_v6_address_spec(self) -> global___ExternalAddressSpec:
+        """Specification of parameters for external IPv6 networking."""
+        pass
     def __init__(self,
         *,
         region_id: typing.Text = ...,
         locations: typing.Optional[typing.Iterable[global___MasterLocation]] = ...,
         external_v4_address_spec: typing.Optional[global___ExternalAddressSpec] = ...,
+        external_v6_address_spec: typing.Optional[global___ExternalAddressSpec] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["external_v4_address_spec",b"external_v4_address_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["external_v4_address_spec",b"external_v4_address_spec","locations",b"locations","region_id",b"region_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["external_v4_address_spec",b"external_v4_address_spec","external_v6_address_spec",b"external_v6_address_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["external_v4_address_spec",b"external_v4_address_spec","external_v6_address_spec",b"external_v6_address_spec","locations",b"locations","region_id",b"region_id"]) -> None: ...
 global___RegionalMasterSpec = RegionalMasterSpec
 
 class InternalAddressSpec(google.protobuf.message.Message):
@@ -727,8 +733,15 @@ global___InternalAddressSpec = InternalAddressSpec
 
 class ExternalAddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    ADDRESS_FIELD_NUMBER: builtins.int
+    address: typing.Text
+    """IP address."""
+
     def __init__(self,
+        *,
+        address: typing.Text = ...,
         ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address",b"address"]) -> None: ...
 global___ExternalAddressSpec = ExternalAddressSpec
 
 class MasterLocation(google.protobuf.message.Message):

@@ -13,7 +13,7 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ResourcePreset(google.protobuf.message.Message):
-    """A preset of resources for hardware configuration of Greenplum hosts."""
+    """A preset of resources for hardware configuration of Greenplum® hosts."""
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     class _Type:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -22,20 +22,20 @@ class ResourcePreset(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TYPE_UNSPECIFIED: ResourcePreset._Type.ValueType  # 0
         MASTER: ResourcePreset._Type.ValueType  # 1
-        """Greenplum master host."""
+        """Greenplum® master host."""
 
         SEGMENT: ResourcePreset._Type.ValueType  # 2
-        """Greenplum segment host."""
+        """Greenplum® segment host."""
 
     class Type(_Type, metaclass=_TypeEnumTypeWrapper):
         pass
 
     TYPE_UNSPECIFIED: ResourcePreset.Type.ValueType  # 0
     MASTER: ResourcePreset.Type.ValueType  # 1
-    """Greenplum master host."""
+    """Greenplum® master host."""
 
     SEGMENT: ResourcePreset.Type.ValueType  # 2
-    """Greenplum segment host."""
+    """Greenplum® segment host."""
 
 
     ID_FIELD_NUMBER: builtins.int
@@ -58,19 +58,19 @@ class ResourcePreset(google.protobuf.message.Message):
         """IDs of availability disk types available in the resource preset."""
         pass
     cores: builtins.int
-    """Number of CPU cores for a Greenplum host created with the preset."""
+    """Number of CPU cores for a Greenplum® host created with the preset."""
 
     memory: builtins.int
-    """RAM volume for a Greenplum host created with the preset, in bytes."""
+    """RAM volume for a Greenplum® host created with the preset, in bytes."""
 
     type: global___ResourcePreset.Type.ValueType
-    """Host type"""
+    """Host type."""
 
     host_count_divider: builtins.int
-    """The number of hosts must be divisible by host_count_divider"""
+    """The number of hosts must be divisible by [host_count_divider]."""
 
     max_segment_in_host_count: builtins.int
-    """Max segment count in host (actual only for segment host)"""
+    """Maximum number of segments in segment host."""
 
     def __init__(self,
         *,

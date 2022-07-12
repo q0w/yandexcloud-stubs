@@ -13,7 +13,9 @@ import typing_extensions
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class MaintenanceWindow(google.protobuf.message.Message):
-    """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
+    """A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     ANYTIME_FIELD_NUMBER: builtins.int
     WEEKLY_MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
@@ -52,23 +54,51 @@ class WeeklyMaintenanceWindow(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         WEEK_DAY_UNSPECIFIED: WeeklyMaintenanceWindow._WeekDay.ValueType  # 0
         MON: WeeklyMaintenanceWindow._WeekDay.ValueType  # 1
+        """Monday"""
+
         TUE: WeeklyMaintenanceWindow._WeekDay.ValueType  # 2
+        """Tuesday"""
+
         WED: WeeklyMaintenanceWindow._WeekDay.ValueType  # 3
+        """Wednesday"""
+
         THU: WeeklyMaintenanceWindow._WeekDay.ValueType  # 4
+        """Thursday"""
+
         FRI: WeeklyMaintenanceWindow._WeekDay.ValueType  # 5
+        """Friday"""
+
         SAT: WeeklyMaintenanceWindow._WeekDay.ValueType  # 6
+        """Saturday"""
+
         SUN: WeeklyMaintenanceWindow._WeekDay.ValueType  # 7
+        """Sunday"""
+
     class WeekDay(_WeekDay, metaclass=_WeekDayEnumTypeWrapper):
         pass
 
     WEEK_DAY_UNSPECIFIED: WeeklyMaintenanceWindow.WeekDay.ValueType  # 0
     MON: WeeklyMaintenanceWindow.WeekDay.ValueType  # 1
+    """Monday"""
+
     TUE: WeeklyMaintenanceWindow.WeekDay.ValueType  # 2
+    """Tuesday"""
+
     WED: WeeklyMaintenanceWindow.WeekDay.ValueType  # 3
+    """Wednesday"""
+
     THU: WeeklyMaintenanceWindow.WeekDay.ValueType  # 4
+    """Thursday"""
+
     FRI: WeeklyMaintenanceWindow.WeekDay.ValueType  # 5
+    """Friday"""
+
     SAT: WeeklyMaintenanceWindow.WeekDay.ValueType  # 6
+    """Saturday"""
+
     SUN: WeeklyMaintenanceWindow.WeekDay.ValueType  # 7
+    """Sunday"""
+
 
     DAY_FIELD_NUMBER: builtins.int
     HOUR_FIELD_NUMBER: builtins.int
@@ -87,12 +117,14 @@ class WeeklyMaintenanceWindow(google.protobuf.message.Message):
 global___WeeklyMaintenanceWindow = WeeklyMaintenanceWindow
 
 class MaintenanceOperation(google.protobuf.message.Message):
-    """The operation to perform during maintenance."""
+    """The operation to perform during maintenance.
+
+    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     INFO_FIELD_NUMBER: builtins.int
     DELAYED_UNTIL_FIELD_NUMBER: builtins.int
     info: typing.Text
-    """The description of the operation, 1-256 characters long."""
+    """The description of the operation."""
 
     @property
     def delayed_until(self) -> google.protobuf.timestamp_pb2.Timestamp:
