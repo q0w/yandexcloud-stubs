@@ -250,18 +250,28 @@ class AddDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
+    DOMAIN_NAME_FIELD_NUMBER: builtins.int
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     api_gateway_id: typing.Text
     """ID of the API gateway that the domain is attached to."""
 
     domain_id: typing.Text
     """ID of the attaching domain."""
 
+    domain_name: typing.Text
+    """Name of the attaching domain."""
+
+    certificate_id: typing.Text
+    """ID of certificate for the attaching domain."""
+
     def __init__(self,
         *,
         api_gateway_id: typing.Text = ...,
         domain_id: typing.Text = ...,
+        domain_name: typing.Text = ...,
+        certificate_id: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","certificate_id",b"certificate_id","domain_id",b"domain_id","domain_name",b"domain_name"]) -> None: ...
 global___AddDomainRequest = AddDomainRequest
 
 class RemoveDomainRequest(google.protobuf.message.Message):
@@ -325,18 +335,23 @@ class AddDomainMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
+    DOMAIN_NAME_FIELD_NUMBER: builtins.int
     api_gateway_id: typing.Text
     """ID of the API gateway that the domain is attached to."""
 
     domain_id: typing.Text
     """ID of the attaching domain."""
 
+    domain_name: typing.Text
+    """Name of the attaching domain."""
+
     def __init__(self,
         *,
         api_gateway_id: typing.Text = ...,
         domain_id: typing.Text = ...,
+        domain_name: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id","domain_name",b"domain_name"]) -> None: ...
 global___AddDomainMetadata = AddDomainMetadata
 
 class RemoveDomainMetadata(google.protobuf.message.Message):
