@@ -101,6 +101,7 @@ class Database(google.protobuf.message.Message):
     DOCUMENT_API_ENDPOINT_FIELD_NUMBER: builtins.int
     KINESIS_API_ENDPOINT_FIELD_NUMBER: builtins.int
     MONITORING_CONFIG_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     id: typing.Text
     folder_id: typing.Text
     @property
@@ -139,6 +140,7 @@ class Database(google.protobuf.message.Message):
     kinesis_api_endpoint: typing.Text
     @property
     def monitoring_config(self) -> global___MonitoringConfig: ...
+    deletion_protection: builtins.bool
     def __init__(self,
         *,
         id: typing.Text = ...,
@@ -164,9 +166,10 @@ class Database(google.protobuf.message.Message):
         document_api_endpoint: typing.Text = ...,
         kinesis_api_endpoint: typing.Text = ...,
         monitoring_config: typing.Optional[global___MonitoringConfig] = ...,
+        deletion_protection: builtins.bool = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["backup_config",b"backup_config","created_at",b"created_at","database_type",b"database_type","dedicated_database",b"dedicated_database","monitoring_config",b"monitoring_config","regional_database",b"regional_database","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","zonal_database",b"zonal_database"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","created_at",b"created_at","database_type",b"database_type","dedicated_database",b"dedicated_database","description",b"description","document_api_endpoint",b"document_api_endpoint","endpoint",b"endpoint","folder_id",b"folder_id","id",b"id","kinesis_api_endpoint",b"kinesis_api_endpoint","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","status",b"status","storage_config",b"storage_config","subnet_ids",b"subnet_ids","zonal_database",b"zonal_database"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","created_at",b"created_at","database_type",b"database_type","dedicated_database",b"dedicated_database","deletion_protection",b"deletion_protection","description",b"description","document_api_endpoint",b"document_api_endpoint","endpoint",b"endpoint","folder_id",b"folder_id","id",b"id","kinesis_api_endpoint",b"kinesis_api_endpoint","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","status",b"status","storage_config",b"storage_config","subnet_ids",b"subnet_ids","zonal_database",b"zonal_database"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["database_type",b"database_type"]) -> typing.Optional[typing_extensions.Literal["zonal_database","regional_database","dedicated_database","serverless_database"]]: ...
 global___Database = Database
 

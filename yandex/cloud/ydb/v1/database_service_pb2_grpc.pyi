@@ -42,6 +42,10 @@ class DatabaseServiceStub:
         yandex.cloud.operation.operation_pb2.Operation]
     """Stops the specified database."""
 
+    Move: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.ydb.v1.database_service_pb2.MoveDatabaseRequest,
+        yandex.cloud.operation.operation_pb2.Operation]
+
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
@@ -118,6 +122,12 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Stops the specified database."""
         pass
+
+    @abc.abstractmethod
+    def Move(self,
+        request: yandex.cloud.ydb.v1.database_service_pb2.MoveDatabaseRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
 
     @abc.abstractmethod
     def ListAccessBindings(self,

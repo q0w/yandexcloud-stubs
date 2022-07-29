@@ -285,6 +285,7 @@ class ConfigSpec(google.protobuf.message.Message):
         KAFKA_CONFIG_2_1_FIELD_NUMBER: builtins.int
         KAFKA_CONFIG_2_6_FIELD_NUMBER: builtins.int
         KAFKA_CONFIG_2_8_FIELD_NUMBER: builtins.int
+        KAFKA_CONFIG_3_FIELD_NUMBER: builtins.int
         @property
         def resources(self) -> global___Resources:
             """Resources allocated to Kafka brokers."""
@@ -295,16 +296,19 @@ class ConfigSpec(google.protobuf.message.Message):
         def kafka_config_2_6(self) -> global___KafkaConfig2_6: ...
         @property
         def kafka_config_2_8(self) -> global___KafkaConfig2_8: ...
+        @property
+        def kafka_config_3(self) -> global___KafkaConfig3: ...
         def __init__(self,
             *,
             resources: typing.Optional[global___Resources] = ...,
             kafka_config_2_1: typing.Optional[global___KafkaConfig2_1] = ...,
             kafka_config_2_6: typing.Optional[global___KafkaConfig2_6] = ...,
             kafka_config_2_8: typing.Optional[global___KafkaConfig2_8] = ...,
+            kafka_config_3: typing.Optional[global___KafkaConfig3] = ...,
             ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["kafka_config",b"kafka_config","kafka_config_2_1",b"kafka_config_2_1","kafka_config_2_6",b"kafka_config_2_6","kafka_config_2_8",b"kafka_config_2_8","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["kafka_config",b"kafka_config","kafka_config_2_1",b"kafka_config_2_1","kafka_config_2_6",b"kafka_config_2_6","kafka_config_2_8",b"kafka_config_2_8","resources",b"resources"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["kafka_config",b"kafka_config"]) -> typing.Optional[typing_extensions.Literal["kafka_config_2_1","kafka_config_2_6","kafka_config_2_8"]]: ...
+        def HasField(self, field_name: typing_extensions.Literal["kafka_config",b"kafka_config","kafka_config_2_1",b"kafka_config_2_1","kafka_config_2_6",b"kafka_config_2_6","kafka_config_2_8",b"kafka_config_2_8","kafka_config_3",b"kafka_config_3","resources",b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["kafka_config",b"kafka_config","kafka_config_2_1",b"kafka_config_2_1","kafka_config_2_6",b"kafka_config_2_6","kafka_config_2_8",b"kafka_config_2_8","kafka_config_3",b"kafka_config_3","resources",b"resources"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["kafka_config",b"kafka_config"]) -> typing.Optional[typing_extensions.Literal["kafka_config_2_1","kafka_config_2_6","kafka_config_2_8","kafka_config_3"]]: ...
 
     class Zookeeper(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -853,6 +857,156 @@ class KafkaConfig2_8(google.protobuf.message.Message):
     def HasField(self, field_name: typing_extensions.Literal["auto_create_topics_enable",b"auto_create_topics_enable","default_replication_factor",b"default_replication_factor","log_flush_interval_messages",b"log_flush_interval_messages","log_flush_interval_ms",b"log_flush_interval_ms","log_flush_scheduler_interval_ms",b"log_flush_scheduler_interval_ms","log_preallocate",b"log_preallocate","log_retention_bytes",b"log_retention_bytes","log_retention_hours",b"log_retention_hours","log_retention_minutes",b"log_retention_minutes","log_retention_ms",b"log_retention_ms","log_segment_bytes",b"log_segment_bytes","message_max_bytes",b"message_max_bytes","num_partitions",b"num_partitions","offsets_retention_minutes",b"offsets_retention_minutes","replica_fetch_max_bytes",b"replica_fetch_max_bytes","socket_receive_buffer_bytes",b"socket_receive_buffer_bytes","socket_send_buffer_bytes",b"socket_send_buffer_bytes"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable",b"auto_create_topics_enable","compression_type",b"compression_type","default_replication_factor",b"default_replication_factor","log_flush_interval_messages",b"log_flush_interval_messages","log_flush_interval_ms",b"log_flush_interval_ms","log_flush_scheduler_interval_ms",b"log_flush_scheduler_interval_ms","log_preallocate",b"log_preallocate","log_retention_bytes",b"log_retention_bytes","log_retention_hours",b"log_retention_hours","log_retention_minutes",b"log_retention_minutes","log_retention_ms",b"log_retention_ms","log_segment_bytes",b"log_segment_bytes","message_max_bytes",b"message_max_bytes","num_partitions",b"num_partitions","offsets_retention_minutes",b"offsets_retention_minutes","replica_fetch_max_bytes",b"replica_fetch_max_bytes","socket_receive_buffer_bytes",b"socket_receive_buffer_bytes","socket_send_buffer_bytes",b"socket_send_buffer_bytes","ssl_cipher_suites",b"ssl_cipher_suites"]) -> None: ...
 global___KafkaConfig2_8 = KafkaConfig2_8
+
+class KafkaConfig3(google.protobuf.message.Message):
+    """Kafka version 3.x broker configuration."""
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    COMPRESSION_TYPE_FIELD_NUMBER: builtins.int
+    LOG_FLUSH_INTERVAL_MESSAGES_FIELD_NUMBER: builtins.int
+    LOG_FLUSH_INTERVAL_MS_FIELD_NUMBER: builtins.int
+    LOG_FLUSH_SCHEDULER_INTERVAL_MS_FIELD_NUMBER: builtins.int
+    LOG_RETENTION_BYTES_FIELD_NUMBER: builtins.int
+    LOG_RETENTION_HOURS_FIELD_NUMBER: builtins.int
+    LOG_RETENTION_MINUTES_FIELD_NUMBER: builtins.int
+    LOG_RETENTION_MS_FIELD_NUMBER: builtins.int
+    LOG_SEGMENT_BYTES_FIELD_NUMBER: builtins.int
+    LOG_PREALLOCATE_FIELD_NUMBER: builtins.int
+    SOCKET_SEND_BUFFER_BYTES_FIELD_NUMBER: builtins.int
+    SOCKET_RECEIVE_BUFFER_BYTES_FIELD_NUMBER: builtins.int
+    AUTO_CREATE_TOPICS_ENABLE_FIELD_NUMBER: builtins.int
+    NUM_PARTITIONS_FIELD_NUMBER: builtins.int
+    DEFAULT_REPLICATION_FACTOR_FIELD_NUMBER: builtins.int
+    MESSAGE_MAX_BYTES_FIELD_NUMBER: builtins.int
+    REPLICA_FETCH_MAX_BYTES_FIELD_NUMBER: builtins.int
+    SSL_CIPHER_SUITES_FIELD_NUMBER: builtins.int
+    OFFSETS_RETENTION_MINUTES_FIELD_NUMBER: builtins.int
+    compression_type: yandex.cloud.mdb.kafka.v1.common_pb2.CompressionType.ValueType
+    """Cluster topics compression type."""
+
+    @property
+    def log_flush_interval_messages(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The number of messages accumulated on a log partition before messages are flushed to disk.
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages] setting.
+        """
+        pass
+    @property
+    def log_flush_interval_ms(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+        If not set, the value of [log_flush_scheduler_interval_ms] is used.
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms] setting.
+        """
+        pass
+    @property
+    def log_flush_scheduler_interval_ms(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+        This check is done by the log flusher.
+        """
+        pass
+    @property
+    def log_retention_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy] is in effect.
+        This setting is helpful if you need to control the size of a log due to limited disk space.
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes] setting.
+        """
+        pass
+    @property
+    def log_retention_hours(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The number of hours to keep a log segment file before deleting it."""
+        pass
+    @property
+    def log_retention_minutes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The number of minutes to keep a log segment file before deleting it.
+
+        If not set, the value of [log_retention_hours] is used.
+        """
+        pass
+    @property
+    def log_retention_ms(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The number of milliseconds to keep a log segment file before deleting it.
+
+        If not set, the value of [log_retention_minutes] is used.
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms] setting.
+        """
+        pass
+    @property
+    def log_segment_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum size of a single log file.
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes] setting.
+        """
+        pass
+    @property
+    def log_preallocate(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """Should pre allocate file when create new segment?
+
+        This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate] setting.
+        """
+        pass
+    @property
+    def socket_send_buffer_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used."""
+        pass
+    @property
+    def socket_receive_buffer_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used."""
+        pass
+    @property
+    def auto_create_topics_enable(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """Enable auto creation of topic on the server"""
+        pass
+    @property
+    def num_partitions(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Default number of partitions per topic on the whole cluster"""
+        pass
+    @property
+    def default_replication_factor(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Default replication factor of the topic on the whole cluster"""
+        pass
+    @property
+    def message_max_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The largest record batch size allowed by Kafka. Default value: 1048588."""
+        pass
+    @property
+    def replica_fetch_max_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576."""
+        pass
+    @property
+    def ssl_cipher_suites(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+        """A list of cipher suites."""
+        pass
+    @property
+    def offsets_retention_minutes(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Offset storage time after a consumer group loses all its consumers. Default: 10080."""
+        pass
+    def __init__(self,
+        *,
+        compression_type: yandex.cloud.mdb.kafka.v1.common_pb2.CompressionType.ValueType = ...,
+        log_flush_interval_messages: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_flush_interval_ms: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_flush_scheduler_interval_ms: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_retention_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_retention_hours: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_retention_minutes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_retention_ms: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_segment_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_preallocate: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        socket_send_buffer_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        socket_receive_buffer_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        auto_create_topics_enable: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        num_partitions: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        default_replication_factor: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        message_max_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        replica_fetch_max_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        ssl_cipher_suites: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        offsets_retention_minutes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["auto_create_topics_enable",b"auto_create_topics_enable","default_replication_factor",b"default_replication_factor","log_flush_interval_messages",b"log_flush_interval_messages","log_flush_interval_ms",b"log_flush_interval_ms","log_flush_scheduler_interval_ms",b"log_flush_scheduler_interval_ms","log_preallocate",b"log_preallocate","log_retention_bytes",b"log_retention_bytes","log_retention_hours",b"log_retention_hours","log_retention_minutes",b"log_retention_minutes","log_retention_ms",b"log_retention_ms","log_segment_bytes",b"log_segment_bytes","message_max_bytes",b"message_max_bytes","num_partitions",b"num_partitions","offsets_retention_minutes",b"offsets_retention_minutes","replica_fetch_max_bytes",b"replica_fetch_max_bytes","socket_receive_buffer_bytes",b"socket_receive_buffer_bytes","socket_send_buffer_bytes",b"socket_send_buffer_bytes"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable",b"auto_create_topics_enable","compression_type",b"compression_type","default_replication_factor",b"default_replication_factor","log_flush_interval_messages",b"log_flush_interval_messages","log_flush_interval_ms",b"log_flush_interval_ms","log_flush_scheduler_interval_ms",b"log_flush_scheduler_interval_ms","log_preallocate",b"log_preallocate","log_retention_bytes",b"log_retention_bytes","log_retention_hours",b"log_retention_hours","log_retention_minutes",b"log_retention_minutes","log_retention_ms",b"log_retention_ms","log_segment_bytes",b"log_segment_bytes","message_max_bytes",b"message_max_bytes","num_partitions",b"num_partitions","offsets_retention_minutes",b"offsets_retention_minutes","replica_fetch_max_bytes",b"replica_fetch_max_bytes","socket_receive_buffer_bytes",b"socket_receive_buffer_bytes","socket_send_buffer_bytes",b"socket_send_buffer_bytes","ssl_cipher_suites",b"ssl_cipher_suites"]) -> None: ...
+global___KafkaConfig3 = KafkaConfig3
 
 class Host(google.protobuf.message.Message):
     """Cluster host metadata."""

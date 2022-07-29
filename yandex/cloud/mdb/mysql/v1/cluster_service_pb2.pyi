@@ -9,6 +9,7 @@ import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import google.protobuf.wrappers_pb2
 import google.type.timeofday_pb2
 import typing
 import typing_extensions
@@ -1392,6 +1393,7 @@ class ConfigSpec(google.protobuf.message.Message):
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
     PERFORMANCE_DIAGNOSTICS_FIELD_NUMBER: builtins.int
+    BACKUP_RETAIN_PERIOD_DAYS_FIELD_NUMBER: builtins.int
     version: typing.Text
     """Version of MySQL used in the cluster.
 
@@ -1426,6 +1428,10 @@ class ConfigSpec(google.protobuf.message.Message):
     def performance_diagnostics(self) -> yandex.cloud.mdb.mysql.v1.cluster_pb2.PerformanceDiagnostics:
         """Configuration of the performance diagnostics service."""
         pass
+    @property
+    def backup_retain_period_days(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Retention policy of automated backups."""
+        pass
     def __init__(self,
         *,
         version: typing.Text = ...,
@@ -1435,8 +1441,9 @@ class ConfigSpec(google.protobuf.message.Message):
         backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
         access: typing.Optional[yandex.cloud.mdb.mysql.v1.cluster_pb2.Access] = ...,
         performance_diagnostics: typing.Optional[yandex.cloud.mdb.mysql.v1.cluster_pb2.PerformanceDiagnostics] = ...,
+        backup_retain_period_days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","mysql_config",b"mysql_config","mysql_config_5_7",b"mysql_config_5_7","mysql_config_8_0",b"mysql_config_8_0","performance_diagnostics",b"performance_diagnostics","resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","mysql_config",b"mysql_config","mysql_config_5_7",b"mysql_config_5_7","mysql_config_8_0",b"mysql_config_8_0","performance_diagnostics",b"performance_diagnostics","resources",b"resources","version",b"version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_retain_period_days",b"backup_retain_period_days","backup_window_start",b"backup_window_start","mysql_config",b"mysql_config","mysql_config_5_7",b"mysql_config_5_7","mysql_config_8_0",b"mysql_config_8_0","performance_diagnostics",b"performance_diagnostics","resources",b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_retain_period_days",b"backup_retain_period_days","backup_window_start",b"backup_window_start","mysql_config",b"mysql_config","mysql_config_5_7",b"mysql_config_5_7","mysql_config_8_0",b"mysql_config_8_0","performance_diagnostics",b"performance_diagnostics","resources",b"resources","version",b"version"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["mysql_config",b"mysql_config"]) -> typing.Optional[typing_extensions.Literal["mysql_config_5_7","mysql_config_8_0"]]: ...
 global___ConfigSpec = ConfigSpec

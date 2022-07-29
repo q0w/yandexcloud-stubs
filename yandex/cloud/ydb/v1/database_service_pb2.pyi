@@ -14,6 +14,38 @@ import yandex.cloud.ydb.v1.database_pb2
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+class MoveDatabaseRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    DATABASE_ID_FIELD_NUMBER: builtins.int
+    DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
+    database_id: typing.Text
+    """ID of the YDB instance to move."""
+
+    destination_folder_id: typing.Text
+    """ID of the destination folder."""
+
+    def __init__(self,
+        *,
+        database_id: typing.Text = ...,
+        destination_folder_id: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["database_id",b"database_id","destination_folder_id",b"destination_folder_id"]) -> None: ...
+global___MoveDatabaseRequest = MoveDatabaseRequest
+
+class MoveDatabaseMetadata(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    DATABASE_ID_FIELD_NUMBER: builtins.int
+    DATABASE_NAME_FIELD_NUMBER: builtins.int
+    database_id: typing.Text
+    database_name: typing.Text
+    def __init__(self,
+        *,
+        database_id: typing.Text = ...,
+        database_name: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["database_id",b"database_id","database_name",b"database_name"]) -> None: ...
+global___MoveDatabaseMetadata = MoveDatabaseMetadata
+
 class RestoreBackupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     BACKUP_ID_FIELD_NUMBER: builtins.int
@@ -235,6 +267,7 @@ class CreateDatabaseRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     BACKUP_CONFIG_FIELD_NUMBER: builtins.int
     MONITORING_CONFIG_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     folder_id: typing.Text
     name: typing.Text
     description: typing.Text
@@ -266,6 +299,7 @@ class CreateDatabaseRequest(google.protobuf.message.Message):
     def backup_config(self) -> yandex.cloud.ydb.v1.backup_pb2.BackupConfig: ...
     @property
     def monitoring_config(self) -> yandex.cloud.ydb.v1.database_pb2.MonitoringConfig: ...
+    deletion_protection: builtins.bool
     def __init__(self,
         *,
         folder_id: typing.Text = ...,
@@ -285,9 +319,10 @@ class CreateDatabaseRequest(google.protobuf.message.Message):
         labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
         backup_config: typing.Optional[yandex.cloud.ydb.v1.backup_pb2.BackupConfig] = ...,
         monitoring_config: typing.Optional[yandex.cloud.ydb.v1.database_pb2.MonitoringConfig] = ...,
+        deletion_protection: builtins.bool = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["backup_config",b"backup_config","database_type",b"database_type","dedicated_database",b"dedicated_database","monitoring_config",b"monitoring_config","regional_database",b"regional_database","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","zonal_database",b"zonal_database"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","database_type",b"database_type","dedicated_database",b"dedicated_database","description",b"description","folder_id",b"folder_id","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","subnet_ids",b"subnet_ids","zonal_database",b"zonal_database"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","database_type",b"database_type","dedicated_database",b"dedicated_database","deletion_protection",b"deletion_protection","description",b"description","folder_id",b"folder_id","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","subnet_ids",b"subnet_ids","zonal_database",b"zonal_database"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["database_type",b"database_type"]) -> typing.Optional[typing_extensions.Literal["zonal_database","regional_database","dedicated_database","serverless_database"]]: ...
 global___CreateDatabaseRequest = CreateDatabaseRequest
 
@@ -343,6 +378,7 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     BACKUP_CONFIG_FIELD_NUMBER: builtins.int
     MONITORING_CONFIG_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     folder_id: typing.Text
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask: ...
@@ -373,6 +409,7 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
     def backup_config(self) -> yandex.cloud.ydb.v1.backup_pb2.BackupConfig: ...
     @property
     def monitoring_config(self) -> yandex.cloud.ydb.v1.database_pb2.MonitoringConfig: ...
+    deletion_protection: builtins.bool
     def __init__(self,
         *,
         folder_id: typing.Text = ...,
@@ -394,9 +431,10 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
         labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
         backup_config: typing.Optional[yandex.cloud.ydb.v1.backup_pb2.BackupConfig] = ...,
         monitoring_config: typing.Optional[yandex.cloud.ydb.v1.database_pb2.MonitoringConfig] = ...,
+        deletion_protection: builtins.bool = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["backup_config",b"backup_config","database_type",b"database_type","dedicated_database",b"dedicated_database","monitoring_config",b"monitoring_config","regional_database",b"regional_database","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","update_mask",b"update_mask","zonal_database",b"zonal_database"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","database_id",b"database_id","database_type",b"database_type","dedicated_database",b"dedicated_database","description",b"description","folder_id",b"folder_id","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","subnet_ids",b"subnet_ids","update_mask",b"update_mask","zonal_database",b"zonal_database"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ips",b"assign_public_ips","backup_config",b"backup_config","database_id",b"database_id","database_type",b"database_type","dedicated_database",b"dedicated_database","deletion_protection",b"deletion_protection","description",b"description","folder_id",b"folder_id","labels",b"labels","location_id",b"location_id","monitoring_config",b"monitoring_config","name",b"name","network_id",b"network_id","regional_database",b"regional_database","resource_preset_id",b"resource_preset_id","scale_policy",b"scale_policy","serverless_database",b"serverless_database","storage_config",b"storage_config","subnet_ids",b"subnet_ids","update_mask",b"update_mask","zonal_database",b"zonal_database"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["database_type",b"database_type"]) -> typing.Optional[typing_extensions.Literal["zonal_database","regional_database","dedicated_database","serverless_database"]]: ...
 global___UpdateDatabaseRequest = UpdateDatabaseRequest
 
