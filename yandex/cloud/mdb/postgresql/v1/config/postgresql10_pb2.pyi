@@ -270,6 +270,7 @@ class PostgresqlConfig10(google.protobuf.message.Message):
         SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig10._SharedPreloadLibraries.ValueType  # 2
         SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig10._SharedPreloadLibraries.ValueType  # 3
         SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig10._SharedPreloadLibraries.ValueType  # 4
+        SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig10._SharedPreloadLibraries.ValueType  # 5
     class SharedPreloadLibraries(_SharedPreloadLibraries, metaclass=_SharedPreloadLibrariesEnumTypeWrapper):
         pass
 
@@ -278,6 +279,7 @@ class PostgresqlConfig10(google.protobuf.message.Message):
     SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig10.SharedPreloadLibraries.ValueType  # 2
     SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig10.SharedPreloadLibraries.ValueType  # 3
     SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig10.SharedPreloadLibraries.ValueType  # 4
+    SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig10.SharedPreloadLibraries.ValueType  # 5
 
     MAX_CONNECTIONS_FIELD_NUMBER: builtins.int
     SHARED_BUFFERS_FIELD_NUMBER: builtins.int

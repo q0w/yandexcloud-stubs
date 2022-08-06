@@ -59,6 +59,11 @@ class DiskServiceStub:
         yandex.cloud.operation.operation_pb2.Operation]
     """Moves the specified disk to another folder of the same cloud."""
 
+    ListSnapshotSchedules: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesRequest,
+        yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesResponse]
+    """List snapshot schedules containing the disk"""
+
 
 class DiskServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Disk resources."""
@@ -129,6 +134,14 @@ class DiskServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Moves the specified disk to another folder of the same cloud."""
+        pass
+
+    @abc.abstractmethod
+    def ListSnapshotSchedules(self,
+        request: yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesResponse:
+        """List snapshot schedules containing the disk"""
         pass
 
 

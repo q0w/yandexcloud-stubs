@@ -1724,6 +1724,52 @@ class CreateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
 global___CreateClusterExternalDictionaryMetadata = CreateClusterExternalDictionaryMetadata
 
+class UpdateClusterExternalDictionaryRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    EXTERNAL_DICTIONARY_FIELD_NUMBER: builtins.int
+    UPDATE_MASK_FIELD_NUMBER: builtins.int
+    cluster_id: typing.Text
+    """ID of the ClickHouse cluster to update the external dictionary for.
+    To get the cluster ID, use a [List] request.
+    """
+
+    @property
+    def external_dictionary(self) -> yandex.cloud.mdb.clickhouse.v1.config.clickhouse_pb2.ClickhouseConfig.ExternalDictionary:
+        """Configuration of the external dictionary."""
+        pass
+    @property
+    def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
+        """Field mask that specifies which fields of the External Dictionary should be updated."""
+        pass
+    def __init__(self,
+        *,
+        cluster_id: typing.Text = ...,
+        external_dictionary: typing.Optional[yandex.cloud.mdb.clickhouse.v1.config.clickhouse_pb2.ClickhouseConfig.ExternalDictionary] = ...,
+        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
+        ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["external_dictionary",b"external_dictionary","update_mask",b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","external_dictionary",b"external_dictionary","update_mask",b"update_mask"]) -> None: ...
+global___UpdateClusterExternalDictionaryRequest = UpdateClusterExternalDictionaryRequest
+
+class UpdateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    EXTERNAL_DICTIONARY_NAME_FIELD_NUMBER: builtins.int
+    cluster_id: typing.Text
+    """ID of the cluster for which an external dictionary is being updated."""
+
+    external_dictionary_name: typing.Text
+    """Name of the external dictionary."""
+
+    def __init__(self,
+        *,
+        cluster_id: typing.Text = ...,
+        external_dictionary_name: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","external_dictionary_name",b"external_dictionary_name"]) -> None: ...
+global___UpdateClusterExternalDictionaryMetadata = UpdateClusterExternalDictionaryMetadata
+
 class DeleteClusterExternalDictionaryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CLUSTER_ID_FIELD_NUMBER: builtins.int

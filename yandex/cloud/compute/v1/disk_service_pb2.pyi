@@ -10,6 +10,7 @@ import google.protobuf.message
 import typing
 import typing_extensions
 import yandex.cloud.compute.v1.disk_pb2
+import yandex.cloud.compute.v1.snapshot_schedule_pb2
 import yandex.cloud.operation.operation_pb2
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
@@ -121,6 +122,7 @@ class CreateDiskRequest(google.protobuf.message.Message):
     SNAPSHOT_ID_FIELD_NUMBER: builtins.int
     BLOCK_SIZE_FIELD_NUMBER: builtins.int
     DISK_PLACEMENT_POLICY_FIELD_NUMBER: builtins.int
+    SNAPSHOT_SCHEDULE_IDS_FIELD_NUMBER: builtins.int
     folder_id: typing.Text
     """ID of the folder to create a disk in.
     To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
@@ -165,6 +167,10 @@ class CreateDiskRequest(google.protobuf.message.Message):
     def disk_placement_policy(self) -> yandex.cloud.compute.v1.disk_pb2.DiskPlacementPolicy:
         """Placement policy configuration."""
         pass
+    @property
+    def snapshot_schedule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+        """Snapshot schedules"""
+        pass
     def __init__(self,
         *,
         folder_id: typing.Text = ...,
@@ -178,9 +184,10 @@ class CreateDiskRequest(google.protobuf.message.Message):
         snapshot_id: typing.Text = ...,
         block_size: builtins.int = ...,
         disk_placement_policy: typing.Optional[yandex.cloud.compute.v1.disk_pb2.DiskPlacementPolicy] = ...,
+        snapshot_schedule_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["disk_placement_policy",b"disk_placement_policy","image_id",b"image_id","snapshot_id",b"snapshot_id","source",b"source"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["block_size",b"block_size","description",b"description","disk_placement_policy",b"disk_placement_policy","folder_id",b"folder_id","image_id",b"image_id","labels",b"labels","name",b"name","size",b"size","snapshot_id",b"snapshot_id","source",b"source","type_id",b"type_id","zone_id",b"zone_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["block_size",b"block_size","description",b"description","disk_placement_policy",b"disk_placement_policy","folder_id",b"folder_id","image_id",b"image_id","labels",b"labels","name",b"name","size",b"size","snapshot_id",b"snapshot_id","snapshot_schedule_ids",b"snapshot_schedule_ids","source",b"source","type_id",b"type_id","zone_id",b"zone_id"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["source",b"source"]) -> typing.Optional[typing_extensions.Literal["image_id","snapshot_id"]]: ...
 global___CreateDiskRequest = CreateDiskRequest
 
@@ -400,3 +407,54 @@ class MoveDiskMetadata(google.protobuf.message.Message):
         ) -> None: ...
     def ClearField(self, field_name: typing_extensions.Literal["destination_folder_id",b"destination_folder_id","disk_id",b"disk_id","source_folder_id",b"source_folder_id"]) -> None: ...
 global___MoveDiskMetadata = MoveDiskMetadata
+
+class ListDiskSnapshotSchedulesRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    DISK_ID_FIELD_NUMBER: builtins.int
+    PAGE_SIZE_FIELD_NUMBER: builtins.int
+    PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    disk_id: typing.Text
+    """ID of the Disk resource to list snapshot schedules for."""
+
+    page_size: builtins.int
+    """The maximum number of results per page to return. If the number of available
+    results is larger than [page_size], the service returns a [ListDiskOperationsResponse.next_page_token]
+    that can be used to get the next page of results in subsequent list requests.
+    """
+
+    page_token: typing.Text
+    """Page token. To get the next page of results, set [page_token] to the
+    [ListDiskSnapshotSchedulesResponse.next_page_token] returned by a previous list request.
+    """
+
+    def __init__(self,
+        *,
+        disk_id: typing.Text = ...,
+        page_size: builtins.int = ...,
+        page_token: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["disk_id",b"disk_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+global___ListDiskSnapshotSchedulesRequest = ListDiskSnapshotSchedulesRequest
+
+class ListDiskSnapshotSchedulesResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    SNAPSHOT_SCHEDULES_FIELD_NUMBER: builtins.int
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    @property
+    def snapshot_schedules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]:
+        """List of snapshot schedules for the specified disk."""
+        pass
+    next_page_token: typing.Text
+    """This token allows you to get the next page of results for list requests. If the number of results
+    is larger than [ListDiskSnapshotSchedulesRequest.page_size], use the [next_page_token] as the value
+    for the [ListDiskSnapshotSchedulesRequest.page_token] query parameter in the next list request.
+    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
+    """
+
+    def __init__(self,
+        *,
+        snapshot_schedules: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]] = ...,
+        next_page_token: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","snapshot_schedules",b"snapshot_schedules"]) -> None: ...
+global___ListDiskSnapshotSchedulesResponse = ListDiskSnapshotSchedulesResponse

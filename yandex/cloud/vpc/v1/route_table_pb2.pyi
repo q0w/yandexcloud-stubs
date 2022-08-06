@@ -96,12 +96,16 @@ class StaticRoute(google.protobuf.message.Message):
 
     DESTINATION_PREFIX_FIELD_NUMBER: builtins.int
     NEXT_HOP_ADDRESS_FIELD_NUMBER: builtins.int
+    GATEWAY_ID_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     destination_prefix: typing.Text
     """Destination subnet in CIDR notation"""
 
     next_hop_address: typing.Text
     """Next hop IP address"""
+
+    gateway_id: typing.Text
+    """Next hop gateway id"""
 
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
@@ -111,12 +115,13 @@ class StaticRoute(google.protobuf.message.Message):
         *,
         destination_prefix: typing.Text = ...,
         next_hop_address: typing.Text = ...,
+        gateway_id: typing.Text = ...,
         labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","labels",b"labels","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","gateway_id",b"gateway_id","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","gateway_id",b"gateway_id","labels",b"labels","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing_extensions.Literal["destination",b"destination"]) -> typing.Optional[typing_extensions.Literal["destination_prefix"]]: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["next_hop",b"next_hop"]) -> typing.Optional[typing_extensions.Literal["next_hop_address"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["next_hop",b"next_hop"]) -> typing.Optional[typing_extensions.Literal["next_hop_address","gateway_id"]]: ...
 global___StaticRoute = StaticRoute

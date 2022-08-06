@@ -172,6 +172,11 @@ class ClusterServiceStub:
         yandex.cloud.operation.operation_pb2.Operation]
     """Creates an external dictionary for the specified ClickHouse cluster."""
 
+    UpdateExternalDictionary: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterExternalDictionaryRequest,
+        yandex.cloud.operation.operation_pb2.Operation]
+    """Updates an external dictionary for the specified ClickHouse cluster."""
+
     DeleteExternalDictionary: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterExternalDictionaryRequest,
         yandex.cloud.operation.operation_pb2.Operation]
@@ -431,6 +436,14 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates an external dictionary for the specified ClickHouse cluster."""
+        pass
+
+    @abc.abstractmethod
+    def UpdateExternalDictionary(self,
+        request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterExternalDictionaryRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Updates an external dictionary for the specified ClickHouse cluster."""
         pass
 
     @abc.abstractmethod

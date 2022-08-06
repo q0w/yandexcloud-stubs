@@ -355,6 +355,7 @@ class RegionalMaster(google.protobuf.message.Message):
     REGION_ID_FIELD_NUMBER: builtins.int
     INTERNAL_V4_ADDRESS_FIELD_NUMBER: builtins.int
     EXTERNAL_V4_ADDRESS_FIELD_NUMBER: builtins.int
+    EXTERNAL_V6_ADDRESS_FIELD_NUMBER: builtins.int
     region_id: typing.Text
     """ID of the region where the master resides."""
 
@@ -364,13 +365,17 @@ class RegionalMaster(google.protobuf.message.Message):
     external_v4_address: typing.Text
     """IPv4 external network address that is assigned to the master."""
 
+    external_v6_address: typing.Text
+    """IPv6 external network address that is assigned to the master."""
+
     def __init__(self,
         *,
         region_id: typing.Text = ...,
         internal_v4_address: typing.Text = ...,
         external_v4_address: typing.Text = ...,
+        external_v6_address: typing.Text = ...,
         ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["external_v4_address",b"external_v4_address","internal_v4_address",b"internal_v4_address","region_id",b"region_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["external_v4_address",b"external_v4_address","external_v6_address",b"external_v6_address","internal_v4_address",b"internal_v4_address","region_id",b"region_id"]) -> None: ...
 global___RegionalMaster = RegionalMaster
 
 class MasterEndpoints(google.protobuf.message.Message):

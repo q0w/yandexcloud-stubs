@@ -18,7 +18,7 @@ class GetConnectorRequest(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_NAME_FIELD_NUMBER: builtins.int
     cluster_id: typing.Text
-    """ID of the cluster the connector belongs to.
+    """ID of the Apache Kafka® cluster the connector belongs to.
 
     To get this ID, make a [ClusterService.List] request.
     """
@@ -177,7 +177,7 @@ class UpdateConnectorMetadata(google.protobuf.message.Message):
     """ID of the Apache Kafka® cluster the connector is being updated in."""
 
     connector_name: typing.Text
-    """Name of the Apache Kafka connector that is being updated."""
+    """Name of the Apache Kafka® connector that is being updated."""
 
     def __init__(self,
         *,
