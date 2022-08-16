@@ -385,6 +385,49 @@ class UpdateClusterMetadata(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
+class AddClusterHostsMetadata(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: typing.Text
+    """ID of the Greenplum Cluster resource that is being updated."""
+
+    def __init__(self,
+        *,
+        cluster_id: typing.Text = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+global___AddClusterHostsMetadata = AddClusterHostsMetadata
+
+class ExpandRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    SEGMENT_HOST_COUNT_FIELD_NUMBER: builtins.int
+    ADD_SEGMENTS_PER_HOST_COUNT_FIELD_NUMBER: builtins.int
+    DURATION_FIELD_NUMBER: builtins.int
+    cluster_id: typing.Text
+    """ID of the Greenplum Cluster resource to update.
+    To get the Greenplum cluster ID, use a [ClusterService.List] request.
+    """
+
+    segment_host_count: builtins.int
+    """Number of hosts for add to the segment subcluster"""
+
+    add_segments_per_host_count: builtins.int
+    """Number of segments per host to add"""
+
+    duration: builtins.int
+    """Redistribute duration, in seconds"""
+
+    def __init__(self,
+        *,
+        cluster_id: typing.Text = ...,
+        segment_host_count: builtins.int = ...,
+        add_segments_per_host_count: builtins.int = ...,
+        duration: builtins.int = ...,
+        ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["add_segments_per_host_count",b"add_segments_per_host_count","cluster_id",b"cluster_id","duration",b"duration","segment_host_count",b"segment_host_count"]) -> None: ...
+global___ExpandRequest = ExpandRequest
+
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     CLUSTER_ID_FIELD_NUMBER: builtins.int

@@ -19,41 +19,39 @@ class PostgresqlConfig11(google.protobuf.message.Message):
     [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    class _WalLevel:
+    class _BackslashQuote:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._WalLevel.ValueType], builtins.type):
+    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._BackslashQuote.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        WAL_LEVEL_UNSPECIFIED: PostgresqlConfig11._WalLevel.ValueType  # 0
-        WAL_LEVEL_REPLICA: PostgresqlConfig11._WalLevel.ValueType  # 1
-        WAL_LEVEL_LOGICAL: PostgresqlConfig11._WalLevel.ValueType  # 2
-    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper):
+        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig11._BackslashQuote.ValueType  # 0
+        BACKSLASH_QUOTE: PostgresqlConfig11._BackslashQuote.ValueType  # 1
+        BACKSLASH_QUOTE_ON: PostgresqlConfig11._BackslashQuote.ValueType  # 2
+        BACKSLASH_QUOTE_OFF: PostgresqlConfig11._BackslashQuote.ValueType  # 3
+        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig11._BackslashQuote.ValueType  # 4
+    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
         pass
 
-    WAL_LEVEL_UNSPECIFIED: PostgresqlConfig11.WalLevel.ValueType  # 0
-    WAL_LEVEL_REPLICA: PostgresqlConfig11.WalLevel.ValueType  # 1
-    WAL_LEVEL_LOGICAL: PostgresqlConfig11.WalLevel.ValueType  # 2
+    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig11.BackslashQuote.ValueType  # 0
+    BACKSLASH_QUOTE: PostgresqlConfig11.BackslashQuote.ValueType  # 1
+    BACKSLASH_QUOTE_ON: PostgresqlConfig11.BackslashQuote.ValueType  # 2
+    BACKSLASH_QUOTE_OFF: PostgresqlConfig11.BackslashQuote.ValueType  # 3
+    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig11.BackslashQuote.ValueType  # 4
 
-    class _SynchronousCommit:
+    class _ByteaOutput:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._SynchronousCommit.ValueType], builtins.type):
+    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._ByteaOutput.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig11._SynchronousCommit.ValueType  # 0
-        SYNCHRONOUS_COMMIT_ON: PostgresqlConfig11._SynchronousCommit.ValueType  # 1
-        SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig11._SynchronousCommit.ValueType  # 2
-        SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig11._SynchronousCommit.ValueType  # 3
-        SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig11._SynchronousCommit.ValueType  # 4
-        SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig11._SynchronousCommit.ValueType  # 5
-    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper):
+        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig11._ByteaOutput.ValueType  # 0
+        BYTEA_OUTPUT_HEX: PostgresqlConfig11._ByteaOutput.ValueType  # 1
+        BYTEA_OUTPUT_ESCAPED: PostgresqlConfig11._ByteaOutput.ValueType  # 2
+    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
         pass
 
-    SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig11.SynchronousCommit.ValueType  # 0
-    SYNCHRONOUS_COMMIT_ON: PostgresqlConfig11.SynchronousCommit.ValueType  # 1
-    SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig11.SynchronousCommit.ValueType  # 2
-    SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig11.SynchronousCommit.ValueType  # 3
-    SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig11.SynchronousCommit.ValueType  # 4
-    SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig11.SynchronousCommit.ValueType  # 5
+    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig11.ByteaOutput.ValueType  # 0
+    BYTEA_OUTPUT_HEX: PostgresqlConfig11.ByteaOutput.ValueType  # 1
+    BYTEA_OUTPUT_ESCAPED: PostgresqlConfig11.ByteaOutput.ValueType  # 2
 
     class _ConstraintExclusion:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -89,6 +87,23 @@ class PostgresqlConfig11(google.protobuf.message.Message):
     FORCE_PARALLEL_MODE_OFF: PostgresqlConfig11.ForceParallelMode.ValueType  # 2
     FORCE_PARALLEL_MODE_REGRESS: PostgresqlConfig11.ForceParallelMode.ValueType  # 3
 
+    class _LogErrorVerbosity:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._LogErrorVerbosity.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 0
+        LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 1
+        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 2
+        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 3
+    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
+        pass
+
+    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 0
+    LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 1
+    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 2
+    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 3
+
     class _LogLevel:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -122,23 +137,6 @@ class PostgresqlConfig11(google.protobuf.message.Message):
     LOG_LEVEL_FATAL: PostgresqlConfig11.LogLevel.ValueType  # 10
     LOG_LEVEL_PANIC: PostgresqlConfig11.LogLevel.ValueType  # 11
 
-    class _LogErrorVerbosity:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._LogErrorVerbosity.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 0
-        LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 1
-        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 2
-        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig11._LogErrorVerbosity.ValueType  # 3
-    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
-        pass
-
-    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 0
-    LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 1
-    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 2
-    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig11.LogErrorVerbosity.ValueType  # 3
-
     class _LogStatement:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -157,89 +155,6 @@ class PostgresqlConfig11(google.protobuf.message.Message):
     LOG_STATEMENT_DDL: PostgresqlConfig11.LogStatement.ValueType  # 2
     LOG_STATEMENT_MOD: PostgresqlConfig11.LogStatement.ValueType  # 3
     LOG_STATEMENT_ALL: PostgresqlConfig11.LogStatement.ValueType  # 4
-
-    class _TransactionIsolation:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._TransactionIsolation.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig11._TransactionIsolation.ValueType  # 0
-        TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig11._TransactionIsolation.ValueType  # 1
-        TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig11._TransactionIsolation.ValueType  # 2
-        TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig11._TransactionIsolation.ValueType  # 3
-        TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig11._TransactionIsolation.ValueType  # 4
-    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper):
-        pass
-
-    TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig11.TransactionIsolation.ValueType  # 0
-    TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig11.TransactionIsolation.ValueType  # 1
-    TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig11.TransactionIsolation.ValueType  # 2
-    TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig11.TransactionIsolation.ValueType  # 3
-    TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig11.TransactionIsolation.ValueType  # 4
-
-    class _ByteaOutput:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._ByteaOutput.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig11._ByteaOutput.ValueType  # 0
-        BYTEA_OUTPUT_HEX: PostgresqlConfig11._ByteaOutput.ValueType  # 1
-        BYTEA_OUTPUT_ESCAPED: PostgresqlConfig11._ByteaOutput.ValueType  # 2
-    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
-        pass
-
-    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig11.ByteaOutput.ValueType  # 0
-    BYTEA_OUTPUT_HEX: PostgresqlConfig11.ByteaOutput.ValueType  # 1
-    BYTEA_OUTPUT_ESCAPED: PostgresqlConfig11.ByteaOutput.ValueType  # 2
-
-    class _XmlBinary:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._XmlBinary.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        XML_BINARY_UNSPECIFIED: PostgresqlConfig11._XmlBinary.ValueType  # 0
-        XML_BINARY_BASE64: PostgresqlConfig11._XmlBinary.ValueType  # 1
-        XML_BINARY_HEX: PostgresqlConfig11._XmlBinary.ValueType  # 2
-    class XmlBinary(_XmlBinary, metaclass=_XmlBinaryEnumTypeWrapper):
-        pass
-
-    XML_BINARY_UNSPECIFIED: PostgresqlConfig11.XmlBinary.ValueType  # 0
-    XML_BINARY_BASE64: PostgresqlConfig11.XmlBinary.ValueType  # 1
-    XML_BINARY_HEX: PostgresqlConfig11.XmlBinary.ValueType  # 2
-
-    class _XmlOption:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._XmlOption.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        XML_OPTION_UNSPECIFIED: PostgresqlConfig11._XmlOption.ValueType  # 0
-        XML_OPTION_DOCUMENT: PostgresqlConfig11._XmlOption.ValueType  # 1
-        XML_OPTION_CONTENT: PostgresqlConfig11._XmlOption.ValueType  # 2
-    class XmlOption(_XmlOption, metaclass=_XmlOptionEnumTypeWrapper):
-        pass
-
-    XML_OPTION_UNSPECIFIED: PostgresqlConfig11.XmlOption.ValueType  # 0
-    XML_OPTION_DOCUMENT: PostgresqlConfig11.XmlOption.ValueType  # 1
-    XML_OPTION_CONTENT: PostgresqlConfig11.XmlOption.ValueType  # 2
-
-    class _BackslashQuote:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._BackslashQuote.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig11._BackslashQuote.ValueType  # 0
-        BACKSLASH_QUOTE: PostgresqlConfig11._BackslashQuote.ValueType  # 1
-        BACKSLASH_QUOTE_ON: PostgresqlConfig11._BackslashQuote.ValueType  # 2
-        BACKSLASH_QUOTE_OFF: PostgresqlConfig11._BackslashQuote.ValueType  # 3
-        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig11._BackslashQuote.ValueType  # 4
-    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
-        pass
-
-    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig11.BackslashQuote.ValueType  # 0
-    BACKSLASH_QUOTE: PostgresqlConfig11.BackslashQuote.ValueType  # 1
-    BACKSLASH_QUOTE_ON: PostgresqlConfig11.BackslashQuote.ValueType  # 2
-    BACKSLASH_QUOTE_OFF: PostgresqlConfig11.BackslashQuote.ValueType  # 3
-    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig11.BackslashQuote.ValueType  # 4
 
     class _PgHintPlanDebugPrint:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -280,6 +195,91 @@ class PostgresqlConfig11(google.protobuf.message.Message):
     SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig11.SharedPreloadLibraries.ValueType  # 3
     SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig11.SharedPreloadLibraries.ValueType  # 4
     SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig11.SharedPreloadLibraries.ValueType  # 5
+
+    class _SynchronousCommit:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._SynchronousCommit.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig11._SynchronousCommit.ValueType  # 0
+        SYNCHRONOUS_COMMIT_ON: PostgresqlConfig11._SynchronousCommit.ValueType  # 1
+        SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig11._SynchronousCommit.ValueType  # 2
+        SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig11._SynchronousCommit.ValueType  # 3
+        SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig11._SynchronousCommit.ValueType  # 4
+        SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig11._SynchronousCommit.ValueType  # 5
+    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper):
+        pass
+
+    SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig11.SynchronousCommit.ValueType  # 0
+    SYNCHRONOUS_COMMIT_ON: PostgresqlConfig11.SynchronousCommit.ValueType  # 1
+    SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig11.SynchronousCommit.ValueType  # 2
+    SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig11.SynchronousCommit.ValueType  # 3
+    SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig11.SynchronousCommit.ValueType  # 4
+    SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig11.SynchronousCommit.ValueType  # 5
+
+    class _TransactionIsolation:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._TransactionIsolation.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig11._TransactionIsolation.ValueType  # 0
+        TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig11._TransactionIsolation.ValueType  # 1
+        TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig11._TransactionIsolation.ValueType  # 2
+        TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig11._TransactionIsolation.ValueType  # 3
+        TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig11._TransactionIsolation.ValueType  # 4
+    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper):
+        pass
+
+    TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig11.TransactionIsolation.ValueType  # 0
+    TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig11.TransactionIsolation.ValueType  # 1
+    TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig11.TransactionIsolation.ValueType  # 2
+    TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig11.TransactionIsolation.ValueType  # 3
+    TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig11.TransactionIsolation.ValueType  # 4
+
+    class _WalLevel:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._WalLevel.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        WAL_LEVEL_UNSPECIFIED: PostgresqlConfig11._WalLevel.ValueType  # 0
+        WAL_LEVEL_REPLICA: PostgresqlConfig11._WalLevel.ValueType  # 1
+        WAL_LEVEL_LOGICAL: PostgresqlConfig11._WalLevel.ValueType  # 2
+    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper):
+        pass
+
+    WAL_LEVEL_UNSPECIFIED: PostgresqlConfig11.WalLevel.ValueType  # 0
+    WAL_LEVEL_REPLICA: PostgresqlConfig11.WalLevel.ValueType  # 1
+    WAL_LEVEL_LOGICAL: PostgresqlConfig11.WalLevel.ValueType  # 2
+
+    class _XmlBinary:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._XmlBinary.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        XML_BINARY_UNSPECIFIED: PostgresqlConfig11._XmlBinary.ValueType  # 0
+        XML_BINARY_BASE64: PostgresqlConfig11._XmlBinary.ValueType  # 1
+        XML_BINARY_HEX: PostgresqlConfig11._XmlBinary.ValueType  # 2
+    class XmlBinary(_XmlBinary, metaclass=_XmlBinaryEnumTypeWrapper):
+        pass
+
+    XML_BINARY_UNSPECIFIED: PostgresqlConfig11.XmlBinary.ValueType  # 0
+    XML_BINARY_BASE64: PostgresqlConfig11.XmlBinary.ValueType  # 1
+    XML_BINARY_HEX: PostgresqlConfig11.XmlBinary.ValueType  # 2
+
+    class _XmlOption:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig11._XmlOption.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        XML_OPTION_UNSPECIFIED: PostgresqlConfig11._XmlOption.ValueType  # 0
+        XML_OPTION_DOCUMENT: PostgresqlConfig11._XmlOption.ValueType  # 1
+        XML_OPTION_CONTENT: PostgresqlConfig11._XmlOption.ValueType  # 2
+    class XmlOption(_XmlOption, metaclass=_XmlOptionEnumTypeWrapper):
+        pass
+
+    XML_OPTION_UNSPECIFIED: PostgresqlConfig11.XmlOption.ValueType  # 0
+    XML_OPTION_DOCUMENT: PostgresqlConfig11.XmlOption.ValueType  # 1
+    XML_OPTION_CONTENT: PostgresqlConfig11.XmlOption.ValueType  # 2
 
     MAX_CONNECTIONS_FIELD_NUMBER: builtins.int
     SHARED_BUFFERS_FIELD_NUMBER: builtins.int

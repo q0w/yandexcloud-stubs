@@ -294,20 +294,25 @@ class StringMatch(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
     EXACT_MATCH_FIELD_NUMBER: builtins.int
     PREFIX_MATCH_FIELD_NUMBER: builtins.int
+    REGEX_MATCH_FIELD_NUMBER: builtins.int
     exact_match: typing.Text
     """Exact match string."""
 
     prefix_match: typing.Text
     """Prefix match string."""
 
+    regex_match: typing.Text
+    """Regular expression match string."""
+
     def __init__(self,
         *,
         exact_match: typing.Text = ...,
         prefix_match: typing.Text = ...,
+        regex_match: typing.Text = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["match",b"match"]) -> typing.Optional[typing_extensions.Literal["exact_match","prefix_match"]]: ...
+    def HasField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match","regex_match",b"regex_match"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match","regex_match",b"regex_match"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["match",b"match"]) -> typing.Optional[typing_extensions.Literal["exact_match","prefix_match","regex_match"]]: ...
 global___StringMatch = StringMatch
 
 class RedirectAction(google.protobuf.message.Message):

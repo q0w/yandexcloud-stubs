@@ -15,6 +15,7 @@ import typing_extensions
 import yandex.cloud.mdb.redis.v1.config.redis5_0_pb2
 import yandex.cloud.mdb.redis.v1.config.redis6_0_pb2
 import yandex.cloud.mdb.redis.v1.config.redis6_2_pb2
+import yandex.cloud.mdb.redis.v1.config.redis7_0_pb2
 import yandex.cloud.mdb.redis.v1.maintenance_pb2
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
@@ -321,6 +322,7 @@ class ClusterConfig(google.protobuf.message.Message):
     REDIS_CONFIG_5_0_FIELD_NUMBER: builtins.int
     REDIS_CONFIG_6_0_FIELD_NUMBER: builtins.int
     REDIS_CONFIG_6_2_FIELD_NUMBER: builtins.int
+    REDIS_CONFIG_7_0_FIELD_NUMBER: builtins.int
     RESOURCES_FIELD_NUMBER: builtins.int
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
@@ -340,6 +342,10 @@ class ClusterConfig(google.protobuf.message.Message):
         """Configuration of a Redis 6.2 server."""
         pass
     @property
+    def redis_config_7_0(self) -> yandex.cloud.mdb.redis.v1.config.redis7_0_pb2.RedisConfigSet7_0:
+        """Configuration of a Redis 7.0 server."""
+        pass
+    @property
     def resources(self) -> global___Resources:
         """Resources allocated to Redis hosts."""
         pass
@@ -357,13 +363,14 @@ class ClusterConfig(google.protobuf.message.Message):
         redis_config_5_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis5_0_pb2.RedisConfigSet5_0] = ...,
         redis_config_6_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis6_0_pb2.RedisConfigSet6_0] = ...,
         redis_config_6_2: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis6_2_pb2.RedisConfigSet6_2] = ...,
+        redis_config_7_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis7_0_pb2.RedisConfigSet7_0] = ...,
         resources: typing.Optional[global___Resources] = ...,
         backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
         access: typing.Optional[global___Access] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config",b"redis_config","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config",b"redis_config","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","resources",b"resources","version",b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["redis_config",b"redis_config"]) -> typing.Optional[typing_extensions.Literal["redis_config_5_0","redis_config_6_0","redis_config_6_2"]]: ...
+    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config",b"redis_config","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_config_7_0",b"redis_config_7_0","resources",b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config",b"redis_config","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_config_7_0",b"redis_config_7_0","resources",b"resources","version",b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["redis_config",b"redis_config"]) -> typing.Optional[typing_extensions.Literal["redis_config_5_0","redis_config_6_0","redis_config_6_2","redis_config_7_0"]]: ...
 global___ClusterConfig = ClusterConfig
 
 class Shard(google.protobuf.message.Message):

@@ -19,41 +19,39 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    class _WalLevel:
+    class _BackslashQuote:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._WalLevel.ValueType], builtins.type):
+    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._BackslashQuote.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        WAL_LEVEL_UNSPECIFIED: PostgresqlConfig12_1C._WalLevel.ValueType  # 0
-        WAL_LEVEL_REPLICA: PostgresqlConfig12_1C._WalLevel.ValueType  # 1
-        WAL_LEVEL_LOGICAL: PostgresqlConfig12_1C._WalLevel.ValueType  # 2
-    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper):
+        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 0
+        BACKSLASH_QUOTE: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 1
+        BACKSLASH_QUOTE_ON: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 2
+        BACKSLASH_QUOTE_OFF: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 3
+        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 4
+    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
         pass
 
-    WAL_LEVEL_UNSPECIFIED: PostgresqlConfig12_1C.WalLevel.ValueType  # 0
-    WAL_LEVEL_REPLICA: PostgresqlConfig12_1C.WalLevel.ValueType  # 1
-    WAL_LEVEL_LOGICAL: PostgresqlConfig12_1C.WalLevel.ValueType  # 2
+    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 0
+    BACKSLASH_QUOTE: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 1
+    BACKSLASH_QUOTE_ON: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 2
+    BACKSLASH_QUOTE_OFF: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 3
+    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 4
 
-    class _SynchronousCommit:
+    class _ByteaOutput:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._SynchronousCommit.ValueType], builtins.type):
+    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._ByteaOutput.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 0
-        SYNCHRONOUS_COMMIT_ON: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 1
-        SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 2
-        SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 3
-        SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 4
-        SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 5
-    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper):
+        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 0
+        BYTEA_OUTPUT_HEX: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 1
+        BYTEA_OUTPUT_ESCAPED: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 2
+    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
         pass
 
-    SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 0
-    SYNCHRONOUS_COMMIT_ON: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 1
-    SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 2
-    SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 3
-    SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 4
-    SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 5
+    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 0
+    BYTEA_OUTPUT_HEX: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 1
+    BYTEA_OUTPUT_ESCAPED: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 2
 
     class _ConstraintExclusion:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -89,6 +87,23 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     FORCE_PARALLEL_MODE_OFF: PostgresqlConfig12_1C.ForceParallelMode.ValueType  # 2
     FORCE_PARALLEL_MODE_REGRESS: PostgresqlConfig12_1C.ForceParallelMode.ValueType  # 3
 
+    class _LogErrorVerbosity:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._LogErrorVerbosity.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 0
+        LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 1
+        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 2
+        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 3
+    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
+        pass
+
+    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 0
+    LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 1
+    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 2
+    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 3
+
     class _LogLevel:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -122,23 +137,6 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     LOG_LEVEL_FATAL: PostgresqlConfig12_1C.LogLevel.ValueType  # 10
     LOG_LEVEL_PANIC: PostgresqlConfig12_1C.LogLevel.ValueType  # 11
 
-    class _LogErrorVerbosity:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._LogErrorVerbosity.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 0
-        LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 1
-        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 2
-        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig12_1C._LogErrorVerbosity.ValueType  # 3
-    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
-        pass
-
-    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 0
-    LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 1
-    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 2
-    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig12_1C.LogErrorVerbosity.ValueType  # 3
-
     class _LogStatement:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -157,6 +155,84 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     LOG_STATEMENT_DDL: PostgresqlConfig12_1C.LogStatement.ValueType  # 2
     LOG_STATEMENT_MOD: PostgresqlConfig12_1C.LogStatement.ValueType  # 3
     LOG_STATEMENT_ALL: PostgresqlConfig12_1C.LogStatement.ValueType  # 4
+
+    class _PgHintPlanDebugPrint:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _PgHintPlanDebugPrintEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 0
+        PG_HINT_PLAN_DEBUG_PRINT_OFF: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 1
+        PG_HINT_PLAN_DEBUG_PRINT_ON: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 2
+        PG_HINT_PLAN_DEBUG_PRINT_DETAILED: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 3
+        PG_HINT_PLAN_DEBUG_PRINT_VERBOSE: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 4
+    class PgHintPlanDebugPrint(_PgHintPlanDebugPrint, metaclass=_PgHintPlanDebugPrintEnumTypeWrapper):
+        pass
+
+    PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 0
+    PG_HINT_PLAN_DEBUG_PRINT_OFF: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 1
+    PG_HINT_PLAN_DEBUG_PRINT_ON: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 2
+    PG_HINT_PLAN_DEBUG_PRINT_DETAILED: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 3
+    PG_HINT_PLAN_DEBUG_PRINT_VERBOSE: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 4
+
+    class _PlanCacheMode:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _PlanCacheModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._PlanCacheMode.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        PLAN_CACHE_MODE_UNSPECIFIED: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 0
+        PLAN_CACHE_MODE_AUTO: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 1
+        PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 2
+        PLAN_CACHE_MODE_FORCE_GENERIC_PLAN: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 3
+    class PlanCacheMode(_PlanCacheMode, metaclass=_PlanCacheModeEnumTypeWrapper):
+        pass
+
+    PLAN_CACHE_MODE_UNSPECIFIED: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 0
+    PLAN_CACHE_MODE_AUTO: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 1
+    PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 2
+    PLAN_CACHE_MODE_FORCE_GENERIC_PLAN: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 3
+
+    class _SharedPreloadLibraries:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _SharedPreloadLibrariesEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 0
+        SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 1
+        SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 2
+        SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 3
+        SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 4
+        SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 5
+    class SharedPreloadLibraries(_SharedPreloadLibraries, metaclass=_SharedPreloadLibrariesEnumTypeWrapper):
+        pass
+
+    SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 0
+    SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 1
+    SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 2
+    SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 3
+    SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 4
+    SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 5
+
+    class _SynchronousCommit:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._SynchronousCommit.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 0
+        SYNCHRONOUS_COMMIT_ON: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 1
+        SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 2
+        SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 3
+        SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 4
+        SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig12_1C._SynchronousCommit.ValueType  # 5
+    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper):
+        pass
+
+    SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 0
+    SYNCHRONOUS_COMMIT_ON: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 1
+    SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 2
+    SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 3
+    SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 4
+    SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig12_1C.SynchronousCommit.ValueType  # 5
 
     class _TransactionIsolation:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -177,20 +253,20 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig12_1C.TransactionIsolation.ValueType  # 3
     TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig12_1C.TransactionIsolation.ValueType  # 4
 
-    class _ByteaOutput:
+    class _WalLevel:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._ByteaOutput.ValueType], builtins.type):
+    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._WalLevel.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 0
-        BYTEA_OUTPUT_HEX: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 1
-        BYTEA_OUTPUT_ESCAPED: PostgresqlConfig12_1C._ByteaOutput.ValueType  # 2
-    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
+        WAL_LEVEL_UNSPECIFIED: PostgresqlConfig12_1C._WalLevel.ValueType  # 0
+        WAL_LEVEL_REPLICA: PostgresqlConfig12_1C._WalLevel.ValueType  # 1
+        WAL_LEVEL_LOGICAL: PostgresqlConfig12_1C._WalLevel.ValueType  # 2
+    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper):
         pass
 
-    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 0
-    BYTEA_OUTPUT_HEX: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 1
-    BYTEA_OUTPUT_ESCAPED: PostgresqlConfig12_1C.ByteaOutput.ValueType  # 2
+    WAL_LEVEL_UNSPECIFIED: PostgresqlConfig12_1C.WalLevel.ValueType  # 0
+    WAL_LEVEL_REPLICA: PostgresqlConfig12_1C.WalLevel.ValueType  # 1
+    WAL_LEVEL_LOGICAL: PostgresqlConfig12_1C.WalLevel.ValueType  # 2
 
     class _XmlBinary:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -221,82 +297,6 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     XML_OPTION_UNSPECIFIED: PostgresqlConfig12_1C.XmlOption.ValueType  # 0
     XML_OPTION_DOCUMENT: PostgresqlConfig12_1C.XmlOption.ValueType  # 1
     XML_OPTION_CONTENT: PostgresqlConfig12_1C.XmlOption.ValueType  # 2
-
-    class _BackslashQuote:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._BackslashQuote.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 0
-        BACKSLASH_QUOTE: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 1
-        BACKSLASH_QUOTE_ON: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 2
-        BACKSLASH_QUOTE_OFF: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 3
-        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig12_1C._BackslashQuote.ValueType  # 4
-    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
-        pass
-
-    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 0
-    BACKSLASH_QUOTE: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 1
-    BACKSLASH_QUOTE_ON: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 2
-    BACKSLASH_QUOTE_OFF: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 3
-    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig12_1C.BackslashQuote.ValueType  # 4
-
-    class _PlanCacheMode:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _PlanCacheModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._PlanCacheMode.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        PLAN_CACHE_MODE_UNSPECIFIED: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 0
-        PLAN_CACHE_MODE_AUTO: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 1
-        PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 2
-        PLAN_CACHE_MODE_FORCE_GENERIC_PLAN: PostgresqlConfig12_1C._PlanCacheMode.ValueType  # 3
-    class PlanCacheMode(_PlanCacheMode, metaclass=_PlanCacheModeEnumTypeWrapper):
-        pass
-
-    PLAN_CACHE_MODE_UNSPECIFIED: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 0
-    PLAN_CACHE_MODE_AUTO: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 1
-    PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 2
-    PLAN_CACHE_MODE_FORCE_GENERIC_PLAN: PostgresqlConfig12_1C.PlanCacheMode.ValueType  # 3
-
-    class _PgHintPlanDebugPrint:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _PgHintPlanDebugPrintEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 0
-        PG_HINT_PLAN_DEBUG_PRINT_OFF: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 1
-        PG_HINT_PLAN_DEBUG_PRINT_ON: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 2
-        PG_HINT_PLAN_DEBUG_PRINT_DETAILED: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 3
-        PG_HINT_PLAN_DEBUG_PRINT_VERBOSE: PostgresqlConfig12_1C._PgHintPlanDebugPrint.ValueType  # 4
-    class PgHintPlanDebugPrint(_PgHintPlanDebugPrint, metaclass=_PgHintPlanDebugPrintEnumTypeWrapper):
-        pass
-
-    PG_HINT_PLAN_DEBUG_PRINT_UNSPECIFIED: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 0
-    PG_HINT_PLAN_DEBUG_PRINT_OFF: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 1
-    PG_HINT_PLAN_DEBUG_PRINT_ON: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 2
-    PG_HINT_PLAN_DEBUG_PRINT_DETAILED: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 3
-    PG_HINT_PLAN_DEBUG_PRINT_VERBOSE: PostgresqlConfig12_1C.PgHintPlanDebugPrint.ValueType  # 4
-
-    class _SharedPreloadLibraries:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _SharedPreloadLibrariesEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 0
-        SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 1
-        SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 2
-        SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 3
-        SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 4
-        SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12_1C._SharedPreloadLibraries.ValueType  # 5
-    class SharedPreloadLibraries(_SharedPreloadLibraries, metaclass=_SharedPreloadLibrariesEnumTypeWrapper):
-        pass
-
-    SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 0
-    SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 1
-    SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 2
-    SHARED_PRELOAD_LIBRARIES_TIMESCALEDB: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 3
-    SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 4
-    SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12_1C.SharedPreloadLibraries.ValueType  # 5
 
     MAX_CONNECTIONS_FIELD_NUMBER: builtins.int
     SHARED_BUFFERS_FIELD_NUMBER: builtins.int
@@ -375,6 +375,7 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     AUTOVACUUM_NAPTIME_FIELD_NUMBER: builtins.int
     ARCHIVE_TIMEOUT_FIELD_NUMBER: builtins.int
     TRACK_ACTIVITY_QUERY_SIZE_FIELD_NUMBER: builtins.int
+    ONLINE_ANALYZE_ENABLE_FIELD_NUMBER: builtins.int
     ENABLE_BITMAPSCAN_FIELD_NUMBER: builtins.int
     ENABLE_HASHAGG_FIELD_NUMBER: builtins.int
     ENABLE_HASHJOIN_FIELD_NUMBER: builtins.int
@@ -424,6 +425,7 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     PG_QUALSTATS_MAX_FIELD_NUMBER: builtins.int
     PG_QUALSTATS_RESOLVE_OIDS_FIELD_NUMBER: builtins.int
     PG_QUALSTATS_SAMPLE_RATE_FIELD_NUMBER: builtins.int
+    PLANTUNER_FIX_EMPTY_TABLE_FIELD_NUMBER: builtins.int
     @property
     def max_connections(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -604,6 +606,8 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     @property
     def track_activity_query_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
+    def online_analyze_enable(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
+    @property
     def enable_bitmapscan(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
     def enable_hashagg(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
@@ -699,6 +703,8 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
     def pg_qualstats_resolve_oids(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
     def pg_qualstats_sample_rate(self) -> google.protobuf.wrappers_pb2.DoubleValue: ...
+    @property
+    def plantuner_fix_empty_table(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     def __init__(self,
         *,
         max_connections: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
@@ -778,6 +784,7 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
         autovacuum_naptime: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         archive_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         track_activity_query_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        online_analyze_enable: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         enable_bitmapscan: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         enable_hashagg: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         enable_hashjoin: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
@@ -827,9 +834,10 @@ class PostgresqlConfig12_1C(google.protobuf.message.Message):
         pg_qualstats_max: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         pg_qualstats_resolve_oids: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         pg_qualstats_sample_rate: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
+        plantuner_fix_empty_table: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","auto_explain_log_analyze",b"auto_explain_log_analyze","auto_explain_log_buffers",b"auto_explain_log_buffers","auto_explain_log_min_duration",b"auto_explain_log_min_duration","auto_explain_log_nested_statements",b"auto_explain_log_nested_statements","auto_explain_log_timing",b"auto_explain_log_timing","auto_explain_log_triggers",b"auto_explain_log_triggers","auto_explain_log_verbose",b"auto_explain_log_verbose","auto_explain_sample_rate",b"auto_explain_sample_rate","autovacuum_analyze_scale_factor",b"autovacuum_analyze_scale_factor","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_vacuum_scale_factor",b"autovacuum_vacuum_scale_factor","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_transaction_read_only",b"default_transaction_read_only","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_parallel_append",b"enable_parallel_append","enable_parallel_hash",b"enable_parallel_hash","enable_partition_pruning",b"enable_partition_pruning","enable_partitionwise_aggregate",b"enable_partitionwise_aggregate","enable_partitionwise_join",b"enable_partitionwise_join","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","jit",b"jit","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_temp_files",b"log_temp_files","log_transaction_sample_rate",b"log_transaction_sample_rate","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_maintenance_workers",b"max_parallel_maintenance_workers","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","max_worker_processes",b"max_worker_processes","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","operator_precedence_warning",b"operator_precedence_warning","parallel_leader_participation",b"parallel_leader_participation","pg_hint_plan_enable_hint",b"pg_hint_plan_enable_hint","pg_hint_plan_enable_hint_table",b"pg_hint_plan_enable_hint_table","pg_qualstats_enabled",b"pg_qualstats_enabled","pg_qualstats_max",b"pg_qualstats_max","pg_qualstats_resolve_oids",b"pg_qualstats_resolve_oids","pg_qualstats_sample_rate",b"pg_qualstats_sample_rate","pg_qualstats_track_constants",b"pg_qualstats_track_constants","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","row_security",b"row_security","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cleanup_index_scale_factor",b"vacuum_cleanup_index_scale_factor","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","work_mem",b"work_mem"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","auto_explain_log_analyze",b"auto_explain_log_analyze","auto_explain_log_buffers",b"auto_explain_log_buffers","auto_explain_log_min_duration",b"auto_explain_log_min_duration","auto_explain_log_nested_statements",b"auto_explain_log_nested_statements","auto_explain_log_timing",b"auto_explain_log_timing","auto_explain_log_triggers",b"auto_explain_log_triggers","auto_explain_log_verbose",b"auto_explain_log_verbose","auto_explain_sample_rate",b"auto_explain_sample_rate","autovacuum_analyze_scale_factor",b"autovacuum_analyze_scale_factor","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_vacuum_scale_factor",b"autovacuum_vacuum_scale_factor","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","backslash_quote",b"backslash_quote","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","bytea_output",b"bytea_output","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","client_min_messages",b"client_min_messages","constraint_exclusion",b"constraint_exclusion","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_transaction_isolation",b"default_transaction_isolation","default_transaction_read_only",b"default_transaction_read_only","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_parallel_append",b"enable_parallel_append","enable_parallel_hash",b"enable_parallel_hash","enable_partition_pruning",b"enable_partition_pruning","enable_partitionwise_aggregate",b"enable_partitionwise_aggregate","enable_partitionwise_join",b"enable_partitionwise_join","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","force_parallel_mode",b"force_parallel_mode","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","jit",b"jit","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_error_verbosity",b"log_error_verbosity","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_min_error_statement",b"log_min_error_statement","log_min_messages",b"log_min_messages","log_statement",b"log_statement","log_temp_files",b"log_temp_files","log_transaction_sample_rate",b"log_transaction_sample_rate","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_maintenance_workers",b"max_parallel_maintenance_workers","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","max_worker_processes",b"max_worker_processes","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","operator_precedence_warning",b"operator_precedence_warning","parallel_leader_participation",b"parallel_leader_participation","pg_hint_plan_debug_print",b"pg_hint_plan_debug_print","pg_hint_plan_enable_hint",b"pg_hint_plan_enable_hint","pg_hint_plan_enable_hint_table",b"pg_hint_plan_enable_hint_table","pg_hint_plan_message_level",b"pg_hint_plan_message_level","pg_qualstats_enabled",b"pg_qualstats_enabled","pg_qualstats_max",b"pg_qualstats_max","pg_qualstats_resolve_oids",b"pg_qualstats_resolve_oids","pg_qualstats_sample_rate",b"pg_qualstats_sample_rate","pg_qualstats_track_constants",b"pg_qualstats_track_constants","plan_cache_mode",b"plan_cache_mode","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","row_security",b"row_security","search_path",b"search_path","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","shared_preload_libraries",b"shared_preload_libraries","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","synchronous_commit",b"synchronous_commit","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","timezone",b"timezone","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cleanup_index_scale_factor",b"vacuum_cleanup_index_scale_factor","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","wal_level",b"wal_level","work_mem",b"work_mem","xmlbinary",b"xmlbinary","xmloption",b"xmloption"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","auto_explain_log_analyze",b"auto_explain_log_analyze","auto_explain_log_buffers",b"auto_explain_log_buffers","auto_explain_log_min_duration",b"auto_explain_log_min_duration","auto_explain_log_nested_statements",b"auto_explain_log_nested_statements","auto_explain_log_timing",b"auto_explain_log_timing","auto_explain_log_triggers",b"auto_explain_log_triggers","auto_explain_log_verbose",b"auto_explain_log_verbose","auto_explain_sample_rate",b"auto_explain_sample_rate","autovacuum_analyze_scale_factor",b"autovacuum_analyze_scale_factor","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_vacuum_scale_factor",b"autovacuum_vacuum_scale_factor","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_transaction_read_only",b"default_transaction_read_only","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_parallel_append",b"enable_parallel_append","enable_parallel_hash",b"enable_parallel_hash","enable_partition_pruning",b"enable_partition_pruning","enable_partitionwise_aggregate",b"enable_partitionwise_aggregate","enable_partitionwise_join",b"enable_partitionwise_join","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","jit",b"jit","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_temp_files",b"log_temp_files","log_transaction_sample_rate",b"log_transaction_sample_rate","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_maintenance_workers",b"max_parallel_maintenance_workers","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","max_worker_processes",b"max_worker_processes","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","online_analyze_enable",b"online_analyze_enable","operator_precedence_warning",b"operator_precedence_warning","parallel_leader_participation",b"parallel_leader_participation","pg_hint_plan_enable_hint",b"pg_hint_plan_enable_hint","pg_hint_plan_enable_hint_table",b"pg_hint_plan_enable_hint_table","pg_qualstats_enabled",b"pg_qualstats_enabled","pg_qualstats_max",b"pg_qualstats_max","pg_qualstats_resolve_oids",b"pg_qualstats_resolve_oids","pg_qualstats_sample_rate",b"pg_qualstats_sample_rate","pg_qualstats_track_constants",b"pg_qualstats_track_constants","plantuner_fix_empty_table",b"plantuner_fix_empty_table","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","row_security",b"row_security","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cleanup_index_scale_factor",b"vacuum_cleanup_index_scale_factor","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","work_mem",b"work_mem"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","auto_explain_log_analyze",b"auto_explain_log_analyze","auto_explain_log_buffers",b"auto_explain_log_buffers","auto_explain_log_min_duration",b"auto_explain_log_min_duration","auto_explain_log_nested_statements",b"auto_explain_log_nested_statements","auto_explain_log_timing",b"auto_explain_log_timing","auto_explain_log_triggers",b"auto_explain_log_triggers","auto_explain_log_verbose",b"auto_explain_log_verbose","auto_explain_sample_rate",b"auto_explain_sample_rate","autovacuum_analyze_scale_factor",b"autovacuum_analyze_scale_factor","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_vacuum_scale_factor",b"autovacuum_vacuum_scale_factor","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","backslash_quote",b"backslash_quote","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","bytea_output",b"bytea_output","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","client_min_messages",b"client_min_messages","constraint_exclusion",b"constraint_exclusion","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_transaction_isolation",b"default_transaction_isolation","default_transaction_read_only",b"default_transaction_read_only","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_parallel_append",b"enable_parallel_append","enable_parallel_hash",b"enable_parallel_hash","enable_partition_pruning",b"enable_partition_pruning","enable_partitionwise_aggregate",b"enable_partitionwise_aggregate","enable_partitionwise_join",b"enable_partitionwise_join","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","force_parallel_mode",b"force_parallel_mode","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","jit",b"jit","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_error_verbosity",b"log_error_verbosity","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_min_error_statement",b"log_min_error_statement","log_min_messages",b"log_min_messages","log_statement",b"log_statement","log_temp_files",b"log_temp_files","log_transaction_sample_rate",b"log_transaction_sample_rate","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_maintenance_workers",b"max_parallel_maintenance_workers","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","max_worker_processes",b"max_worker_processes","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","online_analyze_enable",b"online_analyze_enable","operator_precedence_warning",b"operator_precedence_warning","parallel_leader_participation",b"parallel_leader_participation","pg_hint_plan_debug_print",b"pg_hint_plan_debug_print","pg_hint_plan_enable_hint",b"pg_hint_plan_enable_hint","pg_hint_plan_enable_hint_table",b"pg_hint_plan_enable_hint_table","pg_hint_plan_message_level",b"pg_hint_plan_message_level","pg_qualstats_enabled",b"pg_qualstats_enabled","pg_qualstats_max",b"pg_qualstats_max","pg_qualstats_resolve_oids",b"pg_qualstats_resolve_oids","pg_qualstats_sample_rate",b"pg_qualstats_sample_rate","pg_qualstats_track_constants",b"pg_qualstats_track_constants","plan_cache_mode",b"plan_cache_mode","plantuner_fix_empty_table",b"plantuner_fix_empty_table","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","row_security",b"row_security","search_path",b"search_path","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","shared_preload_libraries",b"shared_preload_libraries","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","synchronous_commit",b"synchronous_commit","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","timezone",b"timezone","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cleanup_index_scale_factor",b"vacuum_cleanup_index_scale_factor","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","wal_level",b"wal_level","work_mem",b"work_mem","xmlbinary",b"xmlbinary","xmloption",b"xmloption"]) -> None: ...
 global___PostgresqlConfig12_1C = PostgresqlConfig12_1C
 
 class PostgresqlConfigSet12_1C(google.protobuf.message.Message):

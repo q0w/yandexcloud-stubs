@@ -12,7 +12,7 @@ import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class PostgresqlHostConfig14(google.protobuf.message.Message):
+class PostgresqlHostConfig14_1C(google.protobuf.message.Message):
     """Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
     parameters which detailed description is available in
     [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
@@ -21,188 +21,188 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
     class _BackslashQuote:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._BackslashQuote.ValueType], builtins.type):
+    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._BackslashQuote.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig14._BackslashQuote.ValueType  # 0
-        BACKSLASH_QUOTE: PostgresqlHostConfig14._BackslashQuote.ValueType  # 1
-        BACKSLASH_QUOTE_ON: PostgresqlHostConfig14._BackslashQuote.ValueType  # 2
-        BACKSLASH_QUOTE_OFF: PostgresqlHostConfig14._BackslashQuote.ValueType  # 3
-        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig14._BackslashQuote.ValueType  # 4
+        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig14_1C._BackslashQuote.ValueType  # 0
+        BACKSLASH_QUOTE: PostgresqlHostConfig14_1C._BackslashQuote.ValueType  # 1
+        BACKSLASH_QUOTE_ON: PostgresqlHostConfig14_1C._BackslashQuote.ValueType  # 2
+        BACKSLASH_QUOTE_OFF: PostgresqlHostConfig14_1C._BackslashQuote.ValueType  # 3
+        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig14_1C._BackslashQuote.ValueType  # 4
     class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
         pass
 
-    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig14.BackslashQuote.ValueType  # 0
-    BACKSLASH_QUOTE: PostgresqlHostConfig14.BackslashQuote.ValueType  # 1
-    BACKSLASH_QUOTE_ON: PostgresqlHostConfig14.BackslashQuote.ValueType  # 2
-    BACKSLASH_QUOTE_OFF: PostgresqlHostConfig14.BackslashQuote.ValueType  # 3
-    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig14.BackslashQuote.ValueType  # 4
+    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig14_1C.BackslashQuote.ValueType  # 0
+    BACKSLASH_QUOTE: PostgresqlHostConfig14_1C.BackslashQuote.ValueType  # 1
+    BACKSLASH_QUOTE_ON: PostgresqlHostConfig14_1C.BackslashQuote.ValueType  # 2
+    BACKSLASH_QUOTE_OFF: PostgresqlHostConfig14_1C.BackslashQuote.ValueType  # 3
+    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig14_1C.BackslashQuote.ValueType  # 4
 
     class _ByteaOutput:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._ByteaOutput.ValueType], builtins.type):
+    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._ByteaOutput.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig14._ByteaOutput.ValueType  # 0
-        BYTEA_OUTPUT_HEX: PostgresqlHostConfig14._ByteaOutput.ValueType  # 1
-        BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig14._ByteaOutput.ValueType  # 2
+        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig14_1C._ByteaOutput.ValueType  # 0
+        BYTEA_OUTPUT_HEX: PostgresqlHostConfig14_1C._ByteaOutput.ValueType  # 1
+        BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig14_1C._ByteaOutput.ValueType  # 2
     class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
         pass
 
-    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig14.ByteaOutput.ValueType  # 0
-    BYTEA_OUTPUT_HEX: PostgresqlHostConfig14.ByteaOutput.ValueType  # 1
-    BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig14.ByteaOutput.ValueType  # 2
+    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig14_1C.ByteaOutput.ValueType  # 0
+    BYTEA_OUTPUT_HEX: PostgresqlHostConfig14_1C.ByteaOutput.ValueType  # 1
+    BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig14_1C.ByteaOutput.ValueType  # 2
 
     class _ConstraintExclusion:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ConstraintExclusionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._ConstraintExclusion.ValueType], builtins.type):
+    class _ConstraintExclusionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._ConstraintExclusion.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlHostConfig14._ConstraintExclusion.ValueType  # 0
-        CONSTRAINT_EXCLUSION_ON: PostgresqlHostConfig14._ConstraintExclusion.ValueType  # 1
-        CONSTRAINT_EXCLUSION_OFF: PostgresqlHostConfig14._ConstraintExclusion.ValueType  # 2
-        CONSTRAINT_EXCLUSION_PARTITION: PostgresqlHostConfig14._ConstraintExclusion.ValueType  # 3
+        CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlHostConfig14_1C._ConstraintExclusion.ValueType  # 0
+        CONSTRAINT_EXCLUSION_ON: PostgresqlHostConfig14_1C._ConstraintExclusion.ValueType  # 1
+        CONSTRAINT_EXCLUSION_OFF: PostgresqlHostConfig14_1C._ConstraintExclusion.ValueType  # 2
+        CONSTRAINT_EXCLUSION_PARTITION: PostgresqlHostConfig14_1C._ConstraintExclusion.ValueType  # 3
     class ConstraintExclusion(_ConstraintExclusion, metaclass=_ConstraintExclusionEnumTypeWrapper):
         pass
 
-    CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlHostConfig14.ConstraintExclusion.ValueType  # 0
-    CONSTRAINT_EXCLUSION_ON: PostgresqlHostConfig14.ConstraintExclusion.ValueType  # 1
-    CONSTRAINT_EXCLUSION_OFF: PostgresqlHostConfig14.ConstraintExclusion.ValueType  # 2
-    CONSTRAINT_EXCLUSION_PARTITION: PostgresqlHostConfig14.ConstraintExclusion.ValueType  # 3
+    CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType  # 0
+    CONSTRAINT_EXCLUSION_ON: PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType  # 1
+    CONSTRAINT_EXCLUSION_OFF: PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType  # 2
+    CONSTRAINT_EXCLUSION_PARTITION: PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType  # 3
 
     class _ForceParallelMode:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ForceParallelModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._ForceParallelMode.ValueType], builtins.type):
+    class _ForceParallelModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._ForceParallelMode.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlHostConfig14._ForceParallelMode.ValueType  # 0
-        FORCE_PARALLEL_MODE_ON: PostgresqlHostConfig14._ForceParallelMode.ValueType  # 1
-        FORCE_PARALLEL_MODE_OFF: PostgresqlHostConfig14._ForceParallelMode.ValueType  # 2
-        FORCE_PARALLEL_MODE_REGRESS: PostgresqlHostConfig14._ForceParallelMode.ValueType  # 3
+        FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlHostConfig14_1C._ForceParallelMode.ValueType  # 0
+        FORCE_PARALLEL_MODE_ON: PostgresqlHostConfig14_1C._ForceParallelMode.ValueType  # 1
+        FORCE_PARALLEL_MODE_OFF: PostgresqlHostConfig14_1C._ForceParallelMode.ValueType  # 2
+        FORCE_PARALLEL_MODE_REGRESS: PostgresqlHostConfig14_1C._ForceParallelMode.ValueType  # 3
     class ForceParallelMode(_ForceParallelMode, metaclass=_ForceParallelModeEnumTypeWrapper):
         pass
 
-    FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlHostConfig14.ForceParallelMode.ValueType  # 0
-    FORCE_PARALLEL_MODE_ON: PostgresqlHostConfig14.ForceParallelMode.ValueType  # 1
-    FORCE_PARALLEL_MODE_OFF: PostgresqlHostConfig14.ForceParallelMode.ValueType  # 2
-    FORCE_PARALLEL_MODE_REGRESS: PostgresqlHostConfig14.ForceParallelMode.ValueType  # 3
+    FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlHostConfig14_1C.ForceParallelMode.ValueType  # 0
+    FORCE_PARALLEL_MODE_ON: PostgresqlHostConfig14_1C.ForceParallelMode.ValueType  # 1
+    FORCE_PARALLEL_MODE_OFF: PostgresqlHostConfig14_1C.ForceParallelMode.ValueType  # 2
+    FORCE_PARALLEL_MODE_REGRESS: PostgresqlHostConfig14_1C.ForceParallelMode.ValueType  # 3
 
     class _LogErrorVerbosity:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._LogErrorVerbosity.ValueType], builtins.type):
+    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._LogErrorVerbosity.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig14._LogErrorVerbosity.ValueType  # 0
-        LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig14._LogErrorVerbosity.ValueType  # 1
-        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig14._LogErrorVerbosity.ValueType  # 2
-        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig14._LogErrorVerbosity.ValueType  # 3
+        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig14_1C._LogErrorVerbosity.ValueType  # 0
+        LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig14_1C._LogErrorVerbosity.ValueType  # 1
+        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig14_1C._LogErrorVerbosity.ValueType  # 2
+        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig14_1C._LogErrorVerbosity.ValueType  # 3
     class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
         pass
 
-    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig14.LogErrorVerbosity.ValueType  # 0
-    LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig14.LogErrorVerbosity.ValueType  # 1
-    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig14.LogErrorVerbosity.ValueType  # 2
-    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig14.LogErrorVerbosity.ValueType  # 3
+    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType  # 0
+    LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType  # 1
+    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType  # 2
+    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType  # 3
 
     class _LogLevel:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._LogLevel.ValueType], builtins.type):
+    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._LogLevel.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_LEVEL_UNSPECIFIED: PostgresqlHostConfig14._LogLevel.ValueType  # 0
-        LOG_LEVEL_DEBUG5: PostgresqlHostConfig14._LogLevel.ValueType  # 1
-        LOG_LEVEL_DEBUG4: PostgresqlHostConfig14._LogLevel.ValueType  # 2
-        LOG_LEVEL_DEBUG3: PostgresqlHostConfig14._LogLevel.ValueType  # 3
-        LOG_LEVEL_DEBUG2: PostgresqlHostConfig14._LogLevel.ValueType  # 4
-        LOG_LEVEL_DEBUG1: PostgresqlHostConfig14._LogLevel.ValueType  # 5
-        LOG_LEVEL_LOG: PostgresqlHostConfig14._LogLevel.ValueType  # 6
-        LOG_LEVEL_NOTICE: PostgresqlHostConfig14._LogLevel.ValueType  # 7
-        LOG_LEVEL_WARNING: PostgresqlHostConfig14._LogLevel.ValueType  # 8
-        LOG_LEVEL_ERROR: PostgresqlHostConfig14._LogLevel.ValueType  # 9
-        LOG_LEVEL_FATAL: PostgresqlHostConfig14._LogLevel.ValueType  # 10
-        LOG_LEVEL_PANIC: PostgresqlHostConfig14._LogLevel.ValueType  # 11
+        LOG_LEVEL_UNSPECIFIED: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 0
+        LOG_LEVEL_DEBUG5: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 1
+        LOG_LEVEL_DEBUG4: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 2
+        LOG_LEVEL_DEBUG3: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 3
+        LOG_LEVEL_DEBUG2: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 4
+        LOG_LEVEL_DEBUG1: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 5
+        LOG_LEVEL_LOG: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 6
+        LOG_LEVEL_NOTICE: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 7
+        LOG_LEVEL_WARNING: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 8
+        LOG_LEVEL_ERROR: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 9
+        LOG_LEVEL_FATAL: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 10
+        LOG_LEVEL_PANIC: PostgresqlHostConfig14_1C._LogLevel.ValueType  # 11
     class LogLevel(_LogLevel, metaclass=_LogLevelEnumTypeWrapper):
         pass
 
-    LOG_LEVEL_UNSPECIFIED: PostgresqlHostConfig14.LogLevel.ValueType  # 0
-    LOG_LEVEL_DEBUG5: PostgresqlHostConfig14.LogLevel.ValueType  # 1
-    LOG_LEVEL_DEBUG4: PostgresqlHostConfig14.LogLevel.ValueType  # 2
-    LOG_LEVEL_DEBUG3: PostgresqlHostConfig14.LogLevel.ValueType  # 3
-    LOG_LEVEL_DEBUG2: PostgresqlHostConfig14.LogLevel.ValueType  # 4
-    LOG_LEVEL_DEBUG1: PostgresqlHostConfig14.LogLevel.ValueType  # 5
-    LOG_LEVEL_LOG: PostgresqlHostConfig14.LogLevel.ValueType  # 6
-    LOG_LEVEL_NOTICE: PostgresqlHostConfig14.LogLevel.ValueType  # 7
-    LOG_LEVEL_WARNING: PostgresqlHostConfig14.LogLevel.ValueType  # 8
-    LOG_LEVEL_ERROR: PostgresqlHostConfig14.LogLevel.ValueType  # 9
-    LOG_LEVEL_FATAL: PostgresqlHostConfig14.LogLevel.ValueType  # 10
-    LOG_LEVEL_PANIC: PostgresqlHostConfig14.LogLevel.ValueType  # 11
+    LOG_LEVEL_UNSPECIFIED: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 0
+    LOG_LEVEL_DEBUG5: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 1
+    LOG_LEVEL_DEBUG4: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 2
+    LOG_LEVEL_DEBUG3: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 3
+    LOG_LEVEL_DEBUG2: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 4
+    LOG_LEVEL_DEBUG1: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 5
+    LOG_LEVEL_LOG: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 6
+    LOG_LEVEL_NOTICE: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 7
+    LOG_LEVEL_WARNING: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 8
+    LOG_LEVEL_ERROR: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 9
+    LOG_LEVEL_FATAL: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 10
+    LOG_LEVEL_PANIC: PostgresqlHostConfig14_1C.LogLevel.ValueType  # 11
 
     class _LogStatement:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._LogStatement.ValueType], builtins.type):
+    class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._LogStatement.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_STATEMENT_UNSPECIFIED: PostgresqlHostConfig14._LogStatement.ValueType  # 0
-        LOG_STATEMENT_NONE: PostgresqlHostConfig14._LogStatement.ValueType  # 1
-        LOG_STATEMENT_DDL: PostgresqlHostConfig14._LogStatement.ValueType  # 2
-        LOG_STATEMENT_MOD: PostgresqlHostConfig14._LogStatement.ValueType  # 3
-        LOG_STATEMENT_ALL: PostgresqlHostConfig14._LogStatement.ValueType  # 4
+        LOG_STATEMENT_UNSPECIFIED: PostgresqlHostConfig14_1C._LogStatement.ValueType  # 0
+        LOG_STATEMENT_NONE: PostgresqlHostConfig14_1C._LogStatement.ValueType  # 1
+        LOG_STATEMENT_DDL: PostgresqlHostConfig14_1C._LogStatement.ValueType  # 2
+        LOG_STATEMENT_MOD: PostgresqlHostConfig14_1C._LogStatement.ValueType  # 3
+        LOG_STATEMENT_ALL: PostgresqlHostConfig14_1C._LogStatement.ValueType  # 4
     class LogStatement(_LogStatement, metaclass=_LogStatementEnumTypeWrapper):
         pass
 
-    LOG_STATEMENT_UNSPECIFIED: PostgresqlHostConfig14.LogStatement.ValueType  # 0
-    LOG_STATEMENT_NONE: PostgresqlHostConfig14.LogStatement.ValueType  # 1
-    LOG_STATEMENT_DDL: PostgresqlHostConfig14.LogStatement.ValueType  # 2
-    LOG_STATEMENT_MOD: PostgresqlHostConfig14.LogStatement.ValueType  # 3
-    LOG_STATEMENT_ALL: PostgresqlHostConfig14.LogStatement.ValueType  # 4
+    LOG_STATEMENT_UNSPECIFIED: PostgresqlHostConfig14_1C.LogStatement.ValueType  # 0
+    LOG_STATEMENT_NONE: PostgresqlHostConfig14_1C.LogStatement.ValueType  # 1
+    LOG_STATEMENT_DDL: PostgresqlHostConfig14_1C.LogStatement.ValueType  # 2
+    LOG_STATEMENT_MOD: PostgresqlHostConfig14_1C.LogStatement.ValueType  # 3
+    LOG_STATEMENT_ALL: PostgresqlHostConfig14_1C.LogStatement.ValueType  # 4
 
     class _TransactionIsolation:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._TransactionIsolation.ValueType], builtins.type):
+    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._TransactionIsolation.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlHostConfig14._TransactionIsolation.ValueType  # 0
-        TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlHostConfig14._TransactionIsolation.ValueType  # 1
-        TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlHostConfig14._TransactionIsolation.ValueType  # 2
-        TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlHostConfig14._TransactionIsolation.ValueType  # 3
-        TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlHostConfig14._TransactionIsolation.ValueType  # 4
+        TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlHostConfig14_1C._TransactionIsolation.ValueType  # 0
+        TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlHostConfig14_1C._TransactionIsolation.ValueType  # 1
+        TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlHostConfig14_1C._TransactionIsolation.ValueType  # 2
+        TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlHostConfig14_1C._TransactionIsolation.ValueType  # 3
+        TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlHostConfig14_1C._TransactionIsolation.ValueType  # 4
     class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper):
         pass
 
-    TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlHostConfig14.TransactionIsolation.ValueType  # 0
-    TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlHostConfig14.TransactionIsolation.ValueType  # 1
-    TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlHostConfig14.TransactionIsolation.ValueType  # 2
-    TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlHostConfig14.TransactionIsolation.ValueType  # 3
-    TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlHostConfig14.TransactionIsolation.ValueType  # 4
+    TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlHostConfig14_1C.TransactionIsolation.ValueType  # 0
+    TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlHostConfig14_1C.TransactionIsolation.ValueType  # 1
+    TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlHostConfig14_1C.TransactionIsolation.ValueType  # 2
+    TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlHostConfig14_1C.TransactionIsolation.ValueType  # 3
+    TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlHostConfig14_1C.TransactionIsolation.ValueType  # 4
 
     class _XmlBinary:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._XmlBinary.ValueType], builtins.type):
+    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._XmlBinary.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        XML_BINARY_UNSPECIFIED: PostgresqlHostConfig14._XmlBinary.ValueType  # 0
-        XML_BINARY_BASE64: PostgresqlHostConfig14._XmlBinary.ValueType  # 1
-        XML_BINARY_HEX: PostgresqlHostConfig14._XmlBinary.ValueType  # 2
+        XML_BINARY_UNSPECIFIED: PostgresqlHostConfig14_1C._XmlBinary.ValueType  # 0
+        XML_BINARY_BASE64: PostgresqlHostConfig14_1C._XmlBinary.ValueType  # 1
+        XML_BINARY_HEX: PostgresqlHostConfig14_1C._XmlBinary.ValueType  # 2
     class XmlBinary(_XmlBinary, metaclass=_XmlBinaryEnumTypeWrapper):
         pass
 
-    XML_BINARY_UNSPECIFIED: PostgresqlHostConfig14.XmlBinary.ValueType  # 0
-    XML_BINARY_BASE64: PostgresqlHostConfig14.XmlBinary.ValueType  # 1
-    XML_BINARY_HEX: PostgresqlHostConfig14.XmlBinary.ValueType  # 2
+    XML_BINARY_UNSPECIFIED: PostgresqlHostConfig14_1C.XmlBinary.ValueType  # 0
+    XML_BINARY_BASE64: PostgresqlHostConfig14_1C.XmlBinary.ValueType  # 1
+    XML_BINARY_HEX: PostgresqlHostConfig14_1C.XmlBinary.ValueType  # 2
 
     class _XmlOption:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14._XmlOption.ValueType], builtins.type):
+    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig14_1C._XmlOption.ValueType], builtins.type):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        XML_OPTION_UNSPECIFIED: PostgresqlHostConfig14._XmlOption.ValueType  # 0
-        XML_OPTION_DOCUMENT: PostgresqlHostConfig14._XmlOption.ValueType  # 1
-        XML_OPTION_CONTENT: PostgresqlHostConfig14._XmlOption.ValueType  # 2
+        XML_OPTION_UNSPECIFIED: PostgresqlHostConfig14_1C._XmlOption.ValueType  # 0
+        XML_OPTION_DOCUMENT: PostgresqlHostConfig14_1C._XmlOption.ValueType  # 1
+        XML_OPTION_CONTENT: PostgresqlHostConfig14_1C._XmlOption.ValueType  # 2
     class XmlOption(_XmlOption, metaclass=_XmlOptionEnumTypeWrapper):
         pass
 
-    XML_OPTION_UNSPECIFIED: PostgresqlHostConfig14.XmlOption.ValueType  # 0
-    XML_OPTION_DOCUMENT: PostgresqlHostConfig14.XmlOption.ValueType  # 1
-    XML_OPTION_CONTENT: PostgresqlHostConfig14.XmlOption.ValueType  # 2
+    XML_OPTION_UNSPECIFIED: PostgresqlHostConfig14_1C.XmlOption.ValueType  # 0
+    XML_OPTION_DOCUMENT: PostgresqlHostConfig14_1C.XmlOption.ValueType  # 1
+    XML_OPTION_CONTENT: PostgresqlHostConfig14_1C.XmlOption.ValueType  # 2
 
     RECOVERY_MIN_APPLY_DELAY_FIELD_NUMBER: builtins.int
     SHARED_BUFFERS_FIELD_NUMBER: builtins.int
@@ -298,17 +298,17 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
     def max_standby_streaming_delay(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
         pass
-    constraint_exclusion: global___PostgresqlHostConfig14.ConstraintExclusion.ValueType
+    constraint_exclusion: global___PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType
     @property
     def cursor_tuple_fraction(self) -> google.protobuf.wrappers_pb2.DoubleValue: ...
     @property
     def from_collapse_limit(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def join_collapse_limit(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
-    force_parallel_mode: global___PostgresqlHostConfig14.ForceParallelMode.ValueType
-    client_min_messages: global___PostgresqlHostConfig14.LogLevel.ValueType
-    log_min_messages: global___PostgresqlHostConfig14.LogLevel.ValueType
-    log_min_error_statement: global___PostgresqlHostConfig14.LogLevel.ValueType
+    force_parallel_mode: global___PostgresqlHostConfig14_1C.ForceParallelMode.ValueType
+    client_min_messages: global___PostgresqlHostConfig14_1C.LogLevel.ValueType
+    log_min_messages: global___PostgresqlHostConfig14_1C.LogLevel.ValueType
+    log_min_error_statement: global___PostgresqlHostConfig14_1C.LogLevel.ValueType
     @property
     def log_min_duration_statement(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
@@ -321,16 +321,16 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
     def log_disconnections(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
     def log_duration(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    log_error_verbosity: global___PostgresqlHostConfig14.LogErrorVerbosity.ValueType
+    log_error_verbosity: global___PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType
     @property
     def log_lock_waits(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    log_statement: global___PostgresqlHostConfig14.LogStatement.ValueType
+    log_statement: global___PostgresqlHostConfig14_1C.LogStatement.ValueType
     @property
     def log_temp_files(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     search_path: typing.Text
     @property
     def row_security(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    default_transaction_isolation: global___PostgresqlHostConfig14.TransactionIsolation.ValueType
+    default_transaction_isolation: global___PostgresqlHostConfig14_1C.TransactionIsolation.ValueType
     @property
     def statement_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
@@ -343,9 +343,9 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
     def idle_in_transaction_session_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
         pass
-    bytea_output: global___PostgresqlHostConfig14.ByteaOutput.ValueType
-    xmlbinary: global___PostgresqlHostConfig14.XmlBinary.ValueType
-    xmloption: global___PostgresqlHostConfig14.XmlOption.ValueType
+    bytea_output: global___PostgresqlHostConfig14_1C.ByteaOutput.ValueType
+    xmlbinary: global___PostgresqlHostConfig14_1C.XmlBinary.ValueType
+    xmloption: global___PostgresqlHostConfig14_1C.XmlOption.ValueType
     @property
     def gin_pending_list_limit(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
@@ -360,7 +360,7 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
     def max_pred_locks_per_transaction(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def array_nulls(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    backslash_quote: global___PostgresqlHostConfig14.BackslashQuote.ValueType
+    backslash_quote: global___PostgresqlHostConfig14_1C.BackslashQuote.ValueType
     @property
     def default_with_oids(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
@@ -422,38 +422,38 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
         backend_flush_after: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         old_snapshot_threshold: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         max_standby_streaming_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        constraint_exclusion: global___PostgresqlHostConfig14.ConstraintExclusion.ValueType = ...,
+        constraint_exclusion: global___PostgresqlHostConfig14_1C.ConstraintExclusion.ValueType = ...,
         cursor_tuple_fraction: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
         from_collapse_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         join_collapse_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        force_parallel_mode: global___PostgresqlHostConfig14.ForceParallelMode.ValueType = ...,
-        client_min_messages: global___PostgresqlHostConfig14.LogLevel.ValueType = ...,
-        log_min_messages: global___PostgresqlHostConfig14.LogLevel.ValueType = ...,
-        log_min_error_statement: global___PostgresqlHostConfig14.LogLevel.ValueType = ...,
+        force_parallel_mode: global___PostgresqlHostConfig14_1C.ForceParallelMode.ValueType = ...,
+        client_min_messages: global___PostgresqlHostConfig14_1C.LogLevel.ValueType = ...,
+        log_min_messages: global___PostgresqlHostConfig14_1C.LogLevel.ValueType = ...,
+        log_min_error_statement: global___PostgresqlHostConfig14_1C.LogLevel.ValueType = ...,
         log_min_duration_statement: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         log_checkpoints: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         log_connections: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         log_disconnections: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         log_duration: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_error_verbosity: global___PostgresqlHostConfig14.LogErrorVerbosity.ValueType = ...,
+        log_error_verbosity: global___PostgresqlHostConfig14_1C.LogErrorVerbosity.ValueType = ...,
         log_lock_waits: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_statement: global___PostgresqlHostConfig14.LogStatement.ValueType = ...,
+        log_statement: global___PostgresqlHostConfig14_1C.LogStatement.ValueType = ...,
         log_temp_files: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         search_path: typing.Text = ...,
         row_security: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        default_transaction_isolation: global___PostgresqlHostConfig14.TransactionIsolation.ValueType = ...,
+        default_transaction_isolation: global___PostgresqlHostConfig14_1C.TransactionIsolation.ValueType = ...,
         statement_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         lock_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         idle_in_transaction_session_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        bytea_output: global___PostgresqlHostConfig14.ByteaOutput.ValueType = ...,
-        xmlbinary: global___PostgresqlHostConfig14.XmlBinary.ValueType = ...,
-        xmloption: global___PostgresqlHostConfig14.XmlOption.ValueType = ...,
+        bytea_output: global___PostgresqlHostConfig14_1C.ByteaOutput.ValueType = ...,
+        xmlbinary: global___PostgresqlHostConfig14_1C.XmlBinary.ValueType = ...,
+        xmloption: global___PostgresqlHostConfig14_1C.XmlOption.ValueType = ...,
         gin_pending_list_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         deadlock_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         max_locks_per_transaction: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         max_pred_locks_per_transaction: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
         array_nulls: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        backslash_quote: global___PostgresqlHostConfig14.BackslashQuote.ValueType = ...,
+        backslash_quote: global___PostgresqlHostConfig14_1C.BackslashQuote.ValueType = ...,
         default_with_oids: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         escape_string_warning: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
         lo_compat_privileges: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
@@ -483,4 +483,4 @@ class PostgresqlHostConfig14(google.protobuf.message.Message):
         ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["array_nulls",b"array_nulls","backend_flush_after",b"backend_flush_after","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_temp_files",b"log_temp_files","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_standby_streaming_delay",b"max_standby_streaming_delay","old_snapshot_threshold",b"old_snapshot_threshold","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","recovery_min_apply_delay",b"recovery_min_apply_delay","row_security",b"row_security","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","transform_null_equals",b"transform_null_equals","work_mem",b"work_mem"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["array_nulls",b"array_nulls","backend_flush_after",b"backend_flush_after","backslash_quote",b"backslash_quote","bytea_output",b"bytea_output","client_min_messages",b"client_min_messages","constraint_exclusion",b"constraint_exclusion","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_transaction_isolation",b"default_transaction_isolation","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","enable_bitmapscan",b"enable_bitmapscan","enable_hashagg",b"enable_hashagg","enable_hashjoin",b"enable_hashjoin","enable_indexonlyscan",b"enable_indexonlyscan","enable_indexscan",b"enable_indexscan","enable_material",b"enable_material","enable_mergejoin",b"enable_mergejoin","enable_nestloop",b"enable_nestloop","enable_seqscan",b"enable_seqscan","enable_sort",b"enable_sort","enable_tidscan",b"enable_tidscan","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","force_parallel_mode",b"force_parallel_mode","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_error_verbosity",b"log_error_verbosity","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_min_error_statement",b"log_min_error_statement","log_min_messages",b"log_min_messages","log_statement",b"log_statement","log_temp_files",b"log_temp_files","max_locks_per_transaction",b"max_locks_per_transaction","max_parallel_workers",b"max_parallel_workers","max_parallel_workers_per_gather",b"max_parallel_workers_per_gather","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_standby_streaming_delay",b"max_standby_streaming_delay","old_snapshot_threshold",b"old_snapshot_threshold","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","recovery_min_apply_delay",b"recovery_min_apply_delay","row_security",b"row_security","search_path",b"search_path","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","timezone",b"timezone","transform_null_equals",b"transform_null_equals","work_mem",b"work_mem","xmlbinary",b"xmlbinary","xmloption",b"xmloption"]) -> None: ...
-global___PostgresqlHostConfig14 = PostgresqlHostConfig14
+global___PostgresqlHostConfig14_1C = PostgresqlHostConfig14_1C

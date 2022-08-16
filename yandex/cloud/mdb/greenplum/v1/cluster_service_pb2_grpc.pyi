@@ -35,6 +35,11 @@ class ClusterServiceStub:
         yandex.cloud.operation.operation_pb2.Operation]
     """Updates the specified Greenplum® cluster."""
 
+    Expand: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ExpandRequest,
+        yandex.cloud.operation.operation_pb2.Operation]
+    """Expands the specified Greenplum® cluster."""
+
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.DeleteClusterRequest,
         yandex.cloud.operation.operation_pb2.Operation]
@@ -121,6 +126,14 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified Greenplum® cluster."""
+        pass
+
+    @abc.abstractmethod
+    def Expand(self,
+        request: yandex.cloud.mdb.greenplum.v1.cluster_service_pb2.ExpandRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Expands the specified Greenplum® cluster."""
         pass
 
     @abc.abstractmethod

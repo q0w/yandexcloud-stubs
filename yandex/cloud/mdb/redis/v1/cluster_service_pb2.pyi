@@ -18,6 +18,7 @@ import yandex.cloud.mdb.redis.v1.cluster_pb2
 import yandex.cloud.mdb.redis.v1.config.redis5_0_pb2
 import yandex.cloud.mdb.redis.v1.config.redis6_0_pb2
 import yandex.cloud.mdb.redis.v1.config.redis6_2_pb2
+import yandex.cloud.mdb.redis.v1.config.redis7_0_pb2
 import yandex.cloud.mdb.redis.v1.maintenance_pb2
 import yandex.cloud.operation.operation_pb2
 
@@ -1467,6 +1468,7 @@ class ConfigSpec(google.protobuf.message.Message):
     REDIS_CONFIG_5_0_FIELD_NUMBER: builtins.int
     REDIS_CONFIG_6_0_FIELD_NUMBER: builtins.int
     REDIS_CONFIG_6_2_FIELD_NUMBER: builtins.int
+    REDIS_CONFIG_7_0_FIELD_NUMBER: builtins.int
     RESOURCES_FIELD_NUMBER: builtins.int
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
@@ -1479,6 +1481,8 @@ class ConfigSpec(google.protobuf.message.Message):
     def redis_config_6_0(self) -> yandex.cloud.mdb.redis.v1.config.redis6_0_pb2.RedisConfig6_0: ...
     @property
     def redis_config_6_2(self) -> yandex.cloud.mdb.redis.v1.config.redis6_2_pb2.RedisConfig6_2: ...
+    @property
+    def redis_config_7_0(self) -> yandex.cloud.mdb.redis.v1.config.redis7_0_pb2.RedisConfig7_0: ...
     @property
     def resources(self) -> yandex.cloud.mdb.redis.v1.cluster_pb2.Resources:
         """Resources allocated to Redis hosts."""
@@ -1497,11 +1501,12 @@ class ConfigSpec(google.protobuf.message.Message):
         redis_config_5_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis5_0_pb2.RedisConfig5_0] = ...,
         redis_config_6_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis6_0_pb2.RedisConfig6_0] = ...,
         redis_config_6_2: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis6_2_pb2.RedisConfig6_2] = ...,
+        redis_config_7_0: typing.Optional[yandex.cloud.mdb.redis.v1.config.redis7_0_pb2.RedisConfig7_0] = ...,
         resources: typing.Optional[yandex.cloud.mdb.redis.v1.cluster_pb2.Resources] = ...,
         backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
         access: typing.Optional[yandex.cloud.mdb.redis.v1.cluster_pb2.Access] = ...,
         ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_spec",b"redis_spec","resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_spec",b"redis_spec","resources",b"resources","version",b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["redis_spec",b"redis_spec"]) -> typing.Optional[typing_extensions.Literal["redis_config_5_0","redis_config_6_0","redis_config_6_2"]]: ...
+    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_config_7_0",b"redis_config_7_0","redis_spec",b"redis_spec","resources",b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","redis_config_5_0",b"redis_config_5_0","redis_config_6_0",b"redis_config_6_0","redis_config_6_2",b"redis_config_6_2","redis_config_7_0",b"redis_config_7_0","redis_spec",b"redis_spec","resources",b"resources","version",b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["redis_spec",b"redis_spec"]) -> typing.Optional[typing_extensions.Literal["redis_config_5_0","redis_config_6_0","redis_config_6_2","redis_config_7_0"]]: ...
 global___ConfigSpec = ConfigSpec

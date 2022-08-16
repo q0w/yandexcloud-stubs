@@ -33,6 +33,7 @@ class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._En
     IOT_MESSAGE: _TriggerType.ValueType  # 4
     """The trigger is activated by messages from IoT Core."""
 
+    IOT_BROKER_MESSAGE: _TriggerType.ValueType  # 12
     OBJECT_STORAGE: _TriggerType.ValueType  # 5
     CONTAINER_REGISTRY: _TriggerType.ValueType  # 6
     CLOUD_LOGS: _TriggerType.ValueType  # 7
@@ -66,6 +67,7 @@ Only Message Queue is currently supported.
 IOT_MESSAGE: TriggerType.ValueType  # 4
 """The trigger is activated by messages from IoT Core."""
 
+IOT_BROKER_MESSAGE: TriggerType.ValueType  # 12
 OBJECT_STORAGE: TriggerType.ValueType  # 5
 CONTAINER_REGISTRY: TriggerType.ValueType  # 6
 CLOUD_LOGS: TriggerType.ValueType  # 7
@@ -159,6 +161,7 @@ class Trigger(google.protobuf.message.Message):
         TIMER_FIELD_NUMBER: builtins.int
         MESSAGE_QUEUE_FIELD_NUMBER: builtins.int
         IOT_MESSAGE_FIELD_NUMBER: builtins.int
+        IOT_BROKER_MESSAGE_FIELD_NUMBER: builtins.int
         OBJECT_STORAGE_FIELD_NUMBER: builtins.int
         CONTAINER_REGISTRY_FIELD_NUMBER: builtins.int
         CLOUD_LOGS_FIELD_NUMBER: builtins.int
@@ -179,6 +182,8 @@ class Trigger(google.protobuf.message.Message):
             """Rule for a IoT Core trigger."""
             pass
         @property
+        def iot_broker_message(self) -> global___Trigger.IoTBrokerMessage: ...
+        @property
         def object_storage(self) -> global___Trigger.ObjectStorage: ...
         @property
         def container_registry(self) -> global___Trigger.ContainerRegistry: ...
@@ -197,6 +202,7 @@ class Trigger(google.protobuf.message.Message):
             timer: typing.Optional[global___Trigger.Timer] = ...,
             message_queue: typing.Optional[global___Trigger.MessageQueue] = ...,
             iot_message: typing.Optional[global___Trigger.IoTMessage] = ...,
+            iot_broker_message: typing.Optional[global___Trigger.IoTBrokerMessage] = ...,
             object_storage: typing.Optional[global___Trigger.ObjectStorage] = ...,
             container_registry: typing.Optional[global___Trigger.ContainerRegistry] = ...,
             cloud_logs: typing.Optional[global___Trigger.CloudLogs] = ...,
@@ -205,9 +211,9 @@ class Trigger(google.protobuf.message.Message):
             data_stream: typing.Optional[global___DataStream] = ...,
             mail: typing.Optional[global___Mail] = ...,
             ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["timer","message_queue","iot_message","object_storage","container_registry","cloud_logs","logging","billing_budget","data_stream","mail"]]: ...
+        def HasField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_broker_message",b"iot_broker_message","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_broker_message",b"iot_broker_message","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["timer","message_queue","iot_message","iot_broker_message","object_storage","container_registry","cloud_logs","logging","billing_budget","data_stream","mail"]]: ...
 
     class Timer(google.protobuf.message.Message):
         """Rule for activating a timed trigger."""
@@ -321,6 +327,38 @@ class Trigger(google.protobuf.message.Message):
             ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["action",b"action","device_id",b"device_id","invoke_container",b"invoke_container","invoke_function",b"invoke_function","mqtt_topic",b"mqtt_topic","registry_id",b"registry_id"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+
+    class IoTBrokerMessage(google.protobuf.message.Message):
+        """Rule for activating a IoT Core Broker trigger."""
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+        BROKER_ID_FIELD_NUMBER: builtins.int
+        MQTT_TOPIC_FIELD_NUMBER: builtins.int
+        INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
+        INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
+        broker_id: typing.Text
+        """ID of the IoT Core broker."""
+
+        mqtt_topic: typing.Text
+        """MQTT topic whose messages activate the trigger."""
+
+        @property
+        def invoke_function(self) -> global___InvokeFunctionWithRetry:
+            """Instructions for invoking a function with retries as needed."""
+            pass
+        @property
+        def invoke_container(self) -> global___InvokeContainerWithRetry:
+            """Instructions for invoking a container with retries as needed."""
+            pass
+        def __init__(self,
+            *,
+            broker_id: typing.Text = ...,
+            mqtt_topic: typing.Text = ...,
+            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
+            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
+            ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","broker_id",b"broker_id","invoke_container",b"invoke_container","invoke_function",b"invoke_function","mqtt_topic",b"mqtt_topic"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
 
     class ObjectStorage(google.protobuf.message.Message):

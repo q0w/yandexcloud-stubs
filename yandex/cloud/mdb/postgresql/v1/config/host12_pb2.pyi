@@ -18,6 +18,40 @@ class PostgresqlHostConfig12(google.protobuf.message.Message):
     [PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
     """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    class _BackslashQuote:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._BackslashQuote.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig12._BackslashQuote.ValueType  # 0
+        BACKSLASH_QUOTE: PostgresqlHostConfig12._BackslashQuote.ValueType  # 1
+        BACKSLASH_QUOTE_ON: PostgresqlHostConfig12._BackslashQuote.ValueType  # 2
+        BACKSLASH_QUOTE_OFF: PostgresqlHostConfig12._BackslashQuote.ValueType  # 3
+        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig12._BackslashQuote.ValueType  # 4
+    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
+        pass
+
+    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig12.BackslashQuote.ValueType  # 0
+    BACKSLASH_QUOTE: PostgresqlHostConfig12.BackslashQuote.ValueType  # 1
+    BACKSLASH_QUOTE_ON: PostgresqlHostConfig12.BackslashQuote.ValueType  # 2
+    BACKSLASH_QUOTE_OFF: PostgresqlHostConfig12.BackslashQuote.ValueType  # 3
+    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig12.BackslashQuote.ValueType  # 4
+
+    class _ByteaOutput:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._ByteaOutput.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig12._ByteaOutput.ValueType  # 0
+        BYTEA_OUTPUT_HEX: PostgresqlHostConfig12._ByteaOutput.ValueType  # 1
+        BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig12._ByteaOutput.ValueType  # 2
+    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
+        pass
+
+    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig12.ByteaOutput.ValueType  # 0
+    BYTEA_OUTPUT_HEX: PostgresqlHostConfig12.ByteaOutput.ValueType  # 1
+    BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig12.ByteaOutput.ValueType  # 2
+
     class _ConstraintExclusion:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -52,6 +86,23 @@ class PostgresqlHostConfig12(google.protobuf.message.Message):
     FORCE_PARALLEL_MODE_OFF: PostgresqlHostConfig12.ForceParallelMode.ValueType  # 2
     FORCE_PARALLEL_MODE_REGRESS: PostgresqlHostConfig12.ForceParallelMode.ValueType  # 3
 
+    class _LogErrorVerbosity:
+        ValueType = typing.NewType('ValueType', builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._LogErrorVerbosity.ValueType], builtins.type):
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 0
+        LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 1
+        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 2
+        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 3
+    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
+        pass
+
+    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 0
+    LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 1
+    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 2
+    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 3
+
     class _LogLevel:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -84,23 +135,6 @@ class PostgresqlHostConfig12(google.protobuf.message.Message):
     LOG_LEVEL_ERROR: PostgresqlHostConfig12.LogLevel.ValueType  # 9
     LOG_LEVEL_FATAL: PostgresqlHostConfig12.LogLevel.ValueType  # 10
     LOG_LEVEL_PANIC: PostgresqlHostConfig12.LogLevel.ValueType  # 11
-
-    class _LogErrorVerbosity:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._LogErrorVerbosity.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 0
-        LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 1
-        LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 2
-        LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig12._LogErrorVerbosity.ValueType  # 3
-    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
-        pass
-
-    LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 0
-    LOG_ERROR_VERBOSITY_TERSE: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 1
-    LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 2
-    LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlHostConfig12.LogErrorVerbosity.ValueType  # 3
 
     class _LogStatement:
         ValueType = typing.NewType('ValueType', builtins.int)
@@ -140,21 +174,6 @@ class PostgresqlHostConfig12(google.protobuf.message.Message):
     TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlHostConfig12.TransactionIsolation.ValueType  # 3
     TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlHostConfig12.TransactionIsolation.ValueType  # 4
 
-    class _ByteaOutput:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._ByteaOutput.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig12._ByteaOutput.ValueType  # 0
-        BYTEA_OUTPUT_HEX: PostgresqlHostConfig12._ByteaOutput.ValueType  # 1
-        BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig12._ByteaOutput.ValueType  # 2
-    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
-        pass
-
-    BYTEA_OUTPUT_UNSPECIFIED: PostgresqlHostConfig12.ByteaOutput.ValueType  # 0
-    BYTEA_OUTPUT_HEX: PostgresqlHostConfig12.ByteaOutput.ValueType  # 1
-    BYTEA_OUTPUT_ESCAPED: PostgresqlHostConfig12.ByteaOutput.ValueType  # 2
-
     class _XmlBinary:
         ValueType = typing.NewType('ValueType', builtins.int)
         V: typing_extensions.TypeAlias = ValueType
@@ -184,25 +203,6 @@ class PostgresqlHostConfig12(google.protobuf.message.Message):
     XML_OPTION_UNSPECIFIED: PostgresqlHostConfig12.XmlOption.ValueType  # 0
     XML_OPTION_DOCUMENT: PostgresqlHostConfig12.XmlOption.ValueType  # 1
     XML_OPTION_CONTENT: PostgresqlHostConfig12.XmlOption.ValueType  # 2
-
-    class _BackslashQuote:
-        ValueType = typing.NewType('ValueType', builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
-    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlHostConfig12._BackslashQuote.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-        BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig12._BackslashQuote.ValueType  # 0
-        BACKSLASH_QUOTE: PostgresqlHostConfig12._BackslashQuote.ValueType  # 1
-        BACKSLASH_QUOTE_ON: PostgresqlHostConfig12._BackslashQuote.ValueType  # 2
-        BACKSLASH_QUOTE_OFF: PostgresqlHostConfig12._BackslashQuote.ValueType  # 3
-        BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig12._BackslashQuote.ValueType  # 4
-    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
-        pass
-
-    BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlHostConfig12.BackslashQuote.ValueType  # 0
-    BACKSLASH_QUOTE: PostgresqlHostConfig12.BackslashQuote.ValueType  # 1
-    BACKSLASH_QUOTE_ON: PostgresqlHostConfig12.BackslashQuote.ValueType  # 2
-    BACKSLASH_QUOTE_OFF: PostgresqlHostConfig12.BackslashQuote.ValueType  # 3
-    BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlHostConfig12.BackslashQuote.ValueType  # 4
 
     RECOVERY_MIN_APPLY_DELAY_FIELD_NUMBER: builtins.int
     SHARED_BUFFERS_FIELD_NUMBER: builtins.int
