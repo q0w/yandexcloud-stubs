@@ -9,20 +9,23 @@ import yandex.cloud.lockbox.v1.payload_service_pb2
 
 class PayloadServiceStub:
     """Set of methods to access payload of secrets."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.lockbox.v1.payload_service_pb2.GetPayloadRequest,
-        yandex.cloud.lockbox.v1.payload_pb2.Payload]
+        yandex.cloud.lockbox.v1.payload_pb2.Payload,
+    ]
     """Returns the payload of the specified secret.
 
     To get the list of all available secrets, make a [SecretService.List] request.
     """
 
-
 class PayloadServiceServicer(metaclass=abc.ABCMeta):
     """Set of methods to access payload of secrets."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.lockbox.v1.payload_service_pb2.GetPayloadRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.lockbox.v1.payload_pb2.Payload:
@@ -30,7 +33,5 @@ class PayloadServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available secrets, make a [SecretService.List] request.
         """
-        pass
-
 
 def add_PayloadServiceServicer_to_server(servicer: PayloadServiceServicer, server: grpc.Server) -> None: ...

@@ -3,57 +3,62 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.dns.v1.dns_zone_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to return.
 
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___GetDnsZoneRequest = GetDnsZoneRequest
 
 class ListDnsZonesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list DNS zones in. 
 
     To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListDnsZonesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the 
     [ListDnsZonesResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters DNS zones listed in the response.
 
     The expression must specify: 
@@ -62,55 +67,60 @@ class ListDnsZonesRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name=my-dns-zone`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListDnsZonesRequest = ListDnsZonesRequest
 
 class ListDnsZonesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def dns_zones(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.DnsZone]:
         """List of DNS zones in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListDnsZonesRequest.page_size], use `next_page_token` as the value
     for the [ListDnsZonesRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zones: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.DnsZone]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zones",b"dns_zones","next_page_token",b"next_page_token"]) -> None: ...
+        dns_zones: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.DnsZone] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zones", b"dns_zones", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListDnsZonesResponse = ListDnsZonesResponse
 
 class CreateDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -119,80 +129,80 @@ class CreateDnsZoneRequest(google.protobuf.message.Message):
     ZONE_FIELD_NUMBER: builtins.int
     PRIVATE_VISIBILITY_FIELD_NUMBER: builtins.int
     PUBLIC_VISIBILITY_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create DNS zones in.
 
     To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the DNS zone. 
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the DNS zone."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """DNS zone labels as `key:value` pairs."""
-        pass
-    zone: typing.Text
+    zone: builtins.str
     """DNS zone suffix."""
-
     @property
     def private_visibility(self) -> yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility:
         """Privately visible zone settings. 
         At least one of two visibility fields must be set.
         """
-        pass
     @property
     def public_visibility(self) -> yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility:
         """Publicly visible zone settings.
         At least one of two visibility fields must be set.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        zone: typing.Text = ...,
-        private_visibility: typing.Optional[yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility] = ...,
-        public_visibility: typing.Optional[yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["private_visibility",b"private_visibility","public_visibility",b"public_visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","private_visibility",b"private_visibility","public_visibility",b"public_visibility","zone",b"zone"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        zone: builtins.str = ...,
+        private_visibility: yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility | None = ...,
+        public_visibility: yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["private_visibility", b"private_visibility", "public_visibility", b"public_visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "private_visibility", b"private_visibility", "public_visibility", b"public_visibility", "zone", b"zone"]) -> None: ...
+
 global___CreateDnsZoneRequest = CreateDnsZoneRequest
 
 class CreateDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
-    """ID of the DNS zone that is being created."""
 
-    def __init__(self,
+    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
+    dns_zone_id: builtins.str
+    """ID of the DNS zone that is being created."""
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___CreateDnsZoneMetadata = CreateDnsZoneMetadata
 
 class UpdateDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -201,26 +211,22 @@ class UpdateDnsZoneRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     PRIVATE_VISIBILITY_FIELD_NUMBER: builtins.int
     PUBLIC_VISIBILITY_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to update.
      
     To get the DNS zone ID, make a [DnsZoneService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask specifying which fields of the DNS zone resource are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the DNS zone. 
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """New description of the DNS zone."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """DNS zone labels as `key:value` pairs.
 
         Existing set of labels is completely replaced by the provided set, so if you just want
@@ -229,121 +235,124 @@ class UpdateDnsZoneRequest(google.protobuf.message.Message):
         2. Add or remove a label in this set.
         3. Send the new set in this field.
         """
-        pass
     @property
     def private_visibility(self) -> yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility:
         """Change network IDs for private visibility."""
-        pass
     @property
     def public_visibility(self) -> yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility:
         """Public visibility configuration."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        private_visibility: typing.Optional[yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility] = ...,
-        public_visibility: typing.Optional[yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["private_visibility",b"private_visibility","public_visibility",b"public_visibility","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","dns_zone_id",b"dns_zone_id","labels",b"labels","name",b"name","private_visibility",b"private_visibility","public_visibility",b"public_visibility","update_mask",b"update_mask"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        private_visibility: yandex.cloud.dns.v1.dns_zone_pb2.PrivateVisibility | None = ...,
+        public_visibility: yandex.cloud.dns.v1.dns_zone_pb2.PublicVisibility | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["private_visibility", b"private_visibility", "public_visibility", b"public_visibility", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "dns_zone_id", b"dns_zone_id", "labels", b"labels", "name", b"name", "private_visibility", b"private_visibility", "public_visibility", b"public_visibility", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateDnsZoneRequest = UpdateDnsZoneRequest
 
 class UpdateDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
-    """ID of the DNS zone that is being updated."""
 
-    def __init__(self,
+    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
+    dns_zone_id: builtins.str
+    """ID of the DNS zone that is being updated."""
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___UpdateDnsZoneMetadata = UpdateDnsZoneMetadata
 
 class DeleteDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to delete.
 
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___DeleteDnsZoneRequest = DeleteDnsZoneRequest
 
 class DeleteDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
-    """ID of the DNS zone that is being deleted."""
 
-    def __init__(self,
+    DNS_ZONE_ID_FIELD_NUMBER: builtins.int
+    dns_zone_id: builtins.str
+    """ID of the DNS zone that is being deleted."""
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___DeleteDnsZoneMetadata = DeleteDnsZoneMetadata
 
 class GetDnsZoneRecordSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to get record set from.
 
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the record set."""
-
-    type: typing.Text
+    type: builtins.str
     """Type of the record set."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        name: typing.Text = ...,
-        type: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id","name",b"name","type",b"type"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+        name: builtins.str = ...,
+        type: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id", "name", b"name", "type", b"type"]) -> None: ...
+
 global___GetDnsZoneRecordSetRequest = GetDnsZoneRecordSetRequest
 
 class ListDnsZoneRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to list record sets in. 
 
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the 
     [ListDnsZoneRecordSetsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters record sets listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
 
     Each condition has the form `<field> <operator> <value>`, where: 
@@ -355,139 +364,144 @@ class ListDnsZoneRecordSetsRequest(google.protobuf.message.Message):
 
     Examples of a filter: `name="my-record-set"`, `type IN ("MX","A") AND name="works.on.my.machine."`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
+        dns_zone_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id","filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListDnsZoneRecordSetsRequest = ListDnsZoneRecordSetsRequest
 
 class ListDnsZoneRecordSetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RECORD_SETS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def record_sets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """List of record sets in the specified DNS zone."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListDnsZoneRecordSetsRequest.page_size], use `next_page_token` as the value
     for the [ListDnsZoneRecordSetsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        record_sets: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","record_sets",b"record_sets"]) -> None: ...
+        record_sets: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "record_sets", b"record_sets"]) -> None: ...
+
 global___ListDnsZoneRecordSetsResponse = ListDnsZoneRecordSetsResponse
 
 class UpdateRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     DELETIONS_FIELD_NUMBER: builtins.int
     ADDITIONS_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to update record sets in.
      
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
     @property
     def deletions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """List of record sets to delete."""
-        pass
     @property
     def additions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """List of record sets to add."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        deletions: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        additions: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["additions",b"additions","deletions",b"deletions","dns_zone_id",b"dns_zone_id"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+        deletions: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+        additions: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["additions", b"additions", "deletions", b"deletions", "dns_zone_id", b"dns_zone_id"]) -> None: ...
+
 global___UpdateRecordSetsRequest = UpdateRecordSetsRequest
 
 class UpdateRecordSetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___UpdateRecordSetsMetadata = UpdateRecordSetsMetadata
 
 class UpsertRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     DELETIONS_FIELD_NUMBER: builtins.int
     REPLACEMENTS_FIELD_NUMBER: builtins.int
     MERGES_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to upsert record sets to.
      
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
     @property
     def deletions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """Delete only specified records from corresponding record sets."""
-        pass
     @property
     def replacements(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """Entirely replace specified record sets."""
-        pass
     @property
     def merges(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
         """Replace specified records or add new ones if no such record sets exists."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
-        deletions: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        replacements: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        merges: typing.Optional[typing.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["deletions",b"deletions","dns_zone_id",b"dns_zone_id","merges",b"merges","replacements",b"replacements"]) -> None: ...
+        dns_zone_id: builtins.str = ...,
+        deletions: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+        replacements: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+        merges: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["deletions", b"deletions", "dns_zone_id", b"dns_zone_id", "merges", b"merges", "replacements", b"replacements"]) -> None: ...
+
 global___UpsertRecordSetsRequest = UpsertRecordSetsRequest
 
 class UpsertRecordSetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___UpsertRecordSetsMetadata = UpsertRecordSetsMetadata
 
 class ListDnsZoneOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DNS_ZONE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    dns_zone_id: typing.Text
+    dns_zone_id: builtins.str
     """ID of the DNS zone to list operations for.
 
     To get a DNS zone ID, make a [DnsZoneService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListDnsZoneOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the 
     [ListDnsZoneOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters DNS zones listed in the response.
 
     The expression must specify: 
@@ -496,37 +510,39 @@ class ListDnsZoneOperationsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name=my-dns-zone`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        dns_zone_id: typing.Text = ...,
+        dns_zone_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id",b"dns_zone_id","filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dns_zone_id", b"dns_zone_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListDnsZoneOperationsRequest = ListDnsZoneOperationsRequest
 
 class ListDnsZoneOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified DNS zone."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListDnsZoneOperationsRequest.page_size], use `next_page_token` as the value
     for the [ListDnsZoneOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListDnsZoneOperationsResponse = ListDnsZoneOperationsResponse

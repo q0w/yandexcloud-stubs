@@ -3,30 +3,38 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.ydb.v1.resource_preset_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetResourcePresetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_PRESET_ID_FIELD_NUMBER: builtins.int
-    resource_preset_id: typing.Text
-    """Required. ID of the resource preset to return."""
 
-    def __init__(self,
+    RESOURCE_PRESET_ID_FIELD_NUMBER: builtins.int
+    resource_preset_id: builtins.str
+    """Required. ID of the resource preset to return."""
+    def __init__(
+        self,
         *,
-        resource_preset_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_preset_id",b"resource_preset_id"]) -> None: ...
+        resource_preset_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_preset_id", b"resource_preset_id"]) -> None: ...
+
 global___GetResourcePresetRequest = GetResourcePresetRequest
 
 class ListResourcePresetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     page_size: builtins.int
@@ -35,40 +43,41 @@ class ListResourcePresetsRequest(google.protobuf.message.Message):
     to get the next page of results in subsequent ListResourcePresets requests.
     Acceptable values are 0 to 1000, inclusive. Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set `page_token` to the `next_page_token` returned by a previous ListResourcePresets
     request to get the next page of results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListResourcePresetsRequest = ListResourcePresetsRequest
 
 class ListResourcePresetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCE_PRESETS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def resource_presets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset]:
         """Requested list of resource presets."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for ListResourcePresets requests,
     if the number of results is larger than `page_size` specified in the request.
     To get the next page, specify the value of `next_page_token` as a value for
     the `page_token` parameter in the next ListResourcePresets request. Subsequent ListResourcePresets
     requests will have their own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resource_presets: typing.Optional[typing.Iterable[yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","resource_presets",b"resource_presets"]) -> None: ...
+        resource_presets: collections.abc.Iterable[yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "resource_presets", b"resource_presets"]) -> None: ...
+
 global___ListResourcePresetsResponse = ListResourcePresetsResponse

@@ -3,190 +3,193 @@
 isort:skip_file
 """
 import abc
+import collections.abc
 import grpc
-import typing
 import yandex.cloud.mdb.clickhouse.v1.cluster_pb2
 import yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2
 import yandex.cloud.operation.operation_pb2
 
 class ClusterServiceStub:
     """A set of methods for managing ClickHouse clusters."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Cluster]
+        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Cluster,
+    ]
     """Returns the specified ClickHouse cluster.
 
     To get the list of available ClickHouse clusters, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClustersRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClustersResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClustersResponse,
+    ]
     """Retrieves a list of ClickHouse clusters that belong
     to the specified folder.
     """
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a ClickHouse cluster in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified ClickHouse cluster."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified ClickHouse cluster."""
-
     Start: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StartClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Starts the specified ClickHouse cluster."""
-
     Stop: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StopClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Stops the specified ClickHouse cluster."""
-
     Move: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.MoveClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Moves a ClickHouse cluster to the specified folder."""
-
     AddZookeeper: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterZookeeperRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds a ZooKeeper subcluster to the specified ClickHouse cluster."""
-
     Backup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.BackupClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a backup for the specified ClickHouse cluster."""
-
     Restore: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.RestoreClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new ClickHouse cluster using the specified backup."""
-
     RescheduleMaintenance: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.RescheduleMaintenanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Reschedules planned maintenance operation."""
-
     ListLogs: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterLogsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterLogsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterLogsResponse,
+    ]
     """Retrieves logs for the specified ClickHouse cluster."""
-
     StreamLogs: grpc.UnaryStreamMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamClusterLogsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamLogRecord]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamLogRecord,
+    ]
     """Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterOperationsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterOperationsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterOperationsResponse,
+    ]
     """Retrieves the list of Operation resources for the specified cluster."""
-
     ListBackups: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterBackupsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterBackupsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterBackupsResponse,
+    ]
     """Retrieves the list of available backups for the specified ClickHouse cluster."""
-
     ListHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterHostsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterHostsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterHostsResponse,
+    ]
     """Retrieves a list of hosts for the specified cluster."""
-
     AddHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterHostsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates new hosts for a cluster."""
-
     UpdateHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterHostsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified hosts."""
-
     DeleteHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterHostsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified hosts for a cluster."""
-
     GetShard: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterShardRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Shard]
+        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Shard,
+    ]
     """Returns the specified shard."""
-
     ListShards: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardsResponse,
+    ]
     """Retrieves a list of shards that belong to the specified cluster."""
-
     AddShard: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterShardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new shard in the specified cluster."""
-
     UpdateShard: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterShardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Modifies the specified shard."""
-
     DeleteShard: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterShardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified shard."""
-
     GetShardGroup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterShardGroupRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.ShardGroup]
+        yandex.cloud.mdb.clickhouse.v1.cluster_pb2.ShardGroup,
+    ]
     """Returns the specified shard group."""
-
     ListShardGroups: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardGroupsRequest,
-        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardGroupsResponse]
+        yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardGroupsResponse,
+    ]
     """Retrieves a list of shard groups that belong to specified cluster."""
-
     CreateShardGroup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterShardGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new shard group in the specified cluster."""
-
     UpdateShardGroup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterShardGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified shard group."""
-
     DeleteShardGroup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterShardGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified shard group."""
-
     CreateExternalDictionary: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterExternalDictionaryRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates an external dictionary for the specified ClickHouse cluster."""
-
     UpdateExternalDictionary: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterExternalDictionaryRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates an external dictionary for the specified ClickHouse cluster."""
-
     DeleteExternalDictionary: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterExternalDictionaryRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified external dictionary."""
-
 
 class ClusterServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing ClickHouse clusters."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Cluster:
@@ -194,265 +197,231 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available ClickHouse clusters, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClustersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClustersResponse:
         """Retrieves a list of ClickHouse clusters that belong
         to the specified folder.
         """
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a ClickHouse cluster in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Start(self,
+    def Start(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StartClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Starts the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Stop(self,
+    def Stop(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StopClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Stops the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Move(self,
+    def Move(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.MoveClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Moves a ClickHouse cluster to the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def AddZookeeper(self,
+    def AddZookeeper(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterZookeeperRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds a ZooKeeper subcluster to the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Backup(self,
+    def Backup(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.BackupClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a backup for the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def Restore(self,
+    def Restore(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.RestoreClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new ClickHouse cluster using the specified backup."""
-        pass
-
     @abc.abstractmethod
-    def RescheduleMaintenance(self,
+    def RescheduleMaintenance(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.RescheduleMaintenanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Reschedules planned maintenance operation."""
-        pass
-
     @abc.abstractmethod
-    def ListLogs(self,
+    def ListLogs(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterLogsResponse:
         """Retrieves logs for the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def StreamLogs(self,
+    def StreamLogs(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamClusterLogsRequest,
         context: grpc.ServicerContext,
-    ) -> typing.Iterator[yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamLogRecord]:
+    ) -> collections.abc.Iterator[yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.StreamLogRecord]:
         """Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterOperationsResponse:
         """Retrieves the list of Operation resources for the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListBackups(self,
+    def ListBackups(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterBackupsResponse:
         """Retrieves the list of available backups for the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListHosts(self,
+    def ListHosts(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterHostsResponse:
         """Retrieves a list of hosts for the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def AddHosts(self,
+    def AddHosts(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates new hosts for a cluster."""
-        pass
-
     @abc.abstractmethod
-    def UpdateHosts(self,
+    def UpdateHosts(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified hosts."""
-        pass
-
     @abc.abstractmethod
-    def DeleteHosts(self,
+    def DeleteHosts(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified hosts for a cluster."""
-        pass
-
     @abc.abstractmethod
-    def GetShard(self,
+    def GetShard(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterShardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_pb2.Shard:
         """Returns the specified shard."""
-        pass
-
     @abc.abstractmethod
-    def ListShards(self,
+    def ListShards(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardsResponse:
         """Retrieves a list of shards that belong to the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def AddShard(self,
+    def AddShard(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.AddClusterShardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new shard in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def UpdateShard(self,
+    def UpdateShard(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterShardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Modifies the specified shard."""
-        pass
-
     @abc.abstractmethod
-    def DeleteShard(self,
+    def DeleteShard(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterShardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified shard."""
-        pass
-
     @abc.abstractmethod
-    def GetShardGroup(self,
+    def GetShardGroup(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.GetClusterShardGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_pb2.ShardGroup:
         """Returns the specified shard group."""
-        pass
-
     @abc.abstractmethod
-    def ListShardGroups(self,
+    def ListShardGroups(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardGroupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.ListClusterShardGroupsResponse:
         """Retrieves a list of shard groups that belong to specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def CreateShardGroup(self,
+    def CreateShardGroup(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterShardGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new shard group in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def UpdateShardGroup(self,
+    def UpdateShardGroup(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterShardGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified shard group."""
-        pass
-
     @abc.abstractmethod
-    def DeleteShardGroup(self,
+    def DeleteShardGroup(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterShardGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified shard group."""
-        pass
-
     @abc.abstractmethod
-    def CreateExternalDictionary(self,
+    def CreateExternalDictionary(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.CreateClusterExternalDictionaryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates an external dictionary for the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def UpdateExternalDictionary(self,
+    def UpdateExternalDictionary(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.UpdateClusterExternalDictionaryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates an external dictionary for the specified ClickHouse cluster."""
-        pass
-
     @abc.abstractmethod
-    def DeleteExternalDictionary(self,
+    def DeleteExternalDictionary(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.cluster_service_pb2.DeleteClusterExternalDictionaryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified external dictionary."""
-        pass
-
 
 def add_ClusterServiceServicer_to_server(servicer: ClusterServiceServicer, server: grpc.Server) -> None: ...

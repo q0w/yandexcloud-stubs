@@ -3,11 +3,16 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -15,68 +20,70 @@ class User(google.protobuf.message.Message):
     """A MongoDB User resource. For more information, see the 
     [Developer's Guide](/docs/managed-mongodb/concepts).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the MongoDB user."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster the user belongs to."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions granted to the user."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name","permissions",b"permissions"]) -> None: ...
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name", "permissions", b"permissions"]) -> None: ...
+
 global___User = User
 
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DATABASE_NAME_FIELD_NUMBER: builtins.int
     ROLES_FIELD_NUMBER: builtins.int
-    database_name: typing.Text
+    database_name: builtins.str
     """Name of the database that the permission grants access to."""
-
     @property
-    def roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """MongoDB roles for the [database_name] database that the permission grants."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        database_name: typing.Text = ...,
-        roles: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["database_name",b"database_name","roles",b"roles"]) -> None: ...
+        database_name: builtins.str = ...,
+        roles: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["database_name", b"database_name", "roles", b"roles"]) -> None: ...
+
 global___Permission = Permission
 
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the MongoDB user."""
-
-    password: typing.Text
+    password: builtins.str
     """Password of the MongoDB user."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions to grant to the user."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        password: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","password",b"password","permissions",b"permissions"]) -> None: ...
+        name: builtins.str = ...,
+        password: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "password", b"password", "permissions", b"permissions"]) -> None: ...
+
 global___UserSpec = UserSpec

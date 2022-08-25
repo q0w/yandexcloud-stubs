@@ -6,46 +6,55 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class HealthCheck(google.protobuf.message.Message):
     """A HealthCheck resource. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class TcpOptions(google.protobuf.message.Message):
         """Configuration option for a TCP health check."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         PORT_FIELD_NUMBER: builtins.int
         port: builtins.int
         """Port to use for TCP health checks."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             port: builtins.int = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["port",b"port"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["port", b"port"]) -> None: ...
 
     class HttpOptions(google.protobuf.message.Message):
         """Configuration option for an HTTP health check."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         PORT_FIELD_NUMBER: builtins.int
         PATH_FIELD_NUMBER: builtins.int
         port: builtins.int
         """Port to use for HTTP health checks."""
-
-        path: typing.Text
+        path: builtins.str
         """URL path to set for health checking requests for every target in the target group. 
         For example `` /ping ``. The default path is `` / ``.
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             port: builtins.int = ...,
-            path: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["path",b"path","port",b"port"]) -> None: ...
+            path: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["path", b"path", "port", b"port"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
     INTERVAL_FIELD_NUMBER: builtins.int
@@ -54,42 +63,37 @@ class HealthCheck(google.protobuf.message.Message):
     HEALTHY_THRESHOLD_FIELD_NUMBER: builtins.int
     TCP_OPTIONS_FIELD_NUMBER: builtins.int
     HTTP_OPTIONS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long."""
-
     @property
     def interval(self) -> google.protobuf.duration_pb2.Duration:
         """The interval between health checks. The default is 2 seconds."""
-        pass
     @property
     def timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Timeout for a target to return a response for the health check. The default is 1 second."""
-        pass
     unhealthy_threshold: builtins.int
     """Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2."""
-
     healthy_threshold: builtins.int
     """Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2."""
-
     @property
     def tcp_options(self) -> global___HealthCheck.TcpOptions:
         """Options for TCP health check."""
-        pass
     @property
     def http_options(self) -> global___HealthCheck.HttpOptions:
         """Options for HTTP health check."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        interval: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        name: builtins.str = ...,
+        interval: google.protobuf.duration_pb2.Duration | None = ...,
+        timeout: google.protobuf.duration_pb2.Duration | None = ...,
         unhealthy_threshold: builtins.int = ...,
         healthy_threshold: builtins.int = ...,
-        tcp_options: typing.Optional[global___HealthCheck.TcpOptions] = ...,
-        http_options: typing.Optional[global___HealthCheck.HttpOptions] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["http_options",b"http_options","interval",b"interval","options",b"options","tcp_options",b"tcp_options","timeout",b"timeout"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["healthy_threshold",b"healthy_threshold","http_options",b"http_options","interval",b"interval","name",b"name","options",b"options","tcp_options",b"tcp_options","timeout",b"timeout","unhealthy_threshold",b"unhealthy_threshold"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["options",b"options"]) -> typing.Optional[typing_extensions.Literal["tcp_options","http_options"]]: ...
+        tcp_options: global___HealthCheck.TcpOptions | None = ...,
+        http_options: global___HealthCheck.HttpOptions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["http_options", b"http_options", "interval", b"interval", "options", b"options", "tcp_options", b"tcp_options", "timeout", b"timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["healthy_threshold", b"healthy_threshold", "http_options", b"http_options", "interval", b"interval", "name", b"name", "options", b"options", "tcp_options", b"tcp_options", "timeout", b"timeout", "unhealthy_threshold", b"unhealthy_threshold"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["options", b"options"]) -> typing_extensions.Literal["tcp_options", "http_options"] | None: ...
+
 global___HealthCheck = HealthCheck

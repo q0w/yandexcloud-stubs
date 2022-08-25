@@ -3,17 +3,23 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.ai.vision.v1.primitives_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class TextAnnotation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGES_FIELD_NUMBER: builtins.int
     @property
     def pages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Page]:
@@ -21,127 +27,130 @@ class TextAnnotation(google.protobuf.message.Message):
 
         For JPEG and PNG files contains only 1 page.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        pages: typing.Optional[typing.Iterable[global___Page]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pages",b"pages"]) -> None: ...
+        pages: collections.abc.Iterable[global___Page] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pages", b"pages"]) -> None: ...
+
 global___TextAnnotation = TextAnnotation
 
 class Page(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     WIDTH_FIELD_NUMBER: builtins.int
     HEIGHT_FIELD_NUMBER: builtins.int
     BLOCKS_FIELD_NUMBER: builtins.int
     ENTITIES_FIELD_NUMBER: builtins.int
     width: builtins.int
     """Page width in pixels."""
-
     height: builtins.int
     """Page height in pixels."""
-
     @property
     def blocks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Block]:
         """Recognized text blocks in this page."""
-        pass
     @property
     def entities(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Entity]:
         """Recognized entities"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         width: builtins.int = ...,
         height: builtins.int = ...,
-        blocks: typing.Optional[typing.Iterable[global___Block]] = ...,
-        entities: typing.Optional[typing.Iterable[global___Entity]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["blocks",b"blocks","entities",b"entities","height",b"height","width",b"width"]) -> None: ...
+        blocks: collections.abc.Iterable[global___Block] | None = ...,
+        entities: collections.abc.Iterable[global___Entity] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["blocks", b"blocks", "entities", b"entities", "height", b"height", "width", b"width"]) -> None: ...
+
 global___Page = Page
 
 class Entity(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Entity name"""
-
-    text: typing.Text
+    text: builtins.str
     """Recognized entity text"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        text: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","text",b"text"]) -> None: ...
+        name: builtins.str = ...,
+        text: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "text", b"text"]) -> None: ...
+
 global___Entity = Entity
 
 class Block(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     LINES_FIELD_NUMBER: builtins.int
     @property
     def bounding_box(self) -> yandex.cloud.ai.vision.v1.primitives_pb2.Polygon:
         """Area on the page where the text block is located."""
-        pass
     @property
     def lines(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Line]:
         """Recognized lines in this block."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bounding_box: typing.Optional[yandex.cloud.ai.vision.v1.primitives_pb2.Polygon] = ...,
-        lines: typing.Optional[typing.Iterable[global___Line]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box","lines",b"lines"]) -> None: ...
+        bounding_box: yandex.cloud.ai.vision.v1.primitives_pb2.Polygon | None = ...,
+        lines: collections.abc.Iterable[global___Line] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box", "lines", b"lines"]) -> None: ...
+
 global___Block = Block
 
 class Line(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     WORDS_FIELD_NUMBER: builtins.int
     CONFIDENCE_FIELD_NUMBER: builtins.int
     @property
     def bounding_box(self) -> yandex.cloud.ai.vision.v1.primitives_pb2.Polygon:
         """Area on the page where the line is located."""
-        pass
     @property
     def words(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Word]:
         """Recognized words in this line."""
-        pass
     confidence: builtins.float
     """Confidence of the OCR results for the line. Range [0, 1]."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bounding_box: typing.Optional[yandex.cloud.ai.vision.v1.primitives_pb2.Polygon] = ...,
-        words: typing.Optional[typing.Iterable[global___Word]] = ...,
+        bounding_box: yandex.cloud.ai.vision.v1.primitives_pb2.Polygon | None = ...,
+        words: collections.abc.Iterable[global___Word] | None = ...,
         confidence: builtins.float = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box","confidence",b"confidence","words",b"words"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box", "confidence", b"confidence", "words", b"words"]) -> None: ...
+
 global___Line = Line
 
 class Word(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class DetectedLanguage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         LANGUAGE_CODE_FIELD_NUMBER: builtins.int
         CONFIDENCE_FIELD_NUMBER: builtins.int
-        language_code: typing.Text
+        language_code: builtins.str
         """Detected language code."""
-
         confidence: builtins.float
         """Confidence of detected language. Range [0, 1]."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            language_code: typing.Text = ...,
+            language_code: builtins.str = ...,
             confidence: builtins.float = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["confidence",b"confidence","language_code",b"language_code"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["confidence", b"confidence", "language_code", b"language_code"]) -> None: ...
 
     BOUNDING_BOX_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
@@ -151,28 +160,25 @@ class Word(google.protobuf.message.Message):
     @property
     def bounding_box(self) -> yandex.cloud.ai.vision.v1.primitives_pb2.Polygon:
         """Area on the page where the word is located."""
-        pass
-    text: typing.Text
+    text: builtins.str
     """Recognized word value."""
-
     confidence: builtins.float
     """Confidence of the OCR results for the word. Range [0, 1]."""
-
     @property
     def languages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Word.DetectedLanguage]:
         """A list of detected languages together with confidence."""
-        pass
     entity_index: builtins.int
     """Id of recognized word in entities array"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bounding_box: typing.Optional[yandex.cloud.ai.vision.v1.primitives_pb2.Polygon] = ...,
-        text: typing.Text = ...,
+        bounding_box: yandex.cloud.ai.vision.v1.primitives_pb2.Polygon | None = ...,
+        text: builtins.str = ...,
         confidence: builtins.float = ...,
-        languages: typing.Optional[typing.Iterable[global___Word.DetectedLanguage]] = ...,
+        languages: collections.abc.Iterable[global___Word.DetectedLanguage] | None = ...,
         entity_index: builtins.int = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bounding_box",b"bounding_box","confidence",b"confidence","entity_index",b"entity_index","languages",b"languages","text",b"text"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bounding_box", b"bounding_box", "confidence", b"confidence", "entity_index", b"entity_index", "languages", b"languages", "text", b"text"]) -> None: ...
+
 global___Word = Word

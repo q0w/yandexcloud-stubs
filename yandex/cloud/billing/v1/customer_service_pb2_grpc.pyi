@@ -9,61 +9,59 @@ import yandex.cloud.operation.operation_pb2
 
 class CustomerServiceStub:
     """A set of methods for managing Customer resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.customer_service_pb2.ListCustomersRequest,
-        yandex.cloud.billing.v1.customer_service_pb2.ListCustomersResponse]
+        yandex.cloud.billing.v1.customer_service_pb2.ListCustomersResponse,
+    ]
     """Retrieves the list of customers associated with the specified reseller."""
-
     Invite: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.customer_service_pb2.InviteCustomerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Invites customer to the specified reseller."""
-
     Activate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.customer_service_pb2.ActivateCustomerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Activates specified customer. After customer is activated, he can use resources associated with his billing account."""
-
     Suspend: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.customer_service_pb2.SuspendCustomerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Suspend specified customer. After customer is suspended, he can't use resources associated with his billing account."""
-
 
 class CustomerServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Customer resources."""
+
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.billing.v1.customer_service_pb2.ListCustomersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.billing.v1.customer_service_pb2.ListCustomersResponse:
         """Retrieves the list of customers associated with the specified reseller."""
-        pass
-
     @abc.abstractmethod
-    def Invite(self,
+    def Invite(
+        self,
         request: yandex.cloud.billing.v1.customer_service_pb2.InviteCustomerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Invites customer to the specified reseller."""
-        pass
-
     @abc.abstractmethod
-    def Activate(self,
+    def Activate(
+        self,
         request: yandex.cloud.billing.v1.customer_service_pb2.ActivateCustomerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Activates specified customer. After customer is activated, he can use resources associated with his billing account."""
-        pass
-
     @abc.abstractmethod
-    def Suspend(self,
+    def Suspend(
+        self,
         request: yandex.cloud.billing.v1.customer_service_pb2.SuspendCustomerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Suspend specified customer. After customer is suspended, he can't use resources associated with his billing account."""
-        pass
-
 
 def add_CustomerServiceServicer_to_server(servicer: CustomerServiceServicer, server: grpc.Server) -> None: ...

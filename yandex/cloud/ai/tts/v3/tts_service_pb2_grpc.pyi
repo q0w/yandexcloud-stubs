@@ -3,28 +3,29 @@
 isort:skip_file
 """
 import abc
+import collections.abc
 import grpc
-import typing
 import yandex.cloud.ai.tts.v3.tts_pb2
 
 class SynthesizerStub:
     """A set of methods for voice synthesis."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     UtteranceSynthesis: grpc.UnaryStreamMultiCallable[
         yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisRequest,
-        yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisResponse]
+        yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisResponse,
+    ]
     """Synthesizing text into speech."""
-
 
 class SynthesizerServicer(metaclass=abc.ABCMeta):
     """A set of methods for voice synthesis."""
+
     @abc.abstractmethod
-    def UtteranceSynthesis(self,
+    def UtteranceSynthesis(
+        self,
         request: yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisRequest,
         context: grpc.ServicerContext,
-    ) -> typing.Iterator[yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisResponse]:
+    ) -> collections.abc.Iterator[yandex.cloud.ai.tts.v3.tts_pb2.UtteranceSynthesisResponse]:
         """Synthesizing text into speech."""
-        pass
-
 
 def add_SynthesizerServicer_to_server(servicer: SynthesizerServicer, server: grpc.Server) -> None: ...

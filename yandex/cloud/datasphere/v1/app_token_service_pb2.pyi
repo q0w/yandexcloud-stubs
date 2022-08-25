@@ -5,20 +5,26 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class AppTokenValidateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    TOKEN_FIELD_NUMBER: builtins.int
-    token: typing.Text
-    """App token to validate."""
 
-    def __init__(self,
+    TOKEN_FIELD_NUMBER: builtins.int
+    token: builtins.str
+    """App token to validate."""
+    def __init__(
+        self,
         *,
-        token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["token",b"token"]) -> None: ...
+        token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["token", b"token"]) -> None: ...
+
 global___AppTokenValidateRequest = AppTokenValidateRequest

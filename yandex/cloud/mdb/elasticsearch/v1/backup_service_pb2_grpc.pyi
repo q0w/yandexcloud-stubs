@@ -11,31 +11,29 @@ class BackupServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.mdb.elasticsearch.v1.backup_pb2.Backup]
+        yandex.cloud.mdb.elasticsearch.v1.backup_pb2.Backup,
+    ]
     """Returns the specified backup of Elasticsearch cluster."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.ListBackupsResponse,
+    ]
     """Returns the list of available backups for the specified Elasticsearch cluster."""
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.elasticsearch.v1.backup_pb2.Backup:
         """Returns the specified backup of Elasticsearch cluster."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.elasticsearch.v1.backup_service_pb2.ListBackupsResponse:
         """Returns the list of available backups for the specified Elasticsearch cluster."""
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

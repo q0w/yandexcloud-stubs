@@ -3,6 +3,7 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
@@ -10,30 +11,34 @@ import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.apploadbalancer.v1.payload_pb2
 import yandex.cloud.apploadbalancer.v1.tls_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _LoadBalancingMode:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _LoadBalancingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LoadBalancingMode.ValueType], builtins.type):
+
+class _LoadBalancingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LoadBalancingMode.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ROUND_ROBIN: _LoadBalancingMode.ValueType  # 0
     """Round robin load balancing mode.
 
     All endpoints of the backend take their turns to receive requests attributed to the backend.
     """
-
     RANDOM: _LoadBalancingMode.ValueType  # 1
     """Random load balancing mode. Default value.
 
     For a request attributed to the backend, an endpoint that receives it is picked at random.
     """
-
     LEAST_REQUEST: _LoadBalancingMode.ValueType  # 2
     """Least request load balancing mode.
 
@@ -41,7 +46,6 @@ class _LoadBalancingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapp
     that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
     requests.
     """
-
     MAGLEV_HASH: _LoadBalancingMode.ValueType  # 3
     """Maglev hashing load balancing mode.
 
@@ -60,20 +64,17 @@ class LoadBalancingMode(_LoadBalancingMode, metaclass=_LoadBalancingModeEnumType
     For details about the concept, see
     [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
     """
-    pass
 
 ROUND_ROBIN: LoadBalancingMode.ValueType  # 0
 """Round robin load balancing mode.
 
 All endpoints of the backend take their turns to receive requests attributed to the backend.
 """
-
 RANDOM: LoadBalancingMode.ValueType  # 1
 """Random load balancing mode. Default value.
 
 For a request attributed to the backend, an endpoint that receives it is picked at random.
 """
-
 LEAST_REQUEST: LoadBalancingMode.ValueType  # 2
 """Least request load balancing mode.
 
@@ -81,7 +82,6 @@ To pick an endpoint that receives a request attributed to the backend, the power
 that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
 requests.
 """
-
 MAGLEV_HASH: LoadBalancingMode.ValueType  # 3
 """Maglev hashing load balancing mode.
 
@@ -94,27 +94,29 @@ the request.
 If the backend group with session affinity enabled contains more than one backend with positive weight, endpoints
 for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.
 """
-
 global___LoadBalancingMode = LoadBalancingMode
-
 
 class BackendGroup(google.protobuf.message.Message):
     """A backend group resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -125,87 +127,84 @@ class BackendGroup(google.protobuf.message.Message):
     GRPC_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the backend group. Generated at creation time."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the backend group. The name is unique within the folder. The string length in characters is 3-63."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the backend group. The string is 0-256 characters long."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the backend group belongs to."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Backend group labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
         The maximum number of labels is 64.
         """
-        pass
     @property
     def http(self) -> global___HttpBackendGroup:
         """List of HTTP backends that the backend group consists of."""
-        pass
     @property
     def grpc(self) -> global___GrpcBackendGroup:
         """List of gRPC backends that the backend group consists of."""
-        pass
     @property
     def stream(self) -> global___StreamBackendGroup:
         """List of stream (TCP) backends that the backend group consists of."""
-        pass
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        http: typing.Optional[global___HttpBackendGroup] = ...,
-        grpc: typing.Optional[global___GrpcBackendGroup] = ...,
-        stream: typing.Optional[global___StreamBackendGroup] = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend",b"backend","created_at",b"created_at","grpc",b"grpc","http",b"http","stream",b"stream"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend",b"backend","created_at",b"created_at","description",b"description","folder_id",b"folder_id","grpc",b"grpc","http",b"http","id",b"id","labels",b"labels","name",b"name","stream",b"stream"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend",b"backend"]) -> typing.Optional[typing_extensions.Literal["http","grpc","stream"]]: ...
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        http: global___HttpBackendGroup | None = ...,
+        grpc: global___GrpcBackendGroup | None = ...,
+        stream: global___StreamBackendGroup | None = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend", b"backend", "created_at", b"created_at", "grpc", b"grpc", "http", b"http", "stream", b"stream"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend", b"backend", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "grpc", b"grpc", "http", b"http", "id", b"id", "labels", b"labels", "name", b"name", "stream", b"stream"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend", b"backend"]) -> typing_extensions.Literal["http", "grpc", "stream"] | None: ...
+
 global___BackendGroup = BackendGroup
 
 class StreamBackendGroup(google.protobuf.message.Message):
     """A stream (TCP) backend group resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKENDS_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
     @property
     def backends(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StreamBackend]:
         """List of stream (TCP) backends."""
-        pass
     @property
     def connection(self) -> global___ConnectionSessionAffinity:
         """Connection-based session affinity configuration.
 
         For now, a connection is defined only by an IP address of the client.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backends: typing.Optional[typing.Iterable[global___StreamBackend]] = ...,
-        connection: typing.Optional[global___ConnectionSessionAffinity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection","session_affinity",b"session_affinity"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backends",b"backends","connection",b"connection","session_affinity",b"session_affinity"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity",b"session_affinity"]) -> typing.Optional[typing_extensions.Literal["connection"]]: ...
+        backends: collections.abc.Iterable[global___StreamBackend] | None = ...,
+        connection: global___ConnectionSessionAffinity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "session_affinity", b"session_affinity"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backends", b"backends", "connection", b"connection", "session_affinity", b"session_affinity"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity", b"session_affinity"]) -> typing_extensions.Literal["connection"] | None: ...
+
 global___StreamBackendGroup = StreamBackendGroup
 
 class HttpBackendGroup(google.protobuf.message.Message):
     """An HTTP backend group resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKENDS_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
     HEADER_FIELD_NUMBER: builtins.int
@@ -213,37 +212,37 @@ class HttpBackendGroup(google.protobuf.message.Message):
     @property
     def backends(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HttpBackend]:
         """List of HTTP backends."""
-        pass
     @property
     def connection(self) -> global___ConnectionSessionAffinity:
         """Connection-based session affinity configuration.
 
         For now, a connection is defined only by an IP address of the client.
         """
-        pass
     @property
     def header(self) -> global___HeaderSessionAffinity:
         """HTTP-header-field-based session affinity configuration."""
-        pass
     @property
     def cookie(self) -> global___CookieSessionAffinity:
         """Cookie-based session affinity configuration."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backends: typing.Optional[typing.Iterable[global___HttpBackend]] = ...,
-        connection: typing.Optional[global___ConnectionSessionAffinity] = ...,
-        header: typing.Optional[global___HeaderSessionAffinity] = ...,
-        cookie: typing.Optional[global___CookieSessionAffinity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection","cookie",b"cookie","header",b"header","session_affinity",b"session_affinity"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backends",b"backends","connection",b"connection","cookie",b"cookie","header",b"header","session_affinity",b"session_affinity"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity",b"session_affinity"]) -> typing.Optional[typing_extensions.Literal["connection","header","cookie"]]: ...
+        backends: collections.abc.Iterable[global___HttpBackend] | None = ...,
+        connection: global___ConnectionSessionAffinity | None = ...,
+        header: global___HeaderSessionAffinity | None = ...,
+        cookie: global___CookieSessionAffinity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "cookie", b"cookie", "header", b"header", "session_affinity", b"session_affinity"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backends", b"backends", "connection", b"connection", "cookie", b"cookie", "header", b"header", "session_affinity", b"session_affinity"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity", b"session_affinity"]) -> typing_extensions.Literal["connection", "header", "cookie"] | None: ...
+
 global___HttpBackendGroup = HttpBackendGroup
 
 class GrpcBackendGroup(google.protobuf.message.Message):
     """A gRPC backend group resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKENDS_FIELD_NUMBER: builtins.int
     CONNECTION_FIELD_NUMBER: builtins.int
     HEADER_FIELD_NUMBER: builtins.int
@@ -251,56 +250,58 @@ class GrpcBackendGroup(google.protobuf.message.Message):
     @property
     def backends(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___GrpcBackend]:
         """List of gRPC backends."""
-        pass
     @property
     def connection(self) -> global___ConnectionSessionAffinity:
         """Connection-based session affinity configuration.
 
         For now, a connection is defined only by an IP address of the client.
         """
-        pass
     @property
     def header(self) -> global___HeaderSessionAffinity:
         """HTTP-header-field-based session affinity configuration."""
-        pass
     @property
     def cookie(self) -> global___CookieSessionAffinity:
         """Cookie-based session affinity configuration."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backends: typing.Optional[typing.Iterable[global___GrpcBackend]] = ...,
-        connection: typing.Optional[global___ConnectionSessionAffinity] = ...,
-        header: typing.Optional[global___HeaderSessionAffinity] = ...,
-        cookie: typing.Optional[global___CookieSessionAffinity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection","cookie",b"cookie","header",b"header","session_affinity",b"session_affinity"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backends",b"backends","connection",b"connection","cookie",b"cookie","header",b"header","session_affinity",b"session_affinity"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity",b"session_affinity"]) -> typing.Optional[typing_extensions.Literal["connection","header","cookie"]]: ...
+        backends: collections.abc.Iterable[global___GrpcBackend] | None = ...,
+        connection: global___ConnectionSessionAffinity | None = ...,
+        header: global___HeaderSessionAffinity | None = ...,
+        cookie: global___CookieSessionAffinity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "cookie", b"cookie", "header", b"header", "session_affinity", b"session_affinity"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backends", b"backends", "connection", b"connection", "cookie", b"cookie", "header", b"header", "session_affinity", b"session_affinity"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["session_affinity", b"session_affinity"]) -> typing_extensions.Literal["connection", "header", "cookie"] | None: ...
+
 global___GrpcBackendGroup = GrpcBackendGroup
 
 class HeaderSessionAffinity(google.protobuf.message.Message):
     """A resource for HTTP-header-field-based session affinity configuration."""
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    HEADER_NAME_FIELD_NUMBER: builtins.int
-    header_name: typing.Text
-    """Name of the HTTP header field that is used for session affinity."""
 
-    def __init__(self,
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    HEADER_NAME_FIELD_NUMBER: builtins.int
+    header_name: builtins.str
+    """Name of the HTTP header field that is used for session affinity."""
+    def __init__(
+        self,
         *,
-        header_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["header_name",b"header_name"]) -> None: ...
+        header_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["header_name", b"header_name"]) -> None: ...
+
 global___HeaderSessionAffinity = HeaderSessionAffinity
 
 class CookieSessionAffinity(google.protobuf.message.Message):
     """A resource for cookie-based session affinity configuration."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     TTL_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the cookie that is used for session affinity."""
-
     @property
     def ttl(self) -> google.protobuf.duration_pb2.Duration:
         """Maximum age of cookies that are generated for sessions.
@@ -310,33 +311,39 @@ class CookieSessionAffinity(google.protobuf.message.Message):
 
         If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        ttl: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ttl",b"ttl"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","ttl",b"ttl"]) -> None: ...
+        name: builtins.str = ...,
+        ttl: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ttl", b"ttl"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "ttl", b"ttl"]) -> None: ...
+
 global___CookieSessionAffinity = CookieSessionAffinity
 
 class ConnectionSessionAffinity(google.protobuf.message.Message):
     """A resource for connection-based session affinity configuration."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SOURCE_IP_FIELD_NUMBER: builtins.int
     source_ip: builtins.bool
     """Specifies whether an IP address of the client is used to define a connection for session affinity."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         source_ip: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["source_ip",b"source_ip"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["source_ip", b"source_ip"]) -> None: ...
+
 global___ConnectionSessionAffinity = ConnectionSessionAffinity
 
 class LoadBalancingConfig(google.protobuf.message.Message):
     """A load balancing configuration resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PANIC_THRESHOLD_FIELD_NUMBER: builtins.int
     LOCALITY_AWARE_ROUTING_PERCENT_FIELD_NUMBER: builtins.int
     STRICT_LOCALITY_FIELD_NUMBER: builtins.int
@@ -353,7 +360,6 @@ class LoadBalancingConfig(google.protobuf.message.Message):
 
     Default value: `0`.
     """
-
     locality_aware_routing_percent: builtins.int
     """Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
     The rest is divided equally between other zones. For details about zone-aware routing, see
@@ -366,7 +372,6 @@ class LoadBalancingConfig(google.protobuf.message.Message):
 
     Default value: `0`.
     """
-
     strict_locality: builtins.bool
     """Specifies whether a load balancer node should only send traffic to backends in its availability zone,
     regardless of their health, and ignore backends in other zones.
@@ -379,27 +384,29 @@ class LoadBalancingConfig(google.protobuf.message.Message):
 
     Default value: `false`.
     """
-
     mode: global___LoadBalancingMode.ValueType
     """Load balancing mode for the backend.
 
     For details about load balancing modes, see
     [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         panic_threshold: builtins.int = ...,
         locality_aware_routing_percent: builtins.int = ...,
         strict_locality: builtins.bool = ...,
         mode: global___LoadBalancingMode.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["locality_aware_routing_percent",b"locality_aware_routing_percent","mode",b"mode","panic_threshold",b"panic_threshold","strict_locality",b"strict_locality"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["locality_aware_routing_percent", b"locality_aware_routing_percent", "mode", b"mode", "panic_threshold", b"panic_threshold", "strict_locality", b"strict_locality"]) -> None: ...
+
 global___LoadBalancingConfig = LoadBalancingConfig
 
 class StreamBackend(google.protobuf.message.Message):
     """A stream (TCP) backend resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     BACKEND_WEIGHT_FIELD_NUMBER: builtins.int
     LOAD_BALANCING_CONFIG_FIELD_NUMBER: builtins.int
@@ -408,9 +415,8 @@ class StreamBackend(google.protobuf.message.Message):
     HEALTHCHECKS_FIELD_NUMBER: builtins.int
     TLS_FIELD_NUMBER: builtins.int
     ENABLE_PROXY_PROTOCOL_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the backend."""
-
     @property
     def backend_weight(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -420,20 +426,16 @@ class StreamBackend(google.protobuf.message.Message):
 
         If the weight is non-positive, traffic is not sent to the backend.
         """
-        pass
     @property
     def load_balancing_config(self) -> global___LoadBalancingConfig:
         """Load balancing configuration for the backend."""
-        pass
     port: builtins.int
     """Port used by all targets to receive traffic."""
-
     @property
     def target_groups(self) -> global___TargetGroupsBackend:
         """Target groups that belong to the backend. For details about target groups, see
         [documentation](/docs/application-load-balancer/concepts/target-group).
         """
-        pass
     @property
     def healthchecks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HealthCheck]:
         """Health checks to perform on targets from target groups.
@@ -441,7 +443,6 @@ class StreamBackend(google.protobuf.message.Message):
 
         If no health checks are specified, active health checking is not performed.
         """
-        pass
     @property
     def tls(self) -> global___BackendTls:
         """Settings for TLS connections between load balancer nodes and backend targets.
@@ -450,29 +451,31 @@ class StreamBackend(google.protobuf.message.Message):
         certificates with the one specified in [BackendTls.validation_context].
         If not specified, the load balancer establishes unencrypted TCP connections with targets.
         """
-        pass
     enable_proxy_protocol: builtins.bool
     """If set, proxy protocol will be enabled for this backend."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        backend_weight: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        load_balancing_config: typing.Optional[global___LoadBalancingConfig] = ...,
+        name: builtins.str = ...,
+        backend_weight: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        load_balancing_config: global___LoadBalancingConfig | None = ...,
         port: builtins.int = ...,
-        target_groups: typing.Optional[global___TargetGroupsBackend] = ...,
-        healthchecks: typing.Optional[typing.Iterable[global___HealthCheck]] = ...,
-        tls: typing.Optional[global___BackendTls] = ...,
+        target_groups: global___TargetGroupsBackend | None = ...,
+        healthchecks: collections.abc.Iterable[global___HealthCheck] | None = ...,
+        tls: global___BackendTls | None = ...,
         enable_proxy_protocol: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","load_balancing_config",b"load_balancing_config","target_groups",b"target_groups","tls",b"tls"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","enable_proxy_protocol",b"enable_proxy_protocol","healthchecks",b"healthchecks","load_balancing_config",b"load_balancing_config","name",b"name","port",b"port","target_groups",b"target_groups","tls",b"tls"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type",b"backend_type"]) -> typing.Optional[typing_extensions.Literal["target_groups"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "load_balancing_config", b"load_balancing_config", "target_groups", b"target_groups", "tls", b"tls"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "enable_proxy_protocol", b"enable_proxy_protocol", "healthchecks", b"healthchecks", "load_balancing_config", b"load_balancing_config", "name", b"name", "port", b"port", "target_groups", b"target_groups", "tls", b"tls"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type", b"backend_type"]) -> typing_extensions.Literal["target_groups"] | None: ...
+
 global___StreamBackend = StreamBackend
 
 class HttpBackend(google.protobuf.message.Message):
     """An HTTP backend resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     BACKEND_WEIGHT_FIELD_NUMBER: builtins.int
     LOAD_BALANCING_CONFIG_FIELD_NUMBER: builtins.int
@@ -482,9 +485,8 @@ class HttpBackend(google.protobuf.message.Message):
     HEALTHCHECKS_FIELD_NUMBER: builtins.int
     TLS_FIELD_NUMBER: builtins.int
     USE_HTTP2_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the backend."""
-
     @property
     def backend_weight(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -494,20 +496,16 @@ class HttpBackend(google.protobuf.message.Message):
 
         If the weight is non-positive, traffic is not sent to the backend.
         """
-        pass
     @property
     def load_balancing_config(self) -> global___LoadBalancingConfig:
         """Load balancing configuration for the backend."""
-        pass
     port: builtins.int
     """Port used by all targets to receive traffic."""
-
     @property
     def target_groups(self) -> global___TargetGroupsBackend:
         """Target groups that belong to the backend. For details about target groups, see
         [documentation](/docs/application-load-balancer/concepts/target-group).
         """
-        pass
     @property
     def storage_bucket(self) -> global___StorageBucketBackend:
         """Object Storage bucket to use as the backend. For details about buckets, see
@@ -516,7 +514,6 @@ class HttpBackend(google.protobuf.message.Message):
         If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
         accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
         """
-        pass
     @property
     def healthchecks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HealthCheck]:
         """Health checks to perform on targets from target groups.
@@ -524,7 +521,6 @@ class HttpBackend(google.protobuf.message.Message):
 
         If no health checks are specified, active health checking is not performed.
         """
-        pass
     @property
     def tls(self) -> global___BackendTls:
         """Settings for TLS connections between load balancer nodes and backend targets.
@@ -533,33 +529,35 @@ class HttpBackend(google.protobuf.message.Message):
         and compares received certificates with the one specified in [BackendTls.validation_context].
         If not specified, the load balancer establishes unencrypted HTTP connections with targets.
         """
-        pass
     use_http2: builtins.bool
     """Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
 
     Default value: `false`, HTTP/1.1 is used.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        backend_weight: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        load_balancing_config: typing.Optional[global___LoadBalancingConfig] = ...,
+        name: builtins.str = ...,
+        backend_weight: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        load_balancing_config: global___LoadBalancingConfig | None = ...,
         port: builtins.int = ...,
-        target_groups: typing.Optional[global___TargetGroupsBackend] = ...,
-        storage_bucket: typing.Optional[global___StorageBucketBackend] = ...,
-        healthchecks: typing.Optional[typing.Iterable[global___HealthCheck]] = ...,
-        tls: typing.Optional[global___BackendTls] = ...,
+        target_groups: global___TargetGroupsBackend | None = ...,
+        storage_bucket: global___StorageBucketBackend | None = ...,
+        healthchecks: collections.abc.Iterable[global___HealthCheck] | None = ...,
+        tls: global___BackendTls | None = ...,
         use_http2: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","load_balancing_config",b"load_balancing_config","storage_bucket",b"storage_bucket","target_groups",b"target_groups","tls",b"tls"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","healthchecks",b"healthchecks","load_balancing_config",b"load_balancing_config","name",b"name","port",b"port","storage_bucket",b"storage_bucket","target_groups",b"target_groups","tls",b"tls","use_http2",b"use_http2"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type",b"backend_type"]) -> typing.Optional[typing_extensions.Literal["target_groups","storage_bucket"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "load_balancing_config", b"load_balancing_config", "storage_bucket", b"storage_bucket", "target_groups", b"target_groups", "tls", b"tls"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "healthchecks", b"healthchecks", "load_balancing_config", b"load_balancing_config", "name", b"name", "port", b"port", "storage_bucket", b"storage_bucket", "target_groups", b"target_groups", "tls", b"tls", "use_http2", b"use_http2"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type", b"backend_type"]) -> typing_extensions.Literal["target_groups", "storage_bucket"] | None: ...
+
 global___HttpBackend = HttpBackend
 
 class GrpcBackend(google.protobuf.message.Message):
     """A gRPC backend resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     BACKEND_WEIGHT_FIELD_NUMBER: builtins.int
     LOAD_BALANCING_CONFIG_FIELD_NUMBER: builtins.int
@@ -567,9 +565,8 @@ class GrpcBackend(google.protobuf.message.Message):
     TARGET_GROUPS_FIELD_NUMBER: builtins.int
     HEALTHCHECKS_FIELD_NUMBER: builtins.int
     TLS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the backend."""
-
     @property
     def backend_weight(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -579,18 +576,14 @@ class GrpcBackend(google.protobuf.message.Message):
 
         If the weight is non-positive, traffic is not sent to the backend.
         """
-        pass
     @property
     def load_balancing_config(self) -> global___LoadBalancingConfig:
         """Load balancing configuration for the backend."""
-        pass
     port: builtins.int
     """Port used by all targets to receive traffic."""
-
     @property
     def target_groups(self) -> global___TargetGroupsBackend:
         """Target groups that belong to the backend."""
-        pass
     @property
     def healthchecks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HealthCheck]:
         """Health checks to perform on targets from target groups.
@@ -598,7 +591,6 @@ class GrpcBackend(google.protobuf.message.Message):
 
         If no health checks are specified, active health checking is not performed.
         """
-        pass
     @property
     def tls(self) -> global___BackendTls:
         """Settings for TLS connections between load balancer nodes and backend targets.
@@ -607,113 +599,132 @@ class GrpcBackend(google.protobuf.message.Message):
         and compares received certificates with the one specified in [BackendTls.validation_context].
         If not specified, the load balancer establishes unencrypted HTTP connections with targets.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        backend_weight: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        load_balancing_config: typing.Optional[global___LoadBalancingConfig] = ...,
+        name: builtins.str = ...,
+        backend_weight: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        load_balancing_config: global___LoadBalancingConfig | None = ...,
         port: builtins.int = ...,
-        target_groups: typing.Optional[global___TargetGroupsBackend] = ...,
-        healthchecks: typing.Optional[typing.Iterable[global___HealthCheck]] = ...,
-        tls: typing.Optional[global___BackendTls] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","load_balancing_config",b"load_balancing_config","target_groups",b"target_groups","tls",b"tls"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_type",b"backend_type","backend_weight",b"backend_weight","healthchecks",b"healthchecks","load_balancing_config",b"load_balancing_config","name",b"name","port",b"port","target_groups",b"target_groups","tls",b"tls"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type",b"backend_type"]) -> typing.Optional[typing_extensions.Literal["target_groups"]]: ...
+        target_groups: global___TargetGroupsBackend | None = ...,
+        healthchecks: collections.abc.Iterable[global___HealthCheck] | None = ...,
+        tls: global___BackendTls | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "load_balancing_config", b"load_balancing_config", "target_groups", b"target_groups", "tls", b"tls"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_type", b"backend_type", "backend_weight", b"backend_weight", "healthchecks", b"healthchecks", "load_balancing_config", b"load_balancing_config", "name", b"name", "port", b"port", "target_groups", b"target_groups", "tls", b"tls"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend_type", b"backend_type"]) -> typing_extensions.Literal["target_groups"] | None: ...
+
 global___GrpcBackend = GrpcBackend
 
 class TargetGroupsBackend(google.protobuf.message.Message):
     """A resource for target groups that belong to the backend."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TARGET_GROUP_IDS_FIELD_NUMBER: builtins.int
     @property
-    def target_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def target_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of ID's of target groups that belong to the backend.
 
         To get the ID's of all available target groups, make a [TargetGroupService.List] request.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        target_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["target_group_ids",b"target_group_ids"]) -> None: ...
+        target_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["target_group_ids", b"target_group_ids"]) -> None: ...
+
 global___TargetGroupsBackend = TargetGroupsBackend
 
 class PlaintextTransportSettings(google.protobuf.message.Message):
     """Transport settings to be used instead of the settings configured per-cluster"""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___PlaintextTransportSettings = PlaintextTransportSettings
 
 class SecureTransportSettings(google.protobuf.message.Message):
     """Transport settings to be used instead of the settings configured per-cluster"""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNI_FIELD_NUMBER: builtins.int
     VALIDATION_CONTEXT_FIELD_NUMBER: builtins.int
-    sni: typing.Text
+    sni: builtins.str
     """SNI string for TLS connections."""
-
     @property
     def validation_context(self) -> yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext:
         """Validation context for backend TLS connections."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        sni: typing.Text = ...,
-        validation_context: typing.Optional[yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["validation_context",b"validation_context"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["sni",b"sni","validation_context",b"validation_context"]) -> None: ...
+        sni: builtins.str = ...,
+        validation_context: yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["validation_context", b"validation_context"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["sni", b"sni", "validation_context", b"validation_context"]) -> None: ...
+
 global___SecureTransportSettings = SecureTransportSettings
 
 class BackendTls(google.protobuf.message.Message):
     """A resource for backend TLS settings."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNI_FIELD_NUMBER: builtins.int
     VALIDATION_CONTEXT_FIELD_NUMBER: builtins.int
-    sni: typing.Text
+    sni: builtins.str
     """Server Name Indication (SNI) string for TLS connections."""
-
     @property
     def validation_context(self) -> yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext:
         """Validation context for TLS connections."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        sni: typing.Text = ...,
-        validation_context: typing.Optional[yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["validation_context",b"validation_context"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["sni",b"sni","validation_context",b"validation_context"]) -> None: ...
+        sni: builtins.str = ...,
+        validation_context: yandex.cloud.apploadbalancer.v1.tls_pb2.ValidationContext | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["validation_context", b"validation_context"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["sni", b"sni", "validation_context", b"validation_context"]) -> None: ...
+
 global___BackendTls = BackendTls
 
 class StorageBucketBackend(google.protobuf.message.Message):
     """A resource for Object Storage bucket used as a backend. For details about the concept,
     see [documentation](/docs/storage/concepts/bucket).
     """
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    BUCKET_FIELD_NUMBER: builtins.int
-    bucket: typing.Text
-    """Name of the bucket."""
 
-    def __init__(self,
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BUCKET_FIELD_NUMBER: builtins.int
+    bucket: builtins.str
+    """Name of the bucket."""
+    def __init__(
+        self,
         *,
-        bucket: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bucket",b"bucket"]) -> None: ...
+        bucket: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bucket", b"bucket"]) -> None: ...
+
 global___StorageBucketBackend = StorageBucketBackend
 
 class HealthCheck(google.protobuf.message.Message):
     """A health check resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class StreamHealthCheck(google.protobuf.message.Message):
         """A resource for TCP stream health check settings."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         SEND_FIELD_NUMBER: builtins.int
         RECEIVE_FIELD_NUMBER: builtins.int
         @property
@@ -722,67 +733,68 @@ class HealthCheck(google.protobuf.message.Message):
 
             If not specified, no data is sent to the target.
             """
-            pass
         @property
         def receive(self) -> yandex.cloud.apploadbalancer.v1.payload_pb2.Payload:
             """Data that must be contained in the messages received from targets for a successful health check.
 
             If not specified, no messages are expected from targets, and those that are received are not checked.
             """
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            send: typing.Optional[yandex.cloud.apploadbalancer.v1.payload_pb2.Payload] = ...,
-            receive: typing.Optional[yandex.cloud.apploadbalancer.v1.payload_pb2.Payload] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["receive",b"receive","send",b"send"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["receive",b"receive","send",b"send"]) -> None: ...
+            send: yandex.cloud.apploadbalancer.v1.payload_pb2.Payload | None = ...,
+            receive: yandex.cloud.apploadbalancer.v1.payload_pb2.Payload | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["receive", b"receive", "send", b"send"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["receive", b"receive", "send", b"send"]) -> None: ...
 
     class HttpHealthCheck(google.protobuf.message.Message):
         """A resource for HTTP health check settings."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         HOST_FIELD_NUMBER: builtins.int
         PATH_FIELD_NUMBER: builtins.int
         USE_HTTP2_FIELD_NUMBER: builtins.int
-        host: typing.Text
+        host: builtins.str
         """Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets."""
-
-        path: typing.Text
+        path: builtins.str
         """HTTP path used in requests to targets: request URI for HTTP/1.1 request line
         or value for the HTTP/2 `:path` pseudo-header.
         """
-
         use_http2: builtins.bool
         """Enables HTTP/2 usage in health checks.
 
         Default value: `false`, HTTP/1.1 is used.
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            host: typing.Text = ...,
-            path: typing.Text = ...,
+            host: builtins.str = ...,
+            path: builtins.str = ...,
             use_http2: builtins.bool = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["host",b"host","path",b"path","use_http2",b"use_http2"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["host", b"host", "path", b"path", "use_http2", b"use_http2"]) -> None: ...
 
     class GrpcHealthCheck(google.protobuf.message.Message):
         """A resource for gRPC health check settings."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         SERVICE_NAME_FIELD_NUMBER: builtins.int
-        service_name: typing.Text
+        service_name: builtins.str
         """Name of the gRPC service to be checked.
 
         If not specified, overall health is checked.
 
         For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md).
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            service_name: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["service_name",b"service_name"]) -> None: ...
+            service_name: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["service_name", b"service_name"]) -> None: ...
 
     TIMEOUT_FIELD_NUMBER: builtins.int
     INTERVAL_FIELD_NUMBER: builtins.int
@@ -802,11 +814,9 @@ class HealthCheck(google.protobuf.message.Message):
         The timeout is the time allowed for the target to respond to a check.
         If the target doesn't respond in time, the check is considered failed.
         """
-        pass
     @property
     def interval(self) -> google.protobuf.duration_pb2.Duration:
         """Base interval between consecutive health checks."""
-        pass
     interval_jitter_percent: builtins.float
     healthy_threshold: builtins.int
     """Number of consecutive successful health checks required to mark an unhealthy target as healthy.
@@ -817,7 +827,6 @@ class HealthCheck(google.protobuf.message.Message):
 
     Default value: `0`.
     """
-
     unhealthy_threshold: builtins.int
     """Number of consecutive failed health checks required to mark a healthy target as unhealthy.
 
@@ -828,47 +837,44 @@ class HealthCheck(google.protobuf.message.Message):
 
     Default value: `0`.
     """
-
     healthcheck_port: builtins.int
     """Port used for health checks.
 
     If not specified, the backend port ([HttpBackend.port] or [GrpcBackend.port]) is used for health checks.
     """
-
     @property
     def stream(self) -> global___HealthCheck.StreamHealthCheck:
         """TCP stream health check settings."""
-        pass
     @property
     def http(self) -> global___HealthCheck.HttpHealthCheck:
         """HTTP health check settings."""
-        pass
     @property
     def grpc(self) -> global___HealthCheck.GrpcHealthCheck:
         """gRPC health check settings."""
-        pass
     @property
     def plaintext(self) -> global___PlaintextTransportSettings: ...
     @property
     def tls(self) -> global___SecureTransportSettings: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        interval: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        interval: google.protobuf.duration_pb2.Duration | None = ...,
         interval_jitter_percent: builtins.float = ...,
         healthy_threshold: builtins.int = ...,
         unhealthy_threshold: builtins.int = ...,
         healthcheck_port: builtins.int = ...,
-        stream: typing.Optional[global___HealthCheck.StreamHealthCheck] = ...,
-        http: typing.Optional[global___HealthCheck.HttpHealthCheck] = ...,
-        grpc: typing.Optional[global___HealthCheck.GrpcHealthCheck] = ...,
-        plaintext: typing.Optional[global___PlaintextTransportSettings] = ...,
-        tls: typing.Optional[global___SecureTransportSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["grpc",b"grpc","healthcheck",b"healthcheck","http",b"http","interval",b"interval","plaintext",b"plaintext","stream",b"stream","timeout",b"timeout","tls",b"tls","transport_settings",b"transport_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["grpc",b"grpc","healthcheck",b"healthcheck","healthcheck_port",b"healthcheck_port","healthy_threshold",b"healthy_threshold","http",b"http","interval",b"interval","interval_jitter_percent",b"interval_jitter_percent","plaintext",b"plaintext","stream",b"stream","timeout",b"timeout","tls",b"tls","transport_settings",b"transport_settings","unhealthy_threshold",b"unhealthy_threshold"]) -> None: ...
+        stream: global___HealthCheck.StreamHealthCheck | None = ...,
+        http: global___HealthCheck.HttpHealthCheck | None = ...,
+        grpc: global___HealthCheck.GrpcHealthCheck | None = ...,
+        plaintext: global___PlaintextTransportSettings | None = ...,
+        tls: global___SecureTransportSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "healthcheck", b"healthcheck", "http", b"http", "interval", b"interval", "plaintext", b"plaintext", "stream", b"stream", "timeout", b"timeout", "tls", b"tls", "transport_settings", b"transport_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "healthcheck", b"healthcheck", "healthcheck_port", b"healthcheck_port", "healthy_threshold", b"healthy_threshold", "http", b"http", "interval", b"interval", "interval_jitter_percent", b"interval_jitter_percent", "plaintext", b"plaintext", "stream", b"stream", "timeout", b"timeout", "tls", b"tls", "transport_settings", b"transport_settings", "unhealthy_threshold", b"unhealthy_threshold"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["healthcheck",b"healthcheck"]) -> typing.Optional[typing_extensions.Literal["stream","http","grpc"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["healthcheck", b"healthcheck"]) -> typing_extensions.Literal["stream", "http", "grpc"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["transport_settings",b"transport_settings"]) -> typing.Optional[typing_extensions.Literal["plaintext","tls"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["transport_settings", b"transport_settings"]) -> typing_extensions.Literal["plaintext", "tls"] | None: ...
+
 global___HealthCheck = HealthCheck

@@ -10,50 +10,53 @@ import yandex.cloud.operation.operation_pb2
 
 class NodeGroupServiceStub:
     """A set of methods for managing node groups."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.GetNodeGroupRequest,
-        yandex.cloud.k8s.v1.node_group_pb2.NodeGroup]
+        yandex.cloud.k8s.v1.node_group_pb2.NodeGroup,
+    ]
     """Returns the specified node group.
 
     To get the list of available node group, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupsRequest,
-        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupsResponse]
+        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupsResponse,
+    ]
     """Retrieves the list of node group in the specified Kubernetes cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.CreateNodeGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a node group in the specified Kubernetes cluster."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.UpdateNodeGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified node group."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.DeleteNodeGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified node group."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupOperationsRequest,
-        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupOperationsResponse]
+        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupOperationsResponse,
+    ]
     """Lists operations for the specified node group."""
-
     ListNodes: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupNodesRequest,
-        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupNodesResponse]
+        yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupNodesResponse,
+    ]
     """Retrieves the list of nodes in the specified Kubernetes cluster."""
-
 
 class NodeGroupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing node groups."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.GetNodeGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.k8s.v1.node_group_pb2.NodeGroup:
@@ -61,55 +64,47 @@ class NodeGroupServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available node group, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupsResponse:
         """Retrieves the list of node group in the specified Kubernetes cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.CreateNodeGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a node group in the specified Kubernetes cluster."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.UpdateNodeGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified node group."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.DeleteNodeGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified node group."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupOperationsResponse:
         """Lists operations for the specified node group."""
-        pass
-
     @abc.abstractmethod
-    def ListNodes(self,
+    def ListNodes(
+        self,
         request: yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupNodesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.k8s.v1.node_group_service_pb2.ListNodeGroupNodesResponse:
         """Retrieves the list of nodes in the specified Kubernetes cluster."""
-        pass
-
 
 def add_NodeGroupServiceServicer_to_server(servicer: NodeGroupServiceServicer, server: grpc.Server) -> None: ...

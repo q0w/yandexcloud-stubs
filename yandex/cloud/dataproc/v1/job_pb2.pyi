@@ -3,71 +3,65 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Job(google.protobuf.message.Message):
     """A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Job._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Job._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Job._Status.ValueType  # 0
         PROVISIONING: Job._Status.ValueType  # 1
         """Job is logged in the database and is waiting for the agent to run it."""
-
         PENDING: Job._Status.ValueType  # 2
         """Job is acquired by the agent and is in the queue for execution."""
-
         RUNNING: Job._Status.ValueType  # 3
         """Job is being run in the cluster."""
-
         ERROR: Job._Status.ValueType  # 4
         """Job failed to finish the run properly."""
-
         DONE: Job._Status.ValueType  # 5
         """Job is finished."""
-
         CANCELLED: Job._Status.ValueType  # 6
         """Job is cancelled."""
-
         CANCELLING: Job._Status.ValueType  # 7
         """Job is waiting for cancellation."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Job.Status.ValueType  # 0
     PROVISIONING: Job.Status.ValueType  # 1
     """Job is logged in the database and is waiting for the agent to run it."""
-
     PENDING: Job.Status.ValueType  # 2
     """Job is acquired by the agent and is in the queue for execution."""
-
     RUNNING: Job.Status.ValueType  # 3
     """Job is being run in the cluster."""
-
     ERROR: Job.Status.ValueType  # 4
     """Job failed to finish the run properly."""
-
     DONE: Job.Status.ValueType  # 5
     """Job is finished."""
-
     CANCELLED: Job.Status.ValueType  # 6
     """Job is cancelled."""
-
     CANCELLING: Job.Status.ValueType  # 7
     """Job is waiting for cancellation."""
-
 
     ID_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
@@ -82,125 +76,119 @@ class Job(google.protobuf.message.Message):
     PYSPARK_JOB_FIELD_NUMBER: builtins.int
     HIVE_JOB_FIELD_NUMBER: builtins.int
     APPLICATION_INFO_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the job. Generated at creation time."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Data Proc cluster that the job belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
     @property
     def started_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time when the job was started."""
-        pass
     @property
     def finished_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time when the job was finished."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the job, specified in the [JobService.Create] request."""
-
-    created_by: typing.Text
+    created_by: builtins.str
     """The id of the user who created the job"""
-
     status: global___Job.Status.ValueType
     """Job status."""
-
     @property
     def mapreduce_job(self) -> global___MapreduceJob:
         """Specification for a MapReduce job."""
-        pass
     @property
     def spark_job(self) -> global___SparkJob:
         """Specification for a Spark job."""
-        pass
     @property
     def pyspark_job(self) -> global___PysparkJob:
         """Specification for a PySpark job."""
-        pass
     @property
     def hive_job(self) -> global___HiveJob:
         """Specification for a Hive job."""
-        pass
     @property
     def application_info(self) -> global___ApplicationInfo:
         """Attributes of YARN application."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        started_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        finished_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        created_by: typing.Text = ...,
+        id: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        started_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        finished_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        created_by: builtins.str = ...,
         status: global___Job.Status.ValueType = ...,
-        mapreduce_job: typing.Optional[global___MapreduceJob] = ...,
-        spark_job: typing.Optional[global___SparkJob] = ...,
-        pyspark_job: typing.Optional[global___PysparkJob] = ...,
-        hive_job: typing.Optional[global___HiveJob] = ...,
-        application_info: typing.Optional[global___ApplicationInfo] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["application_info",b"application_info","created_at",b"created_at","finished_at",b"finished_at","hive_job",b"hive_job","job_spec",b"job_spec","mapreduce_job",b"mapreduce_job","pyspark_job",b"pyspark_job","spark_job",b"spark_job","started_at",b"started_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["application_info",b"application_info","cluster_id",b"cluster_id","created_at",b"created_at","created_by",b"created_by","finished_at",b"finished_at","hive_job",b"hive_job","id",b"id","job_spec",b"job_spec","mapreduce_job",b"mapreduce_job","name",b"name","pyspark_job",b"pyspark_job","spark_job",b"spark_job","started_at",b"started_at","status",b"status"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["job_spec",b"job_spec"]) -> typing.Optional[typing_extensions.Literal["mapreduce_job","spark_job","pyspark_job","hive_job"]]: ...
+        mapreduce_job: global___MapreduceJob | None = ...,
+        spark_job: global___SparkJob | None = ...,
+        pyspark_job: global___PysparkJob | None = ...,
+        hive_job: global___HiveJob | None = ...,
+        application_info: global___ApplicationInfo | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["application_info", b"application_info", "created_at", b"created_at", "finished_at", b"finished_at", "hive_job", b"hive_job", "job_spec", b"job_spec", "mapreduce_job", b"mapreduce_job", "pyspark_job", b"pyspark_job", "spark_job", b"spark_job", "started_at", b"started_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["application_info", b"application_info", "cluster_id", b"cluster_id", "created_at", b"created_at", "created_by", b"created_by", "finished_at", b"finished_at", "hive_job", b"hive_job", "id", b"id", "job_spec", b"job_spec", "mapreduce_job", b"mapreduce_job", "name", b"name", "pyspark_job", b"pyspark_job", "spark_job", b"spark_job", "started_at", b"started_at", "status", b"status"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["job_spec", b"job_spec"]) -> typing_extensions.Literal["mapreduce_job", "spark_job", "pyspark_job", "hive_job"] | None: ...
+
 global___Job = Job
 
 class ApplicationAttempt(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     AM_CONTAINER_ID_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of YARN application attempt"""
-
-    am_container_id: typing.Text
+    am_container_id: builtins.str
     """ID of YARN Application Master container"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        am_container_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["am_container_id",b"am_container_id","id",b"id"]) -> None: ...
+        id: builtins.str = ...,
+        am_container_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["am_container_id", b"am_container_id", "id", b"id"]) -> None: ...
+
 global___ApplicationAttempt = ApplicationAttempt
 
 class ApplicationInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     APPLICATION_ATTEMPTS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of YARN application"""
-
     @property
     def application_attempts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ApplicationAttempt]:
         """YARN application attempts"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        application_attempts: typing.Optional[typing.Iterable[global___ApplicationAttempt]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["application_attempts",b"application_attempts","id",b"id"]) -> None: ...
+        id: builtins.str = ...,
+        application_attempts: collections.abc.Iterable[global___ApplicationAttempt] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["application_attempts", b"application_attempts", "id", b"id"]) -> None: ...
+
 global___ApplicationInfo = ApplicationInfo
 
 class MapreduceJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ARGS_FIELD_NUMBER: builtins.int
     JAR_FILE_URIS_FIELD_NUMBER: builtins.int
@@ -210,62 +198,60 @@ class MapreduceJob(google.protobuf.message.Message):
     MAIN_JAR_FILE_URI_FIELD_NUMBER: builtins.int
     MAIN_CLASS_FIELD_NUMBER: builtins.int
     @property
-    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Optional arguments to pass to the driver."""
-        pass
     @property
-    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """JAR file URIs to add to CLASSPATH of the Data Proc driver and each task."""
-        pass
     @property
-    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of resource files to be copied to the working directory of Data Proc drivers
         and distributed Hadoop tasks.
         """
-        pass
     @property
-    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of archives to be extracted to the working directory of Data Proc drivers and tasks."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Property names and values, used to configure Data Proc and MapReduce."""
-        pass
-    main_jar_file_uri: typing.Text
+    main_jar_file_uri: builtins.str
     """HCFS URI of the .jar file containing the driver class."""
-
-    main_class: typing.Text
+    main_class: builtins.str
     """The name of the driver class."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        args: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        jar_file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        archive_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        main_jar_file_uri: typing.Text = ...,
-        main_class: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["driver",b"driver","main_class",b"main_class","main_jar_file_uri",b"main_jar_file_uri"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["archive_uris",b"archive_uris","args",b"args","driver",b"driver","file_uris",b"file_uris","jar_file_uris",b"jar_file_uris","main_class",b"main_class","main_jar_file_uri",b"main_jar_file_uri","properties",b"properties"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["driver",b"driver"]) -> typing.Optional[typing_extensions.Literal["main_jar_file_uri","main_class"]]: ...
+        args: collections.abc.Iterable[builtins.str] | None = ...,
+        jar_file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        archive_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        main_jar_file_uri: builtins.str = ...,
+        main_class: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["driver", b"driver", "main_class", b"main_class", "main_jar_file_uri", b"main_jar_file_uri"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["archive_uris", b"archive_uris", "args", b"args", "driver", b"driver", "file_uris", b"file_uris", "jar_file_uris", b"jar_file_uris", "main_class", b"main_class", "main_jar_file_uri", b"main_jar_file_uri", "properties", b"properties"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["driver", b"driver"]) -> typing_extensions.Literal["main_jar_file_uri", "main_class"] | None: ...
+
 global___MapreduceJob = MapreduceJob
 
 class SparkJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ARGS_FIELD_NUMBER: builtins.int
     JAR_FILE_URIS_FIELD_NUMBER: builtins.int
@@ -278,75 +264,70 @@ class SparkJob(google.protobuf.message.Message):
     REPOSITORIES_FIELD_NUMBER: builtins.int
     EXCLUDE_PACKAGES_FIELD_NUMBER: builtins.int
     @property
-    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Optional arguments to pass to the driver."""
-        pass
     @property
-    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """JAR file URIs to add to CLASSPATH of the Data Proc driver and each task."""
-        pass
     @property
-    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of resource files to be copied to the working directory of Data Proc drivers
         and distributed Hadoop tasks.
         """
-        pass
     @property
-    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of archives to be extracted to the working directory of Data Proc drivers and tasks."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Property names and values, used to configure Data Proc and Spark."""
-        pass
-    main_jar_file_uri: typing.Text
+    main_jar_file_uri: builtins.str
     """The HCFS URI of the JAR file containing the `main` class for the job."""
-
-    main_class: typing.Text
+    main_class: builtins.str
     """The name of the driver class."""
-
     @property
-    def packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of maven coordinates of jars to include on the driver and executor classpaths."""
-        pass
     @property
-    def repositories(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def repositories(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of additional remote repositories to search for the maven coordinates given with --packages."""
-        pass
     @property
-    def exclude_packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def exclude_packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        args: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        jar_file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        archive_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        main_jar_file_uri: typing.Text = ...,
-        main_class: typing.Text = ...,
-        packages: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        repositories: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        exclude_packages: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["archive_uris",b"archive_uris","args",b"args","exclude_packages",b"exclude_packages","file_uris",b"file_uris","jar_file_uris",b"jar_file_uris","main_class",b"main_class","main_jar_file_uri",b"main_jar_file_uri","packages",b"packages","properties",b"properties","repositories",b"repositories"]) -> None: ...
+        args: collections.abc.Iterable[builtins.str] | None = ...,
+        jar_file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        archive_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        main_jar_file_uri: builtins.str = ...,
+        main_class: builtins.str = ...,
+        packages: collections.abc.Iterable[builtins.str] | None = ...,
+        repositories: collections.abc.Iterable[builtins.str] | None = ...,
+        exclude_packages: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["archive_uris", b"archive_uris", "args", b"args", "exclude_packages", b"exclude_packages", "file_uris", b"file_uris", "jar_file_uris", b"jar_file_uris", "main_class", b"main_class", "main_jar_file_uri", b"main_jar_file_uri", "packages", b"packages", "properties", b"properties", "repositories", b"repositories"]) -> None: ...
+
 global___SparkJob = SparkJob
 
 class PysparkJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ARGS_FIELD_NUMBER: builtins.int
     JAR_FILE_URIS_FIELD_NUMBER: builtins.int
@@ -359,103 +340,102 @@ class PysparkJob(google.protobuf.message.Message):
     REPOSITORIES_FIELD_NUMBER: builtins.int
     EXCLUDE_PACKAGES_FIELD_NUMBER: builtins.int
     @property
-    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Optional arguments to pass to the driver."""
-        pass
     @property
-    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """JAR file URIs to add to CLASSPATH of the Data Proc driver and each task."""
-        pass
     @property
-    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of resource files to be copied to the working directory of Data Proc drivers
         and distributed Hadoop tasks.
         """
-        pass
     @property
-    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def archive_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of archives to be extracted to the working directory of Data Proc drivers and tasks."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Property names and values, used to configure Data Proc and PySpark."""
-        pass
-    main_python_file_uri: typing.Text
+    main_python_file_uri: builtins.str
     """URI of the file with the driver code. Must be a .py file."""
-
     @property
-    def python_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def python_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """URIs of Python files to pass to the PySpark framework."""
-        pass
     @property
-    def packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of maven coordinates of jars to include on the driver and executor classpaths."""
-        pass
     @property
-    def repositories(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def repositories(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of additional remote repositories to search for the maven coordinates given with --packages."""
-        pass
     @property
-    def exclude_packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def exclude_packages(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        args: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        jar_file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        archive_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        main_python_file_uri: typing.Text = ...,
-        python_file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        packages: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        repositories: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        exclude_packages: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["archive_uris",b"archive_uris","args",b"args","exclude_packages",b"exclude_packages","file_uris",b"file_uris","jar_file_uris",b"jar_file_uris","main_python_file_uri",b"main_python_file_uri","packages",b"packages","properties",b"properties","python_file_uris",b"python_file_uris","repositories",b"repositories"]) -> None: ...
+        args: collections.abc.Iterable[builtins.str] | None = ...,
+        jar_file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        archive_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        main_python_file_uri: builtins.str = ...,
+        python_file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        packages: collections.abc.Iterable[builtins.str] | None = ...,
+        repositories: collections.abc.Iterable[builtins.str] | None = ...,
+        exclude_packages: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["archive_uris", b"archive_uris", "args", b"args", "exclude_packages", b"exclude_packages", "file_uris", b"file_uris", "jar_file_uris", b"jar_file_uris", "main_python_file_uri", b"main_python_file_uri", "packages", b"packages", "properties", b"properties", "python_file_uris", b"python_file_uris", "repositories", b"repositories"]) -> None: ...
+
 global___PysparkJob = PysparkJob
 
 class QueryList(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     QUERIES_FIELD_NUMBER: builtins.int
     @property
-    def queries(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def queries(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of Hive queries."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        queries: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["queries",b"queries"]) -> None: ...
+        queries: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["queries", b"queries"]) -> None: ...
+
 global___QueryList = QueryList
 
 class HiveJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class ScriptVariablesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     PROPERTIES_FIELD_NUMBER: builtins.int
     CONTINUE_ON_FAILURE_FIELD_NUMBER: builtins.int
@@ -464,37 +444,33 @@ class HiveJob(google.protobuf.message.Message):
     QUERY_FILE_URI_FIELD_NUMBER: builtins.int
     QUERY_LIST_FIELD_NUMBER: builtins.int
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Property names and values, used to configure Data Proc and Hive."""
-        pass
     continue_on_failure: builtins.bool
     """Flag indicating whether a job should continue to run if a query fails."""
-
     @property
-    def script_variables(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def script_variables(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Query variables and their values."""
-        pass
     @property
-    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def jar_file_uris(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """JAR file URIs to add to CLASSPATH of the Hive driver and each task."""
-        pass
-    query_file_uri: typing.Text
+    query_file_uri: builtins.str
     """URI of the script with all the necessary Hive queries."""
-
     @property
     def query_list(self) -> global___QueryList:
         """List of Hive queries to be used in the job."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         continue_on_failure: builtins.bool = ...,
-        script_variables: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        jar_file_uris: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        query_file_uri: typing.Text = ...,
-        query_list: typing.Optional[global___QueryList] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["query_file_uri",b"query_file_uri","query_list",b"query_list","query_type",b"query_type"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["continue_on_failure",b"continue_on_failure","jar_file_uris",b"jar_file_uris","properties",b"properties","query_file_uri",b"query_file_uri","query_list",b"query_list","query_type",b"query_type","script_variables",b"script_variables"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["query_type",b"query_type"]) -> typing.Optional[typing_extensions.Literal["query_file_uri","query_list"]]: ...
+        script_variables: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        jar_file_uris: collections.abc.Iterable[builtins.str] | None = ...,
+        query_file_uri: builtins.str = ...,
+        query_list: global___QueryList | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["query_file_uri", b"query_file_uri", "query_list", b"query_list", "query_type", b"query_type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["continue_on_failure", b"continue_on_failure", "jar_file_uris", b"jar_file_uris", "properties", b"properties", "query_file_uri", b"query_file_uri", "query_list", b"query_list", "query_type", b"query_type", "script_variables", b"script_variables"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["query_type", b"query_type"]) -> typing_extensions.Literal["query_file_uri", "query_list"] | None: ...
+
 global___HiveJob = HiveJob

@@ -3,30 +3,38 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.datatransfer.v1.transfer_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class CreateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SOURCE_ID_FIELD_NUMBER: builtins.int
     TARGET_ID_FIELD_NUMBER: builtins.int
@@ -35,69 +43,74 @@ class CreateTransferRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
-    source_id: typing.Text
-    target_id: typing.Text
-    name: typing.Text
-    description: typing.Text
+    source_id: builtins.str
+    target_id: builtins.str
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    folder_id: typing.Text
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    folder_id: builtins.str
     type: yandex.cloud.datatransfer.v1.transfer_pb2.TransferType.ValueType
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        source_id: typing.Text = ...,
-        target_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        folder_id: typing.Text = ...,
+        source_id: builtins.str = ...,
+        target_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        folder_id: builtins.str = ...,
         type: yandex.cloud.datatransfer.v1.transfer_pb2.TransferType.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","source_id",b"source_id","target_id",b"target_id","type",b"type"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "source_id", b"source_id", "target_id", b"target_id", "type", b"type"]) -> None: ...
+
 global___CreateTransferRequest = CreateTransferRequest
 
 class CreateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___CreateTransferMetadata = CreateTransferMetadata
 
 class UpdateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     TRANSFER_ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
+    transfer_id: builtins.str
     """Identifier of the transfer to be updated."""
-
-    description: typing.Text
+    description: builtins.str
     """The new description for the transfer."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    name: typing.Text
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    name: builtins.str
     """The new transfer name. Must be unique within the folder."""
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask specifying transfer fields to be updated. Semantics for this field is
@@ -106,60 +119,70 @@ class UpdateTransferRequest(google.protobuf.message.Message):
         The only exception is that if the repeated field is specified in the mask, then
         the new value replaces the old one instead of being appended to the old one.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        name: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","transfer_id",b"transfer_id","update_mask",b"update_mask"]) -> None: ...
+        transfer_id: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        name: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "transfer_id", b"transfer_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateTransferRequest = UpdateTransferRequest
 
 class UpdateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___UpdateTransferMetadata = UpdateTransferMetadata
 
 class DeleteTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___DeleteTransferRequest = DeleteTransferRequest
 
 class DeleteTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___DeleteTransferMetadata = DeleteTransferMetadata
 
 class ListTransfersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """Identifier of the folder containing the transfers to be listed."""
-
     page_size: builtins.int
     """The maximum number of transfers to be sent in the response message. If the
     folder contains more transfers than page_size, next_page_token will be included
@@ -167,24 +190,25 @@ class ListTransfersRequest(google.protobuf.message.Message):
     fetch the next page. Defaults to 100 if not specified. The maximum allowed value
     for this field is 500.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Opaque value identifying the transfers page to be fetched. Should be empty in
     the first ListTransfersRequest. Subsequent request should have this field filled
     with the next_page_token from the previous ListTransfersResponse.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListTransfersRequest = ListTransfersRequest
 
 class ListTransfersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
@@ -193,73 +217,88 @@ class ListTransfersResponse(google.protobuf.message.Message):
         next_page_token is a non-empty string to be included into the subsequent
         ListTransfersRequest to fetch the next transfers page.
         """
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Opaque value identifying the next transfers page. This field is empty if there
     are no more transfers in the folder. Otherwise it is non-empty and should be
     included in the subsequent ListTransfersRequest to fetch the next transfers
     page.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        transfers: typing.Optional[typing.Iterable[yandex.cloud.datatransfer.v1.transfer_pb2.Transfer]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","transfers",b"transfers"]) -> None: ...
+        transfers: collections.abc.Iterable[yandex.cloud.datatransfer.v1.transfer_pb2.Transfer] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "transfers", b"transfers"]) -> None: ...
+
 global___ListTransfersResponse = ListTransfersResponse
 
 class GetTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___GetTransferRequest = GetTransferRequest
 
 class DeactivateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___DeactivateTransferRequest = DeactivateTransferRequest
 
 class DeactivateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___DeactivateTransferMetadata = DeactivateTransferMetadata
 
 class ActivateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___ActivateTransferRequest = ActivateTransferRequest
 
 class ActivateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TRANSFER_ID_FIELD_NUMBER: builtins.int
-    transfer_id: typing.Text
-    def __init__(self,
+    transfer_id: builtins.str
+    def __init__(
+        self,
         *,
-        transfer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["transfer_id",b"transfer_id"]) -> None: ...
+        transfer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["transfer_id", b"transfer_id"]) -> None: ...
+
 global___ActivateTransferMetadata = ActivateTransferMetadata

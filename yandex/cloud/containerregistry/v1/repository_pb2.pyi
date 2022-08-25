@@ -5,28 +5,34 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Repository(google.protobuf.message.Message):
     """A Repository resource. For more information, see [Repository](/docs/cloud/container-registry/repository)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the repository.
     The name is unique within the registry.
     """
-
-    id: typing.Text
+    id: builtins.str
     """Output only. ID of the repository."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["id",b"id","name",b"name"]) -> None: ...
+        name: builtins.str = ...,
+        id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id", "name", b"name"]) -> None: ...
+
 global___Repository = Repository

@@ -9,22 +9,23 @@ import yandex.cloud.iam.v1.yandex_passport_user_account_service_pb2
 
 class YandexPassportUserAccountServiceStub:
     """A set of methods for managing YandexPassportUserAccount resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     GetByLogin: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.yandex_passport_user_account_service_pb2.GetUserAccountByLoginRequest,
-        yandex.cloud.iam.v1.user_account_pb2.UserAccount]
+        yandex.cloud.iam.v1.user_account_pb2.UserAccount,
+    ]
     """Returns the specified YandexPassportUserAccount resource."""
-
 
 class YandexPassportUserAccountServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing YandexPassportUserAccount resources."""
+
     @abc.abstractmethod
-    def GetByLogin(self,
+    def GetByLogin(
+        self,
         request: yandex.cloud.iam.v1.yandex_passport_user_account_service_pb2.GetUserAccountByLoginRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.user_account_pb2.UserAccount:
         """Returns the specified YandexPassportUserAccount resource."""
-        pass
-
 
 def add_YandexPassportUserAccountServiceServicer_to_server(servicer: YandexPassportUserAccountServiceServicer, server: grpc.Server) -> None: ...

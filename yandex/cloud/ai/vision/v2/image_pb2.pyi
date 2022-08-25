@@ -6,24 +6,31 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Image(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ImageType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ImageTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Image._ImageType.ValueType], builtins.type):
+
+    class _ImageTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Image._ImageType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         IMAGE_TYPE_UNSPECIFIED: Image._ImageType.ValueType  # 0
         JPEG: Image._ImageType.ValueType  # 1
         PNG: Image._ImageType.ValueType  # 2
+
     class ImageType(_ImageType, metaclass=_ImageTypeEnumTypeWrapper):
         """   type of image"""
-        pass
 
     IMAGE_TYPE_UNSPECIFIED: Image.ImageType.ValueType  # 0
     JPEG: Image.ImageType.ValueType  # 1
@@ -33,16 +40,16 @@ class Image(google.protobuf.message.Message):
     IMAGE_TYPE_FIELD_NUMBER: builtins.int
     content: builtins.bytes
     """       bytes with data"""
-
     image_type: global___Image.ImageType.ValueType
     """   type of data"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         content: builtins.bytes = ...,
         image_type: global___Image.ImageType.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["ImageSource",b"ImageSource","content",b"content"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ImageSource",b"ImageSource","content",b"content","image_type",b"image_type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["ImageSource",b"ImageSource"]) -> typing.Optional[typing_extensions.Literal["content"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["ImageSource", b"ImageSource", "content", b"content"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ImageSource", b"ImageSource", "content", b"content", "image_type", b"image_type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["ImageSource", b"ImageSource"]) -> typing_extensions.Literal["content"] | None: ...
+
 global___Image = Image

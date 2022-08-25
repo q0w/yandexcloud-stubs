@@ -6,8 +6,12 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -18,7 +22,9 @@ class ElasticsearchConfig7(google.protobuf.message.Message):
 
     Any options that are not listed here are not supported.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MAX_CLAUSE_COUNT_FIELD_NUMBER: builtins.int
     FIELDDATA_CACHE_SIZE_FIELD_NUMBER: builtins.int
     REINDEX_REMOTE_WHITELIST_FIELD_NUMBER: builtins.int
@@ -34,8 +40,7 @@ class ElasticsearchConfig7(google.protobuf.message.Message):
 
         See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
         """
-        pass
-    fielddata_cache_size: typing.Text
+    fielddata_cache_size: builtins.str
     """The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.
 
     All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
@@ -45,54 +50,54 @@ class ElasticsearchConfig7(google.protobuf.message.Message):
 
     See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
     """
-
-    reindex_remote_whitelist: typing.Text
+    reindex_remote_whitelist: builtins.str
     """Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
     It can be set to a comma delimited list of allowed remote host and port combinations.
     Scheme is ignored, only the host and port are used.
     """
-
-    reindex_ssl_ca_path: typing.Text
+    reindex_ssl_ca_path: builtins.str
     """List of paths to PEM encoded certificate files that should be trusted.
 
     See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        max_clause_count: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        fielddata_cache_size: typing.Text = ...,
-        reindex_remote_whitelist: typing.Text = ...,
-        reindex_ssl_ca_path: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["max_clause_count",b"max_clause_count"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["fielddata_cache_size",b"fielddata_cache_size","max_clause_count",b"max_clause_count","reindex_remote_whitelist",b"reindex_remote_whitelist","reindex_ssl_ca_path",b"reindex_ssl_ca_path"]) -> None: ...
+        max_clause_count: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        fielddata_cache_size: builtins.str = ...,
+        reindex_remote_whitelist: builtins.str = ...,
+        reindex_ssl_ca_path: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_clause_count", b"max_clause_count"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fielddata_cache_size", b"fielddata_cache_size", "max_clause_count", b"max_clause_count", "reindex_remote_whitelist", b"reindex_remote_whitelist", "reindex_ssl_ca_path", b"reindex_ssl_ca_path"]) -> None: ...
+
 global___ElasticsearchConfig7 = ElasticsearchConfig7
 
 class ElasticsearchConfigSet7(google.protobuf.message.Message):
     """Elasticsearch 7.x data node configuration."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___ElasticsearchConfig7:
         """Effective settings for an Elasticsearch cluster (a combination of settings defined in [user_config] and [default_config])."""
-        pass
     @property
     def user_config(self) -> global___ElasticsearchConfig7:
         """User-defined settings for an Elasticsearch cluster."""
-        pass
     @property
     def default_config(self) -> global___ElasticsearchConfig7:
         """Default settings for an Elasticsearch cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___ElasticsearchConfig7] = ...,
-        user_config: typing.Optional[global___ElasticsearchConfig7] = ...,
-        default_config: typing.Optional[global___ElasticsearchConfig7] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___ElasticsearchConfig7 | None = ...,
+        user_config: global___ElasticsearchConfig7 | None = ...,
+        default_config: global___ElasticsearchConfig7 | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___ElasticsearchConfigSet7 = ElasticsearchConfigSet7

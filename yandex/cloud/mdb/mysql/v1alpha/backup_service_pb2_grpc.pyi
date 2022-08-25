@@ -9,25 +9,28 @@ import yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2
 
 class BackupServiceStub:
     """A set of methods for managing MySQL backups."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.mdb.mysql.v1alpha.backup_pb2.Backup]
+        yandex.cloud.mdb.mysql.v1alpha.backup_pb2.Backup,
+    ]
     """Returns the specified MySQL backup.
 
     To get the list of available MySQL backups, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.ListBackupsResponse,
+    ]
     """Retrieves the list of MySQL backups available for the specified folder."""
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MySQL backups."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.backup_pb2.Backup:
@@ -35,15 +38,12 @@ class BackupServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available MySQL backups, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.backup_service_pb2.ListBackupsResponse:
         """Retrieves the list of MySQL backups available for the specified folder."""
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

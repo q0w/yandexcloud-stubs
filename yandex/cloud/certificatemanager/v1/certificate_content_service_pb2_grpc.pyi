@@ -8,22 +8,23 @@ import yandex.cloud.certificatemanager.v1.certificate_content_service_pb2
 
 class CertificateContentServiceStub:
     """A set of methods for managing certificate content."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_content_service_pb2.GetCertificateContentRequest,
-        yandex.cloud.certificatemanager.v1.certificate_content_service_pb2.GetCertificateContentResponse]
+        yandex.cloud.certificatemanager.v1.certificate_content_service_pb2.GetCertificateContentResponse,
+    ]
     """Returns chain and private key of the specified certificate."""
-
 
 class CertificateContentServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing certificate content."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_content_service_pb2.GetCertificateContentRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.certificatemanager.v1.certificate_content_service_pb2.GetCertificateContentResponse:
         """Returns chain and private key of the specified certificate."""
-        pass
-
 
 def add_CertificateContentServiceServicer_to_server(servicer: CertificateContentServiceServicer, server: grpc.Server) -> None: ...

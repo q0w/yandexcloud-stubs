@@ -6,14 +6,20 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class BillingAccount(google.protobuf.message.Message):
     """A BillingAccount resource. For more information, see [BillingAccount](/docs/billing/concepts/billing-account)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
@@ -21,43 +27,38 @@ class BillingAccount(google.protobuf.message.Message):
     CURRENCY_FIELD_NUMBER: builtins.int
     ACTIVE_FIELD_NUMBER: builtins.int
     BALANCE_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the billing account."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the billing account."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    country_code: typing.Text
+    country_code: builtins.str
     """ISO 3166-1 alpha-2 country code of the billing account."""
-
-    currency: typing.Text
+    currency: builtins.str
     """Currency of the billing account.
     Can be one of the following:
     * `RUB`
     * `USD`
     * `KZT`
     """
-
     active: builtins.bool
     """Represents whether corresponding billable objects can be used or not."""
-
-    balance: typing.Text
+    balance: builtins.str
     """Current balance of the billing account."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        name: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        country_code: typing.Text = ...,
-        currency: typing.Text = ...,
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        country_code: builtins.str = ...,
+        currency: builtins.str = ...,
         active: builtins.bool = ...,
-        balance: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["active",b"active","balance",b"balance","country_code",b"country_code","created_at",b"created_at","currency",b"currency","id",b"id","name",b"name"]) -> None: ...
+        balance: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["active", b"active", "balance", b"balance", "country_code", b"country_code", "created_at", b"created_at", "currency", b"currency", "id", b"id", "name", b"name"]) -> None: ...
+
 global___BillingAccount = BillingAccount

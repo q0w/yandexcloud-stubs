@@ -3,19 +3,26 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _ServerRole:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _ServerRoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ServerRole.ValueType], builtins.type):
+
+class _ServerRoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ServerRole.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SERVER_ROLE_UNSPECIFIED: _ServerRole.ValueType  # 0
     MDB_MONITOR: _ServerRole.ValueType  # 1
@@ -28,7 +35,6 @@ class _ServerRoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
 
 class ServerRole(_ServerRole, metaclass=_ServerRoleEnumTypeWrapper):
     """Set of server roles."""
-    pass
 
 SERVER_ROLE_UNSPECIFIED: ServerRole.ValueType  # 0
 MDB_MONITOR: ServerRole.ValueType  # 1
@@ -38,152 +44,133 @@ That gives an ability to use various dynamic management views to monitor server 
 
 No intrusive actions are allowed, so this is pretty safe to grant.
 """
-
 global___ServerRole = ServerRole
-
 
 class User(google.protobuf.message.Message):
     """An SQL Server user."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
     SERVER_ROLES_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the SQL Server user."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster the user belongs to."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions granted to the user."""
-        pass
     @property
     def server_roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___ServerRole.ValueType]:
         """Set of server roles granted to the login."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        server_roles: typing.Optional[typing.Iterable[global___ServerRole.ValueType]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name","permissions",b"permissions","server_roles",b"server_roles"]) -> None: ...
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+        server_roles: collections.abc.Iterable[global___ServerRole.ValueType] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name", "permissions", b"permissions", "server_roles", b"server_roles"]) -> None: ...
+
 global___User = User
 
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Role:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Permission._Role.ValueType], builtins.type):
+
+    class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Permission._Role.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         ROLE_UNSPECIFIED: Permission._Role.ValueType  # 0
         DB_OWNER: Permission._Role.ValueType  # 1
         """Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server."""
-
         DB_SECURITYADMIN: Permission._Role.ValueType  # 2
         """Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored."""
-
         DB_ACCESSADMIN: Permission._Role.ValueType  # 3
         """Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins."""
-
         DB_BACKUPOPERATOR: Permission._Role.ValueType  # 4
         """Members of this fixed database role can back up the database."""
-
         DB_DDLADMIN: Permission._Role.ValueType  # 5
         """Members of this fixed database role can run any Data Definition Language (DDL) command in a database."""
-
         DB_DATAWRITER: Permission._Role.ValueType  # 6
         """Members of this fixed database role can add, delete, or change data in all user tables."""
-
         DB_DATAREADER: Permission._Role.ValueType  # 7
         """Members of this fixed database role can read all data from all user tables."""
-
         DB_DENYDATAWRITER: Permission._Role.ValueType  # 8
         """Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles."""
-
         DB_DENYDATAREADER: Permission._Role.ValueType  # 9
         """Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles."""
 
     class Role(_Role, metaclass=_RoleEnumTypeWrapper):
         """Role granted to the user within the database."""
-        pass
 
     ROLE_UNSPECIFIED: Permission.Role.ValueType  # 0
     DB_OWNER: Permission.Role.ValueType  # 1
     """Members of this fixed database role can perform all configuration and maintenance activities on a database and can also drop a database in SQL Server."""
-
     DB_SECURITYADMIN: Permission.Role.ValueType  # 2
     """Members of this fixed database role can modify role membership for custom roles only and manage permissions. They can potentially elevate their privileges and their actions should be monitored."""
-
     DB_ACCESSADMIN: Permission.Role.ValueType  # 3
     """Members of this fixed database role can add or remove access to a database for Windows logins, Windows groups, and SQL Server logins."""
-
     DB_BACKUPOPERATOR: Permission.Role.ValueType  # 4
     """Members of this fixed database role can back up the database."""
-
     DB_DDLADMIN: Permission.Role.ValueType  # 5
     """Members of this fixed database role can run any Data Definition Language (DDL) command in a database."""
-
     DB_DATAWRITER: Permission.Role.ValueType  # 6
     """Members of this fixed database role can add, delete, or change data in all user tables."""
-
     DB_DATAREADER: Permission.Role.ValueType  # 7
     """Members of this fixed database role can read all data from all user tables."""
-
     DB_DENYDATAWRITER: Permission.Role.ValueType  # 8
     """Members of this fixed database role cannot add, modify, or delete any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles."""
-
     DB_DENYDATAREADER: Permission.Role.ValueType  # 9
     """Members of this fixed database role cannot read any data in the user tables within a database. A denial has a higher priority than a grant, so you can use this role to quickly restrict one's privileges without explicitly revoking permissions or roles."""
 
-
     DATABASE_NAME_FIELD_NUMBER: builtins.int
     ROLES_FIELD_NUMBER: builtins.int
-    database_name: typing.Text
+    database_name: builtins.str
     """Name of the database the permission grants access to."""
-
     @property
     def roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Permission.Role.ValueType]:
         """Roles granted to the user within the database."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        database_name: typing.Text = ...,
-        roles: typing.Optional[typing.Iterable[global___Permission.Role.ValueType]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["database_name",b"database_name","roles",b"roles"]) -> None: ...
+        database_name: builtins.str = ...,
+        roles: collections.abc.Iterable[global___Permission.Role.ValueType] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["database_name", b"database_name", "roles", b"roles"]) -> None: ...
+
 global___Permission = Permission
 
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
     SERVER_ROLES_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the SQL Server user."""
-
-    password: typing.Text
+    password: builtins.str
     """Password of the SQL Server user."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions to grant to the user."""
-        pass
     @property
     def server_roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___ServerRole.ValueType]:
         """Set of server roles."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        password: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        server_roles: typing.Optional[typing.Iterable[global___ServerRole.ValueType]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","password",b"password","permissions",b"permissions","server_roles",b"server_roles"]) -> None: ...
+        name: builtins.str = ...,
+        password: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+        server_roles: collections.abc.Iterable[global___ServerRole.ValueType] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "password", b"password", "permissions", b"permissions", "server_roles", b"server_roles"]) -> None: ...
+
 global___UserSpec = UserSpec

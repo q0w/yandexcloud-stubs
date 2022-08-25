@@ -5,8 +5,12 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -15,32 +19,36 @@ class Database(google.protobuf.message.Message):
 
     See [the documentation](/docs/managed-mysql/operations/databases) for details.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the database."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster that the database belongs to."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name"]) -> None: ...
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name"]) -> None: ...
+
 global___Database = Database
 
 class DatabaseSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NAME_FIELD_NUMBER: builtins.int
-    name: typing.Text
-    """Name of the database."""
 
-    def __init__(self,
+    NAME_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    """Name of the database."""
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name"]) -> None: ...
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
 global___DatabaseSpec = DatabaseSpec

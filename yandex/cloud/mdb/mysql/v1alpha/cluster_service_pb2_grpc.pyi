@@ -10,90 +10,93 @@ import yandex.cloud.operation.operation_pb2
 
 class ClusterServiceStub:
     """A set of methods for managing MySQL clusters."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.GetClusterRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_pb2.Cluster]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_pb2.Cluster,
+    ]
     """Returns the specified MySQL cluster.
 
     To get the list of available MySQL clusters, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClustersRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClustersResponse]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClustersResponse,
+    ]
     """Retrieves the list of MySQL clusters that belong to the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.CreateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a MySQL cluster in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.UpdateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Modifies the specified MySQL cluster."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.DeleteClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified MySQL cluster."""
-
     Start: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.StartClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Starts the specified MySQL cluster."""
-
     Stop: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.StopClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Stops the specified MySQL cluster."""
-
     Backup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.BackupClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a backup for the specified MySQL cluster."""
-
     Restore: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.RestoreClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new MySQL cluster using the specified backup."""
-
     ListLogs: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterLogsRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterLogsResponse]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterLogsResponse,
+    ]
     """Retrieves logs for the specified MySQL cluster."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterOperationsRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterOperationsResponse]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterOperationsResponse,
+    ]
     """Retrieves the list of operations for the specified MySQL cluster."""
-
     ListBackups: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterBackupsRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterBackupsResponse]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterBackupsResponse,
+    ]
     """Retrieves the list of available backups for the specified MySQL cluster."""
-
     ListHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterHostsRequest,
-        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterHostsResponse]
+        yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterHostsResponse,
+    ]
     """Retrieves a list of hosts for the specified MySQL cluster."""
-
     AddHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.AddClusterHostsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates new hosts for a cluster."""
-
     DeleteHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.DeleteClusterHostsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified hosts for a cluster."""
-
 
 class ClusterServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MySQL clusters."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.GetClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_pb2.Cluster:
@@ -101,119 +104,103 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available MySQL clusters, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClustersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClustersResponse:
         """Retrieves the list of MySQL clusters that belong to the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.CreateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a MySQL cluster in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.UpdateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Modifies the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.DeleteClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def Start(self,
+    def Start(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.StartClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Starts the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def Stop(self,
+    def Stop(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.StopClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Stops the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def Backup(self,
+    def Backup(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.BackupClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a backup for the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def Restore(self,
+    def Restore(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.RestoreClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new MySQL cluster using the specified backup."""
-        pass
-
     @abc.abstractmethod
-    def ListLogs(self,
+    def ListLogs(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterLogsResponse:
         """Retrieves logs for the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterOperationsResponse:
         """Retrieves the list of operations for the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListBackups(self,
+    def ListBackups(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterBackupsResponse:
         """Retrieves the list of available backups for the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListHosts(self,
+    def ListHosts(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.ListClusterHostsResponse:
         """Retrieves a list of hosts for the specified MySQL cluster."""
-        pass
-
     @abc.abstractmethod
-    def AddHosts(self,
+    def AddHosts(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.AddClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates new hosts for a cluster."""
-        pass
-
     @abc.abstractmethod
-    def DeleteHosts(self,
+    def DeleteHosts(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.cluster_service_pb2.DeleteClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified hosts for a cluster."""
-        pass
-
 
 def add_ClusterServiceServicer_to_server(servicer: ClusterServiceServicer, server: grpc.Server) -> None: ...

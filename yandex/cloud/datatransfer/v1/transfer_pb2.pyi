@@ -3,51 +3,52 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.datatransfer.v1.endpoint_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _TransferType:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _TransferTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferType.ValueType], builtins.type):
+
+class _TransferTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferType.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRANSFER_TYPE_UNSPECIFIED: _TransferType.ValueType  # 0
     SNAPSHOT_AND_INCREMENT: _TransferType.ValueType  # 1
     """Snapshot and increment"""
-
     SNAPSHOT_ONLY: _TransferType.ValueType  # 2
     """Snapshot"""
-
     INCREMENT_ONLY: _TransferType.ValueType  # 3
     """Increment"""
 
-class TransferType(_TransferType, metaclass=_TransferTypeEnumTypeWrapper):
-    pass
+class TransferType(_TransferType, metaclass=_TransferTypeEnumTypeWrapper): ...
 
 TRANSFER_TYPE_UNSPECIFIED: TransferType.ValueType  # 0
 SNAPSHOT_AND_INCREMENT: TransferType.ValueType  # 1
 """Snapshot and increment"""
-
 SNAPSHOT_ONLY: TransferType.ValueType  # 2
 """Snapshot"""
-
 INCREMENT_ONLY: TransferType.ValueType  # 3
 """Increment"""
-
 global___TransferType = TransferType
 
-
 class _TransferStatus:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _TransferStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferStatus.ValueType], builtins.type):
+
+class _TransferStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferStatus.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRANSFER_STATUS_UNSPECIFIED: _TransferStatus.ValueType  # 0
     CREATING: _TransferStatus.ValueType  # 1
@@ -58,8 +59,8 @@ class _TransferStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper.
     ERROR: _TransferStatus.ValueType  # 6
     SNAPSHOTTING: _TransferStatus.ValueType  # 7
     DONE: _TransferStatus.ValueType  # 8
-class TransferStatus(_TransferStatus, metaclass=_TransferStatusEnumTypeWrapper):
-    pass
+
+class TransferStatus(_TransferStatus, metaclass=_TransferStatusEnumTypeWrapper): ...
 
 TRANSFER_STATUS_UNSPECIFIED: TransferStatus.ValueType  # 0
 CREATING: TransferStatus.ValueType  # 1
@@ -72,21 +73,23 @@ SNAPSHOTTING: TransferStatus.ValueType  # 7
 DONE: TransferStatus.ValueType  # 8
 global___TransferStatus = TransferStatus
 
-
 class Transfer(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -98,32 +101,34 @@ class Transfer(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     WARNING_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    folder_id: typing.Text
-    name: typing.Text
-    description: typing.Text
+    id: builtins.str
+    folder_id: builtins.str
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
     def source(self) -> yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint: ...
     @property
     def target(self) -> yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint: ...
     status: global___TransferStatus.ValueType
     type: global___TransferType.ValueType
-    warning: typing.Text
-    def __init__(self,
+    warning: builtins.str
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        source: typing.Optional[yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint] = ...,
-        target: typing.Optional[yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        source: yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint | None = ...,
+        target: yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint | None = ...,
         status: global___TransferStatus.ValueType = ...,
         type: global___TransferType.ValueType = ...,
-        warning: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["source",b"source","target",b"target"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","source",b"source","status",b"status","target",b"target","type",b"type","warning",b"warning"]) -> None: ...
+        warning: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["source", b"source", "target", b"target"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "source", b"source", "status", b"status", "target", b"target", "type", b"type", "warning", b"warning"]) -> None: ...
+
 global___Transfer = Transfer

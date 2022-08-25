@@ -8,22 +8,23 @@ import yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2
 
 class ImageProductUsageServiceStub:
     """A set of methods for managing image product's usage."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Write: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2.WriteImageProductUsageRequest,
-        yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2.WriteImageProductUsageResponse]
+        yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2.WriteImageProductUsageResponse,
+    ]
     """Writes image product's usage. Authentication is by user's service account."""
-
 
 class ImageProductUsageServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing image product's usage."""
+
     @abc.abstractmethod
-    def Write(self,
+    def Write(
+        self,
         request: yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2.WriteImageProductUsageRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.marketplace.v1.metering.image_product_usage_service_pb2.WriteImageProductUsageResponse:
         """Writes image product's usage. Authentication is by user's service account."""
-        pass
-
 
 def add_ImageProductUsageServiceServicer_to_server(servicer: ImageProductUsageServiceServicer, server: grpc.Server) -> None: ...

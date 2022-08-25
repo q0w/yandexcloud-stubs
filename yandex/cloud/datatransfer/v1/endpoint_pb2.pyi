@@ -3,32 +3,40 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2
 import yandex.cloud.datatransfer.v1.endpoint.mongo_pb2
 import yandex.cloud.datatransfer.v1.endpoint.mysql_pb2
 import yandex.cloud.datatransfer.v1.endpoint.postgres_pb2
 
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
+
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Endpoint(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -36,29 +44,32 @@ class Endpoint(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    folder_id: typing.Text
-    name: typing.Text
-    description: typing.Text
+    id: builtins.str
+    folder_id: builtins.str
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
     def settings(self) -> global___EndpointSettings: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        settings: typing.Optional[global___EndpointSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","settings",b"settings"]) -> None: ...
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        settings: global___EndpointSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "settings", b"settings"]) -> None: ...
+
 global___Endpoint = Endpoint
 
 class EndpointSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MYSQL_SOURCE_FIELD_NUMBER: builtins.int
     POSTGRES_SOURCE_FIELD_NUMBER: builtins.int
     MONGO_SOURCE_FIELD_NUMBER: builtins.int
@@ -83,18 +94,20 @@ class EndpointSettings(google.protobuf.message.Message):
     def clickhouse_target(self) -> yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2.ClickhouseTarget: ...
     @property
     def mongo_target(self) -> yandex.cloud.datatransfer.v1.endpoint.mongo_pb2.MongoTarget: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mysql_source: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.mysql_pb2.MysqlSource] = ...,
-        postgres_source: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.postgres_pb2.PostgresSource] = ...,
-        mongo_source: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.mongo_pb2.MongoSource] = ...,
-        clickhouse_source: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2.ClickhouseSource] = ...,
-        mysql_target: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.mysql_pb2.MysqlTarget] = ...,
-        postgres_target: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.postgres_pb2.PostgresTarget] = ...,
-        clickhouse_target: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2.ClickhouseTarget] = ...,
-        mongo_target: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.mongo_pb2.MongoTarget] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["clickhouse_source",b"clickhouse_source","clickhouse_target",b"clickhouse_target","mongo_source",b"mongo_source","mongo_target",b"mongo_target","mysql_source",b"mysql_source","mysql_target",b"mysql_target","postgres_source",b"postgres_source","postgres_target",b"postgres_target","settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["clickhouse_source",b"clickhouse_source","clickhouse_target",b"clickhouse_target","mongo_source",b"mongo_source","mongo_target",b"mongo_target","mysql_source",b"mysql_source","mysql_target",b"mysql_target","postgres_source",b"postgres_source","postgres_target",b"postgres_target","settings",b"settings"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["settings",b"settings"]) -> typing.Optional[typing_extensions.Literal["mysql_source","postgres_source","mongo_source","clickhouse_source","mysql_target","postgres_target","clickhouse_target","mongo_target"]]: ...
+        mysql_source: yandex.cloud.datatransfer.v1.endpoint.mysql_pb2.MysqlSource | None = ...,
+        postgres_source: yandex.cloud.datatransfer.v1.endpoint.postgres_pb2.PostgresSource | None = ...,
+        mongo_source: yandex.cloud.datatransfer.v1.endpoint.mongo_pb2.MongoSource | None = ...,
+        clickhouse_source: yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2.ClickhouseSource | None = ...,
+        mysql_target: yandex.cloud.datatransfer.v1.endpoint.mysql_pb2.MysqlTarget | None = ...,
+        postgres_target: yandex.cloud.datatransfer.v1.endpoint.postgres_pb2.PostgresTarget | None = ...,
+        clickhouse_target: yandex.cloud.datatransfer.v1.endpoint.clickhouse_pb2.ClickhouseTarget | None = ...,
+        mongo_target: yandex.cloud.datatransfer.v1.endpoint.mongo_pb2.MongoTarget | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["clickhouse_source", b"clickhouse_source", "clickhouse_target", b"clickhouse_target", "mongo_source", b"mongo_source", "mongo_target", b"mongo_target", "mysql_source", b"mysql_source", "mysql_target", b"mysql_target", "postgres_source", b"postgres_source", "postgres_target", b"postgres_target", "settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["clickhouse_source", b"clickhouse_source", "clickhouse_target", b"clickhouse_target", "mongo_source", b"mongo_source", "mongo_target", b"mongo_target", "mysql_source", b"mysql_source", "mysql_target", b"mysql_target", "postgres_source", b"postgres_source", "postgres_target", b"postgres_target", "settings", b"settings"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["settings", b"settings"]) -> typing_extensions.Literal["mysql_source", "postgres_source", "mongo_source", "clickhouse_source", "mysql_target", "postgres_target", "clickhouse_target", "mongo_target"] | None: ...
+
 global___EndpointSettings = EndpointSettings

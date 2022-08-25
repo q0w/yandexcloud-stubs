@@ -3,124 +3,116 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.logging.v1.log_entry_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _TriggerType:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TriggerType.ValueType], builtins.type):
+
+class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TriggerType.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRIGGER_TYPE_UNSPECIFIED: _TriggerType.ValueType  # 0
     TIMER: _TriggerType.ValueType  # 2
     """The trigger is activated on a timer."""
-
     MESSAGE_QUEUE: _TriggerType.ValueType  # 3
     """The trigger is activated by messages from a message queue.
 
     Only Message Queue is currently supported.
     """
-
     IOT_MESSAGE: _TriggerType.ValueType  # 4
     """The trigger is activated by messages from IoT Core."""
-
     IOT_BROKER_MESSAGE: _TriggerType.ValueType  # 12
     OBJECT_STORAGE: _TriggerType.ValueType  # 5
     CONTAINER_REGISTRY: _TriggerType.ValueType  # 6
     CLOUD_LOGS: _TriggerType.ValueType  # 7
     """The trigger is activated by cloud log group events"""
-
     LOGGING: _TriggerType.ValueType  # 8
     """The trigger is activated by logging group events"""
-
     BILLING_BUDGET: _TriggerType.ValueType  # 9
     """The trigger is activated by billing events"""
-
     YDS: _TriggerType.ValueType  # 10
     """The trigger is activated by YDS events"""
-
     MAIL: _TriggerType.ValueType  # 11
     """The trigger is activated by email"""
 
-class TriggerType(_TriggerType, metaclass=_TriggerTypeEnumTypeWrapper):
-    pass
+class TriggerType(_TriggerType, metaclass=_TriggerTypeEnumTypeWrapper): ...
 
 TRIGGER_TYPE_UNSPECIFIED: TriggerType.ValueType  # 0
 TIMER: TriggerType.ValueType  # 2
 """The trigger is activated on a timer."""
-
 MESSAGE_QUEUE: TriggerType.ValueType  # 3
 """The trigger is activated by messages from a message queue.
 
 Only Message Queue is currently supported.
 """
-
 IOT_MESSAGE: TriggerType.ValueType  # 4
 """The trigger is activated by messages from IoT Core."""
-
 IOT_BROKER_MESSAGE: TriggerType.ValueType  # 12
 OBJECT_STORAGE: TriggerType.ValueType  # 5
 CONTAINER_REGISTRY: TriggerType.ValueType  # 6
 CLOUD_LOGS: TriggerType.ValueType  # 7
 """The trigger is activated by cloud log group events"""
-
 LOGGING: TriggerType.ValueType  # 8
 """The trigger is activated by logging group events"""
-
 BILLING_BUDGET: TriggerType.ValueType  # 9
 """The trigger is activated by billing events"""
-
 YDS: TriggerType.ValueType  # 10
 """The trigger is activated by YDS events"""
-
 MAIL: TriggerType.ValueType  # 11
 """The trigger is activated by email"""
-
 global___TriggerType = TriggerType
-
 
 class Trigger(google.protobuf.message.Message):
     """A trigger to invoke a serverless function. For more information, see [Triggers](/docs/functions/concepts/trigger)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ObjectStorageEventType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ObjectStorageEventTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._ObjectStorageEventType.ValueType], builtins.type):
+
+    class _ObjectStorageEventTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._ObjectStorageEventType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED: Trigger._ObjectStorageEventType.ValueType  # 0
         OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT: Trigger._ObjectStorageEventType.ValueType  # 1
         OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT: Trigger._ObjectStorageEventType.ValueType  # 2
         OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT: Trigger._ObjectStorageEventType.ValueType  # 3
-    class ObjectStorageEventType(_ObjectStorageEventType, metaclass=_ObjectStorageEventTypeEnumTypeWrapper):
-        pass
 
+    class ObjectStorageEventType(_ObjectStorageEventType, metaclass=_ObjectStorageEventTypeEnumTypeWrapper): ...
     OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED: Trigger.ObjectStorageEventType.ValueType  # 0
     OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT: Trigger.ObjectStorageEventType.ValueType  # 1
     OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT: Trigger.ObjectStorageEventType.ValueType  # 2
     OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT: Trigger.ObjectStorageEventType.ValueType  # 3
 
     class _ContainerRegistryEventType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ContainerRegistryEventTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._ContainerRegistryEventType.ValueType], builtins.type):
+
+    class _ContainerRegistryEventTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._ContainerRegistryEventType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED: Trigger._ContainerRegistryEventType.ValueType  # 0
         CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE: Trigger._ContainerRegistryEventType.ValueType  # 1
         CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE: Trigger._ContainerRegistryEventType.ValueType  # 2
         CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG: Trigger._ContainerRegistryEventType.ValueType  # 3
         CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG: Trigger._ContainerRegistryEventType.ValueType  # 4
-    class ContainerRegistryEventType(_ContainerRegistryEventType, metaclass=_ContainerRegistryEventTypeEnumTypeWrapper):
-        pass
 
+    class ContainerRegistryEventType(_ContainerRegistryEventType, metaclass=_ContainerRegistryEventTypeEnumTypeWrapper): ...
     CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED: Trigger.ContainerRegistryEventType.ValueType  # 0
     CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE: Trigger.ContainerRegistryEventType.ValueType  # 1
     CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE: Trigger.ContainerRegistryEventType.ValueType  # 2
@@ -128,36 +120,40 @@ class Trigger(google.protobuf.message.Message):
     CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG: Trigger.ContainerRegistryEventType.ValueType  # 4
 
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Trigger._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Trigger._Status.ValueType  # 0
         ACTIVE: Trigger._Status.ValueType  # 1
         PAUSED: Trigger._Status.ValueType  # 2
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Trigger.Status.ValueType  # 0
     ACTIVE: Trigger.Status.ValueType  # 1
     PAUSED: Trigger.Status.ValueType  # 2
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class Rule(google.protobuf.message.Message):
         """Description of a rule for trigger activation."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         TIMER_FIELD_NUMBER: builtins.int
         MESSAGE_QUEUE_FIELD_NUMBER: builtins.int
         IOT_MESSAGE_FIELD_NUMBER: builtins.int
@@ -172,15 +168,12 @@ class Trigger(google.protobuf.message.Message):
         @property
         def timer(self) -> global___Trigger.Timer:
             """Rule for a timed trigger."""
-            pass
         @property
         def message_queue(self) -> global___Trigger.MessageQueue:
             """Rule for a message queue trigger."""
-            pass
         @property
         def iot_message(self) -> global___Trigger.IoTMessage:
             """Rule for a IoT Core trigger."""
-            pass
         @property
         def iot_broker_message(self) -> global___Trigger.IoTBrokerMessage: ...
         @property
@@ -197,172 +190,167 @@ class Trigger(google.protobuf.message.Message):
         def data_stream(self) -> global___DataStream: ...
         @property
         def mail(self) -> global___Mail: ...
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            timer: typing.Optional[global___Trigger.Timer] = ...,
-            message_queue: typing.Optional[global___Trigger.MessageQueue] = ...,
-            iot_message: typing.Optional[global___Trigger.IoTMessage] = ...,
-            iot_broker_message: typing.Optional[global___Trigger.IoTBrokerMessage] = ...,
-            object_storage: typing.Optional[global___Trigger.ObjectStorage] = ...,
-            container_registry: typing.Optional[global___Trigger.ContainerRegistry] = ...,
-            cloud_logs: typing.Optional[global___Trigger.CloudLogs] = ...,
-            logging: typing.Optional[global___Trigger.Logging] = ...,
-            billing_budget: typing.Optional[global___BillingBudget] = ...,
-            data_stream: typing.Optional[global___DataStream] = ...,
-            mail: typing.Optional[global___Mail] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_broker_message",b"iot_broker_message","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["billing_budget",b"billing_budget","cloud_logs",b"cloud_logs","container_registry",b"container_registry","data_stream",b"data_stream","iot_broker_message",b"iot_broker_message","iot_message",b"iot_message","logging",b"logging","mail",b"mail","message_queue",b"message_queue","object_storage",b"object_storage","rule",b"rule","timer",b"timer"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule",b"rule"]) -> typing.Optional[typing_extensions.Literal["timer","message_queue","iot_message","iot_broker_message","object_storage","container_registry","cloud_logs","logging","billing_budget","data_stream","mail"]]: ...
+            timer: global___Trigger.Timer | None = ...,
+            message_queue: global___Trigger.MessageQueue | None = ...,
+            iot_message: global___Trigger.IoTMessage | None = ...,
+            iot_broker_message: global___Trigger.IoTBrokerMessage | None = ...,
+            object_storage: global___Trigger.ObjectStorage | None = ...,
+            container_registry: global___Trigger.ContainerRegistry | None = ...,
+            cloud_logs: global___Trigger.CloudLogs | None = ...,
+            logging: global___Trigger.Logging | None = ...,
+            billing_budget: global___BillingBudget | None = ...,
+            data_stream: global___DataStream | None = ...,
+            mail: global___Mail | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["billing_budget", b"billing_budget", "cloud_logs", b"cloud_logs", "container_registry", b"container_registry", "data_stream", b"data_stream", "iot_broker_message", b"iot_broker_message", "iot_message", b"iot_message", "logging", b"logging", "mail", b"mail", "message_queue", b"message_queue", "object_storage", b"object_storage", "rule", b"rule", "timer", b"timer"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["billing_budget", b"billing_budget", "cloud_logs", b"cloud_logs", "container_registry", b"container_registry", "data_stream", b"data_stream", "iot_broker_message", b"iot_broker_message", "iot_message", b"iot_message", "logging", b"logging", "mail", b"mail", "message_queue", b"message_queue", "object_storage", b"object_storage", "rule", b"rule", "timer", b"timer"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["rule", b"rule"]) -> typing_extensions.Literal["timer", "message_queue", "iot_message", "iot_broker_message", "object_storage", "container_registry", "cloud_logs", "logging", "billing_budget", "data_stream", "mail"] | None: ...
 
     class Timer(google.protobuf.message.Message):
         """Rule for activating a timed trigger."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CRON_EXPRESSION_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_WITH_RETRY_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_WITH_RETRY_FIELD_NUMBER: builtins.int
-        cron_expression: typing.Text
+        cron_expression: builtins.str
         """Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer)."""
-
         @property
         def invoke_function(self) -> global___InvokeFunctionOnce:
             """Instructions for invoking a function once."""
-            pass
         @property
         def invoke_function_with_retry(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retry."""
-            pass
         @property
         def invoke_container_with_retry(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retry."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            cron_expression: typing.Text = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionOnce] = ...,
-            invoke_function_with_retry: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container_with_retry: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container_with_retry",b"invoke_container_with_retry","invoke_function",b"invoke_function","invoke_function_with_retry",b"invoke_function_with_retry"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","cron_expression",b"cron_expression","invoke_container_with_retry",b"invoke_container_with_retry","invoke_function",b"invoke_function","invoke_function_with_retry",b"invoke_function_with_retry"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_function_with_retry","invoke_container_with_retry"]]: ...
+            cron_expression: builtins.str = ...,
+            invoke_function: global___InvokeFunctionOnce | None = ...,
+            invoke_function_with_retry: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container_with_retry: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container_with_retry", b"invoke_container_with_retry", "invoke_function", b"invoke_function", "invoke_function_with_retry", b"invoke_function_with_retry"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "cron_expression", b"cron_expression", "invoke_container_with_retry", b"invoke_container_with_retry", "invoke_function", b"invoke_function", "invoke_function_with_retry", b"invoke_function_with_retry"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_function_with_retry", "invoke_container_with_retry"] | None: ...
 
     class MessageQueue(google.protobuf.message.Message):
         """Rule for activating a message queue trigger."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         QUEUE_ID_FIELD_NUMBER: builtins.int
         SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
         BATCH_SETTINGS_FIELD_NUMBER: builtins.int
         VISIBILITY_TIMEOUT_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-        queue_id: typing.Text
+        queue_id: builtins.str
         """ID of the message queue in Message Queue."""
-
-        service_account_id: typing.Text
+        service_account_id: builtins.str
         """ID of the service account which has read access to the message queue."""
-
         @property
         def batch_settings(self) -> global___BatchSettings:
             """Batch settings for processing messages in the queue."""
-            pass
         @property
         def visibility_timeout(self) -> google.protobuf.duration_pb2.Duration:
             """Queue visibility timeout override."""
-            pass
         @property
         def invoke_function(self) -> global___InvokeFunctionOnce:
             """Instructions for invoking a function once."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerOnce:
             """Instructions for invoking a container once."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            queue_id: typing.Text = ...,
-            service_account_id: typing.Text = ...,
-            batch_settings: typing.Optional[global___BatchSettings] = ...,
-            visibility_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionOnce] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerOnce] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function","visibility_timeout",b"visibility_timeout"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function","queue_id",b"queue_id","service_account_id",b"service_account_id","visibility_timeout",b"visibility_timeout"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            queue_id: builtins.str = ...,
+            service_account_id: builtins.str = ...,
+            batch_settings: global___BatchSettings | None = ...,
+            visibility_timeout: google.protobuf.duration_pb2.Duration | None = ...,
+            invoke_function: global___InvokeFunctionOnce | None = ...,
+            invoke_container: global___InvokeContainerOnce | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "visibility_timeout", b"visibility_timeout"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "queue_id", b"queue_id", "service_account_id", b"service_account_id", "visibility_timeout", b"visibility_timeout"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class IoTMessage(google.protobuf.message.Message):
         """Rule for activating a IoT Core trigger."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         REGISTRY_ID_FIELD_NUMBER: builtins.int
         DEVICE_ID_FIELD_NUMBER: builtins.int
         MQTT_TOPIC_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-        registry_id: typing.Text
+        registry_id: builtins.str
         """ID of the IoT Core registry."""
-
-        device_id: typing.Text
+        device_id: builtins.str
         """ID of the IoT Core device in the registry."""
-
-        mqtt_topic: typing.Text
+        mqtt_topic: builtins.str
         """MQTT topic whose messages activate the trigger."""
-
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            registry_id: typing.Text = ...,
-            device_id: typing.Text = ...,
-            mqtt_topic: typing.Text = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","device_id",b"device_id","invoke_container",b"invoke_container","invoke_function",b"invoke_function","mqtt_topic",b"mqtt_topic","registry_id",b"registry_id"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            registry_id: builtins.str = ...,
+            device_id: builtins.str = ...,
+            mqtt_topic: builtins.str = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "device_id", b"device_id", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "mqtt_topic", b"mqtt_topic", "registry_id", b"registry_id"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class IoTBrokerMessage(google.protobuf.message.Message):
         """Rule for activating a IoT Core Broker trigger."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         BROKER_ID_FIELD_NUMBER: builtins.int
         MQTT_TOPIC_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-        broker_id: typing.Text
+        broker_id: builtins.str
         """ID of the IoT Core broker."""
-
-        mqtt_topic: typing.Text
+        mqtt_topic: builtins.str
         """MQTT topic whose messages activate the trigger."""
-
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            broker_id: typing.Text = ...,
-            mqtt_topic: typing.Text = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","broker_id",b"broker_id","invoke_container",b"invoke_container","invoke_function",b"invoke_function","mqtt_topic",b"mqtt_topic"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            broker_id: builtins.str = ...,
+            mqtt_topic: builtins.str = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "broker_id", b"broker_id", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "mqtt_topic", b"mqtt_topic"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class ObjectStorage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         EVENT_TYPE_FIELD_NUMBER: builtins.int
         BUCKET_ID_FIELD_NUMBER: builtins.int
         PREFIX_FIELD_NUMBER: builtins.int
@@ -372,39 +360,35 @@ class Trigger(google.protobuf.message.Message):
         @property
         def event_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Trigger.ObjectStorageEventType.ValueType]:
             """Type (name) of events, at least one value is required."""
-            pass
-        bucket_id: typing.Text
+        bucket_id: builtins.str
         """ID of the bucket."""
-
-        prefix: typing.Text
+        prefix: builtins.str
         """Prefix of the object key. Filter, optional."""
-
-        suffix: typing.Text
+        suffix: builtins.str
         """Suffix of the object key. Filter, optional."""
-
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            event_type: typing.Optional[typing.Iterable[global___Trigger.ObjectStorageEventType.ValueType]] = ...,
-            bucket_id: typing.Text = ...,
-            prefix: typing.Text = ...,
-            suffix: typing.Text = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","bucket_id",b"bucket_id","event_type",b"event_type","invoke_container",b"invoke_container","invoke_function",b"invoke_function","prefix",b"prefix","suffix",b"suffix"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            event_type: collections.abc.Iterable[global___Trigger.ObjectStorageEventType.ValueType] | None = ...,
+            bucket_id: builtins.str = ...,
+            prefix: builtins.str = ...,
+            suffix: builtins.str = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "bucket_id", b"bucket_id", "event_type", b"event_type", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "prefix", b"prefix", "suffix", b"suffix"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class ContainerRegistry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         EVENT_TYPE_FIELD_NUMBER: builtins.int
         REGISTRY_ID_FIELD_NUMBER: builtins.int
         IMAGE_NAME_FIELD_NUMBER: builtins.int
@@ -414,72 +398,66 @@ class Trigger(google.protobuf.message.Message):
         @property
         def event_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Trigger.ContainerRegistryEventType.ValueType]:
             """Type (name) of events, at least one value is required."""
-            pass
-        registry_id: typing.Text
+        registry_id: builtins.str
         """ID of the registry."""
-
-        image_name: typing.Text
+        image_name: builtins.str
         """Docker-image name. Filter, optional."""
-
-        tag: typing.Text
+        tag: builtins.str
         """Docker-image tag. Filter, optional."""
-
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            event_type: typing.Optional[typing.Iterable[global___Trigger.ContainerRegistryEventType.ValueType]] = ...,
-            registry_id: typing.Text = ...,
-            image_name: typing.Text = ...,
-            tag: typing.Text = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","event_type",b"event_type","image_name",b"image_name","invoke_container",b"invoke_container","invoke_function",b"invoke_function","registry_id",b"registry_id","tag",b"tag"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            event_type: collections.abc.Iterable[global___Trigger.ContainerRegistryEventType.ValueType] | None = ...,
+            registry_id: builtins.str = ...,
+            image_name: builtins.str = ...,
+            tag: builtins.str = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "event_type", b"event_type", "image_name", b"image_name", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "registry_id", b"registry_id", "tag", b"tag"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class CloudLogs(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         LOG_GROUP_ID_FIELD_NUMBER: builtins.int
         BATCH_SETTINGS_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
         @property
-        def log_group_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+        def log_group_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
             """Log group identifiers, at least one value is required."""
-            pass
         @property
         def batch_settings(self) -> global___CloudLogsBatchSettings:
             """Batch settings for processing log events."""
-            pass
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            log_group_id: typing.Optional[typing.Iterable[typing.Text]] = ...,
-            batch_settings: typing.Optional[global___CloudLogsBatchSettings] = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function","log_group_id",b"log_group_id"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            log_group_id: collections.abc.Iterable[builtins.str] | None = ...,
+            batch_settings: global___CloudLogsBatchSettings | None = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "log_group_id", b"log_group_id"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     class Logging(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         LOG_GROUP_ID_FIELD_NUMBER: builtins.int
         RESOURCE_TYPE_FIELD_NUMBER: builtins.int
         RESOURCE_ID_FIELD_NUMBER: builtins.int
@@ -487,40 +465,37 @@ class Trigger(google.protobuf.message.Message):
         BATCH_SETTINGS_FIELD_NUMBER: builtins.int
         INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
         INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-        log_group_id: typing.Text
+        log_group_id: builtins.str
         """Log events filter settings."""
-
         @property
-        def resource_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+        def resource_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
         @property
-        def resource_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+        def resource_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
         @property
         def levels(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType]: ...
         @property
         def batch_settings(self) -> global___LoggingBatchSettings:
             """Batch settings for processing log events."""
-            pass
         @property
         def invoke_function(self) -> global___InvokeFunctionWithRetry:
             """Instructions for invoking a function with retries as needed."""
-            pass
         @property
         def invoke_container(self) -> global___InvokeContainerWithRetry:
             """Instructions for invoking a container with retries as needed."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            log_group_id: typing.Text = ...,
-            resource_type: typing.Optional[typing.Iterable[typing.Text]] = ...,
-            resource_id: typing.Optional[typing.Iterable[typing.Text]] = ...,
-            levels: typing.Optional[typing.Iterable[yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType]] = ...,
-            batch_settings: typing.Optional[global___LoggingBatchSettings] = ...,
-            invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-            invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function","levels",b"levels","log_group_id",b"log_group_id","resource_id",b"resource_id","resource_type",b"resource_type"]) -> None: ...
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+            log_group_id: builtins.str = ...,
+            resource_type: collections.abc.Iterable[builtins.str] | None = ...,
+            resource_id: collections.abc.Iterable[builtins.str] | None = ...,
+            levels: collections.abc.Iterable[yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType] | None = ...,
+            batch_settings: global___LoggingBatchSettings | None = ...,
+            invoke_function: global___InvokeFunctionWithRetry | None = ...,
+            invoke_container: global___InvokeContainerWithRetry | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "levels", b"levels", "log_group_id", b"log_group_id", "resource_id", b"resource_id", "resource_type", b"resource_type"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -530,332 +505,338 @@ class Trigger(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     RULE_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the trigger. Generated at creation time."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the trigger belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp for the trigger."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the trigger."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the trigger."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Trigger labels as `key:value` pairs."""
-        pass
     @property
     def rule(self) -> global___Trigger.Rule:
         """Rule for trigger activation (always consistent with the trigger type)."""
-        pass
     status: global___Trigger.Status.ValueType
     """Trigger status."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        rule: typing.Optional[global___Trigger.Rule] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        rule: global___Trigger.Rule | None = ...,
         status: global___Trigger.Status.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","rule",b"rule"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","rule",b"rule","status",b"status"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "rule", b"rule"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "rule", b"rule", "status", b"status"]) -> None: ...
+
 global___Trigger = Trigger
 
 class InvokeFunctionOnce(google.protobuf.message.Message):
     """A single function invocation."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     FUNCTION_TAG_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to invoke."""
-
-    function_tag: typing.Text
+    function_tag: builtins.str
     """Version tag of the function to execute."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account that should be used to invoke the function."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        function_tag: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id","function_tag",b"function_tag","service_account_id",b"service_account_id"]) -> None: ...
+        function_id: builtins.str = ...,
+        function_tag: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id", "function_tag", b"function_tag", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___InvokeFunctionOnce = InvokeFunctionOnce
 
 class InvokeFunctionWithRetry(google.protobuf.message.Message):
     """A function invocation with retries."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     FUNCTION_TAG_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     RETRY_SETTINGS_FIELD_NUMBER: builtins.int
     DEAD_LETTER_QUEUE_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to invoke."""
-
-    function_tag: typing.Text
+    function_tag: builtins.str
     """Version tag of the function to execute."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account which has permission to invoke the function."""
-
     @property
     def retry_settings(self) -> global___RetrySettings:
         """Retry policy. If the field is not specified, or the value is empty, no retries will be attempted."""
-        pass
     @property
     def dead_letter_queue(self) -> global___PutQueueMessage:
         """DLQ policy (no value means discarding a message)."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        function_tag: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        retry_settings: typing.Optional[global___RetrySettings] = ...,
-        dead_letter_queue: typing.Optional[global___PutQueueMessage] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["dead_letter_queue",b"dead_letter_queue","retry_settings",b"retry_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["dead_letter_queue",b"dead_letter_queue","function_id",b"function_id","function_tag",b"function_tag","retry_settings",b"retry_settings","service_account_id",b"service_account_id"]) -> None: ...
+        function_id: builtins.str = ...,
+        function_tag: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+        retry_settings: global___RetrySettings | None = ...,
+        dead_letter_queue: global___PutQueueMessage | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["dead_letter_queue", b"dead_letter_queue", "retry_settings", b"retry_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["dead_letter_queue", b"dead_letter_queue", "function_id", b"function_id", "function_tag", b"function_tag", "retry_settings", b"retry_settings", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___InvokeFunctionWithRetry = InvokeFunctionWithRetry
 
 class InvokeContainerOnce(google.protobuf.message.Message):
     """A single container invocation."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONTAINER_ID_FIELD_NUMBER: builtins.int
     PATH_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    container_id: typing.Text
+    container_id: builtins.str
     """ID of the container to invoke."""
-
-    path: typing.Text
+    path: builtins.str
     """Endpoint HTTP path to invoke."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account which has permission to invoke the container."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        container_id: typing.Text = ...,
-        path: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["container_id",b"container_id","path",b"path","service_account_id",b"service_account_id"]) -> None: ...
+        container_id: builtins.str = ...,
+        path: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["container_id", b"container_id", "path", b"path", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___InvokeContainerOnce = InvokeContainerOnce
 
 class InvokeContainerWithRetry(google.protobuf.message.Message):
     """A container invocation with retries."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONTAINER_ID_FIELD_NUMBER: builtins.int
     PATH_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     RETRY_SETTINGS_FIELD_NUMBER: builtins.int
     DEAD_LETTER_QUEUE_FIELD_NUMBER: builtins.int
-    container_id: typing.Text
+    container_id: builtins.str
     """ID of the container to invoke."""
-
-    path: typing.Text
+    path: builtins.str
     """Endpoint HTTP path to invoke."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account which has permission to invoke the container."""
-
     @property
     def retry_settings(self) -> global___RetrySettings:
         """Retry policy. If the field is not specified, or the value is empty, no retries will be attempted."""
-        pass
     @property
     def dead_letter_queue(self) -> global___PutQueueMessage:
         """DLQ policy (no value means discarding a message)."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        container_id: typing.Text = ...,
-        path: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        retry_settings: typing.Optional[global___RetrySettings] = ...,
-        dead_letter_queue: typing.Optional[global___PutQueueMessage] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["dead_letter_queue",b"dead_letter_queue","retry_settings",b"retry_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["container_id",b"container_id","dead_letter_queue",b"dead_letter_queue","path",b"path","retry_settings",b"retry_settings","service_account_id",b"service_account_id"]) -> None: ...
+        container_id: builtins.str = ...,
+        path: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+        retry_settings: global___RetrySettings | None = ...,
+        dead_letter_queue: global___PutQueueMessage | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["dead_letter_queue", b"dead_letter_queue", "retry_settings", b"retry_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["container_id", b"container_id", "dead_letter_queue", b"dead_letter_queue", "path", b"path", "retry_settings", b"retry_settings", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___InvokeContainerWithRetry = InvokeContainerWithRetry
 
 class PutQueueMessage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     QUEUE_ID_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    queue_id: typing.Text
+    queue_id: builtins.str
     """ID of the queue."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """Service account which has write permission on the queue."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        queue_id: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["queue_id",b"queue_id","service_account_id",b"service_account_id"]) -> None: ...
+        queue_id: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["queue_id", b"queue_id", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___PutQueueMessage = PutQueueMessage
 
 class BatchSettings(google.protobuf.message.Message):
     """Settings for batch processing of messages in a queue."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SIZE_FIELD_NUMBER: builtins.int
     CUTOFF_FIELD_NUMBER: builtins.int
     size: builtins.int
     """Batch size. Trigger will send the batch of messages to the function
     when the number of messages in the queue reaches [size], or the [cutoff] time has passed.
     """
-
     @property
     def cutoff(self) -> google.protobuf.duration_pb2.Duration:
         """Maximum wait time. Trigger will send the batch of messages to the function when
         the number of messages in the queue reaches [size], or the [cutoff] time has passed.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         size: builtins.int = ...,
-        cutoff: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff","size",b"size"]) -> None: ...
+        cutoff: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff", "size", b"size"]) -> None: ...
+
 global___BatchSettings = BatchSettings
 
 class CloudLogsBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SIZE_FIELD_NUMBER: builtins.int
     CUTOFF_FIELD_NUMBER: builtins.int
     size: builtins.int
     """Batch size. Trigger will send the batch of messages to the function
     when the number of messages in the log group reaches [size], or the [cutoff] time has passed.
     """
-
     @property
     def cutoff(self) -> google.protobuf.duration_pb2.Duration:
         """Maximum wait time. Trigger will send the batch of messages to the function when
         the number of messages in the log group reaches [size], or the [cutoff] time has passed.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         size: builtins.int = ...,
-        cutoff: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff","size",b"size"]) -> None: ...
+        cutoff: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff", "size", b"size"]) -> None: ...
+
 global___CloudLogsBatchSettings = CloudLogsBatchSettings
 
 class LoggingBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SIZE_FIELD_NUMBER: builtins.int
     CUTOFF_FIELD_NUMBER: builtins.int
     size: builtins.int
     """Batch size. Trigger will send the batch of messages to the associated function
     when the number of log events reaches this value, or the [cutoff] time has passed.
     """
-
     @property
     def cutoff(self) -> google.protobuf.duration_pb2.Duration:
         """Maximum wait time. Trigger will send the batch of messages the time since the last batch
         exceeds the `cutoff` value, regardless of the amount of log events.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         size: builtins.int = ...,
-        cutoff: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff","size",b"size"]) -> None: ...
+        cutoff: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff", "size", b"size"]) -> None: ...
+
 global___LoggingBatchSettings = LoggingBatchSettings
 
 class RetrySettings(google.protobuf.message.Message):
     """Settings for retrying to invoke a function."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RETRY_ATTEMPTS_FIELD_NUMBER: builtins.int
     INTERVAL_FIELD_NUMBER: builtins.int
     retry_attempts: builtins.int
     """Maximum number of retries (extra invokes) before the action is considered failed."""
-
     @property
     def interval(self) -> google.protobuf.duration_pb2.Duration:
         """Time in seconds to wait between individual retries."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         retry_attempts: builtins.int = ...,
-        interval: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["interval",b"interval"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["interval",b"interval","retry_attempts",b"retry_attempts"]) -> None: ...
+        interval: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["interval", b"interval"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["interval", b"interval", "retry_attempts", b"retry_attempts"]) -> None: ...
+
 global___RetrySettings = RetrySettings
 
 class BillingBudget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BILLING_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     BUDGET_ID_FIELD_NUMBER: builtins.int
     INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
     INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-    billing_account_id: typing.Text
-    budget_id: typing.Text
+    billing_account_id: builtins.str
+    budget_id: builtins.str
     @property
     def invoke_function(self) -> global___InvokeFunctionWithRetry: ...
     @property
     def invoke_container(self) -> global___InvokeContainerWithRetry: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        billing_account_id: typing.Text = ...,
-        budget_id: typing.Text = ...,
-        invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-        invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","billing_account_id",b"billing_account_id","budget_id",b"budget_id","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+        billing_account_id: builtins.str = ...,
+        budget_id: builtins.str = ...,
+        invoke_function: global___InvokeFunctionWithRetry | None = ...,
+        invoke_container: global___InvokeContainerWithRetry | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "billing_account_id", b"billing_account_id", "budget_id", b"budget_id", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
+
 global___BillingBudget = BillingBudget
 
 class DataStreamBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SIZE_FIELD_NUMBER: builtins.int
     CUTOFF_FIELD_NUMBER: builtins.int
     size: builtins.int
     """Batch size in bytes. Trigger will send the batch of messages to the associated function
     when size of log events reaches this value, or the [cutoff] time has passed.
     """
-
     @property
     def cutoff(self) -> google.protobuf.duration_pb2.Duration:
         """Maximum wait time. Trigger will send the batch of messages the time since the last batch
         exceeds the `cutoff` value, regardless of the amount of log events.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         size: builtins.int = ...,
-        cutoff: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cutoff",b"cutoff","size",b"size"]) -> None: ...
+        cutoff: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cutoff", b"cutoff", "size", b"size"]) -> None: ...
+
 global___DataStreamBatchSettings = DataStreamBatchSettings
 
 class DataStream(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ENDPOINT_FIELD_NUMBER: builtins.int
     DATABASE_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
@@ -863,62 +844,61 @@ class DataStream(google.protobuf.message.Message):
     BATCH_SETTINGS_FIELD_NUMBER: builtins.int
     INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
     INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-    endpoint: typing.Text
+    endpoint: builtins.str
     """Data stream endpoint."""
-
-    database: typing.Text
+    database: builtins.str
     """Data stream database."""
-
-    stream: typing.Text
+    stream: builtins.str
     """Stream name."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account which has permission to read data stream."""
-
     @property
     def batch_settings(self) -> global___DataStreamBatchSettings:
         """Batch settings for processing events."""
-        pass
     @property
     def invoke_function(self) -> global___InvokeFunctionWithRetry: ...
     @property
     def invoke_container(self) -> global___InvokeContainerWithRetry: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        endpoint: typing.Text = ...,
-        database: typing.Text = ...,
-        stream: typing.Text = ...,
-        service_account_id: typing.Text = ...,
-        batch_settings: typing.Optional[global___DataStreamBatchSettings] = ...,
-        invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-        invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","batch_settings",b"batch_settings","database",b"database","endpoint",b"endpoint","invoke_container",b"invoke_container","invoke_function",b"invoke_function","service_account_id",b"service_account_id","stream",b"stream"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+        endpoint: builtins.str = ...,
+        database: builtins.str = ...,
+        stream: builtins.str = ...,
+        service_account_id: builtins.str = ...,
+        batch_settings: global___DataStreamBatchSettings | None = ...,
+        invoke_function: global___InvokeFunctionWithRetry | None = ...,
+        invoke_container: global___InvokeContainerWithRetry | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "database", b"database", "endpoint", b"endpoint", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "service_account_id", b"service_account_id", "stream", b"stream"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
+
 global___DataStream = DataStream
 
 class Mail(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EMAIL_FIELD_NUMBER: builtins.int
     INVOKE_FUNCTION_FIELD_NUMBER: builtins.int
     INVOKE_CONTAINER_FIELD_NUMBER: builtins.int
-    email: typing.Text
+    email: builtins.str
     """Address to receive emails for trigger activation.
     Field is ignored for write requests and populated on trigger creation.
     """
-
     @property
     def invoke_function(self) -> global___InvokeFunctionWithRetry: ...
     @property
     def invoke_container(self) -> global___InvokeContainerWithRetry: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        email: typing.Text = ...,
-        invoke_function: typing.Optional[global___InvokeFunctionWithRetry] = ...,
-        invoke_container: typing.Optional[global___InvokeContainerWithRetry] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","email",b"email","invoke_container",b"invoke_container","invoke_function",b"invoke_function"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["invoke_function","invoke_container"]]: ...
+        email: builtins.str = ...,
+        invoke_function: global___InvokeFunctionWithRetry | None = ...,
+        invoke_container: global___InvokeContainerWithRetry | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action", b"action", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "email", b"email", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
+
 global___Mail = Mail

@@ -3,73 +3,75 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _InitActsState:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _InitActsStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InitActsState.ValueType], builtins.type):
+
+class _InitActsStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InitActsState.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     INIT_ACTS_STATE_UNSPECIFIED: _InitActsState.ValueType  # 0
     """No init acts on cluster"""
-
     FAILED: _InitActsState.ValueType  # 1
     """At least one failed init act"""
-
     SUCCESSFUL: _InitActsState.ValueType  # 2
     """All init acts succeeded"""
-
     IN_PROGRESS: _InitActsState.ValueType  # 3
     """Some init acts not finished"""
 
-class InitActsState(_InitActsState, metaclass=_InitActsStateEnumTypeWrapper):
-    pass
+class InitActsState(_InitActsState, metaclass=_InitActsStateEnumTypeWrapper): ...
 
 INIT_ACTS_STATE_UNSPECIFIED: InitActsState.ValueType  # 0
 """No init acts on cluster"""
-
 FAILED: InitActsState.ValueType  # 1
 """At least one failed init act"""
-
 SUCCESSFUL: InitActsState.ValueType  # 2
 """All init acts succeeded"""
-
 IN_PROGRESS: InitActsState.ValueType  # 3
 """Some init acts not finished"""
-
 global___InitActsState = InitActsState
-
 
 class HbaseNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     REQUESTS_FIELD_NUMBER: builtins.int
     HEAP_SIZE_MB_FIELD_NUMBER: builtins.int
     MAX_HEAP_SIZE_MB_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     requests: builtins.int
     heap_size_mb: builtins.int
     max_heap_size_mb: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         requests: builtins.int = ...,
         heap_size_mb: builtins.int = ...,
         max_heap_size_mb: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["heap_size_mb",b"heap_size_mb","max_heap_size_mb",b"max_heap_size_mb","name",b"name","requests",b"requests"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["heap_size_mb", b"heap_size_mb", "max_heap_size_mb", b"max_heap_size_mb", "name", b"name", "requests", b"requests"]) -> None: ...
+
 global___HbaseNodeInfo = HbaseNodeInfo
 
 class HbaseInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AVAILABLE_FIELD_NUMBER: builtins.int
     REGIONS_FIELD_NUMBER: builtins.int
     REQUESTS_FIELD_NUMBER: builtins.int
@@ -84,46 +86,52 @@ class HbaseInfo(google.protobuf.message.Message):
     def live_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HbaseNodeInfo]: ...
     @property
     def dead_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HbaseNodeInfo]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
         available: builtins.bool = ...,
         regions: builtins.int = ...,
         requests: builtins.int = ...,
         average_load: builtins.float = ...,
-        live_nodes: typing.Optional[typing.Iterable[global___HbaseNodeInfo]] = ...,
-        dead_nodes: typing.Optional[typing.Iterable[global___HbaseNodeInfo]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["available",b"available","average_load",b"average_load","dead_nodes",b"dead_nodes","live_nodes",b"live_nodes","regions",b"regions","requests",b"requests"]) -> None: ...
+        live_nodes: collections.abc.Iterable[global___HbaseNodeInfo] | None = ...,
+        dead_nodes: collections.abc.Iterable[global___HbaseNodeInfo] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available", b"available", "average_load", b"average_load", "dead_nodes", b"dead_nodes", "live_nodes", b"live_nodes", "regions", b"regions", "requests", b"requests"]) -> None: ...
+
 global___HbaseInfo = HbaseInfo
 
 class HDFSNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     USED_FIELD_NUMBER: builtins.int
     REMAINING_FIELD_NUMBER: builtins.int
     CAPACITY_FIELD_NUMBER: builtins.int
     NUM_BLOCKS_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     used: builtins.int
     remaining: builtins.int
     capacity: builtins.int
     num_blocks: builtins.int
-    state: typing.Text
-    def __init__(self,
+    state: builtins.str
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         used: builtins.int = ...,
         remaining: builtins.int = ...,
         capacity: builtins.int = ...,
         num_blocks: builtins.int = ...,
-        state: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["capacity",b"capacity","name",b"name","num_blocks",b"num_blocks","remaining",b"remaining","state",b"state","used",b"used"]) -> None: ...
+        state: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["capacity", b"capacity", "name", b"name", "num_blocks", b"num_blocks", "remaining", b"remaining", "state", b"state", "used", b"used"]) -> None: ...
+
 global___HDFSNodeInfo = HDFSNodeInfo
 
 class HDFSInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AVAILABLE_FIELD_NUMBER: builtins.int
     PERCENT_REMAINING_FIELD_NUMBER: builtins.int
     USED_FIELD_NUMBER: builtins.int
@@ -148,16 +156,16 @@ class HDFSInfo(google.protobuf.message.Message):
     def live_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HDFSNodeInfo]: ...
     @property
     def dead_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HDFSNodeInfo]: ...
-    safemode: typing.Text
+    safemode: builtins.str
     @property
     def decommissioning_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HDFSNodeInfo]: ...
     @property
     def decommissioned_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HDFSNodeInfo]: ...
     @property
-    def requested_decommission_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def requested_decommission_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Actual list of decommission hosts in HDFS namenode memory"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         available: builtins.bool = ...,
         percent_remaining: builtins.float = ...,
@@ -166,18 +174,20 @@ class HDFSInfo(google.protobuf.message.Message):
         total_blocks: builtins.int = ...,
         missing_blocks: builtins.int = ...,
         missing_blocks_replica_one: builtins.int = ...,
-        live_nodes: typing.Optional[typing.Iterable[global___HDFSNodeInfo]] = ...,
-        dead_nodes: typing.Optional[typing.Iterable[global___HDFSNodeInfo]] = ...,
-        safemode: typing.Text = ...,
-        decommissioning_nodes: typing.Optional[typing.Iterable[global___HDFSNodeInfo]] = ...,
-        decommissioned_nodes: typing.Optional[typing.Iterable[global___HDFSNodeInfo]] = ...,
-        requested_decommission_hosts: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["available",b"available","dead_nodes",b"dead_nodes","decommissioned_nodes",b"decommissioned_nodes","decommissioning_nodes",b"decommissioning_nodes","free",b"free","live_nodes",b"live_nodes","missing_blocks",b"missing_blocks","missing_blocks_replica_one",b"missing_blocks_replica_one","percent_remaining",b"percent_remaining","requested_decommission_hosts",b"requested_decommission_hosts","safemode",b"safemode","total_blocks",b"total_blocks","used",b"used"]) -> None: ...
+        live_nodes: collections.abc.Iterable[global___HDFSNodeInfo] | None = ...,
+        dead_nodes: collections.abc.Iterable[global___HDFSNodeInfo] | None = ...,
+        safemode: builtins.str = ...,
+        decommissioning_nodes: collections.abc.Iterable[global___HDFSNodeInfo] | None = ...,
+        decommissioned_nodes: collections.abc.Iterable[global___HDFSNodeInfo] | None = ...,
+        requested_decommission_hosts: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available", b"available", "dead_nodes", b"dead_nodes", "decommissioned_nodes", b"decommissioned_nodes", "decommissioning_nodes", b"decommissioning_nodes", "free", b"free", "live_nodes", b"live_nodes", "missing_blocks", b"missing_blocks", "missing_blocks_replica_one", b"missing_blocks_replica_one", "percent_remaining", b"percent_remaining", "requested_decommission_hosts", b"requested_decommission_hosts", "safemode", b"safemode", "total_blocks", b"total_blocks", "used", b"used"]) -> None: ...
+
 global___HDFSInfo = HDFSInfo
 
 class HiveInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AVAILABLE_FIELD_NUMBER: builtins.int
     QUERIES_SUCCEEDED_FIELD_NUMBER: builtins.int
     QUERIES_FAILED_FIELD_NUMBER: builtins.int
@@ -190,7 +200,8 @@ class HiveInfo(google.protobuf.message.Message):
     queries_executing: builtins.int
     sessions_open: builtins.int
     sessions_active: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
         available: builtins.bool = ...,
         queries_succeeded: builtins.int = ...,
@@ -198,38 +209,43 @@ class HiveInfo(google.protobuf.message.Message):
         queries_executing: builtins.int = ...,
         sessions_open: builtins.int = ...,
         sessions_active: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["available",b"available","queries_executing",b"queries_executing","queries_failed",b"queries_failed","queries_succeeded",b"queries_succeeded","sessions_active",b"sessions_active","sessions_open",b"sessions_open"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available", b"available", "queries_executing", b"queries_executing", "queries_failed", b"queries_failed", "queries_succeeded", b"queries_succeeded", "sessions_active", b"sessions_active", "sessions_open", b"sessions_open"]) -> None: ...
+
 global___HiveInfo = HiveInfo
 
 class YarnNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     STATE_FIELD_NUMBER: builtins.int
     NUM_CONTAINERS_FIELD_NUMBER: builtins.int
     USED_MEMORY_MB_FIELD_NUMBER: builtins.int
     AVAILABLE_MEMORY_MB_FIELD_NUMBER: builtins.int
     UPDATE_TIME_FIELD_NUMBER: builtins.int
-    name: typing.Text
-    state: typing.Text
+    name: builtins.str
+    state: builtins.str
     num_containers: builtins.int
     used_memory_mb: builtins.int
     available_memory_mb: builtins.int
     update_time: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        state: typing.Text = ...,
+        name: builtins.str = ...,
+        state: builtins.str = ...,
         num_containers: builtins.int = ...,
         used_memory_mb: builtins.int = ...,
         available_memory_mb: builtins.int = ...,
         update_time: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["available_memory_mb",b"available_memory_mb","name",b"name","num_containers",b"num_containers","state",b"state","update_time",b"update_time","used_memory_mb",b"used_memory_mb"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available_memory_mb", b"available_memory_mb", "name", b"name", "num_containers", b"num_containers", "state", b"state", "update_time", b"update_time", "used_memory_mb", b"used_memory_mb"]) -> None: ...
+
 global___YarnNodeInfo = YarnNodeInfo
 
 class YarnInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AVAILABLE_FIELD_NUMBER: builtins.int
     LIVE_NODES_FIELD_NUMBER: builtins.int
     REQUESTED_DECOMMISSION_HOSTS_FIELD_NUMBER: builtins.int
@@ -237,70 +253,83 @@ class YarnInfo(google.protobuf.message.Message):
     @property
     def live_nodes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___YarnNodeInfo]: ...
     @property
-    def requested_decommission_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def requested_decommission_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Actual list of decommission hosts in Yarn resource manager memory"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         available: builtins.bool = ...,
-        live_nodes: typing.Optional[typing.Iterable[global___YarnNodeInfo]] = ...,
-        requested_decommission_hosts: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["available",b"available","live_nodes",b"live_nodes","requested_decommission_hosts",b"requested_decommission_hosts"]) -> None: ...
+        live_nodes: collections.abc.Iterable[global___YarnNodeInfo] | None = ...,
+        requested_decommission_hosts: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["available", b"available", "live_nodes", b"live_nodes", "requested_decommission_hosts", b"requested_decommission_hosts"]) -> None: ...
+
 global___YarnInfo = YarnInfo
 
 class ZookeeperInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALIVE_FIELD_NUMBER: builtins.int
     alive: builtins.bool
-    def __init__(self,
+    def __init__(
+        self,
         *,
         alive: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alive",b"alive"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alive", b"alive"]) -> None: ...
+
 global___ZookeeperInfo = ZookeeperInfo
 
 class OozieInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALIVE_FIELD_NUMBER: builtins.int
     alive: builtins.bool
-    def __init__(self,
+    def __init__(
+        self,
         *,
         alive: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alive",b"alive"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alive", b"alive"]) -> None: ...
+
 global___OozieInfo = OozieInfo
 
 class LivyInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALIVE_FIELD_NUMBER: builtins.int
     alive: builtins.bool
-    def __init__(self,
+    def __init__(
+        self,
         *,
         alive: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alive",b"alive"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alive", b"alive"]) -> None: ...
+
 global___LivyInfo = LivyInfo
 
 class InitActs(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STATE_FIELD_NUMBER: builtins.int
     FQDNS_FIELD_NUMBER: builtins.int
     state: global___InitActsState.ValueType
     @property
-    def fqdns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def fqdns(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """fqdns of nodes for error message"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         state: global___InitActsState.ValueType = ...,
-        fqdns: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["fqdns",b"fqdns","state",b"state"]) -> None: ...
+        fqdns: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fqdns", b"fqdns", "state", b"state"]) -> None: ...
+
 global___InitActs = InitActs
 
 class Info(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HDFS_FIELD_NUMBER: builtins.int
     YARN_FIELD_NUMBER: builtins.int
     HIVE_FIELD_NUMBER: builtins.int
@@ -327,67 +356,76 @@ class Info(google.protobuf.message.Message):
     So Worker can use this property to make sure that Dataproc Agent got data sent by Worker through Dataproc Manager
     for synchronization purposes
     """
-
     @property
     def livy(self) -> global___LivyInfo: ...
     @property
     def init_acts(self) -> global___InitActs: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        hdfs: typing.Optional[global___HDFSInfo] = ...,
-        yarn: typing.Optional[global___YarnInfo] = ...,
-        hive: typing.Optional[global___HiveInfo] = ...,
-        zookeeper: typing.Optional[global___ZookeeperInfo] = ...,
-        hbase: typing.Optional[global___HbaseInfo] = ...,
-        oozie: typing.Optional[global___OozieInfo] = ...,
+        hdfs: global___HDFSInfo | None = ...,
+        yarn: global___YarnInfo | None = ...,
+        hive: global___HiveInfo | None = ...,
+        zookeeper: global___ZookeeperInfo | None = ...,
+        hbase: global___HbaseInfo | None = ...,
+        oozie: global___OozieInfo | None = ...,
         report_count: builtins.int = ...,
-        livy: typing.Optional[global___LivyInfo] = ...,
-        init_acts: typing.Optional[global___InitActs] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","init_acts",b"init_acts","livy",b"livy","oozie",b"oozie","yarn",b"yarn","zookeeper",b"zookeeper"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hbase",b"hbase","hdfs",b"hdfs","hive",b"hive","init_acts",b"init_acts","livy",b"livy","oozie",b"oozie","report_count",b"report_count","yarn",b"yarn","zookeeper",b"zookeeper"]) -> None: ...
+        livy: global___LivyInfo | None = ...,
+        init_acts: global___InitActs | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["hbase", b"hbase", "hdfs", b"hdfs", "hive", b"hive", "init_acts", b"init_acts", "livy", b"livy", "oozie", b"oozie", "yarn", b"yarn", "zookeeper", b"zookeeper"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hbase", b"hbase", "hdfs", b"hdfs", "hive", b"hive", "init_acts", b"init_acts", "livy", b"livy", "oozie", b"oozie", "report_count", b"report_count", "yarn", b"yarn", "zookeeper", b"zookeeper"]) -> None: ...
+
 global___Info = Info
 
 class ReportRequest(google.protobuf.message.Message):
     """The request message containing the host status report."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CID_FIELD_NUMBER: builtins.int
     TOPOLOGY_REVISION_FIELD_NUMBER: builtins.int
     INFO_FIELD_NUMBER: builtins.int
     COLLECTED_AT_FIELD_NUMBER: builtins.int
-    cid: typing.Text
+    cid: builtins.str
     topology_revision: builtins.int
     @property
     def info(self) -> global___Info: ...
     @property
     def collected_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cid: typing.Text = ...,
+        cid: builtins.str = ...,
         topology_revision: builtins.int = ...,
-        info: typing.Optional[global___Info] = ...,
-        collected_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["collected_at",b"collected_at","info",b"info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cid",b"cid","collected_at",b"collected_at","info",b"info","topology_revision",b"topology_revision"]) -> None: ...
+        info: global___Info | None = ...,
+        collected_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["collected_at", b"collected_at", "info", b"info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cid", b"cid", "collected_at", b"collected_at", "info", b"info", "topology_revision", b"topology_revision"]) -> None: ...
+
 global___ReportRequest = ReportRequest
 
 class ReportReply(google.protobuf.message.Message):
     """The response message containing the agent commands to apply on host."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DECOMMISSION_TIMEOUT_FIELD_NUMBER: builtins.int
     YARN_HOSTS_TO_DECOMMISSION_FIELD_NUMBER: builtins.int
     HDFS_HOSTS_TO_DECOMMISSION_FIELD_NUMBER: builtins.int
     decommission_timeout: builtins.int
     @property
-    def yarn_hosts_to_decommission(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+    def yarn_hosts_to_decommission(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
-    def hdfs_hosts_to_decommission(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def hdfs_hosts_to_decommission(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
         decommission_timeout: builtins.int = ...,
-        yarn_hosts_to_decommission: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        hdfs_hosts_to_decommission: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["decommission_timeout",b"decommission_timeout","hdfs_hosts_to_decommission",b"hdfs_hosts_to_decommission","yarn_hosts_to_decommission",b"yarn_hosts_to_decommission"]) -> None: ...
+        yarn_hosts_to_decommission: collections.abc.Iterable[builtins.str] | None = ...,
+        hdfs_hosts_to_decommission: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["decommission_timeout", b"decommission_timeout", "hdfs_hosts_to_decommission", b"hdfs_hosts_to_decommission", "yarn_hosts_to_decommission", b"yarn_hosts_to_decommission"]) -> None: ...
+
 global___ReportReply = ReportReply

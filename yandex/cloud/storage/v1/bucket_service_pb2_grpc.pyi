@@ -10,71 +10,74 @@ import yandex.cloud.storage.v1.bucket_service_pb2
 
 class BucketServiceStub:
     """A set of methods for managing buckets."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.ListBucketsRequest,
-        yandex.cloud.storage.v1.bucket_service_pb2.ListBucketsResponse]
+        yandex.cloud.storage.v1.bucket_service_pb2.ListBucketsResponse,
+    ]
     """Retrieves the list of buckets in the specified folder.
 
     The following fields will not be returned for buckets in the list: [Bucket.policy], [Bucket.acl], [Bucket.cors],
     [Bucket.website_settings], [Bucket.lifecycle_rules].
     """
-
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.GetBucketRequest,
-        yandex.cloud.storage.v1.bucket_pb2.Bucket]
+        yandex.cloud.storage.v1.bucket_pb2.Bucket,
+    ]
     """Returns the specified bucket.
 
     To get the list of all available buckets, make a [List] request.
     """
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.CreateBucketRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a bucket in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.UpdateBucketRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified bucket.
 
     In most cases, `storage.editor` role (see [documentation](/docs/storage/security/#storage-editor)) should be enough
     to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
     """
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.DeleteBucketRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified bucket."""
-
     GetStats: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.GetBucketStatsRequest,
-        yandex.cloud.storage.v1.bucket_pb2.BucketStats]
+        yandex.cloud.storage.v1.bucket_pb2.BucketStats,
+    ]
     """Returns the statistics for the specified bucket."""
-
     GetHTTPSConfig: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.GetBucketHTTPSConfigRequest,
-        yandex.cloud.storage.v1.bucket_pb2.HTTPSConfig]
+        yandex.cloud.storage.v1.bucket_pb2.HTTPSConfig,
+    ]
     """Returns the HTTPS configuration for the specified bucket."""
-
     SetHTTPSConfig: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.SetBucketHTTPSConfigRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the HTTPS configuration for the specified bucket.
 
     The updated configuration could take up to 30 minutes to apply to the bucket.
     """
-
     DeleteHTTPSConfig: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.storage.v1.bucket_service_pb2.DeleteBucketHTTPSConfigRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the HTTPS configuration for the specified bucket."""
-
 
 class BucketServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing buckets."""
+
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.ListBucketsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.storage.v1.bucket_service_pb2.ListBucketsResponse:
@@ -83,10 +86,9 @@ class BucketServiceServicer(metaclass=abc.ABCMeta):
         The following fields will not be returned for buckets in the list: [Bucket.policy], [Bucket.acl], [Bucket.cors],
         [Bucket.website_settings], [Bucket.lifecycle_rules].
         """
-        pass
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.GetBucketRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.storage.v1.bucket_pb2.Bucket:
@@ -94,18 +96,16 @@ class BucketServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available buckets, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.CreateBucketRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a bucket in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.UpdateBucketRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -114,34 +114,30 @@ class BucketServiceServicer(metaclass=abc.ABCMeta):
         In most cases, `storage.editor` role (see [documentation](/docs/storage/security/#storage-editor)) should be enough
         to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
         """
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.DeleteBucketRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified bucket."""
-        pass
-
     @abc.abstractmethod
-    def GetStats(self,
+    def GetStats(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.GetBucketStatsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.storage.v1.bucket_pb2.BucketStats:
         """Returns the statistics for the specified bucket."""
-        pass
-
     @abc.abstractmethod
-    def GetHTTPSConfig(self,
+    def GetHTTPSConfig(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.GetBucketHTTPSConfigRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.storage.v1.bucket_pb2.HTTPSConfig:
         """Returns the HTTPS configuration for the specified bucket."""
-        pass
-
     @abc.abstractmethod
-    def SetHTTPSConfig(self,
+    def SetHTTPSConfig(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.SetBucketHTTPSConfigRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -149,15 +145,12 @@ class BucketServiceServicer(metaclass=abc.ABCMeta):
 
         The updated configuration could take up to 30 minutes to apply to the bucket.
         """
-        pass
-
     @abc.abstractmethod
-    def DeleteHTTPSConfig(self,
+    def DeleteHTTPSConfig(
+        self,
         request: yandex.cloud.storage.v1.bucket_service_pb2.DeleteBucketHTTPSConfigRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the HTTPS configuration for the specified bucket."""
-        pass
-
 
 def add_BucketServiceServicer_to_server(servicer: BucketServiceServicer, server: grpc.Server) -> None: ...

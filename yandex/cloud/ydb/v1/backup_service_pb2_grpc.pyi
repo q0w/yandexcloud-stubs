@@ -11,88 +11,87 @@ import yandex.cloud.ydb.v1.backup_service_pb2
 
 class BackupServiceStub:
     """A set of methods for managing backups."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.ydb.v1.backup_pb2.Backup]
+        yandex.cloud.ydb.v1.backup_pb2.Backup,
+    ]
     """Returns the specified backup."""
-
     ListPaths: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.backup_service_pb2.ListPathsRequest,
-        yandex.cloud.ydb.v1.backup_service_pb2.ListPathsResponse]
-
+        yandex.cloud.ydb.v1.backup_service_pb2.ListPathsResponse,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.ydb.v1.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.ydb.v1.backup_service_pb2.ListBackupsResponse,
+    ]
     """Retrieves a list of backups."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
-
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.backup_service_pb2.DeleteBackupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified backup."""
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing backups."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.ydb.v1.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.backup_pb2.Backup:
         """Returns the specified backup."""
-        pass
-
     @abc.abstractmethod
-    def ListPaths(self,
+    def ListPaths(
+        self,
         request: yandex.cloud.ydb.v1.backup_service_pb2.ListPathsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.backup_service_pb2.ListPathsResponse: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.ydb.v1.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.backup_service_pb2.ListBackupsResponse:
         """Retrieves a list of backups."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse: ...
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.ydb.v1.backup_service_pb2.DeleteBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified backup."""
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

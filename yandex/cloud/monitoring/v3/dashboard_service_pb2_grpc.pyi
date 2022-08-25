@@ -10,87 +10,83 @@ import yandex.cloud.operation.operation_pb2
 
 class DashboardServiceStub:
     """A set of methods for managing dashboards."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.GetDashboardRequest,
-        yandex.cloud.monitoring.v3.dashboard_pb2.Dashboard]
+        yandex.cloud.monitoring.v3.dashboard_pb2.Dashboard,
+    ]
     """Returns the specified dashboard."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardsRequest,
-        yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardsResponse]
+        yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardsResponse,
+    ]
     """Retrieves the list of dashboards in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.CreateDashboardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new dashboard in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.UpdateDashboardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified dashboard."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.DeleteDashboardRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified dashboard."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardOperationsRequest,
-        yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardOperationsResponse]
+        yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardOperationsResponse,
+    ]
     """Lists operations for the specified dashboard."""
-
 
 class DashboardServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing dashboards."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.GetDashboardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.monitoring.v3.dashboard_pb2.Dashboard:
         """Returns the specified dashboard."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardsResponse:
         """Retrieves the list of dashboards in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.CreateDashboardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new dashboard in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.UpdateDashboardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified dashboard."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.DeleteDashboardRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified dashboard."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.monitoring.v3.dashboard_service_pb2.ListDashboardOperationsResponse:
         """Lists operations for the specified dashboard."""
-        pass
-
 
 def add_DashboardServiceServicer_to_server(servicer: DashboardServiceServicer, server: grpc.Server) -> None: ...

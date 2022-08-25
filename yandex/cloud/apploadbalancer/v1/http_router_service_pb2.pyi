@@ -3,59 +3,64 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.apploadbalancer.v1.http_router_pb2
 import yandex.cloud.apploadbalancer.v1.virtual_host_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
+    http_router_id: builtins.str
     """ID of the HTTP router to return.
 
     To get the HTTP router ID, make a [HttpRouterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id"]) -> None: ...
+        http_router_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id"]) -> None: ...
+
 global___GetHttpRouterRequest = GetHttpRouterRequest
 
 class ListHttpRoutersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list HTTP routers in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListHttpRoutersResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListHttpRoutersResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters HTTP routers listed in the response.
 
     The expression must specify:
@@ -64,84 +69,93 @@ class ListHttpRoutersRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name=my-http-router`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListHttpRoutersRequest = ListHttpRoutersRequest
 
 class ListHttpRoutersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HTTP_ROUTERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def http_routers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.apploadbalancer.v1.http_router_pb2.HttpRouter]:
         """List of HTTP routers in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListHttpRoutersRequest.page_size], use `next_page_token` as the value
     for the [ListHttpRoutersRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_routers: typing.Optional[typing.Iterable[yandex.cloud.apploadbalancer.v1.http_router_pb2.HttpRouter]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_routers",b"http_routers","next_page_token",b"next_page_token"]) -> None: ...
+        http_routers: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.http_router_pb2.HttpRouter] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_routers", b"http_routers", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListHttpRoutersResponse = ListHttpRoutersResponse
 
 class DeleteHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
+    http_router_id: builtins.str
     """ID of the HTTP router to delete.
 
     To get the HTTP router ID, make a [HttpRouterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id"]) -> None: ...
+        http_router_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id"]) -> None: ...
+
 global___DeleteHttpRouterRequest = DeleteHttpRouterRequest
 
 class DeleteHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
-    """ID of the HTTP router that is being deleted."""
 
-    def __init__(self,
+    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
+    http_router_id: builtins.str
+    """ID of the HTTP router that is being deleted."""
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id"]) -> None: ...
+        http_router_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id"]) -> None: ...
+
 global___DeleteHttpRouterMetadata = DeleteHttpRouterMetadata
 
 class UpdateHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -149,26 +163,22 @@ class UpdateHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     VIRTUAL_HOSTS_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
+    http_router_id: builtins.str
     """ID of the HTTP router to update.
 
     To get the HTTP router ID, make a [HttpRouterService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the HTTP router should be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the HTTP router.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """New description of the HTTP router."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """HTTP router labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
 
@@ -178,7 +188,6 @@ class UpdateHttpRouterRequest(google.protobuf.message.Message):
         2. Add or remove a label in this set.
         3. Send the new set in this field.
         """
-        pass
     @property
     def virtual_hosts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost]:
         """New virtual hosts that combine routes inside the router.
@@ -189,73 +198,75 @@ class UpdateHttpRouterRequest(google.protobuf.message.Message):
         Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove
         a virtual host, make a [VirtualHostService.Create] request or a [VirtualHostService.Delete] request.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        virtual_hosts: typing.Optional[typing.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","http_router_id",b"http_router_id","labels",b"labels","name",b"name","update_mask",b"update_mask","virtual_hosts",b"virtual_hosts"]) -> None: ...
+        http_router_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        virtual_hosts: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "http_router_id", b"http_router_id", "labels", b"labels", "name", b"name", "update_mask", b"update_mask", "virtual_hosts", b"virtual_hosts"]) -> None: ...
+
 global___UpdateHttpRouterRequest = UpdateHttpRouterRequest
 
 class UpdateHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
-    """ID of the HTTP router that is being updated."""
 
-    def __init__(self,
+    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
+    http_router_id: builtins.str
+    """ID of the HTTP router that is being updated."""
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id"]) -> None: ...
+        http_router_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id"]) -> None: ...
+
 global___UpdateHttpRouterMetadata = UpdateHttpRouterMetadata
 
 class CreateHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     VIRTUAL_HOSTS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create an HTTP router in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the HTTP router.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the HTTP router."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """HTTP router labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
         """
-        pass
     @property
     def virtual_hosts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost]:
         """Virtual hosts that combine routes inside the router.
@@ -263,83 +274,87 @@ class CreateHttpRouterRequest(google.protobuf.message.Message):
 
         Only one virtual host with no authority (default match) can be specified.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        virtual_hosts: typing.Optional[typing.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","virtual_hosts",b"virtual_hosts"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        virtual_hosts: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "virtual_hosts", b"virtual_hosts"]) -> None: ...
+
 global___CreateHttpRouterRequest = CreateHttpRouterRequest
 
 class CreateHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
-    """ID of the HTTP router that is being created."""
 
-    def __init__(self,
+    HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
+    http_router_id: builtins.str
+    """ID of the HTTP router that is being created."""
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id"]) -> None: ...
+        http_router_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id"]) -> None: ...
+
 global___CreateHttpRouterMetadata = CreateHttpRouterMetadata
 
 class ListHttpRouterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HTTP_ROUTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    http_router_id: typing.Text
+    http_router_id: builtins.str
     """ID of the HTTP router to get operations for.
 
     To get the HTTP router ID, use a [HttpRouterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than [page_size], the service returns a [ListHttpRouterOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListHttpRouterOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_router_id: typing.Text = ...,
+        http_router_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_router_id",b"http_router_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_router_id", b"http_router_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListHttpRouterOperationsRequest = ListHttpRouterOperationsRequest
 
 class ListHttpRouterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified HTTP router."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListHttpRouterOperationsRequest.page_size], use `next_page_token` as the value
     for the [ListHttpRouterOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListHttpRouterOperationsResponse = ListHttpRouterOperationsResponse

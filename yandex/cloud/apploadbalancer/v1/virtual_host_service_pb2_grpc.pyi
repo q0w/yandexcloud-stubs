@@ -10,50 +10,53 @@ import yandex.cloud.operation.operation_pb2
 
 class VirtualHostServiceStub:
     """A set of methods for managing virtual hosts of HTTP routers."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.GetVirtualHostRequest,
-        yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost]
+        yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost,
+    ]
     """Returns the specified virtual host.
 
     To get the list of all virtual hosts of an HTTP router, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.ListVirtualHostsRequest,
-        yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.ListVirtualHostsResponse]
+        yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.ListVirtualHostsResponse,
+    ]
     """Lists virtual hosts of the specified HTTP router."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.CreateVirtualHostRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a virtual host in the specified HTTP router."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.UpdateVirtualHostRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified virtual host of the specified HTTP router."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.DeleteVirtualHostRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified virtual host."""
-
     RemoveRoute: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.RemoveRouteRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified route from the specified virtual host."""
-
     UpdateRoute: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.UpdateRouteRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified route of the specified virtual host."""
-
 
 class VirtualHostServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing virtual hosts of HTTP routers."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.GetVirtualHostRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.apploadbalancer.v1.virtual_host_pb2.VirtualHost:
@@ -61,55 +64,47 @@ class VirtualHostServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all virtual hosts of an HTTP router, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.ListVirtualHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.ListVirtualHostsResponse:
         """Lists virtual hosts of the specified HTTP router."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.CreateVirtualHostRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a virtual host in the specified HTTP router."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.UpdateVirtualHostRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified virtual host of the specified HTTP router."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.DeleteVirtualHostRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified virtual host."""
-        pass
-
     @abc.abstractmethod
-    def RemoveRoute(self,
+    def RemoveRoute(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.RemoveRouteRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified route from the specified virtual host."""
-        pass
-
     @abc.abstractmethod
-    def UpdateRoute(self,
+    def UpdateRoute(
+        self,
         request: yandex.cloud.apploadbalancer.v1.virtual_host_service_pb2.UpdateRouteRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified route of the specified virtual host."""
-        pass
-
 
 def add_VirtualHostServiceServicer_to_server(servicer: VirtualHostServiceServicer, server: grpc.Server) -> None: ...

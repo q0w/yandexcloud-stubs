@@ -3,213 +3,230 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.mdb.elasticsearch.v1.auth_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ListAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """Required. ID of the ElasticSearch cluster."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """Required. ID of the ElasticSearch cluster."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___ListAuthProvidersRequest = ListAuthProvidersRequest
 
 class ListAuthProvidersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PROVIDERS_FIELD_NUMBER: builtins.int
     @property
     def providers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]:
         """List of auth providers of the Elasticsearch cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        providers: typing.Optional[typing.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["providers",b"providers"]) -> None: ...
+        providers: collections.abc.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["providers", b"providers"]) -> None: ...
+
 global___ListAuthProvidersResponse = ListAuthProvidersResponse
 
 class GetAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
-    name: typing.Text
+    name: builtins.str
     """Required. Name of the provider to delete."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name"]) -> None: ...
+
 global___GetAuthProviderRequest = GetAuthProviderRequest
 
 class AddAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PROVIDERS_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
     @property
     def providers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]:
         """Required. List of providers to add."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        providers: typing.Optional[typing.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","providers",b"providers"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        providers: collections.abc.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "providers", b"providers"]) -> None: ...
+
 global___AddAuthProvidersRequest = AddAuthProvidersRequest
 
 class UpdateAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PROVIDERS_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
     @property
     def providers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]:
         """Required. List of providers to set."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        providers: typing.Optional[typing.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","providers",b"providers"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        providers: collections.abc.Iterable[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "providers", b"providers"]) -> None: ...
+
 global___UpdateAuthProvidersRequest = UpdateAuthProvidersRequest
 
 class DeleteAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PROVIDER_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
     @property
-    def provider_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def provider_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. List of providers to delete."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        provider_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","provider_names",b"provider_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        provider_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "provider_names", b"provider_names"]) -> None: ...
+
 global___DeleteAuthProvidersRequest = DeleteAuthProvidersRequest
 
 class UpdateAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     PROVIDER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
-    name: typing.Text
+    name: builtins.str
     """Required. Name of the provider to update."""
-
     @property
     def provider(self) -> yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider:
         """Required. New provider defenition."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        name: typing.Text = ...,
-        provider: typing.Optional[yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["provider",b"provider"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name","provider",b"provider"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        name: builtins.str = ...,
+        provider: yandex.cloud.mdb.elasticsearch.v1.auth_pb2.AuthProvider | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["provider", b"provider"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name", "provider", b"provider"]) -> None: ...
+
 global___UpdateAuthProviderRequest = UpdateAuthProviderRequest
 
 class DeleteAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the ElasticSearch cluster."""
-
-    name: typing.Text
+    name: builtins.str
     """Required. Name of the provider to delete."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","name",b"name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "name", b"name"]) -> None: ...
+
 global___DeleteAuthProviderRequest = DeleteAuthProviderRequest
 
 class AddAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the ElasticSearch cluster."""
-
     @property
-    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of the providers being added."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","names",b"names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "names", b"names"]) -> None: ...
+
 global___AddAuthProvidersMetadata = AddAuthProvidersMetadata
 
 class UpdateAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the ElasticSearch cluster."""
-
     @property
-    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of the providers being added."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","names",b"names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "names", b"names"]) -> None: ...
+
 global___UpdateAuthProvidersMetadata = UpdateAuthProvidersMetadata
 
 class DeleteAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the ElasticSearch cluster."""
-
     @property
-    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of the providers being removed."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","names",b"names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "names", b"names"]) -> None: ...
+
 global___DeleteAuthProvidersMetadata = DeleteAuthProvidersMetadata

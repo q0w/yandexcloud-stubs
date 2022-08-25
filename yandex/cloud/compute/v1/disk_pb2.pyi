@@ -3,66 +3,68 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Disk(google.protobuf.message.Message):
     """A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Disk._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Disk._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Disk._Status.ValueType  # 0
         CREATING: Disk._Status.ValueType  # 1
         """Disk is being created."""
-
         READY: Disk._Status.ValueType  # 2
         """Disk is ready to use."""
-
         ERROR: Disk._Status.ValueType  # 3
         """Disk encountered a problem and cannot operate."""
-
         DELETING: Disk._Status.ValueType  # 4
         """Disk is being deleted."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Disk.Status.ValueType  # 0
     CREATING: Disk.Status.ValueType  # 1
     """Disk is being created."""
-
     READY: Disk.Status.ValueType  # 2
     """Disk is ready to use."""
-
     ERROR: Disk.Status.ValueType  # 3
     """Disk encountered a problem and cannot operate."""
-
     DELETING: Disk.Status.ValueType  # 4
     """Disk is being deleted."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -80,38 +82,29 @@ class Disk(google.protobuf.message.Message):
     SOURCE_SNAPSHOT_ID_FIELD_NUMBER: builtins.int
     INSTANCE_IDS_FIELD_NUMBER: builtins.int
     DISK_PLACEMENT_POLICY_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the disk."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the disk belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    name: typing.Text
+    name: builtins.str
     """Name of the disk. 1-63 characters long."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the disk. 0-256 characters long."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs. Maximum of 64 per resource."""
-        pass
-    type_id: typing.Text
+    type_id: builtins.str
     """ID of the disk type."""
-
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the disk resides."""
-
     size: builtins.int
     """Size of the disk, specified in bytes."""
-
     block_size: builtins.int
     """Block size of the disk, specified in bytes."""
-
     @property
-    def product_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def product_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """License IDs that indicate which licenses are attached to this resource.
         License IDs are used to calculate additional charges for the use of the virtual machine.
 
@@ -121,57 +114,55 @@ class Disk(google.protobuf.message.Message):
         For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
         You can specify them in the [yandex.cloud.compute.v1.ImageService.Create] request.
         """
-        pass
     status: global___Disk.Status.ValueType
     """Current status of the disk."""
-
-    source_image_id: typing.Text
+    source_image_id: builtins.str
     """ID of the image that was used for disk creation."""
-
-    source_snapshot_id: typing.Text
+    source_snapshot_id: builtins.str
     """ID of the snapshot that was used for disk creation."""
-
     @property
-    def instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Array of instances to which the disk is attached."""
-        pass
     @property
     def disk_placement_policy(self) -> global___DiskPlacementPolicy:
         """Placement policy configuration."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        type_id: typing.Text = ...,
-        zone_id: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        type_id: builtins.str = ...,
+        zone_id: builtins.str = ...,
         size: builtins.int = ...,
         block_size: builtins.int = ...,
-        product_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        product_ids: collections.abc.Iterable[builtins.str] | None = ...,
         status: global___Disk.Status.ValueType = ...,
-        source_image_id: typing.Text = ...,
-        source_snapshot_id: typing.Text = ...,
-        instance_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        disk_placement_policy: typing.Optional[global___DiskPlacementPolicy] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","disk_placement_policy",b"disk_placement_policy","source",b"source","source_image_id",b"source_image_id","source_snapshot_id",b"source_snapshot_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["block_size",b"block_size","created_at",b"created_at","description",b"description","disk_placement_policy",b"disk_placement_policy","folder_id",b"folder_id","id",b"id","instance_ids",b"instance_ids","labels",b"labels","name",b"name","product_ids",b"product_ids","size",b"size","source",b"source","source_image_id",b"source_image_id","source_snapshot_id",b"source_snapshot_id","status",b"status","type_id",b"type_id","zone_id",b"zone_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["source",b"source"]) -> typing.Optional[typing_extensions.Literal["source_image_id","source_snapshot_id"]]: ...
+        source_image_id: builtins.str = ...,
+        source_snapshot_id: builtins.str = ...,
+        instance_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        disk_placement_policy: global___DiskPlacementPolicy | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "disk_placement_policy", b"disk_placement_policy", "source", b"source", "source_image_id", b"source_image_id", "source_snapshot_id", b"source_snapshot_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["block_size", b"block_size", "created_at", b"created_at", "description", b"description", "disk_placement_policy", b"disk_placement_policy", "folder_id", b"folder_id", "id", b"id", "instance_ids", b"instance_ids", "labels", b"labels", "name", b"name", "product_ids", b"product_ids", "size", b"size", "source", b"source", "source_image_id", b"source_image_id", "source_snapshot_id", b"source_snapshot_id", "status", b"status", "type_id", b"type_id", "zone_id", b"zone_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["source", b"source"]) -> typing_extensions.Literal["source_image_id", "source_snapshot_id"] | None: ...
+
 global___Disk = Disk
 
 class DiskPlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    PLACEMENT_GROUP_ID_FIELD_NUMBER: builtins.int
-    placement_group_id: typing.Text
-    """Placement group ID."""
 
-    def __init__(self,
+    PLACEMENT_GROUP_ID_FIELD_NUMBER: builtins.int
+    placement_group_id: builtins.str
+    """Placement group ID."""
+    def __init__(
+        self,
         *,
-        placement_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["placement_group_id",b"placement_group_id"]) -> None: ...
+        placement_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["placement_group_id", b"placement_group_id"]) -> None: ...
+
 global___DiskPlacementPolicy = DiskPlacementPolicy

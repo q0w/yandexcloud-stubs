@@ -7,8 +7,12 @@ import google.protobuf.descriptor
 import google.protobuf.descriptor_pb2
 import google.protobuf.internal.extension_dict
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -17,27 +21,29 @@ class Operation(google.protobuf.message.Message):
     message types that will be returned in metadata [google.protobuf.Any], and
     in response [google.protobuf.Any] (for successful operation).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     METADATA_FIELD_NUMBER: builtins.int
     RESPONSE_FIELD_NUMBER: builtins.int
-    metadata: typing.Text
+    metadata: builtins.str
     """Optional. If present, rpc returns operation which metadata field will
     contains message of specified type.
     Optional.
     """
-
-    response: typing.Text
+    response: builtins.str
     """Required. rpc returns operation, in case of success response will contains message of
     specified field.
     Required.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        metadata: typing.Text = ...,
-        response: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["metadata",b"metadata","response",b"response"]) -> None: ...
+        metadata: builtins.str = ...,
+        response: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["metadata", b"metadata", "response", b"response"]) -> None: ...
+
 global___Operation = Operation
 
 OPERATION_FIELD_NUMBER: builtins.int

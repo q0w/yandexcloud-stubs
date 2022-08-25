@@ -12,36 +12,38 @@ class BackupServiceStub:
 
     See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details.
     """
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.mdb.mysql.v1.backup_pb2.Backup]
+        yandex.cloud.mdb.mysql.v1.backup_pb2.Backup,
+    ]
     """Retrieves information about the specified backup."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.mdb.mysql.v1.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.mdb.mysql.v1.backup_service_pb2.ListBackupsResponse,
+    ]
     """Retrieves the list of backups in a folder.
 
     To list backups for an existing cluster, make a [ClusterService.ListBackups] request.
     """
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MySQL backups.
 
     See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details.
     """
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mysql.v1.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1.backup_pb2.Backup:
         """Retrieves information about the specified backup."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mysql.v1.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1.backup_service_pb2.ListBackupsResponse:
@@ -49,7 +51,5 @@ class BackupServiceServicer(metaclass=abc.ABCMeta):
 
         To list backups for an existing cluster, make a [ClusterService.ListBackups] request.
         """
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

@@ -10,50 +10,53 @@ import yandex.cloud.operation.operation_pb2
 
 class FilesystemServiceStub:
     """A set of methods for managing filesystems."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.GetFilesystemRequest,
-        yandex.cloud.compute.v1.filesystem_pb2.Filesystem]
+        yandex.cloud.compute.v1.filesystem_pb2.Filesystem,
+    ]
     """Returns the specified filesystem.
 
     To get the list of available filesystems, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemsRequest,
-        yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemsResponse]
+        yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemsResponse,
+    ]
     """Lists filesystems in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.CreateFilesystemRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a filesystem in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.UpdateFilesystemRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified filesystem."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.DeleteFilesystemRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified filesystem.
 
     Deleting a filesystem removes its data permanently and is irreversible.
 
     It is not possible to delete a filesystem that is attached to an instance.
     """
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemOperationsRequest,
-        yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemOperationsResponse]
+        yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemOperationsResponse,
+    ]
     """Lists operations for the specified filesystem."""
-
 
 class FilesystemServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing filesystems."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.GetFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.filesystem_pb2.Filesystem:
@@ -61,34 +64,30 @@ class FilesystemServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available filesystems, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemsResponse:
         """Lists filesystems in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.CreateFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a filesystem in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.UpdateFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified filesystem."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.DeleteFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -98,15 +97,12 @@ class FilesystemServiceServicer(metaclass=abc.ABCMeta):
 
         It is not possible to delete a filesystem that is attached to an instance.
         """
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.filesystem_service_pb2.ListFilesystemOperationsResponse:
         """Lists operations for the specified filesystem."""
-        pass
-
 
 def add_FilesystemServiceServicer_to_server(servicer: FilesystemServiceServicer, server: grpc.Server) -> None: ...

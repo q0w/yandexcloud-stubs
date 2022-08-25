@@ -3,17 +3,23 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.mdb.clickhouse.v1.version_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ListVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     page_size: builtins.int
@@ -22,40 +28,41 @@ class ListVersionsRequest(google.protobuf.message.Message):
     to get the next page of results in subsequent ListVersions requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set [page_token] to the [ListVersionsResponse.next_page_token] returned by a previous ListVersions
     request to get the next page of results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListVersionsRequest = ListVersionsRequest
 
 class ListVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSION_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def version(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.clickhouse.v1.version_pb2.Version]:
         """Requested list of available versions."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for ListVersions requests,
     if the number of results is larger than [ListVersionsRequest.page_size] specified in the request.
     To get the next page, specify the value of [next_page_token] as a value for
     the [ListVersionsRequest.page_token] parameter in the next ListVerions request. Subsequent ListVersions
     requests will have their own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        version: typing.Optional[typing.Iterable[yandex.cloud.mdb.clickhouse.v1.version_pb2.Version]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","version",b"version"]) -> None: ...
+        version: collections.abc.Iterable[yandex.cloud.mdb.clickhouse.v1.version_pb2.Version] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "version", b"version"]) -> None: ...
+
 global___ListVersionsResponse = ListVersionsResponse

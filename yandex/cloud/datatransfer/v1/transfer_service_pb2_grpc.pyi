@@ -12,75 +12,75 @@ class TransferServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.CreateTransferRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.UpdateTransferRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.DeleteTransferRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.ListTransfersRequest,
-        yandex.cloud.datatransfer.v1.transfer_service_pb2.ListTransfersResponse]
-
+        yandex.cloud.datatransfer.v1.transfer_service_pb2.ListTransfersResponse,
+    ]
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.GetTransferRequest,
-        yandex.cloud.datatransfer.v1.transfer_pb2.Transfer]
-
+        yandex.cloud.datatransfer.v1.transfer_pb2.Transfer,
+    ]
     Deactivate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.DeactivateTransferRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Activate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.transfer_service_pb2.ActivateTransferRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
 
 class TransferServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.CreateTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.UpdateTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.DeleteTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.ListTransfersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datatransfer.v1.transfer_service_pb2.ListTransfersResponse: ...
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.GetTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datatransfer.v1.transfer_pb2.Transfer: ...
-
     @abc.abstractmethod
-    def Deactivate(self,
+    def Deactivate(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.DeactivateTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Activate(self,
+    def Activate(
+        self,
         request: yandex.cloud.datatransfer.v1.transfer_service_pb2.ActivateTransferRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
 
 def add_TransferServiceServicer_to_server(servicer: TransferServiceServicer, server: grpc.Server) -> None: ...

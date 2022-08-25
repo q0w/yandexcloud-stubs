@@ -6,8 +6,12 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -15,36 +19,35 @@ class Group(google.protobuf.message.Message):
     """A Group resource.
     For more information, see [Groups](/docs/organization/groups).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the group."""
-
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the organization that the group belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the group."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        organization_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","id",b"id","name",b"name","organization_id",b"organization_id"]) -> None: ...
+        id: builtins.str = ...,
+        organization_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "id", b"id", "name", b"name", "organization_id", b"organization_id"]) -> None: ...
+
 global___Group = Group

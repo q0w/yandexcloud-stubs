@@ -10,50 +10,53 @@ import yandex.cloud.operation.operation_pb2
 
 class DatabaseServiceStub:
     """A set of methods for managing SQL Server databases."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.GetDatabaseRequest,
-        yandex.cloud.mdb.sqlserver.v1.database_pb2.Database]
+        yandex.cloud.mdb.sqlserver.v1.database_pb2.Database,
+    ]
     """Returns the specified SQL Server database.
 
     To get the list of available SQL Server databases, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ListDatabasesRequest,
-        yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ListDatabasesResponse]
+        yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ListDatabasesResponse,
+    ]
     """Retrieves the list of SQL Server databases in the specified cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.CreateDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new SQL Server database in the specified cluster."""
-
     Restore: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.RestoreDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new SQL Server database in the specified cluster from a backup."""
-
     ImportBackup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ImportDatabaseBackupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Imports a new SQL Server database from an external backup."""
-
     ExportBackup: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ExportDatabaseBackupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Exports the last database backup to an external backup."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.database_service_pb2.DeleteDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified SQL Server database."""
-
 
 class DatabaseServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing SQL Server databases."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.GetDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.sqlserver.v1.database_pb2.Database:
@@ -61,55 +64,47 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available SQL Server databases, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ListDatabasesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ListDatabasesResponse:
         """Retrieves the list of SQL Server databases in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.CreateDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new SQL Server database in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Restore(self,
+    def Restore(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.RestoreDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new SQL Server database in the specified cluster from a backup."""
-        pass
-
     @abc.abstractmethod
-    def ImportBackup(self,
+    def ImportBackup(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ImportDatabaseBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Imports a new SQL Server database from an external backup."""
-        pass
-
     @abc.abstractmethod
-    def ExportBackup(self,
+    def ExportBackup(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.ExportDatabaseBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Exports the last database backup to an external backup."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.database_service_pb2.DeleteDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified SQL Server database."""
-        pass
-
 
 def add_DatabaseServiceServicer_to_server(servicer: DatabaseServiceServicer, server: grpc.Server) -> None: ...

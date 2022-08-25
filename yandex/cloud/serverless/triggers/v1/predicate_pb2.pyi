@@ -3,68 +3,79 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Predicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AND_PREDICATE_FIELD_NUMBER: builtins.int
     FIELD_VALUE_PREDICATE_FIELD_NUMBER: builtins.int
     @property
     def and_predicate(self) -> global___AndPredicate: ...
     @property
     def field_value_predicate(self) -> global___FieldValuePredicate: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        and_predicate: typing.Optional[global___AndPredicate] = ...,
-        field_value_predicate: typing.Optional[global___FieldValuePredicate] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["and_predicate",b"and_predicate","field_value_predicate",b"field_value_predicate","predicate",b"predicate"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["and_predicate",b"and_predicate","field_value_predicate",b"field_value_predicate","predicate",b"predicate"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["predicate",b"predicate"]) -> typing.Optional[typing_extensions.Literal["and_predicate","field_value_predicate"]]: ...
+        and_predicate: global___AndPredicate | None = ...,
+        field_value_predicate: global___FieldValuePredicate | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["and_predicate", b"and_predicate", "field_value_predicate", b"field_value_predicate", "predicate", b"predicate"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["and_predicate", b"and_predicate", "field_value_predicate", b"field_value_predicate", "predicate", b"predicate"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["predicate", b"predicate"]) -> typing_extensions.Literal["and_predicate", "field_value_predicate"] | None: ...
+
 global___Predicate = Predicate
 
 class AndPredicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PREDICATE_FIELD_NUMBER: builtins.int
     @property
     def predicate(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Predicate]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        predicate: typing.Optional[typing.Iterable[global___Predicate]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["predicate",b"predicate"]) -> None: ...
+        predicate: collections.abc.Iterable[global___Predicate] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["predicate", b"predicate"]) -> None: ...
+
 global___AndPredicate = AndPredicate
 
 class FieldValuePredicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FIELD_PATH_FIELD_NUMBER: builtins.int
     EXACT_FIELD_NUMBER: builtins.int
     PREFIX_FIELD_NUMBER: builtins.int
     SUFFIX_FIELD_NUMBER: builtins.int
-    field_path: typing.Text
-    exact: typing.Text
+    field_path: builtins.str
+    exact: builtins.str
     """string representation of the value matches exactly to the given string"""
-
-    prefix: typing.Text
+    prefix: builtins.str
     """value has given prefix"""
-
-    suffix: typing.Text
+    suffix: builtins.str
     """value has given suffix"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        field_path: typing.Text = ...,
-        exact: typing.Text = ...,
-        prefix: typing.Text = ...,
-        suffix: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["exact",b"exact","prefix",b"prefix","suffix",b"suffix","value",b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["exact",b"exact","field_path",b"field_path","prefix",b"prefix","suffix",b"suffix","value",b"value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value",b"value"]) -> typing.Optional[typing_extensions.Literal["exact","prefix","suffix"]]: ...
+        field_path: builtins.str = ...,
+        exact: builtins.str = ...,
+        prefix: builtins.str = ...,
+        suffix: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["exact", b"exact", "prefix", b"prefix", "suffix", b"suffix", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["exact", b"exact", "field_path", b"field_path", "prefix", b"prefix", "suffix", b"suffix", "value", b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["exact", "prefix", "suffix"] | None: ...
+
 global___FieldValuePredicate = FieldValuePredicate

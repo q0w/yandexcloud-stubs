@@ -10,48 +10,47 @@ import yandex.cloud.operation.operation_pb2
 
 class BudgetServiceStub:
     """A set of methods for managing Budget resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.budget_service_pb2.GetBudgetRequest,
-        yandex.cloud.billing.v1.budget_pb2.Budget]
+        yandex.cloud.billing.v1.budget_pb2.Budget,
+    ]
     """Returns the specified budget."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.budget_service_pb2.ListBudgetsRequest,
-        yandex.cloud.billing.v1.budget_service_pb2.ListBudgetsResponse]
+        yandex.cloud.billing.v1.budget_service_pb2.ListBudgetsResponse,
+    ]
     """Retrieves the list of budgets corresponding to the specified billing account."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.budget_service_pb2.CreateBudgetRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a budget for the specified billing account."""
-
 
 class BudgetServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Budget resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.billing.v1.budget_service_pb2.GetBudgetRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.billing.v1.budget_pb2.Budget:
         """Returns the specified budget."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.billing.v1.budget_service_pb2.ListBudgetsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.billing.v1.budget_service_pb2.ListBudgetsResponse:
         """Retrieves the list of budgets corresponding to the specified billing account."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.billing.v1.budget_service_pb2.CreateBudgetRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a budget for the specified billing account."""
-        pass
-
 
 def add_BudgetServiceServicer_to_server(servicer: BudgetServiceServicer, server: grpc.Server) -> None: ...

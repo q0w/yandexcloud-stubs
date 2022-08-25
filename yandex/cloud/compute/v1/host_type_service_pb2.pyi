@@ -3,33 +3,41 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.compute.v1.host_type_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetHostTypeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOST_TYPE_ID_FIELD_NUMBER: builtins.int
-    host_type_id: typing.Text
+    host_type_id: builtins.str
     """ID of the host type to return.
 
     To get a host type ID make a [HostTypeService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        host_type_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["host_type_id",b"host_type_id"]) -> None: ...
+        host_type_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["host_type_id", b"host_type_id"]) -> None: ...
+
 global___GetHostTypeRequest = GetHostTypeRequest
 
 class ListHostTypesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     page_size: builtins.int
@@ -38,41 +46,42 @@ class ListHostTypesRequest(google.protobuf.message.Message):
     the service returns a [ListHostTypesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results,
     set [page_token] to the [ListHostTypesResponse.next_page_token]
     returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListHostTypesRequest = ListHostTypesRequest
 
 class ListHostTypesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOST_TYPES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def host_types(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.host_type_pb2.HostType]:
         """Lists host types."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListHostTypesRequest.page_size], use `next_page_token` as the value
     for the [ListHostTypesRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        host_types: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.host_type_pb2.HostType]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["host_types",b"host_types","next_page_token",b"next_page_token"]) -> None: ...
+        host_types: collections.abc.Iterable[yandex.cloud.compute.v1.host_type_pb2.HostType] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["host_types", b"host_types", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListHostTypesResponse = ListHostTypesResponse

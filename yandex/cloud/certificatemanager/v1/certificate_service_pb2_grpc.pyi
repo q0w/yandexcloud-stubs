@@ -11,69 +11,72 @@ import yandex.cloud.operation.operation_pb2
 
 class CertificateServiceStub:
     """A set of methods for managing certificates."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.GetCertificateRequest,
-        yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate]
+        yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate,
+    ]
     """Returns the specified certificate.
 
     To get the list of available certificates, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificatesRequest,
-        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificatesResponse]
+        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificatesResponse,
+    ]
     """Returns the list of certificates in the specified folder."""
-
     ListVersions: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListVersionsRequest,
-        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListVersionsResponse]
-
+        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListVersionsResponse,
+    ]
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.CreateCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a certificate in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.UpdateCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified certificate."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.DeleteCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified certificate."""
-
     RequestNew: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.RequestNewCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Request a certificate in the specified folder."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificateOperationsRequest,
-        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificateOperationsResponse]
+        yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificateOperationsResponse,
+    ]
     """Lists operations for the specified certificate."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """Lists existing access bindings for the specified certificate."""
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the certificate."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified certificate."""
-
 
 class CertificateServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing certificates."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.GetCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate:
@@ -81,85 +84,74 @@ class CertificateServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available certificates, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificatesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificatesResponse:
         """Returns the list of certificates in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def ListVersions(self,
+    def ListVersions(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListVersionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListVersionsResponse: ...
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.CreateCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a certificate in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.UpdateCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified certificate."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.DeleteCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified certificate."""
-        pass
-
     @abc.abstractmethod
-    def RequestNew(self,
+    def RequestNew(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.RequestNewCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Request a certificate in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificateOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.certificatemanager.v1.certificate_service_pb2.ListCertificateOperationsResponse:
         """Lists operations for the specified certificate."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
         """Lists existing access bindings for the specified certificate."""
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the certificate."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified certificate."""
-        pass
-
 
 def add_CertificateServiceServicer_to_server(servicer: CertificateServiceServicer, server: grpc.Server) -> None: ...

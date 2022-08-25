@@ -3,13 +3,19 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -17,54 +23,50 @@ class Filesystem(google.protobuf.message.Message):
     """A filesystem resource.
     For details about the concept, see [documentation](/docs/compute/concepts/filesystem).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Filesystem._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Filesystem._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Filesystem._Status.ValueType  # 0
         CREATING: Filesystem._Status.ValueType  # 1
         """The filesystem is being created."""
-
         READY: Filesystem._Status.ValueType  # 2
         """The filesystem is ready to use."""
-
         ERROR: Filesystem._Status.ValueType  # 3
         """The filesystem encountered a problem and cannot operate."""
-
         DELETING: Filesystem._Status.ValueType  # 4
         """The filesystem is being deleted."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Filesystem.Status.ValueType  # 0
     CREATING: Filesystem.Status.ValueType  # 1
     """The filesystem is being created."""
-
     READY: Filesystem.Status.ValueType  # 2
     """The filesystem is ready to use."""
-
     ERROR: Filesystem.Status.ValueType  # 3
     """The filesystem encountered a problem and cannot operate."""
-
     DELETING: Filesystem.Status.ValueType  # 4
     """The filesystem is being deleted."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -77,63 +79,54 @@ class Filesystem(google.protobuf.message.Message):
     SIZE_FIELD_NUMBER: builtins.int
     BLOCK_SIZE_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the filesystem. Generated at creation time."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the filesystem belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the filesystem. The name is unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the filesystem."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Filesystem labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
         """
-        pass
-    type_id: typing.Text
+    type_id: builtins.str
     """ID of the filesystem type.
 
     To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request.
     """
-
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the filesystem resides.
 
     A filesystem can be attached only to instances residing in the same availability zone.
     """
-
     size: builtins.int
     """Size of the filesystem, specified in bytes."""
-
     block_size: builtins.int
     """Block size used for the filesystem, specified in bytes."""
-
     status: global___Filesystem.Status.ValueType
     """Current status of the filesystem."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        type_id: typing.Text = ...,
-        zone_id: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        type_id: builtins.str = ...,
+        zone_id: builtins.str = ...,
         size: builtins.int = ...,
         block_size: builtins.int = ...,
         status: global___Filesystem.Status.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["block_size",b"block_size","created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","size",b"size","status",b"status","type_id",b"type_id","zone_id",b"zone_id"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["block_size", b"block_size", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "size", b"size", "status", b"status", "type_id", b"type_id", "zone_id", b"zone_id"]) -> None: ...
+
 global___Filesystem = Filesystem

@@ -10,53 +10,55 @@ import yandex.cloud.operation.operation_pb2
 
 class AccessKeyServiceStub:
     """A set of methods for managing access keys."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeysRequest,
-        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeysResponse]
+        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeysResponse,
+    ]
     """Retrieves the list of access keys for the specified service account."""
-
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.GetAccessKeyRequest,
-        yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey]
+        yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey,
+    ]
     """Returns the specified access key.
 
     To get the list of available access keys, make a [List] request.
     """
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.CreateAccessKeyRequest,
-        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.CreateAccessKeyResponse]
+        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.CreateAccessKeyResponse,
+    ]
     """Creates an access key for the specified service account."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.UpdateAccessKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified access key."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.DeleteAccessKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified access key."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeyOperationsRequest,
-        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeyOperationsResponse]
+        yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeyOperationsResponse,
+    ]
     """Retrieves the list of operations for the specified access key."""
-
 
 class AccessKeyServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing access keys."""
+
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeysRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeysResponse:
         """Retrieves the list of access keys for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.GetAccessKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey:
@@ -64,39 +66,33 @@ class AccessKeyServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available access keys, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.CreateAccessKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.CreateAccessKeyResponse:
         """Creates an access key for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.UpdateAccessKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified access key."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.DeleteAccessKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified access key."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeyOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.awscompatibility.access_key_service_pb2.ListAccessKeyOperationsResponse:
         """Retrieves the list of operations for the specified access key."""
-        pass
-
 
 def add_AccessKeyServiceServicer_to_server(servicer: AccessKeyServiceServicer, server: grpc.Server) -> None: ...

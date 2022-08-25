@@ -6,8 +6,12 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -18,7 +22,9 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
     Any options that are not listed here are not supported.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MAX_DEGREE_OF_PARALLELISM_FIELD_NUMBER: builtins.int
     COST_THRESHOLD_FOR_PARALLELISM_FIELD_NUMBER: builtins.int
     AUDIT_LEVEL_FIELD_NUMBER: builtins.int
@@ -30,7 +36,6 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def cost_threshold_for_parallelism(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
@@ -39,7 +44,6 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def audit_level(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -52,7 +56,6 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
         """
-        pass
     @property
     def fill_factor_percent(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Manages the fill factor server configuration option.
@@ -63,7 +66,6 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def optimize_for_ad_hoc_workloads(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines whether plans should be cached only after second execution.
@@ -72,44 +74,45 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        max_degree_of_parallelism: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        cost_threshold_for_parallelism: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        audit_level: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        fill_factor_percent: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        optimize_for_ad_hoc_workloads: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audit_level",b"audit_level","cost_threshold_for_parallelism",b"cost_threshold_for_parallelism","fill_factor_percent",b"fill_factor_percent","max_degree_of_parallelism",b"max_degree_of_parallelism","optimize_for_ad_hoc_workloads",b"optimize_for_ad_hoc_workloads"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audit_level",b"audit_level","cost_threshold_for_parallelism",b"cost_threshold_for_parallelism","fill_factor_percent",b"fill_factor_percent","max_degree_of_parallelism",b"max_degree_of_parallelism","optimize_for_ad_hoc_workloads",b"optimize_for_ad_hoc_workloads"]) -> None: ...
+        max_degree_of_parallelism: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        cost_threshold_for_parallelism: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        audit_level: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        fill_factor_percent: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        optimize_for_ad_hoc_workloads: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audit_level", b"audit_level", "cost_threshold_for_parallelism", b"cost_threshold_for_parallelism", "fill_factor_percent", b"fill_factor_percent", "max_degree_of_parallelism", b"max_degree_of_parallelism", "optimize_for_ad_hoc_workloads", b"optimize_for_ad_hoc_workloads"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audit_level", b"audit_level", "cost_threshold_for_parallelism", b"cost_threshold_for_parallelism", "fill_factor_percent", b"fill_factor_percent", "max_degree_of_parallelism", b"max_degree_of_parallelism", "optimize_for_ad_hoc_workloads", b"optimize_for_ad_hoc_workloads"]) -> None: ...
+
 global___SQLServerConfig2016sp2std = SQLServerConfig2016sp2std
 
 class SQLServerConfigSet2016sp2std(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___SQLServerConfig2016sp2std:
         """Effective settings for an SQL Server 2016 SP2 cluster (a combination of settings defined in [user_config] and [default_config])."""
-        pass
     @property
     def user_config(self) -> global___SQLServerConfig2016sp2std:
         """User-defined settings for an SQL Server 2016 SP2 cluster."""
-        pass
     @property
     def default_config(self) -> global___SQLServerConfig2016sp2std:
         """Default configuration for an SQL Server 2016 SP2 cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___SQLServerConfig2016sp2std] = ...,
-        user_config: typing.Optional[global___SQLServerConfig2016sp2std] = ...,
-        default_config: typing.Optional[global___SQLServerConfig2016sp2std] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___SQLServerConfig2016sp2std | None = ...,
+        user_config: global___SQLServerConfig2016sp2std | None = ...,
+        default_config: global___SQLServerConfig2016sp2std | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___SQLServerConfigSet2016sp2std = SQLServerConfigSet2016sp2std
 
 class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
@@ -119,7 +122,9 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
     Any options that are not listed here are not supported.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MAX_DEGREE_OF_PARALLELISM_FIELD_NUMBER: builtins.int
     COST_THRESHOLD_FOR_PARALLELISM_FIELD_NUMBER: builtins.int
     AUDIT_LEVEL_FIELD_NUMBER: builtins.int
@@ -131,7 +136,6 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def cost_threshold_for_parallelism(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Specifies the threshold at which SQL Server creates and runs parallel plans for queries.
@@ -140,7 +144,6 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-cost-threshold-for-parallelism-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def audit_level(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Describes how to configure login auditing to monitor SQL Server Database Engine login activity.
@@ -153,7 +156,6 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/ssms/configure-login-auditing-sql-server-management-studio?view=sql-server-2016).
         """
-        pass
     @property
     def fill_factor_percent(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Manages the fill factor server configuration option.
@@ -163,7 +165,6 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
         """
-        pass
     @property
     def optimize_for_ad_hoc_workloads(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines whether plans should be cached only after second execution.
@@ -172,42 +173,43 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
         See in-depth description in [SQL Server documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/optimize-for-ad-hoc-workloads-server-configuration-option?view=sql-server-2016).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        max_degree_of_parallelism: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        cost_threshold_for_parallelism: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        audit_level: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        fill_factor_percent: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        optimize_for_ad_hoc_workloads: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audit_level",b"audit_level","cost_threshold_for_parallelism",b"cost_threshold_for_parallelism","fill_factor_percent",b"fill_factor_percent","max_degree_of_parallelism",b"max_degree_of_parallelism","optimize_for_ad_hoc_workloads",b"optimize_for_ad_hoc_workloads"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audit_level",b"audit_level","cost_threshold_for_parallelism",b"cost_threshold_for_parallelism","fill_factor_percent",b"fill_factor_percent","max_degree_of_parallelism",b"max_degree_of_parallelism","optimize_for_ad_hoc_workloads",b"optimize_for_ad_hoc_workloads"]) -> None: ...
+        max_degree_of_parallelism: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        cost_threshold_for_parallelism: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        audit_level: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        fill_factor_percent: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        optimize_for_ad_hoc_workloads: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audit_level", b"audit_level", "cost_threshold_for_parallelism", b"cost_threshold_for_parallelism", "fill_factor_percent", b"fill_factor_percent", "max_degree_of_parallelism", b"max_degree_of_parallelism", "optimize_for_ad_hoc_workloads", b"optimize_for_ad_hoc_workloads"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audit_level", b"audit_level", "cost_threshold_for_parallelism", b"cost_threshold_for_parallelism", "fill_factor_percent", b"fill_factor_percent", "max_degree_of_parallelism", b"max_degree_of_parallelism", "optimize_for_ad_hoc_workloads", b"optimize_for_ad_hoc_workloads"]) -> None: ...
+
 global___SQLServerConfig2016sp2ent = SQLServerConfig2016sp2ent
 
 class SQLServerConfigSet2016sp2ent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
     def effective_config(self) -> global___SQLServerConfig2016sp2ent:
         """Effective settings for an SQL Server 2016 SP2 cluster (a combination of settings defined in [user_config] and [default_config])."""
-        pass
     @property
     def user_config(self) -> global___SQLServerConfig2016sp2ent:
         """User-defined settings for an SQL Server 2016 SP2 cluster."""
-        pass
     @property
     def default_config(self) -> global___SQLServerConfig2016sp2ent:
         """Default configuration for an SQL Server 2016 SP2 cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___SQLServerConfig2016sp2ent] = ...,
-        user_config: typing.Optional[global___SQLServerConfig2016sp2ent] = ...,
-        default_config: typing.Optional[global___SQLServerConfig2016sp2ent] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___SQLServerConfig2016sp2ent | None = ...,
+        user_config: global___SQLServerConfig2016sp2ent | None = ...,
+        default_config: global___SQLServerConfig2016sp2ent | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___SQLServerConfigSet2016sp2ent = SQLServerConfigSet2016sp2ent

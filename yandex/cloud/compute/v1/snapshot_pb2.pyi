@@ -3,66 +3,68 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Snapshot(google.protobuf.message.Message):
     """A Snapshot resource. For more information, see [Snapshots](/docs/compute/concepts/snapshot)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Snapshot._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Snapshot._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Snapshot._Status.ValueType  # 0
         CREATING: Snapshot._Status.ValueType  # 1
         """Snapshot is being created."""
-
         READY: Snapshot._Status.ValueType  # 2
         """Snapshot is ready to use."""
-
         ERROR: Snapshot._Status.ValueType  # 3
         """Snapshot encountered a problem and cannot operate."""
-
         DELETING: Snapshot._Status.ValueType  # 4
         """Snapshot is being deleted."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Snapshot.Status.ValueType  # 0
     CREATING: Snapshot.Status.ValueType  # 1
     """Snapshot is being created."""
-
     READY: Snapshot.Status.ValueType  # 2
     """Snapshot is ready to use."""
-
     ERROR: Snapshot.Status.ValueType  # 3
     """Snapshot encountered a problem and cannot operate."""
-
     DELETING: Snapshot.Status.ValueType  # 4
     """Snapshot is being deleted."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -75,36 +77,29 @@ class Snapshot(google.protobuf.message.Message):
     PRODUCT_IDS_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     SOURCE_DISK_ID_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the snapshot."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the snapshot belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    name: typing.Text
+    name: builtins.str
     """Name of the snapshot. 1-63 characters long."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the snapshot. 0-256 characters long."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs. Maximum of 64 per resource."""
-        pass
     storage_size: builtins.int
     """Size of the snapshot, specified in bytes.
     delta from prev snapshot from same disk
     """
-
     disk_size: builtins.int
     """Size of the disk when the snapshot was created, specified in bytes.
     at snapshot moment
     """
-
     @property
-    def product_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def product_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """License IDs that indicate which licenses are attached to this resource.
         License IDs are used to calculate additional charges for the use of the virtual machine.
 
@@ -114,27 +109,26 @@ class Snapshot(google.protobuf.message.Message):
         For example, if you create a disk image using a third-party utility and load it into Object Storage, the license IDs will be lost.
         You can specify them in the [yandex.cloud.compute.v1.ImageService.Create] request.
         """
-        pass
     status: global___Snapshot.Status.ValueType
     """Current status of the snapshot."""
-
-    source_disk_id: typing.Text
+    source_disk_id: builtins.str
     """ID of the source disk used to create this snapshot."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         storage_size: builtins.int = ...,
         disk_size: builtins.int = ...,
-        product_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        product_ids: collections.abc.Iterable[builtins.str] | None = ...,
         status: global___Snapshot.Status.ValueType = ...,
-        source_disk_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","disk_size",b"disk_size","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","product_ids",b"product_ids","source_disk_id",b"source_disk_id","status",b"status","storage_size",b"storage_size"]) -> None: ...
+        source_disk_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "disk_size", b"disk_size", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "product_ids", b"product_ids", "source_disk_id", b"source_disk_id", "status", b"status", "storage_size", b"storage_size"]) -> None: ...
+
 global___Snapshot = Snapshot

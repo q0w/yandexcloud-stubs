@@ -3,6 +3,7 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
@@ -10,8 +11,8 @@ import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import google.type.timeofday_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.mdb.sqlserver.v1.backup_pb2
 import yandex.cloud.mdb.sqlserver.v1.cluster_pb2
 import yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2
@@ -21,46 +22,51 @@ import yandex.cloud.mdb.sqlserver.v1.database_pb2
 import yandex.cloud.mdb.sqlserver.v1.user_pb2
 import yandex.cloud.operation.operation_pb2
 
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
+
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to return.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___GetClusterRequest = GetClusterRequest
 
 class ListClustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list SQL Server clusters in.
 
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token] returned by the previous list request."""
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -71,53 +77,58 @@ class ListClustersRequest(google.protobuf.message.Message):
 
     Example of a filter expression: `name NOT IN 'test,beta'`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClustersRequest = ListClustersRequest
 
 class ListClustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def clusters(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster]:
         """List of SQL Server clusters."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token that allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClustersRequest.page_size], use the `next_page_token` as the value for the [ListClustersRequest.page_token] parameter in the next list request. Each subsequent list request has its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        clusters: typing.Optional[typing.Iterable[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["clusters",b"clusters","next_page_token",b"next_page_token"]) -> None: ...
+        clusters: collections.abc.Iterable[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["clusters", b"clusters", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClustersResponse = ListClustersResponse
 
 class CreateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -134,112 +145,104 @@ class CreateClusterRequest(google.protobuf.message.Message):
     SQLCOLLATION_FIELD_NUMBER: builtins.int
     HOST_GROUP_IDS_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create the SQL Server cluster in.
 
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the SQL Server cluster. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the SQL Server cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the SQL Server cluster as `key:value` pairs.
         For example, "project":"mvp" or "source":"dictionary".
         """
-        pass
     environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the SQL Server cluster."""
-
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Configurations of SQL Server and hosts of the cluster."""
-        pass
     @property
     def database_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.database_pb2.DatabaseSpec]:
         """One or more configurations of databases to be created in the SQL Server cluster."""
-        pass
     @property
     def user_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.user_pb2.UserSpec]:
         """One or more configurations of database users to be created in the SQL Server cluster."""
-        pass
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """One or more configurations of hosts to be created in the SQL Server cluster."""
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the SQL Server cluster in."""
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
-    sqlcollation: typing.Text
+    sqlcollation: builtins.str
     """Name of SQL Collation that cluster will be created with."""
-
     @property
-    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Host groups hosting VMs of the cluster."""
-        pass
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account used for access to Object Storage."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        database_specs: typing.Optional[typing.Iterable[yandex.cloud.mdb.sqlserver.v1.database_pb2.DatabaseSpec]] = ...,
-        user_specs: typing.Optional[typing.Iterable[yandex.cloud.mdb.sqlserver.v1.user_pb2.UserSpec]] = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        network_id: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        config_spec: global___ConfigSpec | None = ...,
+        database_specs: collections.abc.Iterable[yandex.cloud.mdb.sqlserver.v1.database_pb2.DatabaseSpec] | None = ...,
+        user_specs: collections.abc.Iterable[yandex.cloud.mdb.sqlserver.v1.user_pb2.UserSpec] | None = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+        network_id: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        sqlcollation: typing.Text = ...,
-        host_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","database_specs",b"database_specs","deletion_protection",b"deletion_protection","description",b"description","environment",b"environment","folder_id",b"folder_id","host_group_ids",b"host_group_ids","host_specs",b"host_specs","labels",b"labels","name",b"name","network_id",b"network_id","security_group_ids",b"security_group_ids","service_account_id",b"service_account_id","sqlcollation",b"sqlcollation","user_specs",b"user_specs"]) -> None: ...
+        sqlcollation: builtins.str = ...,
+        host_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "database_specs", b"database_specs", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_group_ids", b"host_group_ids", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "security_group_ids", b"security_group_ids", "service_account_id", b"service_account_id", "sqlcollation", b"sqlcollation", "user_specs", b"user_specs"]) -> None: ...
+
 global___CreateClusterRequest = CreateClusterRequest
 
 class CreateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being created."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being created."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___CreateClusterMetadata = CreateClusterMetadata
 
 class UpdateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -250,21 +253,18 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to update.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the SQL Server cluster should be updated."""
-        pass
-    description: typing.Text
+    description: builtins.str
     """New description of the SQL Server cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the SQL Server cluster as `key:value` pairs.
 
         For example, `"project":"mvp"` or `"source":"dictionary"`.
@@ -273,125 +273,134 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
         To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
         """
-        pass
     @property
     def config_spec(self) -> global___ConfigSpec:
         """New configuration and resources for hosts in the SQL Server cluster."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the SQL Server cluster."""
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account used for access to Object Storage."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        name: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        config_spec: global___ConfigSpec | None = ...,
+        name: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","name",b"name","security_group_ids",b"security_group_ids","service_account_id",b"service_account_id","update_mask",b"update_mask"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "name", b"name", "security_group_ids", b"security_group_ids", "service_account_id", b"service_account_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateClusterRequest = UpdateClusterRequest
 
 class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being updated."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being updated."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to delete.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterRequest = DeleteClusterRequest
 
 class DeleteClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being deleted."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being deleted."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterMetadata = DeleteClusterMetadata
 
 class BackupClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to back up.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___BackupClusterRequest = BackupClusterRequest
 
 class BackupClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being backed up."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being backed up."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___BackupClusterMetadata = BackupClusterMetadata
 
 class RestoreClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     BACKUP_ID_FIELD_NUMBER: builtins.int
     TIME_FIELD_NUMBER: builtins.int
@@ -407,194 +416,186 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     HOST_GROUP_IDS_FIELD_NUMBER: builtins.int
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup to create a new cluster from.
 
     To get the backup ID, use a [ClusterService.ListBackups] request.
     """
-
     @property
     def time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Timestamp of the moment to which the SQL Server cluster should be restored."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the new SQL Server cluster to be created from the backup. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the new SQL Server cluster to be created from the backup."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the new SQL Server cluster to be created from the backup as `key:value` pairs.
 
         For example, `"project":"mvp"` or `"source":"dictionary"`.
         """
-        pass
     environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the new SQL Server cluster to be created from the backup."""
-
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Configuration for the new SQL Server cluster to be created from the backup."""
-        pass
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Configurations for SQL Server hosts that should be added to the cluster being created from the backup."""
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the SQL Server cluster in."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create the SQL Server cluster in.
 
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
     @property
-    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Host groups hosting VMs of the cluster."""
-        pass
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account used for access to Object Storage."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backup_id: typing.Text = ...,
-        time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        backup_id: builtins.str = ...,
+        time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        network_id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        config_spec: global___ConfigSpec | None = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+        network_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        host_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","time",b"time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","environment",b"environment","folder_id",b"folder_id","host_group_ids",b"host_group_ids","host_specs",b"host_specs","labels",b"labels","name",b"name","network_id",b"network_id","security_group_ids",b"security_group_ids","service_account_id",b"service_account_id","time",b"time"]) -> None: ...
+        host_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "time", b"time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_group_ids", b"host_group_ids", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "security_group_ids", b"security_group_ids", "service_account_id", b"service_account_id", "time", b"time"]) -> None: ...
+
 global___RestoreClusterRequest = RestoreClusterRequest
 
 class RestoreClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     BACKUP_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the new SQL Server cluster being created from a backup."""
-
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup being used for creating a cluster."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        backup_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        backup_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "cluster_id", b"cluster_id"]) -> None: ...
+
 global___RestoreClusterMetadata = RestoreClusterMetadata
 
 class StartClusterFailoverRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of SQL Server cluster."""
-
-    host_name: typing.Text
+    host_name: builtins.str
     """Host name to switch master role to.
 
     To get this name, make a [ClusterService.ListHosts] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_name",b"host_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_name", b"host_name"]) -> None: ...
+
 global___StartClusterFailoverRequest = StartClusterFailoverRequest
 
 class StartClusterFailoverMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being failovered."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being failovered."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterFailoverMetadata = StartClusterFailoverMetadata
 
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class MessageEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     TIMESTAMP_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     @property
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Log record timestamp."""
-        pass
     @property
-    def message(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def message(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Contents of the log record."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        timestamp: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        message: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["message",b"message","timestamp",b"timestamp"]) -> None: ...
+        timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        message: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["timestamp", b"timestamp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "timestamp", b"timestamp"]) -> None: ...
+
 global___LogRecord = LogRecord
 
 class ListClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ServiceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):
+
+    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest._ServiceType.ValueType  # 0
         SQLSERVER_ERROR: ListClusterLogsRequest._ServiceType.ValueType  # 1
         """SQL Server error log."""
-
         SQLSERVER_APPLICATION: ListClusterLogsRequest._ServiceType.ValueType  # 2
         """SQL Server application log."""
 
-    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        pass
-
+    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper): ...
     SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest.ServiceType.ValueType  # 0
     SQLSERVER_ERROR: ListClusterLogsRequest.ServiceType.ValueType  # 1
     """SQL Server error log."""
-
     SQLSERVER_APPLICATION: ListClusterLogsRequest.ServiceType.ValueType  # 2
     """SQL Server application log."""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     COLUMN_FILTER_FIELD_NUMBER: builtins.int
@@ -605,43 +606,35 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     ALWAYS_NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to request logs for.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
     @property
-    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Columns from the logs table to request.
 
         If no columns are specified, entire log records are returned.
         """
-        pass
     service_type: global___ListClusterLogsRequest.ServiceType.ValueType
     """Type of the service to request logs about."""
-
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Specifies a moment that the logs are requested from."""
-        pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Specifies a moment that the logs are requested till."""
-        pass
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request."""
-
     always_next_page_token: builtins.bool
     """The service returns [next_page_token] even if the current page is empty."""
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -652,347 +645,361 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
     Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        column_filter: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        column_filter: collections.abc.Iterable[builtins.str] | None = ...,
         service_type: global___ListClusterLogsRequest.ServiceType.ValueType = ...,
-        from_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        to_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        from_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        to_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
+        page_token: builtins.str = ...,
         always_next_page_token: builtins.bool = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["from_time",b"from_time","to_time",b"to_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["always_next_page_token",b"always_next_page_token","cluster_id",b"cluster_id","column_filter",b"column_filter","filter",b"filter","from_time",b"from_time","page_size",b"page_size","page_token",b"page_token","service_type",b"service_type","to_time",b"to_time"]) -> None: ...
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["from_time", b"from_time", "to_time", b"to_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["always_next_page_token", b"always_next_page_token", "cluster_id", b"cluster_id", "column_filter", b"column_filter", "filter", b"filter", "from_time", b"from_time", "page_size", b"page_size", "page_token", b"page_token", "service_type", b"service_type", "to_time", b"to_time"]) -> None: ...
+
 global___ListClusterLogsRequest = ListClusterLogsRequest
 
 class ListClusterLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     LOGS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def logs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogRecord]:
         """Requested log records."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token that allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        logs: typing.Optional[typing.Iterable[global___LogRecord]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["logs",b"logs","next_page_token",b"next_page_token"]) -> None: ...
+        logs: collections.abc.Iterable[global___LogRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["logs", b"logs", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterLogsResponse = ListClusterLogsResponse
 
 class ListClusterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to list operations for.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterOperationsRequest = ListClusterOperationsRequest
 
 class ListClusterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified SQL Server cluster."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token that allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListClusterOperationsResponse = ListClusterOperationsResponse
 
 class ListClusterBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterBackupsRequest = ListClusterBackupsRequest
 
 class ListClusterBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def backups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.backup_pb2.Backup]:
         """List of SQL Server backups."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token that allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backups: typing.Optional[typing.Iterable[yandex.cloud.mdb.sqlserver.v1.backup_pb2.Backup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backups",b"backups","next_page_token",b"next_page_token"]) -> None: ...
+        backups: collections.abc.Iterable[yandex.cloud.mdb.sqlserver.v1.backup_pb2.Backup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backups", b"backups", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterBackupsResponse = ListClusterBackupsResponse
 
 class ListClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster.
 
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterHostsRequest = ListClusterHostsRequest
 
 class ListClusterHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOSTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def hosts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Host]:
         """List of SQL Server hosts."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token that allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        hosts: typing.Optional[typing.Iterable[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Host]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hosts",b"hosts","next_page_token",b"next_page_token"]) -> None: ...
+        hosts: collections.abc.Iterable[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Host] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hosts", b"hosts", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
 class StartClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to start.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterRequest = StartClusterRequest
 
 class StartClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being started."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being started."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterMetadata = StartClusterMetadata
 
 class StopClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to stop.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterRequest = StopClusterRequest
 
 class StopClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the SQL Server cluster being stopped."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the SQL Server cluster being stopped."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterMetadata = StopClusterMetadata
 
 class MoveClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to move.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    destination_folder_id: typing.Text
+    destination_folder_id: builtins.str
     """ID of the destination folder.
 
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        destination_folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","destination_folder_id",b"destination_folder_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        destination_folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "destination_folder_id", b"destination_folder_id"]) -> None: ...
+
 global___MoveClusterRequest = MoveClusterRequest
 
 class MoveClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SOURCE_FOLDER_ID_FIELD_NUMBER: builtins.int
     DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster being moved."""
-
-    source_folder_id: typing.Text
+    source_folder_id: builtins.str
     """ID of the source folder."""
-
-    destination_folder_id: typing.Text
+    destination_folder_id: builtins.str
     """ID of the destination folder."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        source_folder_id: typing.Text = ...,
-        destination_folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","destination_folder_id",b"destination_folder_id","source_folder_id",b"source_folder_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        source_folder_id: builtins.str = ...,
+        destination_folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "destination_folder_id", b"destination_folder_id", "source_folder_id", b"source_folder_id"]) -> None: ...
+
 global___MoveClusterMetadata = MoveClusterMetadata
 
 class UpdateClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to update hosts in."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of the hosts being updated."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___UpdateClusterHostsMetadata = UpdateClusterHostsMetadata
 
 class HostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ZONE_ID_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the host resides.
 
     To get the list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
     """
-
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     """ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
 
     The ID of the network is set in the field [Cluster.network_id].
     """
-
     assign_public_ip: builtins.bool
     """Determines whether the host gets a public IP address on creation.
 
@@ -1002,67 +1009,70 @@ class HostSpec(google.protobuf.message.Message):
     * `false` - do not assign a public IP to the host;
     * `true` - assign a public IP to the host.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        zone_id: typing.Text = ...,
-        subnet_id: typing.Text = ...,
+        zone_id: builtins.str = ...,
+        subnet_id: builtins.str = ...,
         assign_public_ip: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip",b"assign_public_ip","subnet_id",b"subnet_id","zone_id",b"zone_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip", b"assign_public_ip", "subnet_id", b"subnet_id", "zone_id", b"zone_id"]) -> None: ...
+
 global___HostSpec = HostSpec
 
 class UpdateHostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOST_NAME_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
-    host_name: typing.Text
+    host_name: builtins.str
     """Name of the host to update.
 
     To get the SQL Server host name, use a [ClusterService.ListHosts] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the SQL Server host should be updated."""
-        pass
     assign_public_ip: builtins.bool
     """Determines whether the host gets a public IP address on creation."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        host_name: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
+        host_name: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
         assign_public_ip: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip",b"assign_public_ip","host_name",b"host_name","update_mask",b"update_mask"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip", b"assign_public_ip", "host_name", b"host_name", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateHostSpec = UpdateHostSpec
 
 class UpdateClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     UPDATE_HOST_SPECS_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the SQL Server cluster to update hosts in.
     To get the SQL Server cluster ID, use a [ClusterService.List] request.
     """
-
     @property
     def update_host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___UpdateHostSpec]:
         """New configurations to apply to hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        update_host_specs: typing.Optional[typing.Iterable[global___UpdateHostSpec]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","update_host_specs",b"update_host_specs"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        update_host_specs: collections.abc.Iterable[global___UpdateHostSpec] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "update_host_specs", b"update_host_specs"]) -> None: ...
+
 global___UpdateClusterHostsRequest = UpdateClusterHostsRequest
 
 class ConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSION_FIELD_NUMBER: builtins.int
     SQLSERVER_CONFIG_2016SP2STD_FIELD_NUMBER: builtins.int
     SQLSERVER_CONFIG_2016SP2ENT_FIELD_NUMBER: builtins.int
@@ -1074,7 +1084,7 @@ class ConfigSpec(google.protobuf.message.Message):
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
     SECONDARY_CONNECTIONS_FIELD_NUMBER: builtins.int
-    version: typing.Text
+    version: builtins.str
     """Version of SQL Server used in the cluster.
 
     Possible values:
@@ -1086,61 +1096,52 @@ class ConfigSpec(google.protobuf.message.Message):
     * 2019ent.
     No formal validation, a list of supported versions should suffice.
     """
-
     @property
     def sqlserver_config_2016sp2std(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2std:
         """Configuration for an SQL Server 2016 SP2 Standard edition cluster."""
-        pass
     @property
     def sqlserver_config_2016sp2ent(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2ent:
         """Configuration for an SQL Server 2016 SP2 Enterprise edition cluster."""
-        pass
     @property
     def sqlserver_config_2017std(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017std:
         """Configuration for an SQL Server 2017 Standard edition cluster."""
-        pass
     @property
     def sqlserver_config_2017ent(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017ent:
         """Configuration for an SQL Server 2017 Enterprise edition cluster."""
-        pass
     @property
     def sqlserver_config_2019std(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019std:
         """Configuration for an SQL Server 2019 Standard edition cluster."""
-        pass
     @property
     def sqlserver_config_2019ent(self) -> yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019ent:
         """Configuration for an SQL Server 2019 Enterprise edition cluster."""
-        pass
     @property
     def resources(self) -> yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Resources:
         """Resources allocated to SQL Server hosts."""
-        pass
     @property
     def backup_window_start(self) -> google.type.timeofday_pb2.TimeOfDay:
         """Start time for the daily backup in UTC timezone."""
-        pass
     @property
     def access(self) -> yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Access:
         """Database access policy."""
-        pass
     secondary_connections: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.ClusterConfig.SecondaryConnections.ValueType
     """Secondary replicas connection mode"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        version: typing.Text = ...,
-        sqlserver_config_2016sp2std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2std] = ...,
-        sqlserver_config_2016sp2ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2ent] = ...,
-        sqlserver_config_2017std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017std] = ...,
-        sqlserver_config_2017ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017ent] = ...,
-        sqlserver_config_2019std: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019std] = ...,
-        sqlserver_config_2019ent: typing.Optional[yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019ent] = ...,
-        resources: typing.Optional[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Resources] = ...,
-        backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
-        access: typing.Optional[yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Access] = ...,
+        version: builtins.str = ...,
+        sqlserver_config_2016sp2std: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2std | None = ...,
+        sqlserver_config_2016sp2ent: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2016sp2_pb2.SQLServerConfig2016sp2ent | None = ...,
+        sqlserver_config_2017std: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017std | None = ...,
+        sqlserver_config_2017ent: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2017_pb2.SQLServerConfig2017ent | None = ...,
+        sqlserver_config_2019std: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019std | None = ...,
+        sqlserver_config_2019ent: yandex.cloud.mdb.sqlserver.v1.config.sqlserver2019_pb2.SQLServerConfig2019ent | None = ...,
+        resources: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Resources | None = ...,
+        backup_window_start: google.type.timeofday_pb2.TimeOfDay | None = ...,
+        access: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.Access | None = ...,
         secondary_connections: yandex.cloud.mdb.sqlserver.v1.cluster_pb2.ClusterConfig.SecondaryConnections.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std","sqlserver_config_2017ent",b"sqlserver_config_2017ent","sqlserver_config_2017std",b"sqlserver_config_2017std","sqlserver_config_2019ent",b"sqlserver_config_2019ent","sqlserver_config_2019std",b"sqlserver_config_2019std"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_window_start",b"backup_window_start","resources",b"resources","secondary_connections",b"secondary_connections","sqlserver_config",b"sqlserver_config","sqlserver_config_2016sp2ent",b"sqlserver_config_2016sp2ent","sqlserver_config_2016sp2std",b"sqlserver_config_2016sp2std","sqlserver_config_2017ent",b"sqlserver_config_2017ent","sqlserver_config_2017std",b"sqlserver_config_2017std","sqlserver_config_2019ent",b"sqlserver_config_2019ent","sqlserver_config_2019std",b"sqlserver_config_2019std","version",b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["sqlserver_config",b"sqlserver_config"]) -> typing.Optional[typing_extensions.Literal["sqlserver_config_2016sp2std","sqlserver_config_2016sp2ent","sqlserver_config_2017std","sqlserver_config_2017ent","sqlserver_config_2019std","sqlserver_config_2019ent"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access", b"access", "backup_window_start", b"backup_window_start", "resources", b"resources", "sqlserver_config", b"sqlserver_config", "sqlserver_config_2016sp2ent", b"sqlserver_config_2016sp2ent", "sqlserver_config_2016sp2std", b"sqlserver_config_2016sp2std", "sqlserver_config_2017ent", b"sqlserver_config_2017ent", "sqlserver_config_2017std", b"sqlserver_config_2017std", "sqlserver_config_2019ent", b"sqlserver_config_2019ent", "sqlserver_config_2019std", b"sqlserver_config_2019std"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access", b"access", "backup_window_start", b"backup_window_start", "resources", b"resources", "secondary_connections", b"secondary_connections", "sqlserver_config", b"sqlserver_config", "sqlserver_config_2016sp2ent", b"sqlserver_config_2016sp2ent", "sqlserver_config_2016sp2std", b"sqlserver_config_2016sp2std", "sqlserver_config_2017ent", b"sqlserver_config_2017ent", "sqlserver_config_2017std", b"sqlserver_config_2017std", "sqlserver_config_2019ent", b"sqlserver_config_2019ent", "sqlserver_config_2019std", b"sqlserver_config_2019std", "version", b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["sqlserver_config", b"sqlserver_config"]) -> typing_extensions.Literal["sqlserver_config_2016sp2std", "sqlserver_config_2016sp2ent", "sqlserver_config_2017std", "sqlserver_config_2017ent", "sqlserver_config_2019std", "sqlserver_config_2019ent"] | None: ...
+
 global___ConfigSpec = ConfigSpec

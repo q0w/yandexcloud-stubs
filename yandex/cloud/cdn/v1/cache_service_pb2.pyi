@@ -3,23 +3,28 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class PurgeCacheRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCE_ID_FIELD_NUMBER: builtins.int
     PATHS_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
+    resource_id: builtins.str
     """ID of the resource to perform purge operation on."""
-
     @property
-    def paths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def paths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Set of paths:
         Paths of the files to remove from the cache.
 
@@ -27,56 +32,62 @@ class PurgeCacheRequest(google.protobuf.message.Message):
 
         If an empty array of paths is specified, the cache is purged entirely.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        paths: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["paths",b"paths","resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+        paths: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["paths", b"paths", "resource_id", b"resource_id"]) -> None: ...
+
 global___PurgeCacheRequest = PurgeCacheRequest
 
 class PurgeCacheMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of the resource."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of the resource."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___PurgeCacheMetadata = PurgeCacheMetadata
 
 class PrefetchCacheRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCE_ID_FIELD_NUMBER: builtins.int
     PATHS_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
+    resource_id: builtins.str
     """ID of the resource to perform prefetch operation on."""
-
     @property
-    def paths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def paths(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Set of paths to prefetch."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        paths: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["paths",b"paths","resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+        paths: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["paths", b"paths", "resource_id", b"resource_id"]) -> None: ...
+
 global___PrefetchCacheRequest = PrefetchCacheRequest
 
 class PrefetchCacheMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of the resource."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of the resource."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___PrefetchCacheMetadata = PrefetchCacheMetadata

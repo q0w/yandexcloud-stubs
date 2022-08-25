@@ -10,45 +10,48 @@ import yandex.cloud.operation.operation_pb2
 
 class KeyServiceStub:
     """A set of methods for managing Key resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.GetKeyRequest,
-        yandex.cloud.iam.v1.key_pb2.Key]
+        yandex.cloud.iam.v1.key_pb2.Key,
+    ]
     """Returns the specified Key resource.
 
     To get the list of available Key resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.ListKeysRequest,
-        yandex.cloud.iam.v1.key_service_pb2.ListKeysResponse]
+        yandex.cloud.iam.v1.key_service_pb2.ListKeysResponse,
+    ]
     """Retrieves the list of Key resources for the specified service account."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.CreateKeyRequest,
-        yandex.cloud.iam.v1.key_service_pb2.CreateKeyResponse]
+        yandex.cloud.iam.v1.key_service_pb2.CreateKeyResponse,
+    ]
     """Creates a key pair for the specified service account."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.UpdateKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified key pair."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.DeleteKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified key pair."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.key_service_pb2.ListKeyOperationsRequest,
-        yandex.cloud.iam.v1.key_service_pb2.ListKeyOperationsResponse]
+        yandex.cloud.iam.v1.key_service_pb2.ListKeyOperationsResponse,
+    ]
     """Lists operations for the specified key."""
-
 
 class KeyServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Key resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.GetKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.key_pb2.Key:
@@ -56,47 +59,40 @@ class KeyServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Key resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.ListKeysRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.key_service_pb2.ListKeysResponse:
         """Retrieves the list of Key resources for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.CreateKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.key_service_pb2.CreateKeyResponse:
         """Creates a key pair for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.UpdateKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified key pair."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.DeleteKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified key pair."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.iam.v1.key_service_pb2.ListKeyOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.key_service_pb2.ListKeyOperationsResponse:
         """Lists operations for the specified key."""
-        pass
-
 
 def add_KeyServiceServicer_to_server(servicer: KeyServiceServicer, server: grpc.Server) -> None: ...

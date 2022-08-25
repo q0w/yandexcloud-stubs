@@ -11,76 +11,79 @@ import yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2
 
 class ApiGatewayServiceStub:
     """A set of methods for managing API gateways."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetApiGatewayRequest,
-        yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway]
+        yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway,
+    ]
     """Returns the specified API gateway. Note that only API gateway basic attributes are returned.
     To get associated openapi specification, make a [GetOpenapiSpec] request.
 
     To get the list of all available API gateways, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListApiGatewayRequest,
-        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListApiGatewayResponse]
+        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListApiGatewayResponse,
+    ]
     """Retrieves the list of API gateways in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.CreateApiGatewayRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates an API gateway in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.UpdateApiGatewayRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified API gateway."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.DeleteApiGatewayRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified API gateway."""
-
     AddDomain: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.AddDomainRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Attaches domain to the specified API gateway."""
-
     RemoveDomain: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.RemoveDomainRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Detaches domain from the specified API gateway."""
-
     GetOpenapiSpec: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetOpenapiSpecRequest,
-        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetOpenapiSpecResponse]
+        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetOpenapiSpecResponse,
+    ]
     """Returns the OpenAPI specification of specified API gateway."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListOperationsRequest,
-        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListOperationsResponse]
+        yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListOperationsResponse,
+    ]
     """Lists operations for the specified API gateway."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """Lists existing access bindings for the specified API gateway."""
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the specified API gateway."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified API gateway."""
-
 
 class ApiGatewayServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing API gateways."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetApiGatewayRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway:
@@ -89,95 +92,82 @@ class ApiGatewayServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available API gateways, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListApiGatewayRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListApiGatewayResponse:
         """Retrieves the list of API gateways in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.CreateApiGatewayRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates an API gateway in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.UpdateApiGatewayRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.DeleteApiGatewayRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def AddDomain(self,
+    def AddDomain(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.AddDomainRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Attaches domain to the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def RemoveDomain(self,
+    def RemoveDomain(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.RemoveDomainRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Detaches domain from the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def GetOpenapiSpec(self,
+    def GetOpenapiSpec(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetOpenapiSpecRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.GetOpenapiSpecResponse:
         """Returns the OpenAPI specification of specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.apigateway.v1.apigateway_service_pb2.ListOperationsResponse:
         """Lists operations for the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
         """Lists existing access bindings for the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the specified API gateway."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified API gateway."""
-        pass
-
 
 def add_ApiGatewayServiceServicer_to_server(servicer: ApiGatewayServiceServicer, server: grpc.Server) -> None: ...

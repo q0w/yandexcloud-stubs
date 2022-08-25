@@ -5,8 +5,12 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -15,34 +19,33 @@ class HostType(google.protobuf.message.Message):
     Note: Platform can use hosts with different number of memory and cores.
     TODO: Do we need sockets here?
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     CORES_FIELD_NUMBER: builtins.int
     MEMORY_FIELD_NUMBER: builtins.int
     DISKS_FIELD_NUMBER: builtins.int
     DISK_SIZE_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """Unique type identifier."""
-
     cores: builtins.int
     """Total number of cores available for instances."""
-
     memory: builtins.int
     """Ammount of memory available for instances."""
-
     disks: builtins.int
     """Number of local disks available for instances"""
-
     disk_size: builtins.int
     """Size of each local disk"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
+        id: builtins.str = ...,
         cores: builtins.int = ...,
         memory: builtins.int = ...,
         disks: builtins.int = ...,
         disk_size: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cores",b"cores","disk_size",b"disk_size","disks",b"disks","id",b"id","memory",b"memory"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cores", b"cores", "disk_size", b"disk_size", "disks", b"disks", "id", b"id", "memory", b"memory"]) -> None: ...
+
 global___HostType = HostType

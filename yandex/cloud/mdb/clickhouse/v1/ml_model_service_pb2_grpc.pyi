@@ -10,40 +10,43 @@ import yandex.cloud.operation.operation_pb2
 
 class MlModelServiceStub:
     """A set of methods for managing machine learning models."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.GetMlModelRequest,
-        yandex.cloud.mdb.clickhouse.v1.ml_model_pb2.MlModel]
+        yandex.cloud.mdb.clickhouse.v1.ml_model_pb2.MlModel,
+    ]
     """Returns the specified machine learning model.
 
     To get the list of all available models, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.ListMlModelsRequest,
-        yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.ListMlModelsResponse]
+        yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.ListMlModelsResponse,
+    ]
     """Retrieves the list of machine learning models in the specified cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.CreateMlModelRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a machine learning model in the specified cluster."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.UpdateMlModelRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified machine learning model."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.DeleteMlModelRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified machine learning model."""
-
 
 class MlModelServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing machine learning models."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.GetMlModelRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.ml_model_pb2.MlModel:
@@ -51,39 +54,33 @@ class MlModelServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available models, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.ListMlModelsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.ListMlModelsResponse:
         """Retrieves the list of machine learning models in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.CreateMlModelRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a machine learning model in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.UpdateMlModelRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified machine learning model."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.ml_model_service_pb2.DeleteMlModelRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified machine learning model."""
-        pass
-
 
 def add_MlModelServiceServicer_to_server(servicer: MlModelServiceServicer, server: grpc.Server) -> None: ...

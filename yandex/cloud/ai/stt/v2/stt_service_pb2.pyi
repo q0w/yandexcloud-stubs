@@ -3,132 +3,153 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class LongRunningRecognitionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONFIG_FIELD_NUMBER: builtins.int
     AUDIO_FIELD_NUMBER: builtins.int
     @property
     def config(self) -> global___RecognitionConfig: ...
     @property
     def audio(self) -> global___RecognitionAudio: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        config: typing.Optional[global___RecognitionConfig] = ...,
-        audio: typing.Optional[global___RecognitionAudio] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio",b"audio","config",b"config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio",b"audio","config",b"config"]) -> None: ...
+        config: global___RecognitionConfig | None = ...,
+        audio: global___RecognitionAudio | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio", b"audio", "config", b"config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio", b"audio", "config", b"config"]) -> None: ...
+
 global___LongRunningRecognitionRequest = LongRunningRecognitionRequest
 
 class LongRunningRecognitionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CHUNKS_FIELD_NUMBER: builtins.int
     @property
     def chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SpeechRecognitionResult]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        chunks: typing.Optional[typing.Iterable[global___SpeechRecognitionResult]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunks",b"chunks"]) -> None: ...
+        chunks: collections.abc.Iterable[global___SpeechRecognitionResult] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks"]) -> None: ...
+
 global___LongRunningRecognitionResponse = LongRunningRecognitionResponse
 
 class StreamingRecognitionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONFIG_FIELD_NUMBER: builtins.int
     AUDIO_CONTENT_FIELD_NUMBER: builtins.int
     @property
     def config(self) -> global___RecognitionConfig: ...
     audio_content: builtins.bytes
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        config: typing.Optional[global___RecognitionConfig] = ...,
+        config: global___RecognitionConfig | None = ...,
         audio_content: builtins.bytes = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_content",b"audio_content","config",b"config","streaming_request",b"streaming_request"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_content",b"audio_content","config",b"config","streaming_request",b"streaming_request"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["streaming_request",b"streaming_request"]) -> typing.Optional[typing_extensions.Literal["config","audio_content"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio_content", b"audio_content", "config", b"config", "streaming_request", b"streaming_request"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_content", b"audio_content", "config", b"config", "streaming_request", b"streaming_request"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["streaming_request", b"streaming_request"]) -> typing_extensions.Literal["config", "audio_content"] | None: ...
+
 global___StreamingRecognitionRequest = StreamingRecognitionRequest
 
 class StreamingRecognitionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CHUNKS_FIELD_NUMBER: builtins.int
     @property
     def chunks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SpeechRecognitionChunk]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        chunks: typing.Optional[typing.Iterable[global___SpeechRecognitionChunk]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chunks",b"chunks"]) -> None: ...
+        chunks: collections.abc.Iterable[global___SpeechRecognitionChunk] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chunks", b"chunks"]) -> None: ...
+
 global___StreamingRecognitionResponse = StreamingRecognitionResponse
 
 class RecognitionAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONTENT_FIELD_NUMBER: builtins.int
     URI_FIELD_NUMBER: builtins.int
     content: builtins.bytes
-    uri: typing.Text
-    def __init__(self,
+    uri: builtins.str
+    def __init__(
+        self,
         *,
         content: builtins.bytes = ...,
-        uri: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_source",b"audio_source","content",b"content","uri",b"uri"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_source",b"audio_source","content",b"content","uri",b"uri"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["audio_source",b"audio_source"]) -> typing.Optional[typing_extensions.Literal["content","uri"]]: ...
+        uri: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio_source", b"audio_source", "content", b"content", "uri", b"uri"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_source", b"audio_source", "content", b"content", "uri", b"uri"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["audio_source", b"audio_source"]) -> typing_extensions.Literal["content", "uri"] | None: ...
+
 global___RecognitionAudio = RecognitionAudio
 
 class RecognitionConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SPECIFICATION_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
     @property
     def specification(self) -> global___RecognitionSpec: ...
-    folder_id: typing.Text
-    def __init__(self,
+    folder_id: builtins.str
+    def __init__(
+        self,
         *,
-        specification: typing.Optional[global___RecognitionSpec] = ...,
-        folder_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["specification",b"specification"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","specification",b"specification"]) -> None: ...
+        specification: global___RecognitionSpec | None = ...,
+        folder_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["specification", b"specification"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "specification", b"specification"]) -> None: ...
+
 global___RecognitionConfig = RecognitionConfig
 
 class RecognitionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _AudioEncoding:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _AudioEncodingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RecognitionSpec._AudioEncoding.ValueType], builtins.type):
+
+    class _AudioEncodingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RecognitionSpec._AudioEncoding.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         AUDIO_ENCODING_UNSPECIFIED: RecognitionSpec._AudioEncoding.ValueType  # 0
         LINEAR16_PCM: RecognitionSpec._AudioEncoding.ValueType  # 1
         """16-bit signed little-endian (Linear PCM)"""
-
         OGG_OPUS: RecognitionSpec._AudioEncoding.ValueType  # 2
         MP3: RecognitionSpec._AudioEncoding.ValueType  # 3
         """transcription only"""
 
-    class AudioEncoding(_AudioEncoding, metaclass=_AudioEncodingEnumTypeWrapper):
-        pass
-
+    class AudioEncoding(_AudioEncoding, metaclass=_AudioEncodingEnumTypeWrapper): ...
     AUDIO_ENCODING_UNSPECIFIED: RecognitionSpec.AudioEncoding.ValueType  # 0
     LINEAR16_PCM: RecognitionSpec.AudioEncoding.ValueType  # 1
     """16-bit signed little-endian (Linear PCM)"""
-
     OGG_OPUS: RecognitionSpec.AudioEncoding.ValueType  # 2
     MP3: RecognitionSpec.AudioEncoding.ValueType  # 3
     """transcription only"""
-
 
     AUDIO_ENCODING_FIELD_NUMBER: builtins.int
     SAMPLE_RATE_HERTZ_FIELD_NUMBER: builtins.int
@@ -143,46 +164,43 @@ class RecognitionSpec(google.protobuf.message.Message):
     audio_encoding: global___RecognitionSpec.AudioEncoding.ValueType
     sample_rate_hertz: builtins.int
     """8000, 16000, 48000 only for pcm"""
-
-    language_code: typing.Text
+    language_code: builtins.str
     """code in BCP-47"""
-
     profanity_filter: builtins.bool
-    model: typing.Text
+    model: builtins.str
     partial_results: builtins.bool
     """If set true, tentative hypotheses may be returned as they become available (final=false flag)
     If false or omitted, only final=true result(s) are returned.
     Makes sense only for StreamingRecognize requests.
     """
-
     single_utterance: builtins.bool
     audio_channel_count: builtins.int
     """Used only for long running recognize."""
-
     raw_results: builtins.bool
     """This mark allows disable normalization text"""
-
     literature_text: builtins.bool
     """Rewrite text in literature style (default: false)"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         audio_encoding: global___RecognitionSpec.AudioEncoding.ValueType = ...,
         sample_rate_hertz: builtins.int = ...,
-        language_code: typing.Text = ...,
+        language_code: builtins.str = ...,
         profanity_filter: builtins.bool = ...,
-        model: typing.Text = ...,
+        model: builtins.str = ...,
         partial_results: builtins.bool = ...,
         single_utterance: builtins.bool = ...,
         audio_channel_count: builtins.int = ...,
         raw_results: builtins.bool = ...,
         literature_text: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_channel_count",b"audio_channel_count","audio_encoding",b"audio_encoding","language_code",b"language_code","literature_text",b"literature_text","model",b"model","partial_results",b"partial_results","profanity_filter",b"profanity_filter","raw_results",b"raw_results","sample_rate_hertz",b"sample_rate_hertz","single_utterance",b"single_utterance"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_channel_count", b"audio_channel_count", "audio_encoding", b"audio_encoding", "language_code", b"language_code", "literature_text", b"literature_text", "model", b"model", "partial_results", b"partial_results", "profanity_filter", b"profanity_filter", "raw_results", b"raw_results", "sample_rate_hertz", b"sample_rate_hertz", "single_utterance", b"single_utterance"]) -> None: ...
+
 global___RecognitionSpec = RecognitionSpec
 
 class SpeechRecognitionChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALTERNATIVES_FIELD_NUMBER: builtins.int
     FINAL_FIELD_NUMBER: builtins.int
     END_OF_UTTERANCE_FIELD_NUMBER: builtins.int
@@ -190,54 +208,61 @@ class SpeechRecognitionChunk(google.protobuf.message.Message):
     def alternatives(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SpeechRecognitionAlternative]: ...
     final: builtins.bool
     """This flag shows that the received chunk contains a part of the recognized text that won't be changed."""
-
     end_of_utterance: builtins.bool
     """This flag shows that the received chunk is the end of an utterance."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        alternatives: typing.Optional[typing.Iterable[global___SpeechRecognitionAlternative]] = ...,
+        alternatives: collections.abc.Iterable[global___SpeechRecognitionAlternative] | None = ...,
         final: builtins.bool = ...,
         end_of_utterance: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alternatives",b"alternatives","end_of_utterance",b"end_of_utterance","final",b"final"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alternatives", b"alternatives", "end_of_utterance", b"end_of_utterance", "final", b"final"]) -> None: ...
+
 global___SpeechRecognitionChunk = SpeechRecognitionChunk
 
 class SpeechRecognitionResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALTERNATIVES_FIELD_NUMBER: builtins.int
     CHANNEL_TAG_FIELD_NUMBER: builtins.int
     @property
     def alternatives(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SpeechRecognitionAlternative]: ...
     channel_tag: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        alternatives: typing.Optional[typing.Iterable[global___SpeechRecognitionAlternative]] = ...,
+        alternatives: collections.abc.Iterable[global___SpeechRecognitionAlternative] | None = ...,
         channel_tag: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alternatives",b"alternatives","channel_tag",b"channel_tag"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alternatives", b"alternatives", "channel_tag", b"channel_tag"]) -> None: ...
+
 global___SpeechRecognitionResult = SpeechRecognitionResult
 
 class SpeechRecognitionAlternative(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TEXT_FIELD_NUMBER: builtins.int
     CONFIDENCE_FIELD_NUMBER: builtins.int
     WORDS_FIELD_NUMBER: builtins.int
-    text: typing.Text
+    text: builtins.str
     confidence: builtins.float
     @property
     def words(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WordInfo]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        text: typing.Text = ...,
+        text: builtins.str = ...,
         confidence: builtins.float = ...,
-        words: typing.Optional[typing.Iterable[global___WordInfo]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["confidence",b"confidence","text",b"text","words",b"words"]) -> None: ...
+        words: collections.abc.Iterable[global___WordInfo] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["confidence", b"confidence", "text", b"text", "words", b"words"]) -> None: ...
+
 global___SpeechRecognitionAlternative = SpeechRecognitionAlternative
 
 class WordInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     START_TIME_FIELD_NUMBER: builtins.int
     END_TIME_FIELD_NUMBER: builtins.int
     WORD_FIELD_NUMBER: builtins.int
@@ -246,15 +271,17 @@ class WordInfo(google.protobuf.message.Message):
     def start_time(self) -> google.protobuf.duration_pb2.Duration: ...
     @property
     def end_time(self) -> google.protobuf.duration_pb2.Duration: ...
-    word: typing.Text
+    word: builtins.str
     confidence: builtins.float
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        start_time: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        end_time: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        word: typing.Text = ...,
+        start_time: google.protobuf.duration_pb2.Duration | None = ...,
+        end_time: google.protobuf.duration_pb2.Duration | None = ...,
+        word: builtins.str = ...,
         confidence: builtins.float = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["end_time",b"end_time","start_time",b"start_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["confidence",b"confidence","end_time",b"end_time","start_time",b"start_time","word",b"word"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["end_time", b"end_time", "start_time", b"start_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["confidence", b"confidence", "end_time", b"end_time", "start_time", b"start_time", "word", b"word"]) -> None: ...
+
 global___WordInfo = WordInfo

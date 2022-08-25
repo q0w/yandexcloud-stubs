@@ -11,63 +11,66 @@ import yandex.cloud.resourcemanager.v1.folder_service_pb2
 
 class FolderServiceStub:
     """A set of methods for managing Folder resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.GetFolderRequest,
-        yandex.cloud.resourcemanager.v1.folder_pb2.Folder]
+        yandex.cloud.resourcemanager.v1.folder_pb2.Folder,
+    ]
     """Returns the specified Folder resource.
 
     To get the list of available Folder resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFoldersRequest,
-        yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFoldersResponse]
+        yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFoldersResponse,
+    ]
     """Retrieves the list of Folder resources in the specified cloud."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.CreateFolderRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a folder in the specified cloud."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.UpdateFolderRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified folder."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.DeleteFolderRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified folder."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFolderOperationsRequest,
-        yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFolderOperationsResponse]
+        yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFolderOperationsResponse,
+    ]
     """Lists operations for the specified folder."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """access
 
     Lists access bindings for the specified folder.
     """
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the specified folder."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified folder."""
-
 
 class FolderServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Folder resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.GetFolderRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.folder_pb2.Folder:
@@ -75,50 +78,44 @@ class FolderServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Folder resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFoldersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFoldersResponse:
         """Retrieves the list of Folder resources in the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.CreateFolderRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a folder in the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.UpdateFolderRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.DeleteFolderRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFolderOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.folder_service_pb2.ListFolderOperationsResponse:
         """Lists operations for the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
@@ -126,23 +123,19 @@ class FolderServiceServicer(metaclass=abc.ABCMeta):
 
         Lists access bindings for the specified folder.
         """
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified folder."""
-        pass
-
 
 def add_FolderServiceServicer_to_server(servicer: FolderServiceServicer, server: grpc.Server) -> None: ...

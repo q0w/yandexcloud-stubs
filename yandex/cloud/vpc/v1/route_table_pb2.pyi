@@ -3,30 +3,40 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class RouteTable(google.protobuf.message.Message):
     """A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -36,92 +46,88 @@ class RouteTable(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     NETWORK_ID_FIELD_NUMBER: builtins.int
     STATIC_ROUTES_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the route table."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the route table belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the route table. The name is unique within the project. 3-63 characters long."""
-
-    description: typing.Text
+    description: builtins.str
     """Optional description of the route table. 0-256 characters long."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs. Maximum of 64 per resource."""
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network the route table belongs to."""
-
     @property
     def static_routes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StaticRoute]:
         """List of static routes."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        network_id: typing.Text = ...,
-        static_routes: typing.Optional[typing.Iterable[global___StaticRoute]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","network_id",b"network_id","static_routes",b"static_routes"]) -> None: ...
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        network_id: builtins.str = ...,
+        static_routes: collections.abc.Iterable[global___StaticRoute] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "network_id", b"network_id", "static_routes", b"static_routes"]) -> None: ...
+
 global___RouteTable = RouteTable
 
 class StaticRoute(google.protobuf.message.Message):
     """A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     DESTINATION_PREFIX_FIELD_NUMBER: builtins.int
     NEXT_HOP_ADDRESS_FIELD_NUMBER: builtins.int
     GATEWAY_ID_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    destination_prefix: typing.Text
+    destination_prefix: builtins.str
     """Destination subnet in CIDR notation"""
-
-    next_hop_address: typing.Text
+    next_hop_address: builtins.str
     """Next hop IP address"""
-
-    gateway_id: typing.Text
+    gateway_id: builtins.str
     """Next hop gateway id"""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs. Maximum of 64 per resource."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        destination_prefix: typing.Text = ...,
-        next_hop_address: typing.Text = ...,
-        gateway_id: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","gateway_id",b"gateway_id","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["destination",b"destination","destination_prefix",b"destination_prefix","gateway_id",b"gateway_id","labels",b"labels","next_hop",b"next_hop","next_hop_address",b"next_hop_address"]) -> None: ...
+        destination_prefix: builtins.str = ...,
+        next_hop_address: builtins.str = ...,
+        gateway_id: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destination", b"destination", "destination_prefix", b"destination_prefix", "gateway_id", b"gateway_id", "next_hop", b"next_hop", "next_hop_address", b"next_hop_address"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destination", b"destination", "destination_prefix", b"destination_prefix", "gateway_id", b"gateway_id", "labels", b"labels", "next_hop", b"next_hop", "next_hop_address", b"next_hop_address"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["destination",b"destination"]) -> typing.Optional[typing_extensions.Literal["destination_prefix"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["destination", b"destination"]) -> typing_extensions.Literal["destination_prefix"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["next_hop",b"next_hop"]) -> typing.Optional[typing_extensions.Literal["next_hop_address","gateway_id"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["next_hop", b"next_hop"]) -> typing_extensions.Literal["next_hop_address", "gateway_id"] | None: ...
+
 global___StaticRoute = StaticRoute

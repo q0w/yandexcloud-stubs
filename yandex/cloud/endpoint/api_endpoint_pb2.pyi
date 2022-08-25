@@ -5,21 +5,28 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ApiEndpoint(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     ADDRESS_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    address: typing.Text
-    def __init__(self,
+    id: builtins.str
+    address: builtins.str
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        address: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address",b"address","id",b"id"]) -> None: ...
+        id: builtins.str = ...,
+        address: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "id", b"id"]) -> None: ...
+
 global___ApiEndpoint = ApiEndpoint

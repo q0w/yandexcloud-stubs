@@ -3,69 +3,77 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.containerregistry.v1.repository_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REPOSITORY_ID_FIELD_NUMBER: builtins.int
-    repository_id: typing.Text
+    repository_id: builtins.str
     """ID of the Repository resource to return.
 
     To get the repository ID use a [RepositoryService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        repository_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["repository_id",b"repository_id"]) -> None: ...
+        repository_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["repository_id", b"repository_id"]) -> None: ...
+
 global___GetRepositoryRequest = GetRepositoryRequest
 
 class GetRepositoryByNameRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REPOSITORY_NAME_FIELD_NUMBER: builtins.int
-    repository_name: typing.Text
+    repository_name: builtins.str
     """Name of the Repository resource to return.
 
     To get the repository name use a [RepositoryService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        repository_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["repository_name",b"repository_name"]) -> None: ...
+        repository_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["repository_name", b"repository_name"]) -> None: ...
+
 global___GetRepositoryByNameRequest = GetRepositoryByNameRequest
 
 class ListRepositoriesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REGISTRY_ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
-    registry_id: typing.Text
+    registry_id: builtins.str
     """ID of the registry to list repositories in.
 
     To get the registry ID use a [RegistryService.List] request.
     """
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list registries in.
 
     [folder_id] is ignored if a [ListImagesRequest.registry_id] is specified in the request.
 
     To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
@@ -73,42 +81,41 @@ class ListRepositoriesRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListRepositoriesResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can use filtering only on [Repository.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     """
-
-    order_by: typing.Text
-    def __init__(self,
+    order_by: builtins.str
+    def __init__(
+        self,
         *,
-        registry_id: typing.Text = ...,
-        folder_id: typing.Text = ...,
+        registry_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        order_by: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","order_by",b"order_by","page_size",b"page_size","page_token",b"page_token","registry_id",b"registry_id"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+        order_by: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token", "registry_id", b"registry_id"]) -> None: ...
+
 global___ListRepositoriesRequest = ListRepositoriesRequest
 
 class ListRepositoriesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REPOSITORIES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def repositories(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.containerregistry.v1.repository_pb2.Repository]:
         """List of Repository resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListRepositoriesRequest.page_size], use
     the [next_page_token] as the value
@@ -116,66 +123,75 @@ class ListRepositoriesResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        repositories: typing.Optional[typing.Iterable[yandex.cloud.containerregistry.v1.repository_pb2.Repository]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","repositories",b"repositories"]) -> None: ...
+        repositories: collections.abc.Iterable[yandex.cloud.containerregistry.v1.repository_pb2.Repository] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "repositories", b"repositories"]) -> None: ...
+
 global___ListRepositoriesResponse = ListRepositoriesResponse
 
 class UpsertRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the repository.
 
     The name of the repository should match the name of the images that will be pushed in the repository.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name"]) -> None: ...
+        name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
+
 global___UpsertRepositoryRequest = UpsertRepositoryRequest
 
 class UpsertRepositoryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    REPOSITORY_ID_FIELD_NUMBER: builtins.int
-    repository_id: typing.Text
-    """ID of the repository that is being upserted."""
 
-    def __init__(self,
+    REPOSITORY_ID_FIELD_NUMBER: builtins.int
+    repository_id: builtins.str
+    """ID of the repository that is being upserted."""
+    def __init__(
+        self,
         *,
-        repository_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["repository_id",b"repository_id"]) -> None: ...
+        repository_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["repository_id", b"repository_id"]) -> None: ...
+
 global___UpsertRepositoryMetadata = UpsertRepositoryMetadata
 
 class DeleteRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    REPOSITORY_ID_FIELD_NUMBER: builtins.int
-    repository_id: typing.Text
-    """ID of the repository to delete."""
 
-    def __init__(self,
+    REPOSITORY_ID_FIELD_NUMBER: builtins.int
+    repository_id: builtins.str
+    """ID of the repository to delete."""
+    def __init__(
+        self,
         *,
-        repository_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["repository_id",b"repository_id"]) -> None: ...
+        repository_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["repository_id", b"repository_id"]) -> None: ...
+
 global___DeleteRepositoryRequest = DeleteRepositoryRequest
 
 class DeleteRepositoryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    REPOSITORY_ID_FIELD_NUMBER: builtins.int
-    repository_id: typing.Text
-    """ID of the repository that is being deleted."""
 
-    def __init__(self,
+    REPOSITORY_ID_FIELD_NUMBER: builtins.int
+    repository_id: builtins.str
+    """ID of the repository that is being deleted."""
+    def __init__(
+        self,
         *,
-        repository_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["repository_id",b"repository_id"]) -> None: ...
+        repository_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["repository_id", b"repository_id"]) -> None: ...
+
 global___DeleteRepositoryMetadata = DeleteRepositoryMetadata

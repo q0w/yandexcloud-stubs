@@ -3,127 +3,138 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.lockbox.v1.secret_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class PayloadEntryChange(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     KEY_FIELD_NUMBER: builtins.int
     TEXT_VALUE_FIELD_NUMBER: builtins.int
     BINARY_VALUE_FIELD_NUMBER: builtins.int
-    key: typing.Text
+    key: builtins.str
     """Non-confidential key of the entry."""
-
-    text_value: typing.Text
+    text_value: builtins.str
     """Use the field to set a text value."""
-
     binary_value: builtins.bytes
     """Use the field to set a binary value."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        key: typing.Text = ...,
-        text_value: typing.Text = ...,
+        key: builtins.str = ...,
+        text_value: builtins.str = ...,
         binary_value: builtins.bytes = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["binary_value",b"binary_value","text_value",b"text_value","value",b"value"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["binary_value",b"binary_value","key",b"key","text_value",b"text_value","value",b"value"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["value",b"value"]) -> typing.Optional[typing_extensions.Literal["text_value","binary_value"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["binary_value", b"binary_value", "text_value", b"text_value", "value", b"value"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["binary_value", b"binary_value", "key", b"key", "text_value", b"text_value", "value", b"value"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["value", b"value"]) -> typing_extensions.Literal["text_value", "binary_value"] | None: ...
+
 global___PayloadEntryChange = PayloadEntryChange
 
 class GetSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret to return.
 
     To get a secret ID make a [List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___GetSecretRequest = GetSecretRequest
 
 class ListSecretsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list secrets in."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListSecretsRequest.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListSecretsRequest = ListSecretsRequest
 
 class ListSecretsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRETS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.lockbox.v1.secret_pb2.Secret]:
         """List of secrets in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number
     of results is greater than the specified [ListSecretsRequest.page_size], use
     the `next_page_token` as the value for the [ListSecretsRequest.page_token] query parameter
     in the next list request. Each subsequent list request will have its own
     `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secrets: typing.Optional[typing.Iterable[yandex.cloud.lockbox.v1.secret_pb2.Secret]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","secrets",b"secrets"]) -> None: ...
+        secrets: collections.abc.Iterable[yandex.cloud.lockbox.v1.secret_pb2.Secret] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "secrets", b"secrets"]) -> None: ...
+
 global___ListSecretsResponse = ListSecretsResponse
 
 class CreateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -133,80 +144,78 @@ class CreateSecretRequest(google.protobuf.message.Message):
     VERSION_DESCRIPTION_FIELD_NUMBER: builtins.int
     VERSION_PAYLOAD_ENTRIES_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a secret in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the secret."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the secret."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
         For example, `"project": "mvp"` or `"source": "dictionary"`.
         """
-        pass
-    kms_key_id: typing.Text
+    kms_key_id: builtins.str
     """Optional ID of the KMS key will be used to encrypt and decrypt the secret."""
-
-    version_description: typing.Text
+    version_description: builtins.str
     """Description of the first version."""
-
     @property
     def version_payload_entries(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PayloadEntryChange]:
         """Payload entries added to the first version."""
-        pass
     deletion_protection: builtins.bool
     """Flag that inhibits deletion of the secret."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        kms_key_id: typing.Text = ...,
-        version_description: typing.Text = ...,
-        version_payload_entries: typing.Optional[typing.Iterable[global___PayloadEntryChange]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        kms_key_id: builtins.str = ...,
+        version_description: builtins.str = ...,
+        version_payload_entries: collections.abc.Iterable[global___PayloadEntryChange] | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["deletion_protection",b"deletion_protection","description",b"description","folder_id",b"folder_id","kms_key_id",b"kms_key_id","labels",b"labels","name",b"name","version_description",b"version_description","version_payload_entries",b"version_payload_entries"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["deletion_protection", b"deletion_protection", "description", b"description", "folder_id", b"folder_id", "kms_key_id", b"kms_key_id", "labels", b"labels", "name", b"name", "version_description", b"version_description", "version_payload_entries", b"version_payload_entries"]) -> None: ...
+
 global___CreateSecretRequest = CreateSecretRequest
 
 class CreateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret being created."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the current version of the secret being created."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___CreateSecretMetadata = CreateSecretMetadata
 
 class UpdateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SECRET_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -214,366 +223,380 @@ class UpdateSecretRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret to update."""
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the secret are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name of the secret."""
-
-    description: typing.Text
+    description: builtins.str
     """New description of the secret."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the secret as `key:value` pairs. Maximum 64 per key."""
-        pass
     deletion_protection: builtins.bool
     """Flag that inhibits deletion of the secret."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        secret_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","name",b"name","secret_id",b"secret_id","update_mask",b"update_mask"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "name", b"name", "secret_id", b"secret_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateSecretRequest = UpdateSecretRequest
 
 class UpdateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret being updated."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret being updated."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___UpdateSecretMetadata = UpdateSecretMetadata
 
 class DeleteSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret to be deleted."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret to be deleted."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___DeleteSecretRequest = DeleteSecretRequest
 
 class DeleteSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret being deleted."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret being deleted."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___DeleteSecretMetadata = DeleteSecretMetadata
 
 class ActivateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret to be activated."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret to be activated."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___ActivateSecretRequest = ActivateSecretRequest
 
 class ActivateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret being activated."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret being activated."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___ActivateSecretMetadata = ActivateSecretMetadata
 
 class DeactivateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret to be deactivated."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret to be deactivated."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___DeactivateSecretRequest = DeactivateSecretRequest
 
 class DeactivateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SECRET_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
-    """ID of the secret being deactivated."""
 
-    def __init__(self,
+    SECRET_ID_FIELD_NUMBER: builtins.int
+    secret_id: builtins.str
+    """ID of the secret being deactivated."""
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id"]) -> None: ...
+
 global___DeactivateSecretMetadata = DeactivateSecretMetadata
 
 class AddVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     PAYLOAD_ENTRIES_FIELD_NUMBER: builtins.int
     BASE_VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the version."""
-
     @property
     def payload_entries(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___PayloadEntryChange]:
         """Describe how payload entries of the base version change in the added version."""
-        pass
-    base_version_id: typing.Text
+    base_version_id: builtins.str
     """Optional base version id. Defaults to the current version if not specified"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        description: typing.Text = ...,
-        payload_entries: typing.Optional[typing.Iterable[global___PayloadEntryChange]] = ...,
-        base_version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["base_version_id",b"base_version_id","description",b"description","payload_entries",b"payload_entries","secret_id",b"secret_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        description: builtins.str = ...,
+        payload_entries: collections.abc.Iterable[global___PayloadEntryChange] | None = ...,
+        base_version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["base_version_id", b"base_version_id", "description", b"description", "payload_entries", b"payload_entries", "secret_id", b"secret_id"]) -> None: ...
+
 global___AddVersionRequest = AddVersionRequest
 
 class AddVersionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the added version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___AddVersionMetadata = AddVersionMetadata
 
 class ListVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret to list versions for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListVersionsRequest.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
+        secret_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","secret_id",b"secret_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "secret_id", b"secret_id"]) -> None: ...
+
 global___ListVersionsRequest = ListVersionsRequest
 
 class ListVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.lockbox.v1.secret_pb2.Version]:
         """List of versions for the specified secret."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number
     of results is greater than the specified [ListVersionsRequest.page_size], use
     the `next_page_token` as the value for the [ListVersionsRequest.page_token] query parameter
     in the next list request. Each subsequent list request will have its own
     `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        versions: typing.Optional[typing.Iterable[yandex.cloud.lockbox.v1.secret_pb2.Version]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","versions",b"versions"]) -> None: ...
+        versions: collections.abc.Iterable[yandex.cloud.lockbox.v1.secret_pb2.Version] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "versions", b"versions"]) -> None: ...
+
 global___ListVersionsResponse = ListVersionsResponse
 
 class ScheduleVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
     PENDING_PERIOD_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret whose version should be scheduled for destruction."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the version to be destroyed."""
-
     @property
     def pending_period(self) -> google.protobuf.duration_pb2.Duration:
         """Time interval between the version destruction request and actual destruction.
         Default value: 7 days.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        pending_period: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["pending_period",b"pending_period"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["pending_period",b"pending_period","secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+        pending_period: google.protobuf.duration_pb2.Duration | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["pending_period", b"pending_period"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["pending_period", b"pending_period", "secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___ScheduleVersionDestructionRequest = ScheduleVersionDestructionRequest
 
 class ScheduleVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
     DESTROY_AT_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret whose version is being scheduled for destruction."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the version that is being scheduled for destruction."""
-
     @property
     def destroy_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Destruction timestamp."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        destroy_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["destroy_at",b"destroy_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["destroy_at",b"destroy_at","secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+        destroy_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destroy_at", b"destroy_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destroy_at", b"destroy_at", "secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___ScheduleVersionDestructionMetadata = ScheduleVersionDestructionMetadata
 
 class CancelVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret to cancel a version's destruction for."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the secret whose scheduled destruction should be cancelled."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___CancelVersionDestructionRequest = CancelVersionDestructionRequest
 
 class CancelVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret whose version's destruction is being cancelled."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the version whose scheduled destruction is being cancelled."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___CancelVersionDestructionMetadata = CancelVersionDestructionMetadata
 
 class ListSecretOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret to get operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListSecretOperationsRequest.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
+        secret_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","secret_id",b"secret_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "secret_id", b"secret_id"]) -> None: ...
+
 global___ListSecretOperationsRequest = ListSecretOperationsRequest
 
 class ListSecretOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified secret."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListSecretOperationsResponse.page_size], use the `next_page_token` as the value
     for the [ListSecretOperationsResponse.page_token] query parameter in the next list request.
     Each subsequent list request will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListSecretOperationsResponse = ListSecretOperationsResponse

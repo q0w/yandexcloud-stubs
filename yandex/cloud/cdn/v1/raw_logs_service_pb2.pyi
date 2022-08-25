@@ -5,173 +5,192 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.cdn.v1.raw_logs_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ActivateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCE_ID_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
+    resource_id: builtins.str
     """ID of CDN resource to switch logs storage for.."""
-
     @property
     def settings(self) -> yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings:
         """Raw logs settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        settings: typing.Optional[yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id","settings",b"settings"]) -> None: ...
+        resource_id: builtins.str = ...,
+        settings: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id", "settings", b"settings"]) -> None: ...
+
 global___ActivateRawLogsRequest = ActivateRawLogsRequest
 
 class ActivateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of resource with activated raw logs."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of resource with activated raw logs."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___ActivateRawLogsMetadata = ActivateRawLogsMetadata
 
 class ActivateRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STATUS_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
     status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType
     """Raw logs status."""
-
     @property
     def settings(self) -> yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings:
         """Raw logs settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType = ...,
-        settings: typing.Optional[yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["settings",b"settings","status",b"status"]) -> None: ...
+        settings: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["settings", b"settings", "status", b"status"]) -> None: ...
+
 global___ActivateRawLogsResponse = ActivateRawLogsResponse
 
 class DeactivateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of CDN resource to deactivate Raw Logs for."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of CDN resource to deactivate Raw Logs for."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___DeactivateRawLogsRequest = DeactivateRawLogsRequest
 
 class DeactivateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of CDN resource."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of CDN resource."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___DeactivateRawLogsMetadata = DeactivateRawLogsMetadata
 
 class GetRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of CDN resource to request status and settings."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of CDN resource to request status and settings."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___GetRawLogsRequest = GetRawLogsRequest
 
 class GetRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STATUS_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
     status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType
     """Raw logs status."""
-
     @property
     def settings(self) -> yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings:
         """Raw logs settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType = ...,
-        settings: typing.Optional[yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["settings",b"settings","status",b"status"]) -> None: ...
+        settings: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["settings", b"settings", "status", b"status"]) -> None: ...
+
 global___GetRawLogsResponse = GetRawLogsResponse
 
 class UpdateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCE_ID_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
+    resource_id: builtins.str
     """ID of CDN resource."""
-
     @property
     def settings(self) -> yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings:
         """Raw logs settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        settings: typing.Optional[yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id","settings",b"settings"]) -> None: ...
+        resource_id: builtins.str = ...,
+        settings: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id", "settings", b"settings"]) -> None: ...
+
 global___UpdateRawLogsRequest = UpdateRawLogsRequest
 
 class UpdateRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STATUS_FIELD_NUMBER: builtins.int
     SETTINGS_FIELD_NUMBER: builtins.int
     status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType
     """Raw logs status."""
-
     @property
     def settings(self) -> yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings:
         """Raw logs settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         status: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsStatus.ValueType = ...,
-        settings: typing.Optional[yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["settings",b"settings","status",b"status"]) -> None: ...
+        settings: yandex.cloud.cdn.v1.raw_logs_pb2.RawLogsSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["settings", b"settings", "status", b"status"]) -> None: ...
+
 global___UpdateRawLogsResponse = UpdateRawLogsResponse
 
 class UpdateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    RESOURCE_ID_FIELD_NUMBER: builtins.int
-    resource_id: typing.Text
-    """ID of CDN resource."""
 
-    def __init__(self,
+    RESOURCE_ID_FIELD_NUMBER: builtins.int
+    resource_id: builtins.str
+    """ID of CDN resource."""
+    def __init__(
+        self,
         *,
-        resource_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resource_id",b"resource_id"]) -> None: ...
+        resource_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resource_id", b"resource_id"]) -> None: ...
+
 global___UpdateRawLogsMetadata = UpdateRawLogsMetadata

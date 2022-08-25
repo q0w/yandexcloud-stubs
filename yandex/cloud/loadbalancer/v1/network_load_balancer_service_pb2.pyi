@@ -3,43 +3,50 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.loadbalancer.v1.network_load_balancer_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the NetworkLoadBalancer resource to return.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___GetNetworkLoadBalancerRequest = GetNetworkLoadBalancerRequest
 
 class ListNetworkLoadBalancersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the network load balancer belongs to.
     To get the folder ID, use a [NetworkLoadBalancerService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
@@ -47,39 +54,38 @@ class ListNetworkLoadBalancersRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListNetworkLoadBalancersResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListNetworkLoadBalancersRequest = ListNetworkLoadBalancersRequest
 
 class ListNetworkLoadBalancersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def network_load_balancers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer]:
         """List of NetworkLoadBalancer resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListNetworkLoadBalancersRequest.page_size], use
     the [next_page_token] as the value
@@ -87,29 +93,33 @@ class ListNetworkLoadBalancersResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancers: typing.Optional[typing.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancers",b"network_load_balancers","next_page_token",b"next_page_token"]) -> None: ...
+        network_load_balancers: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancers", b"network_load_balancers", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListNetworkLoadBalancersResponse = ListNetworkLoadBalancersResponse
 
 class CreateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -119,78 +129,77 @@ class CreateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUPS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a network load balancer in.
     To get the folder ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the network load balancer.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the network load balancer."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    region_id: typing.Text
+    region_id: builtins.str
     """ID of the region where the network load balancer resides."""
-
     type: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer.Type.ValueType
     """Type of the network load balancer. Only external network load balancers are currently available."""
-
     @property
     def listener_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ListenerSpec]:
         """List of listeners and their specs for the network load balancer."""
-        pass
     @property
     def attached_target_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]:
         """List of attached target groups for the network load balancer."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        region_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        region_id: builtins.str = ...,
         type: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer.Type.ValueType = ...,
-        listener_specs: typing.Optional[typing.Iterable[global___ListenerSpec]] = ...,
-        attached_target_groups: typing.Optional[typing.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups",b"attached_target_groups","description",b"description","folder_id",b"folder_id","labels",b"labels","listener_specs",b"listener_specs","name",b"name","region_id",b"region_id","type",b"type"]) -> None: ...
+        listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
+        attached_target_groups: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "region_id", b"region_id", "type", b"type"]) -> None: ...
+
 global___CreateNetworkLoadBalancerRequest = CreateNetworkLoadBalancerRequest
 
 class CreateNetworkLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the network load balancer that is being created."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the network load balancer that is being created."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___CreateNetworkLoadBalancerMetadata = CreateNetworkLoadBalancerMetadata
 
 class UpdateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -199,468 +208,492 @@ class UpdateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUPS_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to update.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the NetworkLoadBalancer resource are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the network load balancer.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the network load balancer."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs.
 
         The existing set of `` labels `` is completely replaced with the provided set.
         """
-        pass
     @property
     def listener_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ListenerSpec]:
         """A list of listeners and their specs for the network load balancer."""
-        pass
     @property
     def attached_target_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]:
         """A list of attached target groups for the network load balancer."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        listener_specs: typing.Optional[typing.Iterable[global___ListenerSpec]] = ...,
-        attached_target_groups: typing.Optional[typing.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups",b"attached_target_groups","description",b"description","labels",b"labels","listener_specs",b"listener_specs","name",b"name","network_load_balancer_id",b"network_load_balancer_id","update_mask",b"update_mask"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
+        attached_target_groups: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "description", b"description", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "network_load_balancer_id", b"network_load_balancer_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateNetworkLoadBalancerRequest = UpdateNetworkLoadBalancerRequest
 
 class UpdateNetworkLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the NetworkLoadBalancer resource that is being updated."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the NetworkLoadBalancer resource that is being updated."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___UpdateNetworkLoadBalancerMetadata = UpdateNetworkLoadBalancerMetadata
 
 class DeleteNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to delete.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___DeleteNetworkLoadBalancerRequest = DeleteNetworkLoadBalancerRequest
 
 class DeleteNetworkLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the NetworkLoadBalancer resource that is being deleted."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the NetworkLoadBalancer resource that is being deleted."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___DeleteNetworkLoadBalancerMetadata = DeleteNetworkLoadBalancerMetadata
 
 class StartNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to start.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___StartNetworkLoadBalancerRequest = StartNetworkLoadBalancerRequest
 
 class StartNetworkLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the NetworkLoadBalancer resource that is being started."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the NetworkLoadBalancer resource that is being started."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___StartNetworkLoadBalancerMetadata = StartNetworkLoadBalancerMetadata
 
 class StopNetworkLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to stop.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___StopNetworkLoadBalancerRequest = StopNetworkLoadBalancerRequest
 
 class StopNetworkLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the NetworkLoadBalancer resource that is being stopped."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the NetworkLoadBalancer resource that is being stopped."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___StopNetworkLoadBalancerMetadata = StopNetworkLoadBalancerMetadata
 
 class AttachNetworkLoadBalancerTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUP_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to attach the target group to.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
     @property
     def attached_target_group(self) -> yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup:
         """ID of the attached target group to attach to the network load balancer.
         To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        attached_target_group: typing.Optional[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["attached_target_group",b"attached_target_group"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_group",b"attached_target_group","network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        attached_target_group: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["attached_target_group", b"attached_target_group"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_group", b"attached_target_group", "network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___AttachNetworkLoadBalancerTargetGroupRequest = AttachNetworkLoadBalancerTargetGroupRequest
 
 class AttachNetworkLoadBalancerTargetGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     TARGET_GROUP_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer that the target group is being attached to."""
-
-    target_group_id: typing.Text
+    target_group_id: builtins.str
     """ID of the target group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        target_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id","target_group_id",b"target_group_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        target_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id", "target_group_id", b"target_group_id"]) -> None: ...
+
 global___AttachNetworkLoadBalancerTargetGroupMetadata = AttachNetworkLoadBalancerTargetGroupMetadata
 
 class DetachNetworkLoadBalancerTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     TARGET_GROUP_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to detach the target group from.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    target_group_id: typing.Text
+    target_group_id: builtins.str
     """ID of the target group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        target_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id","target_group_id",b"target_group_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        target_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id", "target_group_id", b"target_group_id"]) -> None: ...
+
 global___DetachNetworkLoadBalancerTargetGroupRequest = DetachNetworkLoadBalancerTargetGroupRequest
 
 class DetachNetworkLoadBalancerTargetGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     TARGET_GROUP_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer that the target group is being detached from."""
-
-    target_group_id: typing.Text
+    target_group_id: builtins.str
     """ID of the target group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        target_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id","target_group_id",b"target_group_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        target_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id", "target_group_id", b"target_group_id"]) -> None: ...
+
 global___DetachNetworkLoadBalancerTargetGroupMetadata = DetachNetworkLoadBalancerTargetGroupMetadata
 
 class AddNetworkLoadBalancerListenerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     LISTENER_SPEC_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to add a listener to.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
     @property
     def listener_spec(self) -> global___ListenerSpec:
         """Listener spec."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        listener_spec: typing.Optional[global___ListenerSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["listener_spec",b"listener_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["listener_spec",b"listener_spec","network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        listener_spec: global___ListenerSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["listener_spec", b"listener_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["listener_spec", b"listener_spec", "network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___AddNetworkLoadBalancerListenerRequest = AddNetworkLoadBalancerListenerRequest
 
 class AddNetworkLoadBalancerListenerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the network load balancer that the listener is being added to."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the network load balancer that the listener is being added to."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___AddNetworkLoadBalancerListenerMetadata = AddNetworkLoadBalancerListenerMetadata
 
 class RemoveNetworkLoadBalancerListenerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     LISTENER_NAME_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the network load balancer to remove the listener from.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
     """
-
-    listener_name: typing.Text
+    listener_name: builtins.str
     """Name of the listener to delete."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        listener_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["listener_name",b"listener_name","network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        listener_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["listener_name", b"listener_name", "network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___RemoveNetworkLoadBalancerListenerRequest = RemoveNetworkLoadBalancerListenerRequest
 
 class RemoveNetworkLoadBalancerListenerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
-    """ID of the network load balancer that the listener is being removed from."""
 
-    def __init__(self,
+    NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
+    network_load_balancer_id: builtins.str
+    """ID of the network load balancer that the listener is being removed from."""
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id"]) -> None: ...
+
 global___RemoveNetworkLoadBalancerListenerMetadata = RemoveNetworkLoadBalancerListenerMetadata
 
 class ListNetworkLoadBalancerOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the NetworkLoadBalancer resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than [page_size], the service returns a [ListNetworkLoadBalancerOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListNetworkLoadBalancerOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
+        network_load_balancer_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListNetworkLoadBalancerOperationsRequest = ListNetworkLoadBalancerOperationsRequest
 
 class ListNetworkLoadBalancerOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified network load balancer."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListNetworkLoadBalancerOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListNetworkLoadBalancerOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListNetworkLoadBalancerOperationsResponse = ListNetworkLoadBalancerOperationsResponse
 
 class GetTargetStatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_LOAD_BALANCER_ID_FIELD_NUMBER: builtins.int
     TARGET_GROUP_ID_FIELD_NUMBER: builtins.int
-    network_load_balancer_id: typing.Text
+    network_load_balancer_id: builtins.str
     """ID of the NetworkLoadBalancer resource with an attached target group."""
-
-    target_group_id: typing.Text
+    target_group_id: builtins.str
     """ID of the target group to get states of resources from."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_load_balancer_id: typing.Text = ...,
-        target_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id",b"network_load_balancer_id","target_group_id",b"target_group_id"]) -> None: ...
+        network_load_balancer_id: builtins.str = ...,
+        target_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_load_balancer_id", b"network_load_balancer_id", "target_group_id", b"target_group_id"]) -> None: ...
+
 global___GetTargetStatesRequest = GetTargetStatesRequest
 
 class GetTargetStatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TARGET_STATES_FIELD_NUMBER: builtins.int
     @property
     def target_states(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.TargetState]:
         """List of states of targets within the target group that is specified in the [GetTargetStatesRequest] message."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        target_states: typing.Optional[typing.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.TargetState]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["target_states",b"target_states"]) -> None: ...
+        target_states: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.TargetState] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["target_states", b"target_states"]) -> None: ...
+
 global___GetTargetStatesResponse = GetTargetStatesResponse
 
 class ExternalAddressSpec(google.protobuf.message.Message):
     """External address specification that is used by [ListenerSpec]."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ADDRESS_FIELD_NUMBER: builtins.int
     IP_VERSION_FIELD_NUMBER: builtins.int
-    address: typing.Text
+    address: builtins.str
     """Public IP address for a listener.
     If you provide a static public IP address for the [NetworkLoadBalancerService.Update]
     method, it will replace the existing listener address.
     """
-
     ip_version: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.IpVersion.ValueType
     """IP version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        address: typing.Text = ...,
+        address: builtins.str = ...,
         ip_version: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.IpVersion.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address",b"address","ip_version",b"ip_version"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "ip_version", b"ip_version"]) -> None: ...
+
 global___ExternalAddressSpec = ExternalAddressSpec
 
 class InternalAddressSpec(google.protobuf.message.Message):
     """Internal address specification that is used by [ListenerSpec]."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ADDRESS_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     IP_VERSION_FIELD_NUMBER: builtins.int
-    address: typing.Text
+    address: builtins.str
     """Internal IP address for a listener."""
-
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     """ID of the subnet."""
-
     ip_version: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.IpVersion.ValueType
     """IP version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        address: typing.Text = ...,
-        subnet_id: typing.Text = ...,
+        address: builtins.str = ...,
+        subnet_id: builtins.str = ...,
         ip_version: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.IpVersion.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address",b"address","ip_version",b"ip_version","subnet_id",b"subnet_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "ip_version", b"ip_version", "subnet_id", b"subnet_id"]) -> None: ...
+
 global___InternalAddressSpec = InternalAddressSpec
 
 class ListenerSpec(google.protobuf.message.Message):
     """Listener specification that will be used by a network load balancer."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     PORT_FIELD_NUMBER: builtins.int
     PROTOCOL_FIELD_NUMBER: builtins.int
     EXTERNAL_ADDRESS_SPEC_FIELD_NUMBER: builtins.int
     INTERNAL_ADDRESS_SPEC_FIELD_NUMBER: builtins.int
     TARGET_PORT_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long."""
-
     port: builtins.int
     """Port for incoming traffic."""
-
     protocol: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.Listener.Protocol.ValueType
     """Protocol for incoming traffic."""
-
     @property
     def external_address_spec(self) -> global___ExternalAddressSpec:
         """External IP address specification."""
-        pass
     @property
     def internal_address_spec(self) -> global___InternalAddressSpec:
         """Internal IP address specification."""
-        pass
     target_port: builtins.int
     """Port of a target.
     Acceptable values are 1 to 65535, inclusive.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         port: builtins.int = ...,
         protocol: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.Listener.Protocol.ValueType = ...,
-        external_address_spec: typing.Optional[global___ExternalAddressSpec] = ...,
-        internal_address_spec: typing.Optional[global___InternalAddressSpec] = ...,
+        external_address_spec: global___ExternalAddressSpec | None = ...,
+        internal_address_spec: global___InternalAddressSpec | None = ...,
         target_port: builtins.int = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["address",b"address","external_address_spec",b"external_address_spec","internal_address_spec",b"internal_address_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address",b"address","external_address_spec",b"external_address_spec","internal_address_spec",b"internal_address_spec","name",b"name","port",b"port","protocol",b"protocol","target_port",b"target_port"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["address",b"address"]) -> typing.Optional[typing_extensions.Literal["external_address_spec","internal_address_spec"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["address", b"address", "external_address_spec", b"external_address_spec", "internal_address_spec", b"internal_address_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "external_address_spec", b"external_address_spec", "internal_address_spec", b"internal_address_spec", "name", b"name", "port", b"port", "protocol", b"protocol", "target_port", b"target_port"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["address", b"address"]) -> typing_extensions.Literal["external_address_spec", "internal_address_spec"] | None: ...
+
 global___ListenerSpec = ListenerSpec

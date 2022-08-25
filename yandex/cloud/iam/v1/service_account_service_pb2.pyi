@@ -3,43 +3,50 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.iam.v1.service_account_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the ServiceAccount resource to return.
     To get the service account ID, use a [ServiceAccountService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["service_account_id", b"service_account_id"]) -> None: ...
+
 global___GetServiceAccountRequest = GetServiceAccountRequest
 
 class ListServiceAccountsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list service accounts in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
@@ -47,40 +54,39 @@ class ListServiceAccountsRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token]
     to the [ListServiceAccountsResponse.next_page_token]
     returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can use filtering only on the [ServiceAccount.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListServiceAccountsRequest = ListServiceAccountsRequest
 
 class ListServiceAccountsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def service_accounts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.iam.v1.service_account_pb2.ServiceAccount]:
         """List of ServiceAccount resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListServiceAccountsRequest.page_size], use
     the [next_page_token] as the value
@@ -88,217 +94,228 @@ class ListServiceAccountsResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_accounts: typing.Optional[typing.Iterable[yandex.cloud.iam.v1.service_account_pb2.ServiceAccount]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","service_accounts",b"service_accounts"]) -> None: ...
+        service_accounts: collections.abc.Iterable[yandex.cloud.iam.v1.service_account_pb2.ServiceAccount] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "service_accounts", b"service_accounts"]) -> None: ...
+
 global___ListServiceAccountsResponse = ListServiceAccountsResponse
 
 class CreateServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a service account in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the service account.
     The name must be unique within the cloud.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the service account."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name"]) -> None: ...
+
 global___CreateServiceAccountRequest = CreateServiceAccountRequest
 
 class CreateServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
-    """ID of the service account that is being created."""
 
-    def __init__(self,
+    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
+    service_account_id: builtins.str
+    """ID of the service account that is being created."""
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["service_account_id", b"service_account_id"]) -> None: ...
+
 global___CreateServiceAccountMetadata = CreateServiceAccountMetadata
 
 class UpdateServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the ServiceAccount resource to update.
     To get the service account ID, use a [ServiceAccountService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the ServiceAccount resource are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the service account.
     The name must be unique within the cloud.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the service account."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","service_account_id",b"service_account_id","update_mask",b"update_mask"]) -> None: ...
+        service_account_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "service_account_id", b"service_account_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateServiceAccountRequest = UpdateServiceAccountRequest
 
 class UpdateServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
-    """ID of the ServiceAccount resource that is being updated."""
 
-    def __init__(self,
+    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
+    service_account_id: builtins.str
+    """ID of the ServiceAccount resource that is being updated."""
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["service_account_id", b"service_account_id"]) -> None: ...
+
 global___UpdateServiceAccountMetadata = UpdateServiceAccountMetadata
 
 class DeleteServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account to delete.
     To get the service account ID, use a [ServiceAccountService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["service_account_id", b"service_account_id"]) -> None: ...
+
 global___DeleteServiceAccountRequest = DeleteServiceAccountRequest
 
 class DeleteServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
-    """ID of the service account that is being deleted."""
 
-    def __init__(self,
+    SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
+    service_account_id: builtins.str
+    """ID of the service account that is being deleted."""
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["service_account_id", b"service_account_id"]) -> None: ...
+
 global___DeleteServiceAccountMetadata = DeleteServiceAccountMetadata
 
 class ListServiceAccountOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the ServiceAccount resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListServiceAccountOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token]
     to the [ListServiceAccountOperationsResponse.next_page_token]
     returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
+        service_account_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","service_account_id",b"service_account_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___ListServiceAccountOperationsRequest = ListServiceAccountOperationsRequest
 
 class ListServiceAccountOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified service account."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListServiceAccountOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListServiceAccountOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListServiceAccountOperationsResponse = ListServiceAccountOperationsResponse

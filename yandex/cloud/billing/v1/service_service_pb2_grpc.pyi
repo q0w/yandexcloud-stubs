@@ -9,35 +9,35 @@ import yandex.cloud.billing.v1.service_service_pb2
 
 class ServiceServiceStub:
     """A set of methods for managing Service resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.service_service_pb2.GetServiceRequest,
-        yandex.cloud.billing.v1.service_pb2.Service]
+        yandex.cloud.billing.v1.service_pb2.Service,
+    ]
     """Returns the specified service."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.service_service_pb2.ListServicesRequest,
-        yandex.cloud.billing.v1.service_service_pb2.ListServicesResponse]
+        yandex.cloud.billing.v1.service_service_pb2.ListServicesResponse,
+    ]
     """Retrieves the list of services."""
-
 
 class ServiceServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Service resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.billing.v1.service_service_pb2.GetServiceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.billing.v1.service_pb2.Service:
         """Returns the specified service."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.billing.v1.service_service_pb2.ListServicesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.billing.v1.service_service_pb2.ListServicesResponse:
         """Retrieves the list of services."""
-        pass
-
 
 def add_ServiceServiceServicer_to_server(servicer: ServiceServiceServicer, server: grpc.Server) -> None: ...

@@ -3,72 +3,76 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Secret(google.protobuf.message.Message):
     """A secret that may contain several versions of the payload."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Secret._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Secret._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Secret._Status.ValueType  # 0
         CREATING: Secret._Status.ValueType  # 1
         """The secret is being created."""
-
         ACTIVE: Secret._Status.ValueType  # 2
         """The secret is active and the secret payload can be accessed.
 
         Can be set to INACTIVE using the [SecretService.Deactivate] method.
         """
-
         INACTIVE: Secret._Status.ValueType  # 3
         """The secret is inactive and unusable.
 
         Can be set to ACTIVE using the [SecretService.Deactivate] method.
         """
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Secret.Status.ValueType  # 0
     CREATING: Secret.Status.ValueType  # 1
     """The secret is being created."""
-
     ACTIVE: Secret.Status.ValueType  # 2
     """The secret is active and the secret payload can be accessed.
 
     Can be set to INACTIVE using the [SecretService.Deactivate] method.
     """
-
     INACTIVE: Secret.Status.ValueType  # 3
     """The secret is inactive and unusable.
 
     Can be set to ACTIVE using the [SecretService.Deactivate] method.
     """
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -80,90 +84,77 @@ class Secret(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     CURRENT_VERSION_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the secret."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the secret belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the secret."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the secret."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the secret as `key:value` pairs. Maximum 64 per key."""
-        pass
-    kms_key_id: typing.Text
+    kms_key_id: builtins.str
     """Optional ID of the KMS key will be used to encrypt and decrypt the secret."""
-
     status: global___Secret.Status.ValueType
     """Status of the secret."""
-
     @property
     def current_version(self) -> global___Version:
         """Current (i.e. the `latest`) version of the secret."""
-        pass
     deletion_protection: builtins.bool
     """Flag that inhibits deletion of the secret."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        kms_key_id: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        kms_key_id: builtins.str = ...,
         status: global___Secret.Status.ValueType = ...,
-        current_version: typing.Optional[global___Version] = ...,
+        current_version: global___Version | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","current_version",b"current_version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","current_version",b"current_version","deletion_protection",b"deletion_protection","description",b"description","folder_id",b"folder_id","id",b"id","kms_key_id",b"kms_key_id","labels",b"labels","name",b"name","status",b"status"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "current_version", b"current_version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "current_version", b"current_version", "deletion_protection", b"deletion_protection", "description", b"description", "folder_id", b"folder_id", "id", b"id", "kms_key_id", b"kms_key_id", "labels", b"labels", "name", b"name", "status", b"status"]) -> None: ...
+
 global___Secret = Secret
 
 class Version(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Version._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Version._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Version._Status.ValueType  # 0
         ACTIVE: Version._Status.ValueType  # 1
         """The version is active and the secret payload can be accessed."""
-
         SCHEDULED_FOR_DESTRUCTION: Version._Status.ValueType  # 2
         """The version is scheduled for destruction, the time when it will be destroyed
         is specified in the [Version.destroy_at] field.
         """
-
         DESTROYED: Version._Status.ValueType  # 3
         """The version is destroyed and cannot be recovered."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Version.Status.ValueType  # 0
     ACTIVE: Version.Status.ValueType  # 1
     """The version is active and the secret payload can be accessed."""
-
     SCHEDULED_FOR_DESTRUCTION: Version.Status.ValueType  # 2
     """The version is scheduled for destruction, the time when it will be destroyed
     is specified in the [Version.destroy_at] field.
     """
-
     DESTROYED: Version.Status.ValueType  # 3
     """The version is destroyed and cannot be recovered."""
-
 
     ID_FIELD_NUMBER: builtins.int
     SECRET_ID_FIELD_NUMBER: builtins.int
@@ -172,42 +163,37 @@ class Version(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     PAYLOAD_ENTRY_KEYS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the version."""
-
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret that the version belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the version was created."""
-        pass
     @property
     def destroy_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the version is going to be destroyed. Empty unless the status
         is `SCHEDULED_FOR_DESTRUCTION`.
         """
-        pass
-    description: typing.Text
+    description: builtins.str
     """Description of the version."""
-
     status: global___Version.Status.ValueType
     """Status of the secret."""
-
     @property
-    def payload_entry_keys(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def payload_entry_keys(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Keys of the entries contained in the version payload."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        secret_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        destroy_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        description: typing.Text = ...,
+        id: builtins.str = ...,
+        secret_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        destroy_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        description: builtins.str = ...,
         status: global___Version.Status.ValueType = ...,
-        payload_entry_keys: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","destroy_at",b"destroy_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","destroy_at",b"destroy_at","id",b"id","payload_entry_keys",b"payload_entry_keys","secret_id",b"secret_id","status",b"status"]) -> None: ...
+        payload_entry_keys: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "destroy_at", b"destroy_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "destroy_at", b"destroy_at", "id", b"id", "payload_entry_keys", b"payload_entry_keys", "secret_id", b"secret_id", "status", b"status"]) -> None: ...
+
 global___Version = Version

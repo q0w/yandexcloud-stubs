@@ -7,26 +7,33 @@ import google.protobuf.descriptor
 import google.protobuf.descriptor_pb2
 import google.protobuf.internal.extension_dict
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class MapKeySpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VALUE_FIELD_NUMBER: builtins.int
     PATTERN_FIELD_NUMBER: builtins.int
     LENGTH_FIELD_NUMBER: builtins.int
-    value: typing.Text
-    pattern: typing.Text
-    length: typing.Text
-    def __init__(self,
+    value: builtins.str
+    pattern: builtins.str
+    length: builtins.str
+    def __init__(
+        self,
         *,
-        value: typing.Text = ...,
-        pattern: typing.Text = ...,
-        length: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["length",b"length","pattern",b"pattern","value",b"value"]) -> None: ...
+        value: builtins.str = ...,
+        pattern: builtins.str = ...,
+        length: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["length", b"length", "pattern", b"pattern", "value", b"value"]) -> None: ...
+
 global___MapKeySpec = MapKeySpec
 
 EXACTLY_ONE_FIELD_NUMBER: builtins.int
@@ -39,19 +46,11 @@ UNIQUE_FIELD_NUMBER: builtins.int
 MAP_KEY_FIELD_NUMBER: builtins.int
 BYTES_FIELD_NUMBER: builtins.int
 exactly_one: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.OneofOptions, builtins.bool]
-
 required: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.bool]
-
-pattern: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
-
-value: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
-
-size: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
-
-length: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
-
+pattern: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
+value: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
+size: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
+length: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]
 unique: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.bool]
-
 map_key: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, global___MapKeySpec]
-
-bytes: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, typing.Text]
+bytes: google.protobuf.internal.extension_dict._ExtensionFieldDescriptor[google.protobuf.descriptor_pb2.FieldOptions, builtins.str]

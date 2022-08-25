@@ -9,35 +9,35 @@ import yandex.cloud.organizationmanager.v1.user_service_pb2
 
 class UserServiceStub:
     """A set of methods for managing Organization users."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     ListMembers: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.user_service_pb2.ListMembersRequest,
-        yandex.cloud.organizationmanager.v1.user_service_pb2.ListMembersResponse]
+        yandex.cloud.organizationmanager.v1.user_service_pb2.ListMembersResponse,
+    ]
     """List organization active members."""
-
     DeleteMembership: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.user_service_pb2.DeleteMembershipRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Delete user membership."""
-
 
 class UserServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Organization users."""
+
     @abc.abstractmethod
-    def ListMembers(self,
+    def ListMembers(
+        self,
         request: yandex.cloud.organizationmanager.v1.user_service_pb2.ListMembersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.user_service_pb2.ListMembersResponse:
         """List organization active members."""
-        pass
-
     @abc.abstractmethod
-    def DeleteMembership(self,
+    def DeleteMembership(
+        self,
         request: yandex.cloud.organizationmanager.v1.user_service_pb2.DeleteMembershipRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Delete user membership."""
-        pass
-
 
 def add_UserServiceServicer_to_server(servicer: UserServiceServicer, server: grpc.Server) -> None: ...

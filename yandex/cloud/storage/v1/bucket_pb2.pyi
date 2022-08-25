@@ -3,6 +3,7 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -10,15 +11,21 @@ import google.protobuf.message
 import google.protobuf.struct_pb2
 import google.protobuf.timestamp_pb2
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _Versioning:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Versioning.ValueType], builtins.type):
+
+class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Versioning.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     VERSIONING_UNSPECIFIED: _Versioning.ValueType  # 0
     VERSIONING_DISABLED: _Versioning.ValueType  # 1
@@ -28,7 +35,6 @@ class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update] request. Note that this
     action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
     """
-
     VERSIONING_ENABLED: _Versioning.ValueType  # 2
     """Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
     already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
@@ -38,7 +44,6 @@ class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
     them.
     """
-
     VERSIONING_SUSPENDED: _Versioning.ValueType  # 3
     """Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
     versioning was suspended are still versioned and keep their version IDs.
@@ -46,8 +51,7 @@ class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update] request.
     """
 
-class Versioning(_Versioning, metaclass=_VersioningEnumTypeWrapper):
-    pass
+class Versioning(_Versioning, metaclass=_VersioningEnumTypeWrapper): ...
 
 VERSIONING_UNSPECIFIED: Versioning.ValueType  # 0
 VERSIONING_DISABLED: Versioning.ValueType  # 1
@@ -57,7 +61,6 @@ Objects that are stored in the bucket have a version ID of `null`.
 To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update] request. Note that this
 action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
 """
-
 VERSIONING_ENABLED: Versioning.ValueType  # 2
 """Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
 already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
@@ -67,22 +70,21 @@ To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketServ
 disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
 them.
 """
-
 VERSIONING_SUSPENDED: Versioning.ValueType  # 3
 """Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
 versioning was suspended are still versioned and keep their version IDs.
 
 To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update] request.
 """
-
 global___Versioning = Versioning
-
 
 class Bucket(google.protobuf.message.Message):
     """A bucket resource.
     For details about the concept, see [documentation](/docs/storage/concepts/bucket).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -96,104 +98,97 @@ class Bucket(google.protobuf.message.Message):
     CORS_FIELD_NUMBER: builtins.int
     WEBSITE_SETTINGS_FIELD_NUMBER: builtins.int
     LIFECYCLE_RULES_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the bucket. Always equal to [name], which has priority."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the bucket.
 
     The name is unique within the platform. For naming limitations and rules, see
     [documentation](/docs/storage/concepts/bucket#naming).
     """
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the bucket belongs to."""
-
     @property
     def anonymous_access_flags(self) -> global___AnonymousAccessFlags:
         """Flags for configuring public (anonymous) access to the bucket's content and settings.
         For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
         """
-        pass
-    default_storage_class: typing.Text
+    default_storage_class: builtins.str
     """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
     cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
-
     versioning: global___Versioning.ValueType
     """Bucket versioning status.
     For details, see [documentation](/docs/storage/concepts/versioning).
     """
-
     max_size: builtins.int
     """Maximum size of the bucket, in bytes.
     For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume).
     """
-
     @property
     def policy(self) -> google.protobuf.struct_pb2.Struct:
         """Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects.
         For details, see [documentation](/docs/storage/concepts/policy).
         """
-        pass
     @property
     def acl(self) -> global___ACL:
         """Access control list (ACL) of the bucket.
         For details, see [documentation](/docs/storage/concepts/acl).
         """
-        pass
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
     @property
     def cors(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CorsRule]:
         """List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
         For details, see [documentation](/docs/storage/concepts/cors).
         """
-        pass
     @property
     def website_settings(self) -> global___WebsiteSettings:
         """Configuration for hosting a static website in the bucket.
         For details, see [documentation](/docs/storage/concepts/hosting).
         """
-        pass
     @property
     def lifecycle_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LifecycleRule]:
         """List of object lifecycle rules for the bucket.
         For details, see [documentation](/docs/storage/concepts/lifecycles).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        name: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        anonymous_access_flags: typing.Optional[global___AnonymousAccessFlags] = ...,
-        default_storage_class: typing.Text = ...,
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        anonymous_access_flags: global___AnonymousAccessFlags | None = ...,
+        default_storage_class: builtins.str = ...,
         versioning: global___Versioning.ValueType = ...,
         max_size: builtins.int = ...,
-        policy: typing.Optional[google.protobuf.struct_pb2.Struct] = ...,
-        acl: typing.Optional[global___ACL] = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        cors: typing.Optional[typing.Iterable[global___CorsRule]] = ...,
-        website_settings: typing.Optional[global___WebsiteSettings] = ...,
-        lifecycle_rules: typing.Optional[typing.Iterable[global___LifecycleRule]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["acl",b"acl","anonymous_access_flags",b"anonymous_access_flags","created_at",b"created_at","policy",b"policy","website_settings",b"website_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl",b"acl","anonymous_access_flags",b"anonymous_access_flags","cors",b"cors","created_at",b"created_at","default_storage_class",b"default_storage_class","folder_id",b"folder_id","id",b"id","lifecycle_rules",b"lifecycle_rules","max_size",b"max_size","name",b"name","policy",b"policy","versioning",b"versioning","website_settings",b"website_settings"]) -> None: ...
+        policy: google.protobuf.struct_pb2.Struct | None = ...,
+        acl: global___ACL | None = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        cors: collections.abc.Iterable[global___CorsRule] | None = ...,
+        website_settings: global___WebsiteSettings | None = ...,
+        lifecycle_rules: collections.abc.Iterable[global___LifecycleRule] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "id", b"id", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
+
 global___Bucket = Bucket
 
 class ACL(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Grant(google.protobuf.message.Message):
         """A grant resource, used to specify the permission granted and the grantee."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class _Permission:
-            ValueType = typing.NewType('ValueType', builtins.int)
+            ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
-        class _PermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ACL.Grant._Permission.ValueType], builtins.type):
+
+        class _PermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ACL.Grant._Permission.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             PERMISSION_UNSPECIFIED: ACL.Grant._Permission.ValueType  # 0
             PERMISSION_FULL_CONTROL: ACL.Grant._Permission.ValueType  # 1
@@ -203,7 +198,6 @@ class ACL(google.protobuf.message.Message):
             Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
             Amazon S3-compatible HTTP API.
             """
-
             PERMISSION_WRITE: ACL.Grant._Permission.ValueType  # 2
             """Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
             allows deletions and overwrites of those objects.
@@ -211,21 +205,18 @@ class ACL(google.protobuf.message.Message):
             Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
             S3-compatible HTTP API.
             """
-
             PERMISSION_WRITE_ACP: ACL.Grant._Permission.ValueType  # 3
             """Allows grantee to write the ACL for the bucket.
 
             Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
             Amazon S3-compatible HTTP API.
             """
-
             PERMISSION_READ: ACL.Grant._Permission.ValueType  # 4
             """Allows grantee to list the objects in the bucket.
 
             Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
             S3-compatible HTTP API.
             """
-
             PERMISSION_READ_ACP: ACL.Grant._Permission.ValueType  # 5
             """Allows grantee to read the bucket ACL
 
@@ -233,9 +224,7 @@ class ACL(google.protobuf.message.Message):
             Amazon S3-compatible HTTP API.
             """
 
-        class Permission(_Permission, metaclass=_PermissionEnumTypeWrapper):
-            pass
-
+        class Permission(_Permission, metaclass=_PermissionEnumTypeWrapper): ...
         PERMISSION_UNSPECIFIED: ACL.Grant.Permission.ValueType  # 0
         PERMISSION_FULL_CONTROL: ACL.Grant.Permission.ValueType  # 1
         """Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
@@ -244,7 +233,6 @@ class ACL(google.protobuf.message.Message):
         Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
         Amazon S3-compatible HTTP API.
         """
-
         PERMISSION_WRITE: ACL.Grant.Permission.ValueType  # 2
         """Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
         allows deletions and overwrites of those objects.
@@ -252,21 +240,18 @@ class ACL(google.protobuf.message.Message):
         Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
         S3-compatible HTTP API.
         """
-
         PERMISSION_WRITE_ACP: ACL.Grant.Permission.ValueType  # 3
         """Allows grantee to write the ACL for the bucket.
 
         Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
         Amazon S3-compatible HTTP API.
         """
-
         PERMISSION_READ: ACL.Grant.Permission.ValueType  # 4
         """Allows grantee to list the objects in the bucket.
 
         Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
         S3-compatible HTTP API.
         """
-
         PERMISSION_READ_ACP: ACL.Grant.Permission.ValueType  # 5
         """Allows grantee to read the bucket ACL
 
@@ -274,11 +259,11 @@ class ACL(google.protobuf.message.Message):
         Amazon S3-compatible HTTP API.
         """
 
-
         class _GrantType:
-            ValueType = typing.NewType('ValueType', builtins.int)
+            ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
-        class _GrantTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ACL.Grant._GrantType.ValueType], builtins.type):
+
+        class _GrantTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ACL.Grant._GrantType.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             GRANT_TYPE_UNSPECIFIED: ACL.Grant._GrantType.ValueType  # 0
             GRANT_TYPE_ACCOUNT: ACL.Grant._GrantType.ValueType  # 1
@@ -290,7 +275,6 @@ class ACL(google.protobuf.message.Message):
             Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
             method of Amazon S3-compatible HTTP API).
             """
-
             GRANT_TYPE_ALL_AUTHENTICATED_USERS: ACL.Grant._GrantType.ValueType  # 2
             """Grantees are all authenticated users, both from your clouds and other users' clouds. Access
             permission to this group allows any account on the platform to access the resource via a signed (authenticated)
@@ -299,7 +283,6 @@ class ACL(google.protobuf.message.Message):
             Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
             header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
             """
-
             GRANT_TYPE_ALL_USERS: ACL.Grant._GrantType.ValueType  # 3
             """Grantees are all internet users. Access permission to this group allows anyone in the world access to the
             resource via signed (authenticated) or unsigned (anonymous) requests.
@@ -308,9 +291,7 @@ class ACL(google.protobuf.message.Message):
             ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
             """
 
-        class GrantType(_GrantType, metaclass=_GrantTypeEnumTypeWrapper):
-            pass
-
+        class GrantType(_GrantType, metaclass=_GrantTypeEnumTypeWrapper): ...
         GRANT_TYPE_UNSPECIFIED: ACL.Grant.GrantType.ValueType  # 0
         GRANT_TYPE_ACCOUNT: ACL.Grant.GrantType.ValueType  # 1
         """A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
@@ -321,7 +302,6 @@ class ACL(google.protobuf.message.Message):
         Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
         method of Amazon S3-compatible HTTP API).
         """
-
         GRANT_TYPE_ALL_AUTHENTICATED_USERS: ACL.Grant.GrantType.ValueType  # 2
         """Grantees are all authenticated users, both from your clouds and other users' clouds. Access
         permission to this group allows any account on the platform to access the resource via a signed (authenticated)
@@ -330,7 +310,6 @@ class ACL(google.protobuf.message.Message):
         Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
         header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
         """
-
         GRANT_TYPE_ALL_USERS: ACL.Grant.GrantType.ValueType  # 3
         """Grantees are all internet users. Access permission to this group allows anyone in the world access to the
         resource via signed (authenticated) or unsigned (anonymous) requests.
@@ -339,92 +318,89 @@ class ACL(google.protobuf.message.Message):
         ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
         """
 
-
         PERMISSION_FIELD_NUMBER: builtins.int
         GRANT_TYPE_FIELD_NUMBER: builtins.int
         GRANTEE_ID_FIELD_NUMBER: builtins.int
         permission: global___ACL.Grant.Permission.ValueType
         """Permission granted by the grant."""
-
         grant_type: global___ACL.Grant.GrantType.ValueType
         """The grantee type for the grant."""
-
-        grantee_id: typing.Text
+        grantee_id: builtins.str
         """ID of the account who is a grantee. Required when the [grant_type] is `GRANT_TYPE_ACCOUNT`."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             permission: global___ACL.Grant.Permission.ValueType = ...,
             grant_type: global___ACL.Grant.GrantType.ValueType = ...,
-            grantee_id: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["grant_type",b"grant_type","grantee_id",b"grantee_id","permission",b"permission"]) -> None: ...
+            grantee_id: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["grant_type", b"grant_type", "grantee_id", b"grantee_id", "permission", b"permission"]) -> None: ...
 
     GRANTS_FIELD_NUMBER: builtins.int
     @property
     def grants(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ACL.Grant]:
         """List of permissions granted and the grantees."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        grants: typing.Optional[typing.Iterable[global___ACL.Grant]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["grants",b"grants"]) -> None: ...
+        grants: collections.abc.Iterable[global___ACL.Grant] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["grants", b"grants"]) -> None: ...
+
 global___ACL = ACL
 
 class AnonymousAccessFlags(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     READ_FIELD_NUMBER: builtins.int
     LIST_FIELD_NUMBER: builtins.int
     CONFIG_READ_FIELD_NUMBER: builtins.int
     @property
     def read(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Specifies whether public (anonymous) access to read objects in the bucket is enabled."""
-        pass
     @property
     def list(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Specifies whether public (anonymous) access to the list of objects in the bucket is enabled."""
-        pass
     @property
     def config_read(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
         [static website hosting](/docs/storage/concepts/hosting), and
         [object lifecycles](/docs/storage/concepts/lifecycles) settings of the bucket is enabled.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        read: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        list: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        config_read: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_read",b"config_read","list",b"list","read",b"read"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["config_read",b"config_read","list",b"list","read",b"read"]) -> None: ...
+        read: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        list: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        config_read: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_read", b"config_read", "list", b"list", "read", b"read"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config_read", b"config_read", "list", b"list", "read", b"read"]) -> None: ...
+
 global___AnonymousAccessFlags = AnonymousAccessFlags
 
 class CorsRule(google.protobuf.message.Message):
     """A CORS rule resource.
     For details about the concept, see [documentation](/docs/storage/concepts/cors).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Method:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _MethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CorsRule._Method.ValueType], builtins.type):
+
+    class _MethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[CorsRule._Method.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         METHOD_UNSPECIFIED: CorsRule._Method.ValueType  # 0
         METHOD_GET: CorsRule._Method.ValueType  # 1
         """HTTP `GET` method."""
-
         METHOD_HEAD: CorsRule._Method.ValueType  # 2
         """HTTP `HEAD` method."""
-
         METHOD_POST: CorsRule._Method.ValueType  # 3
         """HTTP `POST` method."""
-
         METHOD_PUT: CorsRule._Method.ValueType  # 4
         """HTTP `PUT` method."""
-
         METHOD_DELETE: CorsRule._Method.ValueType  # 5
         """HTTP `DELETE` method."""
 
@@ -436,24 +412,18 @@ class CorsRule(google.protobuf.message.Message):
         list of the allowed methods. If there is a match, all the allowed methods are listed in the
         `Access-Control-Allow-Methods` header of the response.
         """
-        pass
 
     METHOD_UNSPECIFIED: CorsRule.Method.ValueType  # 0
     METHOD_GET: CorsRule.Method.ValueType  # 1
     """HTTP `GET` method."""
-
     METHOD_HEAD: CorsRule.Method.ValueType  # 2
     """HTTP `HEAD` method."""
-
     METHOD_POST: CorsRule.Method.ValueType  # 3
     """HTTP `POST` method."""
-
     METHOD_PUT: CorsRule.Method.ValueType  # 4
     """HTTP `PUT` method."""
-
     METHOD_DELETE: CorsRule.Method.ValueType  # 5
     """HTTP `DELETE` method."""
-
 
     ID_FIELD_NUMBER: builtins.int
     ALLOWED_METHODS_FIELD_NUMBER: builtins.int
@@ -461,9 +431,8 @@ class CorsRule(google.protobuf.message.Message):
     ALLOWED_ORIGINS_FIELD_NUMBER: builtins.int
     EXPOSE_HEADERS_FIELD_NUMBER: builtins.int
     MAX_AGE_SECONDS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the CORS rule."""
-
     @property
     def allowed_methods(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___CorsRule.Method.ValueType]:
         """List of HTTP methods allowed by the CORS rule.
@@ -473,9 +442,8 @@ class CorsRule(google.protobuf.message.Message):
         the list of the allowed methods. If there is a match, all the allowed methods are listed in the
         `Access-Control-Allow-Methods` header of the response.
         """
-        pass
     @property
-    def allowed_headers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def allowed_headers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of HTTP headers allowed by the CORS rule.
 
         When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Headers` header (see
@@ -486,175 +454,167 @@ class CorsRule(google.protobuf.message.Message):
         Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
         For example, `x-amz-*` value will allow all Amazon S3-compatible headers.
         """
-        pass
     @property
-    def allowed_origins(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def allowed_origins(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of request origins allowed by the CORS rule.
 
         Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
         For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`.
         """
-        pass
     @property
-    def expose_headers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def expose_headers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of headers contained in responses to CORS requests that can be accessed by applications."""
-        pass
     @property
     def max_age_seconds(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Time in seconds that a client can cache the response to a CORS-preflight request as identified by the
         object requested, the HTTP method, and the origin.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        allowed_methods: typing.Optional[typing.Iterable[global___CorsRule.Method.ValueType]] = ...,
-        allowed_headers: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        allowed_origins: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        expose_headers: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        max_age_seconds: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["max_age_seconds",b"max_age_seconds"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allowed_headers",b"allowed_headers","allowed_methods",b"allowed_methods","allowed_origins",b"allowed_origins","expose_headers",b"expose_headers","id",b"id","max_age_seconds",b"max_age_seconds"]) -> None: ...
+        id: builtins.str = ...,
+        allowed_methods: collections.abc.Iterable[global___CorsRule.Method.ValueType] | None = ...,
+        allowed_headers: collections.abc.Iterable[builtins.str] | None = ...,
+        allowed_origins: collections.abc.Iterable[builtins.str] | None = ...,
+        expose_headers: collections.abc.Iterable[builtins.str] | None = ...,
+        max_age_seconds: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_age_seconds", b"max_age_seconds"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allowed_headers", b"allowed_headers", "allowed_methods", b"allowed_methods", "allowed_origins", b"allowed_origins", "expose_headers", b"expose_headers", "id", b"id", "max_age_seconds", b"max_age_seconds"]) -> None: ...
+
 global___CorsRule = CorsRule
 
 class WebsiteSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Protocol:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[WebsiteSettings._Protocol.ValueType], builtins.type):
+
+    class _ProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[WebsiteSettings._Protocol.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PROTOCOL_UNSPECIFIED: WebsiteSettings._Protocol.ValueType  # 0
         PROTOCOL_HTTP: WebsiteSettings._Protocol.ValueType  # 1
         """`http` scheme."""
-
         PROTOCOL_HTTPS: WebsiteSettings._Protocol.ValueType  # 2
         """`https` scheme."""
 
-    class Protocol(_Protocol, metaclass=_ProtocolEnumTypeWrapper):
-        pass
-
+    class Protocol(_Protocol, metaclass=_ProtocolEnumTypeWrapper): ...
     PROTOCOL_UNSPECIFIED: WebsiteSettings.Protocol.ValueType  # 0
     PROTOCOL_HTTP: WebsiteSettings.Protocol.ValueType  # 1
     """`http` scheme."""
-
     PROTOCOL_HTTPS: WebsiteSettings.Protocol.ValueType  # 2
     """`https` scheme."""
 
-
     class Scheme(google.protobuf.message.Message):
         """A configuration resource for redirecting all requests sent to the website."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         PROTOCOL_FIELD_NUMBER: builtins.int
         HOSTNAME_FIELD_NUMBER: builtins.int
         protocol: global___WebsiteSettings.Protocol.ValueType
         """Scheme of the redirect URI."""
-
-        hostname: typing.Text
+        hostname: builtins.str
         """Hostname of the redirect URI."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             protocol: global___WebsiteSettings.Protocol.ValueType = ...,
-            hostname: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["hostname",b"hostname","protocol",b"protocol"]) -> None: ...
+            hostname: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["hostname", b"hostname", "protocol", b"protocol"]) -> None: ...
 
     class Condition(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         HTTP_ERROR_CODE_RETURNED_EQUALS_FIELD_NUMBER: builtins.int
         KEY_PREFIX_EQUALS_FIELD_NUMBER: builtins.int
-        http_error_code_returned_equals: typing.Text
+        http_error_code_returned_equals: builtins.str
         """HTTP status code (number only) that must match for the redirect to apply."""
-
-        key_prefix_equals: typing.Text
+        key_prefix_equals: builtins.str
         """Prefix of the object key from which requests are redirected."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            http_error_code_returned_equals: typing.Text = ...,
-            key_prefix_equals: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["http_error_code_returned_equals",b"http_error_code_returned_equals","key_prefix_equals",b"key_prefix_equals"]) -> None: ...
+            http_error_code_returned_equals: builtins.str = ...,
+            key_prefix_equals: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["http_error_code_returned_equals", b"http_error_code_returned_equals", "key_prefix_equals", b"key_prefix_equals"]) -> None: ...
 
     class Redirect(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         HOSTNAME_FIELD_NUMBER: builtins.int
         HTTP_REDIRECT_CODE_FIELD_NUMBER: builtins.int
         PROTOCOL_FIELD_NUMBER: builtins.int
         REPLACE_KEY_PREFIX_WITH_FIELD_NUMBER: builtins.int
         REPLACE_KEY_WITH_FIELD_NUMBER: builtins.int
-        hostname: typing.Text
+        hostname: builtins.str
         """Hostname of the redirect URI."""
-
-        http_redirect_code: typing.Text
+        http_redirect_code: builtins.str
         """HTTP status code of the redirect response.
 
         Default value: `"301"`.
         """
-
         protocol: global___WebsiteSettings.Protocol.ValueType
         """Scheme of the redirect URI."""
-
-        replace_key_prefix_with: typing.Text
+        replace_key_prefix_with: builtins.str
         """Substitution for the prefix of the object key specified in [Condition.key_prefix_equals].
 
         At most one of [replace_key_prefix_with] and [replace_key_with] can be specified.
         """
-
-        replace_key_with: typing.Text
+        replace_key_with: builtins.str
         """New object key.
 
         At most one of [replace_key_with] and [replace_key_prefix_with] can be specified.
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            hostname: typing.Text = ...,
-            http_redirect_code: typing.Text = ...,
+            hostname: builtins.str = ...,
+            http_redirect_code: builtins.str = ...,
             protocol: global___WebsiteSettings.Protocol.ValueType = ...,
-            replace_key_prefix_with: typing.Text = ...,
-            replace_key_with: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["hostname",b"hostname","http_redirect_code",b"http_redirect_code","protocol",b"protocol","replace_key_prefix_with",b"replace_key_prefix_with","replace_key_with",b"replace_key_with"]) -> None: ...
+            replace_key_prefix_with: builtins.str = ...,
+            replace_key_with: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["hostname", b"hostname", "http_redirect_code", b"http_redirect_code", "protocol", b"protocol", "replace_key_prefix_with", b"replace_key_prefix_with", "replace_key_with", b"replace_key_with"]) -> None: ...
 
     class RoutingRule(google.protobuf.message.Message):
         """List of redirect rules."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONDITION_FIELD_NUMBER: builtins.int
         REDIRECT_FIELD_NUMBER: builtins.int
         @property
         def condition(self) -> global___WebsiteSettings.Condition:
             """Redirect condition."""
-            pass
         @property
         def redirect(self) -> global___WebsiteSettings.Redirect:
             """Redirect instructions."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            condition: typing.Optional[global___WebsiteSettings.Condition] = ...,
-            redirect: typing.Optional[global___WebsiteSettings.Redirect] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["condition",b"condition","redirect",b"redirect"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["condition",b"condition","redirect",b"redirect"]) -> None: ...
+            condition: global___WebsiteSettings.Condition | None = ...,
+            redirect: global___WebsiteSettings.Redirect | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["condition", b"condition", "redirect", b"redirect"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["condition", b"condition", "redirect", b"redirect"]) -> None: ...
 
     INDEX_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     REDIRECT_ALL_REQUESTS_FIELD_NUMBER: builtins.int
     ROUTING_RULES_FIELD_NUMBER: builtins.int
-    index: typing.Text
+    index: builtins.str
     """Key of the index page object that is returned when a response is made to the root of the website.
 
     Either [index] or [redirect_all_requests] must be specified in order for the bucket to host a static website.
 
     If specified, the index page object must be located in the root of the bucket.
     """
-
-    error: typing.Text
+    error: builtins.str
     """Key of the error page object that is returned when an error occurs."""
-
     @property
     def redirect_all_requests(self) -> global___WebsiteSettings.Scheme:
         """Configuration for redirecting all requests sent to the website.
@@ -662,58 +622,62 @@ class WebsiteSettings(google.protobuf.message.Message):
         Either [redirect_all_requests] or [index] must be specified in order for the bucket to host a static website.
         If [redirect_all_requests] is specified, it must be the only field in [Bucket.website_settings].
         """
-        pass
     @property
     def routing_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___WebsiteSettings.RoutingRule]:
         """List of redirect rules."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        index: typing.Text = ...,
-        error: typing.Text = ...,
-        redirect_all_requests: typing.Optional[global___WebsiteSettings.Scheme] = ...,
-        routing_rules: typing.Optional[typing.Iterable[global___WebsiteSettings.RoutingRule]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["redirect_all_requests",b"redirect_all_requests"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["error",b"error","index",b"index","redirect_all_requests",b"redirect_all_requests","routing_rules",b"routing_rules"]) -> None: ...
+        index: builtins.str = ...,
+        error: builtins.str = ...,
+        redirect_all_requests: global___WebsiteSettings.Scheme | None = ...,
+        routing_rules: collections.abc.Iterable[global___WebsiteSettings.RoutingRule] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["redirect_all_requests", b"redirect_all_requests"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["error", b"error", "index", b"index", "redirect_all_requests", b"redirect_all_requests", "routing_rules", b"routing_rules"]) -> None: ...
+
 global___WebsiteSettings = WebsiteSettings
 
 class LifecycleRule(google.protobuf.message.Message):
     """An object lifecycle rule resource for the bucket.
     For details about the concept, see [documentation](/docs/storage/concepts/lifecycles).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class AfterDays(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         DAYS_AFTER_EXPIRATION_FIELD_NUMBER: builtins.int
         @property
         def days_after_expiration(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
             aborted.
             """
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            days_after_expiration: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["days_after_expiration",b"days_after_expiration"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["days_after_expiration",b"days_after_expiration"]) -> None: ...
+            days_after_expiration: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["days_after_expiration", b"days_after_expiration"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["days_after_expiration", b"days_after_expiration"]) -> None: ...
 
     class NoncurrentExpiration(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         NONCURRENT_DAYS_FIELD_NUMBER: builtins.int
         @property
         def noncurrent_days(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Time period, in number of days since the version of an object was classified as non-current, after which the
             version expires.
             """
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            noncurrent_days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["noncurrent_days",b"noncurrent_days"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days",b"noncurrent_days"]) -> None: ...
+            noncurrent_days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> None: ...
 
     class NoncurrentTransition(google.protobuf.message.Message):
         """List of transition rules for non-current versions of objects in a bucket with versioning enabled
@@ -721,7 +685,9 @@ class LifecycleRule(google.protobuf.message.Message):
 
         At transition, the non-current version of the object is transitioned to the specified storage class.
         """
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         NONCURRENT_DAYS_FIELD_NUMBER: builtins.int
         STORAGE_CLASS_FIELD_NUMBER: builtins.int
         @property
@@ -729,21 +695,20 @@ class LifecycleRule(google.protobuf.message.Message):
             """Time period, in number of days since the version of an object was classified as non-current, after which the
             version is transitioned.
             """
-            pass
-        storage_class: typing.Text
+        storage_class: builtins.str
         """Storage class to which a non-current version of an object is transitioned.
 
         The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
         to standard storage are not allowed.
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            noncurrent_days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            storage_class: typing.Text = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["noncurrent_days",b"noncurrent_days"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days",b"noncurrent_days","storage_class",b"storage_class"]) -> None: ...
+            noncurrent_days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            storage_class: builtins.str = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days", "storage_class", b"storage_class"]) -> None: ...
 
     class Transition(google.protobuf.message.Message):
         """List of transition rules.
@@ -756,7 +721,9 @@ class LifecycleRule(google.protobuf.message.Message):
         For the bucket with versioning enabled ([Bucket.versioning] is `VERSIONING_ENABLED`) or suspended
         (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
         """
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         DATE_FIELD_NUMBER: builtins.int
         DAYS_FIELD_NUMBER: builtins.int
         STORAGE_CLASS_FIELD_NUMBER: builtins.int
@@ -769,7 +736,6 @@ class LifecycleRule(google.protobuf.message.Message):
 
             At most one of [date] and [days] fields can be specified.
             """
-            pass
         @property
         def days(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Time period, in number of days from the creation or modification of the object, after which an object is
@@ -777,25 +743,25 @@ class LifecycleRule(google.protobuf.message.Message):
 
             At most one of [days] and [date] fields can be specified.
             """
-            pass
-        storage_class: typing.Text
+        storage_class: builtins.str
         """Storage class to which an object is transitioned.
 
         The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
         to standard storage are not allowed.
         """
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            date: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-            days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            storage_class: typing.Text = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["date",b"date","days",b"days"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["date",b"date","days",b"days","storage_class",b"storage_class"]) -> None: ...
+            date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            storage_class: builtins.str = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "storage_class", b"storage_class"]) -> None: ...
 
     class Expiration(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         DATE_FIELD_NUMBER: builtins.int
         DAYS_FIELD_NUMBER: builtins.int
         EXPIRED_OBJECT_DELETE_MARKER_FIELD_NUMBER: builtins.int
@@ -808,14 +774,12 @@ class LifecycleRule(google.protobuf.message.Message):
 
             Exactly one of [date], [days], and [expired_object_delete_marker] fields can be specified.
             """
-            pass
         @property
         def days(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Time period, in number of days from the creation or modification of the object, after which an object expires.
 
             Exactly one of [days], [date], and [expired_object_delete_marker] fields can be specified.
             """
-            pass
         @property
         def expired_object_delete_marker(self) -> google.protobuf.wrappers_pb2.BoolValue:
             """Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
@@ -823,27 +787,28 @@ class LifecycleRule(google.protobuf.message.Message):
 
             Exactly one of [expired_object_delete_marker], [date], and [days] fields can be specified.
             """
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            date: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-            days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            expired_object_delete_marker: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["date",b"date","days",b"days","expired_object_delete_marker",b"expired_object_delete_marker"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["date",b"date","days",b"days","expired_object_delete_marker",b"expired_object_delete_marker"]) -> None: ...
+            date: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            expired_object_delete_marker: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "expired_object_delete_marker", b"expired_object_delete_marker"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "expired_object_delete_marker", b"expired_object_delete_marker"]) -> None: ...
 
     class RuleFilter(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
-        PREFIX_FIELD_NUMBER: builtins.int
-        prefix: typing.Text
-        """Key prefix that the object must have in order for the rule to apply."""
 
-        def __init__(self,
+        PREFIX_FIELD_NUMBER: builtins.int
+        prefix: builtins.str
+        """Key prefix that the object must have in order for the rule to apply."""
+        def __init__(
+            self,
             *,
-            prefix: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["prefix",b"prefix"]) -> None: ...
+            prefix: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["prefix", b"prefix"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     ENABLED_FIELD_NUMBER: builtins.int
@@ -856,17 +821,14 @@ class LifecycleRule(google.protobuf.message.Message):
     @property
     def id(self) -> google.protobuf.wrappers_pb2.StringValue:
         """ID of the rule. Provided by the client or generated at creation time."""
-        pass
     enabled: builtins.bool
     """Indicates whether the rule is in effect."""
-
     @property
     def filter(self) -> global___LifecycleRule.RuleFilter:
         """Filter that identifies the objects to which the rule applies.
 
         If not specified, the rule applies to all objects in the bucket.
         """
-        pass
     @property
     def expiration(self) -> global___LifecycleRule.Expiration:
         """Expiration rule.
@@ -884,7 +846,6 @@ class LifecycleRule(google.protobuf.message.Message):
         the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
         delete marker becomes the current version of the object.
         """
-        pass
     @property
     def transitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LifecycleRule.Transition]:
         """List of transition rules.
@@ -897,11 +858,9 @@ class LifecycleRule(google.protobuf.message.Message):
         For the bucket with versioning enabled ([Bucket.versioning] is `VERSIONING_ENABLED`) or suspended
         (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
         """
-        pass
     @property
     def abort_incomplete_multipart_upload(self) -> global___LifecycleRule.AfterDays:
         """Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart)."""
-        pass
     @property
     def noncurrent_expiration(self) -> global___LifecycleRule.NoncurrentExpiration:
         """Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning] is
@@ -909,7 +868,6 @@ class LifecycleRule(google.protobuf.message.Message):
 
         At expiration, the non-current version of the object is deleted and cannot be recovered.
         """
-        pass
     @property
     def noncurrent_transitions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LifecycleRule.NoncurrentTransition]:
         """List of transition rules for non-current versions of objects in a bucket with versioning enabled
@@ -917,24 +875,26 @@ class LifecycleRule(google.protobuf.message.Message):
 
         At transition, the non-current version of the object is transitioned to the specified storage class.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
+        id: google.protobuf.wrappers_pb2.StringValue | None = ...,
         enabled: builtins.bool = ...,
-        filter: typing.Optional[global___LifecycleRule.RuleFilter] = ...,
-        expiration: typing.Optional[global___LifecycleRule.Expiration] = ...,
-        transitions: typing.Optional[typing.Iterable[global___LifecycleRule.Transition]] = ...,
-        abort_incomplete_multipart_upload: typing.Optional[global___LifecycleRule.AfterDays] = ...,
-        noncurrent_expiration: typing.Optional[global___LifecycleRule.NoncurrentExpiration] = ...,
-        noncurrent_transitions: typing.Optional[typing.Iterable[global___LifecycleRule.NoncurrentTransition]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["abort_incomplete_multipart_upload",b"abort_incomplete_multipart_upload","expiration",b"expiration","filter",b"filter","id",b"id","noncurrent_expiration",b"noncurrent_expiration"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["abort_incomplete_multipart_upload",b"abort_incomplete_multipart_upload","enabled",b"enabled","expiration",b"expiration","filter",b"filter","id",b"id","noncurrent_expiration",b"noncurrent_expiration","noncurrent_transitions",b"noncurrent_transitions","transitions",b"transitions"]) -> None: ...
+        filter: global___LifecycleRule.RuleFilter | None = ...,
+        expiration: global___LifecycleRule.Expiration | None = ...,
+        transitions: collections.abc.Iterable[global___LifecycleRule.Transition] | None = ...,
+        abort_incomplete_multipart_upload: global___LifecycleRule.AfterDays | None = ...,
+        noncurrent_expiration: global___LifecycleRule.NoncurrentExpiration | None = ...,
+        noncurrent_transitions: collections.abc.Iterable[global___LifecycleRule.NoncurrentTransition] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["abort_incomplete_multipart_upload", b"abort_incomplete_multipart_upload", "expiration", b"expiration", "filter", b"filter", "id", b"id", "noncurrent_expiration", b"noncurrent_expiration"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["abort_incomplete_multipart_upload", b"abort_incomplete_multipart_upload", "enabled", b"enabled", "expiration", b"expiration", "filter", b"filter", "id", b"id", "noncurrent_expiration", b"noncurrent_expiration", "noncurrent_transitions", b"noncurrent_transitions", "transitions", b"transitions"]) -> None: ...
+
 global___LifecycleRule = LifecycleRule
 
 class Counters(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SIMPLE_OBJECT_SIZE_FIELD_NUMBER: builtins.int
     SIMPLE_OBJECT_COUNT_FIELD_NUMBER: builtins.int
     OBJECTS_PARTS_SIZE_FIELD_NUMBER: builtins.int
@@ -944,26 +904,20 @@ class Counters(google.protobuf.message.Message):
     ACTIVE_MULTIPART_COUNT_FIELD_NUMBER: builtins.int
     simple_object_size: builtins.int
     """Total size of objects uploaded in single operation, in bytes."""
-
     simple_object_count: builtins.int
     """Number of objects uploaded in single operation."""
-
     objects_parts_size: builtins.int
     """Total size of uploaded parts in incomplete multipart uploads, in bytes."""
-
     objects_parts_count: builtins.int
     """Number of uploaded parts in incomplete multipart uploads."""
-
     multipart_objects_size: builtins.int
     """Total size of objects uploaded in multiple parts, in bytes."""
-
     multipart_objects_count: builtins.int
     """Number of objects uploaded in multiple parts."""
-
     active_multipart_count: builtins.int
     """Number of incomplete multipart uploads."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         simple_object_size: builtins.int = ...,
         simple_object_count: builtins.int = ...,
@@ -972,83 +926,92 @@ class Counters(google.protobuf.message.Message):
         multipart_objects_size: builtins.int = ...,
         multipart_objects_count: builtins.int = ...,
         active_multipart_count: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["active_multipart_count",b"active_multipart_count","multipart_objects_count",b"multipart_objects_count","multipart_objects_size",b"multipart_objects_size","objects_parts_count",b"objects_parts_count","objects_parts_size",b"objects_parts_size","simple_object_count",b"simple_object_count","simple_object_size",b"simple_object_size"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["active_multipart_count", b"active_multipart_count", "multipart_objects_count", b"multipart_objects_count", "multipart_objects_size", b"multipart_objects_size", "objects_parts_count", b"objects_parts_count", "objects_parts_size", b"objects_parts_size", "simple_object_count", b"simple_object_count", "simple_object_size", b"simple_object_size"]) -> None: ...
+
 global___Counters = Counters
 
 class OptionalSizeByClass(google.protobuf.message.Message):
     """A resource for size of available space in a bucket for a storage class."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     CLASS_SIZE_FIELD_NUMBER: builtins.int
-    storage_class: typing.Text
+    storage_class: builtins.str
     """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
     `NEARLINE` all synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
-
     @property
     def class_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Size of available space in the bucket for the storage class."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        storage_class: typing.Text = ...,
-        class_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["class_size",b"class_size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["class_size",b"class_size","storage_class",b"storage_class"]) -> None: ...
+        storage_class: builtins.str = ...,
+        class_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["class_size", b"class_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["class_size", b"class_size", "storage_class", b"storage_class"]) -> None: ...
+
 global___OptionalSizeByClass = OptionalSizeByClass
 
 class SizeByClass(google.protobuf.message.Message):
     """A resource for size of used space in a bucket for a storage class."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     CLASS_SIZE_FIELD_NUMBER: builtins.int
-    storage_class: typing.Text
+    storage_class: builtins.str
     """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
     `NEARLINE` all synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
-
     class_size: builtins.int
     """Size of used space in the bucket for the storage class."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        storage_class: typing.Text = ...,
+        storage_class: builtins.str = ...,
         class_size: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["class_size",b"class_size","storage_class",b"storage_class"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["class_size", b"class_size", "storage_class", b"storage_class"]) -> None: ...
+
 global___SizeByClass = SizeByClass
 
 class CountersByClass(google.protobuf.message.Message):
     """A resource for object-related statistics for a storage class by type of upload (simple vs. multipart)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     COUNTERS_FIELD_NUMBER: builtins.int
-    storage_class: typing.Text
+    storage_class: builtins.str
     """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
     `NEARLINE` all synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
-
     @property
     def counters(self) -> global___Counters:
         """Object-related statistics for the storage class by type of upload."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        storage_class: typing.Text = ...,
-        counters: typing.Optional[global___Counters] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["counters",b"counters"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["counters",b"counters","storage_class",b"storage_class"]) -> None: ...
+        storage_class: builtins.str = ...,
+        counters: global___Counters | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["counters", b"counters"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["counters", b"counters", "storage_class", b"storage_class"]) -> None: ...
+
 global___CountersByClass = CountersByClass
 
 class BucketStats(google.protobuf.message.Message):
     """A bucket statistics resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     MAX_SIZE_FIELD_NUMBER: builtins.int
     USED_SIZE_FIELD_NUMBER: builtins.int
@@ -1059,92 +1022,83 @@ class BucketStats(google.protobuf.message.Message):
     ANONYMOUS_ACCESS_FLAGS_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     UPDATED_AT_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the bucket."""
-
     @property
     def max_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum size of the bucket, in bytes."""
-        pass
     used_size: builtins.int
     """Size of used space in the bucket, in bytes."""
-
     @property
     def storage_class_max_sizes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___OptionalSizeByClass]:
         """Size of available space in the bucket by storage class, in bytes."""
-        pass
     @property
     def storage_class_used_sizes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SizeByClass]:
         """Size of used space in the bucket by storage class, in bytes."""
-        pass
     @property
     def storage_class_counters(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CountersByClass]:
         """Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes."""
-        pass
     @property
     def default_storage_class(self) -> google.protobuf.wrappers_pb2.StringValue:
         """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
         cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
         For details, see [documentation](/docs/storage/concepts/storage-class).
         """
-        pass
     @property
     def anonymous_access_flags(self) -> global___AnonymousAccessFlags:
         """Flags for configuring public (anonymous) access to the bucket's content and settings.
         For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
         """
-        pass
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Bucket creation timestamp."""
-        pass
     @property
     def updated_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Bucket latest update timestamp."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        max_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        name: builtins.str = ...,
+        max_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         used_size: builtins.int = ...,
-        storage_class_max_sizes: typing.Optional[typing.Iterable[global___OptionalSizeByClass]] = ...,
-        storage_class_used_sizes: typing.Optional[typing.Iterable[global___SizeByClass]] = ...,
-        storage_class_counters: typing.Optional[typing.Iterable[global___CountersByClass]] = ...,
-        default_storage_class: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
-        anonymous_access_flags: typing.Optional[global___AnonymousAccessFlags] = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        updated_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["anonymous_access_flags",b"anonymous_access_flags","created_at",b"created_at","default_storage_class",b"default_storage_class","max_size",b"max_size","updated_at",b"updated_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["anonymous_access_flags",b"anonymous_access_flags","created_at",b"created_at","default_storage_class",b"default_storage_class","max_size",b"max_size","name",b"name","storage_class_counters",b"storage_class_counters","storage_class_max_sizes",b"storage_class_max_sizes","storage_class_used_sizes",b"storage_class_used_sizes","updated_at",b"updated_at","used_size",b"used_size"]) -> None: ...
+        storage_class_max_sizes: collections.abc.Iterable[global___OptionalSizeByClass] | None = ...,
+        storage_class_used_sizes: collections.abc.Iterable[global___SizeByClass] | None = ...,
+        storage_class_counters: collections.abc.Iterable[global___CountersByClass] | None = ...,
+        default_storage_class: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        anonymous_access_flags: global___AnonymousAccessFlags | None = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        updated_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "max_size", b"max_size", "updated_at", b"updated_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "max_size", b"max_size", "name", b"name", "storage_class_counters", b"storage_class_counters", "storage_class_max_sizes", b"storage_class_max_sizes", "storage_class_used_sizes", b"storage_class_used_sizes", "updated_at", b"updated_at", "used_size", b"used_size"]) -> None: ...
+
 global___BucketStats = BucketStats
 
 class HTTPSConfig(google.protobuf.message.Message):
     """A resource for HTTPS configuration of a bucket."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _SourceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SourceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[HTTPSConfig._SourceType.ValueType], builtins.type):
+
+    class _SourceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[HTTPSConfig._SourceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SOURCE_TYPE_UNSPECIFIED: HTTPSConfig._SourceType.ValueType  # 0
         SOURCE_TYPE_SELF_MANAGED: HTTPSConfig._SourceType.ValueType  # 1
         """Your certificate, uploaded directly."""
-
         SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: HTTPSConfig._SourceType.ValueType  # 2
         """Certificate managed by Certificate Manager."""
 
     class SourceType(_SourceType, metaclass=_SourceTypeEnumTypeWrapper):
         """A resource for type of TLS certificate source."""
-        pass
 
     SOURCE_TYPE_UNSPECIFIED: HTTPSConfig.SourceType.ValueType  # 0
     SOURCE_TYPE_SELF_MANAGED: HTTPSConfig.SourceType.ValueType  # 1
     """Your certificate, uploaded directly."""
-
     SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER: HTTPSConfig.SourceType.ValueType  # 2
     """Certificate managed by Certificate Manager."""
-
 
     NAME_FIELD_NUMBER: builtins.int
     SOURCE_TYPE_FIELD_NUMBER: builtins.int
@@ -1154,50 +1108,44 @@ class HTTPSConfig(google.protobuf.message.Message):
     NOT_BEFORE_FIELD_NUMBER: builtins.int
     NOT_AFTER_FIELD_NUMBER: builtins.int
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the bucket."""
-
     source_type: global___HTTPSConfig.SourceType.ValueType
     """Type of TLS certificate source."""
-
     @property
     def issuer(self) -> google.protobuf.wrappers_pb2.StringValue:
         """Issuer of the TLS certificate."""
-        pass
     @property
     def subject(self) -> google.protobuf.wrappers_pb2.StringValue:
         """Subject of the TLS certificate."""
-        pass
     @property
-    def dns_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def dns_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of DNS names of the TLS certificate (Subject Alternative Name field)."""
-        pass
     @property
     def not_before(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start of the TLS certificate validity period (Not Before field)."""
-        pass
     @property
     def not_after(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End of the TLS certificate validity period (Not After field)"""
-        pass
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the TLS certificate in Certificate Manager.
 
     To get information about the certificate from Certificate Manager, make a
     [yandex.cloud.certificatemanager.v1.CertificateService.Get] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         source_type: global___HTTPSConfig.SourceType.ValueType = ...,
-        issuer: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
-        subject: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
-        dns_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        not_before: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        not_after: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["issuer",b"issuer","not_after",b"not_after","not_before",b"not_before","subject",b"subject"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","dns_names",b"dns_names","issuer",b"issuer","name",b"name","not_after",b"not_after","not_before",b"not_before","source_type",b"source_type","subject",b"subject"]) -> None: ...
+        issuer: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        subject: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        dns_names: collections.abc.Iterable[builtins.str] | None = ...,
+        not_before: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        not_after: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["issuer", b"issuer", "not_after", b"not_after", "not_before", b"not_before", "subject", b"subject"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "dns_names", b"dns_names", "issuer", b"issuer", "name", b"name", "not_after", b"not_after", "not_before", b"not_before", "source_type", b"source_type", "subject", b"subject"]) -> None: ...
+
 global___HTTPSConfig = HTTPSConfig

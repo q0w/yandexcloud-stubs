@@ -12,55 +12,55 @@ class EndpointServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.endpoint_service_pb2.GetEndpointRequest,
-        yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint]
-
+        yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.endpoint_service_pb2.ListEndpointsRequest,
-        yandex.cloud.datatransfer.v1.endpoint_service_pb2.ListEndpointsResponse]
-
+        yandex.cloud.datatransfer.v1.endpoint_service_pb2.ListEndpointsResponse,
+    ]
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.endpoint_service_pb2.CreateEndpointRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.endpoint_service_pb2.UpdateEndpointRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datatransfer.v1.endpoint_service_pb2.DeleteEndpointRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
 
 class EndpointServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.datatransfer.v1.endpoint_service_pb2.GetEndpointRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datatransfer.v1.endpoint_pb2.Endpoint: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.datatransfer.v1.endpoint_service_pb2.ListEndpointsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datatransfer.v1.endpoint_service_pb2.ListEndpointsResponse: ...
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.datatransfer.v1.endpoint_service_pb2.CreateEndpointRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.datatransfer.v1.endpoint_service_pb2.UpdateEndpointRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.datatransfer.v1.endpoint_service_pb2.DeleteEndpointRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
 
 def add_EndpointServiceServicer_to_server(servicer: EndpointServiceServicer, server: grpc.Server) -> None: ...

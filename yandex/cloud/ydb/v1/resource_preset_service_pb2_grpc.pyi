@@ -11,31 +11,29 @@ class ResourcePresetServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.resource_preset_service_pb2.GetResourcePresetRequest,
-        yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset]
+        yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset,
+    ]
     """Returns the specified resource preset."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.resource_preset_service_pb2.ListResourcePresetsRequest,
-        yandex.cloud.ydb.v1.resource_preset_service_pb2.ListResourcePresetsResponse]
+        yandex.cloud.ydb.v1.resource_preset_service_pb2.ListResourcePresetsResponse,
+    ]
     """Returns the list of available resource presets."""
-
 
 class ResourcePresetServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.ydb.v1.resource_preset_service_pb2.GetResourcePresetRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.resource_preset_pb2.ResourcePreset:
         """Returns the specified resource preset."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.ydb.v1.resource_preset_service_pb2.ListResourcePresetsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.resource_preset_service_pb2.ListResourcePresetsResponse:
         """Returns the list of available resource presets."""
-        pass
-
 
 def add_ResourcePresetServiceServicer_to_server(servicer: ResourcePresetServiceServicer, server: grpc.Server) -> None: ...

@@ -10,79 +10,82 @@ import yandex.cloud.operation.operation_pb2
 
 class DeviceServiceStub:
     """A set of methods for managing devices."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.GetDeviceRequest,
-        yandex.cloud.iot.devices.v1.device_pb2.Device]
+        yandex.cloud.iot.devices.v1.device_pb2.Device,
+    ]
     """Returns the specified device.
 
     To get the list of available devices, make a [List] request.
     """
-
     GetByName: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.GetByNameDeviceRequest,
-        yandex.cloud.iot.devices.v1.device_pb2.Device]
-
+        yandex.cloud.iot.devices.v1.device_pb2.Device,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicesRequest,
-        yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicesResponse]
+        yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicesResponse,
+    ]
     """Retrieves the list of devices in the specified registry."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.CreateDeviceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a device in the specified registry."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.UpdateDeviceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified device."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDeviceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified device."""
-
     ListCertificates: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceCertificatesRequest,
-        yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceCertificatesResponse]
+        yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceCertificatesResponse,
+    ]
     """Retrieves the list of device certificates for the specified device."""
-
     AddCertificate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.AddDeviceCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds a certificate."""
-
     DeleteCertificate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDeviceCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified device certificate."""
-
     ListPasswords: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicePasswordsRequest,
-        yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicePasswordsResponse]
+        yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicePasswordsResponse,
+    ]
     """Retrieves the list of passwords for the specified device."""
-
     AddPassword: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.AddDevicePasswordRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds password for the specified device."""
-
     DeletePassword: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDevicePasswordRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified password."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceOperationsRequest,
-        yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceOperationsResponse]
+        yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceOperationsResponse,
+    ]
     """Lists operations for the specified device."""
-
 
 class DeviceServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing devices."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.GetDeviceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_pb2.Device:
@@ -90,101 +93,88 @@ class DeviceServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available devices, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def GetByName(self,
+    def GetByName(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.GetByNameDeviceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_pb2.Device: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicesResponse:
         """Retrieves the list of devices in the specified registry."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.CreateDeviceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a device in the specified registry."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.UpdateDeviceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified device."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDeviceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified device."""
-        pass
-
     @abc.abstractmethod
-    def ListCertificates(self,
+    def ListCertificates(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceCertificatesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceCertificatesResponse:
         """Retrieves the list of device certificates for the specified device."""
-        pass
-
     @abc.abstractmethod
-    def AddCertificate(self,
+    def AddCertificate(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.AddDeviceCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds a certificate."""
-        pass
-
     @abc.abstractmethod
-    def DeleteCertificate(self,
+    def DeleteCertificate(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDeviceCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified device certificate."""
-        pass
-
     @abc.abstractmethod
-    def ListPasswords(self,
+    def ListPasswords(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicePasswordsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_service_pb2.ListDevicePasswordsResponse:
         """Retrieves the list of passwords for the specified device."""
-        pass
-
     @abc.abstractmethod
-    def AddPassword(self,
+    def AddPassword(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.AddDevicePasswordRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds password for the specified device."""
-        pass
-
     @abc.abstractmethod
-    def DeletePassword(self,
+    def DeletePassword(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.DeleteDevicePasswordRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified password."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.device_service_pb2.ListDeviceOperationsResponse:
         """Lists operations for the specified device."""
-        pass
-
 
 def add_DeviceServiceServicer_to_server(servicer: DeviceServiceServicer, server: grpc.Server) -> None: ...

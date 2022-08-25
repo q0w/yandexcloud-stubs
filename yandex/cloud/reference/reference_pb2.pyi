@@ -6,24 +6,30 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Reference(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Type:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Reference._Type.ValueType], builtins.type):
+
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Reference._Type.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TYPE_UNSPECIFIED: Reference._Type.ValueType  # 0
         MANAGED_BY: Reference._Type.ValueType  # 1
         USED_BY: Reference._Type.ValueType  # 2
-    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-        pass
 
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper): ...
     TYPE_UNSPECIFIED: Reference.Type.ValueType  # 0
     MANAGED_BY: Reference.Type.ValueType  # 1
     USED_BY: Reference.Type.ValueType  # 2
@@ -33,32 +39,36 @@ class Reference(google.protobuf.message.Message):
     @property
     def referrer(self) -> global___Referrer: ...
     type: global___Reference.Type.ValueType
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        referrer: typing.Optional[global___Referrer] = ...,
+        referrer: global___Referrer | None = ...,
         type: global___Reference.Type.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["referrer",b"referrer"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["referrer",b"referrer","type",b"type"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["referrer", b"referrer"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["referrer", b"referrer", "type", b"type"]) -> None: ...
+
 global___Reference = Reference
 
 class Referrer(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TYPE_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
-    type: typing.Text
+    type: builtins.str
     """* `type = compute.instance, id = <instance id>`
     * `type = compute.instanceGroup, id = <instanceGroup id>`
     * `type = loadbalancer.networkLoadBalancer, id = <networkLoadBalancer id>`
     * `type = managed-kubernetes.cluster, id = <cluster id>`
     * `type = managed-mysql.cluster, id = <cluster id>`
     """
-
-    id: typing.Text
-    def __init__(self,
+    id: builtins.str
+    def __init__(
+        self,
         *,
-        type: typing.Text = ...,
-        id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["id",b"id","type",b"type"]) -> None: ...
+        type: builtins.str = ...,
+        id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id", "type", b"type"]) -> None: ...
+
 global___Referrer = Referrer

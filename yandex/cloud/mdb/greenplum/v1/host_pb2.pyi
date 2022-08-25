@@ -6,86 +6,75 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.mdb.greenplum.v1.config_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Host(google.protobuf.message.Message):
     """A Greenplum® cluster host resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Type:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Host._Type.ValueType], builtins.type):
+
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Host._Type.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TYPE_UNSPECIFIED: Host._Type.ValueType  # 0
         """The type is not specified."""
-
         MASTER: Host._Type.ValueType  # 1
         """A Greenplum® master host."""
-
         REPLICA: Host._Type.ValueType  # 2
         """A Greenplum® master replica host."""
-
         SEGMENT: Host._Type.ValueType  # 3
         """A Greenplum® segment host."""
 
-    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-        pass
-
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper): ...
     TYPE_UNSPECIFIED: Host.Type.ValueType  # 0
     """The type is not specified."""
-
     MASTER: Host.Type.ValueType  # 1
     """A Greenplum® master host."""
-
     REPLICA: Host.Type.ValueType  # 2
     """A Greenplum® master replica host."""
-
     SEGMENT: Host.Type.ValueType  # 3
     """A Greenplum® segment host."""
 
-
     class _Health:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Host._Health.ValueType], builtins.type):
+
+    class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Host._Health.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         UNKNOWN: Host._Health.ValueType  # 0
         """Health of the host is unknown."""
-
         ALIVE: Host._Health.ValueType  # 1
         """The host is performing all its functions normally."""
-
         DEAD: Host._Health.ValueType  # 2
         """The host is inoperable and cannot perform any of its essential functions."""
-
         DEGRADED: Host._Health.ValueType  # 3
         """The host is working below capacity or not fully functional."""
-
         UNBALANCED: Host._Health.ValueType  # 4
         """One or more segments are not in the preferred role."""
 
-    class Health(_Health, metaclass=_HealthEnumTypeWrapper):
-        pass
-
+    class Health(_Health, metaclass=_HealthEnumTypeWrapper): ...
     UNKNOWN: Host.Health.ValueType  # 0
     """Health of the host is unknown."""
-
     ALIVE: Host.Health.ValueType  # 1
     """The host is performing all its functions normally."""
-
     DEAD: Host.Health.ValueType  # 2
     """The host is inoperable and cannot perform any of its essential functions."""
-
     DEGRADED: Host.Health.ValueType  # 3
     """The host is working below capacity or not fully functional."""
-
     UNBALANCED: Host.Health.ValueType  # 4
     """One or more segments are not in the preferred role."""
-
 
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
@@ -95,47 +84,41 @@ class Host(google.protobuf.message.Message):
     HEALTH_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the Greenplum® host.
 
     The host name is assigned by the platform at creation time and cannot be changed.
 
     The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
     """
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster. The ID is assigned by the platform at creation time."""
-
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone the Greenplum® host belongs to."""
-
     type: global___Host.Type.ValueType
     """Type of the host."""
-
     @property
     def resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
         """Resources allocated to the Greenplum® host."""
-        pass
     health: global___Host.Health.ValueType
     """Status code of the aggregated health of the host."""
-
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     """ID of the subnet that the host belongs to."""
-
     assign_public_ip: builtins.bool
     """Determines whether a public IP is assigned to the host."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        zone_id: typing.Text = ...,
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        zone_id: builtins.str = ...,
         type: global___Host.Type.ValueType = ...,
-        resources: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.Resources] = ...,
+        resources: yandex.cloud.mdb.greenplum.v1.config_pb2.Resources | None = ...,
         health: global___Host.Health.ValueType = ...,
-        subnet_id: typing.Text = ...,
+        subnet_id: builtins.str = ...,
         assign_public_ip: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip",b"assign_public_ip","cluster_id",b"cluster_id","health",b"health","name",b"name","resources",b"resources","subnet_id",b"subnet_id","type",b"type","zone_id",b"zone_id"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip", b"assign_public_ip", "cluster_id", b"cluster_id", "health", b"health", "name", b"name", "resources", b"resources", "subnet_id", b"subnet_id", "type", b"type", "zone_id", b"zone_id"]) -> None: ...
+
 global___Host = Host

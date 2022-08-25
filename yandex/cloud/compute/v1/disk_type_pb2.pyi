@@ -3,34 +3,39 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class DiskType(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     ZONE_IDS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the disk type."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the disk type. 0-256 characters long."""
-
     @property
-    def zone_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def zone_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Array of availability zones where the disk type is available."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        description: typing.Text = ...,
-        zone_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","id",b"id","zone_ids",b"zone_ids"]) -> None: ...
+        id: builtins.str = ...,
+        description: builtins.str = ...,
+        zone_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "id", b"id", "zone_ids", b"zone_ids"]) -> None: ...
+
 global___DiskType = DiskType

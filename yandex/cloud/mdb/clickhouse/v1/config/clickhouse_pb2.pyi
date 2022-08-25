@@ -3,13 +3,19 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -19,11 +25,14 @@ class ClickhouseConfig(google.protobuf.message.Message):
 
     Any options not listed here are not supported.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _LogLevel:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig._LogLevel.ValueType], builtins.type):
+
+    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig._LogLevel.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_LEVEL_UNSPECIFIED: ClickhouseConfig._LogLevel.ValueType  # 0
         TRACE: ClickhouseConfig._LogLevel.ValueType  # 1
@@ -31,9 +40,8 @@ class ClickhouseConfig(google.protobuf.message.Message):
         INFORMATION: ClickhouseConfig._LogLevel.ValueType  # 3
         WARNING: ClickhouseConfig._LogLevel.ValueType  # 4
         ERROR: ClickhouseConfig._LogLevel.ValueType  # 5
-    class LogLevel(_LogLevel, metaclass=_LogLevelEnumTypeWrapper):
-        pass
 
+    class LogLevel(_LogLevel, metaclass=_LogLevelEnumTypeWrapper): ...
     LOG_LEVEL_UNSPECIFIED: ClickhouseConfig.LogLevel.ValueType  # 0
     TRACE: ClickhouseConfig.LogLevel.ValueType  # 1
     DEBUG: ClickhouseConfig.LogLevel.ValueType  # 2
@@ -43,7 +51,9 @@ class ClickhouseConfig(google.protobuf.message.Message):
 
     class MergeTree(google.protobuf.message.Message):
         """Options specific to the MergeTree table engine."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         REPLICATED_DEDUPLICATION_WINDOW_FIELD_NUMBER: builtins.int
         REPLICATED_DEDUPLICATION_WINDOW_SECONDS_FIELD_NUMBER: builtins.int
         PARTS_TO_DELAY_INSERT_FIELD_NUMBER: builtins.int
@@ -55,66 +65,61 @@ class ClickhouseConfig(google.protobuf.message.Message):
         @property
         def replicated_deduplication_window(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Number of blocks of hashes to keep in ZooKeeper."""
-            pass
         @property
         def replicated_deduplication_window_seconds(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Period of time to keep blocks of hashes for."""
-            pass
         @property
         def parts_to_delay_insert(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """If table contains at least that many active parts in single partition, artificially slow down insert into table."""
-            pass
         @property
         def parts_to_throw_insert(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """If more than this number active parts in single partition, throw 'Too many parts ...' exception."""
-            pass
         @property
         def max_replicated_merges_in_queue(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """How many tasks of merging and mutating parts are allowed simultaneously in ReplicatedMergeTree queue."""
-            pass
         @property
         def number_of_free_entries_in_pool_to_lower_max_size_of_merge(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """If there is less than specified number of free entries in background pool (or replicated queue), start to lower
             maximum size of merge to process.
             """
-            pass
         @property
         def max_bytes_to_merge_at_min_space_in_pool(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """Maximum in total size of parts to merge, when there are minimum free threads in background pool (or entries
             in replication queue).
             """
-            pass
         @property
         def max_bytes_to_merge_at_max_space_in_pool(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            replicated_deduplication_window: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            replicated_deduplication_window_seconds: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            parts_to_delay_insert: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            parts_to_throw_insert: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            max_replicated_merges_in_queue: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            number_of_free_entries_in_pool_to_lower_max_size_of_merge: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            max_bytes_to_merge_at_min_space_in_pool: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            max_bytes_to_merge_at_max_space_in_pool: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["max_bytes_to_merge_at_max_space_in_pool",b"max_bytes_to_merge_at_max_space_in_pool","max_bytes_to_merge_at_min_space_in_pool",b"max_bytes_to_merge_at_min_space_in_pool","max_replicated_merges_in_queue",b"max_replicated_merges_in_queue","number_of_free_entries_in_pool_to_lower_max_size_of_merge",b"number_of_free_entries_in_pool_to_lower_max_size_of_merge","parts_to_delay_insert",b"parts_to_delay_insert","parts_to_throw_insert",b"parts_to_throw_insert","replicated_deduplication_window",b"replicated_deduplication_window","replicated_deduplication_window_seconds",b"replicated_deduplication_window_seconds"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["max_bytes_to_merge_at_max_space_in_pool",b"max_bytes_to_merge_at_max_space_in_pool","max_bytes_to_merge_at_min_space_in_pool",b"max_bytes_to_merge_at_min_space_in_pool","max_replicated_merges_in_queue",b"max_replicated_merges_in_queue","number_of_free_entries_in_pool_to_lower_max_size_of_merge",b"number_of_free_entries_in_pool_to_lower_max_size_of_merge","parts_to_delay_insert",b"parts_to_delay_insert","parts_to_throw_insert",b"parts_to_throw_insert","replicated_deduplication_window",b"replicated_deduplication_window","replicated_deduplication_window_seconds",b"replicated_deduplication_window_seconds"]) -> None: ...
+            replicated_deduplication_window: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            replicated_deduplication_window_seconds: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            parts_to_delay_insert: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            parts_to_throw_insert: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            max_replicated_merges_in_queue: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            number_of_free_entries_in_pool_to_lower_max_size_of_merge: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            max_bytes_to_merge_at_min_space_in_pool: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            max_bytes_to_merge_at_max_space_in_pool: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["max_bytes_to_merge_at_max_space_in_pool", b"max_bytes_to_merge_at_max_space_in_pool", "max_bytes_to_merge_at_min_space_in_pool", b"max_bytes_to_merge_at_min_space_in_pool", "max_replicated_merges_in_queue", b"max_replicated_merges_in_queue", "number_of_free_entries_in_pool_to_lower_max_size_of_merge", b"number_of_free_entries_in_pool_to_lower_max_size_of_merge", "parts_to_delay_insert", b"parts_to_delay_insert", "parts_to_throw_insert", b"parts_to_throw_insert", "replicated_deduplication_window", b"replicated_deduplication_window", "replicated_deduplication_window_seconds", b"replicated_deduplication_window_seconds"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["max_bytes_to_merge_at_max_space_in_pool", b"max_bytes_to_merge_at_max_space_in_pool", "max_bytes_to_merge_at_min_space_in_pool", b"max_bytes_to_merge_at_min_space_in_pool", "max_replicated_merges_in_queue", b"max_replicated_merges_in_queue", "number_of_free_entries_in_pool_to_lower_max_size_of_merge", b"number_of_free_entries_in_pool_to_lower_max_size_of_merge", "parts_to_delay_insert", b"parts_to_delay_insert", "parts_to_throw_insert", b"parts_to_throw_insert", "replicated_deduplication_window", b"replicated_deduplication_window", "replicated_deduplication_window_seconds", b"replicated_deduplication_window_seconds"]) -> None: ...
 
     class Kafka(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class _SecurityProtocol:
-            ValueType = typing.NewType('ValueType', builtins.int)
+            ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
-        class _SecurityProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Kafka._SecurityProtocol.ValueType], builtins.type):
+
+        class _SecurityProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Kafka._SecurityProtocol.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             SECURITY_PROTOCOL_UNSPECIFIED: ClickhouseConfig.Kafka._SecurityProtocol.ValueType  # 0
             SECURITY_PROTOCOL_PLAINTEXT: ClickhouseConfig.Kafka._SecurityProtocol.ValueType  # 1
             SECURITY_PROTOCOL_SSL: ClickhouseConfig.Kafka._SecurityProtocol.ValueType  # 2
             SECURITY_PROTOCOL_SASL_PLAINTEXT: ClickhouseConfig.Kafka._SecurityProtocol.ValueType  # 3
             SECURITY_PROTOCOL_SASL_SSL: ClickhouseConfig.Kafka._SecurityProtocol.ValueType  # 4
-        class SecurityProtocol(_SecurityProtocol, metaclass=_SecurityProtocolEnumTypeWrapper):
-            pass
 
+        class SecurityProtocol(_SecurityProtocol, metaclass=_SecurityProtocolEnumTypeWrapper): ...
         SECURITY_PROTOCOL_UNSPECIFIED: ClickhouseConfig.Kafka.SecurityProtocol.ValueType  # 0
         SECURITY_PROTOCOL_PLAINTEXT: ClickhouseConfig.Kafka.SecurityProtocol.ValueType  # 1
         SECURITY_PROTOCOL_SSL: ClickhouseConfig.Kafka.SecurityProtocol.ValueType  # 2
@@ -122,18 +127,18 @@ class ClickhouseConfig(google.protobuf.message.Message):
         SECURITY_PROTOCOL_SASL_SSL: ClickhouseConfig.Kafka.SecurityProtocol.ValueType  # 4
 
         class _SaslMechanism:
-            ValueType = typing.NewType('ValueType', builtins.int)
+            ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
-        class _SaslMechanismEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Kafka._SaslMechanism.ValueType], builtins.type):
+
+        class _SaslMechanismEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Kafka._SaslMechanism.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             SASL_MECHANISM_UNSPECIFIED: ClickhouseConfig.Kafka._SaslMechanism.ValueType  # 0
             SASL_MECHANISM_GSSAPI: ClickhouseConfig.Kafka._SaslMechanism.ValueType  # 1
             SASL_MECHANISM_PLAIN: ClickhouseConfig.Kafka._SaslMechanism.ValueType  # 2
             SASL_MECHANISM_SCRAM_SHA_256: ClickhouseConfig.Kafka._SaslMechanism.ValueType  # 3
             SASL_MECHANISM_SCRAM_SHA_512: ClickhouseConfig.Kafka._SaslMechanism.ValueType  # 4
-        class SaslMechanism(_SaslMechanism, metaclass=_SaslMechanismEnumTypeWrapper):
-            pass
 
+        class SaslMechanism(_SaslMechanism, metaclass=_SaslMechanismEnumTypeWrapper): ...
         SASL_MECHANISM_UNSPECIFIED: ClickhouseConfig.Kafka.SaslMechanism.ValueType  # 0
         SASL_MECHANISM_GSSAPI: ClickhouseConfig.Kafka.SaslMechanism.ValueType  # 1
         SASL_MECHANISM_PLAIN: ClickhouseConfig.Kafka.SaslMechanism.ValueType  # 2
@@ -146,146 +151,145 @@ class ClickhouseConfig(google.protobuf.message.Message):
         SASL_PASSWORD_FIELD_NUMBER: builtins.int
         security_protocol: global___ClickhouseConfig.Kafka.SecurityProtocol.ValueType
         sasl_mechanism: global___ClickhouseConfig.Kafka.SaslMechanism.ValueType
-        sasl_username: typing.Text
-        sasl_password: typing.Text
-        def __init__(self,
+        sasl_username: builtins.str
+        sasl_password: builtins.str
+        def __init__(
+            self,
             *,
             security_protocol: global___ClickhouseConfig.Kafka.SecurityProtocol.ValueType = ...,
             sasl_mechanism: global___ClickhouseConfig.Kafka.SaslMechanism.ValueType = ...,
-            sasl_username: typing.Text = ...,
-            sasl_password: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["sasl_mechanism",b"sasl_mechanism","sasl_password",b"sasl_password","sasl_username",b"sasl_username","security_protocol",b"security_protocol"]) -> None: ...
+            sasl_username: builtins.str = ...,
+            sasl_password: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["sasl_mechanism", b"sasl_mechanism", "sasl_password", b"sasl_password", "sasl_username", b"sasl_username", "security_protocol", b"security_protocol"]) -> None: ...
 
     class KafkaTopic(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         NAME_FIELD_NUMBER: builtins.int
         SETTINGS_FIELD_NUMBER: builtins.int
-        name: typing.Text
+        name: builtins.str
         @property
         def settings(self) -> global___ClickhouseConfig.Kafka: ...
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            name: typing.Text = ...,
-            settings: typing.Optional[global___ClickhouseConfig.Kafka] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["settings",b"settings"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["name",b"name","settings",b"settings"]) -> None: ...
+            name: builtins.str = ...,
+            settings: global___ClickhouseConfig.Kafka | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "settings", b"settings"]) -> None: ...
 
     class Rabbitmq(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         USERNAME_FIELD_NUMBER: builtins.int
         PASSWORD_FIELD_NUMBER: builtins.int
-        username: typing.Text
-        password: typing.Text
-        def __init__(self,
+        username: builtins.str
+        password: builtins.str
+        def __init__(
+            self,
             *,
-            username: typing.Text = ...,
-            password: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["password",b"password","username",b"username"]) -> None: ...
+            username: builtins.str = ...,
+            password: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["password", b"password", "username", b"username"]) -> None: ...
 
     class Compression(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class _Method:
-            ValueType = typing.NewType('ValueType', builtins.int)
+            ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
-        class _MethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Compression._Method.ValueType], builtins.type):
+
+        class _MethodEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.Compression._Method.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
             METHOD_UNSPECIFIED: ClickhouseConfig.Compression._Method.ValueType  # 0
             LZ4: ClickhouseConfig.Compression._Method.ValueType  # 1
             """[LZ4 compression algorithm](https://lz4.github.io/lz4/)."""
-
             ZSTD: ClickhouseConfig.Compression._Method.ValueType  # 2
             """[Zstandard compression algorithm](https://facebook.github.io/zstd/)."""
 
-        class Method(_Method, metaclass=_MethodEnumTypeWrapper):
-            pass
-
+        class Method(_Method, metaclass=_MethodEnumTypeWrapper): ...
         METHOD_UNSPECIFIED: ClickhouseConfig.Compression.Method.ValueType  # 0
         LZ4: ClickhouseConfig.Compression.Method.ValueType  # 1
         """[LZ4 compression algorithm](https://lz4.github.io/lz4/)."""
-
         ZSTD: ClickhouseConfig.Compression.Method.ValueType  # 2
         """[Zstandard compression algorithm](https://facebook.github.io/zstd/)."""
-
 
         METHOD_FIELD_NUMBER: builtins.int
         MIN_PART_SIZE_FIELD_NUMBER: builtins.int
         MIN_PART_SIZE_RATIO_FIELD_NUMBER: builtins.int
         method: global___ClickhouseConfig.Compression.Method.ValueType
         """Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`."""
-
         min_part_size: builtins.int
         """Minimum size of a part of a table."""
-
         min_part_size_ratio: builtins.float
         """Minimum ratio of a part relative to the size of all the data in the table."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             method: global___ClickhouseConfig.Compression.Method.ValueType = ...,
             min_part_size: builtins.int = ...,
             min_part_size_ratio: builtins.float = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["method",b"method","min_part_size",b"min_part_size","min_part_size_ratio",b"min_part_size_ratio"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "min_part_size", b"min_part_size", "min_part_size_ratio", b"min_part_size_ratio"]) -> None: ...
 
     class ExternalDictionary(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class HttpSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             URL_FIELD_NUMBER: builtins.int
             FORMAT_FIELD_NUMBER: builtins.int
-            url: typing.Text
+            url: builtins.str
             """URL of the source dictionary available over HTTP."""
-
-            format: typing.Text
+            format: builtins.str
             """The data format. Valid values are all formats supported by ClickHouse SQL dialect."""
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                url: typing.Text = ...,
-                format: typing.Text = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["format",b"format","url",b"url"]) -> None: ...
+                url: builtins.str = ...,
+                format: builtins.str = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["format", b"format", "url", b"url"]) -> None: ...
 
         class MysqlSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             class Replica(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
                 HOST_FIELD_NUMBER: builtins.int
                 PRIORITY_FIELD_NUMBER: builtins.int
                 PORT_FIELD_NUMBER: builtins.int
                 USER_FIELD_NUMBER: builtins.int
                 PASSWORD_FIELD_NUMBER: builtins.int
-                host: typing.Text
+                host: builtins.str
                 """MySQL host of the replica."""
-
                 priority: builtins.int
                 """The priority of the replica that ClickHouse takes into account when connecting.
                 Replica with the highest priority should have this field set to the lowest number.
                 """
-
                 port: builtins.int
                 """Port to use when connecting to the replica.
                 If a port is not specified for a replica, ClickHouse uses the port specified for the source.
                 """
-
-                user: typing.Text
+                user: builtins.str
                 """Name of the MySQL database user."""
-
-                password: typing.Text
+                password: builtins.str
                 """Password of the MySQL database user."""
-
-                def __init__(self,
+                def __init__(
+                    self,
                     *,
-                    host: typing.Text = ...,
+                    host: builtins.str = ...,
                     priority: builtins.int = ...,
                     port: builtins.int = ...,
-                    user: typing.Text = ...,
-                    password: typing.Text = ...,
-                    ) -> None: ...
-                def ClearField(self, field_name: typing_extensions.Literal["host",b"host","password",b"password","port",b"port","priority",b"priority","user",b"user"]) -> None: ...
+                    user: builtins.str = ...,
+                    password: builtins.str = ...,
+                ) -> None: ...
+                def ClearField(self, field_name: typing_extensions.Literal["host", b"host", "password", b"password", "port", b"port", "priority", b"priority", "user", b"user"]) -> None: ...
 
             DB_FIELD_NUMBER: builtins.int
             TABLE_FIELD_NUMBER: builtins.int
@@ -295,48 +299,42 @@ class ClickhouseConfig(google.protobuf.message.Message):
             REPLICAS_FIELD_NUMBER: builtins.int
             WHERE_FIELD_NUMBER: builtins.int
             INVALIDATE_QUERY_FIELD_NUMBER: builtins.int
-            db: typing.Text
+            db: builtins.str
             """Name of the MySQL database to connect to."""
-
-            table: typing.Text
+            table: builtins.str
             """Name of the database table to use as a ClickHouse dictionary."""
-
             port: builtins.int
             """Default port to use when connecting to a replica of the dictionary source."""
-
-            user: typing.Text
+            user: builtins.str
             """Name of the default user for replicas of the dictionary source."""
-
-            password: typing.Text
+            password: builtins.str
             """Password of the default user for replicas of the dictionary source."""
-
             @property
             def replicas(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.ExternalDictionary.MysqlSource.Replica]:
                 """List of MySQL replicas of the database used as dictionary source."""
-                pass
-            where: typing.Text
+            where: builtins.str
             """Selection criteria for the data in the specified MySQL table."""
-
-            invalidate_query: typing.Text
+            invalidate_query: builtins.str
             """Query for checking the dictionary status, to pull only updated data.
             For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
             """
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                db: typing.Text = ...,
-                table: typing.Text = ...,
+                db: builtins.str = ...,
+                table: builtins.str = ...,
                 port: builtins.int = ...,
-                user: typing.Text = ...,
-                password: typing.Text = ...,
-                replicas: typing.Optional[typing.Iterable[global___ClickhouseConfig.ExternalDictionary.MysqlSource.Replica]] = ...,
-                where: typing.Text = ...,
-                invalidate_query: typing.Text = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["db",b"db","invalidate_query",b"invalidate_query","password",b"password","port",b"port","replicas",b"replicas","table",b"table","user",b"user","where",b"where"]) -> None: ...
+                user: builtins.str = ...,
+                password: builtins.str = ...,
+                replicas: collections.abc.Iterable[global___ClickhouseConfig.ExternalDictionary.MysqlSource.Replica] | None = ...,
+                where: builtins.str = ...,
+                invalidate_query: builtins.str = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "invalidate_query", b"invalidate_query", "password", b"password", "port", b"port", "replicas", b"replicas", "table", b"table", "user", b"user", "where", b"where"]) -> None: ...
 
         class ClickhouseSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             DB_FIELD_NUMBER: builtins.int
             TABLE_FIELD_NUMBER: builtins.int
             HOST_FIELD_NUMBER: builtins.int
@@ -344,118 +342,99 @@ class ClickhouseConfig(google.protobuf.message.Message):
             USER_FIELD_NUMBER: builtins.int
             PASSWORD_FIELD_NUMBER: builtins.int
             WHERE_FIELD_NUMBER: builtins.int
-            db: typing.Text
+            db: builtins.str
             """Name of the ClickHouse database."""
-
-            table: typing.Text
+            table: builtins.str
             """Name of the table in the specified database to be used as the dictionary source."""
-
-            host: typing.Text
+            host: builtins.str
             """ClickHouse host of the specified database."""
-
             port: builtins.int
             """Port to use when connecting to the host."""
-
-            user: typing.Text
+            user: builtins.str
             """Name of the ClickHouse database user."""
-
-            password: typing.Text
+            password: builtins.str
             """Password of the ClickHouse database user."""
-
-            where: typing.Text
+            where: builtins.str
             """Selection criteria for the data in the specified ClickHouse table."""
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                db: typing.Text = ...,
-                table: typing.Text = ...,
-                host: typing.Text = ...,
+                db: builtins.str = ...,
+                table: builtins.str = ...,
+                host: builtins.str = ...,
                 port: builtins.int = ...,
-                user: typing.Text = ...,
-                password: typing.Text = ...,
-                where: typing.Text = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["db",b"db","host",b"host","password",b"password","port",b"port","table",b"table","user",b"user","where",b"where"]) -> None: ...
+                user: builtins.str = ...,
+                password: builtins.str = ...,
+                where: builtins.str = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "host", b"host", "password", b"password", "port", b"port", "table", b"table", "user", b"user", "where", b"where"]) -> None: ...
 
         class MongodbSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             DB_FIELD_NUMBER: builtins.int
             COLLECTION_FIELD_NUMBER: builtins.int
             HOST_FIELD_NUMBER: builtins.int
             PORT_FIELD_NUMBER: builtins.int
             USER_FIELD_NUMBER: builtins.int
             PASSWORD_FIELD_NUMBER: builtins.int
-            db: typing.Text
+            db: builtins.str
             """Name of the MongoDB database."""
-
-            collection: typing.Text
+            collection: builtins.str
             """Name of the collection in the specified database to be used as the dictionary source."""
-
-            host: typing.Text
+            host: builtins.str
             """MongoDB host of the specified database."""
-
             port: builtins.int
             """Port to use when connecting to the host."""
-
-            user: typing.Text
+            user: builtins.str
             """Name of the MongoDB database user."""
-
-            password: typing.Text
+            password: builtins.str
             """Password of the MongoDB database user."""
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                db: typing.Text = ...,
-                collection: typing.Text = ...,
-                host: typing.Text = ...,
+                db: builtins.str = ...,
+                collection: builtins.str = ...,
+                host: builtins.str = ...,
                 port: builtins.int = ...,
-                user: typing.Text = ...,
-                password: typing.Text = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["collection",b"collection","db",b"db","host",b"host","password",b"password","port",b"port","user",b"user"]) -> None: ...
+                user: builtins.str = ...,
+                password: builtins.str = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["collection", b"collection", "db", b"db", "host", b"host", "password", b"password", "port", b"port", "user", b"user"]) -> None: ...
 
         class PostgresqlSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             class _SslMode:
-                ValueType = typing.NewType('ValueType', builtins.int)
+                ValueType = typing.NewType("ValueType", builtins.int)
                 V: typing_extensions.TypeAlias = ValueType
-            class _SslModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType], builtins.type):
+
+            class _SslModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType], builtins.type):  # noqa: F821
                 DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
                 SSL_MODE_UNSPECIFIED: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 0
                 DISABLE: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 1
                 """Only try a non-SSL connection."""
-
                 ALLOW: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 2
                 """First try a non-SSL connection; if that fails, try an SSL connection."""
-
                 PREFER: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 3
                 """First try an SSL connection; if that fails, try a non-SSL connection."""
-
                 VERIFY_CA: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 4
                 """Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA)."""
-
                 VERIFY_FULL: ClickhouseConfig.ExternalDictionary.PostgresqlSource._SslMode.ValueType  # 5
                 """Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate."""
 
-            class SslMode(_SslMode, metaclass=_SslModeEnumTypeWrapper):
-                pass
-
+            class SslMode(_SslMode, metaclass=_SslModeEnumTypeWrapper): ...
             SSL_MODE_UNSPECIFIED: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 0
             DISABLE: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 1
             """Only try a non-SSL connection."""
-
             ALLOW: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 2
             """First try a non-SSL connection; if that fails, try an SSL connection."""
-
             PREFER: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 3
             """First try an SSL connection; if that fails, try a non-SSL connection."""
-
             VERIFY_CA: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 4
             """Only try an SSL connection, and verify that the server certificate is issued by a trusted certificate authority (CA)."""
-
             VERIFY_FULL: ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType  # 5
             """Only try an SSL connection, verify that the server certificate is issued by a trusted CA and that the requested server host name matches that in the certificate."""
-
 
             DB_FIELD_NUMBER: builtins.int
             TABLE_FIELD_NUMBER: builtins.int
@@ -465,117 +444,111 @@ class ClickhouseConfig(google.protobuf.message.Message):
             PASSWORD_FIELD_NUMBER: builtins.int
             INVALIDATE_QUERY_FIELD_NUMBER: builtins.int
             SSL_MODE_FIELD_NUMBER: builtins.int
-            db: typing.Text
+            db: builtins.str
             """Name of the PostrgreSQL database."""
-
-            table: typing.Text
+            table: builtins.str
             """Name of the table in the specified database to be used as the dictionary source."""
-
             @property
-            def hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+            def hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
                 """Name of the PostrgreSQL host"""
-                pass
             port: builtins.int
             """Port to use when connecting to the host."""
-
-            user: typing.Text
+            user: builtins.str
             """Name of the PostrgreSQL database user."""
-
-            password: typing.Text
+            password: builtins.str
             """Password of the PostrgreSQL database user."""
-
-            invalidate_query: typing.Text
+            invalidate_query: builtins.str
             """Query for checking the dictionary status, to pull only updated data.
             For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/).
             """
-
             ssl_mode: global___ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType
             """Mode of SSL TCP/IP connection to the PostgreSQL host.
             For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html).
             """
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                db: typing.Text = ...,
-                table: typing.Text = ...,
-                hosts: typing.Optional[typing.Iterable[typing.Text]] = ...,
+                db: builtins.str = ...,
+                table: builtins.str = ...,
+                hosts: collections.abc.Iterable[builtins.str] | None = ...,
                 port: builtins.int = ...,
-                user: typing.Text = ...,
-                password: typing.Text = ...,
-                invalidate_query: typing.Text = ...,
+                user: builtins.str = ...,
+                password: builtins.str = ...,
+                invalidate_query: builtins.str = ...,
                 ssl_mode: global___ClickhouseConfig.ExternalDictionary.PostgresqlSource.SslMode.ValueType = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["db",b"db","hosts",b"hosts","invalidate_query",b"invalidate_query","password",b"password","port",b"port","ssl_mode",b"ssl_mode","table",b"table","user",b"user"]) -> None: ...
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "hosts", b"hosts", "invalidate_query", b"invalidate_query", "password", b"password", "port", b"port", "ssl_mode", b"ssl_mode", "table", b"table", "user", b"user"]) -> None: ...
 
         class Structure(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             class Attribute(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
                 NAME_FIELD_NUMBER: builtins.int
                 TYPE_FIELD_NUMBER: builtins.int
                 NULL_VALUE_FIELD_NUMBER: builtins.int
                 EXPRESSION_FIELD_NUMBER: builtins.int
                 HIERARCHICAL_FIELD_NUMBER: builtins.int
                 INJECTIVE_FIELD_NUMBER: builtins.int
-                name: typing.Text
+                name: builtins.str
                 """Name of the column."""
-
-                type: typing.Text
+                type: builtins.str
                 """Type of the column."""
-
-                null_value: typing.Text
+                null_value: builtins.str
                 """Default value for an element without data (for example, an empty string)."""
-
-                expression: typing.Text
+                expression: builtins.str
                 """Expression, describing the attribute, if applicable."""
-
                 hierarchical: builtins.bool
                 """Indication of hierarchy support.
                 Default value: `false`.
                 """
-
                 injective: builtins.bool
                 """Indication of injective mapping "id -> attribute".
                 Default value: `false`.
                 """
-
-                def __init__(self,
+                def __init__(
+                    self,
                     *,
-                    name: typing.Text = ...,
-                    type: typing.Text = ...,
-                    null_value: typing.Text = ...,
-                    expression: typing.Text = ...,
+                    name: builtins.str = ...,
+                    type: builtins.str = ...,
+                    null_value: builtins.str = ...,
+                    expression: builtins.str = ...,
                     hierarchical: builtins.bool = ...,
                     injective: builtins.bool = ...,
-                    ) -> None: ...
-                def ClearField(self, field_name: typing_extensions.Literal["expression",b"expression","hierarchical",b"hierarchical","injective",b"injective","name",b"name","null_value",b"null_value","type",b"type"]) -> None: ...
+                ) -> None: ...
+                def ClearField(self, field_name: typing_extensions.Literal["expression", b"expression", "hierarchical", b"hierarchical", "injective", b"injective", "name", b"name", "null_value", b"null_value", "type", b"type"]) -> None: ...
 
             class Id(google.protobuf.message.Message):
                 """Numeric key."""
-                DESCRIPTOR: google.protobuf.descriptor.Descriptor
-                NAME_FIELD_NUMBER: builtins.int
-                name: typing.Text
-                """Name of the numeric key."""
 
-                def __init__(self,
+                DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+                NAME_FIELD_NUMBER: builtins.int
+                name: builtins.str
+                """Name of the numeric key."""
+                def __init__(
+                    self,
                     *,
-                    name: typing.Text = ...,
-                    ) -> None: ...
-                def ClearField(self, field_name: typing_extensions.Literal["name",b"name"]) -> None: ...
+                    name: builtins.str = ...,
+                ) -> None: ...
+                def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
 
             class Key(google.protobuf.message.Message):
                 """Complex key."""
+
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
                 ATTRIBUTES_FIELD_NUMBER: builtins.int
                 @property
                 def attributes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute]:
                     """Attributes of a complex key."""
-                    pass
-                def __init__(self,
+                def __init__(
+                    self,
                     *,
-                    attributes: typing.Optional[typing.Iterable[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute]] = ...,
-                    ) -> None: ...
-                def ClearField(self, field_name: typing_extensions.Literal["attributes",b"attributes"]) -> None: ...
+                    attributes: collections.abc.Iterable[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute] | None = ...,
+                ) -> None: ...
+                def ClearField(self, field_name: typing_extensions.Literal["attributes", b"attributes"]) -> None: ...
 
             ID_FIELD_NUMBER: builtins.int
             KEY_FIELD_NUMBER: builtins.int
@@ -585,151 +558,136 @@ class ClickhouseConfig(google.protobuf.message.Message):
             @property
             def id(self) -> global___ClickhouseConfig.ExternalDictionary.Structure.Id:
                 """Single numeric key column for the dictionary."""
-                pass
             @property
             def key(self) -> global___ClickhouseConfig.ExternalDictionary.Structure.Key:
                 """Composite key for the dictionary, containing of one or more key columns.
                 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key).
                 """
-                pass
             @property
             def range_min(self) -> global___ClickhouseConfig.ExternalDictionary.Structure.Attribute:
                 """Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout.
                 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
                 """
-                pass
             @property
             def range_max(self) -> global___ClickhouseConfig.ExternalDictionary.Structure.Attribute:
                 """Field holding the end of the range for dictionaries with `RANGE_HASHED` layout.
                 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed).
                 """
-                pass
             @property
             def attributes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute]:
                 """Description of the fields available for database queries.
                 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
                 """
-                pass
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                id: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Structure.Id] = ...,
-                key: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Structure.Key] = ...,
-                range_min: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute] = ...,
-                range_max: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute] = ...,
-                attributes: typing.Optional[typing.Iterable[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute]] = ...,
-                ) -> None: ...
-            def HasField(self, field_name: typing_extensions.Literal["id",b"id","key",b"key","range_max",b"range_max","range_min",b"range_min"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["attributes",b"attributes","id",b"id","key",b"key","range_max",b"range_max","range_min",b"range_min"]) -> None: ...
+                id: global___ClickhouseConfig.ExternalDictionary.Structure.Id | None = ...,
+                key: global___ClickhouseConfig.ExternalDictionary.Structure.Key | None = ...,
+                range_min: global___ClickhouseConfig.ExternalDictionary.Structure.Attribute | None = ...,
+                range_max: global___ClickhouseConfig.ExternalDictionary.Structure.Attribute | None = ...,
+                attributes: collections.abc.Iterable[global___ClickhouseConfig.ExternalDictionary.Structure.Attribute] | None = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["id", b"id", "key", b"key", "range_max", b"range_max", "range_min", b"range_min"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["attributes", b"attributes", "id", b"id", "key", b"key", "range_max", b"range_max", "range_min", b"range_min"]) -> None: ...
 
         class Layout(google.protobuf.message.Message):
             """Layout determining how to store the dictionary in memory."""
+
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             class _Type:
-                ValueType = typing.NewType('ValueType', builtins.int)
+                ValueType = typing.NewType("ValueType", builtins.int)
                 V: typing_extensions.TypeAlias = ValueType
-            class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType], builtins.type):
+
+            class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType], builtins.type):  # noqa: F821
                 DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
                 TYPE_UNSPECIFIED: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 0
                 FLAT: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 1
                 """The entire dictionary is stored in memory in the form of flat arrays.
                 Available for all dictionary sources.
                 """
-
                 HASHED: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 2
                 """The entire dictionary is stored in memory in the form of a hash table.
                 Available for all dictionary sources.
                 """
-
                 COMPLEX_KEY_HASHED: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 3
                 """Similar to HASHED, to be used with composite keys.
                 Available for all dictionary sources.
                 """
-
                 RANGE_HASHED: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 4
                 """The entire dictionary is stored in memory in the form of a hash table,
                 with an ordered array of ranges and their corresponding values.
                 Available for all dictionary sources.
                 """
-
                 CACHE: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 5
                 """The dictionary is stored in a cache with a set number of cells.
                 Available for MySQL, ClickHouse and HTTP dictionary sources.
                 """
-
                 COMPLEX_KEY_CACHE: ClickhouseConfig.ExternalDictionary.Layout._Type.ValueType  # 6
                 """Similar to CACHE, to be used with composite keys.
                 Available for MySQL, ClickHouse and HTTP dictionary sources.
                 """
 
-            class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-                pass
-
+            class Type(_Type, metaclass=_TypeEnumTypeWrapper): ...
             TYPE_UNSPECIFIED: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 0
             FLAT: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 1
             """The entire dictionary is stored in memory in the form of flat arrays.
             Available for all dictionary sources.
             """
-
             HASHED: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 2
             """The entire dictionary is stored in memory in the form of a hash table.
             Available for all dictionary sources.
             """
-
             COMPLEX_KEY_HASHED: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 3
             """Similar to HASHED, to be used with composite keys.
             Available for all dictionary sources.
             """
-
             RANGE_HASHED: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 4
             """The entire dictionary is stored in memory in the form of a hash table,
             with an ordered array of ranges and their corresponding values.
             Available for all dictionary sources.
             """
-
             CACHE: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 5
             """The dictionary is stored in a cache with a set number of cells.
             Available for MySQL, ClickHouse and HTTP dictionary sources.
             """
-
             COMPLEX_KEY_CACHE: ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType  # 6
             """Similar to CACHE, to be used with composite keys.
             Available for MySQL, ClickHouse and HTTP dictionary sources.
             """
 
-
             TYPE_FIELD_NUMBER: builtins.int
             SIZE_IN_CELLS_FIELD_NUMBER: builtins.int
             type: global___ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType
             """Layout type for an external dictionary."""
-
             size_in_cells: builtins.int
             """Number of cells in the cache. Rounded up to a power of two.
             Applicable only for CACHE and COMPLEX_KEY_CACHE layout types.
             """
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
                 type: global___ClickhouseConfig.ExternalDictionary.Layout.Type.ValueType = ...,
                 size_in_cells: builtins.int = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["size_in_cells",b"size_in_cells","type",b"type"]) -> None: ...
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["size_in_cells", b"size_in_cells", "type", b"type"]) -> None: ...
 
         class Range(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             MIN_FIELD_NUMBER: builtins.int
             MAX_FIELD_NUMBER: builtins.int
             min: builtins.int
             """Minimum dictionary lifetime."""
-
             max: builtins.int
             """Maximum dictionary lifetime."""
-
-            def __init__(self,
+            def __init__(
+                self,
                 *,
                 min: builtins.int = ...,
                 max: builtins.int = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["max",b"max","min",b"min"]) -> None: ...
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["max", b"max", "min", b"min"]) -> None: ...
 
         NAME_FIELD_NUMBER: builtins.int
         STRUCTURE_FIELD_NUMBER: builtins.int
@@ -741,126 +699,117 @@ class ClickhouseConfig(google.protobuf.message.Message):
         CLICKHOUSE_SOURCE_FIELD_NUMBER: builtins.int
         MONGODB_SOURCE_FIELD_NUMBER: builtins.int
         POSTGRESQL_SOURCE_FIELD_NUMBER: builtins.int
-        name: typing.Text
+        name: builtins.str
         """Name of the external dictionary."""
-
         @property
         def structure(self) -> global___ClickhouseConfig.ExternalDictionary.Structure:
             """Set of attributes for the external dictionary.
             For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/).
             """
-            pass
         @property
         def layout(self) -> global___ClickhouseConfig.ExternalDictionary.Layout:
             """Layout for storing the dictionary in memory.
             For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/).
             """
-            pass
         fixed_lifetime: builtins.int
         """Fixed interval between dictionary updates."""
-
         @property
         def lifetime_range(self) -> global___ClickhouseConfig.ExternalDictionary.Range:
             """Range of intervals between dictionary updates for ClickHouse to choose from."""
-            pass
         @property
         def http_source(self) -> global___ClickhouseConfig.ExternalDictionary.HttpSource:
             """HTTP source for the dictionary."""
-            pass
         @property
         def mysql_source(self) -> global___ClickhouseConfig.ExternalDictionary.MysqlSource:
             """MySQL source for the dictionary."""
-            pass
         @property
         def clickhouse_source(self) -> global___ClickhouseConfig.ExternalDictionary.ClickhouseSource:
             """ClickHouse source for the dictionary."""
-            pass
         @property
         def mongodb_source(self) -> global___ClickhouseConfig.ExternalDictionary.MongodbSource:
             """MongoDB source for the dictionary."""
-            pass
         @property
         def postgresql_source(self) -> global___ClickhouseConfig.ExternalDictionary.PostgresqlSource:
             """PostgreSQL source for the dictionary."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            name: typing.Text = ...,
-            structure: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Structure] = ...,
-            layout: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Layout] = ...,
+            name: builtins.str = ...,
+            structure: global___ClickhouseConfig.ExternalDictionary.Structure | None = ...,
+            layout: global___ClickhouseConfig.ExternalDictionary.Layout | None = ...,
             fixed_lifetime: builtins.int = ...,
-            lifetime_range: typing.Optional[global___ClickhouseConfig.ExternalDictionary.Range] = ...,
-            http_source: typing.Optional[global___ClickhouseConfig.ExternalDictionary.HttpSource] = ...,
-            mysql_source: typing.Optional[global___ClickhouseConfig.ExternalDictionary.MysqlSource] = ...,
-            clickhouse_source: typing.Optional[global___ClickhouseConfig.ExternalDictionary.ClickhouseSource] = ...,
-            mongodb_source: typing.Optional[global___ClickhouseConfig.ExternalDictionary.MongodbSource] = ...,
-            postgresql_source: typing.Optional[global___ClickhouseConfig.ExternalDictionary.PostgresqlSource] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["clickhouse_source",b"clickhouse_source","fixed_lifetime",b"fixed_lifetime","http_source",b"http_source","layout",b"layout","lifetime",b"lifetime","lifetime_range",b"lifetime_range","mongodb_source",b"mongodb_source","mysql_source",b"mysql_source","postgresql_source",b"postgresql_source","source",b"source","structure",b"structure"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["clickhouse_source",b"clickhouse_source","fixed_lifetime",b"fixed_lifetime","http_source",b"http_source","layout",b"layout","lifetime",b"lifetime","lifetime_range",b"lifetime_range","mongodb_source",b"mongodb_source","mysql_source",b"mysql_source","name",b"name","postgresql_source",b"postgresql_source","source",b"source","structure",b"structure"]) -> None: ...
+            lifetime_range: global___ClickhouseConfig.ExternalDictionary.Range | None = ...,
+            http_source: global___ClickhouseConfig.ExternalDictionary.HttpSource | None = ...,
+            mysql_source: global___ClickhouseConfig.ExternalDictionary.MysqlSource | None = ...,
+            clickhouse_source: global___ClickhouseConfig.ExternalDictionary.ClickhouseSource | None = ...,
+            mongodb_source: global___ClickhouseConfig.ExternalDictionary.MongodbSource | None = ...,
+            postgresql_source: global___ClickhouseConfig.ExternalDictionary.PostgresqlSource | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["clickhouse_source", b"clickhouse_source", "fixed_lifetime", b"fixed_lifetime", "http_source", b"http_source", "layout", b"layout", "lifetime", b"lifetime", "lifetime_range", b"lifetime_range", "mongodb_source", b"mongodb_source", "mysql_source", b"mysql_source", "postgresql_source", b"postgresql_source", "source", b"source", "structure", b"structure"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["clickhouse_source", b"clickhouse_source", "fixed_lifetime", b"fixed_lifetime", "http_source", b"http_source", "layout", b"layout", "lifetime", b"lifetime", "lifetime_range", b"lifetime_range", "mongodb_source", b"mongodb_source", "mysql_source", b"mysql_source", "name", b"name", "postgresql_source", b"postgresql_source", "source", b"source", "structure", b"structure"]) -> None: ...
         @typing.overload
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["lifetime",b"lifetime"]) -> typing.Optional[typing_extensions.Literal["fixed_lifetime","lifetime_range"]]: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["lifetime", b"lifetime"]) -> typing_extensions.Literal["fixed_lifetime", "lifetime_range"] | None: ...
         @typing.overload
-        def WhichOneof(self, oneof_group: typing_extensions.Literal["source",b"source"]) -> typing.Optional[typing_extensions.Literal["http_source","mysql_source","clickhouse_source","mongodb_source","postgresql_source"]]: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["source", b"source"]) -> typing_extensions.Literal["http_source", "mysql_source", "clickhouse_source", "mongodb_source", "postgresql_source"] | None: ...
 
     class GraphiteRollup(google.protobuf.message.Message):
         """Rollup settings for the GraphiteMergeTree table engine."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class Pattern(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             class Retention(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
                 AGE_FIELD_NUMBER: builtins.int
                 PRECISION_FIELD_NUMBER: builtins.int
                 age: builtins.int
                 """Minimum age of the data in seconds."""
-
                 precision: builtins.int
                 """Precision of determining the age of the data, in seconds."""
-
-                def __init__(self,
+                def __init__(
+                    self,
                     *,
                     age: builtins.int = ...,
                     precision: builtins.int = ...,
-                    ) -> None: ...
-                def ClearField(self, field_name: typing_extensions.Literal["age",b"age","precision",b"precision"]) -> None: ...
+                ) -> None: ...
+                def ClearField(self, field_name: typing_extensions.Literal["age", b"age", "precision", b"precision"]) -> None: ...
 
             REGEXP_FIELD_NUMBER: builtins.int
             FUNCTION_FIELD_NUMBER: builtins.int
             RETENTION_FIELD_NUMBER: builtins.int
-            regexp: typing.Text
+            regexp: builtins.str
             """Pattern for metric names."""
-
-            function: typing.Text
+            function: builtins.str
             """Name of the aggregating function to apply to data of the age specified in [retention]."""
-
             @property
             def retention(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.GraphiteRollup.Pattern.Retention]:
                 """Age of data to use for thinning."""
-                pass
-            def __init__(self,
+            def __init__(
+                self,
                 *,
-                regexp: typing.Text = ...,
-                function: typing.Text = ...,
-                retention: typing.Optional[typing.Iterable[global___ClickhouseConfig.GraphiteRollup.Pattern.Retention]] = ...,
-                ) -> None: ...
-            def ClearField(self, field_name: typing_extensions.Literal["function",b"function","regexp",b"regexp","retention",b"retention"]) -> None: ...
+                regexp: builtins.str = ...,
+                function: builtins.str = ...,
+                retention: collections.abc.Iterable[global___ClickhouseConfig.GraphiteRollup.Pattern.Retention] | None = ...,
+            ) -> None: ...
+            def ClearField(self, field_name: typing_extensions.Literal["function", b"function", "regexp", b"regexp", "retention", b"retention"]) -> None: ...
 
         NAME_FIELD_NUMBER: builtins.int
         PATTERNS_FIELD_NUMBER: builtins.int
-        name: typing.Text
+        name: builtins.str
         """Name for the specified combination of settings for Graphite rollup."""
-
         @property
         def patterns(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.GraphiteRollup.Pattern]:
             """Pattern to use for the rollup."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            name: typing.Text = ...,
-            patterns: typing.Optional[typing.Iterable[global___ClickhouseConfig.GraphiteRollup.Pattern]] = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["name",b"name","patterns",b"patterns"]) -> None: ...
+            name: builtins.str = ...,
+            patterns: collections.abc.Iterable[global___ClickhouseConfig.GraphiteRollup.Pattern] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "patterns", b"patterns"]) -> None: ...
 
     LOG_LEVEL_FIELD_NUMBER: builtins.int
     MERGE_TREE_FIELD_NUMBER: builtins.int
@@ -901,31 +850,26 @@ class ClickhouseConfig(google.protobuf.message.Message):
     BACKGROUND_SCHEDULE_POOL_SIZE_FIELD_NUMBER: builtins.int
     log_level: global___ClickhouseConfig.LogLevel.ValueType
     """Logging level for the ClickHouse cluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR."""
-
     @property
     def merge_tree(self) -> global___ClickhouseConfig.MergeTree:
         """Settings for the MergeTree engine.
         See description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#merge_tree).
         """
-        pass
     @property
     def compression(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.Compression]:
         """Compression settings for the ClickHouse cluster.
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#compression).
         """
-        pass
     @property
     def dictionaries(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.ExternalDictionary]:
         """Configuration of external dictionaries to be used by the ClickHouse cluster.
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts/).
         """
-        pass
     @property
     def graphite_rollup(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseConfig.GraphiteRollup]:
         """Settings for thinning Graphite data.
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/#server_settings-graphite_rollup).
         """
-        pass
     @property
     def kafka(self) -> global___ClickhouseConfig.Kafka: ...
     @property
@@ -935,182 +879,158 @@ class ClickhouseConfig(google.protobuf.message.Message):
     @property
     def max_connections(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum number of inbound connections."""
-        pass
     @property
     def max_concurrent_queries(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum number of simultaneously processed requests."""
-        pass
     @property
     def keep_alive_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Number of milliseconds that ClickHouse waits for incoming requests before closing the connection."""
-        pass
     @property
     def uncompressed_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Cache size (in bytes) for uncompressed data used by MergeTree tables."""
-        pass
     @property
     def mark_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Approximate size (in bytes) of the cache of "marks" used by MergeTree tables."""
-        pass
     @property
     def max_table_size_to_drop(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum size of the table that can be deleted using a DROP query."""
-        pass
     @property
     def max_partition_size_to_drop(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum size of the partition that can be deleted using a DROP query."""
-        pass
     @property
     def builtin_dictionaries_reload_interval(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The setting is deprecated and has no effect."""
-        pass
-    timezone: typing.Text
+    timezone: builtins.str
     """The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier."""
-
-    geobase_uri: typing.Text
+    geobase_uri: builtins.str
     """Address of the archive with the user geobase in Object Storage."""
-
     @property
     def query_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that query_log can grow to before old data will be removed. If set to 0, automatic removal of
         query_log data based on size is disabled.
         """
-        pass
     @property
     def query_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that query_log records will be retained before removal. If set to 0, automatic removal of
         query_log data based on time is disabled.
         """
-        pass
     @property
     def query_thread_log_enabled(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Whether query_thread_log system table is enabled."""
-        pass
     @property
     def query_thread_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that query_thread_log can grow to before old data will be removed. If set to 0, automatic removal of
         query_thread_log data based on size is disabled.
         """
-        pass
     @property
     def query_thread_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that query_thread_log records will be retained before removal. If set to 0, automatic removal of
         query_thread_log data based on time is disabled.
         """
-        pass
     @property
     def part_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that part_log can grow to before old data will be removed. If set to 0, automatic removal of
         part_log data based on size is disabled.
         """
-        pass
     @property
     def part_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that part_log records will be retained before removal. If set to 0, automatic removal of
         part_log data based on time is disabled.
         """
-        pass
     @property
     def metric_log_enabled(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Whether metric_log system table is enabled."""
-        pass
     @property
     def metric_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that metric_log can grow to before old data will be removed. If set to 0, automatic removal of
         metric_log data based on size is disabled.
         """
-        pass
     @property
     def metric_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that metric_log records will be retained before removal. If set to 0, automatic removal of
         metric_log data based on time is disabled.
         """
-        pass
     @property
     def trace_log_enabled(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Whether trace_log system table is enabled."""
-        pass
     @property
     def trace_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that trace_log can grow to before old data will be removed. If set to 0, automatic removal of
         trace_log data based on size is disabled.
         """
-        pass
     @property
     def trace_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that trace_log records will be retained before removal. If set to 0, automatic removal of
         trace_log data based on time is disabled.
         """
-        pass
     @property
     def text_log_enabled(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Whether text_log system table is enabled."""
-        pass
     @property
     def text_log_retention_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size that text_log can grow to before old data will be removed. If set to 0, automatic removal of
         text_log data based on size is disabled.
         """
-        pass
     @property
     def text_log_retention_time(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum time that text_log records will be retained before removal. If set to 0, automatic removal of
         text_log data based on time is disabled.
         """
-        pass
     text_log_level: global___ClickhouseConfig.LogLevel.ValueType
     """Logging level for text_log system table. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR."""
-
     @property
     def background_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def background_schedule_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
         log_level: global___ClickhouseConfig.LogLevel.ValueType = ...,
-        merge_tree: typing.Optional[global___ClickhouseConfig.MergeTree] = ...,
-        compression: typing.Optional[typing.Iterable[global___ClickhouseConfig.Compression]] = ...,
-        dictionaries: typing.Optional[typing.Iterable[global___ClickhouseConfig.ExternalDictionary]] = ...,
-        graphite_rollup: typing.Optional[typing.Iterable[global___ClickhouseConfig.GraphiteRollup]] = ...,
-        kafka: typing.Optional[global___ClickhouseConfig.Kafka] = ...,
-        kafka_topics: typing.Optional[typing.Iterable[global___ClickhouseConfig.KafkaTopic]] = ...,
-        rabbitmq: typing.Optional[global___ClickhouseConfig.Rabbitmq] = ...,
-        max_connections: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_concurrent_queries: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        keep_alive_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        uncompressed_cache_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        mark_cache_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_table_size_to_drop: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_partition_size_to_drop: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        builtin_dictionaries_reload_interval: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        timezone: typing.Text = ...,
-        geobase_uri: typing.Text = ...,
-        query_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        query_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        query_thread_log_enabled: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        query_thread_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        query_thread_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        part_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        part_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        metric_log_enabled: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        metric_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        metric_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        trace_log_enabled: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        trace_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        trace_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        text_log_enabled: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        text_log_retention_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        text_log_retention_time: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        merge_tree: global___ClickhouseConfig.MergeTree | None = ...,
+        compression: collections.abc.Iterable[global___ClickhouseConfig.Compression] | None = ...,
+        dictionaries: collections.abc.Iterable[global___ClickhouseConfig.ExternalDictionary] | None = ...,
+        graphite_rollup: collections.abc.Iterable[global___ClickhouseConfig.GraphiteRollup] | None = ...,
+        kafka: global___ClickhouseConfig.Kafka | None = ...,
+        kafka_topics: collections.abc.Iterable[global___ClickhouseConfig.KafkaTopic] | None = ...,
+        rabbitmq: global___ClickhouseConfig.Rabbitmq | None = ...,
+        max_connections: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_concurrent_queries: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        keep_alive_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        uncompressed_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        mark_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_table_size_to_drop: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_partition_size_to_drop: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        builtin_dictionaries_reload_interval: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        timezone: builtins.str = ...,
+        geobase_uri: builtins.str = ...,
+        query_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_thread_log_enabled: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        query_thread_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_thread_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        part_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        part_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        metric_log_enabled: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        metric_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        metric_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        trace_log_enabled: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        trace_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        trace_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        text_log_enabled: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        text_log_retention_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        text_log_retention_time: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         text_log_level: global___ClickhouseConfig.LogLevel.ValueType = ...,
-        background_pool_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        background_schedule_pool_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["background_pool_size",b"background_pool_size","background_schedule_pool_size",b"background_schedule_pool_size","builtin_dictionaries_reload_interval",b"builtin_dictionaries_reload_interval","kafka",b"kafka","keep_alive_timeout",b"keep_alive_timeout","mark_cache_size",b"mark_cache_size","max_concurrent_queries",b"max_concurrent_queries","max_connections",b"max_connections","max_partition_size_to_drop",b"max_partition_size_to_drop","max_table_size_to_drop",b"max_table_size_to_drop","merge_tree",b"merge_tree","metric_log_enabled",b"metric_log_enabled","metric_log_retention_size",b"metric_log_retention_size","metric_log_retention_time",b"metric_log_retention_time","part_log_retention_size",b"part_log_retention_size","part_log_retention_time",b"part_log_retention_time","query_log_retention_size",b"query_log_retention_size","query_log_retention_time",b"query_log_retention_time","query_thread_log_enabled",b"query_thread_log_enabled","query_thread_log_retention_size",b"query_thread_log_retention_size","query_thread_log_retention_time",b"query_thread_log_retention_time","rabbitmq",b"rabbitmq","text_log_enabled",b"text_log_enabled","text_log_retention_size",b"text_log_retention_size","text_log_retention_time",b"text_log_retention_time","trace_log_enabled",b"trace_log_enabled","trace_log_retention_size",b"trace_log_retention_size","trace_log_retention_time",b"trace_log_retention_time","uncompressed_cache_size",b"uncompressed_cache_size"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["background_pool_size",b"background_pool_size","background_schedule_pool_size",b"background_schedule_pool_size","builtin_dictionaries_reload_interval",b"builtin_dictionaries_reload_interval","compression",b"compression","dictionaries",b"dictionaries","geobase_uri",b"geobase_uri","graphite_rollup",b"graphite_rollup","kafka",b"kafka","kafka_topics",b"kafka_topics","keep_alive_timeout",b"keep_alive_timeout","log_level",b"log_level","mark_cache_size",b"mark_cache_size","max_concurrent_queries",b"max_concurrent_queries","max_connections",b"max_connections","max_partition_size_to_drop",b"max_partition_size_to_drop","max_table_size_to_drop",b"max_table_size_to_drop","merge_tree",b"merge_tree","metric_log_enabled",b"metric_log_enabled","metric_log_retention_size",b"metric_log_retention_size","metric_log_retention_time",b"metric_log_retention_time","part_log_retention_size",b"part_log_retention_size","part_log_retention_time",b"part_log_retention_time","query_log_retention_size",b"query_log_retention_size","query_log_retention_time",b"query_log_retention_time","query_thread_log_enabled",b"query_thread_log_enabled","query_thread_log_retention_size",b"query_thread_log_retention_size","query_thread_log_retention_time",b"query_thread_log_retention_time","rabbitmq",b"rabbitmq","text_log_enabled",b"text_log_enabled","text_log_level",b"text_log_level","text_log_retention_size",b"text_log_retention_size","text_log_retention_time",b"text_log_retention_time","timezone",b"timezone","trace_log_enabled",b"trace_log_enabled","trace_log_retention_size",b"trace_log_retention_size","trace_log_retention_time",b"trace_log_retention_time","uncompressed_cache_size",b"uncompressed_cache_size"]) -> None: ...
+        background_pool_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        background_schedule_pool_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["background_pool_size", b"background_pool_size", "background_schedule_pool_size", b"background_schedule_pool_size", "builtin_dictionaries_reload_interval", b"builtin_dictionaries_reload_interval", "kafka", b"kafka", "keep_alive_timeout", b"keep_alive_timeout", "mark_cache_size", b"mark_cache_size", "max_concurrent_queries", b"max_concurrent_queries", "max_connections", b"max_connections", "max_partition_size_to_drop", b"max_partition_size_to_drop", "max_table_size_to_drop", b"max_table_size_to_drop", "merge_tree", b"merge_tree", "metric_log_enabled", b"metric_log_enabled", "metric_log_retention_size", b"metric_log_retention_size", "metric_log_retention_time", b"metric_log_retention_time", "part_log_retention_size", b"part_log_retention_size", "part_log_retention_time", b"part_log_retention_time", "query_log_retention_size", b"query_log_retention_size", "query_log_retention_time", b"query_log_retention_time", "query_thread_log_enabled", b"query_thread_log_enabled", "query_thread_log_retention_size", b"query_thread_log_retention_size", "query_thread_log_retention_time", b"query_thread_log_retention_time", "rabbitmq", b"rabbitmq", "text_log_enabled", b"text_log_enabled", "text_log_retention_size", b"text_log_retention_size", "text_log_retention_time", b"text_log_retention_time", "trace_log_enabled", b"trace_log_enabled", "trace_log_retention_size", b"trace_log_retention_size", "trace_log_retention_time", b"trace_log_retention_time", "uncompressed_cache_size", b"uncompressed_cache_size"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["background_pool_size", b"background_pool_size", "background_schedule_pool_size", b"background_schedule_pool_size", "builtin_dictionaries_reload_interval", b"builtin_dictionaries_reload_interval", "compression", b"compression", "dictionaries", b"dictionaries", "geobase_uri", b"geobase_uri", "graphite_rollup", b"graphite_rollup", "kafka", b"kafka", "kafka_topics", b"kafka_topics", "keep_alive_timeout", b"keep_alive_timeout", "log_level", b"log_level", "mark_cache_size", b"mark_cache_size", "max_concurrent_queries", b"max_concurrent_queries", "max_connections", b"max_connections", "max_partition_size_to_drop", b"max_partition_size_to_drop", "max_table_size_to_drop", b"max_table_size_to_drop", "merge_tree", b"merge_tree", "metric_log_enabled", b"metric_log_enabled", "metric_log_retention_size", b"metric_log_retention_size", "metric_log_retention_time", b"metric_log_retention_time", "part_log_retention_size", b"part_log_retention_size", "part_log_retention_time", b"part_log_retention_time", "query_log_retention_size", b"query_log_retention_size", "query_log_retention_time", b"query_log_retention_time", "query_thread_log_enabled", b"query_thread_log_enabled", "query_thread_log_retention_size", b"query_thread_log_retention_size", "query_thread_log_retention_time", b"query_thread_log_retention_time", "rabbitmq", b"rabbitmq", "text_log_enabled", b"text_log_enabled", "text_log_level", b"text_log_level", "text_log_retention_size", b"text_log_retention_size", "text_log_retention_time", b"text_log_retention_time", "timezone", b"timezone", "trace_log_enabled", b"trace_log_enabled", "trace_log_retention_size", b"trace_log_retention_size", "trace_log_retention_time", b"trace_log_retention_time", "uncompressed_cache_size", b"uncompressed_cache_size"]) -> None: ...
+
 global___ClickhouseConfig = ClickhouseConfig
 
 class ClickhouseConfigSet(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
@@ -1119,21 +1039,20 @@ class ClickhouseConfigSet(google.protobuf.message.Message):
         """Effective settings for a ClickHouse cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
-        pass
     @property
     def user_config(self) -> global___ClickhouseConfig:
         """User-defined settings for a ClickHouse cluster."""
-        pass
     @property
     def default_config(self) -> global___ClickhouseConfig:
         """Default configuration for a ClickHouse cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___ClickhouseConfig] = ...,
-        user_config: typing.Optional[global___ClickhouseConfig] = ...,
-        default_config: typing.Optional[global___ClickhouseConfig] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___ClickhouseConfig | None = ...,
+        user_config: global___ClickhouseConfig | None = ...,
+        default_config: global___ClickhouseConfig | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___ClickhouseConfigSet = ClickhouseConfigSet

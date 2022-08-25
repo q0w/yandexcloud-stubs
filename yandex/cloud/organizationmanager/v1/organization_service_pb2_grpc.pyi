@@ -11,53 +11,56 @@ import yandex.cloud.organizationmanager.v1.organization_service_pb2
 
 class OrganizationServiceStub:
     """A set of methods for managing Organization resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.organization_service_pb2.GetOrganizationRequest,
-        yandex.cloud.organizationmanager.v1.organization_pb2.Organization]
+        yandex.cloud.organizationmanager.v1.organization_pb2.Organization,
+    ]
     """Returns the specified Organization resource.
 
     To get the list of available Organization resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationsRequest,
-        yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationsResponse]
+        yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationsResponse,
+    ]
     """Retrieves the list of Organization resources."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.organization_service_pb2.UpdateOrganizationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified organization."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationOperationsRequest,
-        yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationOperationsResponse]
+        yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationOperationsResponse,
+    ]
     """Lists operations for the specified organization."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """access
 
     Lists access bindings for the specified organization.
     """
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the specified organization."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified organization."""
-
 
 class OrganizationServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Organization resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.organizationmanager.v1.organization_service_pb2.GetOrganizationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.organization_pb2.Organization:
@@ -65,34 +68,30 @@ class OrganizationServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Organization resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationsResponse:
         """Retrieves the list of Organization resources."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.organizationmanager.v1.organization_service_pb2.UpdateOrganizationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.organization_service_pb2.ListOrganizationOperationsResponse:
         """Lists operations for the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
@@ -100,23 +99,19 @@ class OrganizationServiceServicer(metaclass=abc.ABCMeta):
 
         Lists access bindings for the specified organization.
         """
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified organization."""
-        pass
-
 
 def add_OrganizationServiceServicer_to_server(servicer: OrganizationServiceServicer, server: grpc.Server) -> None: ...

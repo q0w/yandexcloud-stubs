@@ -3,60 +3,64 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Broker(google.protobuf.message.Message):
     """A broker."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Broker._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Broker._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Broker._Status.ValueType  # 0
         CREATING: Broker._Status.ValueType  # 1
         """Broker is being created."""
-
         ACTIVE: Broker._Status.ValueType  # 2
         """Broker is ready to use."""
-
         DELETING: Broker._Status.ValueType  # 3
         """Broker is being deleted."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Broker.Status.ValueType  # 0
     CREATING: Broker.Status.ValueType  # 1
     """Broker is being created."""
-
     ACTIVE: Broker.Status.ValueType  # 2
     """Broker is ready to use."""
-
     DELETING: Broker.Status.ValueType  # 3
     """Broker is being deleted."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -65,96 +69,92 @@ class Broker(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the broker."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the broker belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the broker. The name is unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the broker. 0-256 characters long."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs. Maximum of 64 per resource."""
-        pass
     status: global___Broker.Status.ValueType
     """Status of the broker."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         status: global___Broker.Status.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","status",b"status"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "status", b"status"]) -> None: ...
+
 global___Broker = Broker
 
 class BrokerCertificate(google.protobuf.message.Message):
     """A broker certificate."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BROKER_ID_FIELD_NUMBER: builtins.int
     FINGERPRINT_FIELD_NUMBER: builtins.int
     CERTIFICATE_DATA_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
-    broker_id: typing.Text
+    broker_id: builtins.str
     """ID of the broker that the certificate belongs to."""
-
-    fingerprint: typing.Text
+    fingerprint: builtins.str
     """SHA256 hash of the certificates."""
-
-    certificate_data: typing.Text
+    certificate_data: builtins.str
     """Public part of the certificate."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        broker_id: typing.Text = ...,
-        fingerprint: typing.Text = ...,
-        certificate_data: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["broker_id",b"broker_id","certificate_data",b"certificate_data","created_at",b"created_at","fingerprint",b"fingerprint"]) -> None: ...
+        broker_id: builtins.str = ...,
+        fingerprint: builtins.str = ...,
+        certificate_data: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["broker_id", b"broker_id", "certificate_data", b"certificate_data", "created_at", b"created_at", "fingerprint", b"fingerprint"]) -> None: ...
+
 global___BrokerCertificate = BrokerCertificate
 
 class BrokerPassword(google.protobuf.message.Message):
     """A broker password."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BROKER_ID_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
-    broker_id: typing.Text
+    broker_id: builtins.str
     """ID of the broker that the password belongs to."""
-
-    id: typing.Text
+    id: builtins.str
     """ID of the password."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        broker_id: typing.Text = ...,
-        id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["broker_id",b"broker_id","created_at",b"created_at","id",b"id"]) -> None: ...
+        broker_id: builtins.str = ...,
+        id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["broker_id", b"broker_id", "created_at", b"created_at", "id", b"id"]) -> None: ...
+
 global___BrokerPassword = BrokerPassword

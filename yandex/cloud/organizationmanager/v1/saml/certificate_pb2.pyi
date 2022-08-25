@@ -6,48 +6,50 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Certificate(google.protobuf.message.Message):
     """A certificate."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     FEDERATION_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the certificate."""
-
-    federation_id: typing.Text
+    federation_id: builtins.str
     """ID of the federation that the certificate belongs to."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the certificate."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the certificate."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    data: typing.Text
+    data: builtins.str
     """Certificate data in PEM format."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        federation_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        data: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","data",b"data","description",b"description","federation_id",b"federation_id","id",b"id","name",b"name"]) -> None: ...
+        id: builtins.str = ...,
+        federation_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        data: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "data", b"data", "description", b"description", "federation_id", b"federation_id", "id", b"id", "name", b"name"]) -> None: ...
+
 global___Certificate = Certificate

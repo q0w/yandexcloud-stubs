@@ -11,165 +11,155 @@ import yandex.cloud.operation.operation_pb2
 
 class ProjectServiceStub:
     """A set of methods for managing Project resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.CreateProjectRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a project in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.UpdateProjectRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified project."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.DeleteProjectRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified project."""
-
     Open: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.OpenProjectRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Opens the specified project."""
-
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.GetProjectRequest,
-        yandex.cloud.datasphere.v1.project_pb2.Project]
+        yandex.cloud.datasphere.v1.project_pb2.Project,
+    ]
     """Returns the specified project."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.ListProjectsRequest,
-        yandex.cloud.datasphere.v1.project_service_pb2.ListProjectsResponse]
+        yandex.cloud.datasphere.v1.project_service_pb2.ListProjectsResponse,
+    ]
     """Lists projects for the specified folder."""
-
     GetUnitBalance: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.GetUnitBalanceRequest,
-        yandex.cloud.datasphere.v1.project_service_pb2.GetUnitBalanceResponse]
+        yandex.cloud.datasphere.v1.project_service_pb2.GetUnitBalanceResponse,
+    ]
     """Returns the unit balance of the specified project."""
-
     SetUnitBalance: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.SetUnitBalanceRequest,
-        google.protobuf.empty_pb2.Empty]
+        google.protobuf.empty_pb2.Empty,
+    ]
     """Sets the unit balance of the specified project."""
-
     Execute: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.ProjectExecutionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Executes code in the specified cell or notebook."""
-
     GetCellOutputs: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.CellOutputsRequest,
-        yandex.cloud.datasphere.v1.project_service_pb2.CellOutputsResponse]
+        yandex.cloud.datasphere.v1.project_service_pb2.CellOutputsResponse,
+    ]
     """Returns outputs of the specified cell."""
-
     GetStateVariables: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.GetStateVariablesRequest,
-        yandex.cloud.datasphere.v1.project_service_pb2.GetStateVariablesResponse]
+        yandex.cloud.datasphere.v1.project_service_pb2.GetStateVariablesResponse,
+    ]
     """Returns state variables of the specified notebook."""
-
     GetNotebookMetadata: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.project_service_pb2.GetNotebookMetadataRequest,
-        yandex.cloud.datasphere.v1.project_service_pb2.GetNotebookMetadataResponse]
+        yandex.cloud.datasphere.v1.project_service_pb2.GetNotebookMetadataResponse,
+    ]
     """Returns metadata of the specified notebook."""
-
 
 class ProjectServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Project resources."""
+
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.CreateProjectRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a project in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.UpdateProjectRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified project."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.DeleteProjectRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified project."""
-        pass
-
     @abc.abstractmethod
-    def Open(self,
+    def Open(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.OpenProjectRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Opens the specified project."""
-        pass
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.GetProjectRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_pb2.Project:
         """Returns the specified project."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.ListProjectsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_service_pb2.ListProjectsResponse:
         """Lists projects for the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def GetUnitBalance(self,
+    def GetUnitBalance(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.GetUnitBalanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_service_pb2.GetUnitBalanceResponse:
         """Returns the unit balance of the specified project."""
-        pass
-
     @abc.abstractmethod
-    def SetUnitBalance(self,
+    def SetUnitBalance(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.SetUnitBalanceRequest,
         context: grpc.ServicerContext,
     ) -> google.protobuf.empty_pb2.Empty:
         """Sets the unit balance of the specified project."""
-        pass
-
     @abc.abstractmethod
-    def Execute(self,
+    def Execute(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.ProjectExecutionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Executes code in the specified cell or notebook."""
-        pass
-
     @abc.abstractmethod
-    def GetCellOutputs(self,
+    def GetCellOutputs(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.CellOutputsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_service_pb2.CellOutputsResponse:
         """Returns outputs of the specified cell."""
-        pass
-
     @abc.abstractmethod
-    def GetStateVariables(self,
+    def GetStateVariables(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.GetStateVariablesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_service_pb2.GetStateVariablesResponse:
         """Returns state variables of the specified notebook."""
-        pass
-
     @abc.abstractmethod
-    def GetNotebookMetadata(self,
+    def GetNotebookMetadata(
+        self,
         request: yandex.cloud.datasphere.v1.project_service_pb2.GetNotebookMetadataRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.datasphere.v1.project_service_pb2.GetNotebookMetadataResponse:
         """Returns metadata of the specified notebook."""
-        pass
-
 
 def add_ProjectServiceServicer_to_server(servicer: ProjectServiceServicer, server: grpc.Server) -> None: ...

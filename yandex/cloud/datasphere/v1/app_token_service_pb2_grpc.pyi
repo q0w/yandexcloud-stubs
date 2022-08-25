@@ -9,22 +9,23 @@ import yandex.cloud.datasphere.v1.app_token_service_pb2
 
 class AppTokenServiceStub:
     """A set of methods for managing app tokens."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Validate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.datasphere.v1.app_token_service_pb2.AppTokenValidateRequest,
-        google.protobuf.empty_pb2.Empty]
+        google.protobuf.empty_pb2.Empty,
+    ]
     """Validates app token."""
-
 
 class AppTokenServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing app tokens."""
+
     @abc.abstractmethod
-    def Validate(self,
+    def Validate(
+        self,
         request: yandex.cloud.datasphere.v1.app_token_service_pb2.AppTokenValidateRequest,
         context: grpc.ServicerContext,
     ) -> google.protobuf.empty_pb2.Empty:
         """Validates app token."""
-        pass
-
 
 def add_AppTokenServiceServicer_to_server(servicer: AppTokenServiceServicer, server: grpc.Server) -> None: ...

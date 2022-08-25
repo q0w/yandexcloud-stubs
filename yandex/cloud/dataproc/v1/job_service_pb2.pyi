@@ -3,58 +3,62 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.dataproc.v1.job_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     JOB_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster to request a job from."""
-
-    job_id: typing.Text
+    job_id: builtins.str
     """ID of the job to return.
 
     To get a job ID make a [JobService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        job_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","job_id",b"job_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        job_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "job_id", b"job_id"]) -> None: ...
+
 global___GetJobRequest = GetJobRequest
 
 class ListJobsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster to list jobs for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListJobsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListJobsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters jobs listed in the response.
 
     The expression must specify:
@@ -63,174 +67,175 @@ class ListJobsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name=my-job`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListJobsRequest = ListJobsRequest
 
 class ListJobsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     JOBS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def jobs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dataproc.v1.job_pb2.Job]:
         """List of jobs for the specified cluster."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListJobsRequest.page_size], use `next_page_token` as the value
     for the [ListJobsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        jobs: typing.Optional[typing.Iterable[yandex.cloud.dataproc.v1.job_pb2.Job]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["jobs",b"jobs","next_page_token",b"next_page_token"]) -> None: ...
+        jobs: collections.abc.Iterable[yandex.cloud.dataproc.v1.job_pb2.Job] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["jobs", b"jobs", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListJobsResponse = ListJobsResponse
 
 class CreateJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     MAPREDUCE_JOB_FIELD_NUMBER: builtins.int
     SPARK_JOB_FIELD_NUMBER: builtins.int
     PYSPARK_JOB_FIELD_NUMBER: builtins.int
     HIVE_JOB_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster to create a job for."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the job."""
-
     @property
     def mapreduce_job(self) -> yandex.cloud.dataproc.v1.job_pb2.MapreduceJob:
         """Specification for a MapReduce job."""
-        pass
     @property
     def spark_job(self) -> yandex.cloud.dataproc.v1.job_pb2.SparkJob:
         """Specification for a Spark job."""
-        pass
     @property
     def pyspark_job(self) -> yandex.cloud.dataproc.v1.job_pb2.PysparkJob:
         """Specification for a PySpark job."""
-        pass
     @property
     def hive_job(self) -> yandex.cloud.dataproc.v1.job_pb2.HiveJob:
         """Specification for a Hive job."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        name: typing.Text = ...,
-        mapreduce_job: typing.Optional[yandex.cloud.dataproc.v1.job_pb2.MapreduceJob] = ...,
-        spark_job: typing.Optional[yandex.cloud.dataproc.v1.job_pb2.SparkJob] = ...,
-        pyspark_job: typing.Optional[yandex.cloud.dataproc.v1.job_pb2.PysparkJob] = ...,
-        hive_job: typing.Optional[yandex.cloud.dataproc.v1.job_pb2.HiveJob] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["hive_job",b"hive_job","job_spec",b"job_spec","mapreduce_job",b"mapreduce_job","pyspark_job",b"pyspark_job","spark_job",b"spark_job"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","hive_job",b"hive_job","job_spec",b"job_spec","mapreduce_job",b"mapreduce_job","name",b"name","pyspark_job",b"pyspark_job","spark_job",b"spark_job"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["job_spec",b"job_spec"]) -> typing.Optional[typing_extensions.Literal["mapreduce_job","spark_job","pyspark_job","hive_job"]]: ...
+        cluster_id: builtins.str = ...,
+        name: builtins.str = ...,
+        mapreduce_job: yandex.cloud.dataproc.v1.job_pb2.MapreduceJob | None = ...,
+        spark_job: yandex.cloud.dataproc.v1.job_pb2.SparkJob | None = ...,
+        pyspark_job: yandex.cloud.dataproc.v1.job_pb2.PysparkJob | None = ...,
+        hive_job: yandex.cloud.dataproc.v1.job_pb2.HiveJob | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["hive_job", b"hive_job", "job_spec", b"job_spec", "mapreduce_job", b"mapreduce_job", "pyspark_job", b"pyspark_job", "spark_job", b"spark_job"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "hive_job", b"hive_job", "job_spec", b"job_spec", "mapreduce_job", b"mapreduce_job", "name", b"name", "pyspark_job", b"pyspark_job", "spark_job", b"spark_job"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["job_spec", b"job_spec"]) -> typing_extensions.Literal["mapreduce_job", "spark_job", "pyspark_job", "hive_job"] | None: ...
+
 global___CreateJobRequest = CreateJobRequest
 
 class CreateJobMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     JOB_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster that the job is being created for."""
-
-    job_id: typing.Text
+    job_id: builtins.str
     """ID of the job being created."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        job_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","job_id",b"job_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        job_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "job_id", b"job_id"]) -> None: ...
+
 global___CreateJobMetadata = CreateJobMetadata
 
 class CancelJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     JOB_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the Dataproc cluster."""
-
-    job_id: typing.Text
+    job_id: builtins.str
     """Required. ID of the Dataproc job to cancel."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        job_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","job_id",b"job_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        job_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "job_id", b"job_id"]) -> None: ...
+
 global___CancelJobRequest = CancelJobRequest
 
 class ListJobLogRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     JOB_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster that the job is being created for."""
-
-    job_id: typing.Text
+    job_id: builtins.str
     """ID of the job being created."""
-
     page_size: builtins.int
     """The maximum bytes of job log per response to return. If the number of available
     bytes is larger than [page_size], the service returns a [ListJobLogResponse.next_page_token]
     that can be used to get the next page of output in subsequent list requests.
     Default value: 1048576.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListJobLogResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        job_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
+        job_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","job_id",b"job_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "job_id", b"job_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListJobLogRequest = ListJobLogRequest
 
 class ListJobLogResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONTENT_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    content: typing.Text
+    content: builtins.str
     """Requested part of Data Proc Job log."""
-
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for ListLog requests,
     if the number of results is larger than `page_size` specified in the request.
     To get the next page, specify the value of `next_page_token` as a value for
     the `page_token` parameter in the next ListLog request. Subsequent ListLog
     requests will have their own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        content: typing.Text = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["content",b"content","next_page_token",b"next_page_token"]) -> None: ...
+        content: builtins.str = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListJobLogResponse = ListJobLogResponse

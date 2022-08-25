@@ -10,30 +10,33 @@ import yandex.cloud.operation.operation_pb2
 
 class BackupServiceStub:
     """A set of methods for managing MongoDB Backup resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mongodb.v1.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup]
+        yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup,
+    ]
     """Returns the specified MongoDB backup.
 
     To get the list of available MongoDB backups, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mongodb.v1.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.mdb.mongodb.v1.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.mdb.mongodb.v1.backup_service_pb2.ListBackupsResponse,
+    ]
     """Retrieves the list of backups available for the specified folder."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mongodb.v1.backup_service_pb2.DeleteBackupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Returns the list of available backups for the specified MongoDB cluster."""
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MongoDB Backup resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mongodb.v1.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup:
@@ -41,23 +44,19 @@ class BackupServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available MongoDB backups, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mongodb.v1.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mongodb.v1.backup_service_pb2.ListBackupsResponse:
         """Retrieves the list of backups available for the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.mongodb.v1.backup_service_pb2.DeleteBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Returns the list of available backups for the specified MongoDB cluster."""
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

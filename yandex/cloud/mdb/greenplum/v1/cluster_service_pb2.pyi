@@ -3,14 +3,15 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.mdb.greenplum.v1.backup_pb2
 import yandex.cloud.mdb.greenplum.v1.cluster_pb2
 import yandex.cloud.mdb.greenplum.v1.config_pb2
@@ -18,46 +19,51 @@ import yandex.cloud.mdb.greenplum.v1.host_pb2
 import yandex.cloud.mdb.greenplum.v1.maintenance_pb2
 import yandex.cloud.operation.operation_pb2
 
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
+
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster resource to return.
 
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___GetClusterRequest = GetClusterRequest
 
 class ListClustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list Greenplum® clusters in.
 
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClustersResponse.next_page_token] returned by the previous list request."""
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -68,55 +74,60 @@ class ListClustersRequest(google.protobuf.message.Message):
 
     3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClustersRequest = ListClustersRequest
 
 class ListClustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def clusters(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster]:
         """List of Greenplum® cluster resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClustersRequest.page_size], use the [next_page_token] as the value for the [ListClustersRequest.page_token] parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        clusters: typing.Optional[typing.Iterable[yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["clusters",b"clusters","next_page_token",b"next_page_token"]) -> None: ...
+        clusters: collections.abc.Iterable[yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["clusters", b"clusters", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClustersResponse = ListClustersResponse
 
 class CreateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -137,104 +148,87 @@ class CreateClusterRequest(google.protobuf.message.Message):
     HOST_GROUP_IDS_FIELD_NUMBER: builtins.int
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
     CONFIG_SPEC_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create the Greenplum® cluster in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the Greenplum® cluster. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the Greenplum® cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the Greenplum® cluster as `key:value` pairs.
         For example, `"project":"mvp"` or `"source":"dictionary"`.
         """
-        pass
     environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the Greenplum® cluster."""
-
     @property
     def config(self) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig:
         """Greenplum® cluster configuration."""
-        pass
     @property
     def master_config(self) -> global___MasterSubclusterConfigSpec:
         """Configuration of the Greenplum® master subcluster."""
-        pass
     @property
     def segment_config(self) -> global___SegmentSubclusterConfigSpec:
         """Configuration of the Greenplum® segment subcluster."""
-        pass
     master_host_count: builtins.int
     """Number of hosts in the master subcluster."""
-
     segment_in_host: builtins.int
     """Number of segments per host."""
-
     segment_host_count: builtins.int
     """Number of hosts in the segment subcluster."""
-
-    user_name: typing.Text
+    user_name: builtins.str
     """Owner user name."""
-
-    user_password: typing.Text
+    user_password: builtins.str
     """Owner user password."""
-
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the cluster in."""
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
     @property
-    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Host groups to place VMs of the cluster in."""
-        pass
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
         """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
-        pass
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Configuration of Greenplum® and Odyssey®."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config: typing.Optional[yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig] = ...,
-        master_config: typing.Optional[global___MasterSubclusterConfigSpec] = ...,
-        segment_config: typing.Optional[global___SegmentSubclusterConfigSpec] = ...,
+        config: yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig | None = ...,
+        master_config: global___MasterSubclusterConfigSpec | None = ...,
+        segment_config: global___SegmentSubclusterConfigSpec | None = ...,
         master_host_count: builtins.int = ...,
         segment_in_host: builtins.int = ...,
         segment_host_count: builtins.int = ...,
-        user_name: typing.Text = ...,
-        user_password: typing.Text = ...,
-        network_id: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        user_name: builtins.str = ...,
+        user_password: builtins.str = ...,
+        network_id: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        host_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        maintenance_window: typing.Optional[yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow] = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config",b"config","config_spec",b"config_spec","maintenance_window",b"maintenance_window","master_config",b"master_config","segment_config",b"segment_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["config",b"config","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","environment",b"environment","folder_id",b"folder_id","host_group_ids",b"host_group_ids","labels",b"labels","maintenance_window",b"maintenance_window","master_config",b"master_config","master_host_count",b"master_host_count","name",b"name","network_id",b"network_id","security_group_ids",b"security_group_ids","segment_config",b"segment_config","segment_host_count",b"segment_host_count","segment_in_host",b"segment_in_host","user_name",b"user_name","user_password",b"user_password"]) -> None: ...
+        host_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        maintenance_window: yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow | None = ...,
+        config_spec: global___ConfigSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config", b"config", "config_spec", b"config_spec", "maintenance_window", b"maintenance_window", "master_config", b"master_config", "segment_config", b"segment_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_group_ids", b"host_group_ids", "labels", b"labels", "maintenance_window", b"maintenance_window", "master_config", b"master_config", "master_host_count", b"master_host_count", "name", b"name", "network_id", b"network_id", "security_group_ids", b"security_group_ids", "segment_config", b"segment_config", "segment_host_count", b"segment_host_count", "segment_in_host", b"segment_in_host", "user_name", b"user_name", "user_password", b"user_password"]) -> None: ...
+
 global___CreateClusterRequest = CreateClusterRequest
 
 class ConfigSpec(google.protobuf.message.Message):
-    """Configuration of Greenplum® and Odyssey®.
+    """Configuration of Greenplum® and Odyssey®."""
 
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     GREENPLUM_CONFIG_6_17_FIELD_NUMBER: builtins.int
     GREENPLUM_CONFIG_6_19_FIELD_NUMBER: builtins.int
     POOL_FIELD_NUMBER: builtins.int
@@ -245,45 +239,51 @@ class ConfigSpec(google.protobuf.message.Message):
     @property
     def pool(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.ConnectionPoolerConfig:
         """Odyssey® pool settings."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        greenplum_config_6_17: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfig6_17] = ...,
-        greenplum_config_6_19: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfig6_19] = ...,
-        pool: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.ConnectionPoolerConfig] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["greenplum_config",b"greenplum_config","greenplum_config_6_17",b"greenplum_config_6_17","greenplum_config_6_19",b"greenplum_config_6_19","pool",b"pool"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["greenplum_config",b"greenplum_config","greenplum_config_6_17",b"greenplum_config_6_17","greenplum_config_6_19",b"greenplum_config_6_19","pool",b"pool"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["greenplum_config",b"greenplum_config"]) -> typing.Optional[typing_extensions.Literal["greenplum_config_6_17","greenplum_config_6_19"]]: ...
+        greenplum_config_6_17: yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfig6_17 | None = ...,
+        greenplum_config_6_19: yandex.cloud.mdb.greenplum.v1.config_pb2.GreenplumConfig6_19 | None = ...,
+        pool: yandex.cloud.mdb.greenplum.v1.config_pb2.ConnectionPoolerConfig | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["greenplum_config", b"greenplum_config", "greenplum_config_6_17", b"greenplum_config_6_17", "greenplum_config_6_19", b"greenplum_config_6_19", "pool", b"pool"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["greenplum_config", b"greenplum_config", "greenplum_config_6_17", b"greenplum_config_6_17", "greenplum_config_6_19", b"greenplum_config_6_19", "pool", b"pool"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["greenplum_config", b"greenplum_config"]) -> typing_extensions.Literal["greenplum_config_6_17", "greenplum_config_6_19"] | None: ...
+
 global___ConfigSpec = ConfigSpec
 
 class CreateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum® cluster that is being created."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum® cluster that is being created."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___CreateClusterMetadata = CreateClusterMetadata
 
 class UpdateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -298,368 +298,376 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     CONFIG_SPEC_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster resource to update.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the Greenplum® cluster resource should be updated."""
-        pass
-    description: typing.Text
+    description: builtins.str
     """New description of the Greenplum® cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the Greenplum® cluster as `key:value` pairs.
         For example, `"project":"mvp"` or `"source":"dictionary"`.
 
         The new set of labels completely replaces the old one.
         To add a label, request the current set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
         """
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the cluster."""
-
     @property
     def config(self) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig:
         """The Greenplum® cluster configuration."""
-        pass
     @property
     def master_config(self) -> global___MasterSubclusterConfigSpec:
         """Configuration of the Greenplum® master subcluster."""
-        pass
     @property
     def segment_config(self) -> global___SegmentSubclusterConfigSpec:
         """Configuration of the Greenplum® segment subcluster."""
-        pass
-    user_password: typing.Text
+    user_password: builtins.str
     """Owner user password."""
-
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
         """The Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
-        pass
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Settings of the Greenplum® cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        name: typing.Text = ...,
-        config: typing.Optional[yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig] = ...,
-        master_config: typing.Optional[global___MasterSubclusterConfigSpec] = ...,
-        segment_config: typing.Optional[global___SegmentSubclusterConfigSpec] = ...,
-        user_password: typing.Text = ...,
-        maintenance_window: typing.Optional[yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow] = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        name: builtins.str = ...,
+        config: yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumConfig | None = ...,
+        master_config: global___MasterSubclusterConfigSpec | None = ...,
+        segment_config: global___SegmentSubclusterConfigSpec | None = ...,
+        user_password: builtins.str = ...,
+        maintenance_window: yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow | None = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config",b"config","config_spec",b"config_spec","maintenance_window",b"maintenance_window","master_config",b"master_config","segment_config",b"segment_config","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","config",b"config","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","maintenance_window",b"maintenance_window","master_config",b"master_config","name",b"name","security_group_ids",b"security_group_ids","segment_config",b"segment_config","update_mask",b"update_mask","user_password",b"user_password"]) -> None: ...
+        config_spec: global___ConfigSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config", b"config", "config_spec", b"config_spec", "maintenance_window", b"maintenance_window", "master_config", b"master_config", "segment_config", b"segment_config", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "config", b"config", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "maintenance_window", b"maintenance_window", "master_config", b"master_config", "name", b"name", "security_group_ids", b"security_group_ids", "segment_config", b"segment_config", "update_mask", b"update_mask", "user_password", b"user_password"]) -> None: ...
+
 global___UpdateClusterRequest = UpdateClusterRequest
 
 class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum® cluster resource that is being updated."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum® cluster resource that is being updated."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
 class AddClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum Cluster resource that is being updated."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum Cluster resource that is being updated."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___AddClusterHostsMetadata = AddClusterHostsMetadata
 
 class ExpandRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SEGMENT_HOST_COUNT_FIELD_NUMBER: builtins.int
     ADD_SEGMENTS_PER_HOST_COUNT_FIELD_NUMBER: builtins.int
     DURATION_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum Cluster resource to update.
     To get the Greenplum cluster ID, use a [ClusterService.List] request.
     """
-
     segment_host_count: builtins.int
     """Number of hosts for add to the segment subcluster"""
-
     add_segments_per_host_count: builtins.int
     """Number of segments per host to add"""
-
     duration: builtins.int
     """Redistribute duration, in seconds"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         segment_host_count: builtins.int = ...,
         add_segments_per_host_count: builtins.int = ...,
         duration: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["add_segments_per_host_count",b"add_segments_per_host_count","cluster_id",b"cluster_id","duration",b"duration","segment_host_count",b"segment_host_count"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["add_segments_per_host_count", b"add_segments_per_host_count", "cluster_id", b"cluster_id", "duration", b"duration", "segment_host_count", b"segment_host_count"]) -> None: ...
+
 global___ExpandRequest = ExpandRequest
 
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster to delete.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterRequest = DeleteClusterRequest
 
 class DeleteClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum® cluster that is being deleted."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum® cluster that is being deleted."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterMetadata = DeleteClusterMetadata
 
 class StartClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster to start.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterRequest = StartClusterRequest
 
 class StartClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum® cluster being started."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum® cluster being started."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterMetadata = StartClusterMetadata
 
 class StopClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster to stop.
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterRequest = StopClusterRequest
 
 class StopClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the Greenplum® cluster being stopped."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the Greenplum® cluster being stopped."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterMetadata = StopClusterMetadata
 
 class ListClusterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterOperationsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterOperationsRequest = ListClusterOperationsRequest
 
 class ListClusterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of Operation resources for the specified Greenplum® cluster."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListClusterOperationsResponse = ListClusterOperationsResponse
 
 class ListClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster.
 
     To get the Greenplum® cluster ID use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterHostsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterHostsRequest = ListClusterHostsRequest
 
 class ListClusterHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOSTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def hosts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.greenplum.v1.host_pb2.Host]:
         """Requested list of hosts for the cluster."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        hosts: typing.Optional[typing.Iterable[yandex.cloud.mdb.greenplum.v1.host_pb2.Host]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hosts",b"hosts","next_page_token",b"next_page_token"]) -> None: ...
+        hosts: collections.abc.Iterable[yandex.cloud.mdb.greenplum.v1.host_pb2.Host] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hosts", b"hosts", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
 class MasterSubclusterConfigSpec(google.protobuf.message.Message):
-    """Configuration of the master subcluster.
+    """Configuration of the master subcluster."""
 
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
     def resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
         """Resources allocated to Greenplum® master subcluster hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resources: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.Resources] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> None: ...
+        resources: yandex.cloud.mdb.greenplum.v1.config_pb2.Resources | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
+
 global___MasterSubclusterConfigSpec = MasterSubclusterConfigSpec
 
 class SegmentSubclusterConfigSpec(google.protobuf.message.Message):
-    """Configuration of the segment subcluster.
+    """Configuration of the segment subcluster."""
 
-    """
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RESOURCES_FIELD_NUMBER: builtins.int
     @property
     def resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
         """Resources allocated to Greenplum® segment subcluster hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        resources: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.Resources] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> None: ...
+        resources: yandex.cloud.mdb.greenplum.v1.config_pb2.Resources | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
+
 global___SegmentSubclusterConfigSpec = SegmentSubclusterConfigSpec
 
 class ListClusterLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     LOGS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def logs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogRecord]:
         """Requested log records."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
@@ -668,77 +676,76 @@ class ListClusterLogsResponse(google.protobuf.message.Message):
 
     This value is interchangeable with the [StreamLogRecord.next_record_token] from [StreamLogs] method.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        logs: typing.Optional[typing.Iterable[global___LogRecord]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["logs",b"logs","next_page_token",b"next_page_token"]) -> None: ...
+        logs: collections.abc.Iterable[global___LogRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["logs", b"logs", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterLogsResponse = ListClusterLogsResponse
 
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class MessageEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     TIMESTAMP_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     @property
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the log was recorded."""
-        pass
     @property
-    def message(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def message(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Contents of the log record."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        timestamp: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        message: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["message",b"message","timestamp",b"timestamp"]) -> None: ...
+        timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        message: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["timestamp", b"timestamp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "timestamp", b"timestamp"]) -> None: ...
+
 global___LogRecord = LogRecord
 
 class ListClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ServiceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):
+
+    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest._ServiceType.ValueType  # 0
         """Type is not specified."""
-
         GREENPLUM: ListClusterLogsRequest._ServiceType.ValueType  # 1
         """Greenplum® activity logs."""
-
         GREENPLUM_POOLER: ListClusterLogsRequest._ServiceType.ValueType  # 2
         """Greenplum® pooler logs."""
 
-    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        pass
-
+    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper): ...
     SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest.ServiceType.ValueType  # 0
     """Type is not specified."""
-
     GREENPLUM: ListClusterLogsRequest.ServiceType.ValueType  # 1
     """Greenplum® activity logs."""
-
     GREENPLUM_POOLER: ListClusterLogsRequest.ServiceType.ValueType  # 2
     """Greenplum® pooler logs."""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     COLUMN_FILTER_FIELD_NUMBER: builtins.int
@@ -749,42 +756,34 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     ALWAYS_NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster to request logs for.
 
     To get the Greenplum® cluster ID, use a [ClusterService.List] request.
     """
-
     @property
-    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Columns from log table to request.
         If no columns are specified, entire log records are returned.
         """
-        pass
     service_type: global___ListClusterLogsRequest.ServiceType.ValueType
     """Type of the service to request logs about."""
-
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start timestamp for the logs request."""
-        pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End timestamp for the logs request."""
-        pass
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterLogsResponse.next_page_token] returned by the previous list request."""
-
     always_next_page_token: builtins.bool
     """The service always returns a [ListClusterLogsResponse.next_page_token], even if the current page is empty."""
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -799,105 +798,102 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     * `message.hostname='node1.db.cloud.yandex.net'`;
     * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        column_filter: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        column_filter: collections.abc.Iterable[builtins.str] | None = ...,
         service_type: global___ListClusterLogsRequest.ServiceType.ValueType = ...,
-        from_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        to_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        from_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        to_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
+        page_token: builtins.str = ...,
         always_next_page_token: builtins.bool = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["from_time",b"from_time","to_time",b"to_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["always_next_page_token",b"always_next_page_token","cluster_id",b"cluster_id","column_filter",b"column_filter","filter",b"filter","from_time",b"from_time","page_size",b"page_size","page_token",b"page_token","service_type",b"service_type","to_time",b"to_time"]) -> None: ...
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["from_time", b"from_time", "to_time", b"to_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["always_next_page_token", b"always_next_page_token", "cluster_id", b"cluster_id", "column_filter", b"column_filter", "filter", b"filter", "from_time", b"from_time", "page_size", b"page_size", "page_token", b"page_token", "service_type", b"service_type", "to_time", b"to_time"]) -> None: ...
+
 global___ListClusterLogsRequest = ListClusterLogsRequest
 
 class ListClusterBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster.
 
     To get the Greenplum® cluster ID use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return.
 
     If the number of available results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token] that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the [ListClusterBackupsResponse.next_page_token] returned by the previous list request."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterBackupsRequest = ListClusterBackupsRequest
 
 class StreamLogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RECORD_FIELD_NUMBER: builtins.int
     NEXT_RECORD_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def record(self) -> global___LogRecord:
         """One of the requested log records."""
-        pass
-    next_record_token: typing.Text
+    next_record_token: builtins.str
     """This token allows you to continue streaming logs starting from the exact same record.
 
     To do that, specify value of [next_record_token] as the value for [StreamLogs.record_token] parameter in the next [StreamLogs] request.
 
     This value is interchangeable with [ListLogs.next_page_token] from [ListLogs] method.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        record: typing.Optional[global___LogRecord] = ...,
-        next_record_token: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["record",b"record"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_record_token",b"next_record_token","record",b"record"]) -> None: ...
+        record: global___LogRecord | None = ...,
+        next_record_token: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["record", b"record"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_record_token", b"next_record_token", "record", b"record"]) -> None: ...
+
 global___StreamLogRecord = StreamLogRecord
 
 class StreamClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ServiceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[StreamClusterLogsRequest._ServiceType.ValueType], builtins.type):
+
+    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[StreamClusterLogsRequest._ServiceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SERVICE_TYPE_UNSPECIFIED: StreamClusterLogsRequest._ServiceType.ValueType  # 0
         """Type is not specified."""
-
         GREENPLUM: StreamClusterLogsRequest._ServiceType.ValueType  # 1
         """Greenplum® activity logs."""
-
         GREENPLUM_POOLER: StreamClusterLogsRequest._ServiceType.ValueType  # 2
         """Greenplum® pooler logs."""
 
-    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        pass
-
+    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper): ...
     SERVICE_TYPE_UNSPECIFIED: StreamClusterLogsRequest.ServiceType.ValueType  # 0
     """Type is not specified."""
-
     GREENPLUM: StreamClusterLogsRequest.ServiceType.ValueType  # 1
     """Greenplum® activity logs."""
-
     GREENPLUM_POOLER: StreamClusterLogsRequest.ServiceType.ValueType  # 2
     """Greenplum® pooler logs."""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     COLUMN_FILTER_FIELD_NUMBER: builtins.int
@@ -906,22 +902,18 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     TO_TIME_FIELD_NUMBER: builtins.int
     RECORD_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Greenplum® cluster."""
-
     @property
-    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Columns from log table to get in the response.
         If no columns are specified, entire log records are returned.
         """
-        pass
     service_type: global___StreamClusterLogsRequest.ServiceType.ValueType
     """Type of the service to request logs about."""
-
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start timestamp for the logs request."""
-        pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End timestamp for the logs request.
@@ -930,11 +922,9 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
 
         In essence it has `tail -f` semantics.
         """
-        pass
-    record_token: typing.Text
+    record_token: builtins.str
     """Record token. Set [record_token] to the [StreamLogs.next_record_token] returned by the previous [StreamLogs] request to start streaming from the next log record."""
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -950,59 +940,64 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     * `message.hostname='node1.db.cloud.yandex.net'`;
     * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        column_filter: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        column_filter: collections.abc.Iterable[builtins.str] | None = ...,
         service_type: global___StreamClusterLogsRequest.ServiceType.ValueType = ...,
-        from_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        to_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        record_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["from_time",b"from_time","to_time",b"to_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","column_filter",b"column_filter","filter",b"filter","from_time",b"from_time","record_token",b"record_token","service_type",b"service_type","to_time",b"to_time"]) -> None: ...
+        from_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        to_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        record_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["from_time", b"from_time", "to_time", b"to_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "column_filter", b"column_filter", "filter", b"filter", "from_time", b"from_time", "record_token", b"record_token", "service_type", b"service_type", "to_time", b"to_time"]) -> None: ...
+
 global___StreamClusterLogsRequest = StreamClusterLogsRequest
 
 class ListClusterBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def backups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup]:
         """List of Greenplum® backups."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests.
 
     If the number of results is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
 
     Each subsequent list request has its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backups: typing.Optional[typing.Iterable[yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backups",b"backups","next_page_token",b"next_page_token"]) -> None: ...
+        backups: collections.abc.Iterable[yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backups", b"backups", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterBackupsResponse = ListClusterBackupsResponse
 
 class RestoreClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     BACKUP_ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -1019,99 +1014,87 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     HOST_GROUP_IDS_FIELD_NUMBER: builtins.int
     PLACEMENT_GROUP_ID_FIELD_NUMBER: builtins.int
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup to create a cluster from.
 
     To get the backup ID, use a [ClusterService.ListBackups] request.
     """
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create the Greenplum® cluster in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the Greenplum® cluster. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the Greenplum® cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the Greenplum® cluster as `key:value` pairs.
         For example, "project":"mvp" or "source":"dictionary".
         """
-        pass
     environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the Greenplum® cluster."""
-
     @property
     def config(self) -> yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumRestoreConfig:
         """Greenplum® cluster config."""
-        pass
     @property
     def master_resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
         """Resources of the Greenplum® master subcluster."""
-        pass
     @property
     def segment_resources(self) -> yandex.cloud.mdb.greenplum.v1.config_pb2.Resources:
         """Resources of the Greenplum® segment subcluster."""
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the cluster in."""
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups."""
-        pass
     deletion_protection: builtins.bool
     """Determines whether the cluster is protected from being deleted."""
-
     @property
-    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Host groups to place VMs of cluster on."""
-        pass
-    placement_group_id: typing.Text
+    placement_group_id: builtins.str
     """ID of the placement group."""
-
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow:
         """A Greenplum® cluster maintenance window. Should be defined by either one of the two options."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backup_id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        backup_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.greenplum.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config: typing.Optional[yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumRestoreConfig] = ...,
-        master_resources: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.Resources] = ...,
-        segment_resources: typing.Optional[yandex.cloud.mdb.greenplum.v1.config_pb2.Resources] = ...,
-        network_id: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        config: yandex.cloud.mdb.greenplum.v1.cluster_pb2.GreenplumRestoreConfig | None = ...,
+        master_resources: yandex.cloud.mdb.greenplum.v1.config_pb2.Resources | None = ...,
+        segment_resources: yandex.cloud.mdb.greenplum.v1.config_pb2.Resources | None = ...,
+        network_id: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        host_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        placement_group_id: typing.Text = ...,
-        maintenance_window: typing.Optional[yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config",b"config","maintenance_window",b"maintenance_window","master_resources",b"master_resources","segment_resources",b"segment_resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","config",b"config","deletion_protection",b"deletion_protection","description",b"description","environment",b"environment","folder_id",b"folder_id","host_group_ids",b"host_group_ids","labels",b"labels","maintenance_window",b"maintenance_window","master_resources",b"master_resources","name",b"name","network_id",b"network_id","placement_group_id",b"placement_group_id","security_group_ids",b"security_group_ids","segment_resources",b"segment_resources"]) -> None: ...
+        host_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        placement_group_id: builtins.str = ...,
+        maintenance_window: yandex.cloud.mdb.greenplum.v1.maintenance_pb2.MaintenanceWindow | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config", b"config", "maintenance_window", b"maintenance_window", "master_resources", b"master_resources", "segment_resources", b"segment_resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "config", b"config", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_group_ids", b"host_group_ids", "labels", b"labels", "maintenance_window", b"maintenance_window", "master_resources", b"master_resources", "name", b"name", "network_id", b"network_id", "placement_group_id", b"placement_group_id", "security_group_ids", b"security_group_ids", "segment_resources", b"segment_resources"]) -> None: ...
+
 global___RestoreClusterRequest = RestoreClusterRequest
 
 class RestoreClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     BACKUP_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the new Greenplum® cluster that is being created from a backup."""
-
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup that is being used for creating a cluster."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        backup_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        backup_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "cluster_id", b"cluster_id"]) -> None: ...
+
 global___RestoreClusterMetadata = RestoreClusterMetadata

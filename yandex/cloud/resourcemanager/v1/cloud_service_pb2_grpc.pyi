@@ -11,63 +11,66 @@ import yandex.cloud.resourcemanager.v1.cloud_service_pb2
 
 class CloudServiceStub:
     """A set of methods for managing Cloud resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.GetCloudRequest,
-        yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud]
+        yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud,
+    ]
     """Returns the specified Cloud resource.
 
     To get the list of available Cloud resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudsRequest,
-        yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudsResponse]
+        yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudsResponse,
+    ]
     """Retrieves the list of Cloud resources."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.CreateCloudRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a cloud in the specified organization."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.UpdateCloudRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified cloud."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.DeleteCloudRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified cloud."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudOperationsRequest,
-        yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudOperationsResponse]
+        yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudOperationsResponse,
+    ]
     """Lists operations for the specified cloud."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """access
 
     Lists access bindings for the specified cloud.
     """
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the specified cloud."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified cloud."""
-
 
 class CloudServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Cloud resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.GetCloudRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud:
@@ -75,50 +78,44 @@ class CloudServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Cloud resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudsResponse:
         """Retrieves the list of Cloud resources."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.CreateCloudRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a cloud in the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.UpdateCloudRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.DeleteCloudRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.resourcemanager.v1.cloud_service_pb2.ListCloudOperationsResponse:
         """Lists operations for the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
@@ -126,23 +123,19 @@ class CloudServiceServicer(metaclass=abc.ABCMeta):
 
         Lists access bindings for the specified cloud.
         """
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the specified cloud."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified cloud."""
-        pass
-
 
 def add_CloudServiceServicer_to_server(servicer: CloudServiceServicer, server: grpc.Server) -> None: ...

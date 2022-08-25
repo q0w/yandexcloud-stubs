@@ -3,46 +3,54 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.operation.operation_pb2
 import yandex.cloud.serverless.apigateway.v1.apigateway_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway to return.
 
     To get a API gateway ID make a [ApiGatewayService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id"]) -> None: ...
+
 global___GetApiGatewayRequest = GetApiGatewayRequest
 
 class ListApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list API gateways in.
 
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.next_page_token]
@@ -50,13 +58,11 @@ class ListApiGatewayRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListApiGatewayResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters functions listed in the response.
 
     The expression must specify:
@@ -65,55 +71,60 @@ class ListApiGatewayRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`.
     Example of a filter: `name=my-apigw`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListApiGatewayRequest = ListApiGatewayRequest
 
 class ListApiGatewayResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAYS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def api_gateways(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway]:
         """List of API gateways in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListApiGatewayRequest.page_size], use `nextPageToken` as the value
     for the [ListApiGatewayRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateways: typing.Optional[typing.Iterable[yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateways",b"api_gateways","next_page_token",b"next_page_token"]) -> None: ...
+        api_gateways: collections.abc.Iterable[yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateways", b"api_gateways", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListApiGatewayResponse = ListApiGatewayResponse
 
 class CreateApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -121,59 +132,58 @@ class CreateApiGatewayRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     OPENAPI_SPEC_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create an API gateway in.
 
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the API gateway.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the API gateway."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
-    openapi_spec: typing.Text
+    openapi_spec: builtins.str
     """The text of specification, JSON or YAML."""
-
     @property
     def connectivity(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity:
         """Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s)."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        openapi_spec: typing.Text = ...,
-        connectivity: typing.Optional[yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","openapi_spec",b"openapi_spec","spec",b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","openapi_spec",b"openapi_spec","spec",b"spec"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["spec",b"spec"]) -> typing.Optional[typing_extensions.Literal["openapi_spec"]]: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        openapi_spec: builtins.str = ...,
+        connectivity: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["spec", b"spec"]) -> typing_extensions.Literal["openapi_spec"] | None: ...
+
 global___CreateApiGatewayRequest = CreateApiGatewayRequest
 
 class UpdateApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -182,205 +192,209 @@ class UpdateApiGatewayRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     OPENAPI_SPEC_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway to update.
 
     To get a API gateway ID make a [ApiGatewayService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the API gateway should be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the API gateway.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """New description for the API gateway."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """API gateway labels as `key:value` pairs.
 
         Existing set of labels is completely replaced by the provided set, so if you just want
         to add or remove a label, request the current set of labels with a [ApiGatewayService.Get] request.
         """
-        pass
-    openapi_spec: typing.Text
+    openapi_spec: builtins.str
     """The text of specification, JSON or YAML."""
-
     @property
     def connectivity(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity:
         """Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s)."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        openapi_spec: typing.Text = ...,
-        connectivity: typing.Optional[yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","openapi_spec",b"openapi_spec","spec",b"spec","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","connectivity",b"connectivity","description",b"description","labels",b"labels","name",b"name","openapi_spec",b"openapi_spec","spec",b"spec","update_mask",b"update_mask"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["spec",b"spec"]) -> typing.Optional[typing_extensions.Literal["openapi_spec"]]: ...
+        api_gateway_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        openapi_spec: builtins.str = ...,
+        connectivity: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "connectivity", b"connectivity", "description", b"description", "labels", b"labels", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["spec", b"spec"]) -> typing_extensions.Literal["openapi_spec"] | None: ...
+
 global___UpdateApiGatewayRequest = UpdateApiGatewayRequest
 
 class DeleteApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway to update.
 
     To get a API gateway ID make a [ApiGatewayService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id"]) -> None: ...
+
 global___DeleteApiGatewayRequest = DeleteApiGatewayRequest
 
 class AddDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
     DOMAIN_NAME_FIELD_NUMBER: builtins.int
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway that the domain is attached to."""
-
-    domain_id: typing.Text
+    domain_id: builtins.str
     """ID of the attaching domain."""
-
-    domain_name: typing.Text
+    domain_name: builtins.str
     """Name of the attaching domain."""
-
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of certificate for the attaching domain."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        domain_id: typing.Text = ...,
-        domain_name: typing.Text = ...,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","certificate_id",b"certificate_id","domain_id",b"domain_id","domain_name",b"domain_name"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+        domain_id: builtins.str = ...,
+        domain_name: builtins.str = ...,
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "certificate_id", b"certificate_id", "domain_id", b"domain_id", "domain_name", b"domain_name"]) -> None: ...
+
 global___AddDomainRequest = AddDomainRequest
 
 class RemoveDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway from which the domain is being detached."""
-
-    domain_id: typing.Text
+    domain_id: builtins.str
     """ID of the detaching domain."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        domain_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+        domain_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "domain_id", b"domain_id"]) -> None: ...
+
 global___RemoveDomainRequest = RemoveDomainRequest
 
 class CreateApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
-    """ID of the API gateway that is being created."""
 
-    def __init__(self,
+    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
+    api_gateway_id: builtins.str
+    """ID of the API gateway that is being created."""
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id"]) -> None: ...
+
 global___CreateApiGatewayMetadata = CreateApiGatewayMetadata
 
 class UpdateApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
-    """ID of the API gateway that is being updated."""
 
-    def __init__(self,
+    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
+    api_gateway_id: builtins.str
+    """ID of the API gateway that is being updated."""
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id"]) -> None: ...
+
 global___UpdateApiGatewayMetadata = UpdateApiGatewayMetadata
 
 class DeleteApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
-    """ID of the API gateway that is being deleted."""
 
-    def __init__(self,
+    API_GATEWAY_ID_FIELD_NUMBER: builtins.int
+    api_gateway_id: builtins.str
+    """ID of the API gateway that is being deleted."""
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id"]) -> None: ...
+
 global___DeleteApiGatewayMetadata = DeleteApiGatewayMetadata
 
 class AddDomainMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
     DOMAIN_NAME_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway that the domain is attached to."""
-
-    domain_id: typing.Text
+    domain_id: builtins.str
     """ID of the attaching domain."""
-
-    domain_name: typing.Text
+    domain_name: builtins.str
     """Name of the attaching domain."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        domain_id: typing.Text = ...,
-        domain_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id","domain_name",b"domain_name"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+        domain_id: builtins.str = ...,
+        domain_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "domain_id", b"domain_id", "domain_name", b"domain_name"]) -> None: ...
+
 global___AddDomainMetadata = AddDomainMetadata
 
 class RemoveDomainMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway from which the domain is being detached."""
-
-    domain_id: typing.Text
+    domain_id: builtins.str
     """ID of the detaching domain."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        domain_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","domain_id",b"domain_id"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+        domain_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "domain_id", b"domain_id"]) -> None: ...
+
 global___RemoveDomainMetadata = RemoveDomainMetadata
 
 class ListOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `pageSize`, the service returns a [ListOperationsResponse.next_page_token]
@@ -388,13 +402,11 @@ class ListOperationsRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -403,88 +415,92 @@ class ListOperationsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Examples of a filter: `done=false`, `created_by='John.Doe'`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
+        api_gateway_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListOperationsRequest = ListOperationsRequest
 
 class ListOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified API gateway."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListOperationsRequest.page_size], use `nextPageToken` as the value
     for the [ListOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListOperationsResponse = ListOperationsResponse
 
 class GetOpenapiSpecRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Format:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _FormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetOpenapiSpecRequest._Format.ValueType], builtins.type):
+
+    class _FormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GetOpenapiSpecRequest._Format.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         FORMAT_UNSPECIFIED: GetOpenapiSpecRequest._Format.ValueType  # 0
         JSON: GetOpenapiSpecRequest._Format.ValueType  # 1
         YAML: GetOpenapiSpecRequest._Format.ValueType  # 2
-    class Format(_Format, metaclass=_FormatEnumTypeWrapper):
-        pass
 
+    class Format(_Format, metaclass=_FormatEnumTypeWrapper): ...
     FORMAT_UNSPECIFIED: GetOpenapiSpecRequest.Format.ValueType  # 0
     JSON: GetOpenapiSpecRequest.Format.ValueType  # 1
     YAML: GetOpenapiSpecRequest.Format.ValueType  # 2
 
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     FORMAT_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway to get specification from."""
-
     format: global___GetOpenapiSpecRequest.Format.ValueType
     """Format of returned specification. Default is the original format used in [CreateApiGatewayRequest]."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
+        api_gateway_id: builtins.str = ...,
         format: global___GetOpenapiSpecRequest.Format.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","format",b"format"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "format", b"format"]) -> None: ...
+
 global___GetOpenapiSpecRequest = GetOpenapiSpecRequest
 
 class GetOpenapiSpecResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     OPENAPI_SPEC_FIELD_NUMBER: builtins.int
-    api_gateway_id: typing.Text
+    api_gateway_id: builtins.str
     """ID of the API gateway."""
-
-    openapi_spec: typing.Text
+    openapi_spec: builtins.str
     """The text of specification, JSON or YAML."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        api_gateway_id: typing.Text = ...,
-        openapi_spec: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id",b"api_gateway_id","openapi_spec",b"openapi_spec"]) -> None: ...
+        api_gateway_id: builtins.str = ...,
+        openapi_spec: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "openapi_spec", b"openapi_spec"]) -> None: ...
+
 global___GetOpenapiSpecResponse = GetOpenapiSpecResponse

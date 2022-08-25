@@ -8,22 +8,23 @@ import yandex.cloud.ai.vision.v1.vision_service_pb2
 
 class VisionServiceStub:
     """A set of methods for the Vision service."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     BatchAnalyze: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ai.vision.v1.vision_service_pb2.BatchAnalyzeRequest,
-        yandex.cloud.ai.vision.v1.vision_service_pb2.BatchAnalyzeResponse]
+        yandex.cloud.ai.vision.v1.vision_service_pb2.BatchAnalyzeResponse,
+    ]
     """Analyzes a batch of images and returns results with annotations."""
-
 
 class VisionServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for the Vision service."""
+
     @abc.abstractmethod
-    def BatchAnalyze(self,
+    def BatchAnalyze(
+        self,
         request: yandex.cloud.ai.vision.v1.vision_service_pb2.BatchAnalyzeRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ai.vision.v1.vision_service_pb2.BatchAnalyzeResponse:
         """Analyzes a batch of images and returns results with annotations."""
-        pass
-
 
 def add_VisionServiceServicer_to_server(servicer: VisionServiceServicer, server: grpc.Server) -> None: ...

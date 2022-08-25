@@ -9,35 +9,35 @@ import yandex.cloud.operation.operation_pb2
 
 class ProviderServiceStub:
     """A set of methods for managing Provider Service resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Activate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.provider_service_pb2.ActivateProviderRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Activate provider for specified client."""
-
     ListActivated: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.provider_service_pb2.ListActivatedProvidersRequest,
-        yandex.cloud.cdn.v1.provider_service_pb2.ListActivatedProvidersResponse]
+        yandex.cloud.cdn.v1.provider_service_pb2.ListActivatedProvidersResponse,
+    ]
     """List activated providers for specified client."""
-
 
 class ProviderServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Provider Service resources."""
+
     @abc.abstractmethod
-    def Activate(self,
+    def Activate(
+        self,
         request: yandex.cloud.cdn.v1.provider_service_pb2.ActivateProviderRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Activate provider for specified client."""
-        pass
-
     @abc.abstractmethod
-    def ListActivated(self,
+    def ListActivated(
+        self,
         request: yandex.cloud.cdn.v1.provider_service_pb2.ListActivatedProvidersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.provider_service_pb2.ListActivatedProvidersResponse:
         """List activated providers for specified client."""
-        pass
-
 
 def add_ProviderServiceServicer_to_server(servicer: ProviderServiceServicer, server: grpc.Server) -> None: ...

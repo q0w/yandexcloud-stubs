@@ -10,28 +10,30 @@ import yandex.cloud.operation.operation_pb2
 
 class ResourceServiceStub:
     """Provider's resources management service."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.GetResourceRequest,
-        yandex.cloud.cdn.v1.resource_pb2.Resource]
+        yandex.cloud.cdn.v1.resource_pb2.Resource,
+    ]
     """Get client's CDN resource by resource id."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.ListResourcesRequest,
-        yandex.cloud.cdn.v1.resource_service_pb2.ListResourcesResponse]
+        yandex.cloud.cdn.v1.resource_service_pb2.ListResourcesResponse,
+    ]
     """Lists CDN resources."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.CreateResourceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a CDN resource in the specified folder.
 
     Creation may take up to 15 minutes.
     """
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.UpdateResourceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified CDN resource.
 
     The method implements patch behaviour, i.e. only the fields specified in the request are updated in the resource.
@@ -39,40 +41,39 @@ class ResourceServiceStub:
     Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a
     [CacheService.Purge] request.
     """
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.DeleteResourceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes client's CDN resource."""
-
     GetProviderCName: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.resource_service_pb2.GetProviderCNameRequest,
-        yandex.cloud.cdn.v1.resource_service_pb2.GetProviderCNameResponse]
+        yandex.cloud.cdn.v1.resource_service_pb2.GetProviderCNameResponse,
+    ]
     """Get Provider's CNAME (edge endpoint) bind to specified folder id.
     Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
     """
 
-
 class ResourceServiceServicer(metaclass=abc.ABCMeta):
     """Provider's resources management service."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.GetResourceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.resource_pb2.Resource:
         """Get client's CDN resource by resource id."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.ListResourcesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.resource_service_pb2.ListResourcesResponse:
         """Lists CDN resources."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.CreateResourceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -80,10 +81,9 @@ class ResourceServiceServicer(metaclass=abc.ABCMeta):
 
         Creation may take up to 15 minutes.
         """
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.UpdateResourceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -94,25 +94,21 @@ class ResourceServiceServicer(metaclass=abc.ABCMeta):
         Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge the resource's cache via a
         [CacheService.Purge] request.
         """
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.DeleteResourceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes client's CDN resource."""
-        pass
-
     @abc.abstractmethod
-    def GetProviderCName(self,
+    def GetProviderCName(
+        self,
         request: yandex.cloud.cdn.v1.resource_service_pb2.GetProviderCNameRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.resource_service_pb2.GetProviderCNameResponse:
         """Get Provider's CNAME (edge endpoint) bind to specified folder id.
         Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
         """
-        pass
-
 
 def add_ResourceServiceServicer_to_server(servicer: ResourceServiceServicer, server: grpc.Server) -> None: ...

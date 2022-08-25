@@ -3,14 +3,20 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.apploadbalancer.v1.payload_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -18,18 +24,19 @@ class VirtualHost(google.protobuf.message.Message):
     """A virtual host resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     AUTHORITY_FIELD_NUMBER: builtins.int
     ROUTES_FIELD_NUMBER: builtins.int
     MODIFY_REQUEST_HEADERS_FIELD_NUMBER: builtins.int
     MODIFY_RESPONSE_HEADERS_FIELD_NUMBER: builtins.int
     ROUTE_OPTIONS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the virtual host. The name is unique within the HTTP router."""
-
     @property
-    def authority(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def authority(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of domains that are attributed to the virtual host.
 
         The host is selected to process the request received by the load balancer
@@ -41,7 +48,6 @@ class VirtualHost(google.protobuf.message.Message):
         If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
         An HTTP router must not contain more than one virtual host to which all domains are attributed.
         """
-        pass
     @property
     def routes(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Route]:
         """Routes of the virtual host.
@@ -55,133 +61,135 @@ class VirtualHost(google.protobuf.message.Message):
         For example, if the first HTTP route is configured, via [HttpRoute.match], to match paths prefixed with just `/`,
         other routes are never matched.
         """
-        pass
     @property
     def modify_request_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Deprecated, use route_options.modify_request_headers."""
-        pass
     @property
     def modify_response_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Deprecated, use route_options.modify_response_headers."""
-        pass
     @property
     def route_options(self) -> global___RouteOptions: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        authority: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        routes: typing.Optional[typing.Iterable[global___Route]] = ...,
-        modify_request_headers: typing.Optional[typing.Iterable[global___HeaderModification]] = ...,
-        modify_response_headers: typing.Optional[typing.Iterable[global___HeaderModification]] = ...,
-        route_options: typing.Optional[global___RouteOptions] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["route_options",b"route_options"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authority",b"authority","modify_request_headers",b"modify_request_headers","modify_response_headers",b"modify_response_headers","name",b"name","route_options",b"route_options","routes",b"routes"]) -> None: ...
+        name: builtins.str = ...,
+        authority: collections.abc.Iterable[builtins.str] | None = ...,
+        routes: collections.abc.Iterable[global___Route] | None = ...,
+        modify_request_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
+        modify_response_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
+        route_options: global___RouteOptions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["route_options", b"route_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authority", b"authority", "modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "name", b"name", "route_options", b"route_options", "routes", b"routes"]) -> None: ...
+
 global___VirtualHost = VirtualHost
 
 class RouteOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MODIFY_REQUEST_HEADERS_FIELD_NUMBER: builtins.int
     MODIFY_RESPONSE_HEADERS_FIELD_NUMBER: builtins.int
     @property
     def modify_request_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Apply the following modifications to the request headers."""
-        pass
     @property
     def modify_response_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Apply the following modifications to the response headers."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        modify_request_headers: typing.Optional[typing.Iterable[global___HeaderModification]] = ...,
-        modify_response_headers: typing.Optional[typing.Iterable[global___HeaderModification]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["modify_request_headers",b"modify_request_headers","modify_response_headers",b"modify_response_headers"]) -> None: ...
+        modify_request_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
+        modify_response_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers"]) -> None: ...
+
 global___RouteOptions = RouteOptions
 
 class HeaderModification(google.protobuf.message.Message):
     """A header modification resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     APPEND_FIELD_NUMBER: builtins.int
     REPLACE_FIELD_NUMBER: builtins.int
     REMOVE_FIELD_NUMBER: builtins.int
     RENAME_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the header."""
-
-    append: typing.Text
+    append: builtins.str
     """Appends the specified string to the header value.
 
     Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
     are supported.
     """
-
-    replace: typing.Text
+    replace: builtins.str
     """Replaces the value of the header with the specified string.
 
     Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
     are supported.
     """
-
     remove: builtins.bool
     """Removes the header."""
-
-    rename: typing.Text
+    rename: builtins.str
     """Replaces the name of the header with the specified string.
     This operation is only supported for ALB Virtual Hosts.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        append: typing.Text = ...,
-        replace: typing.Text = ...,
+        name: builtins.str = ...,
+        append: builtins.str = ...,
+        replace: builtins.str = ...,
         remove: builtins.bool = ...,
-        rename: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["append",b"append","operation",b"operation","remove",b"remove","rename",b"rename","replace",b"replace"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["append",b"append","name",b"name","operation",b"operation","remove",b"remove","rename",b"rename","replace",b"replace"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["operation",b"operation"]) -> typing.Optional[typing_extensions.Literal["append","replace","remove","rename"]]: ...
+        rename: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["append", b"append", "operation", b"operation", "remove", b"remove", "rename", b"rename", "replace", b"replace"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["append", b"append", "name", b"name", "operation", b"operation", "remove", b"remove", "rename", b"rename", "replace", b"replace"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["operation", b"operation"]) -> typing_extensions.Literal["append", "replace", "remove", "rename"] | None: ...
+
 global___HeaderModification = HeaderModification
 
 class Route(google.protobuf.message.Message):
     """A route resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
     ROUTE_OPTIONS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the route."""
-
     @property
     def http(self) -> global___HttpRoute:
         """HTTP route configuration."""
-        pass
     @property
     def grpc(self) -> global___GrpcRoute:
         """gRPC route configuration."""
-        pass
     @property
     def route_options(self) -> global___RouteOptions: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        http: typing.Optional[global___HttpRoute] = ...,
-        grpc: typing.Optional[global___GrpcRoute] = ...,
-        route_options: typing.Optional[global___RouteOptions] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["grpc",b"grpc","http",b"http","route",b"route","route_options",b"route_options"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["grpc",b"grpc","http",b"http","name",b"name","route",b"route","route_options",b"route_options"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["route",b"route"]) -> typing.Optional[typing_extensions.Literal["http","grpc"]]: ...
+        name: builtins.str = ...,
+        http: global___HttpRoute | None = ...,
+        grpc: global___GrpcRoute | None = ...,
+        route_options: global___RouteOptions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "route", b"route", "route_options", b"route_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "name", b"name", "route", b"route", "route_options", b"route_options"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["route", b"route"]) -> typing_extensions.Literal["http", "grpc"] | None: ...
+
 global___Route = Route
 
 class HttpRoute(google.protobuf.message.Message):
     """An HTTP route configuration resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MATCH_FIELD_NUMBER: builtins.int
     ROUTE_FIELD_NUMBER: builtins.int
     REDIRECT_FIELD_NUMBER: builtins.int
@@ -189,88 +197,91 @@ class HttpRoute(google.protobuf.message.Message):
     @property
     def match(self) -> global___HttpRouteMatch:
         """Condition (predicate) used to select the route."""
-        pass
     @property
     def route(self) -> global___HttpRouteAction:
         """Forwards the request to a backend group for processing as configured."""
-        pass
     @property
     def redirect(self) -> global___RedirectAction:
         """Redirects the request as configured."""
-        pass
     @property
     def direct_response(self) -> global___DirectResponseAction:
         """Instructs the load balancer to respond directly as configured."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        match: typing.Optional[global___HttpRouteMatch] = ...,
-        route: typing.Optional[global___HttpRouteAction] = ...,
-        redirect: typing.Optional[global___RedirectAction] = ...,
-        direct_response: typing.Optional[global___DirectResponseAction] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","direct_response",b"direct_response","match",b"match","redirect",b"redirect","route",b"route"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","direct_response",b"direct_response","match",b"match","redirect",b"redirect","route",b"route"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["route","redirect","direct_response"]]: ...
+        match: global___HttpRouteMatch | None = ...,
+        route: global___HttpRouteAction | None = ...,
+        redirect: global___RedirectAction | None = ...,
+        direct_response: global___DirectResponseAction | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action", b"action", "direct_response", b"direct_response", "match", b"match", "redirect", b"redirect", "route", b"route"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "direct_response", b"direct_response", "match", b"match", "redirect", b"redirect", "route", b"route"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["route", "redirect", "direct_response"] | None: ...
+
 global___HttpRoute = HttpRoute
 
 class GrpcRoute(google.protobuf.message.Message):
     """A gRPC route configuration resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MATCH_FIELD_NUMBER: builtins.int
     ROUTE_FIELD_NUMBER: builtins.int
     STATUS_RESPONSE_FIELD_NUMBER: builtins.int
     @property
     def match(self) -> global___GrpcRouteMatch:
         """Condition (predicate) used to select the route."""
-        pass
     @property
     def route(self) -> global___GrpcRouteAction:
         """Forwards the request to a backend group for processing as configured."""
-        pass
     @property
     def status_response(self) -> global___GrpcStatusResponseAction:
         """Instructs the load balancer to respond directly with a specified status."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        match: typing.Optional[global___GrpcRouteMatch] = ...,
-        route: typing.Optional[global___GrpcRouteAction] = ...,
-        status_response: typing.Optional[global___GrpcStatusResponseAction] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["action",b"action","match",b"match","route",b"route","status_response",b"status_response"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["action",b"action","match",b"match","route",b"route","status_response",b"status_response"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["action",b"action"]) -> typing.Optional[typing_extensions.Literal["route","status_response"]]: ...
+        match: global___GrpcRouteMatch | None = ...,
+        route: global___GrpcRouteAction | None = ...,
+        status_response: global___GrpcStatusResponseAction | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["action", b"action", "match", b"match", "route", b"route", "status_response", b"status_response"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "match", b"match", "route", b"route", "status_response", b"status_response"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["route", "status_response"] | None: ...
+
 global___GrpcRoute = GrpcRoute
 
 class HttpRouteMatch(google.protobuf.message.Message):
     """An HTTP route condition (predicate) resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HTTP_METHOD_FIELD_NUMBER: builtins.int
     PATH_FIELD_NUMBER: builtins.int
     @property
-    def http_method(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def http_method(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """HTTP method specified in the request."""
-        pass
     @property
     def path(self) -> global___StringMatch:
         """Match settings for the path specified in the request.
 
         If not specified, the route matches all paths.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        http_method: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        path: typing.Optional[global___StringMatch] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["path",b"path"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_method",b"http_method","path",b"path"]) -> None: ...
+        http_method: collections.abc.Iterable[builtins.str] | None = ...,
+        path: global___StringMatch | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["path", b"path"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_method", b"http_method", "path", b"path"]) -> None: ...
+
 global___HttpRouteMatch = HttpRouteMatch
 
 class GrpcRouteMatch(google.protobuf.message.Message):
     """A gRPC route condition (predicate) resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FQMN_FIELD_NUMBER: builtins.int
     @property
     def fqmn(self) -> global___StringMatch:
@@ -280,83 +291,78 @@ class GrpcRouteMatch(google.protobuf.message.Message):
 
         If not specified, the route matches all methods.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        fqmn: typing.Optional[global___StringMatch] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["fqmn",b"fqmn"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["fqmn",b"fqmn"]) -> None: ...
+        fqmn: global___StringMatch | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["fqmn", b"fqmn"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["fqmn", b"fqmn"]) -> None: ...
+
 global___GrpcRouteMatch = GrpcRouteMatch
 
 class StringMatch(google.protobuf.message.Message):
     """A string matcher resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EXACT_MATCH_FIELD_NUMBER: builtins.int
     PREFIX_MATCH_FIELD_NUMBER: builtins.int
     REGEX_MATCH_FIELD_NUMBER: builtins.int
-    exact_match: typing.Text
+    exact_match: builtins.str
     """Exact match string."""
-
-    prefix_match: typing.Text
+    prefix_match: builtins.str
     """Prefix match string."""
-
-    regex_match: typing.Text
+    regex_match: builtins.str
     """Regular expression match string."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        exact_match: typing.Text = ...,
-        prefix_match: typing.Text = ...,
-        regex_match: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match","regex_match",b"regex_match"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["exact_match",b"exact_match","match",b"match","prefix_match",b"prefix_match","regex_match",b"regex_match"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["match",b"match"]) -> typing.Optional[typing_extensions.Literal["exact_match","prefix_match","regex_match"]]: ...
+        exact_match: builtins.str = ...,
+        prefix_match: builtins.str = ...,
+        regex_match: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["exact_match", b"exact_match", "match", b"match", "prefix_match", b"prefix_match", "regex_match", b"regex_match"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["exact_match", b"exact_match", "match", b"match", "prefix_match", b"prefix_match", "regex_match", b"regex_match"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["match", b"match"]) -> typing_extensions.Literal["exact_match", "prefix_match", "regex_match"] | None: ...
+
 global___StringMatch = StringMatch
 
 class RedirectAction(google.protobuf.message.Message):
     """A redirect action resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _RedirectResponseCode:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _RedirectResponseCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RedirectAction._RedirectResponseCode.ValueType], builtins.type):
+
+    class _RedirectResponseCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RedirectAction._RedirectResponseCode.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         MOVED_PERMANENTLY: RedirectAction._RedirectResponseCode.ValueType  # 0
         """`301 Moved Permanently` status code."""
-
         FOUND: RedirectAction._RedirectResponseCode.ValueType  # 1
         """`302 Found` status code."""
-
         SEE_OTHER: RedirectAction._RedirectResponseCode.ValueType  # 2
         """`303 See Other` status code."""
-
         TEMPORARY_REDIRECT: RedirectAction._RedirectResponseCode.ValueType  # 3
         """`307 Temporary Redirect` status code."""
-
         PERMANENT_REDIRECT: RedirectAction._RedirectResponseCode.ValueType  # 4
         """`308 Permanent Redirect` status code."""
 
     class RedirectResponseCode(_RedirectResponseCode, metaclass=_RedirectResponseCodeEnumTypeWrapper):
         """HTTP status codes supported for use in redirect responses."""
-        pass
 
     MOVED_PERMANENTLY: RedirectAction.RedirectResponseCode.ValueType  # 0
     """`301 Moved Permanently` status code."""
-
     FOUND: RedirectAction.RedirectResponseCode.ValueType  # 1
     """`302 Found` status code."""
-
     SEE_OTHER: RedirectAction.RedirectResponseCode.ValueType  # 2
     """`303 See Other` status code."""
-
     TEMPORARY_REDIRECT: RedirectAction.RedirectResponseCode.ValueType  # 3
     """`307 Temporary Redirect` status code."""
-
     PERMANENT_REDIRECT: RedirectAction.RedirectResponseCode.ValueType  # 4
     """`308 Permanent Redirect` status code."""
-
 
     REPLACE_SCHEME_FIELD_NUMBER: builtins.int
     REPLACE_HOST_FIELD_NUMBER: builtins.int
@@ -365,7 +371,7 @@ class RedirectAction(google.protobuf.message.Message):
     REPLACE_PREFIX_FIELD_NUMBER: builtins.int
     REMOVE_QUERY_FIELD_NUMBER: builtins.int
     RESPONSE_CODE_FIELD_NUMBER: builtins.int
-    replace_scheme: typing.Text
+    replace_scheme: builtins.str
     """URI scheme replacement.
 
     If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI,
@@ -373,147 +379,134 @@ class RedirectAction(google.protobuf.message.Message):
 
     If not specified, the original scheme and port are used.
     """
-
-    replace_host: typing.Text
+    replace_host: builtins.str
     """URI host replacement.
 
     If not specified, the original host is used.
     """
-
     replace_port: builtins.int
     """URI host replacement.
 
     If not specified, the original host is used.
     """
-
-    replace_path: typing.Text
+    replace_path: builtins.str
     """Replacement for the whole path."""
-
-    replace_prefix: typing.Text
+    replace_prefix: builtins.str
     """Replacement for the path prefix matched by [StringMatch].
 
     For instance, if [StringMatch.prefix_match] value is `/foo` and `replace_prefix` value is `/bar`,
     a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
     For [StringMatch.exact_match], the whole path is replaced.
     """
-
     remove_query: builtins.bool
     """Removes URI query."""
-
     response_code: global___RedirectAction.RedirectResponseCode.ValueType
     """HTTP status code to use in redirect responses."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        replace_scheme: typing.Text = ...,
-        replace_host: typing.Text = ...,
+        replace_scheme: builtins.str = ...,
+        replace_host: builtins.str = ...,
         replace_port: builtins.int = ...,
-        replace_path: typing.Text = ...,
-        replace_prefix: typing.Text = ...,
+        replace_path: builtins.str = ...,
+        replace_prefix: builtins.str = ...,
         remove_query: builtins.bool = ...,
         response_code: global___RedirectAction.RedirectResponseCode.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["path",b"path","replace_path",b"replace_path","replace_prefix",b"replace_prefix"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["path",b"path","remove_query",b"remove_query","replace_host",b"replace_host","replace_path",b"replace_path","replace_port",b"replace_port","replace_prefix",b"replace_prefix","replace_scheme",b"replace_scheme","response_code",b"response_code"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["path",b"path"]) -> typing.Optional[typing_extensions.Literal["replace_path","replace_prefix"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["path", b"path", "replace_path", b"replace_path", "replace_prefix", b"replace_prefix"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["path", b"path", "remove_query", b"remove_query", "replace_host", b"replace_host", "replace_path", b"replace_path", "replace_port", b"replace_port", "replace_prefix", b"replace_prefix", "replace_scheme", b"replace_scheme", "response_code", b"response_code"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["path", b"path"]) -> typing_extensions.Literal["replace_path", "replace_prefix"] | None: ...
+
 global___RedirectAction = RedirectAction
 
 class DirectResponseAction(google.protobuf.message.Message):
     """A direct response action resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     STATUS_FIELD_NUMBER: builtins.int
     BODY_FIELD_NUMBER: builtins.int
     status: builtins.int
     """HTTP status code to use in responses."""
-
     @property
     def body(self) -> yandex.cloud.apploadbalancer.v1.payload_pb2.Payload:
         """Response body."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         status: builtins.int = ...,
-        body: typing.Optional[yandex.cloud.apploadbalancer.v1.payload_pb2.Payload] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["body",b"body"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["body",b"body","status",b"status"]) -> None: ...
+        body: yandex.cloud.apploadbalancer.v1.payload_pb2.Payload | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["body", b"body"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["body", b"body", "status", b"status"]) -> None: ...
+
 global___DirectResponseAction = DirectResponseAction
 
 class GrpcStatusResponseAction(google.protobuf.message.Message):
     """A gRPC status response action resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GrpcStatusResponseAction._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[GrpcStatusResponseAction._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         OK: GrpcStatusResponseAction._Status.ValueType  # 0
         """`OK` (0) status code."""
-
         INVALID_ARGUMENT: GrpcStatusResponseAction._Status.ValueType  # 1
         """`INVALID_ARGUMENT` (3) status code."""
-
         NOT_FOUND: GrpcStatusResponseAction._Status.ValueType  # 2
         """`NOT_FOUND` (5) status code."""
-
         PERMISSION_DENIED: GrpcStatusResponseAction._Status.ValueType  # 3
         """`PERMISSION_DENIED` (7) status code."""
-
         UNAUTHENTICATED: GrpcStatusResponseAction._Status.ValueType  # 4
         """`UNAUTHENTICATED` (16) status code."""
-
         UNIMPLEMENTED: GrpcStatusResponseAction._Status.ValueType  # 5
         """`UNIMPLEMENTED` (12) status code."""
-
         INTERNAL: GrpcStatusResponseAction._Status.ValueType  # 6
         """`INTERNAL` (13) status code."""
-
         UNAVAILABLE: GrpcStatusResponseAction._Status.ValueType  # 7
         """`UNAVAILABLE` (14) status code."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper):
         """gRPC status code supported for use in responses."""
-        pass
 
     OK: GrpcStatusResponseAction.Status.ValueType  # 0
     """`OK` (0) status code."""
-
     INVALID_ARGUMENT: GrpcStatusResponseAction.Status.ValueType  # 1
     """`INVALID_ARGUMENT` (3) status code."""
-
     NOT_FOUND: GrpcStatusResponseAction.Status.ValueType  # 2
     """`NOT_FOUND` (5) status code."""
-
     PERMISSION_DENIED: GrpcStatusResponseAction.Status.ValueType  # 3
     """`PERMISSION_DENIED` (7) status code."""
-
     UNAUTHENTICATED: GrpcStatusResponseAction.Status.ValueType  # 4
     """`UNAUTHENTICATED` (16) status code."""
-
     UNIMPLEMENTED: GrpcStatusResponseAction.Status.ValueType  # 5
     """`UNIMPLEMENTED` (12) status code."""
-
     INTERNAL: GrpcStatusResponseAction.Status.ValueType  # 6
     """`INTERNAL` (13) status code."""
-
     UNAVAILABLE: GrpcStatusResponseAction.Status.ValueType  # 7
     """`UNAVAILABLE` (14) status code."""
-
 
     STATUS_FIELD_NUMBER: builtins.int
     status: global___GrpcStatusResponseAction.Status.ValueType
     """gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         status: global___GrpcStatusResponseAction.Status.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["status",b"status"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["status", b"status"]) -> None: ...
+
 global___GrpcStatusResponseAction = GrpcStatusResponseAction
 
 class HttpRouteAction(google.protobuf.message.Message):
     """An HTTP route action resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     TIMEOUT_FIELD_NUMBER: builtins.int
     IDLE_TIMEOUT_FIELD_NUMBER: builtins.int
@@ -521,12 +514,11 @@ class HttpRouteAction(google.protobuf.message.Message):
     AUTO_HOST_REWRITE_FIELD_NUMBER: builtins.int
     PREFIX_REWRITE_FIELD_NUMBER: builtins.int
     UPGRADE_TYPES_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """Backend group to forward requests to.
 
     Stream (TCP) backend groups are not supported.
     """
-
     @property
     def timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group:
@@ -536,7 +528,6 @@ class HttpRouteAction(google.protobuf.message.Message):
 
         Default value: `60`.
         """
-        pass
     @property
     def idle_timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group:
@@ -549,14 +540,11 @@ class HttpRouteAction(google.protobuf.message.Message):
 
         If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see [timeout]).
         """
-        pass
-    host_rewrite: typing.Text
+    host_rewrite: builtins.str
     """Host replacement."""
-
     auto_host_rewrite: builtins.bool
     """Automatically replaces the host with that of the target."""
-
-    prefix_rewrite: typing.Text
+    prefix_rewrite: builtins.str
     """Replacement for the path prefix matched by [StringMatch].
 
     For instance, if [StringMatch.prefix_match] value is `/foo` and `replace_prefix` value is `/bar`,
@@ -565,37 +553,38 @@ class HttpRouteAction(google.protobuf.message.Message):
 
     If not specified, the path is not changed.
     """
-
     @property
-    def upgrade_types(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def upgrade_types(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Supported values for HTTP `Upgrade` header. E.g. `websocket`."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        idle_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        host_rewrite: typing.Text = ...,
+        backend_group_id: builtins.str = ...,
+        timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        idle_timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        host_rewrite: builtins.str = ...,
         auto_host_rewrite: builtins.bool = ...,
-        prefix_rewrite: typing.Text = ...,
-        upgrade_types: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["auto_host_rewrite",b"auto_host_rewrite","host_rewrite",b"host_rewrite","host_rewrite_specifier",b"host_rewrite_specifier","idle_timeout",b"idle_timeout","timeout",b"timeout"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_host_rewrite",b"auto_host_rewrite","backend_group_id",b"backend_group_id","host_rewrite",b"host_rewrite","host_rewrite_specifier",b"host_rewrite_specifier","idle_timeout",b"idle_timeout","prefix_rewrite",b"prefix_rewrite","timeout",b"timeout","upgrade_types",b"upgrade_types"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["host_rewrite_specifier",b"host_rewrite_specifier"]) -> typing.Optional[typing_extensions.Literal["host_rewrite","auto_host_rewrite"]]: ...
+        prefix_rewrite: builtins.str = ...,
+        upgrade_types: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["auto_host_rewrite", b"auto_host_rewrite", "host_rewrite", b"host_rewrite", "host_rewrite_specifier", b"host_rewrite_specifier", "idle_timeout", b"idle_timeout", "timeout", b"timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_host_rewrite", b"auto_host_rewrite", "backend_group_id", b"backend_group_id", "host_rewrite", b"host_rewrite", "host_rewrite_specifier", b"host_rewrite_specifier", "idle_timeout", b"idle_timeout", "prefix_rewrite", b"prefix_rewrite", "timeout", b"timeout", "upgrade_types", b"upgrade_types"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["host_rewrite_specifier", b"host_rewrite_specifier"]) -> typing_extensions.Literal["host_rewrite", "auto_host_rewrite"] | None: ...
+
 global___HttpRouteAction = HttpRouteAction
 
 class GrpcRouteAction(google.protobuf.message.Message):
     """A gRPC route action resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     MAX_TIMEOUT_FIELD_NUMBER: builtins.int
     IDLE_TIMEOUT_FIELD_NUMBER: builtins.int
     HOST_REWRITE_FIELD_NUMBER: builtins.int
     AUTO_HOST_REWRITE_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """Backend group to forward requests to."""
-
     @property
     def max_timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
@@ -607,7 +596,6 @@ class GrpcRouteAction(google.protobuf.message.Message):
 
         Default value: `60`.
         """
-        pass
     @property
     def idle_timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
@@ -621,22 +609,21 @@ class GrpcRouteAction(google.protobuf.message.Message):
         If not specified, no idle timeout is used, and an alive connection may be idle for any duration
         (see [max_timeout]).
         """
-        pass
-    host_rewrite: typing.Text
+    host_rewrite: builtins.str
     """Host replacement."""
-
     auto_host_rewrite: builtins.bool
     """Automatically replaces the host with that of the target."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        max_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        idle_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        host_rewrite: typing.Text = ...,
+        backend_group_id: builtins.str = ...,
+        max_timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        idle_timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        host_rewrite: builtins.str = ...,
         auto_host_rewrite: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["auto_host_rewrite",b"auto_host_rewrite","host_rewrite",b"host_rewrite","host_rewrite_specifier",b"host_rewrite_specifier","idle_timeout",b"idle_timeout","max_timeout",b"max_timeout"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_host_rewrite",b"auto_host_rewrite","backend_group_id",b"backend_group_id","host_rewrite",b"host_rewrite","host_rewrite_specifier",b"host_rewrite_specifier","idle_timeout",b"idle_timeout","max_timeout",b"max_timeout"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["host_rewrite_specifier",b"host_rewrite_specifier"]) -> typing.Optional[typing_extensions.Literal["host_rewrite","auto_host_rewrite"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["auto_host_rewrite", b"auto_host_rewrite", "host_rewrite", b"host_rewrite", "host_rewrite_specifier", b"host_rewrite_specifier", "idle_timeout", b"idle_timeout", "max_timeout", b"max_timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_host_rewrite", b"auto_host_rewrite", "backend_group_id", b"backend_group_id", "host_rewrite", b"host_rewrite", "host_rewrite_specifier", b"host_rewrite_specifier", "idle_timeout", b"idle_timeout", "max_timeout", b"max_timeout"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["host_rewrite_specifier", b"host_rewrite_specifier"]) -> typing_extensions.Literal["host_rewrite", "auto_host_rewrite"] | None: ...
+
 global___GrpcRouteAction = GrpcRouteAction

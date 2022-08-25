@@ -3,58 +3,63 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.compute.v1.filesystem_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FILESYSTEM_ID_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
+    filesystem_id: builtins.str
     """ID of the filesystem to return.
 
     To get the filesystem ID, make a [FilesystemService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id"]) -> None: ...
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id"]) -> None: ...
+
 global___GetFilesystemRequest = GetFilesystemRequest
 
 class ListFilesystemsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list filesystems in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`,
     the service returns a [ListFilesystemsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListFilesystemsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters filesystems listed in the response.
 
     The expression must specify:
@@ -63,55 +68,60 @@ class ListFilesystemsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.
     Example of a filter: `name=my-filesystem`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListFilesystemsRequest = ListFilesystemsRequest
 
 class ListFilesystemsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FILESYSTEMS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def filesystems(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.filesystem_pb2.Filesystem]:
         """List of filesystems in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFilesystemsRequest.page_size], use `next_page_token` as the value
     for the [ListFilesystemsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        filesystems: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.filesystem_pb2.Filesystem]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystems",b"filesystems","next_page_token",b"next_page_token"]) -> None: ...
+        filesystems: collections.abc.Iterable[yandex.cloud.compute.v1.filesystem_pb2.Filesystem] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystems", b"filesystems", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListFilesystemsResponse = ListFilesystemsResponse
 
 class CreateFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -121,33 +131,28 @@ class CreateFilesystemRequest(google.protobuf.message.Message):
     ZONE_ID_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
     BLOCK_SIZE_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a filesystem in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the filesystem. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the filesystem."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Filesystem labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
         """
-        pass
-    type_id: typing.Text
+    type_id: builtins.str
     """ID of the filesystem type.
 
     To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List] request.
 
     The filesystem type cannot be updated after the filesystem creation.
     """
-
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the filesystem resides.
 
     To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List] request.
@@ -155,13 +160,11 @@ class CreateFilesystemRequest(google.protobuf.message.Message):
     A filesystem can be attached only to virtual machines residing in the same availability zone.
     The filesystem availability zone cannot be updated after the filesystem creation.
     """
-
     size: builtins.int
     """Size of the filesystem, specified in bytes.
 
     The size of the filesystem cannot be updated after the filesystem creation.
     """
-
     block_size: builtins.int
     """Block size used for the filesystem, specified in bytes.
 
@@ -169,48 +172,54 @@ class CreateFilesystemRequest(google.protobuf.message.Message):
 
     Default value: 4096.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        type_id: typing.Text = ...,
-        zone_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        type_id: builtins.str = ...,
+        zone_id: builtins.str = ...,
         size: builtins.int = ...,
         block_size: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["block_size",b"block_size","description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","size",b"size","type_id",b"type_id","zone_id",b"zone_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["block_size", b"block_size", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "size", b"size", "type_id", b"type_id", "zone_id", b"zone_id"]) -> None: ...
+
 global___CreateFilesystemRequest = CreateFilesystemRequest
 
 class CreateFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
-    """ID of the filesystem that is being created."""
 
-    def __init__(self,
+    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
+    filesystem_id: builtins.str
+    """ID of the filesystem that is being created."""
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id"]) -> None: ...
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id"]) -> None: ...
+
 global___CreateFilesystemMetadata = CreateFilesystemMetadata
 
 class UpdateFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FILESYSTEM_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -218,24 +227,20 @@ class UpdateFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     SIZE_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
+    filesystem_id: builtins.str
     """ID of the filesystem to update.
 
     To get the filesystem ID, make a [FilesystemService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the filesystem should be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name of the filesystem. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """New description of the filesystem."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """New filesystem labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
 
@@ -245,116 +250,123 @@ class UpdateFilesystemRequest(google.protobuf.message.Message):
         2. Add or remove a label in this set.
         3. Send the new set in this field.
         """
-        pass
     size: builtins.int
     """Size of the filesystem, specified in bytes."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        filesystem_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         size: builtins.int = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","filesystem_id",b"filesystem_id","labels",b"labels","name",b"name","size",b"size","update_mask",b"update_mask"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "filesystem_id", b"filesystem_id", "labels", b"labels", "name", b"name", "size", b"size", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateFilesystemRequest = UpdateFilesystemRequest
 
 class UpdateFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
-    """ID of the filesystem that is being updated."""
 
-    def __init__(self,
+    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
+    filesystem_id: builtins.str
+    """ID of the filesystem that is being updated."""
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id"]) -> None: ...
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id"]) -> None: ...
+
 global___UpdateFilesystemMetadata = UpdateFilesystemMetadata
 
 class DeleteFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FILESYSTEM_ID_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
+    filesystem_id: builtins.str
     """ID of the filesystem to delete.
 
     To get the filesystem ID, make a [FilesystemService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id"]) -> None: ...
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id"]) -> None: ...
+
 global___DeleteFilesystemRequest = DeleteFilesystemRequest
 
 class DeleteFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
-    """ID of the filesystem that is being deleted."""
 
-    def __init__(self,
+    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
+    filesystem_id: builtins.str
+    """ID of the filesystem that is being deleted."""
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id"]) -> None: ...
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id"]) -> None: ...
+
 global___DeleteFilesystemMetadata = DeleteFilesystemMetadata
 
 class ListFilesystemOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FILESYSTEM_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    filesystem_id: typing.Text
+    filesystem_id: builtins.str
     """ID of the filesystem to list operations for.
 
     To get the filesystem ID, make a [FilesystemService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListFilesystemOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        filesystem_id: typing.Text = ...,
+        filesystem_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id",b"filesystem_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filesystem_id", b"filesystem_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListFilesystemOperationsRequest = ListFilesystemOperationsRequest
 
 class ListFilesystemOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified filesystem."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFilesystemOperationsRequest.page_size], use `next_page_token` as the value
     for the [ListFilesystemOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListFilesystemOperationsResponse = ListFilesystemOperationsResponse

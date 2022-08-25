@@ -3,137 +3,151 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.compute.v1.instancegroup.instance_group_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _InstanceGroupView:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _InstanceGroupViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceGroupView.ValueType], builtins.type):
+
+class _InstanceGroupViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceGroupView.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BASIC: _InstanceGroupView.ValueType  # 0
     """Doesn't include the metadata of the instance template in the server response."""
-
     FULL: _InstanceGroupView.ValueType  # 1
     """Returns the metadata of the instance template in the server response."""
 
-class InstanceGroupView(_InstanceGroupView, metaclass=_InstanceGroupViewEnumTypeWrapper):
-    pass
+class InstanceGroupView(_InstanceGroupView, metaclass=_InstanceGroupViewEnumTypeWrapper): ...
 
 BASIC: InstanceGroupView.ValueType  # 0
 """Doesn't include the metadata of the instance template in the server response."""
-
 FULL: InstanceGroupView.ValueType  # 1
 """Returns the metadata of the instance template in the server response."""
-
 global___InstanceGroupView = InstanceGroupView
-
 
 class ResumeInstanceGroupProcessesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to resume processes in.
 
     The instance group must have a `PAUSED` status ([InstanceGroup.status]).
 
     To get the instance group ID, make a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___ResumeInstanceGroupProcessesRequest = ResumeInstanceGroupProcessesRequest
 
 class ResumeInstanceGroupProcessMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the instance group that processes are being resumed in."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the instance group that processes are being resumed in."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___ResumeInstanceGroupProcessMetadata = ResumeInstanceGroupProcessMetadata
 
 class PauseInstanceGroupProcessesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to pause processes in.
 
     The instance group must have an `ACTIVE` status ([InstanceGroup.status]).
 
     To get the instance group ID, make a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___PauseInstanceGroupProcessesRequest = PauseInstanceGroupProcessesRequest
 
 class PauseInstanceGroupProcessMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the instance group that processes are being paused in."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the instance group that processes are being paused in."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___PauseInstanceGroupProcessMetadata = PauseInstanceGroupProcessMetadata
 
 class GetInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the InstanceGroup resource to return.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
     view: global___InstanceGroupView.ValueType
     """Defines which information about the Instance template should be returned in the server response."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
+        instance_group_id: builtins.str = ...,
         view: global___InstanceGroupView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id","view",b"view"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id", "view", b"view"]) -> None: ...
+
 global___GetInstanceGroupRequest = GetInstanceGroupRequest
 
 class CreateInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -149,37 +163,29 @@ class CreateInstanceGroupRequest(google.protobuf.message.Message):
     VARIABLES_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     APPLICATION_LOAD_BALANCER_SPEC_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create an instance group in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the instance group."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the instance group."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
     @property
     def instance_template(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate:
         """Instance template that the instance group belongs to."""
-        pass
     @property
     def scale_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy:
         """[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group."""
-        pass
     @property
     def deploy_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy:
         """Deployment policy of the instance group."""
-        pass
     @property
     def allocation_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy:
         """Allocation policy of the instance group by zones and regions."""
-        pass
     @property
     def load_balancer_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec:
         """Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts)
@@ -188,17 +194,14 @@ class CreateInstanceGroupRequest(google.protobuf.message.Message):
         If specified, a Network Load Balancer target group containing all instances from the instance group will be created
         and attributed to the instance group.
         """
-        pass
     @property
     def health_checks_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec:
         """Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check)."""
-        pass
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account. The service account will be used for all API calls
     made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
     To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
     """
-
     @property
     def variables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable]: ...
     deletion_protection: builtins.bool
@@ -208,7 +211,6 @@ class CreateInstanceGroupRequest(google.protobuf.message.Message):
 
     The default is `false`.
     """
-
     @property
     def application_load_balancer_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec:
         """Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts)
@@ -217,75 +219,82 @@ class CreateInstanceGroupRequest(google.protobuf.message.Message):
         If specified, an Application Load Balancer target group containing all instances from the instance group will be created
         and attributed to the instance group.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        instance_template: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate] = ...,
-        scale_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy] = ...,
-        deploy_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy] = ...,
-        allocation_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy] = ...,
-        load_balancer_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec] = ...,
-        health_checks_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec] = ...,
-        service_account_id: typing.Text = ...,
-        variables: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        instance_template: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate | None = ...,
+        scale_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy | None = ...,
+        deploy_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy | None = ...,
+        allocation_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy | None = ...,
+        load_balancer_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec | None = ...,
+        health_checks_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec | None = ...,
+        service_account_id: builtins.str = ...,
+        variables: collections.abc.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable] | None = ...,
         deletion_protection: builtins.bool = ...,
-        application_load_balancer_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","application_load_balancer_spec",b"application_load_balancer_spec","deploy_policy",b"deploy_policy","health_checks_spec",b"health_checks_spec","instance_template",b"instance_template","load_balancer_spec",b"load_balancer_spec","scale_policy",b"scale_policy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","application_load_balancer_spec",b"application_load_balancer_spec","deletion_protection",b"deletion_protection","deploy_policy",b"deploy_policy","description",b"description","folder_id",b"folder_id","health_checks_spec",b"health_checks_spec","instance_template",b"instance_template","labels",b"labels","load_balancer_spec",b"load_balancer_spec","name",b"name","scale_policy",b"scale_policy","service_account_id",b"service_account_id","variables",b"variables"]) -> None: ...
+        application_load_balancer_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "application_load_balancer_spec", b"application_load_balancer_spec", "deploy_policy", b"deploy_policy", "health_checks_spec", b"health_checks_spec", "instance_template", b"instance_template", "load_balancer_spec", b"load_balancer_spec", "scale_policy", b"scale_policy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "application_load_balancer_spec", b"application_load_balancer_spec", "deletion_protection", b"deletion_protection", "deploy_policy", b"deploy_policy", "description", b"description", "folder_id", b"folder_id", "health_checks_spec", b"health_checks_spec", "instance_template", b"instance_template", "labels", b"labels", "load_balancer_spec", b"load_balancer_spec", "name", b"name", "scale_policy", b"scale_policy", "service_account_id", b"service_account_id", "variables", b"variables"]) -> None: ...
+
 global___CreateInstanceGroupRequest = CreateInstanceGroupRequest
 
 class CreateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     INSTANCE_GROUP_YAML_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create an instance group in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    instance_group_yaml: typing.Text
+    instance_group_yaml: builtins.str
     """[InstanceGroupService.Create] request in YAML format."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        instance_group_yaml: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","instance_group_yaml",b"instance_group_yaml"]) -> None: ...
+        folder_id: builtins.str = ...,
+        instance_group_yaml: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "instance_group_yaml", b"instance_group_yaml"]) -> None: ...
+
 global___CreateInstanceGroupFromYamlRequest = CreateInstanceGroupFromYamlRequest
 
 class CreateInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the instance group that is being created."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the instance group that is being created."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___CreateInstanceGroupMetadata = CreateInstanceGroupMetadata
 
 class UpdateInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -302,293 +311,298 @@ class UpdateInstanceGroupRequest(google.protobuf.message.Message):
     VARIABLES_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     APPLICATION_LOAD_BALANCER_SPEC_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to update.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the InstanceGroup resource are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the instance group."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the instance group."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs.
 
         The existing set of `labels` is completely replaced by the provided set.
         """
-        pass
     @property
     def instance_template(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate:
         """Instance template that the instance group belongs to."""
-        pass
     @property
     def scale_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy:
         """[Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group."""
-        pass
     @property
     def deploy_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy:
         """Deployment policy of the instance group."""
-        pass
     @property
     def allocation_policy(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy:
         """Allocation policy of the instance group by zones and regions."""
-        pass
     @property
     def health_checks_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec:
         """Health checking specification. For more information, see [Health check](/docs/load-balancer/concepts/health-check)."""
-        pass
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account. The service account will be used for all API calls
     made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
     To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
     """
-
     @property
     def load_balancer_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec:
         """Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts)
         (OSI model layer 3).
         """
-        pass
     @property
     def variables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable]: ...
     deletion_protection: builtins.bool
     """Flag that inhibits deletion of the instance group"""
-
     @property
     def application_load_balancer_spec(self) -> yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec:
         """Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts)
         (OSI model layer 7).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        instance_template: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate] = ...,
-        scale_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy] = ...,
-        deploy_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy] = ...,
-        allocation_policy: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy] = ...,
-        health_checks_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec] = ...,
-        service_account_id: typing.Text = ...,
-        load_balancer_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec] = ...,
-        variables: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable]] = ...,
+        instance_group_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        instance_template: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceTemplate | None = ...,
+        scale_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ScalePolicy | None = ...,
+        deploy_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.DeployPolicy | None = ...,
+        allocation_policy: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.AllocationPolicy | None = ...,
+        health_checks_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.HealthChecksSpec | None = ...,
+        service_account_id: builtins.str = ...,
+        load_balancer_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LoadBalancerSpec | None = ...,
+        variables: collections.abc.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.Variable] | None = ...,
         deletion_protection: builtins.bool = ...,
-        application_load_balancer_spec: typing.Optional[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","application_load_balancer_spec",b"application_load_balancer_spec","deploy_policy",b"deploy_policy","health_checks_spec",b"health_checks_spec","instance_template",b"instance_template","load_balancer_spec",b"load_balancer_spec","scale_policy",b"scale_policy","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","application_load_balancer_spec",b"application_load_balancer_spec","deletion_protection",b"deletion_protection","deploy_policy",b"deploy_policy","description",b"description","health_checks_spec",b"health_checks_spec","instance_group_id",b"instance_group_id","instance_template",b"instance_template","labels",b"labels","load_balancer_spec",b"load_balancer_spec","name",b"name","scale_policy",b"scale_policy","service_account_id",b"service_account_id","update_mask",b"update_mask","variables",b"variables"]) -> None: ...
+        application_load_balancer_spec: yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ApplicationLoadBalancerSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "application_load_balancer_spec", b"application_load_balancer_spec", "deploy_policy", b"deploy_policy", "health_checks_spec", b"health_checks_spec", "instance_template", b"instance_template", "load_balancer_spec", b"load_balancer_spec", "scale_policy", b"scale_policy", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "application_load_balancer_spec", b"application_load_balancer_spec", "deletion_protection", b"deletion_protection", "deploy_policy", b"deploy_policy", "description", b"description", "health_checks_spec", b"health_checks_spec", "instance_group_id", b"instance_group_id", "instance_template", b"instance_template", "labels", b"labels", "load_balancer_spec", b"load_balancer_spec", "name", b"name", "scale_policy", b"scale_policy", "service_account_id", b"service_account_id", "update_mask", b"update_mask", "variables", b"variables"]) -> None: ...
+
 global___UpdateInstanceGroupRequest = UpdateInstanceGroupRequest
 
 class UpdateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     INSTANCE_GROUP_YAML_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to update.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    instance_group_yaml: typing.Text
+    instance_group_yaml: builtins.str
     """[InstanceGroupService.Update] request in YAML format."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        instance_group_yaml: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id","instance_group_yaml",b"instance_group_yaml"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+        instance_group_yaml: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id", "instance_group_yaml", b"instance_group_yaml"]) -> None: ...
+
 global___UpdateInstanceGroupFromYamlRequest = UpdateInstanceGroupFromYamlRequest
 
 class UpdateInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the InstanceGroup resource that is being updated.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___UpdateInstanceGroupMetadata = UpdateInstanceGroupMetadata
 
 class StartInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to start.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___StartInstanceGroupRequest = StartInstanceGroupRequest
 
 class StartInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the InstanceGroup resource that is being started."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the InstanceGroup resource that is being started."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___StartInstanceGroupMetadata = StartInstanceGroupMetadata
 
 class StopInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to stop.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___StopInstanceGroupRequest = StopInstanceGroupRequest
 
 class StopInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the InstanceGroup resource that is being stopped."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the InstanceGroup resource that is being stopped."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___StopInstanceGroupMetadata = StopInstanceGroupMetadata
 
 class DeleteInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group to delete.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___DeleteInstanceGroupRequest = DeleteInstanceGroupRequest
 
 class DeleteInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group that is being deleted.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___DeleteInstanceGroupMetadata = DeleteInstanceGroupMetadata
 
 class DeleteInstancesMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the instance group that the instances are being deleted from."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the instance group that the instances are being deleted from."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___DeleteInstancesMetadata = DeleteInstancesMetadata
 
 class StopInstancesMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
-    """ID of the instance group that the instances are being stopped from."""
 
-    def __init__(self,
+    INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
+    instance_group_id: builtins.str
+    """ID of the instance group that the instances are being stopped from."""
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id"]) -> None: ...
+
 global___StopInstancesMetadata = StopInstancesMetadata
 
 class ListInstanceGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list instance groups in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
     the service returns a [ListInstanceGroupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results,
     set [page_token] to the [ListInstanceGroupsResponse.next_page_token]
     returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     Currently you can use filtering only on the [InstanceGroup.name] field.
     """
-
     view: global___InstanceGroupView.ValueType
     """Defines which information about the Instance template should be returned in the server response."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
         view: global___InstanceGroupView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token","view",b"view"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
+
 global___ListInstanceGroupsRequest = ListInstanceGroupsRequest
 
 class ListInstanceGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def instance_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceGroup]:
         """Lists instance groups for the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListInstanceGroupsRequest.page_size], use
     [next_page_token] as the value
@@ -596,63 +610,63 @@ class ListInstanceGroupsResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_groups: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceGroup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_groups",b"instance_groups","next_page_token",b"next_page_token"]) -> None: ...
+        instance_groups: collections.abc.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.InstanceGroup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_groups", b"instance_groups", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListInstanceGroupsResponse = ListInstanceGroupsResponse
 
 class ListInstanceGroupInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the InstanceGroup resource to list instances for.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
     the service returns a [ListInstanceGroupInstancesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results,
     set [page_token] to the [ListInstanceGroupInstancesResponse.next_page_token]
     returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     Currently you can use filtering only on the [ManagedInstance.name] field.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
+        instance_group_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","instance_group_id",b"instance_group_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "instance_group_id", b"instance_group_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListInstanceGroupInstancesRequest = ListInstanceGroupInstancesRequest
 
 class ListInstanceGroupInstancesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def instances(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ManagedInstance]:
         """Lists instances for the specified instance group."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is more than [ListInstanceGroupInstancesRequest.page_size], use
     [next_page_token] as the value
@@ -660,178 +674,179 @@ class ListInstanceGroupInstancesResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instances: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ManagedInstance]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instances",b"instances","next_page_token",b"next_page_token"]) -> None: ...
+        instances: collections.abc.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.ManagedInstance] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instances", b"instances", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListInstanceGroupInstancesResponse = ListInstanceGroupInstancesResponse
 
 class DeleteInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     MANAGED_INSTANCE_IDS_FIELD_NUMBER: builtins.int
     CREATE_ANOTHER_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group that the instances are being deleted from.
     To get the ID of the instance group, use the [InstanceGroupService.List] request.
     """
-
     @property
-    def managed_instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def managed_instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """IDs of the instances to delete. Instances will be deleted along with all dependent resources.
         Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id.
         """
-        pass
     create_another: builtins.bool
     """If set to true, the target size of instance group will not be reduced and
     a new instance will be created instead of the deleted one. By default, the target size of instance group
     will be reduced by the specified number of instance IDs.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        managed_instance_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        instance_group_id: builtins.str = ...,
+        managed_instance_ids: collections.abc.Iterable[builtins.str] | None = ...,
         create_another: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["create_another",b"create_another","instance_group_id",b"instance_group_id","managed_instance_ids",b"managed_instance_ids"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["create_another", b"create_another", "instance_group_id", b"instance_group_id", "managed_instance_ids", b"managed_instance_ids"]) -> None: ...
+
 global___DeleteInstancesRequest = DeleteInstancesRequest
 
 class StopInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     MANAGED_INSTANCE_IDS_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the instance group that the instances are being stopped from.
     To get the ID of the instance group, use the [InstanceGroupService.List] request.
     """
-
     @property
-    def managed_instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def managed_instance_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """IDs of the instances to stop. After stopping, the instance can be updated, started, or deleted
         according to scale and deploy policies.
         Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
-        managed_instance_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id",b"instance_group_id","managed_instance_ids",b"managed_instance_ids"]) -> None: ...
+        instance_group_id: builtins.str = ...,
+        managed_instance_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["instance_group_id", b"instance_group_id", "managed_instance_ids", b"managed_instance_ids"]) -> None: ...
+
 global___StopInstancesRequest = StopInstancesRequest
 
 class ListInstanceGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the InstanceGroup resource to list operations for.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is more than [page_size], the service returns a [ListInstanceGroupOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListInstanceGroupOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     Currently you can use filtering only on the [InstanceGroup.name] field.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
+        instance_group_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","instance_group_id",b"instance_group_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "instance_group_id", b"instance_group_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListInstanceGroupOperationsRequest = ListInstanceGroupOperationsRequest
 
 class ListInstanceGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """Lists operations for the specified instance group."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is more than [ListInstanceGroupOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListInstanceGroupOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListInstanceGroupOperationsResponse = ListInstanceGroupOperationsResponse
 
 class ListInstanceGroupLogRecordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INSTANCE_GROUP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the InstanceGroup resource to list logs for.
     To get the instance group ID, use a [InstanceGroupService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
     the service returns a [ListInstanceGroupLogRecordsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results,
     set [page_token] to the [ListInstanceGroupLogRecordsResponse.next_page_token]
     returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     Currently you can use filtering only on the [InstanceGroup.name] field.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        instance_group_id: typing.Text = ...,
+        instance_group_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","instance_group_id",b"instance_group_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "instance_group_id", b"instance_group_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListInstanceGroupLogRecordsRequest = ListInstanceGroupLogRecordsRequest
 
 class ListInstanceGroupLogRecordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     LOG_RECORDS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def log_records(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LogRecord]:
         """Lists logs for the specified instance group."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListInstanceGroupLogRecordsRequest.page_size], use
     [next_page_token] as the value
@@ -839,11 +854,12 @@ class ListInstanceGroupLogRecordsResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        log_records: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LogRecord]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["log_records",b"log_records","next_page_token",b"next_page_token"]) -> None: ...
+        log_records: collections.abc.Iterable[yandex.cloud.compute.v1.instancegroup.instance_group_pb2.LogRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["log_records", b"log_records", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListInstanceGroupLogRecordsResponse = ListInstanceGroupLogRecordsResponse

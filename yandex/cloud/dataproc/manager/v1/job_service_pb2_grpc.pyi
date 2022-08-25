@@ -10,31 +10,29 @@ class JobServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     ListActive: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.dataproc.manager.v1.job_service_pb2.ListJobsRequest,
-        yandex.cloud.dataproc.manager.v1.job_service_pb2.ListJobsResponse]
+        yandex.cloud.dataproc.manager.v1.job_service_pb2.ListJobsResponse,
+    ]
     """Retrieves a list of jobs for Data Proc cluster."""
-
     UpdateStatus: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.dataproc.manager.v1.job_service_pb2.UpdateJobStatusRequest,
-        yandex.cloud.dataproc.manager.v1.job_service_pb2.UpdateJobStatusResponse]
+        yandex.cloud.dataproc.manager.v1.job_service_pb2.UpdateJobStatusResponse,
+    ]
     """Currently used to update Job status."""
-
 
 class JobServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def ListActive(self,
+    def ListActive(
+        self,
         request: yandex.cloud.dataproc.manager.v1.job_service_pb2.ListJobsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.dataproc.manager.v1.job_service_pb2.ListJobsResponse:
         """Retrieves a list of jobs for Data Proc cluster."""
-        pass
-
     @abc.abstractmethod
-    def UpdateStatus(self,
+    def UpdateStatus(
+        self,
         request: yandex.cloud.dataproc.manager.v1.job_service_pb2.UpdateJobStatusRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.dataproc.manager.v1.job_service_pb2.UpdateJobStatusResponse:
         """Currently used to update Job status."""
-        pass
-
 
 def add_JobServiceServicer_to_server(servicer: JobServiceServicer, server: grpc.Server) -> None: ...

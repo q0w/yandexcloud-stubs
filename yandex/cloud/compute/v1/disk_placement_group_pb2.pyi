@@ -3,30 +3,37 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class DiskPlacementGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[DiskPlacementGroup._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[DiskPlacementGroup._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: DiskPlacementGroup._Status.ValueType  # 0
         CREATING: DiskPlacementGroup._Status.ValueType  # 1
         READY: DiskPlacementGroup._Status.ValueType  # 2
         DELETING: DiskPlacementGroup._Status.ValueType  # 4
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: DiskPlacementGroup.Status.ValueType  # 0
     CREATING: DiskPlacementGroup.Status.ValueType  # 1
     READY: DiskPlacementGroup.Status.ValueType  # 2
@@ -34,16 +41,18 @@ class DiskPlacementGroup(google.protobuf.message.Message):
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -54,57 +63,53 @@ class DiskPlacementGroup(google.protobuf.message.Message):
     ZONE_ID_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     SPREAD_PLACEMENT_STRATEGY_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the placement group."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the placement group belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the placement group.
     The name is unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the placement group."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the placement group resides."""
-
     status: global___DiskPlacementGroup.Status.ValueType
     """Current status of the placement group"""
-
     @property
     def spread_placement_strategy(self) -> global___DiskSpreadPlacementStrategy:
         """Distribute instances over distinct failure domains."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        zone_id: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        zone_id: builtins.str = ...,
         status: global___DiskPlacementGroup.Status.ValueType = ...,
-        spread_placement_strategy: typing.Optional[global___DiskSpreadPlacementStrategy] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","placement_strategy",b"placement_strategy","spread_placement_strategy",b"spread_placement_strategy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","placement_strategy",b"placement_strategy","spread_placement_strategy",b"spread_placement_strategy","status",b"status","zone_id",b"zone_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["placement_strategy",b"placement_strategy"]) -> typing.Optional[typing_extensions.Literal["spread_placement_strategy"]]: ...
+        spread_placement_strategy: global___DiskSpreadPlacementStrategy | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "placement_strategy", b"placement_strategy", "spread_placement_strategy", b"spread_placement_strategy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "placement_strategy", b"placement_strategy", "spread_placement_strategy", b"spread_placement_strategy", "status", b"status", "zone_id", b"zone_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["placement_strategy", b"placement_strategy"]) -> typing_extensions.Literal["spread_placement_strategy"] | None: ...
+
 global___DiskPlacementGroup = DiskPlacementGroup
 
 class DiskSpreadPlacementStrategy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___DiskSpreadPlacementStrategy = DiskSpreadPlacementStrategy

@@ -3,23 +3,32 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class MysqlConfig5_7(google.protobuf.message.Message):
     """Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _SQLMode:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SQLModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._SQLMode.ValueType], builtins.type):
+
+    class _SQLModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._SQLMode.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SQLMODE_UNSPECIFIED: MysqlConfig5_7._SQLMode.ValueType  # 0
         ALLOW_INVALID_DATES: MysqlConfig5_7._SQLMode.ValueType  # 1
@@ -53,9 +62,8 @@ class MysqlConfig5_7(google.protobuf.message.Message):
         POSTGRESQL: MysqlConfig5_7._SQLMode.ValueType  # 29
         NO_AUTO_CREATE_USER: MysqlConfig5_7._SQLMode.ValueType  # 30
         NO_DIR_IN_CREATE: MysqlConfig5_7._SQLMode.ValueType  # 31
-    class SQLMode(_SQLMode, metaclass=_SQLModeEnumTypeWrapper):
-        pass
 
+    class SQLMode(_SQLMode, metaclass=_SQLModeEnumTypeWrapper): ...
     SQLMODE_UNSPECIFIED: MysqlConfig5_7.SQLMode.ValueType  # 0
     ALLOW_INVALID_DATES: MysqlConfig5_7.SQLMode.ValueType  # 1
     ANSI_QUOTES: MysqlConfig5_7.SQLMode.ValueType  # 2
@@ -90,98 +98,95 @@ class MysqlConfig5_7(google.protobuf.message.Message):
     NO_DIR_IN_CREATE: MysqlConfig5_7.SQLMode.ValueType  # 31
 
     class _AuthPlugin:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._AuthPlugin.ValueType], builtins.type):
+
+    class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._AuthPlugin.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         AUTH_PLUGIN_UNSPECIFIED: MysqlConfig5_7._AuthPlugin.ValueType  # 0
         MYSQL_NATIVE_PASSWORD: MysqlConfig5_7._AuthPlugin.ValueType  # 1
         """Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html)."""
-
         CACHING_SHA2_PASSWORD: MysqlConfig5_7._AuthPlugin.ValueType  # 2
         SHA256_PASSWORD: MysqlConfig5_7._AuthPlugin.ValueType  # 3
         """Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html)."""
 
-    class AuthPlugin(_AuthPlugin, metaclass=_AuthPluginEnumTypeWrapper):
-        pass
-
+    class AuthPlugin(_AuthPlugin, metaclass=_AuthPluginEnumTypeWrapper): ...
     AUTH_PLUGIN_UNSPECIFIED: MysqlConfig5_7.AuthPlugin.ValueType  # 0
     MYSQL_NATIVE_PASSWORD: MysqlConfig5_7.AuthPlugin.ValueType  # 1
     """Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html)."""
-
     CACHING_SHA2_PASSWORD: MysqlConfig5_7.AuthPlugin.ValueType  # 2
     SHA256_PASSWORD: MysqlConfig5_7.AuthPlugin.ValueType  # 3
     """Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html)."""
 
-
     class _TransactionIsolation:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._TransactionIsolation.ValueType], builtins.type):
+
+    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._TransactionIsolation.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TRANSACTION_ISOLATION_UNSPECIFIED: MysqlConfig5_7._TransactionIsolation.ValueType  # 0
         READ_COMMITTED: MysqlConfig5_7._TransactionIsolation.ValueType  # 1
         REPEATABLE_READ: MysqlConfig5_7._TransactionIsolation.ValueType  # 2
         SERIALIZABLE: MysqlConfig5_7._TransactionIsolation.ValueType  # 3
-    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper):
-        pass
 
+    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper): ...
     TRANSACTION_ISOLATION_UNSPECIFIED: MysqlConfig5_7.TransactionIsolation.ValueType  # 0
     READ_COMMITTED: MysqlConfig5_7.TransactionIsolation.ValueType  # 1
     REPEATABLE_READ: MysqlConfig5_7.TransactionIsolation.ValueType  # 2
     SERIALIZABLE: MysqlConfig5_7.TransactionIsolation.ValueType  # 3
 
     class _BinlogRowImage:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _BinlogRowImageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._BinlogRowImage.ValueType], builtins.type):
+
+    class _BinlogRowImageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._BinlogRowImage.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         BINLOG_ROW_IMAGE_UNSPECIFIED: MysqlConfig5_7._BinlogRowImage.ValueType  # 0
         FULL: MysqlConfig5_7._BinlogRowImage.ValueType  # 1
         MINIMAL: MysqlConfig5_7._BinlogRowImage.ValueType  # 2
         NOBLOB: MysqlConfig5_7._BinlogRowImage.ValueType  # 3
-    class BinlogRowImage(_BinlogRowImage, metaclass=_BinlogRowImageEnumTypeWrapper):
-        pass
 
+    class BinlogRowImage(_BinlogRowImage, metaclass=_BinlogRowImageEnumTypeWrapper): ...
     BINLOG_ROW_IMAGE_UNSPECIFIED: MysqlConfig5_7.BinlogRowImage.ValueType  # 0
     FULL: MysqlConfig5_7.BinlogRowImage.ValueType  # 1
     MINIMAL: MysqlConfig5_7.BinlogRowImage.ValueType  # 2
     NOBLOB: MysqlConfig5_7.BinlogRowImage.ValueType  # 3
 
     class _SlaveParallelType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SlaveParallelTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._SlaveParallelType.ValueType], builtins.type):
+
+    class _SlaveParallelTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._SlaveParallelType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SLAVE_PARALLEL_TYPE_UNSPECIFIED: MysqlConfig5_7._SlaveParallelType.ValueType  # 0
         DATABASE: MysqlConfig5_7._SlaveParallelType.ValueType  # 1
         LOGICAL_CLOCK: MysqlConfig5_7._SlaveParallelType.ValueType  # 2
-    class SlaveParallelType(_SlaveParallelType, metaclass=_SlaveParallelTypeEnumTypeWrapper):
-        pass
 
+    class SlaveParallelType(_SlaveParallelType, metaclass=_SlaveParallelTypeEnumTypeWrapper): ...
     SLAVE_PARALLEL_TYPE_UNSPECIFIED: MysqlConfig5_7.SlaveParallelType.ValueType  # 0
     DATABASE: MysqlConfig5_7.SlaveParallelType.ValueType  # 1
     LOGICAL_CLOCK: MysqlConfig5_7.SlaveParallelType.ValueType  # 2
 
     class _LogSlowRateType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogSlowRateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._LogSlowRateType.ValueType], builtins.type):
+
+    class _LogSlowRateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._LogSlowRateType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_SLOW_RATE_TYPE_UNSPECIFIED: MysqlConfig5_7._LogSlowRateType.ValueType  # 0
         SESSION: MysqlConfig5_7._LogSlowRateType.ValueType  # 1
         QUERY: MysqlConfig5_7._LogSlowRateType.ValueType  # 2
-    class LogSlowRateType(_LogSlowRateType, metaclass=_LogSlowRateTypeEnumTypeWrapper):
-        pass
 
+    class LogSlowRateType(_LogSlowRateType, metaclass=_LogSlowRateTypeEnumTypeWrapper): ...
     LOG_SLOW_RATE_TYPE_UNSPECIFIED: MysqlConfig5_7.LogSlowRateType.ValueType  # 0
     SESSION: MysqlConfig5_7.LogSlowRateType.ValueType  # 1
     QUERY: MysqlConfig5_7.LogSlowRateType.ValueType  # 2
 
     class _LogSlowFilterType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogSlowFilterTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._LogSlowFilterType.ValueType], builtins.type):
+
+    class _LogSlowFilterTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._LogSlowFilterType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_SLOW_FILTER_TYPE_UNSPECIFIED: MysqlConfig5_7._LogSlowFilterType.ValueType  # 0
         FULL_SCAN: MysqlConfig5_7._LogSlowFilterType.ValueType  # 1
@@ -190,9 +195,8 @@ class MysqlConfig5_7(google.protobuf.message.Message):
         TMP_TABLE_ON_DISK: MysqlConfig5_7._LogSlowFilterType.ValueType  # 4
         FILESORT: MysqlConfig5_7._LogSlowFilterType.ValueType  # 5
         FILESORT_ON_DISK: MysqlConfig5_7._LogSlowFilterType.ValueType  # 6
-    class LogSlowFilterType(_LogSlowFilterType, metaclass=_LogSlowFilterTypeEnumTypeWrapper):
-        pass
 
+    class LogSlowFilterType(_LogSlowFilterType, metaclass=_LogSlowFilterTypeEnumTypeWrapper): ...
     LOG_SLOW_FILTER_TYPE_UNSPECIFIED: MysqlConfig5_7.LogSlowFilterType.ValueType  # 0
     FULL_SCAN: MysqlConfig5_7.LogSlowFilterType.ValueType  # 1
     FULL_JOIN: MysqlConfig5_7.LogSlowFilterType.ValueType  # 2
@@ -202,17 +206,17 @@ class MysqlConfig5_7(google.protobuf.message.Message):
     FILESORT_ON_DISK: MysqlConfig5_7.LogSlowFilterType.ValueType  # 6
 
     class _BinlogTransactionDependencyTracking:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _BinlogTransactionDependencyTrackingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType], builtins.type):
+
+    class _BinlogTransactionDependencyTrackingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED: MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType  # 0
         COMMIT_ORDER: MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType  # 1
         WRITESET: MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType  # 2
         WRITESET_SESSION: MysqlConfig5_7._BinlogTransactionDependencyTracking.ValueType  # 3
-    class BinlogTransactionDependencyTracking(_BinlogTransactionDependencyTracking, metaclass=_BinlogTransactionDependencyTrackingEnumTypeWrapper):
-        pass
 
+    class BinlogTransactionDependencyTracking(_BinlogTransactionDependencyTracking, metaclass=_BinlogTransactionDependencyTrackingEnumTypeWrapper): ...
     BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED: MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType  # 0
     COMMIT_ORDER: MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType  # 1
     WRITESET: MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType  # 2
@@ -295,560 +299,492 @@ class MysqlConfig5_7(google.protobuf.message.Message):
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) for details.
         """
-        pass
     @property
     def max_connections(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum permitted number of simultaneous client connections.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections) for details.
         """
-        pass
     @property
     def long_query_time(self) -> google.protobuf.wrappers_pb2.DoubleValue:
         """Time that it takes to process a query before it is considered slow.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
         """
-        pass
     @property
     def general_log(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enable writing of general query log of MySQL.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log) for details.
         """
-        pass
     @property
     def audit_log(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enable writing of audit log of MySQL.
 
         See [MySQL documentation](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log) for details.
         """
-        pass
     @property
     def sql_mode(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___MysqlConfig5_7.SQLMode.ValueType]:
         """Server SQL mode of MySQL.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
         """
-        pass
     @property
     def max_allowed_packet(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size in bytes of one packet.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet) for details.
         """
-        pass
     default_authentication_plugin: global___MysqlConfig5_7.AuthPlugin.ValueType
     """Authentication plugin used in the managed MySQL cluster.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_default_authentication_plugin for details.
     """
-
     @property
     def innodb_flush_log_at_trx_commit(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Transaction log flush behaviour.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit for details.
         """
-        pass
     @property
     def innodb_lock_wait_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Max time in seconds for a transaction to wait for a row lock.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout for details.
         """
-        pass
     transaction_isolation: global___MysqlConfig5_7.TransactionIsolation.ValueType
     """Default transaction isolation level.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation for details.
     """
-
     @property
     def innodb_print_all_deadlocks(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Print information about deadlocks in error log.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks for details.
         """
-        pass
     @property
     def net_read_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of seconds to wait for more data from a connection before aborting the read.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout for details.
         """
-        pass
     @property
     def net_write_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of seconds to wait for a block to be written to a connection before aborting the write.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout for details.
         """
-        pass
     @property
     def group_concat_max_len(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum permitted result length in bytes for the GROUP_CONCAT() function.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_group_concat_max_len for details.
         """
-        pass
     @property
     def tmp_table_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum size of internal in-memory temporary tables.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size for details.
         """
-        pass
     @property
     def max_heap_table_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size for details.
         """
-        pass
-    default_time_zone: typing.Text
+    default_time_zone: builtins.str
     """The servers default time zone.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_default-time-zone for details.
     """
-
-    character_set_server: typing.Text
+    character_set_server: builtins.str
     """The servers default character set.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_server for details.
     """
-
-    collation_server: typing.Text
+    collation_server: builtins.str
     """The server default collation.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_collation_server for details.
     """
-
     @property
     def innodb_adaptive_hash_index(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enables InnoDB adaptive hash index.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index for details.
         """
-        pass
     @property
     def innodb_numa_interleave(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_numa_interleave for details.
         """
-        pass
     @property
     def innodb_log_buffer_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size for details.
         """
-        pass
     @property
     def innodb_log_file_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The size in bytes of the single InnoDB Redo log file.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size for details.
         """
-        pass
     @property
     def innodb_io_capacity(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Limits IO available for InnoDB background tasks.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity for details.
         """
-        pass
     @property
     def innodb_io_capacity_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Limits IO available for InnoDB background tasks.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity_max for details.
         """
-        pass
     @property
     def innodb_read_io_threads(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of I/O threads for read operations in InnoDB.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads for details.
         """
-        pass
     @property
     def innodb_write_io_threads(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of I/O threads for write operations in InnoDB.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads for details.
         """
-        pass
     @property
     def innodb_purge_threads(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of background threads devoted to the InnoDB purge operation.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_purge_threads for details.
         """
-        pass
     @property
     def innodb_thread_concurrency(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Defines the maximum number of threads permitted inside of InnoDB.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_thread_concurrency for details.
         """
-        pass
     @property
     def innodb_temp_data_file_max_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Limits the max size of InnoDB temp tablespace.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path for details.
         """
-        pass
     @property
     def thread_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """A number of threads the server should cache for reuse.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_cache_size) for details.
         """
-        pass
     @property
     def thread_stack(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The stack size for each thread. The default is large enough for normal operation.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_stack) for details.
         """
-        pass
     @property
     def join_buffer_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
         """
-        pass
     @property
     def sort_buffer_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Each session that must perform a sort allocates a buffer of this size.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) for details.
         """
-        pass
     @property
     def table_definition_cache(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of table definitions that can be stored in the definition cache.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_definition_cache) for details.
         """
-        pass
     @property
     def table_open_cache(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of open tables for all threads.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache) for details.
         """
-        pass
     @property
     def table_open_cache_instances(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of open tables cache instances.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache_instances) for details.
         """
-        pass
     @property
     def explicit_defaults_for_timestamp(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) for details.
         """
-        pass
     @property
     def auto_increment_increment(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Can be used to control the operation of AUTO_INCREMENT columns.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-master.html#sysvar_auto_increment_increment) for details.
         """
-        pass
     @property
     def auto_increment_offset(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Can be used to control the operation of AUTO_INCREMENT columns.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-master.html#sysvar_auto_increment_offset) for details.
         """
-        pass
     @property
     def sync_binlog(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Controls how often the MySQL server synchronizes the binary log to disk.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog) for details.
         """
-        pass
     @property
     def binlog_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The size of the cache to hold changes to the binary log during a transaction.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_cache_size) for details.
         """
-        pass
     @property
     def binlog_group_commit_sync_delay(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
 
         See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay) for details.
         """
-        pass
     binlog_row_image: global___MysqlConfig5_7.BinlogRowImage.ValueType
     """For MySQL row-based replication, this variable determines how row images are written to the binary log.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
     """
-
     @property
     def binlog_rows_query_log_events(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """When enabled, it causes the server to write informational log events such as row query log events into its binary log.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events) for details.
         """
-        pass
     @property
     def rpl_semi_sync_master_wait_for_slave_count(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of replica acknowledgments the source must receive per transaction before proceeding.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-master.html#sysvar_rpl_semi_sync_master_wait_for_slave_count) for details.
         """
-        pass
     slave_parallel_type: global___MysqlConfig5_7.SlaveParallelType.ValueType
     """When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
     """
-
     @property
     def slave_parallel_workers(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Sets the number of applier threads for executing replication transactions in parallel.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_workers) for details.
         """
-        pass
     @property
     def mdb_preserve_binlog_bytes(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The size of the binary log to hold."""
-        pass
     @property
     def interactive_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of seconds the server waits for activity on an interactive connection before closing it.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_interactive_timeout) for details.
         """
-        pass
     @property
     def wait_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of seconds the server waits for activity on a noninteractive connection before closing it.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout) for details.
         """
-        pass
     @property
     def mdb_offline_mode_enable_lag(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data."""
-        pass
     @property
     def mdb_offline_mode_disable_lag(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
         Should be less than mdb_offline_mode_enable_lag value.
         """
-        pass
     @property
     def range_optimizer_max_mem_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The limit on memory consumption for the range optimizer.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size) for details.
         """
-        pass
     @property
     def slow_query_log(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Manages slow query log.
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log) for details.
         """
-        pass
     @property
     def slow_query_log_always_write_time(self) -> google.protobuf.wrappers_pb2.DoubleValue:
         """Query execution time, after which query to be logged unconditionally, that is, `log_slow_rate_limit`` will not apply to it.
 
         See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details.
         """
-        pass
     log_slow_rate_type: global___MysqlConfig5_7.LogSlowRateType.ValueType
     """Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION.
 
     See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
     """
-
     @property
     def log_slow_rate_limit(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
 
         See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit) for details.
         """
-        pass
     @property
     def log_slow_sp_statements(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """When TRUE, statements executed by stored procedures are logged to the slow log.
 
         See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements) for details.
         """
-        pass
     @property
     def log_slow_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___MysqlConfig5_7.LogSlowFilterType.ValueType]:
         """Filters the slow log by the query's execution plan.
 
         See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
         """
-        pass
     @property
     def mdb_priority_choice_max_lag(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
         Should be less than mdb_offline_mode_disable_lag.
         """
-        pass
     @property
     def innodb_page_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Specifies the page size for InnoDB tablespaces.
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
         """
-        pass
     @property
     def innodb_online_alter_log_max_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The limit in bytes on the size of the temporary log files used during online DDL operations
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
         """
-        pass
     @property
     def innodb_ft_min_token_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Minimum length of words that are stored in an InnoDB FULLTEXT index
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
         """
-        pass
     @property
     def innodb_ft_max_token_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum length of words that are stored in an InnoDB FULLTEXT index
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
         """
-        pass
     @property
     def lower_case_table_names(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Table names storage and comparison strategy
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
         """
-        pass
     @property
     def show_compatibility_56(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Manages MySQL 5.6 compatibility
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
         """
-        pass
     @property
     def max_sp_recursion_depth(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The number of times that any given stored procedure may be called recursively.
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
         """
-        pass
     @property
     def innodb_compression_level(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The level of zlib compression to use for InnoDB compressed tables and indexes.
 
         For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
         """
-        pass
     binlog_transaction_dependency_tracking: global___MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType
     """Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
 
     For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        innodb_buffer_pool_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_connections: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        long_query_time: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        general_log: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        audit_log: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        sql_mode: typing.Optional[typing.Iterable[global___MysqlConfig5_7.SQLMode.ValueType]] = ...,
-        max_allowed_packet: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        innodb_buffer_pool_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_connections: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        long_query_time: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        general_log: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        audit_log: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        sql_mode: collections.abc.Iterable[global___MysqlConfig5_7.SQLMode.ValueType] | None = ...,
+        max_allowed_packet: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         default_authentication_plugin: global___MysqlConfig5_7.AuthPlugin.ValueType = ...,
-        innodb_flush_log_at_trx_commit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_lock_wait_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        innodb_flush_log_at_trx_commit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_lock_wait_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         transaction_isolation: global___MysqlConfig5_7.TransactionIsolation.ValueType = ...,
-        innodb_print_all_deadlocks: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        net_read_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        net_write_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        group_concat_max_len: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        tmp_table_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_heap_table_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        default_time_zone: typing.Text = ...,
-        character_set_server: typing.Text = ...,
-        collation_server: typing.Text = ...,
-        innodb_adaptive_hash_index: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        innodb_numa_interleave: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        innodb_log_buffer_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_log_file_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_io_capacity: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_io_capacity_max: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_read_io_threads: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_write_io_threads: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_purge_threads: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_thread_concurrency: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_temp_data_file_max_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        thread_cache_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        thread_stack: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        join_buffer_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        sort_buffer_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        table_definition_cache: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        table_open_cache: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        table_open_cache_instances: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        explicit_defaults_for_timestamp: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        auto_increment_increment: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        auto_increment_offset: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        sync_binlog: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        binlog_cache_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        binlog_group_commit_sync_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        innodb_print_all_deadlocks: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        net_read_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        net_write_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        group_concat_max_len: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        tmp_table_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_heap_table_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        default_time_zone: builtins.str = ...,
+        character_set_server: builtins.str = ...,
+        collation_server: builtins.str = ...,
+        innodb_adaptive_hash_index: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        innodb_numa_interleave: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        innodb_log_buffer_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_log_file_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_io_capacity: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_io_capacity_max: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_read_io_threads: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_write_io_threads: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_purge_threads: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_thread_concurrency: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_temp_data_file_max_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        thread_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        thread_stack: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        join_buffer_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        sort_buffer_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        table_definition_cache: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        table_open_cache: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        table_open_cache_instances: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        explicit_defaults_for_timestamp: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        auto_increment_increment: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        auto_increment_offset: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        sync_binlog: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        binlog_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        binlog_group_commit_sync_delay: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         binlog_row_image: global___MysqlConfig5_7.BinlogRowImage.ValueType = ...,
-        binlog_rows_query_log_events: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        rpl_semi_sync_master_wait_for_slave_count: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        binlog_rows_query_log_events: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        rpl_semi_sync_master_wait_for_slave_count: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         slave_parallel_type: global___MysqlConfig5_7.SlaveParallelType.ValueType = ...,
-        slave_parallel_workers: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        mdb_preserve_binlog_bytes: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        interactive_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        wait_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        mdb_offline_mode_enable_lag: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        mdb_offline_mode_disable_lag: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        range_optimizer_max_mem_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        slow_query_log: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        slow_query_log_always_write_time: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
+        slave_parallel_workers: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        mdb_preserve_binlog_bytes: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        interactive_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        wait_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        mdb_offline_mode_enable_lag: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        mdb_offline_mode_disable_lag: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        range_optimizer_max_mem_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        slow_query_log: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        slow_query_log_always_write_time: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
         log_slow_rate_type: global___MysqlConfig5_7.LogSlowRateType.ValueType = ...,
-        log_slow_rate_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        log_slow_sp_statements: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_slow_filter: typing.Optional[typing.Iterable[global___MysqlConfig5_7.LogSlowFilterType.ValueType]] = ...,
-        mdb_priority_choice_max_lag: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_page_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_online_alter_log_max_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_ft_min_token_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_ft_max_token_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        lower_case_table_names: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        show_compatibility_56: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        max_sp_recursion_depth: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        innodb_compression_level: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        log_slow_rate_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        log_slow_sp_statements: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        log_slow_filter: collections.abc.Iterable[global___MysqlConfig5_7.LogSlowFilterType.ValueType] | None = ...,
+        mdb_priority_choice_max_lag: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_page_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_online_alter_log_max_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_ft_min_token_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_ft_max_token_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        lower_case_table_names: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        show_compatibility_56: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        max_sp_recursion_depth: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        innodb_compression_level: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         binlog_transaction_dependency_tracking: global___MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audit_log",b"audit_log","auto_increment_increment",b"auto_increment_increment","auto_increment_offset",b"auto_increment_offset","binlog_cache_size",b"binlog_cache_size","binlog_group_commit_sync_delay",b"binlog_group_commit_sync_delay","binlog_rows_query_log_events",b"binlog_rows_query_log_events","explicit_defaults_for_timestamp",b"explicit_defaults_for_timestamp","general_log",b"general_log","group_concat_max_len",b"group_concat_max_len","innodb_adaptive_hash_index",b"innodb_adaptive_hash_index","innodb_buffer_pool_size",b"innodb_buffer_pool_size","innodb_compression_level",b"innodb_compression_level","innodb_flush_log_at_trx_commit",b"innodb_flush_log_at_trx_commit","innodb_ft_max_token_size",b"innodb_ft_max_token_size","innodb_ft_min_token_size",b"innodb_ft_min_token_size","innodb_io_capacity",b"innodb_io_capacity","innodb_io_capacity_max",b"innodb_io_capacity_max","innodb_lock_wait_timeout",b"innodb_lock_wait_timeout","innodb_log_buffer_size",b"innodb_log_buffer_size","innodb_log_file_size",b"innodb_log_file_size","innodb_numa_interleave",b"innodb_numa_interleave","innodb_online_alter_log_max_size",b"innodb_online_alter_log_max_size","innodb_page_size",b"innodb_page_size","innodb_print_all_deadlocks",b"innodb_print_all_deadlocks","innodb_purge_threads",b"innodb_purge_threads","innodb_read_io_threads",b"innodb_read_io_threads","innodb_temp_data_file_max_size",b"innodb_temp_data_file_max_size","innodb_thread_concurrency",b"innodb_thread_concurrency","innodb_write_io_threads",b"innodb_write_io_threads","interactive_timeout",b"interactive_timeout","join_buffer_size",b"join_buffer_size","log_slow_rate_limit",b"log_slow_rate_limit","log_slow_sp_statements",b"log_slow_sp_statements","long_query_time",b"long_query_time","lower_case_table_names",b"lower_case_table_names","max_allowed_packet",b"max_allowed_packet","max_connections",b"max_connections","max_heap_table_size",b"max_heap_table_size","max_sp_recursion_depth",b"max_sp_recursion_depth","mdb_offline_mode_disable_lag",b"mdb_offline_mode_disable_lag","mdb_offline_mode_enable_lag",b"mdb_offline_mode_enable_lag","mdb_preserve_binlog_bytes",b"mdb_preserve_binlog_bytes","mdb_priority_choice_max_lag",b"mdb_priority_choice_max_lag","net_read_timeout",b"net_read_timeout","net_write_timeout",b"net_write_timeout","range_optimizer_max_mem_size",b"range_optimizer_max_mem_size","rpl_semi_sync_master_wait_for_slave_count",b"rpl_semi_sync_master_wait_for_slave_count","show_compatibility_56",b"show_compatibility_56","slave_parallel_workers",b"slave_parallel_workers","slow_query_log",b"slow_query_log","slow_query_log_always_write_time",b"slow_query_log_always_write_time","sort_buffer_size",b"sort_buffer_size","sync_binlog",b"sync_binlog","table_definition_cache",b"table_definition_cache","table_open_cache",b"table_open_cache","table_open_cache_instances",b"table_open_cache_instances","thread_cache_size",b"thread_cache_size","thread_stack",b"thread_stack","tmp_table_size",b"tmp_table_size","wait_timeout",b"wait_timeout"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audit_log",b"audit_log","auto_increment_increment",b"auto_increment_increment","auto_increment_offset",b"auto_increment_offset","binlog_cache_size",b"binlog_cache_size","binlog_group_commit_sync_delay",b"binlog_group_commit_sync_delay","binlog_row_image",b"binlog_row_image","binlog_rows_query_log_events",b"binlog_rows_query_log_events","binlog_transaction_dependency_tracking",b"binlog_transaction_dependency_tracking","character_set_server",b"character_set_server","collation_server",b"collation_server","default_authentication_plugin",b"default_authentication_plugin","default_time_zone",b"default_time_zone","explicit_defaults_for_timestamp",b"explicit_defaults_for_timestamp","general_log",b"general_log","group_concat_max_len",b"group_concat_max_len","innodb_adaptive_hash_index",b"innodb_adaptive_hash_index","innodb_buffer_pool_size",b"innodb_buffer_pool_size","innodb_compression_level",b"innodb_compression_level","innodb_flush_log_at_trx_commit",b"innodb_flush_log_at_trx_commit","innodb_ft_max_token_size",b"innodb_ft_max_token_size","innodb_ft_min_token_size",b"innodb_ft_min_token_size","innodb_io_capacity",b"innodb_io_capacity","innodb_io_capacity_max",b"innodb_io_capacity_max","innodb_lock_wait_timeout",b"innodb_lock_wait_timeout","innodb_log_buffer_size",b"innodb_log_buffer_size","innodb_log_file_size",b"innodb_log_file_size","innodb_numa_interleave",b"innodb_numa_interleave","innodb_online_alter_log_max_size",b"innodb_online_alter_log_max_size","innodb_page_size",b"innodb_page_size","innodb_print_all_deadlocks",b"innodb_print_all_deadlocks","innodb_purge_threads",b"innodb_purge_threads","innodb_read_io_threads",b"innodb_read_io_threads","innodb_temp_data_file_max_size",b"innodb_temp_data_file_max_size","innodb_thread_concurrency",b"innodb_thread_concurrency","innodb_write_io_threads",b"innodb_write_io_threads","interactive_timeout",b"interactive_timeout","join_buffer_size",b"join_buffer_size","log_slow_filter",b"log_slow_filter","log_slow_rate_limit",b"log_slow_rate_limit","log_slow_rate_type",b"log_slow_rate_type","log_slow_sp_statements",b"log_slow_sp_statements","long_query_time",b"long_query_time","lower_case_table_names",b"lower_case_table_names","max_allowed_packet",b"max_allowed_packet","max_connections",b"max_connections","max_heap_table_size",b"max_heap_table_size","max_sp_recursion_depth",b"max_sp_recursion_depth","mdb_offline_mode_disable_lag",b"mdb_offline_mode_disable_lag","mdb_offline_mode_enable_lag",b"mdb_offline_mode_enable_lag","mdb_preserve_binlog_bytes",b"mdb_preserve_binlog_bytes","mdb_priority_choice_max_lag",b"mdb_priority_choice_max_lag","net_read_timeout",b"net_read_timeout","net_write_timeout",b"net_write_timeout","range_optimizer_max_mem_size",b"range_optimizer_max_mem_size","rpl_semi_sync_master_wait_for_slave_count",b"rpl_semi_sync_master_wait_for_slave_count","show_compatibility_56",b"show_compatibility_56","slave_parallel_type",b"slave_parallel_type","slave_parallel_workers",b"slave_parallel_workers","slow_query_log",b"slow_query_log","slow_query_log_always_write_time",b"slow_query_log_always_write_time","sort_buffer_size",b"sort_buffer_size","sql_mode",b"sql_mode","sync_binlog",b"sync_binlog","table_definition_cache",b"table_definition_cache","table_open_cache",b"table_open_cache","table_open_cache_instances",b"table_open_cache_instances","thread_cache_size",b"thread_cache_size","thread_stack",b"thread_stack","tmp_table_size",b"tmp_table_size","transaction_isolation",b"transaction_isolation","wait_timeout",b"wait_timeout"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_heap_table_size", b"max_heap_table_size", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "wait_timeout", b"wait_timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_row_image", b"binlog_row_image", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "binlog_transaction_dependency_tracking", b"binlog_transaction_dependency_tracking", "character_set_server", b"character_set_server", "collation_server", b"collation_server", "default_authentication_plugin", b"default_authentication_plugin", "default_time_zone", b"default_time_zone", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "log_slow_filter", b"log_slow_filter", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_rate_type", b"log_slow_rate_type", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_heap_table_size", b"max_heap_table_size", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_type", b"slave_parallel_type", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sql_mode", b"sql_mode", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "transaction_isolation", b"transaction_isolation", "wait_timeout", b"wait_timeout"]) -> None: ...
+
 global___MysqlConfig5_7 = MysqlConfig5_7
 
 class MysqlConfigSet5_7(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
@@ -857,21 +793,20 @@ class MysqlConfigSet5_7(google.protobuf.message.Message):
         """Effective settings for a MySQL 5.7 cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
-        pass
     @property
     def user_config(self) -> global___MysqlConfig5_7:
         """User-defined settings for a MySQL 5.7 cluster."""
-        pass
     @property
     def default_config(self) -> global___MysqlConfig5_7:
         """Default configuration for a MySQL 5.7 cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___MysqlConfig5_7] = ...,
-        user_config: typing.Optional[global___MysqlConfig5_7] = ...,
-        default_config: typing.Optional[global___MysqlConfig5_7] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___MysqlConfig5_7 | None = ...,
+        user_config: global___MysqlConfig5_7 | None = ...,
+        default_config: global___MysqlConfig5_7 | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___MysqlConfigSet5_7 = MysqlConfigSet5_7

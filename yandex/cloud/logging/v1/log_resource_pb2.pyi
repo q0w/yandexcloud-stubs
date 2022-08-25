@@ -3,11 +3,16 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -16,42 +21,46 @@ class LogEntryResource(google.protobuf.message.Message):
 
     May be used either by services and by user.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TYPE_FIELD_NUMBER: builtins.int
     ID_FIELD_NUMBER: builtins.int
-    type: typing.Text
+    type: builtins.str
     """Resource type, i.e., `serverless.function`"""
-
-    id: typing.Text
+    id: builtins.str
     """Resource ID, i.e., ID of the function producing logs."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        type: typing.Text = ...,
-        id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["id",b"id","type",b"type"]) -> None: ...
+        type: builtins.str = ...,
+        id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["id", b"id", "type", b"type"]) -> None: ...
+
 global___LogEntryResource = LogEntryResource
 
 class LogGroupResource(google.protobuf.message.Message):
     """Log group resource."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TYPE_FIELD_NUMBER: builtins.int
     IDS_FIELD_NUMBER: builtins.int
-    type: typing.Text
+    type: builtins.str
     """Resource type.
 
     Collected from log entries inside log group.
     """
-
     @property
-    def ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of resource IDs with the same resource type."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        type: typing.Text = ...,
-        ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["ids",b"ids","type",b"type"]) -> None: ...
+        type: builtins.str = ...,
+        ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["ids", b"ids", "type", b"type"]) -> None: ...
+
 global___LogGroupResource = LogGroupResource

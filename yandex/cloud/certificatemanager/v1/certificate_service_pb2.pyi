@@ -3,185 +3,192 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.certificatemanager.v1.certificate_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _CertificateView:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _CertificateViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateView.ValueType], builtins.type):
+
+class _CertificateViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateView.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BASIC: _CertificateView.ValueType  # 0
     """Output basic information about the certificate."""
-
     FULL: _CertificateView.ValueType  # 1
     """Output full information about the certificate including domain challenges."""
 
-class CertificateView(_CertificateView, metaclass=_CertificateViewEnumTypeWrapper):
-    pass
+class CertificateView(_CertificateView, metaclass=_CertificateViewEnumTypeWrapper): ...
 
 BASIC: CertificateView.ValueType  # 0
 """Output basic information about the certificate."""
-
 FULL: CertificateView.ValueType  # 1
 """Output full information about the certificate including domain challenges."""
-
 global___CertificateView = CertificateView
-
 
 class GetCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the certificate to return.
 
     To get the ID of a certificate use a [CertificateService.List] request.
     """
-
     view: global___CertificateView.ValueType
     """The output type of the certificate."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
+        certificate_id: builtins.str = ...,
         view: global___CertificateView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","view",b"view"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "view", b"view"]) -> None: ...
+
 global___GetCertificateRequest = GetCertificateRequest
 
 class ListCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     VIEW_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list certificate in."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListCertificatesResponse.next_page_token] returned by a previous list request.
     """
-
     view: global___CertificateView.ValueType
     """The output type of the certificate."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
+        page_token: builtins.str = ...,
         view: global___CertificateView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token","view",b"view"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token", "view", b"view"]) -> None: ...
+
 global___ListCertificatesRequest = ListCertificatesRequest
 
 class ListCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CERTIFICATES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def certificates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate]:
         """List of certificates in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number
     of results is greater than the specified [ListCertificatesRequest.page_size], use
     the `next_page_token` as the value for the [ListCertificatesRequest.page_token] query parameter
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificates: typing.Optional[typing.Iterable[yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificates",b"certificates","next_page_token",b"next_page_token"]) -> None: ...
+        certificates: collections.abc.Iterable[yandex.cloud.certificatemanager.v1.certificate_pb2.Certificate] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificates", b"certificates", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListCertificatesResponse = ListCertificatesResponse
 
 class ListVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the certificate to list versions for."""
-
     page_size: builtins.int
     """Page token. To get the next page of results, set `page_token` to the
     [ListCertificatesResponse.next_page_token] returned by a previous list request.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListCertificatesResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
+        certificate_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListVersionsRequest = ListVersionsRequest
 
 class ListVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.certificatemanager.v1.certificate_pb2.Version]:
         """List of versions for the specified certificate."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number
     of results is greater than the specified [ListCertificatesRequest.page_size], use
     the `next_page_token` as the value for the [ListCertificatesRequest.page_token] query parameter
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        versions: typing.Optional[typing.Iterable[yandex.cloud.certificatemanager.v1.certificate_pb2.Version]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","versions",b"versions"]) -> None: ...
+        versions: collections.abc.Iterable[yandex.cloud.certificatemanager.v1.certificate_pb2.Version] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "versions", b"versions"]) -> None: ...
+
 global___ListVersionsResponse = ListVersionsResponse
 
 class CreateCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -191,74 +198,73 @@ class CreateCertificateRequest(google.protobuf.message.Message):
     CHAIN_FIELD_NUMBER: builtins.int
     PRIVATE_KEY_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a certificate in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the certificate.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the certificate."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Labels for the certificate as `key:value` pairs."""
-        pass
-    certificate: typing.Text
+    certificate: builtins.str
     """PEM-encoded certificate content of the certificate."""
-
-    chain: typing.Text
+    chain: builtins.str
     """PEM-encoded certificate chain content of the certificate."""
-
-    private_key: typing.Text
+    private_key: builtins.str
     """PEM-encoded private key content of the certificate."""
-
     deletion_protection: builtins.bool
     """Flag that protects deletion of the certificate"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        certificate: typing.Text = ...,
-        chain: typing.Text = ...,
-        private_key: typing.Text = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        certificate: builtins.str = ...,
+        chain: builtins.str = ...,
+        private_key: builtins.str = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate",b"certificate","chain",b"chain","deletion_protection",b"deletion_protection","description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","private_key",b"private_key"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate", b"certificate", "chain", b"chain", "deletion_protection", b"deletion_protection", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "private_key", b"private_key"]) -> None: ...
+
 global___CreateCertificateRequest = CreateCertificateRequest
 
 class CreateCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
-    """ID of the certificate being created."""
 
-    def __init__(self,
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
+    certificate_id: builtins.str
+    """ID of the certificate being created."""
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id"]) -> None: ...
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id"]) -> None: ...
+
 global___CreateCertificateMetadata = CreateCertificateMetadata
 
 class UpdateCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -269,106 +275,108 @@ class UpdateCertificateRequest(google.protobuf.message.Message):
     CHAIN_FIELD_NUMBER: builtins.int
     PRIVATE_KEY_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the certificate to update.
     To get the ID of a certificate use a [CertificateService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the certificate are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the certificate."""
-
-    description: typing.Text
+    description: builtins.str
     """New description for the certificate."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """New labels for the certificate as `key:value` pairs."""
-        pass
-    certificate: typing.Text
+    certificate: builtins.str
     """New PEM-encoded certificate content for the certificate. Used only for imported certificates."""
-
-    chain: typing.Text
+    chain: builtins.str
     """New PEM-encoded certificate chain content for the certificate. Used only for imported certificates."""
-
-    private_key: typing.Text
+    private_key: builtins.str
     """New PEM-encoded private key content for the certificate. Used only for imported certificates."""
-
     deletion_protection: builtins.bool
     """Flag that protects deletion of the certificate"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        certificate: typing.Text = ...,
-        chain: typing.Text = ...,
-        private_key: typing.Text = ...,
+        certificate_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        certificate: builtins.str = ...,
+        chain: builtins.str = ...,
+        private_key: builtins.str = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate",b"certificate","certificate_id",b"certificate_id","chain",b"chain","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","name",b"name","private_key",b"private_key","update_mask",b"update_mask"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate", b"certificate", "certificate_id", b"certificate_id", "chain", b"chain", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "name", b"name", "private_key", b"private_key", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateCertificateRequest = UpdateCertificateRequest
 
 class UpdateCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
-    """ID of the certificate being updated."""
 
-    def __init__(self,
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
+    certificate_id: builtins.str
+    """ID of the certificate being updated."""
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id"]) -> None: ...
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id"]) -> None: ...
+
 global___UpdateCertificateMetadata = UpdateCertificateMetadata
 
 class DeleteCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
-    """ID of the certificate to be deleted."""
 
-    def __init__(self,
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
+    certificate_id: builtins.str
+    """ID of the certificate to be deleted."""
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id"]) -> None: ...
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id"]) -> None: ...
+
 global___DeleteCertificateRequest = DeleteCertificateRequest
 
 class DeleteCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
-    """ID of the certificate being deleted."""
 
-    def __init__(self,
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
+    certificate_id: builtins.str
+    """ID of the certificate being deleted."""
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id"]) -> None: ...
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id"]) -> None: ...
+
 global___DeleteCertificateMetadata = DeleteCertificateMetadata
 
 class RequestNewCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -377,106 +385,104 @@ class RequestNewCertificateRequest(google.protobuf.message.Message):
     DOMAINS_FIELD_NUMBER: builtins.int
     CHALLENGE_TYPE_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a certificate in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the certificate."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the certificate."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Labels for the certificate as `key:value` pairs."""
-        pass
     @property
-    def domains(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def domains(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Fully qualified domain names of the certificate."""
-        pass
     challenge_type: yandex.cloud.certificatemanager.v1.certificate_pb2.ChallengeType.ValueType
     """Type of the domain validation challenge."""
-
     deletion_protection: builtins.bool
     """Flag that protects deletion of the certificate"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        domains: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        domains: collections.abc.Iterable[builtins.str] | None = ...,
         challenge_type: yandex.cloud.certificatemanager.v1.certificate_pb2.ChallengeType.ValueType = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["challenge_type",b"challenge_type","deletion_protection",b"deletion_protection","description",b"description","domains",b"domains","folder_id",b"folder_id","labels",b"labels","name",b"name"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["challenge_type", b"challenge_type", "deletion_protection", b"deletion_protection", "description", b"description", "domains", b"domains", "folder_id", b"folder_id", "labels", b"labels", "name", b"name"]) -> None: ...
+
 global___RequestNewCertificateRequest = RequestNewCertificateRequest
 
 class RequestNewCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
-    """ID of the certificate that is being requested."""
 
-    def __init__(self,
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
+    certificate_id: builtins.str
+    """ID of the certificate that is being requested."""
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id"]) -> None: ...
+        certificate_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id"]) -> None: ...
+
 global___RequestNewCertificateMetadata = RequestNewCertificateMetadata
 
 class ListCertificateOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the certificate to list operations for.
 
     To get the certificate ID, use a [CertificateService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListCertificateOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificate_id: typing.Text = ...,
+        certificate_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListCertificateOperationsRequest = ListCertificateOperationsRequest
 
 class ListCertificateOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified certificate."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListCertificateOperationsRequest.page_size], use the `next_page_token` as the value
     for the [ListCertificateOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListCertificateOperationsResponse = ListCertificateOperationsResponse

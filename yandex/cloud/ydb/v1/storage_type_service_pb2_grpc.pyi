@@ -11,31 +11,29 @@ class StorageTypeServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.storage_type_service_pb2.GetStorageTypeRequest,
-        yandex.cloud.ydb.v1.storage_type_pb2.StorageType]
+        yandex.cloud.ydb.v1.storage_type_pb2.StorageType,
+    ]
     """Returns the specified storage types."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ydb.v1.storage_type_service_pb2.ListStorageTypesRequest,
-        yandex.cloud.ydb.v1.storage_type_service_pb2.ListStorageTypesResponse]
+        yandex.cloud.ydb.v1.storage_type_service_pb2.ListStorageTypesResponse,
+    ]
     """Returns the list of available storage types."""
-
 
 class StorageTypeServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.ydb.v1.storage_type_service_pb2.GetStorageTypeRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.storage_type_pb2.StorageType:
         """Returns the specified storage types."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.ydb.v1.storage_type_service_pb2.ListStorageTypesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ydb.v1.storage_type_service_pb2.ListStorageTypesResponse:
         """Returns the list of available storage types."""
-        pass
-
 
 def add_StorageTypeServiceServicer_to_server(servicer: StorageTypeServiceServicer, server: grpc.Server) -> None: ...

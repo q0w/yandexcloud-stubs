@@ -10,113 +10,107 @@ import yandex.cloud.operation.operation_pb2
 
 class HostGroupServiceStub:
     """A set of methods for managing groups of dedicated hosts."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.GetHostGroupRequest,
-        yandex.cloud.compute.v1.host_group_pb2.HostGroup]
+        yandex.cloud.compute.v1.host_group_pb2.HostGroup,
+    ]
     """Returns the specified host group."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupsRequest,
-        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupsResponse]
+        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupsResponse,
+    ]
     """Retrieves the list of host groups in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.CreateHostGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a host group in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.UpdateHostGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified host group."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.DeleteHostGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified host group."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupOperationsRequest,
-        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupOperationsResponse]
+        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupOperationsResponse,
+    ]
     """Lists operations for the specified host group."""
-
     ListInstances: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupInstancesRequest,
-        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupInstancesResponse]
+        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupInstancesResponse,
+    ]
     """Lists instances that belongs to the specified host group."""
-
     ListHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupHostsRequest,
-        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupHostsResponse]
+        yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupHostsResponse,
+    ]
     """Lists hosts that belongs to the specified host group."""
-
 
 class HostGroupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing groups of dedicated hosts."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.GetHostGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.host_group_pb2.HostGroup:
         """Returns the specified host group."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupsResponse:
         """Retrieves the list of host groups in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.CreateHostGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a host group in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.UpdateHostGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified host group."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.DeleteHostGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified host group."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupOperationsResponse:
         """Lists operations for the specified host group."""
-        pass
-
     @abc.abstractmethod
-    def ListInstances(self,
+    def ListInstances(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupInstancesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupInstancesResponse:
         """Lists instances that belongs to the specified host group."""
-        pass
-
     @abc.abstractmethod
-    def ListHosts(self,
+    def ListHosts(
+        self,
         request: yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.host_group_service_pb2.ListHostGroupHostsResponse:
         """Lists hosts that belongs to the specified host group."""
-        pass
-
 
 def add_HostGroupServiceServicer_to_server(servicer: HostGroupServiceServicer, server: grpc.Server) -> None: ...

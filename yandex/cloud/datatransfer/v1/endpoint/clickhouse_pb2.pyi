@@ -3,51 +3,61 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.empty_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.datatransfer.v1.endpoint.common_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _ClickhouseCleanupPolicy:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _ClickhouseCleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClickhouseCleanupPolicy.ValueType], builtins.type):
+
+class _ClickhouseCleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClickhouseCleanupPolicy.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED: _ClickhouseCleanupPolicy.ValueType  # 0
     CLICKHOUSE_CLEANUP_POLICY_DISABLED: _ClickhouseCleanupPolicy.ValueType  # 1
     CLICKHOUSE_CLEANUP_POLICY_DROP: _ClickhouseCleanupPolicy.ValueType  # 2
-class ClickhouseCleanupPolicy(_ClickhouseCleanupPolicy, metaclass=_ClickhouseCleanupPolicyEnumTypeWrapper):
-    pass
+
+class ClickhouseCleanupPolicy(_ClickhouseCleanupPolicy, metaclass=_ClickhouseCleanupPolicyEnumTypeWrapper): ...
 
 CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED: ClickhouseCleanupPolicy.ValueType  # 0
 CLICKHOUSE_CLEANUP_POLICY_DISABLED: ClickhouseCleanupPolicy.ValueType  # 1
 CLICKHOUSE_CLEANUP_POLICY_DROP: ClickhouseCleanupPolicy.ValueType  # 2
 global___ClickhouseCleanupPolicy = ClickhouseCleanupPolicy
 
-
 class ClickhouseShard(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     HOSTS_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     @property
-    def hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        hosts: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hosts",b"hosts","name",b"name"]) -> None: ...
+        name: builtins.str = ...,
+        hosts: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hosts", b"hosts", "name", b"name"]) -> None: ...
+
 global___ClickhouseShard = ClickhouseShard
 
 class OnPremiseClickhouse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SHARDS_FIELD_NUMBER: builtins.int
     HTTP_PORT_FIELD_NUMBER: builtins.int
     NATIVE_PORT_FIELD_NUMBER: builtins.int
@@ -58,98 +68,113 @@ class OnPremiseClickhouse(google.protobuf.message.Message):
     native_port: builtins.int
     @property
     def tls_mode(self) -> yandex.cloud.datatransfer.v1.endpoint.common_pb2.TLSMode: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        shards: typing.Optional[typing.Iterable[global___ClickhouseShard]] = ...,
+        shards: collections.abc.Iterable[global___ClickhouseShard] | None = ...,
         http_port: builtins.int = ...,
         native_port: builtins.int = ...,
-        tls_mode: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.common_pb2.TLSMode] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["tls_mode",b"tls_mode"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["http_port",b"http_port","native_port",b"native_port","shards",b"shards","tls_mode",b"tls_mode"]) -> None: ...
+        tls_mode: yandex.cloud.datatransfer.v1.endpoint.common_pb2.TLSMode | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["tls_mode", b"tls_mode"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["http_port", b"http_port", "native_port", b"native_port", "shards", b"shards", "tls_mode", b"tls_mode"]) -> None: ...
+
 global___OnPremiseClickhouse = OnPremiseClickhouse
 
 class ClickhouseConnectionOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MDB_CLUSTER_ID_FIELD_NUMBER: builtins.int
     ON_PREMISE_FIELD_NUMBER: builtins.int
     DATABASE_FIELD_NUMBER: builtins.int
     USER_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
-    mdb_cluster_id: typing.Text
+    mdb_cluster_id: builtins.str
     @property
     def on_premise(self) -> global___OnPremiseClickhouse: ...
-    database: typing.Text
-    user: typing.Text
+    database: builtins.str
+    user: builtins.str
     @property
     def password(self) -> yandex.cloud.datatransfer.v1.endpoint.common_pb2.Secret: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mdb_cluster_id: typing.Text = ...,
-        on_premise: typing.Optional[global___OnPremiseClickhouse] = ...,
-        database: typing.Text = ...,
-        user: typing.Text = ...,
-        password: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.common_pb2.Secret] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["address",b"address","mdb_cluster_id",b"mdb_cluster_id","on_premise",b"on_premise","password",b"password"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address",b"address","database",b"database","mdb_cluster_id",b"mdb_cluster_id","on_premise",b"on_premise","password",b"password","user",b"user"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["address",b"address"]) -> typing.Optional[typing_extensions.Literal["mdb_cluster_id","on_premise"]]: ...
+        mdb_cluster_id: builtins.str = ...,
+        on_premise: global___OnPremiseClickhouse | None = ...,
+        database: builtins.str = ...,
+        user: builtins.str = ...,
+        password: yandex.cloud.datatransfer.v1.endpoint.common_pb2.Secret | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["address", b"address", "mdb_cluster_id", b"mdb_cluster_id", "on_premise", b"on_premise", "password", b"password"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "database", b"database", "mdb_cluster_id", b"mdb_cluster_id", "on_premise", b"on_premise", "password", b"password", "user", b"user"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["address", b"address"]) -> typing_extensions.Literal["mdb_cluster_id", "on_premise"] | None: ...
+
 global___ClickhouseConnectionOptions = ClickhouseConnectionOptions
 
 class ClickhouseConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONNECTION_OPTIONS_FIELD_NUMBER: builtins.int
     @property
     def connection_options(self) -> global___ClickhouseConnectionOptions: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        connection_options: typing.Optional[global___ClickhouseConnectionOptions] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection","connection_options",b"connection_options"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connection",b"connection","connection_options",b"connection_options"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["connection",b"connection"]) -> typing.Optional[typing_extensions.Literal["connection_options"]]: ...
+        connection_options: global___ClickhouseConnectionOptions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "connection_options", b"connection_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "connection_options", b"connection_options"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["connection", b"connection"]) -> typing_extensions.Literal["connection_options"] | None: ...
+
 global___ClickhouseConnection = ClickhouseConnection
 
 class ClickhouseSharding(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class ColumnValueHash(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         COLUMN_NAME_FIELD_NUMBER: builtins.int
-        column_name: typing.Text
-        def __init__(self,
+        column_name: builtins.str
+        def __init__(
+            self,
             *,
-            column_name: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["column_name",b"column_name"]) -> None: ...
+            column_name: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["column_name", b"column_name"]) -> None: ...
 
     class ColumnValueMapping(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         class ValueToShard(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
             COLUMN_VALUE_FIELD_NUMBER: builtins.int
             SHARD_NAME_FIELD_NUMBER: builtins.int
             @property
             def column_value(self) -> yandex.cloud.datatransfer.v1.endpoint.common_pb2.ColumnValue: ...
-            shard_name: typing.Text
-            def __init__(self,
+            shard_name: builtins.str
+            def __init__(
+                self,
                 *,
-                column_value: typing.Optional[yandex.cloud.datatransfer.v1.endpoint.common_pb2.ColumnValue] = ...,
-                shard_name: typing.Text = ...,
-                ) -> None: ...
-            def HasField(self, field_name: typing_extensions.Literal["column_value",b"column_value"]) -> builtins.bool: ...
-            def ClearField(self, field_name: typing_extensions.Literal["column_value",b"column_value","shard_name",b"shard_name"]) -> None: ...
+                column_value: yandex.cloud.datatransfer.v1.endpoint.common_pb2.ColumnValue | None = ...,
+                shard_name: builtins.str = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["column_value", b"column_value"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["column_value", b"column_value", "shard_name", b"shard_name"]) -> None: ...
 
         COLUMN_NAME_FIELD_NUMBER: builtins.int
         MAPPING_FIELD_NUMBER: builtins.int
-        column_name: typing.Text
+        column_name: builtins.str
         @property
         def mapping(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ClickhouseSharding.ColumnValueMapping.ValueToShard]: ...
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            column_name: typing.Text = ...,
-            mapping: typing.Optional[typing.Iterable[global___ClickhouseSharding.ColumnValueMapping.ValueToShard]] = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["column_name",b"column_name","mapping",b"mapping"]) -> None: ...
+            column_name: builtins.str = ...,
+            mapping: collections.abc.Iterable[global___ClickhouseSharding.ColumnValueMapping.ValueToShard] | None = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["column_name", b"column_name", "mapping", b"mapping"]) -> None: ...
 
     COLUMN_VALUE_HASH_FIELD_NUMBER: builtins.int
     CUSTOM_MAPPING_FIELD_NUMBER: builtins.int
@@ -160,19 +185,22 @@ class ClickhouseSharding(google.protobuf.message.Message):
     def custom_mapping(self) -> global___ClickhouseSharding.ColumnValueMapping: ...
     @property
     def transfer_id(self) -> google.protobuf.empty_pb2.Empty: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        column_value_hash: typing.Optional[global___ClickhouseSharding.ColumnValueHash] = ...,
-        custom_mapping: typing.Optional[global___ClickhouseSharding.ColumnValueMapping] = ...,
-        transfer_id: typing.Optional[google.protobuf.empty_pb2.Empty] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["column_value_hash",b"column_value_hash","custom_mapping",b"custom_mapping","sharding",b"sharding","transfer_id",b"transfer_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["column_value_hash",b"column_value_hash","custom_mapping",b"custom_mapping","sharding",b"sharding","transfer_id",b"transfer_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["sharding",b"sharding"]) -> typing.Optional[typing_extensions.Literal["column_value_hash","custom_mapping","transfer_id"]]: ...
+        column_value_hash: global___ClickhouseSharding.ColumnValueHash | None = ...,
+        custom_mapping: global___ClickhouseSharding.ColumnValueMapping | None = ...,
+        transfer_id: google.protobuf.empty_pb2.Empty | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["column_value_hash", b"column_value_hash", "custom_mapping", b"custom_mapping", "sharding", b"sharding", "transfer_id", b"transfer_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["column_value_hash", b"column_value_hash", "custom_mapping", b"custom_mapping", "sharding", b"sharding", "transfer_id", b"transfer_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["sharding", b"sharding"]) -> typing_extensions.Literal["column_value_hash", "custom_mapping", "transfer_id"] | None: ...
+
 global___ClickhouseSharding = ClickhouseSharding
 
 class ClickhouseSource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONNECTION_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     SECURITY_GROUPS_FIELD_NUMBER: builtins.int
@@ -180,27 +208,30 @@ class ClickhouseSource(google.protobuf.message.Message):
     EXCLUDE_TABLES_FIELD_NUMBER: builtins.int
     @property
     def connection(self) -> global___ClickhouseConnection: ...
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     @property
-    def security_groups(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+    def security_groups(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
-    def include_tables(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+    def include_tables(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
-    def exclude_tables(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def exclude_tables(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        connection: typing.Optional[global___ClickhouseConnection] = ...,
-        subnet_id: typing.Text = ...,
-        security_groups: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        include_tables: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        exclude_tables: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connection",b"connection","exclude_tables",b"exclude_tables","include_tables",b"include_tables","security_groups",b"security_groups","subnet_id",b"subnet_id"]) -> None: ...
+        connection: global___ClickhouseConnection | None = ...,
+        subnet_id: builtins.str = ...,
+        security_groups: collections.abc.Iterable[builtins.str] | None = ...,
+        include_tables: collections.abc.Iterable[builtins.str] | None = ...,
+        exclude_tables: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connection", b"connection", "exclude_tables", b"exclude_tables", "include_tables", b"include_tables", "security_groups", b"security_groups", "subnet_id", b"subnet_id"]) -> None: ...
+
 global___ClickhouseSource = ClickhouseSource
 
 class ClickhouseTarget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONNECTION_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     SECURITY_GROUPS_FIELD_NUMBER: builtins.int
@@ -210,25 +241,27 @@ class ClickhouseTarget(google.protobuf.message.Message):
     CLEANUP_POLICY_FIELD_NUMBER: builtins.int
     @property
     def connection(self) -> global___ClickhouseConnection: ...
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     @property
-    def security_groups(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    clickhouse_cluster_name: typing.Text
+    def security_groups(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    clickhouse_cluster_name: builtins.str
     @property
     def alt_names(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.datatransfer.v1.endpoint.common_pb2.AltName]: ...
     @property
     def sharding(self) -> global___ClickhouseSharding: ...
     cleanup_policy: global___ClickhouseCleanupPolicy.ValueType
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        connection: typing.Optional[global___ClickhouseConnection] = ...,
-        subnet_id: typing.Text = ...,
-        security_groups: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        clickhouse_cluster_name: typing.Text = ...,
-        alt_names: typing.Optional[typing.Iterable[yandex.cloud.datatransfer.v1.endpoint.common_pb2.AltName]] = ...,
-        sharding: typing.Optional[global___ClickhouseSharding] = ...,
+        connection: global___ClickhouseConnection | None = ...,
+        subnet_id: builtins.str = ...,
+        security_groups: collections.abc.Iterable[builtins.str] | None = ...,
+        clickhouse_cluster_name: builtins.str = ...,
+        alt_names: collections.abc.Iterable[yandex.cloud.datatransfer.v1.endpoint.common_pb2.AltName] | None = ...,
+        sharding: global___ClickhouseSharding | None = ...,
         cleanup_policy: global___ClickhouseCleanupPolicy.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection",b"connection","sharding",b"sharding"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alt_names",b"alt_names","cleanup_policy",b"cleanup_policy","clickhouse_cluster_name",b"clickhouse_cluster_name","connection",b"connection","security_groups",b"security_groups","sharding",b"sharding","subnet_id",b"subnet_id"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection", b"connection", "sharding", b"sharding"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alt_names", b"alt_names", "cleanup_policy", b"cleanup_policy", "clickhouse_cluster_name", b"clickhouse_cluster_name", "connection", b"connection", "security_groups", b"security_groups", "sharding", b"sharding", "subnet_id", b"subnet_id"]) -> None: ...
+
 global___ClickhouseTarget = ClickhouseTarget

@@ -3,12 +3,17 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -17,43 +22,41 @@ class Backup(google.protobuf.message.Message):
 
     For more information, see the [Backup](/docs/managed-sqlserver/concepts/backup) section in the documentation.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     SOURCE_CLUSTER_ID_FIELD_NUMBER: builtins.int
     STARTED_AT_FIELD_NUMBER: builtins.int
     DATABASES_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the backup."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the backup belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the backup operation was completed."""
-        pass
-    source_cluster_id: typing.Text
+    source_cluster_id: builtins.str
     """ID of the SQL Server cluster that the backup was created for."""
-
     @property
     def started_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the backup operation was started."""
-        pass
     @property
-    def databases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def databases(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of databases included in the backup."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        source_cluster_id: typing.Text = ...,
-        started_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        databases: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","started_at",b"started_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","databases",b"databases","folder_id",b"folder_id","id",b"id","source_cluster_id",b"source_cluster_id","started_at",b"started_at"]) -> None: ...
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        source_cluster_id: builtins.str = ...,
+        started_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        databases: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "started_at", b"started_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "databases", b"databases", "folder_id", b"folder_id", "id", b"id", "source_cluster_id", b"source_cluster_id", "started_at", b"started_at"]) -> None: ...
+
 global___Backup = Backup

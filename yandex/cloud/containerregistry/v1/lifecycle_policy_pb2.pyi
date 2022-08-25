@@ -3,45 +3,48 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class LifecyclePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LifecyclePolicy._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[LifecyclePolicy._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: LifecyclePolicy._Status.ValueType  # 0
         ACTIVE: LifecyclePolicy._Status.ValueType  # 1
         """Policy is active and regularly deletes Docker images according to the established rules."""
-
         DISABLED: LifecyclePolicy._Status.ValueType  # 2
         """Policy is disabled and does not delete Docker images in the repository.
         Policies in this status can be used for preparing and testing rules.
         """
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: LifecyclePolicy.Status.ValueType  # 0
     ACTIVE: LifecyclePolicy.Status.ValueType  # 1
     """Policy is active and regularly deletes Docker images according to the established rules."""
-
     DISABLED: LifecyclePolicy.Status.ValueType  # 2
     """Policy is disabled and does not delete Docker images in the repository.
     Policies in this status can be used for preparing and testing rules.
     """
-
 
     ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -50,80 +53,73 @@ class LifecyclePolicy(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     RULES_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the lifecycle policy."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the lifecycle policy."""
-
-    repository_id: typing.Text
+    repository_id: builtins.str
     """ID of the repository that the lifecycle policy belongs to.
     Required. The maximum string length in characters is 50.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the lifecycle policy.
     The maximum string length in characters is 256.
     """
-
     status: global___LifecyclePolicy.Status.ValueType
     """Status of lifecycle policy."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
     @property
     def rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LifecycleRule]:
         """The rules of lifecycle policy."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        name: typing.Text = ...,
-        repository_id: typing.Text = ...,
-        description: typing.Text = ...,
+        id: builtins.str = ...,
+        name: builtins.str = ...,
+        repository_id: builtins.str = ...,
+        description: builtins.str = ...,
         status: global___LifecyclePolicy.Status.ValueType = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        rules: typing.Optional[typing.Iterable[global___LifecycleRule]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","id",b"id","name",b"name","repository_id",b"repository_id","rules",b"rules","status",b"status"]) -> None: ...
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        rules: collections.abc.Iterable[global___LifecycleRule] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "id", b"id", "name", b"name", "repository_id", b"repository_id", "rules", b"rules", "status", b"status"]) -> None: ...
+
 global___LifecyclePolicy = LifecyclePolicy
 
 class LifecycleRule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DESCRIPTION_FIELD_NUMBER: builtins.int
     EXPIRE_PERIOD_FIELD_NUMBER: builtins.int
     TAG_REGEXP_FIELD_NUMBER: builtins.int
     UNTAGGED_FIELD_NUMBER: builtins.int
     RETAINED_TOP_FIELD_NUMBER: builtins.int
-    description: typing.Text
+    description: builtins.str
     """Description of the lifecycle policy rule."""
-
     @property
     def expire_period(self) -> google.protobuf.duration_pb2.Duration:
         """Period of time for automatic deletion.
         Period must be a multiple of 24 hours.
         """
-        pass
-    tag_regexp: typing.Text
+    tag_regexp: builtins.str
     """Tag for specifying a filter in the form of a regular expression."""
-
     untagged: builtins.bool
     """Tag for applying the rule to Docker images without tags."""
-
     retained_top: builtins.int
     """Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        description: typing.Text = ...,
-        expire_period: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        tag_regexp: typing.Text = ...,
+        description: builtins.str = ...,
+        expire_period: google.protobuf.duration_pb2.Duration | None = ...,
+        tag_regexp: builtins.str = ...,
         untagged: builtins.bool = ...,
         retained_top: builtins.int = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["expire_period",b"expire_period"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","expire_period",b"expire_period","retained_top",b"retained_top","tag_regexp",b"tag_regexp","untagged",b"untagged"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["expire_period", b"expire_period"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "expire_period", b"expire_period", "retained_top", b"retained_top", "tag_regexp", b"tag_regexp", "untagged", b"untagged"]) -> None: ...
+
 global___LifecycleRule = LifecycleRule

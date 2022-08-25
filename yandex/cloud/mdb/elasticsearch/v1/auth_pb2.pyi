@@ -3,33 +3,44 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class AuthProviders(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PROVIDERS_FIELD_NUMBER: builtins.int
     @property
     def providers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AuthProvider]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        providers: typing.Optional[typing.Iterable[global___AuthProvider]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["providers",b"providers"]) -> None: ...
+        providers: collections.abc.Iterable[global___AuthProvider] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["providers", b"providers"]) -> None: ...
+
 global___AuthProviders = AuthProviders
 
 class AuthProvider(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Type:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[AuthProvider._Type.ValueType], builtins.type):
+
+    class _TypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[AuthProvider._Type.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TYPE_UNSPECIFIED: AuthProvider._Type.ValueType  # 0
         NATIVE: AuthProvider._Type.ValueType  # 1
@@ -38,16 +49,13 @@ class AuthProvider(google.protobuf.message.Message):
         ANONYMOUS = 4;
         """
 
-    class Type(_Type, metaclass=_TypeEnumTypeWrapper):
-        pass
-
+    class Type(_Type, metaclass=_TypeEnumTypeWrapper): ...
     TYPE_UNSPECIFIED: AuthProvider.Type.ValueType  # 0
     NATIVE: AuthProvider.Type.ValueType  # 1
     SAML: AuthProvider.Type.ValueType  # 2
     """OPENID = 3;
     ANONYMOUS = 4;
     """
-
 
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -59,36 +67,38 @@ class AuthProvider(google.protobuf.message.Message):
     ICON_FIELD_NUMBER: builtins.int
     SAML_FIELD_NUMBER: builtins.int
     type: global___AuthProvider.Type.ValueType
-    name: typing.Text
+    name: builtins.str
     order: builtins.int
     enabled: builtins.bool
     hidden: builtins.bool
     """selector ui settings"""
-
-    description: typing.Text
-    hint: typing.Text
-    icon: typing.Text
+    description: builtins.str
+    hint: builtins.str
+    icon: builtins.str
     @property
     def saml(self) -> global___SamlSettings: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
         type: global___AuthProvider.Type.ValueType = ...,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         order: builtins.int = ...,
         enabled: builtins.bool = ...,
         hidden: builtins.bool = ...,
-        description: typing.Text = ...,
-        hint: typing.Text = ...,
-        icon: typing.Text = ...,
-        saml: typing.Optional[global___SamlSettings] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["saml",b"saml","settings",b"settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","enabled",b"enabled","hidden",b"hidden","hint",b"hint","icon",b"icon","name",b"name","order",b"order","saml",b"saml","settings",b"settings","type",b"type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["settings",b"settings"]) -> typing.Optional[typing_extensions.Literal["saml"]]: ...
+        description: builtins.str = ...,
+        hint: builtins.str = ...,
+        icon: builtins.str = ...,
+        saml: global___SamlSettings | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["saml", b"saml", "settings", b"settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "enabled", b"enabled", "hidden", b"hidden", "hint", b"hint", "icon", b"icon", "name", b"name", "order", b"order", "saml", b"saml", "settings", b"settings", "type", b"type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["settings", b"settings"]) -> typing_extensions.Literal["saml"] | None: ...
+
 global___AuthProvider = AuthProvider
 
 class SamlSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     IDP_ENTITY_ID_FIELD_NUMBER: builtins.int
     IDP_METADATA_FILE_FIELD_NUMBER: builtins.int
     SP_ENTITY_ID_FIELD_NUMBER: builtins.int
@@ -98,26 +108,28 @@ class SamlSettings(google.protobuf.message.Message):
     ATTRIBUTE_NAME_FIELD_NUMBER: builtins.int
     ATTRIBUTE_EMAIL_FIELD_NUMBER: builtins.int
     ATTRIBUTE_DN_FIELD_NUMBER: builtins.int
-    idp_entity_id: typing.Text
+    idp_entity_id: builtins.str
     idp_metadata_file: builtins.bytes
-    sp_entity_id: typing.Text
-    kibana_url: typing.Text
-    attribute_principal: typing.Text
-    attribute_groups: typing.Text
-    attribute_name: typing.Text
-    attribute_email: typing.Text
-    attribute_dn: typing.Text
-    def __init__(self,
+    sp_entity_id: builtins.str
+    kibana_url: builtins.str
+    attribute_principal: builtins.str
+    attribute_groups: builtins.str
+    attribute_name: builtins.str
+    attribute_email: builtins.str
+    attribute_dn: builtins.str
+    def __init__(
+        self,
         *,
-        idp_entity_id: typing.Text = ...,
+        idp_entity_id: builtins.str = ...,
         idp_metadata_file: builtins.bytes = ...,
-        sp_entity_id: typing.Text = ...,
-        kibana_url: typing.Text = ...,
-        attribute_principal: typing.Text = ...,
-        attribute_groups: typing.Text = ...,
-        attribute_name: typing.Text = ...,
-        attribute_email: typing.Text = ...,
-        attribute_dn: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attribute_dn",b"attribute_dn","attribute_email",b"attribute_email","attribute_groups",b"attribute_groups","attribute_name",b"attribute_name","attribute_principal",b"attribute_principal","idp_entity_id",b"idp_entity_id","idp_metadata_file",b"idp_metadata_file","kibana_url",b"kibana_url","sp_entity_id",b"sp_entity_id"]) -> None: ...
+        sp_entity_id: builtins.str = ...,
+        kibana_url: builtins.str = ...,
+        attribute_principal: builtins.str = ...,
+        attribute_groups: builtins.str = ...,
+        attribute_name: builtins.str = ...,
+        attribute_email: builtins.str = ...,
+        attribute_dn: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attribute_dn", b"attribute_dn", "attribute_email", b"attribute_email", "attribute_groups", b"attribute_groups", "attribute_name", b"attribute_name", "attribute_principal", b"attribute_principal", "idp_entity_id", b"idp_entity_id", "idp_metadata_file", b"idp_metadata_file", "kibana_url", b"kibana_url", "sp_entity_id", b"sp_entity_id"]) -> None: ...
+
 global___SamlSettings = SamlSettings

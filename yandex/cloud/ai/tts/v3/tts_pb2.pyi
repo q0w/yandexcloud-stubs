@@ -3,317 +3,322 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class AudioContent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CONTENT_FIELD_NUMBER: builtins.int
     AUDIO_SPEC_FIELD_NUMBER: builtins.int
     content: builtins.bytes
     """Bytes with audio data."""
-
     @property
     def audio_spec(self) -> global___AudioFormatOptions:
         """Description of the audio format."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         content: builtins.bytes = ...,
-        audio_spec: typing.Optional[global___AudioFormatOptions] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["AudioSource",b"AudioSource","audio_spec",b"audio_spec","content",b"content"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["AudioSource",b"AudioSource","audio_spec",b"audio_spec","content",b"content"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["AudioSource",b"AudioSource"]) -> typing.Optional[typing_extensions.Literal["content"]]: ...
+        audio_spec: global___AudioFormatOptions | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["AudioSource", b"AudioSource", "audio_spec", b"audio_spec", "content", b"content"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["AudioSource", b"AudioSource", "audio_spec", b"audio_spec", "content", b"content"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["AudioSource", b"AudioSource"]) -> typing_extensions.Literal["content"] | None: ...
+
 global___AudioContent = AudioContent
 
 class AudioFormatOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RAW_AUDIO_FIELD_NUMBER: builtins.int
     CONTAINER_AUDIO_FIELD_NUMBER: builtins.int
     @property
     def raw_audio(self) -> global___RawAudio:
         """The audio format specified in request parameters."""
-        pass
     @property
     def container_audio(self) -> global___ContainerAudio:
         """The audio format specified inside the container metadata."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        raw_audio: typing.Optional[global___RawAudio] = ...,
-        container_audio: typing.Optional[global___ContainerAudio] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["AudioFormat",b"AudioFormat","container_audio",b"container_audio","raw_audio",b"raw_audio"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["AudioFormat",b"AudioFormat","container_audio",b"container_audio","raw_audio",b"raw_audio"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["AudioFormat",b"AudioFormat"]) -> typing.Optional[typing_extensions.Literal["raw_audio","container_audio"]]: ...
+        raw_audio: global___RawAudio | None = ...,
+        container_audio: global___ContainerAudio | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["AudioFormat", b"AudioFormat", "container_audio", b"container_audio", "raw_audio", b"raw_audio"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["AudioFormat", b"AudioFormat", "container_audio", b"container_audio", "raw_audio", b"raw_audio"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["AudioFormat", b"AudioFormat"]) -> typing_extensions.Literal["raw_audio", "container_audio"] | None: ...
+
 global___AudioFormatOptions = AudioFormatOptions
 
 class RawAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _AudioEncoding:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _AudioEncodingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RawAudio._AudioEncoding.ValueType], builtins.type):
+
+    class _AudioEncodingEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RawAudio._AudioEncoding.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         AUDIO_ENCODING_UNSPECIFIED: RawAudio._AudioEncoding.ValueType  # 0
         LINEAR16_PCM: RawAudio._AudioEncoding.ValueType  # 1
         """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
 
-    class AudioEncoding(_AudioEncoding, metaclass=_AudioEncodingEnumTypeWrapper):
-        pass
-
+    class AudioEncoding(_AudioEncoding, metaclass=_AudioEncodingEnumTypeWrapper): ...
     AUDIO_ENCODING_UNSPECIFIED: RawAudio.AudioEncoding.ValueType  # 0
     LINEAR16_PCM: RawAudio.AudioEncoding.ValueType  # 1
     """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
-
 
     AUDIO_ENCODING_FIELD_NUMBER: builtins.int
     SAMPLE_RATE_HERTZ_FIELD_NUMBER: builtins.int
     audio_encoding: global___RawAudio.AudioEncoding.ValueType
     """Encoding type."""
-
     sample_rate_hertz: builtins.int
     """Sampling frequency of the signal."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         audio_encoding: global___RawAudio.AudioEncoding.ValueType = ...,
         sample_rate_hertz: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_encoding",b"audio_encoding","sample_rate_hertz",b"sample_rate_hertz"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_encoding", b"audio_encoding", "sample_rate_hertz", b"sample_rate_hertz"]) -> None: ...
+
 global___RawAudio = RawAudio
 
 class ContainerAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ContainerAudioType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ContainerAudioTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ContainerAudio._ContainerAudioType.ValueType], builtins.type):
+
+    class _ContainerAudioTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ContainerAudio._ContainerAudioType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         CONTAINER_AUDIO_TYPE_UNSPECIFIED: ContainerAudio._ContainerAudioType.ValueType  # 0
         WAV: ContainerAudio._ContainerAudioType.ValueType  # 1
         """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
-
         OGG_OPUS: ContainerAudio._ContainerAudioType.ValueType  # 2
         """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
-
         MP3: ContainerAudio._ContainerAudioType.ValueType  # 3
         """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
 
-    class ContainerAudioType(_ContainerAudioType, metaclass=_ContainerAudioTypeEnumTypeWrapper):
-        pass
-
+    class ContainerAudioType(_ContainerAudioType, metaclass=_ContainerAudioTypeEnumTypeWrapper): ...
     CONTAINER_AUDIO_TYPE_UNSPECIFIED: ContainerAudio.ContainerAudioType.ValueType  # 0
     WAV: ContainerAudio.ContainerAudioType.ValueType  # 1
     """Audio bit depth 16-bit signed little-endian (Linear PCM)."""
-
     OGG_OPUS: ContainerAudio.ContainerAudioType.ValueType  # 2
     """Data is encoded using the OPUS audio codec and compressed using the OGG container format."""
-
     MP3: ContainerAudio.ContainerAudioType.ValueType  # 3
     """Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format."""
 
-
     CONTAINER_AUDIO_TYPE_FIELD_NUMBER: builtins.int
     container_audio_type: global___ContainerAudio.ContainerAudioType.ValueType
-    def __init__(self,
+    def __init__(
+        self,
         *,
         container_audio_type: global___ContainerAudio.ContainerAudioType.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["container_audio_type",b"container_audio_type"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["container_audio_type", b"container_audio_type"]) -> None: ...
+
 global___ContainerAudio = ContainerAudio
 
 class TextVariable(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VARIABLE_NAME_FIELD_NUMBER: builtins.int
     VARIABLE_VALUE_FIELD_NUMBER: builtins.int
-    variable_name: typing.Text
+    variable_name: builtins.str
     """The name of the variable."""
-
-    variable_value: typing.Text
+    variable_value: builtins.str
     """The text of the variable."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        variable_name: typing.Text = ...,
-        variable_value: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["variable_name",b"variable_name","variable_value",b"variable_value"]) -> None: ...
+        variable_name: builtins.str = ...,
+        variable_value: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["variable_name", b"variable_name", "variable_value", b"variable_value"]) -> None: ...
+
 global___TextVariable = TextVariable
 
 class AudioVariable(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VARIABLE_NAME_FIELD_NUMBER: builtins.int
     VARIABLE_START_MS_FIELD_NUMBER: builtins.int
     VARIABLE_LENGTH_MS_FIELD_NUMBER: builtins.int
-    variable_name: typing.Text
+    variable_name: builtins.str
     """The name of the variable."""
-
     variable_start_ms: builtins.int
     """Start time of the variable in milliseconds."""
-
     variable_length_ms: builtins.int
     """Length of the variable in milliseconds."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        variable_name: typing.Text = ...,
+        variable_name: builtins.str = ...,
         variable_start_ms: builtins.int = ...,
         variable_length_ms: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["variable_length_ms",b"variable_length_ms","variable_name",b"variable_name","variable_start_ms",b"variable_start_ms"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["variable_length_ms", b"variable_length_ms", "variable_name", b"variable_name", "variable_start_ms", b"variable_start_ms"]) -> None: ...
+
 global___AudioVariable = AudioVariable
 
 class UtteranceSynthesisResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AUDIO_CHUNK_FIELD_NUMBER: builtins.int
     @property
     def audio_chunk(self) -> global___AudioChunk:
         """Part of synthesized audio."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        audio_chunk: typing.Optional[global___AudioChunk] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio_chunk",b"audio_chunk"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio_chunk",b"audio_chunk"]) -> None: ...
+        audio_chunk: global___AudioChunk | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio_chunk", b"audio_chunk"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio_chunk", b"audio_chunk"]) -> None: ...
+
 global___UtteranceSynthesisResponse = UtteranceSynthesisResponse
 
 class AudioTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AUDIO_FIELD_NUMBER: builtins.int
     TEXT_TEMPLATE_FIELD_NUMBER: builtins.int
     VARIABLES_FIELD_NUMBER: builtins.int
     @property
     def audio(self) -> global___AudioContent:
         """Audio file."""
-        pass
     @property
     def text_template(self) -> global___TextTemplate:
         """Template and description of its variables."""
-        pass
     @property
     def variables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AudioVariable]:
         """Describing variables in audio."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        audio: typing.Optional[global___AudioContent] = ...,
-        text_template: typing.Optional[global___TextTemplate] = ...,
-        variables: typing.Optional[typing.Iterable[global___AudioVariable]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audio",b"audio","text_template",b"text_template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audio",b"audio","text_template",b"text_template","variables",b"variables"]) -> None: ...
+        audio: global___AudioContent | None = ...,
+        text_template: global___TextTemplate | None = ...,
+        variables: collections.abc.Iterable[global___AudioVariable] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audio", b"audio", "text_template", b"text_template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audio", b"audio", "text_template", b"text_template", "variables", b"variables"]) -> None: ...
+
 global___AudioTemplate = AudioTemplate
 
 class AudioChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DATA_FIELD_NUMBER: builtins.int
     data: builtins.bytes
     """Sequence of bytes of the synthesized audio in format specified in output_audio_spec."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         data: builtins.bytes = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["data",b"data"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data"]) -> None: ...
+
 global___AudioChunk = AudioChunk
 
 class TextTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TEXT_TEMPLATE_FIELD_NUMBER: builtins.int
     VARIABLES_FIELD_NUMBER: builtins.int
-    text_template: typing.Text
+    text_template: builtins.str
     """Template text.
 
     Sample:`The {animal} goes to the {place}.`
     """
-
     @property
     def variables(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___TextVariable]:
         """Defining variables in template text.
 
         Sample: `{animal: cat, place: forest}`
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        text_template: typing.Text = ...,
-        variables: typing.Optional[typing.Iterable[global___TextVariable]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["text_template",b"text_template","variables",b"variables"]) -> None: ...
+        text_template: builtins.str = ...,
+        variables: collections.abc.Iterable[global___TextVariable] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["text_template", b"text_template", "variables", b"variables"]) -> None: ...
+
 global___TextTemplate = TextTemplate
 
 class Hints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VOICE_FIELD_NUMBER: builtins.int
     AUDIO_TEMPLATE_FIELD_NUMBER: builtins.int
     SPEED_FIELD_NUMBER: builtins.int
     VOLUME_FIELD_NUMBER: builtins.int
     ROLE_FIELD_NUMBER: builtins.int
-    voice: typing.Text
+    voice: builtins.str
     """Name of speaker to use."""
-
     @property
     def audio_template(self) -> global___AudioTemplate:
         """Template for synthesizing."""
-        pass
     speed: builtins.float
     """Hint to change speed."""
-
     volume: builtins.float
     """Hint to regulate normalization level.
     * For `MAX_PEAK` loudness_normalization_type: volume changes in a range (0;1], default value is 0.7.
     * For `LUFS` loudness_normalization_type: volume changes in a range [-145;0), default value is -19.
     """
-
-    role: typing.Text
+    role: builtins.str
     """Hint to specify pronunciation character for the speaker."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        voice: typing.Text = ...,
-        audio_template: typing.Optional[global___AudioTemplate] = ...,
+        voice: builtins.str = ...,
+        audio_template: global___AudioTemplate | None = ...,
         speed: builtins.float = ...,
         volume: builtins.float = ...,
-        role: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["Hint",b"Hint","audio_template",b"audio_template","role",b"role","speed",b"speed","voice",b"voice","volume",b"volume"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["Hint",b"Hint","audio_template",b"audio_template","role",b"role","speed",b"speed","voice",b"voice","volume",b"volume"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["Hint",b"Hint"]) -> typing.Optional[typing_extensions.Literal["voice","audio_template","speed","volume","role"]]: ...
+        role: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["Hint", b"Hint", "audio_template", b"audio_template", "role", b"role", "speed", b"speed", "voice", b"voice", "volume", b"volume"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["Hint", b"Hint", "audio_template", b"audio_template", "role", b"role", "speed", b"speed", "voice", b"voice", "volume", b"volume"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["Hint", b"Hint"]) -> typing_extensions.Literal["voice", "audio_template", "speed", "volume", "role"] | None: ...
+
 global___Hints = Hints
 
 class UtteranceSynthesisRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _LoudnessNormalizationType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LoudnessNormalizationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType], builtins.type):
+
+    class _LoudnessNormalizationTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 0
         MAX_PEAK: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 1
         """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level."""
-
         LUFS: UtteranceSynthesisRequest._LoudnessNormalizationType.ValueType  # 2
         """The type of normalization based on EBU R 128 recommendation."""
 
-    class LoudnessNormalizationType(_LoudnessNormalizationType, metaclass=_LoudnessNormalizationTypeEnumTypeWrapper):
-        pass
-
+    class LoudnessNormalizationType(_LoudnessNormalizationType, metaclass=_LoudnessNormalizationTypeEnumTypeWrapper): ...
     LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 0
     MAX_PEAK: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 1
     """The type of normalization, wherein the gain is changed to bring the highest PCM sample value or analog signal peak to a given level."""
-
     LUFS: UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType  # 2
     """The type of normalization based on EBU R 128 recommendation."""
-
 
     MODEL_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
@@ -322,45 +327,40 @@ class UtteranceSynthesisRequest(google.protobuf.message.Message):
     OUTPUT_AUDIO_SPEC_FIELD_NUMBER: builtins.int
     LOUDNESS_NORMALIZATION_TYPE_FIELD_NUMBER: builtins.int
     UNSAFE_MODE_FIELD_NUMBER: builtins.int
-    model: typing.Text
+    model: builtins.str
     """The name of the model.
     Specifies basic synthesis functionality. Currently should be empty. Do not use it.
     """
-
-    text: typing.Text
+    text: builtins.str
     """Raw text (e.g. "Hello, Alice")."""
-
     @property
     def text_template(self) -> global___TextTemplate:
         """Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`."""
-        pass
     @property
     def hints(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Hints]:
         """Optional hints for synthesis."""
-        pass
     @property
     def output_audio_spec(self) -> global___AudioFormatOptions:
         """Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header"""
-        pass
     loudness_normalization_type: global___UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType
     """Specifies type of loudness normalization.
     Optional. Default: `LUFS`.
     """
-
     unsafe_mode: builtins.bool
     """Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        model: typing.Text = ...,
-        text: typing.Text = ...,
-        text_template: typing.Optional[global___TextTemplate] = ...,
-        hints: typing.Optional[typing.Iterable[global___Hints]] = ...,
-        output_audio_spec: typing.Optional[global___AudioFormatOptions] = ...,
+        model: builtins.str = ...,
+        text: builtins.str = ...,
+        text_template: global___TextTemplate | None = ...,
+        hints: collections.abc.Iterable[global___Hints] | None = ...,
+        output_audio_spec: global___AudioFormatOptions | None = ...,
         loudness_normalization_type: global___UtteranceSynthesisRequest.LoudnessNormalizationType.ValueType = ...,
         unsafe_mode: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["Utterance",b"Utterance","output_audio_spec",b"output_audio_spec","text",b"text","text_template",b"text_template"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["Utterance",b"Utterance","hints",b"hints","loudness_normalization_type",b"loudness_normalization_type","model",b"model","output_audio_spec",b"output_audio_spec","text",b"text","text_template",b"text_template","unsafe_mode",b"unsafe_mode"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["Utterance",b"Utterance"]) -> typing.Optional[typing_extensions.Literal["text","text_template"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["Utterance", b"Utterance", "output_audio_spec", b"output_audio_spec", "text", b"text", "text_template", b"text_template"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["Utterance", b"Utterance", "hints", b"hints", "loudness_normalization_type", b"loudness_normalization_type", "model", b"model", "output_audio_spec", b"output_audio_spec", "text", b"text", "text_template", b"text_template", "unsafe_mode", b"unsafe_mode"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["Utterance", b"Utterance"]) -> typing_extensions.Literal["text", "text_template"] | None: ...
+
 global___UtteranceSynthesisRequest = UtteranceSynthesisRequest

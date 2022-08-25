@@ -3,32 +3,39 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Container(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Container._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Container._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Container._Status.ValueType  # 0
         CREATING: Container._Status.ValueType  # 1
         ACTIVE: Container._Status.ValueType  # 2
         DELETING: Container._Status.ValueType  # 3
         ERROR: Container._Status.ValueType  # 4
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Container.Status.ValueType  # 0
     CREATING: Container.Status.ValueType  # 1
     ACTIVE: Container.Status.ValueType  # 2
@@ -37,16 +44,18 @@ class Container(google.protobuf.message.Message):
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -56,45 +65,48 @@ class Container(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     URL_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    folder_id: typing.Text
+    id: builtins.str
+    folder_id: builtins.str
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    name: typing.Text
-    description: typing.Text
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    url: typing.Text
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    url: builtins.str
     status: global___Container.Status.ValueType
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        url: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        url: builtins.str = ...,
         status: global___Container.Status.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","status",b"status","url",b"url"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "status", b"status", "url", b"url"]) -> None: ...
+
 global___Container = Container
 
 class Revision(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Revision._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Revision._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Revision._Status.ValueType  # 0
         CREATING: Revision._Status.ValueType  # 1
         ACTIVE: Revision._Status.ValueType  # 2
         OBSOLETE: Revision._Status.ValueType  # 3
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Revision.Status.ValueType  # 0
     CREATING: Revision.Status.ValueType  # 1
     ACTIVE: Revision.Status.ValueType  # 2
@@ -113,9 +125,9 @@ class Revision(google.protobuf.message.Message):
     SECRETS_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     PROVISION_POLICY_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    container_id: typing.Text
-    description: typing.Text
+    id: builtins.str
+    container_id: builtins.str
+    description: builtins.str
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
     @property
@@ -125,7 +137,7 @@ class Revision(google.protobuf.message.Message):
     @property
     def execution_timeout(self) -> google.protobuf.duration_pb2.Duration: ...
     concurrency: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     status: global___Revision.Status.ValueType
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Secret]: ...
@@ -133,40 +145,45 @@ class Revision(google.protobuf.message.Message):
     def connectivity(self) -> global___Connectivity: ...
     @property
     def provision_policy(self) -> global___ProvisionPolicy: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        container_id: typing.Text = ...,
-        description: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        image: typing.Optional[global___Image] = ...,
-        resources: typing.Optional[global___Resources] = ...,
-        execution_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        id: builtins.str = ...,
+        container_id: builtins.str = ...,
+        description: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        image: global___Image | None = ...,
+        resources: global___Resources | None = ...,
+        execution_timeout: google.protobuf.duration_pb2.Duration | None = ...,
         concurrency: builtins.int = ...,
-        service_account_id: typing.Text = ...,
+        service_account_id: builtins.str = ...,
         status: global___Revision.Status.ValueType = ...,
-        secrets: typing.Optional[typing.Iterable[global___Secret]] = ...,
-        connectivity: typing.Optional[global___Connectivity] = ...,
-        provision_policy: typing.Optional[global___ProvisionPolicy] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","created_at",b"created_at","execution_timeout",b"execution_timeout","image",b"image","provision_policy",b"provision_policy","resources",b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["concurrency",b"concurrency","connectivity",b"connectivity","container_id",b"container_id","created_at",b"created_at","description",b"description","execution_timeout",b"execution_timeout","id",b"id","image",b"image","provision_policy",b"provision_policy","resources",b"resources","secrets",b"secrets","service_account_id",b"service_account_id","status",b"status"]) -> None: ...
+        secrets: collections.abc.Iterable[global___Secret] | None = ...,
+        connectivity: global___Connectivity | None = ...,
+        provision_policy: global___ProvisionPolicy | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "execution_timeout", b"execution_timeout", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["concurrency", b"concurrency", "connectivity", b"connectivity", "container_id", b"container_id", "created_at", b"created_at", "description", b"description", "execution_timeout", b"execution_timeout", "id", b"id", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources", "secrets", b"secrets", "service_account_id", b"service_account_id", "status", b"status"]) -> None: ...
+
 global___Revision = Revision
 
 class Image(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     IMAGE_URL_FIELD_NUMBER: builtins.int
     IMAGE_DIGEST_FIELD_NUMBER: builtins.int
@@ -174,113 +191,133 @@ class Image(google.protobuf.message.Message):
     ARGS_FIELD_NUMBER: builtins.int
     ENVIRONMENT_FIELD_NUMBER: builtins.int
     WORKING_DIR_FIELD_NUMBER: builtins.int
-    image_url: typing.Text
-    image_digest: typing.Text
+    image_url: builtins.str
+    image_digest: builtins.str
     @property
     def command(self) -> global___Command: ...
     @property
     def args(self) -> global___Args: ...
     @property
-    def environment(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    working_dir: typing.Text
-    def __init__(self,
+    def environment(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    working_dir: builtins.str
+    def __init__(
+        self,
         *,
-        image_url: typing.Text = ...,
-        image_digest: typing.Text = ...,
-        command: typing.Optional[global___Command] = ...,
-        args: typing.Optional[global___Args] = ...,
-        environment: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        working_dir: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["args",b"args","command",b"command"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["args",b"args","command",b"command","environment",b"environment","image_digest",b"image_digest","image_url",b"image_url","working_dir",b"working_dir"]) -> None: ...
+        image_url: builtins.str = ...,
+        image_digest: builtins.str = ...,
+        command: global___Command | None = ...,
+        args: global___Args | None = ...,
+        environment: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        working_dir: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["args", b"args", "command", b"command"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["args", b"args", "command", b"command", "environment", b"environment", "image_digest", b"image_digest", "image_url", b"image_url", "working_dir", b"working_dir"]) -> None: ...
+
 global___Image = Image
 
 class Command(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     COMMAND_FIELD_NUMBER: builtins.int
     @property
-    def command(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def command(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        command: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["command",b"command"]) -> None: ...
+        command: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["command", b"command"]) -> None: ...
+
 global___Command = Command
 
 class Args(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ARGS_FIELD_NUMBER: builtins.int
     @property
-    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        args: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["args",b"args"]) -> None: ...
+        args: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["args", b"args"]) -> None: ...
+
 global___Args = Args
 
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MEMORY_FIELD_NUMBER: builtins.int
     CORES_FIELD_NUMBER: builtins.int
     CORE_FRACTION_FIELD_NUMBER: builtins.int
     memory: builtins.int
     cores: builtins.int
     core_fraction: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
         memory: builtins.int = ...,
         cores: builtins.int = ...,
         core_fraction: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["core_fraction",b"core_fraction","cores",b"cores","memory",b"memory"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["core_fraction", b"core_fraction", "cores", b"cores", "memory", b"memory"]) -> None: ...
+
 global___Resources = Resources
 
 class ProvisionPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MIN_INSTANCES_FIELD_NUMBER: builtins.int
     min_instances: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
         min_instances: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["min_instances",b"min_instances"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["min_instances", b"min_instances"]) -> None: ...
+
 global___ProvisionPolicy = ProvisionPolicy
 
 class Secret(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
     KEY_FIELD_NUMBER: builtins.int
     ENVIRONMENT_VARIABLE_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    version_id: typing.Text
-    key: typing.Text
-    environment_variable: typing.Text
-    def __init__(self,
+    id: builtins.str
+    version_id: builtins.str
+    key: builtins.str
+    environment_variable: builtins.str
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        key: typing.Text = ...,
-        environment_variable: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["environment_variable",b"environment_variable","reference",b"reference"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["environment_variable",b"environment_variable","id",b"id","key",b"key","reference",b"reference","version_id",b"version_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["reference",b"reference"]) -> typing.Optional[typing_extensions.Literal["environment_variable"]]: ...
+        id: builtins.str = ...,
+        version_id: builtins.str = ...,
+        key: builtins.str = ...,
+        environment_variable: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["environment_variable", b"environment_variable", "reference", b"reference"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["environment_variable", b"environment_variable", "id", b"id", "key", b"key", "reference", b"reference", "version_id", b"version_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["reference", b"reference"]) -> typing_extensions.Literal["environment_variable"] | None: ...
+
 global___Secret = Secret
 
 class Connectivity(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_ID_FIELD_NUMBER: builtins.int
     SUBNET_IDS_FIELD_NUMBER: builtins.int
-    network_id: typing.Text
+    network_id: builtins.str
     @property
-    def subnet_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def subnet_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        network_id: typing.Text = ...,
-        subnet_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_id",b"network_id","subnet_ids",b"subnet_ids"]) -> None: ...
+        network_id: builtins.str = ...,
+        subnet_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_id", b"network_id", "subnet_ids", b"subnet_ids"]) -> None: ...
+
 global___Connectivity = Connectivity

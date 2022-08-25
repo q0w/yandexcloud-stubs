@@ -9,25 +9,28 @@ import yandex.cloud.compute.v1.disk_type_service_pb2
 
 class DiskTypeServiceStub:
     """A set of methods to retrieve information about disk types."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.disk_type_service_pb2.GetDiskTypeRequest,
-        yandex.cloud.compute.v1.disk_type_pb2.DiskType]
+        yandex.cloud.compute.v1.disk_type_pb2.DiskType,
+    ]
     """Returns the information about specified disk type.
 
     To get the list of available disk types, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.disk_type_service_pb2.ListDiskTypesRequest,
-        yandex.cloud.compute.v1.disk_type_service_pb2.ListDiskTypesResponse]
+        yandex.cloud.compute.v1.disk_type_service_pb2.ListDiskTypesResponse,
+    ]
     """Retrieves the list of disk types for the specified folder."""
-
 
 class DiskTypeServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods to retrieve information about disk types."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.disk_type_service_pb2.GetDiskTypeRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.disk_type_pb2.DiskType:
@@ -35,15 +38,12 @@ class DiskTypeServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available disk types, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.disk_type_service_pb2.ListDiskTypesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.disk_type_service_pb2.ListDiskTypesResponse:
         """Retrieves the list of disk types for the specified folder."""
-        pass
-
 
 def add_DiskTypeServiceServicer_to_server(servicer: DiskTypeServiceServicer, server: grpc.Server) -> None: ...

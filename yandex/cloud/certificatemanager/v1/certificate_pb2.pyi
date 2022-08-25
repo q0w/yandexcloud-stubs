@@ -3,130 +3,120 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _CertificateType:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _CertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateType.ValueType], builtins.type):
+
+class _CertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateType.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CERTIFICATE_TYPE_UNSPECIFIED: _CertificateType.ValueType  # 0
     IMPORTED: _CertificateType.ValueType  # 1
     """The certificate is imported by user."""
-
     MANAGED: _CertificateType.ValueType  # 2
     """The certificate is created by service."""
 
 class CertificateType(_CertificateType, metaclass=_CertificateTypeEnumTypeWrapper):
     """Supported certificate types."""
-    pass
 
 CERTIFICATE_TYPE_UNSPECIFIED: CertificateType.ValueType  # 0
 IMPORTED: CertificateType.ValueType  # 1
 """The certificate is imported by user."""
-
 MANAGED: CertificateType.ValueType  # 2
 """The certificate is created by service."""
-
 global___CertificateType = CertificateType
 
-
 class _ChallengeType:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _ChallengeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChallengeType.ValueType], builtins.type):
+
+class _ChallengeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChallengeType.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CHALLENGE_TYPE_UNSPECIFIED: _ChallengeType.ValueType  # 0
     DNS: _ChallengeType.ValueType  # 1
     """Domain validation type that using DNS-records."""
-
     HTTP: _ChallengeType.ValueType  # 2
     """Domain validation type that using HTTP-files."""
 
 class ChallengeType(_ChallengeType, metaclass=_ChallengeTypeEnumTypeWrapper):
     """Supported domain validation types."""
-    pass
 
 CHALLENGE_TYPE_UNSPECIFIED: ChallengeType.ValueType  # 0
 DNS: ChallengeType.ValueType  # 1
 """Domain validation type that using DNS-records."""
-
 HTTP: ChallengeType.ValueType  # 2
 """Domain validation type that using HTTP-files."""
-
 global___ChallengeType = ChallengeType
-
 
 class Certificate(google.protobuf.message.Message):
     """A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Certificate._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Certificate._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Certificate._Status.ValueType  # 0
         VALIDATING: Certificate._Status.ValueType  # 1
         """The certificate domains validation are required. Used only for managed certificates."""
-
         INVALID: Certificate._Status.ValueType  # 2
         """The certificate issuance is failed. Used only for managed certificates."""
-
         ISSUED: Certificate._Status.ValueType  # 3
         """The certificate is issued."""
-
         REVOKED: Certificate._Status.ValueType  # 4
         """The certificate is revoked."""
-
         RENEWING: Certificate._Status.ValueType  # 5
         """The certificate renewal is started. Used only for managed certificates."""
-
         RENEWAL_FAILED: Certificate._Status.ValueType  # 6
         """The certificate renewal is failed. Used only for managed certificates."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Certificate.Status.ValueType  # 0
     VALIDATING: Certificate.Status.ValueType  # 1
     """The certificate domains validation are required. Used only for managed certificates."""
-
     INVALID: Certificate.Status.ValueType  # 2
     """The certificate issuance is failed. Used only for managed certificates."""
-
     ISSUED: Certificate.Status.ValueType  # 3
     """The certificate is issued."""
-
     REVOKED: Certificate.Status.ValueType  # 4
     """The certificate is revoked."""
-
     RENEWING: Certificate.Status.ValueType  # 5
     """The certificate renewal is started. Used only for managed certificates."""
-
     RENEWAL_FAILED: Certificate.Status.ValueType  # 6
     """The certificate renewal is failed. Used only for managed certificates."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -146,171 +136,148 @@ class Certificate(google.protobuf.message.Message):
     NOT_BEFORE_FIELD_NUMBER: builtins.int
     CHALLENGES_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the certificate. Generated at creation time."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the certificate belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the certificate.
     The name is unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the certificate."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Certificate labels as `key:value` pairs."""
-        pass
     type: global___CertificateType.ValueType
     """Type of the certificate."""
-
     @property
-    def domains(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def domains(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Fully qualified domain names of the certificate."""
-        pass
     status: global___Certificate.Status.ValueType
     """Status of the certificate."""
-
-    issuer: typing.Text
+    issuer: builtins.str
     """[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate."""
-
-    subject: typing.Text
+    subject: builtins.str
     """[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate."""
-
-    serial: typing.Text
+    serial: builtins.str
     """Serial number of the certificate."""
-
     @property
     def updated_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the certificate is updated."""
-        pass
     @property
     def issued_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the certificate is issued."""
-        pass
     @property
     def not_after(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time after which the certificate is not valid."""
-        pass
     @property
     def not_before(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time before which the certificate is not valid."""
-        pass
     @property
     def challenges(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Challenge]:
         """Domains validation challenges of the certificate. Used only for managed certificates."""
-        pass
     deletion_protection: builtins.bool
     """Flag that protects deletion of the certificate"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         type: global___CertificateType.ValueType = ...,
-        domains: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        domains: collections.abc.Iterable[builtins.str] | None = ...,
         status: global___Certificate.Status.ValueType = ...,
-        issuer: typing.Text = ...,
-        subject: typing.Text = ...,
-        serial: typing.Text = ...,
-        updated_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        issued_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        not_after: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        not_before: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        challenges: typing.Optional[typing.Iterable[global___Challenge]] = ...,
+        issuer: builtins.str = ...,
+        subject: builtins.str = ...,
+        serial: builtins.str = ...,
+        updated_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        issued_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        not_after: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        not_before: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        challenges: collections.abc.Iterable[global___Challenge] | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","issued_at",b"issued_at","not_after",b"not_after","not_before",b"not_before","updated_at",b"updated_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["challenges",b"challenges","created_at",b"created_at","deletion_protection",b"deletion_protection","description",b"description","domains",b"domains","folder_id",b"folder_id","id",b"id","issued_at",b"issued_at","issuer",b"issuer","labels",b"labels","name",b"name","not_after",b"not_after","not_before",b"not_before","serial",b"serial","status",b"status","subject",b"subject","type",b"type","updated_at",b"updated_at"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "issued_at", b"issued_at", "not_after", b"not_after", "not_before", b"not_before", "updated_at", b"updated_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["challenges", b"challenges", "created_at", b"created_at", "deletion_protection", b"deletion_protection", "description", b"description", "domains", b"domains", "folder_id", b"folder_id", "id", b"id", "issued_at", b"issued_at", "issuer", b"issuer", "labels", b"labels", "name", b"name", "not_after", b"not_after", "not_before", b"not_before", "serial", b"serial", "status", b"status", "subject", b"subject", "type", b"type", "updated_at", b"updated_at"]) -> None: ...
+
 global___Certificate = Certificate
 
 class Challenge(google.protobuf.message.Message):
     """Domain validation challenge."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Challenge._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Challenge._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Challenge._Status.ValueType  # 0
         PENDING: Challenge._Status.ValueType  # 1
         """The challenge is waiting to be completed."""
-
         PROCESSING: Challenge._Status.ValueType  # 2
         """The challenge is awaiting approval from Let's Encrypt."""
-
         VALID: Challenge._Status.ValueType  # 3
         """The challenge is complete."""
-
         INVALID: Challenge._Status.ValueType  # 4
         """The rights check for a specific domain failed or the one-week period allocated for the check expired."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Challenge.Status.ValueType  # 0
     PENDING: Challenge.Status.ValueType  # 1
     """The challenge is waiting to be completed."""
-
     PROCESSING: Challenge.Status.ValueType  # 2
     """The challenge is awaiting approval from Let's Encrypt."""
-
     VALID: Challenge.Status.ValueType  # 3
     """The challenge is complete."""
-
     INVALID: Challenge.Status.ValueType  # 4
     """The rights check for a specific domain failed or the one-week period allocated for the check expired."""
 
-
     class DnsRecord(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         NAME_FIELD_NUMBER: builtins.int
         TYPE_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        name: typing.Text
+        name: builtins.str
         """Name of the DNS record."""
-
-        type: typing.Text
+        type: builtins.str
         """Type of the DNS-record."""
-
-        value: typing.Text
+        value: builtins.str
         """Value of the DNS-record."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            name: typing.Text = ...,
-            type: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["name",b"name","type",b"type","value",b"value"]) -> None: ...
+            name: builtins.str = ...,
+            type: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "type", b"type", "value", b"value"]) -> None: ...
 
     class HttpFile(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         URL_FIELD_NUMBER: builtins.int
         CONTENT_FIELD_NUMBER: builtins.int
-        url: typing.Text
+        url: builtins.str
         """Location of the HTTP file."""
-
-        content: typing.Text
+        content: builtins.str
         """Content of the HTTP file."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            url: typing.Text = ...,
-            content: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["content",b"content","url",b"url"]) -> None: ...
+            url: builtins.str = ...,
+            content: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["content", b"content", "url", b"url"]) -> None: ...
 
     DOMAIN_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
@@ -321,76 +288,70 @@ class Challenge(google.protobuf.message.Message):
     ERROR_FIELD_NUMBER: builtins.int
     DNS_CHALLENGE_FIELD_NUMBER: builtins.int
     HTTP_CHALLENGE_FIELD_NUMBER: builtins.int
-    domain: typing.Text
+    domain: builtins.str
     """Domain of the challenge."""
-
     type: global___ChallengeType.ValueType
     """Type of the challenge."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the challenge is created."""
-        pass
     @property
     def updated_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the challenge is updated."""
-        pass
     status: global___Challenge.Status.ValueType
     """Status of the challenge."""
-
-    message: typing.Text
+    message: builtins.str
     """Description of the challenge."""
-
-    error: typing.Text
+    error: builtins.str
     """Error of the challenge."""
-
     @property
     def dns_challenge(self) -> global___Challenge.DnsRecord:
         """DNS-record."""
-        pass
     @property
     def http_challenge(self) -> global___Challenge.HttpFile:
         """HTTP-file."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        domain: typing.Text = ...,
+        domain: builtins.str = ...,
         type: global___ChallengeType.ValueType = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        updated_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        updated_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         status: global___Challenge.Status.ValueType = ...,
-        message: typing.Text = ...,
-        error: typing.Text = ...,
-        dns_challenge: typing.Optional[global___Challenge.DnsRecord] = ...,
-        http_challenge: typing.Optional[global___Challenge.HttpFile] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["challenge",b"challenge","created_at",b"created_at","dns_challenge",b"dns_challenge","http_challenge",b"http_challenge","updated_at",b"updated_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["challenge",b"challenge","created_at",b"created_at","dns_challenge",b"dns_challenge","domain",b"domain","error",b"error","http_challenge",b"http_challenge","message",b"message","status",b"status","type",b"type","updated_at",b"updated_at"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["challenge",b"challenge"]) -> typing.Optional[typing_extensions.Literal["dns_challenge","http_challenge"]]: ...
+        message: builtins.str = ...,
+        error: builtins.str = ...,
+        dns_challenge: global___Challenge.DnsRecord | None = ...,
+        http_challenge: global___Challenge.HttpFile | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["challenge", b"challenge", "created_at", b"created_at", "dns_challenge", b"dns_challenge", "http_challenge", b"http_challenge", "updated_at", b"updated_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["challenge", b"challenge", "created_at", b"created_at", "dns_challenge", b"dns_challenge", "domain", b"domain", "error", b"error", "http_challenge", b"http_challenge", "message", b"message", "status", b"status", "type", b"type", "updated_at", b"updated_at"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["challenge", b"challenge"]) -> typing_extensions.Literal["dns_challenge", "http_challenge"] | None: ...
+
 global___Challenge = Challenge
 
 class Version(google.protobuf.message.Message):
     """A certificate version"""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the version."""
-
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the certificate that the version belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Time when the version was created."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        certificate_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","created_at",b"created_at","id",b"id"]) -> None: ...
+        id: builtins.str = ...,
+        certificate_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "created_at", b"created_at", "id", b"id"]) -> None: ...
+
 global___Version = Version

@@ -10,77 +10,80 @@ import yandex.cloud.operation.operation_pb2
 
 class SnapshotScheduleServiceStub:
     """A set of methods for managing SnapshotSchedule resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.GetSnapshotScheduleRequest,
-        yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]
+        yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule,
+    ]
     """Returns the specified SnapshotSchedule resource.
 
     To get the list of available SnapshotSchedule resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotSchedulesRequest,
-        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotSchedulesResponse]
+        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotSchedulesResponse,
+    ]
     """Retrieves the list of SnapshotSchedule resources in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.CreateSnapshotScheduleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a snapshot schedule in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.UpdateSnapshotScheduleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified snapshot schedule."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.DeleteSnapshotScheduleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified snapshot schedule.
 
     Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete
     any snapshots previously made by the schedule. You must delete snapshots separately.
     """
-
     UpdateDisks: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.UpdateSnapshotScheduleDisksRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """UpdateDisks of schedule"""
-
     Disable: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.DisableSnapshotScheduleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Disable schedule sets status InActive.
 
     When schedule os disabled snapshots will not be created or deleted according to retention policy.
     """
-
     Enable: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.EnableSnapshotScheduleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Enable schedule sets status Active."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleOperationsRequest,
-        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleOperationsResponse]
+        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleOperationsResponse,
+    ]
     """Lists operations for the specified snapshot schedule."""
-
     ListSnapshots: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleSnapshotsRequest,
-        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleSnapshotsResponse]
+        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleSnapshotsResponse,
+    ]
     """List snapshot created by schedule."""
-
     ListDisks: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleDisksRequest,
-        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleDisksResponse]
+        yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleDisksResponse,
+    ]
     """List disks that belong to schedule."""
-
 
 class SnapshotScheduleServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing SnapshotSchedule resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.GetSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule:
@@ -88,34 +91,30 @@ class SnapshotScheduleServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available SnapshotSchedule resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotSchedulesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotSchedulesResponse:
         """Retrieves the list of SnapshotSchedule resources in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.CreateSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a snapshot schedule in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.UpdateSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified snapshot schedule."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.DeleteSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -124,18 +123,16 @@ class SnapshotScheduleServiceServicer(metaclass=abc.ABCMeta):
         Deleting a snapshot schedule removes its data permanently and is irreversible. However, deleting a schedule does not delete
         any snapshots previously made by the schedule. You must delete snapshots separately.
         """
-        pass
-
     @abc.abstractmethod
-    def UpdateDisks(self,
+    def UpdateDisks(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.UpdateSnapshotScheduleDisksRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """UpdateDisks of schedule"""
-        pass
-
     @abc.abstractmethod
-    def Disable(self,
+    def Disable(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.DisableSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -143,39 +140,33 @@ class SnapshotScheduleServiceServicer(metaclass=abc.ABCMeta):
 
         When schedule os disabled snapshots will not be created or deleted according to retention policy.
         """
-        pass
-
     @abc.abstractmethod
-    def Enable(self,
+    def Enable(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.EnableSnapshotScheduleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Enable schedule sets status Active."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleOperationsResponse:
         """Lists operations for the specified snapshot schedule."""
-        pass
-
     @abc.abstractmethod
-    def ListSnapshots(self,
+    def ListSnapshots(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleSnapshotsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleSnapshotsResponse:
         """List snapshot created by schedule."""
-        pass
-
     @abc.abstractmethod
-    def ListDisks(self,
+    def ListDisks(
+        self,
         request: yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleDisksRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.snapshot_schedule_service_pb2.ListSnapshotScheduleDisksResponse:
         """List disks that belong to schedule."""
-        pass
-
 
 def add_SnapshotScheduleServiceServicer_to_server(servicer: SnapshotScheduleServiceServicer, server: grpc.Server) -> None: ...

@@ -11,68 +11,66 @@ class SymmetricCryptoServiceStub:
 
     Set of methods that perform symmetric encryption and decryption.
     """
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Encrypt: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricEncryptRequest,
-        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricEncryptResponse]
+        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricEncryptResponse,
+    ]
     """Encrypts given plaintext with the specified key."""
-
     Decrypt: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricDecryptRequest,
-        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricDecryptResponse]
+        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricDecryptResponse,
+    ]
     """Decrypts the given ciphertext with the specified key."""
-
     ReEncrypt: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricReEncryptRequest,
-        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricReEncryptResponse]
+        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricReEncryptResponse,
+    ]
     """Re-encrypts a ciphertext with the specified KMS key."""
-
     GenerateDataKey: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_crypto_service_pb2.GenerateDataKeyRequest,
-        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.GenerateDataKeyResponse]
+        yandex.cloud.kms.v1.symmetric_crypto_service_pb2.GenerateDataKeyResponse,
+    ]
     """Generates a new symmetric data encryption key (not a KMS key) and returns
     the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
     """
-
 
 class SymmetricCryptoServiceServicer(metaclass=abc.ABCMeta):
     """--- Data plane for KMS symmetric cryptography operations
 
     Set of methods that perform symmetric encryption and decryption.
     """
+
     @abc.abstractmethod
-    def Encrypt(self,
+    def Encrypt(
+        self,
         request: yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricEncryptRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricEncryptResponse:
         """Encrypts given plaintext with the specified key."""
-        pass
-
     @abc.abstractmethod
-    def Decrypt(self,
+    def Decrypt(
+        self,
         request: yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricDecryptRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricDecryptResponse:
         """Decrypts the given ciphertext with the specified key."""
-        pass
-
     @abc.abstractmethod
-    def ReEncrypt(self,
+    def ReEncrypt(
+        self,
         request: yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricReEncryptRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_crypto_service_pb2.SymmetricReEncryptResponse:
         """Re-encrypts a ciphertext with the specified KMS key."""
-        pass
-
     @abc.abstractmethod
-    def GenerateDataKey(self,
+    def GenerateDataKey(
+        self,
         request: yandex.cloud.kms.v1.symmetric_crypto_service_pb2.GenerateDataKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_crypto_service_pb2.GenerateDataKeyResponse:
         """Generates a new symmetric data encryption key (not a KMS key) and returns
         the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
         """
-        pass
-
 
 def add_SymmetricCryptoServiceServicer_to_server(servicer: SymmetricCryptoServiceServicer, server: grpc.Server) -> None: ...

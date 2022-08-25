@@ -11,123 +11,126 @@ import yandex.cloud.serverless.functions.v1.function_service_pb2
 
 class FunctionServiceStub:
     """A set of methods for managing serverless functions."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionRequest,
-        yandex.cloud.serverless.functions.v1.function_pb2.Function]
+        yandex.cloud.serverless.functions.v1.function_pb2.Function,
+    ]
     """Returns the specified function.
 
     To get the list of all available functions, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsResponse,
+    ]
     """Retrieves the list of functions in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.CreateFunctionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a function in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.UpdateFunctionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified function."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.DeleteFunctionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified function."""
-
     GetVersion: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionVersionRequest,
-        yandex.cloud.serverless.functions.v1.function_pb2.Version]
+        yandex.cloud.serverless.functions.v1.function_pb2.Version,
+    ]
     """Returns the specified version of a function.
 
     To get the list of available version, make a [ListVersions] request.
     """
-
     GetVersionByTag: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionVersionByTagRequest,
-        yandex.cloud.serverless.functions.v1.function_pb2.Version]
+        yandex.cloud.serverless.functions.v1.function_pb2.Version,
+    ]
     """Returns all versions with the specified tag.
 
     To get the list of all available versions, make a [ListVersions] request.
     """
-
     ListVersions: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsVersionsRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsVersionsResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsVersionsResponse,
+    ]
     """Retrieves the list of versions for the specified function, or of all function versions
     in the specified folder.
     """
-
     SetTag: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.SetFunctionTagRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Set a tag for the specified version of a function."""
-
     RemoveTag: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.RemoveFunctionTagRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Remove a tag from the specified version of a function."""
-
     ListTagHistory: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionTagHistoryRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionTagHistoryResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionTagHistoryResponse,
+    ]
     """Returns the log of tags assigned to versions of the specified function."""
-
     CreateVersion: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.CreateFunctionVersionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a version for the specified function."""
-
     ListRuntimes: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListRuntimesRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListRuntimesResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListRuntimesResponse,
+    ]
     """Lists available runtime environments for the specified function."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionOperationsRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionOperationsResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionOperationsResponse,
+    ]
     """Lists operations for the specified function."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """Lists existing access bindings for the specified function."""
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the function."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified function."""
-
     ListScalingPolicies: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.ListScalingPoliciesRequest,
-        yandex.cloud.serverless.functions.v1.function_service_pb2.ListScalingPoliciesResponse]
+        yandex.cloud.serverless.functions.v1.function_service_pb2.ListScalingPoliciesResponse,
+    ]
     """Lists existing scaling policies for specified function"""
-
     SetScalingPolicy: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.SetScalingPolicyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Set scaling policy for specified function and tag"""
-
     RemoveScalingPolicy: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.functions.v1.function_service_pb2.RemoveScalingPolicyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Remove scaling policy for specified function and tag"""
-
 
 class FunctionServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing serverless functions."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_pb2.Function:
@@ -135,42 +138,37 @@ class FunctionServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available functions, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsResponse:
         """Retrieves the list of functions in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.CreateFunctionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a function in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.UpdateFunctionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified function."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.DeleteFunctionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified function."""
-        pass
-
     @abc.abstractmethod
-    def GetVersion(self,
+    def GetVersion(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionVersionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_pb2.Version:
@@ -178,10 +176,9 @@ class FunctionServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available version, make a [ListVersions] request.
         """
-        pass
-
     @abc.abstractmethod
-    def GetVersionByTag(self,
+    def GetVersionByTag(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.GetFunctionVersionByTagRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_pb2.Version:
@@ -189,113 +186,98 @@ class FunctionServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available versions, make a [ListVersions] request.
         """
-        pass
-
     @abc.abstractmethod
-    def ListVersions(self,
+    def ListVersions(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsVersionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionsVersionsResponse:
         """Retrieves the list of versions for the specified function, or of all function versions
         in the specified folder.
         """
-        pass
-
     @abc.abstractmethod
-    def SetTag(self,
+    def SetTag(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.SetFunctionTagRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Set a tag for the specified version of a function."""
-        pass
-
     @abc.abstractmethod
-    def RemoveTag(self,
+    def RemoveTag(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.RemoveFunctionTagRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Remove a tag from the specified version of a function."""
-        pass
-
     @abc.abstractmethod
-    def ListTagHistory(self,
+    def ListTagHistory(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionTagHistoryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionTagHistoryResponse:
         """Returns the log of tags assigned to versions of the specified function."""
-        pass
-
     @abc.abstractmethod
-    def CreateVersion(self,
+    def CreateVersion(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.CreateFunctionVersionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a version for the specified function."""
-        pass
-
     @abc.abstractmethod
-    def ListRuntimes(self,
+    def ListRuntimes(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListRuntimesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListRuntimesResponse:
         """Lists available runtime environments for the specified function."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListFunctionOperationsResponse:
         """Lists operations for the specified function."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
         """Lists existing access bindings for the specified function."""
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the function."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified function."""
-        pass
-
     @abc.abstractmethod
-    def ListScalingPolicies(self,
+    def ListScalingPolicies(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.ListScalingPoliciesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.functions.v1.function_service_pb2.ListScalingPoliciesResponse:
         """Lists existing scaling policies for specified function"""
-        pass
-
     @abc.abstractmethod
-    def SetScalingPolicy(self,
+    def SetScalingPolicy(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.SetScalingPolicyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Set scaling policy for specified function and tag"""
-        pass
-
     @abc.abstractmethod
-    def RemoveScalingPolicy(self,
+    def RemoveScalingPolicy(
+        self,
         request: yandex.cloud.serverless.functions.v1.function_service_pb2.RemoveScalingPolicyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Remove scaling policy for specified function and tag"""
-        pass
-
 
 def add_FunctionServiceServicer_to_server(servicer: FunctionServiceServicer, server: grpc.Server) -> None: ...

@@ -3,72 +3,86 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class QuotaMetric(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     LIMIT_FIELD_NUMBER: builtins.int
     USAGE_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """formatted as <domain>.<metric>.<unit>, e.g. mdb.hdd.size"""
-
     limit: builtins.int
     usage: builtins.float
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         limit: builtins.int = ...,
         usage: builtins.float = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["limit",b"limit","name",b"name","usage",b"usage"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["limit", b"limit", "name", b"name", "usage", b"usage"]) -> None: ...
+
 global___QuotaMetric = QuotaMetric
 
 class MetricLimit(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     LIMIT_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     limit: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         limit: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["limit",b"limit","name",b"name"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["limit", b"limit", "name", b"name"]) -> None: ...
+
 global___MetricLimit = MetricLimit
 
 class QuotaFailure(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Violation(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         METRIC_FIELD_NUMBER: builtins.int
         REQUIRED_FIELD_NUMBER: builtins.int
         @property
         def metric(self) -> global___QuotaMetric: ...
         required: builtins.int
         """new value for the MetricLimit.limit, so it is: old limit + delta"""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            metric: typing.Optional[global___QuotaMetric] = ...,
+            metric: global___QuotaMetric | None = ...,
             required: builtins.int = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["metric",b"metric"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["metric",b"metric","required",b"required"]) -> None: ...
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["metric", b"metric"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["metric", b"metric", "required", b"required"]) -> None: ...
 
     VIOLATIONS_FIELD_NUMBER: builtins.int
     @property
     def violations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___QuotaFailure.Violation]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        violations: typing.Optional[typing.Iterable[global___QuotaFailure.Violation]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["violations",b"violations"]) -> None: ...
+        violations: collections.abc.Iterable[global___QuotaFailure.Violation] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["violations", b"violations"]) -> None: ...
+
 global___QuotaFailure = QuotaFailure

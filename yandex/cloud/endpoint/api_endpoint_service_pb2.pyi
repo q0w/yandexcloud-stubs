@@ -3,51 +3,65 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.endpoint.api_endpoint_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetApiEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     API_ENDPOINT_ID_FIELD_NUMBER: builtins.int
-    api_endpoint_id: typing.Text
-    def __init__(self,
+    api_endpoint_id: builtins.str
+    def __init__(
+        self,
         *,
-        api_endpoint_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_endpoint_id",b"api_endpoint_id"]) -> None: ...
+        api_endpoint_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_endpoint_id", b"api_endpoint_id"]) -> None: ...
+
 global___GetApiEndpointRequest = GetApiEndpointRequest
 
 class ListApiEndpointsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     page_size: builtins.int
-    page_token: typing.Text
-    def __init__(self,
+    page_token: builtins.str
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListApiEndpointsRequest = ListApiEndpointsRequest
 
 class ListApiEndpointsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ENDPOINTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def endpoints(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint]: ...
-    next_page_token: typing.Text
-    def __init__(self,
+    next_page_token: builtins.str
+    def __init__(
+        self,
         *,
-        endpoints: typing.Optional[typing.Iterable[yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["endpoints",b"endpoints","next_page_token",b"next_page_token"]) -> None: ...
+        endpoints: collections.abc.Iterable[yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["endpoints", b"endpoints", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListApiEndpointsResponse = ListApiEndpointsResponse

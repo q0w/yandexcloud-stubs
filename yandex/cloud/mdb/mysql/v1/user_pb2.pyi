@@ -3,30 +3,35 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class _GlobalPermission:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _GlobalPermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_GlobalPermission.ValueType], builtins.type):
+
+class _GlobalPermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_GlobalPermission.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     GLOBAL_PERMISSION_UNSPECIFIED: _GlobalPermission.ValueType  # 0
     REPLICATION_CLIENT: _GlobalPermission.ValueType  # 1
     """Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements."""
-
     REPLICATION_SLAVE: _GlobalPermission.ValueType  # 2
     """Enables the account to request updates that have been made to databases on the master server,
     using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
     """
-
     PROCESS: _GlobalPermission.ValueType  # 3
     """Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
 
@@ -34,155 +39,130 @@ class _GlobalPermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrappe
     You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
     """
 
-class GlobalPermission(_GlobalPermission, metaclass=_GlobalPermissionEnumTypeWrapper):
-    pass
+class GlobalPermission(_GlobalPermission, metaclass=_GlobalPermissionEnumTypeWrapper): ...
 
 GLOBAL_PERMISSION_UNSPECIFIED: GlobalPermission.ValueType  # 0
 REPLICATION_CLIENT: GlobalPermission.ValueType  # 1
 """Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements."""
-
 REPLICATION_SLAVE: GlobalPermission.ValueType  # 2
 """Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
 """
-
 PROCESS: GlobalPermission.ValueType  # 3
 """Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
 
 The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
 You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
 """
-
 global___GlobalPermission = GlobalPermission
 
-
 class _AuthPlugin:
-    ValueType = typing.NewType('ValueType', builtins.int)
+    ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
-class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AuthPlugin.ValueType], builtins.type):
+
+class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AuthPlugin.ValueType], builtins.type):  # noqa: F821
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     AUTH_PLUGIN_UNSPECIFIED: _AuthPlugin.ValueType  # 0
     MYSQL_NATIVE_PASSWORD: _AuthPlugin.ValueType  # 1
     """Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html)."""
-
     CACHING_SHA2_PASSWORD: _AuthPlugin.ValueType  # 2
     """Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)."""
-
     SHA256_PASSWORD: _AuthPlugin.ValueType  # 3
     """Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html)."""
 
-class AuthPlugin(_AuthPlugin, metaclass=_AuthPluginEnumTypeWrapper):
-    pass
+class AuthPlugin(_AuthPlugin, metaclass=_AuthPluginEnumTypeWrapper): ...
 
 AUTH_PLUGIN_UNSPECIFIED: AuthPlugin.ValueType  # 0
 MYSQL_NATIVE_PASSWORD: AuthPlugin.ValueType  # 1
 """Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html)."""
-
 CACHING_SHA2_PASSWORD: AuthPlugin.ValueType  # 2
 """Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)."""
-
 SHA256_PASSWORD: AuthPlugin.ValueType  # 3
 """Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html)."""
-
 global___AuthPlugin = AuthPlugin
-
 
 class User(google.protobuf.message.Message):
     """An object that represents MySQL user.
 
     See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
     GLOBAL_PERMISSIONS_FIELD_NUMBER: builtins.int
     CONNECTION_LIMITS_FIELD_NUMBER: builtins.int
     AUTHENTICATION_PLUGIN_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the user."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster the user belongs to."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions granted to the user."""
-        pass
     @property
     def global_permissions(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___GlobalPermission.ValueType]:
         """Set of global permissions to grant to the user."""
-        pass
     @property
     def connection_limits(self) -> global___ConnectionLimits:
         """Set of user connection limits."""
-        pass
     authentication_plugin: global___AuthPlugin.ValueType
     """User authentication plugin."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        global_permissions: typing.Optional[typing.Iterable[global___GlobalPermission.ValueType]] = ...,
-        connection_limits: typing.Optional[global___ConnectionLimits] = ...,
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+        global_permissions: collections.abc.Iterable[global___GlobalPermission.ValueType] | None = ...,
+        connection_limits: global___ConnectionLimits | None = ...,
         authentication_plugin: global___AuthPlugin.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection_limits",b"connection_limits"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authentication_plugin",b"authentication_plugin","cluster_id",b"cluster_id","connection_limits",b"connection_limits","global_permissions",b"global_permissions","name",b"name","permissions",b"permissions"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection_limits", b"connection_limits"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authentication_plugin", b"authentication_plugin", "cluster_id", b"cluster_id", "connection_limits", b"connection_limits", "global_permissions", b"global_permissions", "name", b"name", "permissions", b"permissions"]) -> None: ...
+
 global___User = User
 
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Privilege:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _PrivilegeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Permission._Privilege.ValueType], builtins.type):
+
+    class _PrivilegeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Permission._Privilege.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         PRIVILEGE_UNSPECIFIED: Permission._Privilege.ValueType  # 0
         ALL_PRIVILEGES: Permission._Privilege.ValueType  # 1
         """All privileges that can be made available to the user."""
-
         ALTER: Permission._Privilege.ValueType  # 2
         """Altering tables."""
-
         ALTER_ROUTINE: Permission._Privilege.ValueType  # 3
         """Altering stored routines and functions."""
-
         CREATE: Permission._Privilege.ValueType  # 4
         """Creating tables or indexes."""
-
         CREATE_ROUTINE: Permission._Privilege.ValueType  # 5
         """Creating stored routines."""
-
         CREATE_TEMPORARY_TABLES: Permission._Privilege.ValueType  # 6
         """Creating temporary tables."""
-
         CREATE_VIEW: Permission._Privilege.ValueType  # 7
         """Creating views."""
-
         DELETE: Permission._Privilege.ValueType  # 8
         """Deleting tables."""
-
         DROP: Permission._Privilege.ValueType  # 9
         """Removing tables or views."""
-
         EVENT: Permission._Privilege.ValueType  # 10
         """Creating, altering, dropping, or displaying events for the Event Scheduler."""
-
         EXECUTE: Permission._Privilege.ValueType  # 11
         """Executing stored routines."""
-
         INDEX: Permission._Privilege.ValueType  # 12
         """Creating and removing indexes."""
-
         INSERT: Permission._Privilege.ValueType  # 13
         """Inserting rows into the database."""
-
         LOCK_TABLES: Permission._Privilege.ValueType  # 14
         """Using `LOCK TABLES` statement for tables available with `SELECT` privilege."""
-
         SELECT: Permission._Privilege.ValueType  # 15
         """Selecting rows from tables.
 
@@ -190,65 +170,45 @@ class Permission(google.protobuf.message.Message):
 
         See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
         """
-
         SHOW_VIEW: Permission._Privilege.ValueType  # 16
         """Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`."""
-
         TRIGGER: Permission._Privilege.ValueType  # 17
         """Creating, removing, executing, or displaying triggers for a table."""
-
         UPDATE: Permission._Privilege.ValueType  # 18
         """Updating rows in the database."""
-
         REFERENCES: Permission._Privilege.ValueType  # 19
         """Creation of a foreign key constraint for the parent table."""
 
-    class Privilege(_Privilege, metaclass=_PrivilegeEnumTypeWrapper):
-        pass
-
+    class Privilege(_Privilege, metaclass=_PrivilegeEnumTypeWrapper): ...
     PRIVILEGE_UNSPECIFIED: Permission.Privilege.ValueType  # 0
     ALL_PRIVILEGES: Permission.Privilege.ValueType  # 1
     """All privileges that can be made available to the user."""
-
     ALTER: Permission.Privilege.ValueType  # 2
     """Altering tables."""
-
     ALTER_ROUTINE: Permission.Privilege.ValueType  # 3
     """Altering stored routines and functions."""
-
     CREATE: Permission.Privilege.ValueType  # 4
     """Creating tables or indexes."""
-
     CREATE_ROUTINE: Permission.Privilege.ValueType  # 5
     """Creating stored routines."""
-
     CREATE_TEMPORARY_TABLES: Permission.Privilege.ValueType  # 6
     """Creating temporary tables."""
-
     CREATE_VIEW: Permission.Privilege.ValueType  # 7
     """Creating views."""
-
     DELETE: Permission.Privilege.ValueType  # 8
     """Deleting tables."""
-
     DROP: Permission.Privilege.ValueType  # 9
     """Removing tables or views."""
-
     EVENT: Permission.Privilege.ValueType  # 10
     """Creating, altering, dropping, or displaying events for the Event Scheduler."""
-
     EXECUTE: Permission.Privilege.ValueType  # 11
     """Executing stored routines."""
-
     INDEX: Permission.Privilege.ValueType  # 12
     """Creating and removing indexes."""
-
     INSERT: Permission.Privilege.ValueType  # 13
     """Inserting rows into the database."""
-
     LOCK_TABLES: Permission.Privilege.ValueType  # 14
     """Using `LOCK TABLES` statement for tables available with `SELECT` privilege."""
-
     SELECT: Permission.Privilege.ValueType  # 15
     """Selecting rows from tables.
 
@@ -256,42 +216,38 @@ class Permission(google.protobuf.message.Message):
 
     See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
     """
-
     SHOW_VIEW: Permission.Privilege.ValueType  # 16
     """Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`."""
-
     TRIGGER: Permission.Privilege.ValueType  # 17
     """Creating, removing, executing, or displaying triggers for a table."""
-
     UPDATE: Permission.Privilege.ValueType  # 18
     """Updating rows in the database."""
-
     REFERENCES: Permission.Privilege.ValueType  # 19
     """Creation of a foreign key constraint for the parent table."""
 
-
     DATABASE_NAME_FIELD_NUMBER: builtins.int
     ROLES_FIELD_NUMBER: builtins.int
-    database_name: typing.Text
+    database_name: builtins.str
     """Name of the database that the permission grants access to."""
-
     @property
     def roles(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___Permission.Privilege.ValueType]:
         """Roles granted to the user within the database.
 
         See [the documentation](/docs/managed-mysql/operations/grant) for details.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        database_name: typing.Text = ...,
-        roles: typing.Optional[typing.Iterable[global___Permission.Privilege.ValueType]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["database_name",b"database_name","roles",b"roles"]) -> None: ...
+        database_name: builtins.str = ...,
+        roles: collections.abc.Iterable[global___Permission.Privilege.ValueType] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["database_name", b"database_name", "roles", b"roles"]) -> None: ...
+
 global___Permission = Permission
 
 class ConnectionLimits(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MAX_QUESTIONS_PER_HOUR_FIELD_NUMBER: builtins.int
     MAX_UPDATES_PER_HOUR_FIELD_NUMBER: builtins.int
     MAX_CONNECTIONS_PER_HOUR_FIELD_NUMBER: builtins.int
@@ -299,44 +255,41 @@ class ConnectionLimits(google.protobuf.message.Message):
     @property
     def max_questions_per_hour(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum permitted number of user questions per hour."""
-        pass
     @property
     def max_updates_per_hour(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum permitted number of user updates per hour."""
-        pass
     @property
     def max_connections_per_hour(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum permitted number of simultaneous client connections per hour."""
-        pass
     @property
     def max_user_connections(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """The maximum number of simultaneous connections permitted to any given MySQL user account."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        max_questions_per_hour: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_updates_per_hour: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_connections_per_hour: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_user_connections: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["max_connections_per_hour",b"max_connections_per_hour","max_questions_per_hour",b"max_questions_per_hour","max_updates_per_hour",b"max_updates_per_hour","max_user_connections",b"max_user_connections"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["max_connections_per_hour",b"max_connections_per_hour","max_questions_per_hour",b"max_questions_per_hour","max_updates_per_hour",b"max_updates_per_hour","max_user_connections",b"max_user_connections"]) -> None: ...
+        max_questions_per_hour: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_updates_per_hour: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_connections_per_hour: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_user_connections: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["max_connections_per_hour", b"max_connections_per_hour", "max_questions_per_hour", b"max_questions_per_hour", "max_updates_per_hour", b"max_updates_per_hour", "max_user_connections", b"max_user_connections"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_connections_per_hour", b"max_connections_per_hour", "max_questions_per_hour", b"max_questions_per_hour", "max_updates_per_hour", b"max_updates_per_hour", "max_user_connections", b"max_user_connections"]) -> None: ...
+
 global___ConnectionLimits = ConnectionLimits
 
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
     PERMISSIONS_FIELD_NUMBER: builtins.int
     GLOBAL_PERMISSIONS_FIELD_NUMBER: builtins.int
     CONNECTION_LIMITS_FIELD_NUMBER: builtins.int
     AUTHENTICATION_PLUGIN_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the user."""
-
-    password: typing.Text
+    password: builtins.str
     """Password of the user."""
-
     @property
     def permissions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Permission]:
         """Set of permissions granted to the user to access specific databases.
@@ -344,27 +297,25 @@ class UserSpec(google.protobuf.message.Message):
 
         When a permission for a database is set, the user will have access to the database.
         """
-        pass
     @property
     def global_permissions(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___GlobalPermission.ValueType]:
         """Set of global permissions to grant to the user."""
-        pass
     @property
     def connection_limits(self) -> global___ConnectionLimits:
         """Set of user connection limits."""
-        pass
     authentication_plugin: global___AuthPlugin.ValueType
     """User authentication plugin."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        password: typing.Text = ...,
-        permissions: typing.Optional[typing.Iterable[global___Permission]] = ...,
-        global_permissions: typing.Optional[typing.Iterable[global___GlobalPermission.ValueType]] = ...,
-        connection_limits: typing.Optional[global___ConnectionLimits] = ...,
+        name: builtins.str = ...,
+        password: builtins.str = ...,
+        permissions: collections.abc.Iterable[global___Permission] | None = ...,
+        global_permissions: collections.abc.Iterable[global___GlobalPermission.ValueType] | None = ...,
+        connection_limits: global___ConnectionLimits | None = ...,
         authentication_plugin: global___AuthPlugin.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connection_limits",b"connection_limits"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authentication_plugin",b"authentication_plugin","connection_limits",b"connection_limits","global_permissions",b"global_permissions","name",b"name","password",b"password","permissions",b"permissions"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connection_limits", b"connection_limits"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authentication_plugin", b"authentication_plugin", "connection_limits", b"connection_limits", "global_permissions", b"global_permissions", "name", b"name", "password", b"password", "permissions", b"permissions"]) -> None: ...
+
 global___UserSpec = UserSpec

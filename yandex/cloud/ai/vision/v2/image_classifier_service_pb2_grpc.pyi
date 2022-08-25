@@ -10,15 +10,15 @@ class ImageClassifierServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Annotate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ai.vision.v2.image_classifier_pb2.AnnotationRequest,
-        yandex.cloud.ai.vision.v2.image_classifier_pb2.AnnotationResponse]
-
+        yandex.cloud.ai.vision.v2.image_classifier_pb2.AnnotationResponse,
+    ]
 
 class ImageClassifierServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Annotate(self,
+    def Annotate(
+        self,
         request: yandex.cloud.ai.vision.v2.image_classifier_pb2.AnnotationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.ai.vision.v2.image_classifier_pb2.AnnotationResponse: ...
-
 
 def add_ImageClassifierServiceServicer_to_server(servicer: ImageClassifierServiceServicer, server: grpc.Server) -> None: ...

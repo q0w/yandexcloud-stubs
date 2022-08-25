@@ -9,33 +9,35 @@ import yandex.cloud.operation.operation_service_pb2
 
 class OperationServiceStub:
     """A set of methods for managing operations for asynchronous API requests."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.operation.operation_service_pb2.GetOperationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Returns the specified Operation resource."""
-
     Cancel: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.operation.operation_service_pb2.CancelOperationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Cancels the specified operation.
 
     Note that currently Object Storage API does not support cancelling operations.
     """
 
-
 class OperationServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing operations for asynchronous API requests."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.operation.operation_service_pb2.GetOperationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Returns the specified Operation resource."""
-        pass
-
     @abc.abstractmethod
-    def Cancel(self,
+    def Cancel(
+        self,
         request: yandex.cloud.operation.operation_service_pb2.CancelOperationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -43,7 +45,5 @@ class OperationServiceServicer(metaclass=abc.ABCMeta):
 
         Note that currently Object Storage API does not support cancelling operations.
         """
-        pass
-
 
 def add_OperationServiceServicer_to_server(servicer: OperationServiceServicer, server: grpc.Server) -> None: ...

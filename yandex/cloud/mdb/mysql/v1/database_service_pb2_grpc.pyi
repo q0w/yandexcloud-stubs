@@ -13,64 +13,62 @@ class DatabaseServiceStub:
 
     See [the documentation](/docs/managed-mysql/operations/databases) for details.
     """
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.database_service_pb2.GetDatabaseRequest,
-        yandex.cloud.mdb.mysql.v1.database_pb2.Database]
+        yandex.cloud.mdb.mysql.v1.database_pb2.Database,
+    ]
     """Retrieves information about the specified database."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.database_service_pb2.ListDatabasesRequest,
-        yandex.cloud.mdb.mysql.v1.database_service_pb2.ListDatabasesResponse]
+        yandex.cloud.mdb.mysql.v1.database_service_pb2.ListDatabasesResponse,
+    ]
     """Retrieves the list of databases in a cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.database_service_pb2.CreateDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new database in a cluster."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1.database_service_pb2.DeleteDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes a database from a cluster."""
-
 
 class DatabaseServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MySQL databases in a cluster.
 
     See [the documentation](/docs/managed-mysql/operations/databases) for details.
     """
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mysql.v1.database_service_pb2.GetDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1.database_pb2.Database:
         """Retrieves information about the specified database."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mysql.v1.database_service_pb2.ListDatabasesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1.database_service_pb2.ListDatabasesResponse:
         """Retrieves the list of databases in a cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.mysql.v1.database_service_pb2.CreateDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new database in a cluster."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.mysql.v1.database_service_pb2.DeleteDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes a database from a cluster."""
-        pass
-
 
 def add_DatabaseServiceServicer_to_server(servicer: DatabaseServiceServicer, server: grpc.Server) -> None: ...

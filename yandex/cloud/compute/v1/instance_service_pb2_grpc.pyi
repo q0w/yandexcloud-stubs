@@ -10,78 +10,80 @@ import yandex.cloud.operation.operation_pb2
 
 class InstanceServiceStub:
     """A set of methods for managing Instance resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.GetInstanceRequest,
-        yandex.cloud.compute.v1.instance_pb2.Instance]
+        yandex.cloud.compute.v1.instance_pb2.Instance,
+    ]
     """Returns the specified Instance resource.
 
     To get the list of available Instance resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.ListInstancesRequest,
-        yandex.cloud.compute.v1.instance_service_pb2.ListInstancesResponse]
+        yandex.cloud.compute.v1.instance_service_pb2.ListInstancesResponse,
+    ]
     """Retrieves the list of Instance resources in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.CreateInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates an instance in the specified folder.
     Method starts an asynchronous operation that can be cancelled while it is in progress.
     """
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified instance."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.DeleteInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified instance."""
-
     UpdateMetadata: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceMetadataRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the metadata of the specified instance."""
-
     GetSerialPortOutput: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.GetInstanceSerialPortOutputRequest,
-        yandex.cloud.compute.v1.instance_service_pb2.GetInstanceSerialPortOutputResponse]
+        yandex.cloud.compute.v1.instance_service_pb2.GetInstanceSerialPortOutputResponse,
+    ]
     """Returns the serial port output of the specified Instance resource."""
-
     Stop: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.StopInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Stops the running instance.
 
     You can start the instance later using the [InstanceService.Start] method.
     """
-
     Start: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.StartInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Starts the stopped instance."""
-
     Restart: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.RestartInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Restarts the running instance."""
-
     AttachDisk: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.AttachInstanceDiskRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Attaches the disk to the instance."""
-
     DetachDisk: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.DetachInstanceDiskRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Detaches the disk from the instance."""
-
     AttachFilesystem: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.AttachInstanceFilesystemRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Attaches the filesystem to the instance.
 
     The instance and the filesystem must reside in the same availability zone.
@@ -93,40 +95,40 @@ class InstanceServiceStub:
     To use the instance with an attached filesystem, the latter must be mounted.
     For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
     """
-
     DetachFilesystem: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.DetachInstanceFilesystemRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Detaches the filesystem from the instance.
 
     To detach a filesystem, the instance must have a `STOPPED` status ([Instance.status]).
     To check the instance status, make a [InstanceService.Get] request.
     To stop the running instance, make a [InstanceService.Stop] request.
     """
-
     AddOneToOneNat: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.AddInstanceOneToOneNatRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Enables One-to-one NAT on the network interface."""
-
     RemoveOneToOneNat: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.RemoveInstanceOneToOneNatRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Removes One-to-one NAT from the network interface."""
-
     UpdateNetworkInterface: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceNetworkInterfaceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified instance network interface."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.ListInstanceOperationsRequest,
-        yandex.cloud.compute.v1.instance_service_pb2.ListInstanceOperationsResponse]
+        yandex.cloud.compute.v1.instance_service_pb2.ListInstanceOperationsResponse,
+    ]
     """Lists operations for the specified instance."""
-
     Move: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.instance_service_pb2.MoveInstanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Moves the specified instance to another folder of the same cloud.
 
     The instance must be stopped before moving. To stop the instance, make a [Stop] request.
@@ -135,11 +137,12 @@ class InstanceServiceStub:
     that have been recorded to the source folder prior to moving will be retained.
     """
 
-
 class InstanceServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Instance resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.GetInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.instance_pb2.Instance:
@@ -147,60 +150,53 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Instance resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.ListInstancesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.instance_service_pb2.ListInstancesResponse:
         """Retrieves the list of Instance resources in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.CreateInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates an instance in the specified folder.
         Method starts an asynchronous operation that can be cancelled while it is in progress.
         """
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified instance."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.DeleteInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified instance."""
-        pass
-
     @abc.abstractmethod
-    def UpdateMetadata(self,
+    def UpdateMetadata(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceMetadataRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the metadata of the specified instance."""
-        pass
-
     @abc.abstractmethod
-    def GetSerialPortOutput(self,
+    def GetSerialPortOutput(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.GetInstanceSerialPortOutputRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.instance_service_pb2.GetInstanceSerialPortOutputResponse:
         """Returns the serial port output of the specified Instance resource."""
-        pass
-
     @abc.abstractmethod
-    def Stop(self,
+    def Stop(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.StopInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -208,42 +204,37 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
 
         You can start the instance later using the [InstanceService.Start] method.
         """
-        pass
-
     @abc.abstractmethod
-    def Start(self,
+    def Start(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.StartInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Starts the stopped instance."""
-        pass
-
     @abc.abstractmethod
-    def Restart(self,
+    def Restart(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.RestartInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Restarts the running instance."""
-        pass
-
     @abc.abstractmethod
-    def AttachDisk(self,
+    def AttachDisk(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.AttachInstanceDiskRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Attaches the disk to the instance."""
-        pass
-
     @abc.abstractmethod
-    def DetachDisk(self,
+    def DetachDisk(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.DetachInstanceDiskRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Detaches the disk from the instance."""
-        pass
-
     @abc.abstractmethod
-    def AttachFilesystem(self,
+    def AttachFilesystem(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.AttachInstanceFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -258,10 +249,9 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
         To use the instance with an attached filesystem, the latter must be mounted.
         For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
         """
-        pass
-
     @abc.abstractmethod
-    def DetachFilesystem(self,
+    def DetachFilesystem(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.DetachInstanceFilesystemRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -271,42 +261,37 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
         To check the instance status, make a [InstanceService.Get] request.
         To stop the running instance, make a [InstanceService.Stop] request.
         """
-        pass
-
     @abc.abstractmethod
-    def AddOneToOneNat(self,
+    def AddOneToOneNat(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.AddInstanceOneToOneNatRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Enables One-to-one NAT on the network interface."""
-        pass
-
     @abc.abstractmethod
-    def RemoveOneToOneNat(self,
+    def RemoveOneToOneNat(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.RemoveInstanceOneToOneNatRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Removes One-to-one NAT from the network interface."""
-        pass
-
     @abc.abstractmethod
-    def UpdateNetworkInterface(self,
+    def UpdateNetworkInterface(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.UpdateInstanceNetworkInterfaceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified instance network interface."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.ListInstanceOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.instance_service_pb2.ListInstanceOperationsResponse:
         """Lists operations for the specified instance."""
-        pass
-
     @abc.abstractmethod
-    def Move(self,
+    def Move(
+        self,
         request: yandex.cloud.compute.v1.instance_service_pb2.MoveInstanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -317,7 +302,5 @@ class InstanceServiceServicer(metaclass=abc.ABCMeta):
         After moving, the instance will start recording its Monitoring default metrics to its new folder. Metrics
         that have been recorded to the source folder prior to moving will be retained.
         """
-        pass
-
 
 def add_InstanceServiceServicer_to_server(servicer: InstanceServiceServicer, server: grpc.Server) -> None: ...

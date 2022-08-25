@@ -11,45 +11,45 @@ class RawLogsServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Activate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.raw_logs_service_pb2.ActivateRawLogsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Deactivate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.raw_logs_service_pb2.DeactivateRawLogsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.raw_logs_service_pb2.GetRawLogsRequest,
-        yandex.cloud.cdn.v1.raw_logs_service_pb2.GetRawLogsResponse]
-
+        yandex.cloud.cdn.v1.raw_logs_service_pb2.GetRawLogsResponse,
+    ]
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.raw_logs_service_pb2.UpdateRawLogsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
 
 class RawLogsServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Activate(self,
+    def Activate(
+        self,
         request: yandex.cloud.cdn.v1.raw_logs_service_pb2.ActivateRawLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Deactivate(self,
+    def Deactivate(
+        self,
         request: yandex.cloud.cdn.v1.raw_logs_service_pb2.DeactivateRawLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.cdn.v1.raw_logs_service_pb2.GetRawLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.raw_logs_service_pb2.GetRawLogsResponse: ...
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.cdn.v1.raw_logs_service_pb2.UpdateRawLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
 
 def add_RawLogsServiceServicer_to_server(servicer: RawLogsServiceServicer, server: grpc.Server) -> None: ...

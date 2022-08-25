@@ -3,71 +3,70 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ApiGateway(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ApiGateway._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ApiGateway._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: ApiGateway._Status.ValueType  # 0
         CREATING: ApiGateway._Status.ValueType  # 1
         """API gateway is being created."""
-
         ACTIVE: ApiGateway._Status.ValueType  # 2
         """API gateway is ready for use."""
-
         DELETING: ApiGateway._Status.ValueType  # 3
         """API gateway is being deleted."""
-
         ERROR: ApiGateway._Status.ValueType  # 4
         """API gateway failed. The only allowed action is delete."""
-
         UPDATING: ApiGateway._Status.ValueType  # 5
         """API gateway is being updated."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: ApiGateway.Status.ValueType  # 0
     CREATING: ApiGateway.Status.ValueType  # 1
     """API gateway is being created."""
-
     ACTIVE: ApiGateway.Status.ValueType  # 2
     """API gateway is ready for use."""
-
     DELETING: ApiGateway.Status.ValueType  # 3
     """API gateway is being deleted."""
-
     ERROR: ApiGateway.Status.ValueType  # 4
     """API gateway failed. The only allowed action is delete."""
-
     UPDATING: ApiGateway.Status.ValueType  # 5
     """API gateway is being updated."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -80,109 +79,101 @@ class ApiGateway(google.protobuf.message.Message):
     LOG_GROUP_ID_FIELD_NUMBER: builtins.int
     ATTACHED_DOMAINS_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the API gateway. Generated at creation time."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the API gateway belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp for the API-gateway."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the API gateway. The name is unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the API gateway."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """API gateway labels as `key:value` pairs."""
-        pass
     status: global___ApiGateway.Status.ValueType
     """Status of the API gateway."""
-
-    domain: typing.Text
+    domain: builtins.str
     """Default domain for the API gateway. Generated at creation time."""
-
-    log_group_id: typing.Text
+    log_group_id: builtins.str
     """ID of the log group for the API gateway."""
-
     @property
     def attached_domains(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AttachedDomain]:
         """List of domains attached to API gateway."""
-        pass
     @property
     def connectivity(self) -> global___Connectivity:
         """Network access. If specified the gateway will be attached to specified network/subnet(s)."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         status: global___ApiGateway.Status.ValueType = ...,
-        domain: typing.Text = ...,
-        log_group_id: typing.Text = ...,
-        attached_domains: typing.Optional[typing.Iterable[global___AttachedDomain]] = ...,
-        connectivity: typing.Optional[global___Connectivity] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_domains",b"attached_domains","connectivity",b"connectivity","created_at",b"created_at","description",b"description","domain",b"domain","folder_id",b"folder_id","id",b"id","labels",b"labels","log_group_id",b"log_group_id","name",b"name","status",b"status"]) -> None: ...
+        domain: builtins.str = ...,
+        log_group_id: builtins.str = ...,
+        attached_domains: collections.abc.Iterable[global___AttachedDomain] | None = ...,
+        connectivity: global___Connectivity | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_domains", b"attached_domains", "connectivity", b"connectivity", "created_at", b"created_at", "description", b"description", "domain", b"domain", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "log_group_id", b"log_group_id", "name", b"name", "status", b"status"]) -> None: ...
+
 global___ApiGateway = ApiGateway
 
 class AttachedDomain(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DOMAIN_ID_FIELD_NUMBER: builtins.int
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     ENABLED_FIELD_NUMBER: builtins.int
     DOMAIN_FIELD_NUMBER: builtins.int
-    domain_id: typing.Text
+    domain_id: builtins.str
     """ID of the domain."""
-
-    certificate_id: typing.Text
+    certificate_id: builtins.str
     """ID of the domain certificate."""
-
     enabled: builtins.bool
     """Enabling flag."""
-
-    domain: typing.Text
+    domain: builtins.str
     """Name of the domain."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        domain_id: typing.Text = ...,
-        certificate_id: typing.Text = ...,
+        domain_id: builtins.str = ...,
+        certificate_id: builtins.str = ...,
         enabled: builtins.bool = ...,
-        domain: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id",b"certificate_id","domain",b"domain","domain_id",b"domain_id","enabled",b"enabled"]) -> None: ...
+        domain: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "domain", b"domain", "domain_id", b"domain_id", "enabled", b"enabled"]) -> None: ...
+
 global___AttachedDomain = AttachedDomain
 
 class Connectivity(google.protobuf.message.Message):
     """Gateway connectivity specification."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_ID_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
-    network_id: typing.Text
+    network_id: builtins.str
     """Network the gateway will have access to.
     It's essential to specify network with subnets in all availability zones.
     """
-
     @property
-    def subnet_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def subnet_id(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Complete list of subnets (from the same network) the gateway can be attached to.
         It's essential to specify at least one subnet for each availability zones.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_id: typing.Text = ...,
-        subnet_id: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_id",b"network_id","subnet_id",b"subnet_id"]) -> None: ...
+        network_id: builtins.str = ...,
+        subnet_id: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_id", b"network_id", "subnet_id", b"subnet_id"]) -> None: ...
+
 global___Connectivity = Connectivity

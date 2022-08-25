@@ -11,61 +11,64 @@ import yandex.cloud.operation.operation_pb2
 
 class RepositoryServiceStub:
     """A set of methods for managing Repository resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.containerregistry.v1.repository_service_pb2.GetRepositoryRequest,
-        yandex.cloud.containerregistry.v1.repository_pb2.Repository]
+        yandex.cloud.containerregistry.v1.repository_pb2.Repository,
+    ]
     """Returns the specified Repository resource.
 
     To get the list of available Repository resources, make a [List] request.
     """
-
     GetByName: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.containerregistry.v1.repository_service_pb2.GetRepositoryByNameRequest,
-        yandex.cloud.containerregistry.v1.repository_pb2.Repository]
+        yandex.cloud.containerregistry.v1.repository_pb2.Repository,
+    ]
     """Returns the specified Repository resource.
 
     To get the list of available Repository resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.containerregistry.v1.repository_service_pb2.ListRepositoriesRequest,
-        yandex.cloud.containerregistry.v1.repository_service_pb2.ListRepositoriesResponse]
+        yandex.cloud.containerregistry.v1.repository_service_pb2.ListRepositoriesResponse,
+    ]
     """Retrieves the list of Repository resources in the specified registry."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """access
 
     Lists access bindings for the specified repository.
     """
-
     Upsert: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.containerregistry.v1.repository_service_pb2.UpsertRepositoryRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Upserts a repository in the specified registry."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.containerregistry.v1.repository_service_pb2.DeleteRepositoryRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified repository."""
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the specified repository."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified repository."""
-
 
 class RepositoryServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Repository resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.containerregistry.v1.repository_service_pb2.GetRepositoryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.containerregistry.v1.repository_pb2.Repository:
@@ -73,10 +76,9 @@ class RepositoryServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Repository resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def GetByName(self,
+    def GetByName(
+        self,
         request: yandex.cloud.containerregistry.v1.repository_service_pb2.GetRepositoryByNameRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.containerregistry.v1.repository_pb2.Repository:
@@ -84,18 +86,16 @@ class RepositoryServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Repository resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.containerregistry.v1.repository_service_pb2.ListRepositoriesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.containerregistry.v1.repository_service_pb2.ListRepositoriesResponse:
         """Retrieves the list of Repository resources in the specified registry."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
@@ -103,39 +103,33 @@ class RepositoryServiceServicer(metaclass=abc.ABCMeta):
 
         Lists access bindings for the specified repository.
         """
-        pass
-
     @abc.abstractmethod
-    def Upsert(self,
+    def Upsert(
+        self,
         request: yandex.cloud.containerregistry.v1.repository_service_pb2.UpsertRepositoryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Upserts a repository in the specified registry."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.containerregistry.v1.repository_service_pb2.DeleteRepositoryRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified repository."""
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the specified repository."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified repository."""
-        pass
-
 
 def add_RepositoryServiceServicer_to_server(servicer: RepositoryServiceServicer, server: grpc.Server) -> None: ...

@@ -8,22 +8,23 @@ import yandex.cloud.iot.devices.v1.registry_data_service_pb2
 
 class RegistryDataServiceStub:
     """A set of methods to work with IoT Core messages on behalf of registry"""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Publish: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.devices.v1.registry_data_service_pb2.PublishRegistryDataRequest,
-        yandex.cloud.iot.devices.v1.registry_data_service_pb2.PublishRegistryDataResponse]
+        yandex.cloud.iot.devices.v1.registry_data_service_pb2.PublishRegistryDataResponse,
+    ]
     """Publishes message on behalf of specified registry"""
-
 
 class RegistryDataServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods to work with IoT Core messages on behalf of registry"""
+
     @abc.abstractmethod
-    def Publish(self,
+    def Publish(
+        self,
         request: yandex.cloud.iot.devices.v1.registry_data_service_pb2.PublishRegistryDataRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.devices.v1.registry_data_service_pb2.PublishRegistryDataResponse:
         """Publishes message on behalf of specified registry"""
-        pass
-
 
 def add_RegistryDataServiceServicer_to_server(servicer: RegistryDataServiceServicer, server: grpc.Server) -> None: ...

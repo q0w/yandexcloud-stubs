@@ -3,81 +3,87 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.compute.v1.disk_pb2
 import yandex.cloud.compute.v1.snapshot_pb2
 import yandex.cloud.compute.v1.snapshot_schedule_pb2
 import yandex.cloud.operation.operation_pb2
 
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
+
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    """ID of the SnapshotSchedule resource to return."""
 
-    def __init__(self,
+    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
+    snapshot_schedule_id: builtins.str
+    """ID of the SnapshotSchedule resource to return."""
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___GetSnapshotScheduleRequest = GetSnapshotScheduleRequest
 
 class ListSnapshotSchedulesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
     ORDER_BY_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list snapshot schedules in."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
     the service returns a [ListSnapshotSchedulesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListSnapshotSchedulesResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
-    order_by: typing.Text
+    filter: builtins.str
+    order_by: builtins.str
     """By which column the listing should be ordered and in which direction,
     format is "createdAt desc". "id asc" if omitted.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        order_by: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","order_by",b"order_by","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+        order_by: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "order_by", b"order_by", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListSnapshotSchedulesRequest = ListSnapshotSchedulesRequest
 
 class ListSnapshotSchedulesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def snapshot_schedules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]:
         """List of SnapshotSchedule resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListSnapshotSchedulesRequest.page_size], use
     the [next_page_token] as the value
@@ -85,29 +91,33 @@ class ListSnapshotSchedulesResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedules: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","snapshot_schedules",b"snapshot_schedules"]) -> None: ...
+        snapshot_schedules: collections.abc.Iterable[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "snapshot_schedules", b"snapshot_schedules"]) -> None: ...
+
 global___ListSnapshotSchedulesResponse = ListSnapshotSchedulesResponse
 
 class CreateSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -118,66 +128,72 @@ class CreateSnapshotScheduleRequest(google.protobuf.message.Message):
     SNAPSHOT_COUNT_FIELD_NUMBER: builtins.int
     SNAPSHOT_SPEC_FIELD_NUMBER: builtins.int
     DISK_IDS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a snapshot schedule in."""
-
-    name: typing.Text
-    description: typing.Text
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
     def schedule_policy(self) -> yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy:
         """schedule properties"""
-        pass
     @property
     def retention_period(self) -> google.protobuf.duration_pb2.Duration: ...
     snapshot_count: builtins.int
     @property
     def snapshot_spec(self) -> yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec: ...
     @property
-    def disk_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def disk_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        schedule_policy: typing.Optional[yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy] = ...,
-        retention_period: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        schedule_policy: yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy | None = ...,
+        retention_period: google.protobuf.duration_pb2.Duration | None = ...,
         snapshot_count: builtins.int = ...,
-        snapshot_spec: typing.Optional[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec] = ...,
-        disk_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_spec",b"snapshot_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","disk_ids",b"disk_ids","folder_id",b"folder_id","labels",b"labels","name",b"name","retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_spec",b"snapshot_spec"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy",b"retention_policy"]) -> typing.Optional[typing_extensions.Literal["retention_period","snapshot_count"]]: ...
+        snapshot_spec: yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec | None = ...,
+        disk_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_spec", b"snapshot_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "disk_ids", b"disk_ids", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_spec", b"snapshot_spec"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy", b"retention_policy"]) -> typing_extensions.Literal["retention_period", "snapshot_count"] | None: ...
+
 global___CreateSnapshotScheduleRequest = CreateSnapshotScheduleRequest
 
 class CreateSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___CreateSnapshotScheduleMetadata = CreateSnapshotScheduleMetadata
 
 class UpdateSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -188,19 +204,16 @@ class UpdateSnapshotScheduleRequest(google.protobuf.message.Message):
     RETENTION_PERIOD_FIELD_NUMBER: builtins.int
     SNAPSHOT_COUNT_FIELD_NUMBER: builtins.int
     SNAPSHOT_SPEC_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
+    snapshot_schedule_id: builtins.str
     """ID of the SnapshotSchedule resource to update."""
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the SnapshotSchedule resource are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """schedule properties"""
-
-    description: typing.Text
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
     def schedule_policy(self) -> yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy: ...
     @property
@@ -208,291 +221,317 @@ class UpdateSnapshotScheduleRequest(google.protobuf.message.Message):
     snapshot_count: builtins.int
     @property
     def snapshot_spec(self) -> yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        schedule_policy: typing.Optional[yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy] = ...,
-        retention_period: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        snapshot_schedule_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        schedule_policy: yandex.cloud.compute.v1.snapshot_schedule_pb2.SchedulePolicy | None = ...,
+        retention_period: google.protobuf.duration_pb2.Duration | None = ...,
         snapshot_count: builtins.int = ...,
-        snapshot_spec: typing.Optional[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_spec",b"snapshot_spec","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_schedule_id",b"snapshot_schedule_id","snapshot_spec",b"snapshot_spec","update_mask",b"update_mask"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy",b"retention_policy"]) -> typing.Optional[typing_extensions.Literal["retention_period","snapshot_count"]]: ...
+        snapshot_spec: yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_spec", b"snapshot_spec", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_schedule_id", b"snapshot_schedule_id", "snapshot_spec", b"snapshot_spec", "update_mask", b"update_mask"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy", b"retention_policy"]) -> typing_extensions.Literal["retention_period", "snapshot_count"] | None: ...
+
 global___UpdateSnapshotScheduleRequest = UpdateSnapshotScheduleRequest
 
 class UpdateSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___UpdateSnapshotScheduleMetadata = UpdateSnapshotScheduleMetadata
 
 class DeleteSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    """ID of the snapshot schedule to delete."""
 
-    def __init__(self,
+    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
+    snapshot_schedule_id: builtins.str
+    """ID of the snapshot schedule to delete."""
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___DeleteSnapshotScheduleRequest = DeleteSnapshotScheduleRequest
 
 class DeleteSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___DeleteSnapshotScheduleMetadata = DeleteSnapshotScheduleMetadata
 
 class DisableSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    """ID of the snapshot schedule to disable."""
 
-    def __init__(self,
+    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
+    snapshot_schedule_id: builtins.str
+    """ID of the snapshot schedule to disable."""
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___DisableSnapshotScheduleRequest = DisableSnapshotScheduleRequest
 
 class DisableSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___DisableSnapshotScheduleMetadata = DisableSnapshotScheduleMetadata
 
 class EnableSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    """ID of the snapshot schedule to enable."""
 
-    def __init__(self,
+    SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
+    snapshot_schedule_id: builtins.str
+    """ID of the snapshot schedule to enable."""
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___EnableSnapshotScheduleRequest = EnableSnapshotScheduleRequest
 
 class EnableSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___EnableSnapshotScheduleMetadata = EnableSnapshotScheduleMetadata
 
 class ListSnapshotScheduleOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
+    snapshot_schedule_id: builtins.str
     """ID of the SnapshotSchedule resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListSnapshotScheduleOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
+        snapshot_schedule_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___ListSnapshotScheduleOperationsRequest = ListSnapshotScheduleOperationsRequest
 
 class ListSnapshotScheduleOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified snapshot schedule."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListSnapshotScheduleOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListSnapshotScheduleOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListSnapshotScheduleOperationsResponse = ListSnapshotScheduleOperationsResponse
 
 class ListSnapshotScheduleSnapshotsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
+    snapshot_schedule_id: builtins.str
     """ID of the SnapshotSchedule resource to list snapshots for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListSnapshotScheduleSnapshotsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListSnapshotScheduleSnapshotsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
+        snapshot_schedule_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___ListSnapshotScheduleSnapshotsRequest = ListSnapshotScheduleSnapshotsRequest
 
 class ListSnapshotScheduleSnapshotsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def snapshots(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.snapshot_pb2.Snapshot]:
         """List of snapshots for the specified snapshot schedule."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListSnapshotScheduleSnapshotsRequest.page_size], use the [next_page_token] as the value
     for the [ListSnapshotScheduleSnapshotsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshots: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.snapshot_pb2.Snapshot]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","snapshots",b"snapshots"]) -> None: ...
+        snapshots: collections.abc.Iterable[yandex.cloud.compute.v1.snapshot_pb2.Snapshot] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "snapshots", b"snapshots"]) -> None: ...
+
 global___ListSnapshotScheduleSnapshotsResponse = ListSnapshotScheduleSnapshotsResponse
 
 class ListSnapshotScheduleDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
+    snapshot_schedule_id: builtins.str
     """ID of the SnapshotSchedule resource to list disks for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListSnapshotScheduleDisksResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListSnapshotScheduleDisksResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
+        snapshot_schedule_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___ListSnapshotScheduleDisksRequest = ListSnapshotScheduleDisksRequest
 
 class ListSnapshotScheduleDisksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DISKS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def disks(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.disk_pb2.Disk]:
         """List of disks for the specified snapshot schedule."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListSnapshotScheduleDisksRequest.page_size], use the [next_page_token] as the value
     for the [ListSnapshotScheduleDisksRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        disks: typing.Optional[typing.Iterable[yandex.cloud.compute.v1.disk_pb2.Disk]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["disks",b"disks","next_page_token",b"next_page_token"]) -> None: ...
+        disks: collections.abc.Iterable[yandex.cloud.compute.v1.disk_pb2.Disk] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["disks", b"disks", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListSnapshotScheduleDisksResponse = ListSnapshotScheduleDisksResponse
 
 class UpdateSnapshotScheduleDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
     REMOVE_FIELD_NUMBER: builtins.int
     ADD_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
+    snapshot_schedule_id: builtins.str
     """ID of the snapshot schedule to update."""
-
     @property
-    def remove(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def remove(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of disk ids to remove from the specified schedule."""
-        pass
     @property
-    def add(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def add(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """List of disk ids to add to the specified schedule"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        remove: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        add: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["add",b"add","remove",b"remove","snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+        remove: collections.abc.Iterable[builtins.str] | None = ...,
+        add: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["add", b"add", "remove", b"remove", "snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___UpdateSnapshotScheduleDisksRequest = UpdateSnapshotScheduleDisksRequest
 
 class UpdateSnapshotScheduleDisksMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SNAPSHOT_SCHEDULE_ID_FIELD_NUMBER: builtins.int
-    snapshot_schedule_id: typing.Text
-    def __init__(self,
+    snapshot_schedule_id: builtins.str
+    def __init__(
+        self,
         *,
-        snapshot_schedule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id",b"snapshot_schedule_id"]) -> None: ...
+        snapshot_schedule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["snapshot_schedule_id", b"snapshot_schedule_id"]) -> None: ...
+
 global___UpdateSnapshotScheduleDisksMetadata = UpdateSnapshotScheduleDisksMetadata

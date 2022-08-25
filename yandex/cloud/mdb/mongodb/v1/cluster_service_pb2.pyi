@@ -3,6 +3,7 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
@@ -11,8 +12,8 @@ import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import google.protobuf.wrappers_pb2
 import google.type.timeofday_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.mdb.mongodb.v1.backup_pb2
 import yandex.cloud.mdb.mongodb.v1.cluster_pb2
 import yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2
@@ -27,100 +28,110 @@ import yandex.cloud.mdb.mongodb.v1.maintenance_pb2
 import yandex.cloud.mdb.mongodb.v1.user_pb2
 import yandex.cloud.operation.operation_pb2
 
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
+
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB Cluster resource to return.
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___GetClusterRequest = GetClusterRequest
 
 class ListClustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list MongoDB clusters in.
     To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClustersResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token]
     to the [ListClustersResponse.next_page_token] returned by the previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can only use filtering with the [Cluster.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClustersRequest = ListClustersRequest
 
 class ListClustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTERS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def clusters(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster]:
         """List of MongoDB Cluster resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClustersRequest.page_size], use the [next_page_token] as the value
     for the [ListClustersRequest.page_token] parameter in the next list request. Each subsequent
     list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        clusters: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["clusters",b"clusters","next_page_token",b"next_page_token"]) -> None: ...
+        clusters: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["clusters", b"clusters", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClustersResponse = ListClustersResponse
 
 class CreateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -134,96 +145,91 @@ class CreateClusterRequest(google.protobuf.message.Message):
     NETWORK_ID_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create MongoDB cluster in."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the MongoDB cluster. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the MongoDB cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
         For example, "project": "mvp" or "source": "dictionary".
         """
-        pass
     environment: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the MongoDB cluster."""
-
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Configuration and resources for hosts that should be created for the MongoDB cluster."""
-        pass
     @property
     def database_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.database_pb2.DatabaseSpec]:
         """Descriptions of databases to be created in the MongoDB cluster."""
-        pass
     @property
     def user_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.user_pb2.UserSpec]:
         """Descriptions of database users to be created in the MongoDB cluster."""
-        pass
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Individual configurations for hosts that should be created for the MongoDB cluster."""
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the cluster in."""
-
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups"""
-        pass
     deletion_protection: builtins.bool
     """Deletion Protection inhibits deletion of the cluster"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        database_specs: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.database_pb2.DatabaseSpec]] = ...,
-        user_specs: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.user_pb2.UserSpec]] = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        network_id: typing.Text = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        config_spec: global___ConfigSpec | None = ...,
+        database_specs: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.database_pb2.DatabaseSpec] | None = ...,
+        user_specs: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.user_pb2.UserSpec] | None = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+        network_id: builtins.str = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","database_specs",b"database_specs","deletion_protection",b"deletion_protection","description",b"description","environment",b"environment","folder_id",b"folder_id","host_specs",b"host_specs","labels",b"labels","name",b"name","network_id",b"network_id","security_group_ids",b"security_group_ids","user_specs",b"user_specs"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "database_specs", b"database_specs", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "security_group_ids", b"security_group_ids", "user_specs", b"user_specs"]) -> None: ...
+
 global___CreateClusterRequest = CreateClusterRequest
 
 class CreateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster that is being created."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster that is being created."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___CreateClusterMetadata = CreateClusterMetadata
 
 class UpdateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -234,249 +240,265 @@ class UpdateClusterRequest(google.protobuf.message.Message):
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     DELETION_PROTECTION_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB Cluster resource to update.
     To get the MongoDB cluster ID use a [ClusterService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the MongoDB Cluster resource should be updated."""
-        pass
-    description: typing.Text
+    description: builtins.str
     """New description of the MongoDB cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
         For example, "project": "mvp" or "source": "dictionary".
 
         The new set of labels will completely replace the old ones. To add a label, request the current
         set with the [ClusterService.Get] method, then send an [ClusterService.Update] request with the new label added to the set.
         """
-        pass
     @property
     def config_spec(self) -> global___ConfigSpec:
         """New configuration and resources for hosts in the cluster."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the cluster."""
-
     @property
     def maintenance_window(self) -> yandex.cloud.mdb.mongodb.v1.maintenance_pb2.MaintenanceWindow:
         """New maintenance window settings for the cluster."""
-        pass
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups"""
-        pass
     deletion_protection: builtins.bool
     """Deletion Protection inhibits deletion of the cluster"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        name: typing.Text = ...,
-        maintenance_window: typing.Optional[yandex.cloud.mdb.mongodb.v1.maintenance_pb2.MaintenanceWindow] = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        config_spec: global___ConfigSpec | None = ...,
+        name: builtins.str = ...,
+        maintenance_window: yandex.cloud.mdb.mongodb.v1.maintenance_pb2.MaintenanceWindow | None = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         deletion_protection: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","maintenance_window",b"maintenance_window","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","config_spec",b"config_spec","deletion_protection",b"deletion_protection","description",b"description","labels",b"labels","maintenance_window",b"maintenance_window","name",b"name","security_group_ids",b"security_group_ids","update_mask",b"update_mask"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "maintenance_window", b"maintenance_window", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "maintenance_window", b"maintenance_window", "name", b"name", "security_group_ids", b"security_group_ids", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateClusterRequest = UpdateClusterRequest
 
 class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB Cluster resource that is being updated."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB Cluster resource that is being updated."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to delete.
     To get the MongoDB cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterRequest = DeleteClusterRequest
 
 class DeleteClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster that is being deleted."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster that is being deleted."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___DeleteClusterMetadata = DeleteClusterMetadata
 
 class StartClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster to start."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster to start."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterRequest = StartClusterRequest
 
 class StartClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StartClusterMetadata = StartClusterMetadata
 
 class StopClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster to stop."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster to stop."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterRequest = StopClusterRequest
 
 class StopClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___StopClusterMetadata = StopClusterMetadata
 
 class MoveClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to move."""
-
-    destination_folder_id: typing.Text
+    destination_folder_id: builtins.str
     """ID of the destination folder."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        destination_folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","destination_folder_id",b"destination_folder_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        destination_folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "destination_folder_id", b"destination_folder_id"]) -> None: ...
+
 global___MoveClusterRequest = MoveClusterRequest
 
 class MoveClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SOURCE_FOLDER_ID_FIELD_NUMBER: builtins.int
     DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster being moved."""
-
-    source_folder_id: typing.Text
+    source_folder_id: builtins.str
     """ID of the source folder."""
-
-    destination_folder_id: typing.Text
+    destination_folder_id: builtins.str
     """ID of the destnation folder."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        source_folder_id: typing.Text = ...,
-        destination_folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","destination_folder_id",b"destination_folder_id","source_folder_id",b"source_folder_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        source_folder_id: builtins.str = ...,
+        destination_folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "destination_folder_id", b"destination_folder_id", "source_folder_id", b"source_folder_id"]) -> None: ...
+
 global___MoveClusterMetadata = MoveClusterMetadata
 
 class BackupClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to back up.
     To get the MongoDB cluster ID, use a [ClusterService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___BackupClusterRequest = BackupClusterRequest
 
 class BackupClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster that is being backed up."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster that is being backed up."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___BackupClusterMetadata = BackupClusterMetadata
 
 class RestoreClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class RecoveryTargetSpec(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         TIMESTAMP_FIELD_NUMBER: builtins.int
         timestamp: builtins.int
         """Timestamp of the recovery target"""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             timestamp: builtins.int = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["timestamp", b"timestamp"]) -> None: ...
 
     BACKUP_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -489,223 +511,211 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     FOLDER_ID_FIELD_NUMBER: builtins.int
     RECOVERY_TARGET_SPEC_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup to create a cluster from.
     To get the backup ID, use a [ClusterService.ListBackups] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the new MongoDB cluster. The name must be unique within the folder."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the new MongoDB cluster."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
         For example, "project": "mvp" or "source": "dictionary".
         """
-        pass
     environment: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster.Environment.ValueType
     """Deployment environment of the new MongoDB cluster."""
-
     @property
     def config_spec(self) -> global___ConfigSpec:
         """Configuration for the MongoDB cluster to be created."""
-        pass
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Configurations for MongoDB hosts that should be created for
         the cluster that is being created from the backup.
         """
-        pass
-    network_id: typing.Text
+    network_id: builtins.str
     """ID of the network to create the MongoDB cluster in."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """Required. ID of the folder to create the MongoDB cluster in."""
-
     @property
     def recovery_target_spec(self) -> global___RestoreClusterRequest.RecoveryTargetSpec:
         """Specification of the moment to which the MongoDB cluster should be restored."""
-        pass
     @property
-    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """User security groups"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backup_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        backup_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         environment: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Cluster.Environment.ValueType = ...,
-        config_spec: typing.Optional[global___ConfigSpec] = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        network_id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        recovery_target_spec: typing.Optional[global___RestoreClusterRequest.RecoveryTargetSpec] = ...,
-        security_group_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["config_spec",b"config_spec","recovery_target_spec",b"recovery_target_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","config_spec",b"config_spec","description",b"description","environment",b"environment","folder_id",b"folder_id","host_specs",b"host_specs","labels",b"labels","name",b"name","network_id",b"network_id","recovery_target_spec",b"recovery_target_spec","security_group_ids",b"security_group_ids"]) -> None: ...
+        config_spec: global___ConfigSpec | None = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+        network_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        recovery_target_spec: global___RestoreClusterRequest.RecoveryTargetSpec | None = ...,
+        security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "recovery_target_spec", b"recovery_target_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "config_spec", b"config_spec", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "recovery_target_spec", b"recovery_target_spec", "security_group_ids", b"security_group_ids"]) -> None: ...
+
 global___RestoreClusterRequest = RestoreClusterRequest
 
 class RestoreClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     BACKUP_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the new MongoDB cluster that is being created from a backup."""
-
-    backup_id: typing.Text
+    backup_id: builtins.str
     """ID of the backup that is being used for creating a cluster."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        backup_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id",b"backup_id","cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        backup_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "cluster_id", b"cluster_id"]) -> None: ...
+
 global___RestoreClusterMetadata = RestoreClusterMetadata
 
 class RescheduleMaintenanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _RescheduleType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _RescheduleTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RescheduleMaintenanceRequest._RescheduleType.ValueType], builtins.type):
+
+    class _RescheduleTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RescheduleMaintenanceRequest._RescheduleType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         RESCHEDULE_TYPE_UNSPECIFIED: RescheduleMaintenanceRequest._RescheduleType.ValueType  # 0
         IMMEDIATE: RescheduleMaintenanceRequest._RescheduleType.ValueType  # 1
         """Start the maintenance operation immediately."""
-
         NEXT_AVAILABLE_WINDOW: RescheduleMaintenanceRequest._RescheduleType.ValueType  # 2
         """Start the maintenance operation within the next available maintenance window."""
-
         SPECIFIC_TIME: RescheduleMaintenanceRequest._RescheduleType.ValueType  # 3
         """Start the maintenance operation at the specific time."""
 
-    class RescheduleType(_RescheduleType, metaclass=_RescheduleTypeEnumTypeWrapper):
-        pass
-
+    class RescheduleType(_RescheduleType, metaclass=_RescheduleTypeEnumTypeWrapper): ...
     RESCHEDULE_TYPE_UNSPECIFIED: RescheduleMaintenanceRequest.RescheduleType.ValueType  # 0
     IMMEDIATE: RescheduleMaintenanceRequest.RescheduleType.ValueType  # 1
     """Start the maintenance operation immediately."""
-
     NEXT_AVAILABLE_WINDOW: RescheduleMaintenanceRequest.RescheduleType.ValueType  # 2
     """Start the maintenance operation within the next available maintenance window."""
-
     SPECIFIC_TIME: RescheduleMaintenanceRequest.RescheduleType.ValueType  # 3
     """Start the maintenance operation at the specific time."""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     RESCHEDULE_TYPE_FIELD_NUMBER: builtins.int
     DELAYED_UNTIL_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to reschedule the maintenance operation for."""
-
     reschedule_type: global___RescheduleMaintenanceRequest.RescheduleType.ValueType
     """The type of reschedule request."""
-
     @property
     def delayed_until(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule type is chosen."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         reschedule_type: global___RescheduleMaintenanceRequest.RescheduleType.ValueType = ...,
-        delayed_until: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["delayed_until",b"delayed_until"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","delayed_until",b"delayed_until","reschedule_type",b"reschedule_type"]) -> None: ...
+        delayed_until: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["delayed_until", b"delayed_until"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "delayed_until", b"delayed_until", "reschedule_type", b"reschedule_type"]) -> None: ...
+
 global___RescheduleMaintenanceRequest = RescheduleMaintenanceRequest
 
 class RescheduleMaintenanceMetadata(google.protobuf.message.Message):
     """Rescheduled maintenance operation metadata."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     DELAYED_UNTIL_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
     def delayed_until(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Required. The time until which this maintenance operation is to be delayed."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        delayed_until: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["delayed_until",b"delayed_until"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","delayed_until",b"delayed_until"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        delayed_until: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["delayed_until", b"delayed_until"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "delayed_until", b"delayed_until"]) -> None: ...
+
 global___RescheduleMaintenanceMetadata = RescheduleMaintenanceMetadata
 
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class MessageEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     TIMESTAMP_FIELD_NUMBER: builtins.int
     MESSAGE_FIELD_NUMBER: builtins.int
     @property
     def timestamp(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
-        pass
     @property
-    def message(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def message(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Contents of the log record."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        timestamp: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        message: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["timestamp",b"timestamp"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["message",b"message","timestamp",b"timestamp"]) -> None: ...
+        timestamp: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        message: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["timestamp", b"timestamp"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["message", b"message", "timestamp", b"timestamp"]) -> None: ...
+
 global___LogRecord = LogRecord
 
 class ListClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ServiceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):
+
+    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ListClusterLogsRequest._ServiceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest._ServiceType.ValueType  # 0
         MONGOD: ListClusterLogsRequest._ServiceType.ValueType  # 1
         """Logs of MongoDB activity."""
-
         MONGOS: ListClusterLogsRequest._ServiceType.ValueType  # 2
         MONGOCFG: ListClusterLogsRequest._ServiceType.ValueType  # 3
         AUDIT: ListClusterLogsRequest._ServiceType.ValueType  # 4
         """MongoDB Enterprise audit logs"""
 
-    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        pass
-
+    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper): ...
     SERVICE_TYPE_UNSPECIFIED: ListClusterLogsRequest.ServiceType.ValueType  # 0
     MONGOD: ListClusterLogsRequest.ServiceType.ValueType  # 1
     """Logs of MongoDB activity."""
-
     MONGOS: ListClusterLogsRequest.ServiceType.ValueType  # 2
     MONGOCFG: ListClusterLogsRequest.ServiceType.ValueType  # 3
     AUDIT: ListClusterLogsRequest.ServiceType.ValueType  # 4
     """MongoDB Enterprise audit logs"""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     COLUMN_FILTER_FIELD_NUMBER: builtins.int
@@ -714,129 +724,123 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
     TO_TIME_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to request logs for.
     To get the MongoDB cluster ID use a [ClusterService.List] request.
     """
-
     @property
-    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Columns from the logs table to request.
         If no columns are specified, entire log records are returned.
         """
-        pass
     service_type: global___ListClusterLogsRequest.ServiceType.ValueType
     """Type of the service to request logs about."""
-
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
-        pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format."""
-        pass
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterLogsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListClusterLogsResponse.next_page_token] returned by the previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        column_filter: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        column_filter: collections.abc.Iterable[builtins.str] | None = ...,
         service_type: global___ListClusterLogsRequest.ServiceType.ValueType = ...,
-        from_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        to_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        from_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        to_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["from_time",b"from_time","to_time",b"to_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","column_filter",b"column_filter","from_time",b"from_time","page_size",b"page_size","page_token",b"page_token","service_type",b"service_type","to_time",b"to_time"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["from_time", b"from_time", "to_time", b"to_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "column_filter", b"column_filter", "from_time", b"from_time", "page_size", b"page_size", "page_token", b"page_token", "service_type", b"service_type", "to_time", b"to_time"]) -> None: ...
+
 global___ListClusterLogsRequest = ListClusterLogsRequest
 
 class ListClusterLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     LOGS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def logs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogRecord]:
         """Requested log records."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClusterLogsRequest.page_size], use the [next_page_token] as the value
     for the [ListClusterLogsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     This value is interchangeable with `next_record_token` from StreamLogs method.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        logs: typing.Optional[typing.Iterable[global___LogRecord]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["logs",b"logs","next_page_token",b"next_page_token"]) -> None: ...
+        logs: collections.abc.Iterable[global___LogRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["logs", b"logs", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterLogsResponse = ListClusterLogsResponse
 
 class StreamLogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RECORD_FIELD_NUMBER: builtins.int
     NEXT_RECORD_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def record(self) -> global___LogRecord:
         """One of the requested log records."""
-        pass
-    next_record_token: typing.Text
+    next_record_token: builtins.str
     """This token allows you to continue streaming logs starting from the exact
     same record. To continue streaming, specify value of `next_record_token`
     as value for `record_token` parameter in the next StreamLogs request.
     This value is interchangeable with `next_page_token` from ListLogs method.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        record: typing.Optional[global___LogRecord] = ...,
-        next_record_token: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["record",b"record"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_record_token",b"next_record_token","record",b"record"]) -> None: ...
+        record: global___LogRecord | None = ...,
+        next_record_token: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["record", b"record"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_record_token", b"next_record_token", "record", b"record"]) -> None: ...
+
 global___StreamLogRecord = StreamLogRecord
 
 class StreamClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _ServiceType:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[StreamClusterLogsRequest._ServiceType.ValueType], builtins.type):
+
+    class _ServiceTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[StreamClusterLogsRequest._ServiceType.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SERVICE_TYPE_UNSPECIFIED: StreamClusterLogsRequest._ServiceType.ValueType  # 0
         MONGOD: StreamClusterLogsRequest._ServiceType.ValueType  # 1
         """Logs of MongoDB activity."""
-
         MONGOS: StreamClusterLogsRequest._ServiceType.ValueType  # 2
         MONGOCFG: StreamClusterLogsRequest._ServiceType.ValueType  # 3
         AUDIT: StreamClusterLogsRequest._ServiceType.ValueType  # 4
         """MongoDB Enterprise audit logs"""
 
-    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper):
-        pass
-
+    class ServiceType(_ServiceType, metaclass=_ServiceTypeEnumTypeWrapper): ...
     SERVICE_TYPE_UNSPECIFIED: StreamClusterLogsRequest.ServiceType.ValueType  # 0
     MONGOD: StreamClusterLogsRequest.ServiceType.ValueType  # 1
     """Logs of MongoDB activity."""
-
     MONGOS: StreamClusterLogsRequest.ServiceType.ValueType  # 2
     MONGOCFG: StreamClusterLogsRequest.ServiceType.ValueType  # 3
     AUDIT: StreamClusterLogsRequest.ServiceType.ValueType  # 4
     """MongoDB Enterprise audit logs"""
-
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     COLUMN_FILTER_FIELD_NUMBER: builtins.int
@@ -845,31 +849,26 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     TO_TIME_FIELD_NUMBER: builtins.int
     RECORD_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def column_filter(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Columns from logs table to get in the response."""
-        pass
     service_type: global___StreamClusterLogsRequest.ServiceType.ValueType
     @property
     def from_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Start timestamp for the logs request."""
-        pass
     @property
     def to_time(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """End timestamp for the logs request.
         If this field is not set, all existing logs will be sent and then the new ones as
         they appear. In essence it has 'tail -f' semantics.
         """
-        pass
-    record_token: typing.Text
+    record_token: builtins.str
     """Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
     request to start streaming from next log record.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
@@ -877,642 +876,663 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
     Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'`, `message.severity IN ('E', 'F')`
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        column_filter: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        cluster_id: builtins.str = ...,
+        column_filter: collections.abc.Iterable[builtins.str] | None = ...,
         service_type: global___StreamClusterLogsRequest.ServiceType.ValueType = ...,
-        from_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        to_time: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        record_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["from_time",b"from_time","to_time",b"to_time"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","column_filter",b"column_filter","filter",b"filter","from_time",b"from_time","record_token",b"record_token","service_type",b"service_type","to_time",b"to_time"]) -> None: ...
+        from_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        to_time: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        record_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["from_time", b"from_time", "to_time", b"to_time"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "column_filter", b"column_filter", "filter", b"filter", "from_time", b"from_time", "record_token", b"record_token", "service_type", b"service_type", "to_time", b"to_time"]) -> None: ...
+
 global___StreamClusterLogsRequest = StreamClusterLogsRequest
 
 class ListClusterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB Cluster resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListClusterOperationsResponse.next_page_token] returned by the previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterOperationsRequest = ListClusterOperationsRequest
 
 class ListClusterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of Operation resources for the specified MongoDB cluster."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClusterOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListClusterOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListClusterOperationsResponse = ListClusterOperationsResponse
 
 class ListClusterBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster.
     To get the MongoDB cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterBackupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token.  To get the next page of results, set [page_token] to the
     [ListClusterBackupsResponse.next_page_token] returned by the previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterBackupsRequest = ListClusterBackupsRequest
 
 class ListClusterBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def backups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup]:
         """List of MongoDB Backup resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClusterBackupsRequest.page_size], use the [next_page_token] as the value
     for the [ListClusterBackupsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backups: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backups",b"backups","next_page_token",b"next_page_token"]) -> None: ...
+        backups: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.backup_pb2.Backup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backups", b"backups", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterBackupsResponse = ListClusterBackupsResponse
 
 class ListClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster.
     To get the MongoDB cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterHostsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListClusterHostsResponse.next_page_token] returned by the previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterHostsRequest = ListClusterHostsRequest
 
 class ListClusterHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     HOSTS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def hosts(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Host]:
         """List of Host resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClusterHostsRequest.page_size], use the [next_page_token] as the value
     for the [ListClusterHostsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        hosts: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Host]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["hosts",b"hosts","next_page_token",b"next_page_token"]) -> None: ...
+        hosts: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Host] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["hosts", b"hosts", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
 class AddClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_SPECS_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to add hosts to.
     To get the MongoDB cluster ID use a [ClusterService.List] request.
     """
-
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Configurations for MongoDB hosts that should be added to the cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_specs",b"host_specs"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_specs", b"host_specs"]) -> None: ...
+
 global___AddClusterHostsRequest = AddClusterHostsRequest
 
 class AddClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to which the hosts are being added."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of hosts that are being added to the cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___AddClusterHostsMetadata = AddClusterHostsMetadata
 
 class DeleteClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to remove hosts from.
     To get the MongoDB cluster ID, use a [ClusterService.List] request.
     """
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of hosts to delete."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___DeleteClusterHostsRequest = DeleteClusterHostsRequest
 
 class DeleteClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to remove hosts from."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Names of hosts that are being deleted."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___DeleteClusterHostsMetadata = DeleteClusterHostsMetadata
 
 class EnableClusterShardingRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources for mongocfg hosts."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> None: ...
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources for mongos hosts."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> None: ...
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources for mongoinfra (mongos+mongocfg) hosts."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["resources",b"resources"]) -> None: ...
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
     MONGOS_FIELD_NUMBER: builtins.int
     HOST_SPECS_FIELD_NUMBER: builtins.int
     MONGOINFRA_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to enable sharding for."""
-
     @property
     def mongocfg(self) -> global___EnableClusterShardingRequest.MongoCfg:
         """mongocfg specification for sharding."""
-        pass
     @property
     def mongos(self) -> global___EnableClusterShardingRequest.Mongos:
         """mongos specification for sharding."""
-        pass
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Configurations for mongos and mongocfg hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___EnableClusterShardingRequest.MongoInfra:
         """mongos specification for sharding."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        mongocfg: typing.Optional[global___EnableClusterShardingRequest.MongoCfg] = ...,
-        mongos: typing.Optional[global___EnableClusterShardingRequest.Mongos] = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        mongoinfra: typing.Optional[global___EnableClusterShardingRequest.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_specs",b"host_specs","mongocfg",b"mongocfg","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        mongocfg: global___EnableClusterShardingRequest.MongoCfg | None = ...,
+        mongos: global___EnableClusterShardingRequest.Mongos | None = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+        mongoinfra: global___EnableClusterShardingRequest.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_specs", b"host_specs", "mongocfg", b"mongocfg", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___EnableClusterShardingRequest = EnableClusterShardingRequest
 
 class EnableClusterShardingMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLUSTER_ID_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
-    """ID of the MongoDB cluster that sharding is being enabled for."""
 
-    def __init__(self,
+    CLUSTER_ID_FIELD_NUMBER: builtins.int
+    cluster_id: builtins.str
+    """ID of the MongoDB cluster that sharding is being enabled for."""
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id"]) -> None: ...
+        cluster_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id"]) -> None: ...
+
 global___EnableClusterShardingMetadata = EnableClusterShardingMetadata
 
 class GetClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster that the shard belongs to.
     To get the cluster ID use a [ClusterService.List] request.
     """
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the MongoDB shard to return.
     To get the name of the shard use a [ClusterService.ListShards] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        shard_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","shard_name",b"shard_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        shard_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "shard_name", b"shard_name"]) -> None: ...
+
 global___GetClusterShardRequest = GetClusterShardRequest
 
 class ListClusterShardsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to list databases in.
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListClusterShardsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListClusterShardsResponse.next_page_token] returned by the previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
+        cluster_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListClusterShardsRequest = ListClusterShardsRequest
 
 class ListClusterShardsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SHARDS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def shards(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Shard]:
         """List of MongoDB shards."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListClusterShardsRequest.page_size], use the [next_page_token] as the value
     for the [ListClusterShardsRequest.page_token] parameter in the next list request. Each subsequent
     list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        shards: typing.Optional[typing.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Shard]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","shards",b"shards"]) -> None: ...
+        shards: collections.abc.Iterable[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Shard] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "shards", b"shards"]) -> None: ...
+
 global___ListClusterShardsResponse = ListClusterShardsResponse
 
 class AddClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
     HOST_SPECS_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to add a shard to.
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the MongoDB shard to create."""
-
     @property
     def host_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HostSpec]:
         """Configurations for mongod hosts to be created with the shard."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        shard_name: typing.Text = ...,
-        host_specs: typing.Optional[typing.Iterable[global___HostSpec]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_specs",b"host_specs","shard_name",b"shard_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        shard_name: builtins.str = ...,
+        host_specs: collections.abc.Iterable[global___HostSpec] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_specs", b"host_specs", "shard_name", b"shard_name"]) -> None: ...
+
 global___AddClusterShardRequest = AddClusterShardRequest
 
 class AddClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster that a shard is being added to."""
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the shard being added."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        shard_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","shard_name",b"shard_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        shard_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "shard_name", b"shard_name"]) -> None: ...
+
 global___AddClusterShardMetadata = AddClusterShardMetadata
 
 class DeleteClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster to delete a shard in.
     To get the cluster ID, use a [ClusterService.List] request.
     """
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the MongoDB shard to delete.
     To get the name of the shard use a [ClusterService.ListShards] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        shard_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","shard_name",b"shard_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        shard_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "shard_name", b"shard_name"]) -> None: ...
+
 global___DeleteClusterShardRequest = DeleteClusterShardRequest
 
 class DeleteClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the MongoDB cluster that a shard is being deleted in."""
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the shard being deleted."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        shard_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","shard_name",b"shard_name"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        shard_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "shard_name", b"shard_name"]) -> None: ...
+
 global___DeleteClusterShardMetadata = DeleteClusterShardMetadata
 
 class ResetupHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. Name of the hosts to resetup."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___ResetupHostsRequest = ResetupHostsRequest
 
 class ResetupHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. The name of hosts to resetup."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___ResetupHostsMetadata = ResetupHostsMetadata
 
 class RestartHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. Name of the hosts to restart."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___RestartHostsRequest = RestartHostsRequest
 
 class RestartHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. The name of hosts to restart."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___RestartHostsMetadata = RestartHostsMetadata
 
 class StepdownHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. Name of the hosts to resetup."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___StepdownHostsRequest = StepdownHostsRequest
 
 class StepdownHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     HOST_NAMES_FIELD_NUMBER: builtins.int
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """Required. ID of the MongoDB cluster."""
-
     @property
-    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def host_names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Required. The name of hosts to resetup."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cluster_id: typing.Text = ...,
-        host_names: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","host_names",b"host_names"]) -> None: ...
+        cluster_id: builtins.str = ...,
+        host_names: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "host_names", b"host_names"]) -> None: ...
+
 global___StepdownHostsMetadata = StepdownHostsMetadata
 
 class HostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ZONE_ID_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
     ASSIGN_PUBLIC_IP_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     SHARD_NAME_FIELD_NUMBER: builtins.int
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the host resides.
     To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List] request.
     """
-
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     """ID of the subnet that the host should belong to. This subnet should be a part
     of the network that the cluster belongs to.
     The network ID is set in the [Cluster.network_id] field.
     """
-
     assign_public_ip: builtins.bool
     """Whether the host should get a public IP address on creation.
 
@@ -1523,109 +1543,109 @@ class HostSpec(google.protobuf.message.Message):
     * false - don't assign a public IP to the host.
     * true - the host should have a public IP address.
     """
-
     type: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Host.Type.ValueType
     """Type of the host to be deployed."""
-
-    shard_name: typing.Text
+    shard_name: builtins.str
     """Name of the shard that the host belongs to."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        zone_id: typing.Text = ...,
-        subnet_id: typing.Text = ...,
+        zone_id: builtins.str = ...,
+        subnet_id: builtins.str = ...,
         assign_public_ip: builtins.bool = ...,
         type: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Host.Type.ValueType = ...,
-        shard_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip",b"assign_public_ip","shard_name",b"shard_name","subnet_id",b"subnet_id","type",b"type","zone_id",b"zone_id"]) -> None: ...
+        shard_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["assign_public_ip", b"assign_public_ip", "shard_name", b"shard_name", "subnet_id", b"subnet_id", "type", b"type", "zone_id", b"zone_id"]) -> None: ...
+
 global___HostSpec = HostSpec
 
 class MongodbSpec3_6(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongodConfig3_6:
             """Configuration for mongod 3.6 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongodConfig3_6] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongodConfig3_6 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6:
             """Configuration for mongocfg 3.6 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6:
             """Configuration for mongos 3.6 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6:
             """Configuration for mongoinfra 3.6 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfig3_6 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongoCfgConfig3_6 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -1634,115 +1654,114 @@ class MongodbSpec3_6(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec3_6.Mongod:
         """Configuration and resource allocation for mongod 3.6 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec3_6.MongoCfg:
         """Configuration and resource allocation for mongocfg 3.6 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec3_6.Mongos:
         """Configuration and resource allocation for mongos 3.6 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec3_6.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 3.6 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec3_6.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec3_6.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec3_6.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec3_6.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec3_6.Mongod | None = ...,
+        mongocfg: global___MongodbSpec3_6.MongoCfg | None = ...,
+        mongos: global___MongodbSpec3_6.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec3_6.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec3_6 = MongodbSpec3_6
 
 class MongodbSpec4_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongodConfig4_0:
             """Configuration for mongod 4.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongodConfig4_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongodConfig4_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0:
             """Configuration for mongocfg 4.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0:
             """Configuration for mongos 4.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0:
             """Configuration for mongoinfra 4.0 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongosConfig4_0 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb4_0_pb2.MongoCfgConfig4_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -1751,115 +1770,114 @@ class MongodbSpec4_0(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec4_0.Mongod:
         """Configuration and resource allocation for mongod 4.0 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec4_0.MongoCfg:
         """Configuration and resource allocation for mongocfg 4.0 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec4_0.Mongos:
         """Configuration and resource allocation for mongos 4.0 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec4_0.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.0 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec4_0.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec4_0.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec4_0.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec4_0.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec4_0.Mongod | None = ...,
+        mongocfg: global___MongodbSpec4_0.MongoCfg | None = ...,
+        mongos: global___MongodbSpec4_0.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec4_0.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec4_0 = MongodbSpec4_0
 
 class MongodbSpec4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongodConfig4_2:
             """Configuration for mongod 4.2 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongodConfig4_2] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongodConfig4_2 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2:
             """Configuration for mongocfg 4.2 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2:
             """Configuration for mongos 4.2 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2:
             """Configuration for mongoinfra 4.2 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongosConfig4_2 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb4_2_pb2.MongoCfgConfig4_2 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -1868,115 +1886,114 @@ class MongodbSpec4_2(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec4_2.Mongod:
         """Configuration and resource allocation for mongod 4.2 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec4_2.MongoCfg:
         """Configuration and resource allocation for mongocfg 4.2 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec4_2.Mongos:
         """Configuration and resource allocation for mongos 4.2 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec4_2.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.2 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec4_2.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec4_2.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec4_2.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec4_2.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec4_2.Mongod | None = ...,
+        mongocfg: global___MongodbSpec4_2.MongoCfg | None = ...,
+        mongos: global___MongodbSpec4_2.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec4_2.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec4_2 = MongodbSpec4_2
 
 class MongodbSpec4_4(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongodConfig4_4:
             """Configuration for mongod 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongodConfig4_4] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongodConfig4_4 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4:
             """Configuration for mongocfg 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4:
             """Configuration for mongos 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4:
             """Configuration for mongoinfra 4.4 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongosConfig4_4 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2.MongoCfgConfig4_4 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -1985,115 +2002,114 @@ class MongodbSpec4_4(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec4_4.Mongod:
         """Configuration and resource allocation for mongod 4.4 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec4_4.MongoCfg:
         """Configuration and resource allocation for mongocfg 4.4 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec4_4.Mongos:
         """Configuration and resource allocation for mongos 4.4 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec4_4.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec4_4.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec4_4.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec4_4.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec4_4.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec4_4.Mongod | None = ...,
+        mongocfg: global___MongodbSpec4_4.MongoCfg | None = ...,
+        mongos: global___MongodbSpec4_4.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec4_4.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec4_4 = MongodbSpec4_4
 
 class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongodConfig4_4_enterprise:
             """Configuration for mongod 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongodConfig4_4_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongodConfig4_4_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise:
             """Configuration for mongocfg 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise:
             """Configuration for mongos 4.4 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise:
             """Configuration for mongoinfra 4.4 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongosConfig4_4_enterprise | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2.MongoCfgConfig4_4_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -2102,115 +2118,114 @@ class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec4_4_enterprise.Mongod:
         """Configuration and resource allocation for mongod 4.4 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec4_4_enterprise.MongoCfg:
         """Configuration and resource allocation for mongocfg 4.4 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec4_4_enterprise.Mongos:
         """Configuration and resource allocation for mongos 4.4 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec4_4_enterprise.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 4.4 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec4_4_enterprise.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec4_4_enterprise.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec4_4_enterprise.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec4_4_enterprise.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec4_4_enterprise.Mongod | None = ...,
+        mongocfg: global___MongodbSpec4_4_enterprise.MongoCfg | None = ...,
+        mongos: global___MongodbSpec4_4_enterprise.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec4_4_enterprise.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec4_4_enterprise = MongodbSpec4_4_enterprise
 
 class MongodbSpec5_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongodConfig5_0:
             """Configuration for mongod 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongodConfig5_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongodConfig5_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0:
             """Configuration for mongocfg 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0:
             """Configuration for mongos 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0:
             """Configuration for mongoinfra 5.0 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongosConfig5_0 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2.MongoCfgConfig5_0 | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -2219,115 +2234,114 @@ class MongodbSpec5_0(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec5_0.Mongod:
         """Configuration and resource allocation for mongod 5.0 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec5_0.MongoCfg:
         """Configuration and resource allocation for mongocfg 5.0 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec5_0.Mongos:
         """Configuration and resource allocation for mongos 5.0 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec5_0.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec5_0.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec5_0.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec5_0.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec5_0.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec5_0.Mongod | None = ...,
+        mongocfg: global___MongodbSpec5_0.MongoCfg | None = ...,
+        mongos: global___MongodbSpec5_0.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec5_0.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec5_0 = MongodbSpec5_0
 
 class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongodConfig5_0_enterprise:
             """Configuration for mongod 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongod host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongodConfig5_0_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongodConfig5_0_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise:
             """Configuration for mongocfg 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongocfg host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise:
             """Configuration for mongos 5.0 hosts."""
-            pass
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongos host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config",b"config","resources",b"resources"]) -> None: ...
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         CONFIG_MONGOS_FIELD_NUMBER: builtins.int
         CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
         RESOURCES_FIELD_NUMBER: builtins.int
         @property
         def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise:
             """Configuration for mongoinfra 5.0 hosts."""
-            pass
         @property
         def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise: ...
         @property
         def resources(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources:
             """Resources allocated to each mongoinfra (mongos+mongocfg) host."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            config_mongos: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise] = ...,
-            config_mongocfg: typing.Optional[yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise] = ...,
-            resources: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg",b"config_mongocfg","config_mongos",b"config_mongos","resources",b"resources"]) -> None: ...
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongosConfig5_0_enterprise | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2.MongoCfgConfig5_0_enterprise | None = ...,
+            resources: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
 
     MONGOD_FIELD_NUMBER: builtins.int
     MONGOCFG_FIELD_NUMBER: builtins.int
@@ -2336,32 +2350,31 @@ class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
     @property
     def mongod(self) -> global___MongodbSpec5_0_enterprise.Mongod:
         """Configuration and resource allocation for mongod 5.0 hosts."""
-        pass
     @property
     def mongocfg(self) -> global___MongodbSpec5_0_enterprise.MongoCfg:
         """Configuration and resource allocation for mongocfg 5.0 hosts."""
-        pass
     @property
     def mongos(self) -> global___MongodbSpec5_0_enterprise.Mongos:
         """Configuration and resource allocation for mongos 5.0 hosts."""
-        pass
     @property
     def mongoinfra(self) -> global___MongodbSpec5_0_enterprise.MongoInfra:
         """Configuration and resource allocation for mongoinfra (mongos+mongocfg) 5.0 hosts."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        mongod: typing.Optional[global___MongodbSpec5_0_enterprise.Mongod] = ...,
-        mongocfg: typing.Optional[global___MongodbSpec5_0_enterprise.MongoCfg] = ...,
-        mongos: typing.Optional[global___MongodbSpec5_0_enterprise.Mongos] = ...,
-        mongoinfra: typing.Optional[global___MongodbSpec5_0_enterprise.MongoInfra] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["mongocfg",b"mongocfg","mongod",b"mongod","mongoinfra",b"mongoinfra","mongos",b"mongos"]) -> None: ...
+        mongod: global___MongodbSpec5_0_enterprise.Mongod | None = ...,
+        mongocfg: global___MongodbSpec5_0_enterprise.MongoCfg | None = ...,
+        mongos: global___MongodbSpec5_0_enterprise.Mongos | None = ...,
+        mongoinfra: global___MongodbSpec5_0_enterprise.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
 global___MongodbSpec5_0_enterprise = MongodbSpec5_0_enterprise
 
 class ConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSION_FIELD_NUMBER: builtins.int
     FEATURE_COMPATIBILITY_VERSION_FIELD_NUMBER: builtins.int
     MONGODB_SPEC_3_6_FIELD_NUMBER: builtins.int
@@ -2374,10 +2387,9 @@ class ConfigSpec(google.protobuf.message.Message):
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     BACKUP_RETAIN_PERIOD_DAYS_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
-    version: typing.Text
+    version: builtins.str
     """Version of MongoDB used in the cluster. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`."""
-
-    feature_compatibility_version: typing.Text
+    feature_compatibility_version: builtins.str
     """MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
     Possible values:
@@ -2387,63 +2399,54 @@ class ConfigSpec(google.protobuf.message.Message):
     * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or older.
     * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 4.4 or older.
     """
-
     @property
     def mongodb_spec_3_6(self) -> global___MongodbSpec3_6:
         """Configuration and resource allocation for a MongoDB 3.6 cluster."""
-        pass
     @property
     def mongodb_spec_4_0(self) -> global___MongodbSpec4_0:
         """Configuration and resource allocation for a MongoDB 4.0 cluster."""
-        pass
     @property
     def mongodb_spec_4_2(self) -> global___MongodbSpec4_2:
         """Configuration and resource allocation for a MongoDB 4.2 cluster."""
-        pass
     @property
     def mongodb_spec_4_4(self) -> global___MongodbSpec4_4:
         """Configuration and resource allocation for a MongoDB 4.4 cluster."""
-        pass
     @property
     def mongodb_spec_5_0(self) -> global___MongodbSpec5_0:
         """Configuration and resource allocation for a MongoDB 5.0 cluster."""
-        pass
     @property
     def mongodb_spec_4_4_enterprise(self) -> global___MongodbSpec4_4_enterprise:
         """Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster."""
-        pass
     @property
     def mongodb_spec_5_0_enterprise(self) -> global___MongodbSpec5_0_enterprise:
         """Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster."""
-        pass
     @property
     def backup_window_start(self) -> google.type.timeofday_pb2.TimeOfDay:
         """Time to start the daily backup, in the UTC timezone."""
-        pass
     @property
     def backup_retain_period_days(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Retain period of automatically created backup in days"""
-        pass
     @property
     def access(self) -> yandex.cloud.mdb.mongodb.v1.cluster_pb2.Access:
         """Access policy to DB"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        version: typing.Text = ...,
-        feature_compatibility_version: typing.Text = ...,
-        mongodb_spec_3_6: typing.Optional[global___MongodbSpec3_6] = ...,
-        mongodb_spec_4_0: typing.Optional[global___MongodbSpec4_0] = ...,
-        mongodb_spec_4_2: typing.Optional[global___MongodbSpec4_2] = ...,
-        mongodb_spec_4_4: typing.Optional[global___MongodbSpec4_4] = ...,
-        mongodb_spec_5_0: typing.Optional[global___MongodbSpec5_0] = ...,
-        mongodb_spec_4_4_enterprise: typing.Optional[global___MongodbSpec4_4_enterprise] = ...,
-        mongodb_spec_5_0_enterprise: typing.Optional[global___MongodbSpec5_0_enterprise] = ...,
-        backup_window_start: typing.Optional[google.type.timeofday_pb2.TimeOfDay] = ...,
-        backup_retain_period_days: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        access: typing.Optional[yandex.cloud.mdb.mongodb.v1.cluster_pb2.Access] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access",b"access","backup_retain_period_days",b"backup_retain_period_days","backup_window_start",b"backup_window_start","mongodb_spec",b"mongodb_spec","mongodb_spec_3_6",b"mongodb_spec_3_6","mongodb_spec_4_0",b"mongodb_spec_4_0","mongodb_spec_4_2",b"mongodb_spec_4_2","mongodb_spec_4_4",b"mongodb_spec_4_4","mongodb_spec_4_4_enterprise",b"mongodb_spec_4_4_enterprise","mongodb_spec_5_0",b"mongodb_spec_5_0","mongodb_spec_5_0_enterprise",b"mongodb_spec_5_0_enterprise"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access",b"access","backup_retain_period_days",b"backup_retain_period_days","backup_window_start",b"backup_window_start","feature_compatibility_version",b"feature_compatibility_version","mongodb_spec",b"mongodb_spec","mongodb_spec_3_6",b"mongodb_spec_3_6","mongodb_spec_4_0",b"mongodb_spec_4_0","mongodb_spec_4_2",b"mongodb_spec_4_2","mongodb_spec_4_4",b"mongodb_spec_4_4","mongodb_spec_4_4_enterprise",b"mongodb_spec_4_4_enterprise","mongodb_spec_5_0",b"mongodb_spec_5_0","mongodb_spec_5_0_enterprise",b"mongodb_spec_5_0_enterprise","version",b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["mongodb_spec",b"mongodb_spec"]) -> typing.Optional[typing_extensions.Literal["mongodb_spec_3_6","mongodb_spec_4_0","mongodb_spec_4_2","mongodb_spec_4_4","mongodb_spec_5_0","mongodb_spec_4_4_enterprise","mongodb_spec_5_0_enterprise"]]: ...
+        version: builtins.str = ...,
+        feature_compatibility_version: builtins.str = ...,
+        mongodb_spec_3_6: global___MongodbSpec3_6 | None = ...,
+        mongodb_spec_4_0: global___MongodbSpec4_0 | None = ...,
+        mongodb_spec_4_2: global___MongodbSpec4_2 | None = ...,
+        mongodb_spec_4_4: global___MongodbSpec4_4 | None = ...,
+        mongodb_spec_5_0: global___MongodbSpec5_0 | None = ...,
+        mongodb_spec_4_4_enterprise: global___MongodbSpec4_4_enterprise | None = ...,
+        mongodb_spec_5_0_enterprise: global___MongodbSpec5_0_enterprise | None = ...,
+        backup_window_start: google.type.timeofday_pb2.TimeOfDay | None = ...,
+        backup_retain_period_days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        access: yandex.cloud.mdb.mongodb.v1.cluster_pb2.Access | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "mongodb_spec", b"mongodb_spec", "mongodb_spec_3_6", b"mongodb_spec_3_6", "mongodb_spec_4_0", b"mongodb_spec_4_0", "mongodb_spec_4_2", b"mongodb_spec_4_2", "mongodb_spec_4_4", b"mongodb_spec_4_4", "mongodb_spec_4_4_enterprise", b"mongodb_spec_4_4_enterprise", "mongodb_spec_5_0", b"mongodb_spec_5_0", "mongodb_spec_5_0_enterprise", b"mongodb_spec_5_0_enterprise"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "feature_compatibility_version", b"feature_compatibility_version", "mongodb_spec", b"mongodb_spec", "mongodb_spec_3_6", b"mongodb_spec_3_6", "mongodb_spec_4_0", b"mongodb_spec_4_0", "mongodb_spec_4_2", b"mongodb_spec_4_2", "mongodb_spec_4_4", b"mongodb_spec_4_4", "mongodb_spec_4_4_enterprise", b"mongodb_spec_4_4_enterprise", "mongodb_spec_5_0", b"mongodb_spec_5_0", "mongodb_spec_5_0_enterprise", b"mongodb_spec_5_0_enterprise", "version", b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["mongodb_spec", b"mongodb_spec"]) -> typing_extensions.Literal["mongodb_spec_3_6", "mongodb_spec_4_0", "mongodb_spec_4_2", "mongodb_spec_4_4", "mongodb_spec_5_0", "mongodb_spec_4_4_enterprise", "mongodb_spec_5_0_enterprise"] | None: ...
+
 global___ConfigSpec = ConfigSpec

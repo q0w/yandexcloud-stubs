@@ -10,53 +10,55 @@ import yandex.cloud.operation.operation_pb2
 
 class ApiKeyServiceStub:
     """A set of methods for managing API keys."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeysRequest,
-        yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeysResponse]
+        yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeysResponse,
+    ]
     """Retrieves the list of API keys for the specified service account."""
-
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.GetApiKeyRequest,
-        yandex.cloud.iam.v1.api_key_pb2.ApiKey]
+        yandex.cloud.iam.v1.api_key_pb2.ApiKey,
+    ]
     """Returns the specified API key.
 
     To get the list of available API keys, make a [List] request.
     """
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.CreateApiKeyRequest,
-        yandex.cloud.iam.v1.api_key_service_pb2.CreateApiKeyResponse]
+        yandex.cloud.iam.v1.api_key_service_pb2.CreateApiKeyResponse,
+    ]
     """Creates an API key for the specified service account."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.UpdateApiKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified API key."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.DeleteApiKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified API key."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeyOperationsRequest,
-        yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeyOperationsResponse]
+        yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeyOperationsResponse,
+    ]
     """Retrieves the list of operations for the specified API key."""
-
 
 class ApiKeyServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing API keys."""
+
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeysRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeysResponse:
         """Retrieves the list of API keys for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.GetApiKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.api_key_pb2.ApiKey:
@@ -64,39 +66,33 @@ class ApiKeyServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available API keys, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.CreateApiKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.api_key_service_pb2.CreateApiKeyResponse:
         """Creates an API key for the specified service account."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.UpdateApiKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified API key."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.DeleteApiKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified API key."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeyOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.api_key_service_pb2.ListApiKeyOperationsResponse:
         """Retrieves the list of operations for the specified API key."""
-        pass
-
 
 def add_ApiKeyServiceServicer_to_server(servicer: ApiKeyServiceServicer, server: grpc.Server) -> None: ...

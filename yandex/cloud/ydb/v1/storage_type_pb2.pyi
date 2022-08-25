@@ -5,24 +5,31 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class StorageType(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     DEVICE_TYPE_FIELD_NUMBER: builtins.int
     REDUNDANCY_TYPE_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    device_type: typing.Text
-    redundancy_type: typing.Text
-    def __init__(self,
+    id: builtins.str
+    device_type: builtins.str
+    redundancy_type: builtins.str
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        device_type: typing.Text = ...,
-        redundancy_type: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_type",b"device_type","id",b"id","redundancy_type",b"redundancy_type"]) -> None: ...
+        id: builtins.str = ...,
+        device_type: builtins.str = ...,
+        redundancy_type: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_type", b"device_type", "id", b"id", "redundancy_type", b"redundancy_type"]) -> None: ...
+
 global___StorageType = StorageType

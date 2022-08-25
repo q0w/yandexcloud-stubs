@@ -7,8 +7,13 @@ import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -17,26 +22,29 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     parameters whose detailed description is available in
     [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _WalLevel:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._WalLevel.ValueType], builtins.type):
+
+    class _WalLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._WalLevel.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         WAL_LEVEL_UNSPECIFIED: PostgresqlConfig9_6._WalLevel.ValueType  # 0
         WAL_LEVEL_REPLICA: PostgresqlConfig9_6._WalLevel.ValueType  # 1
         WAL_LEVEL_LOGICAL: PostgresqlConfig9_6._WalLevel.ValueType  # 2
-    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper):
-        pass
 
+    class WalLevel(_WalLevel, metaclass=_WalLevelEnumTypeWrapper): ...
     WAL_LEVEL_UNSPECIFIED: PostgresqlConfig9_6.WalLevel.ValueType  # 0
     WAL_LEVEL_REPLICA: PostgresqlConfig9_6.WalLevel.ValueType  # 1
     WAL_LEVEL_LOGICAL: PostgresqlConfig9_6.WalLevel.ValueType  # 2
 
     class _SynchronousCommit:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._SynchronousCommit.ValueType], builtins.type):
+
+    class _SynchronousCommitEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._SynchronousCommit.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig9_6._SynchronousCommit.ValueType  # 0
         SYNCHRONOUS_COMMIT_ON: PostgresqlConfig9_6._SynchronousCommit.ValueType  # 1
@@ -44,9 +52,8 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
         SYNCHRONOUS_COMMIT_LOCAL: PostgresqlConfig9_6._SynchronousCommit.ValueType  # 3
         SYNCHRONOUS_COMMIT_REMOTE_WRITE: PostgresqlConfig9_6._SynchronousCommit.ValueType  # 4
         SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig9_6._SynchronousCommit.ValueType  # 5
-    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper):
-        pass
 
+    class SynchronousCommit(_SynchronousCommit, metaclass=_SynchronousCommitEnumTypeWrapper): ...
     SYNCHRONOUS_COMMIT_UNSPECIFIED: PostgresqlConfig9_6.SynchronousCommit.ValueType  # 0
     SYNCHRONOUS_COMMIT_ON: PostgresqlConfig9_6.SynchronousCommit.ValueType  # 1
     SYNCHRONOUS_COMMIT_OFF: PostgresqlConfig9_6.SynchronousCommit.ValueType  # 2
@@ -55,43 +62,44 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     SYNCHRONOUS_COMMIT_REMOTE_APPLY: PostgresqlConfig9_6.SynchronousCommit.ValueType  # 5
 
     class _ConstraintExclusion:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ConstraintExclusionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ConstraintExclusion.ValueType], builtins.type):
+
+    class _ConstraintExclusionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ConstraintExclusion.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlConfig9_6._ConstraintExclusion.ValueType  # 0
         CONSTRAINT_EXCLUSION_ON: PostgresqlConfig9_6._ConstraintExclusion.ValueType  # 1
         CONSTRAINT_EXCLUSION_OFF: PostgresqlConfig9_6._ConstraintExclusion.ValueType  # 2
         CONSTRAINT_EXCLUSION_PARTITION: PostgresqlConfig9_6._ConstraintExclusion.ValueType  # 3
-    class ConstraintExclusion(_ConstraintExclusion, metaclass=_ConstraintExclusionEnumTypeWrapper):
-        pass
 
+    class ConstraintExclusion(_ConstraintExclusion, metaclass=_ConstraintExclusionEnumTypeWrapper): ...
     CONSTRAINT_EXCLUSION_UNSPECIFIED: PostgresqlConfig9_6.ConstraintExclusion.ValueType  # 0
     CONSTRAINT_EXCLUSION_ON: PostgresqlConfig9_6.ConstraintExclusion.ValueType  # 1
     CONSTRAINT_EXCLUSION_OFF: PostgresqlConfig9_6.ConstraintExclusion.ValueType  # 2
     CONSTRAINT_EXCLUSION_PARTITION: PostgresqlConfig9_6.ConstraintExclusion.ValueType  # 3
 
     class _ForceParallelMode:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ForceParallelModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ForceParallelMode.ValueType], builtins.type):
+
+    class _ForceParallelModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ForceParallelMode.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlConfig9_6._ForceParallelMode.ValueType  # 0
         FORCE_PARALLEL_MODE_ON: PostgresqlConfig9_6._ForceParallelMode.ValueType  # 1
         FORCE_PARALLEL_MODE_OFF: PostgresqlConfig9_6._ForceParallelMode.ValueType  # 2
         FORCE_PARALLEL_MODE_REGRESS: PostgresqlConfig9_6._ForceParallelMode.ValueType  # 3
-    class ForceParallelMode(_ForceParallelMode, metaclass=_ForceParallelModeEnumTypeWrapper):
-        pass
 
+    class ForceParallelMode(_ForceParallelMode, metaclass=_ForceParallelModeEnumTypeWrapper): ...
     FORCE_PARALLEL_MODE_UNSPECIFIED: PostgresqlConfig9_6.ForceParallelMode.ValueType  # 0
     FORCE_PARALLEL_MODE_ON: PostgresqlConfig9_6.ForceParallelMode.ValueType  # 1
     FORCE_PARALLEL_MODE_OFF: PostgresqlConfig9_6.ForceParallelMode.ValueType  # 2
     FORCE_PARALLEL_MODE_REGRESS: PostgresqlConfig9_6.ForceParallelMode.ValueType  # 3
 
     class _LogLevel:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogLevel.ValueType], builtins.type):
+
+    class _LogLevelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogLevel.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_LEVEL_UNSPECIFIED: PostgresqlConfig9_6._LogLevel.ValueType  # 0
         LOG_LEVEL_DEBUG5: PostgresqlConfig9_6._LogLevel.ValueType  # 1
@@ -105,9 +113,8 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
         LOG_LEVEL_ERROR: PostgresqlConfig9_6._LogLevel.ValueType  # 9
         LOG_LEVEL_FATAL: PostgresqlConfig9_6._LogLevel.ValueType  # 10
         LOG_LEVEL_PANIC: PostgresqlConfig9_6._LogLevel.ValueType  # 11
-    class LogLevel(_LogLevel, metaclass=_LogLevelEnumTypeWrapper):
-        pass
 
+    class LogLevel(_LogLevel, metaclass=_LogLevelEnumTypeWrapper): ...
     LOG_LEVEL_UNSPECIFIED: PostgresqlConfig9_6.LogLevel.ValueType  # 0
     LOG_LEVEL_DEBUG5: PostgresqlConfig9_6.LogLevel.ValueType  # 1
     LOG_LEVEL_DEBUG4: PostgresqlConfig9_6.LogLevel.ValueType  # 2
@@ -122,35 +129,35 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     LOG_LEVEL_PANIC: PostgresqlConfig9_6.LogLevel.ValueType  # 11
 
     class _LogErrorVerbosity:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogErrorVerbosity.ValueType], builtins.type):
+
+    class _LogErrorVerbosityEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogErrorVerbosity.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig9_6._LogErrorVerbosity.ValueType  # 0
         LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig9_6._LogErrorVerbosity.ValueType  # 1
         LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig9_6._LogErrorVerbosity.ValueType  # 2
         LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig9_6._LogErrorVerbosity.ValueType  # 3
-    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper):
-        pass
 
+    class LogErrorVerbosity(_LogErrorVerbosity, metaclass=_LogErrorVerbosityEnumTypeWrapper): ...
     LOG_ERROR_VERBOSITY_UNSPECIFIED: PostgresqlConfig9_6.LogErrorVerbosity.ValueType  # 0
     LOG_ERROR_VERBOSITY_TERSE: PostgresqlConfig9_6.LogErrorVerbosity.ValueType  # 1
     LOG_ERROR_VERBOSITY_DEFAULT: PostgresqlConfig9_6.LogErrorVerbosity.ValueType  # 2
     LOG_ERROR_VERBOSITY_VERBOSE: PostgresqlConfig9_6.LogErrorVerbosity.ValueType  # 3
 
     class _LogStatement:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogStatement.ValueType], builtins.type):
+
+    class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._LogStatement.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LOG_STATEMENT_UNSPECIFIED: PostgresqlConfig9_6._LogStatement.ValueType  # 0
         LOG_STATEMENT_NONE: PostgresqlConfig9_6._LogStatement.ValueType  # 1
         LOG_STATEMENT_DDL: PostgresqlConfig9_6._LogStatement.ValueType  # 2
         LOG_STATEMENT_MOD: PostgresqlConfig9_6._LogStatement.ValueType  # 3
         LOG_STATEMENT_ALL: PostgresqlConfig9_6._LogStatement.ValueType  # 4
-    class LogStatement(_LogStatement, metaclass=_LogStatementEnumTypeWrapper):
-        pass
 
+    class LogStatement(_LogStatement, metaclass=_LogStatementEnumTypeWrapper): ...
     LOG_STATEMENT_UNSPECIFIED: PostgresqlConfig9_6.LogStatement.ValueType  # 0
     LOG_STATEMENT_NONE: PostgresqlConfig9_6.LogStatement.ValueType  # 1
     LOG_STATEMENT_DDL: PostgresqlConfig9_6.LogStatement.ValueType  # 2
@@ -158,18 +165,18 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     LOG_STATEMENT_ALL: PostgresqlConfig9_6.LogStatement.ValueType  # 4
 
     class _TransactionIsolation:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._TransactionIsolation.ValueType], builtins.type):
+
+    class _TransactionIsolationEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._TransactionIsolation.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig9_6._TransactionIsolation.ValueType  # 0
         TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig9_6._TransactionIsolation.ValueType  # 1
         TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig9_6._TransactionIsolation.ValueType  # 2
         TRANSACTION_ISOLATION_REPEATABLE_READ: PostgresqlConfig9_6._TransactionIsolation.ValueType  # 3
         TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig9_6._TransactionIsolation.ValueType  # 4
-    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper):
-        pass
 
+    class TransactionIsolation(_TransactionIsolation, metaclass=_TransactionIsolationEnumTypeWrapper): ...
     TRANSACTION_ISOLATION_UNSPECIFIED: PostgresqlConfig9_6.TransactionIsolation.ValueType  # 0
     TRANSACTION_ISOLATION_READ_UNCOMMITTED: PostgresqlConfig9_6.TransactionIsolation.ValueType  # 1
     TRANSACTION_ISOLATION_READ_COMMITTED: PostgresqlConfig9_6.TransactionIsolation.ValueType  # 2
@@ -177,63 +184,63 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     TRANSACTION_ISOLATION_SERIALIZABLE: PostgresqlConfig9_6.TransactionIsolation.ValueType  # 4
 
     class _ByteaOutput:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ByteaOutput.ValueType], builtins.type):
+
+    class _ByteaOutputEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._ByteaOutput.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig9_6._ByteaOutput.ValueType  # 0
         BYTEA_OUTPUT_HEX: PostgresqlConfig9_6._ByteaOutput.ValueType  # 1
         BYTEA_OUTPUT_ESCAPED: PostgresqlConfig9_6._ByteaOutput.ValueType  # 2
-    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper):
-        pass
 
+    class ByteaOutput(_ByteaOutput, metaclass=_ByteaOutputEnumTypeWrapper): ...
     BYTEA_OUTPUT_UNSPECIFIED: PostgresqlConfig9_6.ByteaOutput.ValueType  # 0
     BYTEA_OUTPUT_HEX: PostgresqlConfig9_6.ByteaOutput.ValueType  # 1
     BYTEA_OUTPUT_ESCAPED: PostgresqlConfig9_6.ByteaOutput.ValueType  # 2
 
     class _XmlBinary:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._XmlBinary.ValueType], builtins.type):
+
+    class _XmlBinaryEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._XmlBinary.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         XML_BINARY_UNSPECIFIED: PostgresqlConfig9_6._XmlBinary.ValueType  # 0
         XML_BINARY_BASE64: PostgresqlConfig9_6._XmlBinary.ValueType  # 1
         XML_BINARY_HEX: PostgresqlConfig9_6._XmlBinary.ValueType  # 2
-    class XmlBinary(_XmlBinary, metaclass=_XmlBinaryEnumTypeWrapper):
-        pass
 
+    class XmlBinary(_XmlBinary, metaclass=_XmlBinaryEnumTypeWrapper): ...
     XML_BINARY_UNSPECIFIED: PostgresqlConfig9_6.XmlBinary.ValueType  # 0
     XML_BINARY_BASE64: PostgresqlConfig9_6.XmlBinary.ValueType  # 1
     XML_BINARY_HEX: PostgresqlConfig9_6.XmlBinary.ValueType  # 2
 
     class _XmlOption:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._XmlOption.ValueType], builtins.type):
+
+    class _XmlOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._XmlOption.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         XML_OPTION_UNSPECIFIED: PostgresqlConfig9_6._XmlOption.ValueType  # 0
         XML_OPTION_DOCUMENT: PostgresqlConfig9_6._XmlOption.ValueType  # 1
         XML_OPTION_CONTENT: PostgresqlConfig9_6._XmlOption.ValueType  # 2
-    class XmlOption(_XmlOption, metaclass=_XmlOptionEnumTypeWrapper):
-        pass
 
+    class XmlOption(_XmlOption, metaclass=_XmlOptionEnumTypeWrapper): ...
     XML_OPTION_UNSPECIFIED: PostgresqlConfig9_6.XmlOption.ValueType  # 0
     XML_OPTION_DOCUMENT: PostgresqlConfig9_6.XmlOption.ValueType  # 1
     XML_OPTION_CONTENT: PostgresqlConfig9_6.XmlOption.ValueType  # 2
 
     class _BackslashQuote:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._BackslashQuote.ValueType], builtins.type):
+
+    class _BackslashQuoteEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[PostgresqlConfig9_6._BackslashQuote.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig9_6._BackslashQuote.ValueType  # 0
         BACKSLASH_QUOTE: PostgresqlConfig9_6._BackslashQuote.ValueType  # 1
         BACKSLASH_QUOTE_ON: PostgresqlConfig9_6._BackslashQuote.ValueType  # 2
         BACKSLASH_QUOTE_OFF: PostgresqlConfig9_6._BackslashQuote.ValueType  # 3
         BACKSLASH_QUOTE_SAFE_ENCODING: PostgresqlConfig9_6._BackslashQuote.ValueType  # 4
-    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper):
-        pass
 
+    class BackslashQuote(_BackslashQuote, metaclass=_BackslashQuoteEnumTypeWrapper): ...
     BACKSLASH_QUOTE_UNSPECIFIED: PostgresqlConfig9_6.BackslashQuote.ValueType  # 0
     BACKSLASH_QUOTE: PostgresqlConfig9_6.BackslashQuote.ValueType  # 1
     BACKSLASH_QUOTE_ON: PostgresqlConfig9_6.BackslashQuote.ValueType  # 2
@@ -326,35 +333,28 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def shared_buffers(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def temp_buffers(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def max_prepared_transactions(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def work_mem(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def maintenance_work_mem(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def replacement_sort_tuples(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def autovacuum_work_mem(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def temp_file_limit(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def vacuum_cost_delay(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def vacuum_cost_page_hit(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -366,7 +366,6 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def bgwriter_delay(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def bgwriter_lru_maxpages(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -382,25 +381,20 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def checkpoint_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def checkpoint_completion_target(self) -> google.protobuf.wrappers_pb2.DoubleValue:
         """Acceptable values are 0.0 to 1.0, inclusive."""
-        pass
     @property
     def checkpoint_flush_after(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def max_wal_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def min_wal_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def max_standby_streaming_delay(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def default_statistics_target(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     constraint_exclusion: global___PostgresqlConfig9_6.ConstraintExclusion.ValueType
@@ -417,7 +411,6 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def log_min_duration_statement(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def log_checkpoints(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
@@ -432,33 +425,28 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     log_statement: global___PostgresqlConfig9_6.LogStatement.ValueType
     @property
     def log_temp_files(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
-    search_path: typing.Text
+    search_path: builtins.str
     @property
     def row_security(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     default_transaction_isolation: global___PostgresqlConfig9_6.TransactionIsolation.ValueType
     @property
     def statement_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def lock_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def idle_in_transaction_session_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     bytea_output: global___PostgresqlConfig9_6.ByteaOutput.ValueType
     xmlbinary: global___PostgresqlConfig9_6.XmlBinary.ValueType
     xmloption: global___PostgresqlConfig9_6.XmlOption.ValueType
     @property
     def gin_pending_list_limit(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in bytes."""
-        pass
     @property
     def deadlock_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def max_locks_per_transaction(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -491,7 +479,6 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def sql_inheritance(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """This option has been removed in PostgreSQL 10."""
-        pass
     @property
     def autovacuum_max_workers(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -501,107 +488,108 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
     @property
     def autovacuum_naptime(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def archive_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """in milliseconds."""
-        pass
     @property
     def track_activity_query_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def effective_io_concurrency(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
     def effective_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        max_connections: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        shared_buffers: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        temp_buffers: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_prepared_transactions: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        work_mem: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        maintenance_work_mem: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        replacement_sort_tuples: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        autovacuum_work_mem: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        temp_file_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        vacuum_cost_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        vacuum_cost_page_hit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        vacuum_cost_page_miss: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        vacuum_cost_page_dirty: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        vacuum_cost_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        bgwriter_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        bgwriter_lru_maxpages: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        bgwriter_lru_multiplier: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        bgwriter_flush_after: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        backend_flush_after: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        old_snapshot_threshold: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        max_connections: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        shared_buffers: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        temp_buffers: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_prepared_transactions: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        work_mem: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        maintenance_work_mem: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        replacement_sort_tuples: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        autovacuum_work_mem: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        temp_file_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        vacuum_cost_delay: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        vacuum_cost_page_hit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        vacuum_cost_page_miss: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        vacuum_cost_page_dirty: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        vacuum_cost_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        bgwriter_delay: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        bgwriter_lru_maxpages: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        bgwriter_lru_multiplier: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        bgwriter_flush_after: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        backend_flush_after: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        old_snapshot_threshold: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         wal_level: global___PostgresqlConfig9_6.WalLevel.ValueType = ...,
         synchronous_commit: global___PostgresqlConfig9_6.SynchronousCommit.ValueType = ...,
-        checkpoint_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        checkpoint_completion_target: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        checkpoint_flush_after: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_wal_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        min_wal_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_standby_streaming_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        default_statistics_target: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        checkpoint_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        checkpoint_completion_target: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        checkpoint_flush_after: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_wal_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        min_wal_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_standby_streaming_delay: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        default_statistics_target: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         constraint_exclusion: global___PostgresqlConfig9_6.ConstraintExclusion.ValueType = ...,
-        cursor_tuple_fraction: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        from_collapse_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        join_collapse_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        cursor_tuple_fraction: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        from_collapse_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        join_collapse_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         force_parallel_mode: global___PostgresqlConfig9_6.ForceParallelMode.ValueType = ...,
         client_min_messages: global___PostgresqlConfig9_6.LogLevel.ValueType = ...,
         log_min_messages: global___PostgresqlConfig9_6.LogLevel.ValueType = ...,
         log_min_error_statement: global___PostgresqlConfig9_6.LogLevel.ValueType = ...,
-        log_min_duration_statement: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        log_checkpoints: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_connections: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_disconnections: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        log_duration: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        log_min_duration_statement: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        log_checkpoints: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        log_connections: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        log_disconnections: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        log_duration: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         log_error_verbosity: global___PostgresqlConfig9_6.LogErrorVerbosity.ValueType = ...,
-        log_lock_waits: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        log_lock_waits: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         log_statement: global___PostgresqlConfig9_6.LogStatement.ValueType = ...,
-        log_temp_files: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        search_path: typing.Text = ...,
-        row_security: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        log_temp_files: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        search_path: builtins.str = ...,
+        row_security: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         default_transaction_isolation: global___PostgresqlConfig9_6.TransactionIsolation.ValueType = ...,
-        statement_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        lock_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        idle_in_transaction_session_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
+        statement_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        lock_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        idle_in_transaction_session_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         bytea_output: global___PostgresqlConfig9_6.ByteaOutput.ValueType = ...,
         xmlbinary: global___PostgresqlConfig9_6.XmlBinary.ValueType = ...,
         xmloption: global___PostgresqlConfig9_6.XmlOption.ValueType = ...,
-        gin_pending_list_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        deadlock_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_locks_per_transaction: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        max_pred_locks_per_transaction: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        array_nulls: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
+        gin_pending_list_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        deadlock_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_locks_per_transaction: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_pred_locks_per_transaction: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        array_nulls: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         backslash_quote: global___PostgresqlConfig9_6.BackslashQuote.ValueType = ...,
-        default_with_oids: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        escape_string_warning: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        lo_compat_privileges: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        operator_precedence_warning: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        quote_all_identifiers: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        standard_conforming_strings: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        synchronize_seqscans: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        transform_null_equals: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        exit_on_error: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        seq_page_cost: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        random_page_cost: typing.Optional[google.protobuf.wrappers_pb2.DoubleValue] = ...,
-        sql_inheritance: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        autovacuum_max_workers: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        autovacuum_vacuum_cost_delay: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        autovacuum_vacuum_cost_limit: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        autovacuum_naptime: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        archive_timeout: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        track_activity_query_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        effective_io_concurrency: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        effective_cache_size: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_temp_files",b"log_temp_files","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","operator_precedence_warning",b"operator_precedence_warning","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","replacement_sort_tuples",b"replacement_sort_tuples","row_security",b"row_security","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","sql_inheritance",b"sql_inheritance","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","work_mem",b"work_mem"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["archive_timeout",b"archive_timeout","array_nulls",b"array_nulls","autovacuum_max_workers",b"autovacuum_max_workers","autovacuum_naptime",b"autovacuum_naptime","autovacuum_vacuum_cost_delay",b"autovacuum_vacuum_cost_delay","autovacuum_vacuum_cost_limit",b"autovacuum_vacuum_cost_limit","autovacuum_work_mem",b"autovacuum_work_mem","backend_flush_after",b"backend_flush_after","backslash_quote",b"backslash_quote","bgwriter_delay",b"bgwriter_delay","bgwriter_flush_after",b"bgwriter_flush_after","bgwriter_lru_maxpages",b"bgwriter_lru_maxpages","bgwriter_lru_multiplier",b"bgwriter_lru_multiplier","bytea_output",b"bytea_output","checkpoint_completion_target",b"checkpoint_completion_target","checkpoint_flush_after",b"checkpoint_flush_after","checkpoint_timeout",b"checkpoint_timeout","client_min_messages",b"client_min_messages","constraint_exclusion",b"constraint_exclusion","cursor_tuple_fraction",b"cursor_tuple_fraction","deadlock_timeout",b"deadlock_timeout","default_statistics_target",b"default_statistics_target","default_transaction_isolation",b"default_transaction_isolation","default_with_oids",b"default_with_oids","effective_cache_size",b"effective_cache_size","effective_io_concurrency",b"effective_io_concurrency","escape_string_warning",b"escape_string_warning","exit_on_error",b"exit_on_error","force_parallel_mode",b"force_parallel_mode","from_collapse_limit",b"from_collapse_limit","gin_pending_list_limit",b"gin_pending_list_limit","idle_in_transaction_session_timeout",b"idle_in_transaction_session_timeout","join_collapse_limit",b"join_collapse_limit","lo_compat_privileges",b"lo_compat_privileges","lock_timeout",b"lock_timeout","log_checkpoints",b"log_checkpoints","log_connections",b"log_connections","log_disconnections",b"log_disconnections","log_duration",b"log_duration","log_error_verbosity",b"log_error_verbosity","log_lock_waits",b"log_lock_waits","log_min_duration_statement",b"log_min_duration_statement","log_min_error_statement",b"log_min_error_statement","log_min_messages",b"log_min_messages","log_statement",b"log_statement","log_temp_files",b"log_temp_files","maintenance_work_mem",b"maintenance_work_mem","max_connections",b"max_connections","max_locks_per_transaction",b"max_locks_per_transaction","max_pred_locks_per_transaction",b"max_pred_locks_per_transaction","max_prepared_transactions",b"max_prepared_transactions","max_standby_streaming_delay",b"max_standby_streaming_delay","max_wal_size",b"max_wal_size","min_wal_size",b"min_wal_size","old_snapshot_threshold",b"old_snapshot_threshold","operator_precedence_warning",b"operator_precedence_warning","quote_all_identifiers",b"quote_all_identifiers","random_page_cost",b"random_page_cost","replacement_sort_tuples",b"replacement_sort_tuples","row_security",b"row_security","search_path",b"search_path","seq_page_cost",b"seq_page_cost","shared_buffers",b"shared_buffers","sql_inheritance",b"sql_inheritance","standard_conforming_strings",b"standard_conforming_strings","statement_timeout",b"statement_timeout","synchronize_seqscans",b"synchronize_seqscans","synchronous_commit",b"synchronous_commit","temp_buffers",b"temp_buffers","temp_file_limit",b"temp_file_limit","track_activity_query_size",b"track_activity_query_size","transform_null_equals",b"transform_null_equals","vacuum_cost_delay",b"vacuum_cost_delay","vacuum_cost_limit",b"vacuum_cost_limit","vacuum_cost_page_dirty",b"vacuum_cost_page_dirty","vacuum_cost_page_hit",b"vacuum_cost_page_hit","vacuum_cost_page_miss",b"vacuum_cost_page_miss","wal_level",b"wal_level","work_mem",b"work_mem","xmlbinary",b"xmlbinary","xmloption",b"xmloption"]) -> None: ...
+        default_with_oids: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        escape_string_warning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        lo_compat_privileges: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        operator_precedence_warning: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        quote_all_identifiers: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        standard_conforming_strings: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        synchronize_seqscans: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        transform_null_equals: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        exit_on_error: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        seq_page_cost: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        random_page_cost: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        sql_inheritance: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        autovacuum_max_workers: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        autovacuum_vacuum_cost_delay: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        autovacuum_vacuum_cost_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        autovacuum_naptime: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        archive_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        track_activity_query_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        effective_io_concurrency: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        effective_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["archive_timeout", b"archive_timeout", "array_nulls", b"array_nulls", "autovacuum_max_workers", b"autovacuum_max_workers", "autovacuum_naptime", b"autovacuum_naptime", "autovacuum_vacuum_cost_delay", b"autovacuum_vacuum_cost_delay", "autovacuum_vacuum_cost_limit", b"autovacuum_vacuum_cost_limit", "autovacuum_work_mem", b"autovacuum_work_mem", "backend_flush_after", b"backend_flush_after", "bgwriter_delay", b"bgwriter_delay", "bgwriter_flush_after", b"bgwriter_flush_after", "bgwriter_lru_maxpages", b"bgwriter_lru_maxpages", "bgwriter_lru_multiplier", b"bgwriter_lru_multiplier", "checkpoint_completion_target", b"checkpoint_completion_target", "checkpoint_flush_after", b"checkpoint_flush_after", "checkpoint_timeout", b"checkpoint_timeout", "cursor_tuple_fraction", b"cursor_tuple_fraction", "deadlock_timeout", b"deadlock_timeout", "default_statistics_target", b"default_statistics_target", "default_with_oids", b"default_with_oids", "effective_cache_size", b"effective_cache_size", "effective_io_concurrency", b"effective_io_concurrency", "escape_string_warning", b"escape_string_warning", "exit_on_error", b"exit_on_error", "from_collapse_limit", b"from_collapse_limit", "gin_pending_list_limit", b"gin_pending_list_limit", "idle_in_transaction_session_timeout", b"idle_in_transaction_session_timeout", "join_collapse_limit", b"join_collapse_limit", "lo_compat_privileges", b"lo_compat_privileges", "lock_timeout", b"lock_timeout", "log_checkpoints", b"log_checkpoints", "log_connections", b"log_connections", "log_disconnections", b"log_disconnections", "log_duration", b"log_duration", "log_lock_waits", b"log_lock_waits", "log_min_duration_statement", b"log_min_duration_statement", "log_temp_files", b"log_temp_files", "maintenance_work_mem", b"maintenance_work_mem", "max_connections", b"max_connections", "max_locks_per_transaction", b"max_locks_per_transaction", "max_pred_locks_per_transaction", b"max_pred_locks_per_transaction", "max_prepared_transactions", b"max_prepared_transactions", "max_standby_streaming_delay", b"max_standby_streaming_delay", "max_wal_size", b"max_wal_size", "min_wal_size", b"min_wal_size", "old_snapshot_threshold", b"old_snapshot_threshold", "operator_precedence_warning", b"operator_precedence_warning", "quote_all_identifiers", b"quote_all_identifiers", "random_page_cost", b"random_page_cost", "replacement_sort_tuples", b"replacement_sort_tuples", "row_security", b"row_security", "seq_page_cost", b"seq_page_cost", "shared_buffers", b"shared_buffers", "sql_inheritance", b"sql_inheritance", "standard_conforming_strings", b"standard_conforming_strings", "statement_timeout", b"statement_timeout", "synchronize_seqscans", b"synchronize_seqscans", "temp_buffers", b"temp_buffers", "temp_file_limit", b"temp_file_limit", "track_activity_query_size", b"track_activity_query_size", "transform_null_equals", b"transform_null_equals", "vacuum_cost_delay", b"vacuum_cost_delay", "vacuum_cost_limit", b"vacuum_cost_limit", "vacuum_cost_page_dirty", b"vacuum_cost_page_dirty", "vacuum_cost_page_hit", b"vacuum_cost_page_hit", "vacuum_cost_page_miss", b"vacuum_cost_page_miss", "work_mem", b"work_mem"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["archive_timeout", b"archive_timeout", "array_nulls", b"array_nulls", "autovacuum_max_workers", b"autovacuum_max_workers", "autovacuum_naptime", b"autovacuum_naptime", "autovacuum_vacuum_cost_delay", b"autovacuum_vacuum_cost_delay", "autovacuum_vacuum_cost_limit", b"autovacuum_vacuum_cost_limit", "autovacuum_work_mem", b"autovacuum_work_mem", "backend_flush_after", b"backend_flush_after", "backslash_quote", b"backslash_quote", "bgwriter_delay", b"bgwriter_delay", "bgwriter_flush_after", b"bgwriter_flush_after", "bgwriter_lru_maxpages", b"bgwriter_lru_maxpages", "bgwriter_lru_multiplier", b"bgwriter_lru_multiplier", "bytea_output", b"bytea_output", "checkpoint_completion_target", b"checkpoint_completion_target", "checkpoint_flush_after", b"checkpoint_flush_after", "checkpoint_timeout", b"checkpoint_timeout", "client_min_messages", b"client_min_messages", "constraint_exclusion", b"constraint_exclusion", "cursor_tuple_fraction", b"cursor_tuple_fraction", "deadlock_timeout", b"deadlock_timeout", "default_statistics_target", b"default_statistics_target", "default_transaction_isolation", b"default_transaction_isolation", "default_with_oids", b"default_with_oids", "effective_cache_size", b"effective_cache_size", "effective_io_concurrency", b"effective_io_concurrency", "escape_string_warning", b"escape_string_warning", "exit_on_error", b"exit_on_error", "force_parallel_mode", b"force_parallel_mode", "from_collapse_limit", b"from_collapse_limit", "gin_pending_list_limit", b"gin_pending_list_limit", "idle_in_transaction_session_timeout", b"idle_in_transaction_session_timeout", "join_collapse_limit", b"join_collapse_limit", "lo_compat_privileges", b"lo_compat_privileges", "lock_timeout", b"lock_timeout", "log_checkpoints", b"log_checkpoints", "log_connections", b"log_connections", "log_disconnections", b"log_disconnections", "log_duration", b"log_duration", "log_error_verbosity", b"log_error_verbosity", "log_lock_waits", b"log_lock_waits", "log_min_duration_statement", b"log_min_duration_statement", "log_min_error_statement", b"log_min_error_statement", "log_min_messages", b"log_min_messages", "log_statement", b"log_statement", "log_temp_files", b"log_temp_files", "maintenance_work_mem", b"maintenance_work_mem", "max_connections", b"max_connections", "max_locks_per_transaction", b"max_locks_per_transaction", "max_pred_locks_per_transaction", b"max_pred_locks_per_transaction", "max_prepared_transactions", b"max_prepared_transactions", "max_standby_streaming_delay", b"max_standby_streaming_delay", "max_wal_size", b"max_wal_size", "min_wal_size", b"min_wal_size", "old_snapshot_threshold", b"old_snapshot_threshold", "operator_precedence_warning", b"operator_precedence_warning", "quote_all_identifiers", b"quote_all_identifiers", "random_page_cost", b"random_page_cost", "replacement_sort_tuples", b"replacement_sort_tuples", "row_security", b"row_security", "search_path", b"search_path", "seq_page_cost", b"seq_page_cost", "shared_buffers", b"shared_buffers", "sql_inheritance", b"sql_inheritance", "standard_conforming_strings", b"standard_conforming_strings", "statement_timeout", b"statement_timeout", "synchronize_seqscans", b"synchronize_seqscans", "synchronous_commit", b"synchronous_commit", "temp_buffers", b"temp_buffers", "temp_file_limit", b"temp_file_limit", "track_activity_query_size", b"track_activity_query_size", "transform_null_equals", b"transform_null_equals", "vacuum_cost_delay", b"vacuum_cost_delay", "vacuum_cost_limit", b"vacuum_cost_limit", "vacuum_cost_page_dirty", b"vacuum_cost_page_dirty", "vacuum_cost_page_hit", b"vacuum_cost_page_hit", "vacuum_cost_page_miss", b"vacuum_cost_page_miss", "wal_level", b"wal_level", "work_mem", b"work_mem", "xmlbinary", b"xmlbinary", "xmloption", b"xmloption"]) -> None: ...
+
 global___PostgresqlConfig9_6 = PostgresqlConfig9_6
 
 class PostgresqlConfigSet9_6(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
@@ -610,21 +598,20 @@ class PostgresqlConfigSet9_6(google.protobuf.message.Message):
         """Effective settings for a PostgreSQL 9.6 cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
-        pass
     @property
     def user_config(self) -> global___PostgresqlConfig9_6:
         """User-defined settings for a PostgreSQL 9.6 cluster."""
-        pass
     @property
     def default_config(self) -> global___PostgresqlConfig9_6:
         """Default configuration for a PostgreSQL 9.6 cluster."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        effective_config: typing.Optional[global___PostgresqlConfig9_6] = ...,
-        user_config: typing.Optional[global___PostgresqlConfig9_6] = ...,
-        default_config: typing.Optional[global___PostgresqlConfig9_6] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_config",b"default_config","effective_config",b"effective_config","user_config",b"user_config"]) -> None: ...
+        effective_config: global___PostgresqlConfig9_6 | None = ...,
+        user_config: global___PostgresqlConfig9_6 | None = ...,
+        default_config: global___PostgresqlConfig9_6 | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
+
 global___PostgresqlConfigSet9_6 = PostgresqlConfigSet9_6

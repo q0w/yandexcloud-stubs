@@ -5,36 +5,43 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class PublishDeviceDataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     TOPIC_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of device publishing message"""
-
-    topic: typing.Text
+    topic: builtins.str
     """Topic where message should be published"""
-
     data: builtins.bytes
     """Content of the message"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        topic: typing.Text = ...,
+        device_id: builtins.str = ...,
+        topic: builtins.str = ...,
         data: builtins.bytes = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["data",b"data","device_id",b"device_id","topic",b"topic"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "device_id", b"device_id", "topic", b"topic"]) -> None: ...
+
 global___PublishDeviceDataRequest = PublishDeviceDataRequest
 
 class PublishDeviceDataResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___PublishDeviceDataResponse = PublishDeviceDataResponse

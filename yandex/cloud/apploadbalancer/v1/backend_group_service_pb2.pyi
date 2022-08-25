@@ -3,58 +3,63 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.apploadbalancer.v1.backend_group_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to return.
 
     To get the backend group ID, make a [BackendGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id"]) -> None: ...
+
 global___GetBackendGroupRequest = GetBackendGroupRequest
 
 class ListBackendGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list backend groups in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListBackendGroupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListBackendGroupsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters backend groups listed in the response.
 
     The expression must specify:
@@ -63,84 +68,93 @@ class ListBackendGroupsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name=my-backend-group`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListBackendGroupsRequest = ListBackendGroupsRequest
 
 class ListBackendGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def backend_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.apploadbalancer.v1.backend_group_pb2.BackendGroup]:
         """List of backend groups in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListBackendGroupsRequest.page_size], use `next_page_token` as the value
     for the [ListBackendGroupsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_groups: typing.Optional[typing.Iterable[yandex.cloud.apploadbalancer.v1.backend_group_pb2.BackendGroup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_groups",b"backend_groups","next_page_token",b"next_page_token"]) -> None: ...
+        backend_groups: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.backend_group_pb2.BackendGroup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_groups", b"backend_groups", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListBackendGroupsResponse = ListBackendGroupsResponse
 
 class DeleteBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to delete.
 
     To get the backend group ID, make a [BackendGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id"]) -> None: ...
+
 global___DeleteBackendGroupRequest = DeleteBackendGroupRequest
 
 class DeleteBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
-    """ID of the backend group that is being deleted."""
 
-    def __init__(self,
+    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
+    backend_group_id: builtins.str
+    """ID of the backend group that is being deleted."""
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id"]) -> None: ...
+
 global___DeleteBackendGroupMetadata = DeleteBackendGroupMetadata
 
 class UpdateBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -150,26 +164,22 @@ class UpdateBackendGroupRequest(google.protobuf.message.Message):
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to update.
 
     To get the backend group ID, make a [BackendGroupService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the backend group should be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the backend group.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """New description of the backend group."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Backend group labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
 
@@ -179,62 +189,65 @@ class UpdateBackendGroupRequest(google.protobuf.message.Message):
         2. Add or remove a label in this set.
         3. Send the new set in this field.
         """
-        pass
     @property
     def http(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup:
         """New list of HTTP backends that the backend group will consist of."""
-        pass
     @property
     def grpc(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup:
         """New list of gRPC backends that the backend group will consist of."""
-        pass
     @property
     def stream(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup:
         """New list of stream (TCP) backends that the backend group will consist of."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        http: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup] = ...,
-        grpc: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup] = ...,
-        stream: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend",b"backend","grpc",b"grpc","http",b"http","stream",b"stream","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend",b"backend","backend_group_id",b"backend_group_id","description",b"description","grpc",b"grpc","http",b"http","labels",b"labels","name",b"name","stream",b"stream","update_mask",b"update_mask"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend",b"backend"]) -> typing.Optional[typing_extensions.Literal["http","grpc","stream"]]: ...
+        backend_group_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        http: yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup | None = ...,
+        grpc: yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup | None = ...,
+        stream: yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend", b"backend", "grpc", b"grpc", "http", b"http", "stream", b"stream", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend", b"backend", "backend_group_id", b"backend_group_id", "description", b"description", "grpc", b"grpc", "http", b"http", "labels", b"labels", "name", b"name", "stream", b"stream", "update_mask", b"update_mask"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend", b"backend"]) -> typing_extensions.Literal["http", "grpc", "stream"] | None: ...
+
 global___UpdateBackendGroupRequest = UpdateBackendGroupRequest
 
 class UpdateBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
-    """ID of the backend group that is being updated."""
 
-    def __init__(self,
+    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
+    backend_group_id: builtins.str
+    """ID of the backend group that is being updated."""
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id"]) -> None: ...
+
 global___UpdateBackendGroupMetadata = UpdateBackendGroupMetadata
 
 class CreateBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -243,271 +256,270 @@ class CreateBackendGroupRequest(google.protobuf.message.Message):
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a backend group in.
 
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the backend group.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the backend group."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Backend group labels as `key:value` pairs.
         For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
         """
-        pass
     @property
     def http(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup:
         """List of HTTP backends that the backend group will consist of."""
-        pass
     @property
     def grpc(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup:
         """List of gRPC backends that the backend group consists of."""
-        pass
     @property
     def stream(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup:
         """List of stream (TCP) backends that the backend group consists of."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        http: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup] = ...,
-        grpc: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup] = ...,
-        stream: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend",b"backend","grpc",b"grpc","http",b"http","stream",b"stream"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend",b"backend","description",b"description","folder_id",b"folder_id","grpc",b"grpc","http",b"http","labels",b"labels","name",b"name","stream",b"stream"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend",b"backend"]) -> typing.Optional[typing_extensions.Literal["http","grpc","stream"]]: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        http: yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackendGroup | None = ...,
+        grpc: yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackendGroup | None = ...,
+        stream: yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackendGroup | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend", b"backend", "grpc", b"grpc", "http", b"http", "stream", b"stream"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend", b"backend", "description", b"description", "folder_id", b"folder_id", "grpc", b"grpc", "http", b"http", "labels", b"labels", "name", b"name", "stream", b"stream"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend", b"backend"]) -> typing_extensions.Literal["http", "grpc", "stream"] | None: ...
+
 global___CreateBackendGroupRequest = CreateBackendGroupRequest
 
 class CreateBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
-    """ID of the backend group that is being created."""
 
-    def __init__(self,
+    BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
+    backend_group_id: builtins.str
+    """ID of the backend group that is being created."""
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id"]) -> None: ...
+
 global___CreateBackendGroupMetadata = CreateBackendGroupMetadata
 
 class AddBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to add a backend to.
 
     To get the backend group ID, make a [BackendGroupService.List] request.
     """
-
     @property
     def http(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend:
         """HTTP backend to add to the backend group."""
-        pass
     @property
     def grpc(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend:
         """gRPC backend to add to the backend group."""
-        pass
     @property
     def stream(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend:
         """New settings for the Stream backend."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        http: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend] = ...,
-        grpc: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend] = ...,
-        stream: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend",b"backend","grpc",b"grpc","http",b"http","stream",b"stream"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend",b"backend","backend_group_id",b"backend_group_id","grpc",b"grpc","http",b"http","stream",b"stream"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend",b"backend"]) -> typing.Optional[typing_extensions.Literal["http","grpc","stream"]]: ...
+        backend_group_id: builtins.str = ...,
+        http: yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend | None = ...,
+        grpc: yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend | None = ...,
+        stream: yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend", b"backend", "grpc", b"grpc", "http", b"http", "stream", b"stream"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend", b"backend", "backend_group_id", b"backend_group_id", "grpc", b"grpc", "http", b"http", "stream", b"stream"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend", b"backend"]) -> typing_extensions.Literal["http", "grpc", "stream"] | None: ...
+
 global___AddBackendRequest = AddBackendRequest
 
 class AddBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     BACKEND_NAME_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group that the backend is being added to."""
-
-    backend_name: typing.Text
+    backend_name: builtins.str
     """Name of the backend that is being added to the backend group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        backend_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id","backend_name",b"backend_name"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+        backend_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id", "backend_name", b"backend_name"]) -> None: ...
+
 global___AddBackendMetadata = AddBackendMetadata
 
 class UpdateBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
     STREAM_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to update the backend in."""
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the backend should be updated."""
-        pass
     @property
     def http(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend:
         """New settings for the HTTP backend."""
-        pass
     @property
     def grpc(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend:
         """New settings for the gRPC backend."""
-        pass
     @property
     def stream(self) -> yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend:
         """New settings for the stream (TCP) backend."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        http: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend] = ...,
-        grpc: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend] = ...,
-        stream: typing.Optional[yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["backend",b"backend","grpc",b"grpc","http",b"http","stream",b"stream","update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend",b"backend","backend_group_id",b"backend_group_id","grpc",b"grpc","http",b"http","stream",b"stream","update_mask",b"update_mask"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend",b"backend"]) -> typing.Optional[typing_extensions.Literal["http","grpc","stream"]]: ...
+        backend_group_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        http: yandex.cloud.apploadbalancer.v1.backend_group_pb2.HttpBackend | None = ...,
+        grpc: yandex.cloud.apploadbalancer.v1.backend_group_pb2.GrpcBackend | None = ...,
+        stream: yandex.cloud.apploadbalancer.v1.backend_group_pb2.StreamBackend | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["backend", b"backend", "grpc", b"grpc", "http", b"http", "stream", b"stream", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend", b"backend", "backend_group_id", b"backend_group_id", "grpc", b"grpc", "http", b"http", "stream", b"stream", "update_mask", b"update_mask"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["backend", b"backend"]) -> typing_extensions.Literal["http", "grpc", "stream"] | None: ...
+
 global___UpdateBackendRequest = UpdateBackendRequest
 
 class UpdateBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     BACKEND_NAME_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group that the backend is being updated it."""
-
-    backend_name: typing.Text
+    backend_name: builtins.str
     """Name of the backend that is being updated."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        backend_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id","backend_name",b"backend_name"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+        backend_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id", "backend_name", b"backend_name"]) -> None: ...
+
 global___UpdateBackendMetadata = UpdateBackendMetadata
 
 class RemoveBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     BACKEND_NAME_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to remove a backend from.
 
     To get the backend group ID, make a [BackendGroupService.List] request.
     """
-
-    backend_name: typing.Text
+    backend_name: builtins.str
     """Name of the backend to remove.
 
     To get the backend name, make a [BackendGroupService.Get] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        backend_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id","backend_name",b"backend_name"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+        backend_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id", "backend_name", b"backend_name"]) -> None: ...
+
 global___RemoveBackendRequest = RemoveBackendRequest
 
 class RemoveBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     BACKEND_NAME_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group that the backend is being removed from."""
-
-    backend_name: typing.Text
+    backend_name: builtins.str
     """Name of the backend that is being removed."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
-        backend_name: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id","backend_name",b"backend_name"]) -> None: ...
+        backend_group_id: builtins.str = ...,
+        backend_name: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id", "backend_name", b"backend_name"]) -> None: ...
+
 global___RemoveBackendMetadata = RemoveBackendMetadata
 
 class ListBackendGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BACKEND_GROUP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    backend_group_id: typing.Text
+    backend_group_id: builtins.str
     """ID of the backend group to get operations for.
 
     To get the backend group ID, use a [BackendGroupService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than [page_size], the service returns a [ListBackendGroupOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListBackendGroupOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        backend_group_id: typing.Text = ...,
+        backend_group_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id",b"backend_group_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backend_group_id", b"backend_group_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListBackendGroupOperationsRequest = ListBackendGroupOperationsRequest
 
 class ListBackendGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified backend group."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListBackendGroupOperationsRequest.page_size], use `next_page_token` as the value
     for the [ListBackendGroupOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListBackendGroupOperationsResponse = ListBackendGroupOperationsResponse

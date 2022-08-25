@@ -3,11 +3,16 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -15,7 +20,9 @@ class Database(google.protobuf.message.Message):
     """A PostgreSQL Database resource. For more information, see
     the [Developer's Guide](/docs/managed-postgresql/concepts).
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
@@ -23,106 +30,99 @@ class Database(google.protobuf.message.Message):
     LC_CTYPE_FIELD_NUMBER: builtins.int
     EXTENSIONS_FIELD_NUMBER: builtins.int
     TEMPLATE_DB_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the database."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the PostgreSQL cluster that the database belongs to."""
-
-    owner: typing.Text
+    owner: builtins.str
     """Name of the user assigned as the owner of the database."""
-
-    lc_collate: typing.Text
+    lc_collate: builtins.str
     """POSIX locale for string sorting order.
     Can only be set at creation time.
     """
-
-    lc_ctype: typing.Text
+    lc_ctype: builtins.str
     """POSIX locale for character classification.
     Can only be set at creation time.
     """
-
     @property
     def extensions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Extension]:
         """PostgreSQL extensions enabled for the database."""
-        pass
-    template_db: typing.Text
+    template_db: builtins.str
     """Name of the database template."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        owner: typing.Text = ...,
-        lc_collate: typing.Text = ...,
-        lc_ctype: typing.Text = ...,
-        extensions: typing.Optional[typing.Iterable[global___Extension]] = ...,
-        template_db: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner","template_db",b"template_db"]) -> None: ...
+        name: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        owner: builtins.str = ...,
+        lc_collate: builtins.str = ...,
+        lc_ctype: builtins.str = ...,
+        extensions: collections.abc.Iterable[global___Extension] | None = ...,
+        template_db: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "extensions", b"extensions", "lc_collate", b"lc_collate", "lc_ctype", b"lc_ctype", "name", b"name", "owner", b"owner", "template_db", b"template_db"]) -> None: ...
+
 global___Database = Database
 
 class Extension(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     VERSION_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the extension, e.g. `pg_trgm` or `pg_btree`.
     Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/cluster-extensions).
     """
-
-    version: typing.Text
+    version: builtins.str
     """Version of the extension."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        version: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","version",b"version"]) -> None: ...
+        name: builtins.str = ...,
+        version: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "version", b"version"]) -> None: ...
+
 global___Extension = Extension
 
 class DatabaseSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     OWNER_FIELD_NUMBER: builtins.int
     LC_COLLATE_FIELD_NUMBER: builtins.int
     LC_CTYPE_FIELD_NUMBER: builtins.int
     EXTENSIONS_FIELD_NUMBER: builtins.int
     TEMPLATE_DB_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the PostgreSQL database. 1-63 characters long."""
-
-    owner: typing.Text
+    owner: builtins.str
     """Name of the user to be assigned as the owner of the database.
     To get the list of available PostgreSQL users, make a [UserService.List] request.
     """
-
-    lc_collate: typing.Text
+    lc_collate: builtins.str
     """POSIX locale for string sorting order.
     Can only be set at creation time.
     """
-
-    lc_ctype: typing.Text
+    lc_ctype: builtins.str
     """POSIX locale for character classification.
     Can only be set at creation time.
     """
-
     @property
     def extensions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Extension]:
         """PostgreSQL extensions to be enabled for the database."""
-        pass
-    template_db: typing.Text
+    template_db: builtins.str
     """Name of the PostgreSQL database template."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        owner: typing.Text = ...,
-        lc_collate: typing.Text = ...,
-        lc_ctype: typing.Text = ...,
-        extensions: typing.Optional[typing.Iterable[global___Extension]] = ...,
-        template_db: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["extensions",b"extensions","lc_collate",b"lc_collate","lc_ctype",b"lc_ctype","name",b"name","owner",b"owner","template_db",b"template_db"]) -> None: ...
+        name: builtins.str = ...,
+        owner: builtins.str = ...,
+        lc_collate: builtins.str = ...,
+        lc_ctype: builtins.str = ...,
+        extensions: collections.abc.Iterable[global___Extension] | None = ...,
+        template_db: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["extensions", b"extensions", "lc_collate", b"lc_collate", "lc_ctype", b"lc_ctype", "name", b"name", "owner", b"owner", "template_db", b"template_db"]) -> None: ...
+
 global___DatabaseSpec = DatabaseSpec

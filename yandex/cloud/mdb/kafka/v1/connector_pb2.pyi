@@ -3,13 +3,19 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -18,73 +24,77 @@ class ConnectorSpec(google.protobuf.message.Message):
 
     See [the documentation](/docs/managed-kafka/concepts/connectors) for details.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
     TASKS_MAX_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
     CONNECTOR_CONFIG_MIRRORMAKER_FIELD_NUMBER: builtins.int
     CONNECTOR_CONFIG_S3_SINK_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the connector."""
-
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum number of connector tasks. Default value is the number of brokers."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
         Example: `sync.topics.config.enabled: true`.
         """
-        pass
     @property
     def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMakerSpec:
         """Configuration of the MirrorMaker connector."""
-        pass
     @property
     def connector_config_s3_sink(self) -> global___ConnectorConfigS3SinkSpec:
         """Configuration of S3-Sink connector."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        tasks_max: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        connector_config_mirrormaker: typing.Optional[global___ConnectorConfigMirrorMakerSpec] = ...,
-        connector_config_s3_sink: typing.Optional[global___ConnectorConfigS3SinkSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","tasks_max",b"tasks_max"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","name",b"name","properties",b"properties","tasks_max",b"tasks_max"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config",b"connector_config"]) -> typing.Optional[typing_extensions.Literal["connector_config_mirrormaker","connector_config_s3_sink"]]: ...
+        name: builtins.str = ...,
+        tasks_max: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        connector_config_mirrormaker: global___ConnectorConfigMirrorMakerSpec | None = ...,
+        connector_config_s3_sink: global___ConnectorConfigS3SinkSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "tasks_max", b"tasks_max"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "name", b"name", "properties", b"properties", "tasks_max", b"tasks_max"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config", b"connector_config"]) -> typing_extensions.Literal["connector_config_mirrormaker", "connector_config_s3_sink"] | None: ...
+
 global___ConnectorSpec = ConnectorSpec
 
 class UpdateConnectorSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     TASKS_MAX_FIELD_NUMBER: builtins.int
     PROPERTIES_FIELD_NUMBER: builtins.int
@@ -93,35 +103,34 @@ class UpdateConnectorSpec(google.protobuf.message.Message):
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum number of connector tasks to update."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
         Example: `sync.topics.config.enabled: false`.
         """
-        pass
     @property
     def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMakerSpec:
         """Configuration of the MirrorMaker connector."""
-        pass
     @property
     def connector_config_s3_sink(self) -> global___UpdateConnectorConfigS3SinkSpec:
         """Update specification for S3-Sink Connector."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        tasks_max: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        connector_config_mirrormaker: typing.Optional[global___ConnectorConfigMirrorMakerSpec] = ...,
-        connector_config_s3_sink: typing.Optional[global___UpdateConnectorConfigS3SinkSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","tasks_max",b"tasks_max"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","properties",b"properties","tasks_max",b"tasks_max"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config",b"connector_config"]) -> typing.Optional[typing_extensions.Literal["connector_config_mirrormaker","connector_config_s3_sink"]]: ...
+        tasks_max: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        connector_config_mirrormaker: global___ConnectorConfigMirrorMakerSpec | None = ...,
+        connector_config_s3_sink: global___UpdateConnectorConfigS3SinkSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "tasks_max", b"tasks_max"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "properties", b"properties", "tasks_max", b"tasks_max"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config", b"connector_config"]) -> typing_extensions.Literal["connector_config_mirrormaker", "connector_config_s3_sink"] | None: ...
+
 global___UpdateConnectorSpec = UpdateConnectorSpec
 
 class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SOURCE_CLUSTER_FIELD_NUMBER: builtins.int
     TARGET_CLUSTER_FIELD_NUMBER: builtins.int
     TOPICS_FIELD_NUMBER: builtins.int
@@ -129,164 +138,163 @@ class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
     @property
     def source_cluster(self) -> global___ClusterConnectionSpec:
         """Source cluster configuration for the MirrorMaker connector."""
-        pass
     @property
     def target_cluster(self) -> global___ClusterConnectionSpec:
         """Target cluster configuration for the MirrorMaker connector."""
-        pass
-    topics: typing.Text
+    topics: builtins.str
     """List of Kafka topics, separated by `,`."""
-
     @property
     def replication_factor(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Replication factor for automatically created topics."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        source_cluster: typing.Optional[global___ClusterConnectionSpec] = ...,
-        target_cluster: typing.Optional[global___ClusterConnectionSpec] = ...,
-        topics: typing.Text = ...,
-        replication_factor: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["replication_factor",b"replication_factor","source_cluster",b"source_cluster","target_cluster",b"target_cluster"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["replication_factor",b"replication_factor","source_cluster",b"source_cluster","target_cluster",b"target_cluster","topics",b"topics"]) -> None: ...
+        source_cluster: global___ClusterConnectionSpec | None = ...,
+        target_cluster: global___ClusterConnectionSpec | None = ...,
+        topics: builtins.str = ...,
+        replication_factor: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["replication_factor", b"replication_factor", "source_cluster", b"source_cluster", "target_cluster", b"target_cluster"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["replication_factor", b"replication_factor", "source_cluster", b"source_cluster", "target_cluster", b"target_cluster", "topics", b"topics"]) -> None: ...
+
 global___ConnectorConfigMirrorMakerSpec = ConnectorConfigMirrorMakerSpec
 
 class ClusterConnectionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALIAS_FIELD_NUMBER: builtins.int
     THIS_CLUSTER_FIELD_NUMBER: builtins.int
     EXTERNAL_CLUSTER_FIELD_NUMBER: builtins.int
-    alias: typing.Text
+    alias: builtins.str
     """Alias of cluster connection configuration.
     Examples: `source`, `target`.
     """
-
     @property
     def this_cluster(self) -> global___ThisClusterSpec:
         """Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty."""
-        pass
     @property
     def external_cluster(self) -> global___ExternalClusterConnectionSpec:
         """Configuration of connection to an external cluster with all the necessary credentials."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        alias: typing.Text = ...,
-        this_cluster: typing.Optional[global___ThisClusterSpec] = ...,
-        external_cluster: typing.Optional[global___ExternalClusterConnectionSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cluster_connection",b"cluster_connection","external_cluster",b"external_cluster","this_cluster",b"this_cluster"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alias",b"alias","cluster_connection",b"cluster_connection","external_cluster",b"external_cluster","this_cluster",b"this_cluster"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["cluster_connection",b"cluster_connection"]) -> typing.Optional[typing_extensions.Literal["this_cluster","external_cluster"]]: ...
+        alias: builtins.str = ...,
+        this_cluster: global___ThisClusterSpec | None = ...,
+        external_cluster: global___ExternalClusterConnectionSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cluster_connection", b"cluster_connection", "external_cluster", b"external_cluster", "this_cluster", b"this_cluster"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alias", b"alias", "cluster_connection", b"cluster_connection", "external_cluster", b"external_cluster", "this_cluster", b"this_cluster"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["cluster_connection", b"cluster_connection"]) -> typing_extensions.Literal["this_cluster", "external_cluster"] | None: ...
+
 global___ClusterConnectionSpec = ClusterConnectionSpec
 
 class ThisClusterSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___ThisClusterSpec = ThisClusterSpec
 
 class ExternalClusterConnectionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BOOTSTRAP_SERVERS_FIELD_NUMBER: builtins.int
     SASL_USERNAME_FIELD_NUMBER: builtins.int
     SASL_PASSWORD_FIELD_NUMBER: builtins.int
     SASL_MECHANISM_FIELD_NUMBER: builtins.int
     SECURITY_PROTOCOL_FIELD_NUMBER: builtins.int
     SSL_TRUSTSTORE_CERTIFICATES_FIELD_NUMBER: builtins.int
-    bootstrap_servers: typing.Text
+    bootstrap_servers: builtins.str
     """List of bootstrap servers of the cluster, separated by `,`."""
-
-    sasl_username: typing.Text
+    sasl_username: builtins.str
     """SASL username to use for connection to the cluster."""
-
-    sasl_password: typing.Text
+    sasl_password: builtins.str
     """SASL password to use for connection to the cluster."""
-
-    sasl_mechanism: typing.Text
+    sasl_mechanism: builtins.str
     """SASL mechanism to use for connection to the cluster."""
-
-    security_protocol: typing.Text
+    security_protocol: builtins.str
     """Security protocol to use for connection to the cluster."""
-
-    ssl_truststore_certificates: typing.Text
+    ssl_truststore_certificates: builtins.str
     """CA in PEM format to connect to external cluster.
     Lines of certificate separated by '\\n' symbol.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bootstrap_servers: typing.Text = ...,
-        sasl_username: typing.Text = ...,
-        sasl_password: typing.Text = ...,
-        sasl_mechanism: typing.Text = ...,
-        security_protocol: typing.Text = ...,
-        ssl_truststore_certificates: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bootstrap_servers",b"bootstrap_servers","sasl_mechanism",b"sasl_mechanism","sasl_password",b"sasl_password","sasl_username",b"sasl_username","security_protocol",b"security_protocol","ssl_truststore_certificates",b"ssl_truststore_certificates"]) -> None: ...
+        bootstrap_servers: builtins.str = ...,
+        sasl_username: builtins.str = ...,
+        sasl_password: builtins.str = ...,
+        sasl_mechanism: builtins.str = ...,
+        security_protocol: builtins.str = ...,
+        ssl_truststore_certificates: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bootstrap_servers", b"bootstrap_servers", "sasl_mechanism", b"sasl_mechanism", "sasl_password", b"sasl_password", "sasl_username", b"sasl_username", "security_protocol", b"security_protocol", "ssl_truststore_certificates", b"ssl_truststore_certificates"]) -> None: ...
+
 global___ExternalClusterConnectionSpec = ExternalClusterConnectionSpec
 
 class ConnectorConfigS3SinkSpec(google.protobuf.message.Message):
     """Specification for Kafka S3-Sink Connector."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TOPICS_FIELD_NUMBER: builtins.int
     FILE_COMPRESSION_TYPE_FIELD_NUMBER: builtins.int
     FILE_MAX_RECORDS_FIELD_NUMBER: builtins.int
     S3_CONNECTION_FIELD_NUMBER: builtins.int
-    topics: typing.Text
+    topics: builtins.str
     """List of Kafka topics, separated by ','."""
-
-    file_compression_type: typing.Text
+    file_compression_type: builtins.str
     """The compression type used for files put on GCS.
     The supported values are: `gzip`, `snappy`, `zstd`, `none`.
     Optional, the default is `none`.
     """
-
     @property
     def file_max_records(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Max records per file."""
-        pass
     @property
     def s3_connection(self) -> global___S3ConnectionSpec:
         """Credentials for connecting to S3 storage."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        topics: typing.Text = ...,
-        file_compression_type: typing.Text = ...,
-        file_max_records: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        s3_connection: typing.Optional[global___S3ConnectionSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["file_max_records",b"file_max_records","s3_connection",b"s3_connection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_compression_type",b"file_compression_type","file_max_records",b"file_max_records","s3_connection",b"s3_connection","topics",b"topics"]) -> None: ...
+        topics: builtins.str = ...,
+        file_compression_type: builtins.str = ...,
+        file_max_records: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        s3_connection: global___S3ConnectionSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file_max_records", b"file_max_records", "s3_connection", b"s3_connection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_compression_type", b"file_compression_type", "file_max_records", b"file_max_records", "s3_connection", b"s3_connection", "topics", b"topics"]) -> None: ...
+
 global___ConnectorConfigS3SinkSpec = ConnectorConfigS3SinkSpec
 
 class UpdateConnectorConfigS3SinkSpec(google.protobuf.message.Message):
     """Specification for update Kafka S3-Sink Connector."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TOPICS_FIELD_NUMBER: builtins.int
     FILE_MAX_RECORDS_FIELD_NUMBER: builtins.int
     S3_CONNECTION_FIELD_NUMBER: builtins.int
-    topics: typing.Text
+    topics: builtins.str
     """List of Kafka topics, separated by ','."""
-
     @property
     def file_max_records(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Max records per file."""
-        pass
     @property
     def s3_connection(self) -> global___S3ConnectionSpec:
         """Credentials for connecting to S3 storage."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        topics: typing.Text = ...,
-        file_max_records: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        s3_connection: typing.Optional[global___S3ConnectionSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["file_max_records",b"file_max_records","s3_connection",b"s3_connection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_max_records",b"file_max_records","s3_connection",b"s3_connection","topics",b"topics"]) -> None: ...
+        topics: builtins.str = ...,
+        file_max_records: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        s3_connection: global___S3ConnectionSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file_max_records", b"file_max_records", "s3_connection", b"s3_connection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_max_records", b"file_max_records", "s3_connection", b"s3_connection", "topics", b"topics"]) -> None: ...
+
 global___UpdateConnectorConfigS3SinkSpec = UpdateConnectorConfigS3SinkSpec
 
 class S3ConnectionSpec(google.protobuf.message.Message):
@@ -295,118 +303,113 @@ class S3ConnectionSpec(google.protobuf.message.Message):
     are source or target of Kafka S3-connectors.
     YC Object Storage is AWS-compatible.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BUCKET_NAME_FIELD_NUMBER: builtins.int
     EXTERNAL_S3_FIELD_NUMBER: builtins.int
-    bucket_name: typing.Text
+    bucket_name: builtins.str
     @property
     def external_s3(self) -> global___ExternalS3StorageSpec: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bucket_name: typing.Text = ...,
-        external_s3: typing.Optional[global___ExternalS3StorageSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["external_s3",b"external_s3","storage",b"storage"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bucket_name",b"bucket_name","external_s3",b"external_s3","storage",b"storage"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["storage",b"storage"]) -> typing.Optional[typing_extensions.Literal["external_s3"]]: ...
+        bucket_name: builtins.str = ...,
+        external_s3: global___ExternalS3StorageSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["external_s3", b"external_s3", "storage", b"storage"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bucket_name", b"bucket_name", "external_s3", b"external_s3", "storage", b"storage"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["storage", b"storage"]) -> typing_extensions.Literal["external_s3"] | None: ...
+
 global___S3ConnectionSpec = S3ConnectionSpec
 
 class ExternalS3StorageSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
     SECRET_ACCESS_KEY_FIELD_NUMBER: builtins.int
     ENDPOINT_FIELD_NUMBER: builtins.int
     REGION_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
-    secret_access_key: typing.Text
-    endpoint: typing.Text
-    region: typing.Text
+    access_key_id: builtins.str
+    secret_access_key: builtins.str
+    endpoint: builtins.str
+    region: builtins.str
     """Default is 'us-east-1'."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        secret_access_key: typing.Text = ...,
-        endpoint: typing.Text = ...,
-        region: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id","endpoint",b"endpoint","region",b"region","secret_access_key",b"secret_access_key"]) -> None: ...
+        access_key_id: builtins.str = ...,
+        secret_access_key: builtins.str = ...,
+        endpoint: builtins.str = ...,
+        region: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id", "endpoint", b"endpoint", "region", b"region", "secret_access_key", b"secret_access_key"]) -> None: ...
+
 global___ExternalS3StorageSpec = ExternalS3StorageSpec
 
 class Connector(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Health:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Health.ValueType], builtins.type):
+
+    class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Health.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         HEALTH_UNKNOWN: Connector._Health.ValueType  # 0
         """Health of the connector is unknown."""
-
         ALIVE: Connector._Health.ValueType  # 1
         """Connector is running."""
-
         DEAD: Connector._Health.ValueType  # 2
         """Connector has failed to start."""
 
-    class Health(_Health, metaclass=_HealthEnumTypeWrapper):
-        pass
-
+    class Health(_Health, metaclass=_HealthEnumTypeWrapper): ...
     HEALTH_UNKNOWN: Connector.Health.ValueType  # 0
     """Health of the connector is unknown."""
-
     ALIVE: Connector.Health.ValueType  # 1
     """Connector is running."""
-
     DEAD: Connector.Health.ValueType  # 2
     """Connector has failed to start."""
 
-
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[Connector._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNKNOWN: Connector._Status.ValueType  # 0
         """Connector state is unknown."""
-
         RUNNING: Connector._Status.ValueType  # 1
         """Connector is running normally."""
-
         ERROR: Connector._Status.ValueType  # 2
         """Connector has encountered a problem and cannot operate."""
-
         PAUSED: Connector._Status.ValueType  # 3
         """Connector is paused."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNKNOWN: Connector.Status.ValueType  # 0
     """Connector state is unknown."""
-
     RUNNING: Connector.Status.ValueType  # 1
     """Connector is running normally."""
-
     ERROR: Connector.Status.ValueType  # 2
     """Connector has encountered a problem and cannot operate."""
-
     PAUSED: Connector.Status.ValueType  # 3
     """Connector is paused."""
 
-
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     NAME_FIELD_NUMBER: builtins.int
     TASKS_MAX_FIELD_NUMBER: builtins.int
@@ -416,54 +419,49 @@ class Connector(google.protobuf.message.Message):
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     CONNECTOR_CONFIG_MIRRORMAKER_FIELD_NUMBER: builtins.int
     CONNECTOR_CONFIG_S3_SINK_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Name of the connector."""
-
     @property
     def tasks_max(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Maximum number of connector tasks. Default value is the number of brokers."""
-        pass
     @property
-    def properties(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def properties(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
         Example: `sync.topics.config.enabled: true`.
         """
-        pass
     health: global___Connector.Health.ValueType
     """Connector health."""
-
     status: global___Connector.Status.ValueType
     """Current status of the connector."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the Apache Kafka® cluster that the connector belongs to."""
-
     @property
     def connector_config_mirrormaker(self) -> global___ConnectorConfigMirrorMaker:
         """Configuration of the MirrorMaker connector."""
-        pass
     @property
     def connector_config_s3_sink(self) -> global___ConnectorConfigS3Sink:
         """Configuration of S3-Sink connector."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        tasks_max: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        properties: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        name: builtins.str = ...,
+        tasks_max: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        properties: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         health: global___Connector.Health.ValueType = ...,
         status: global___Connector.Status.ValueType = ...,
-        cluster_id: typing.Text = ...,
-        connector_config_mirrormaker: typing.Optional[global___ConnectorConfigMirrorMaker] = ...,
-        connector_config_s3_sink: typing.Optional[global___ConnectorConfigS3Sink] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","tasks_max",b"tasks_max"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id",b"cluster_id","connector_config",b"connector_config","connector_config_mirrormaker",b"connector_config_mirrormaker","connector_config_s3_sink",b"connector_config_s3_sink","health",b"health","name",b"name","properties",b"properties","status",b"status","tasks_max",b"tasks_max"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config",b"connector_config"]) -> typing.Optional[typing_extensions.Literal["connector_config_mirrormaker","connector_config_s3_sink"]]: ...
+        cluster_id: builtins.str = ...,
+        connector_config_mirrormaker: global___ConnectorConfigMirrorMaker | None = ...,
+        connector_config_s3_sink: global___ConnectorConfigS3Sink | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "tasks_max", b"tasks_max"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "connector_config", b"connector_config", "connector_config_mirrormaker", b"connector_config_mirrormaker", "connector_config_s3_sink", b"connector_config_s3_sink", "health", b"health", "name", b"name", "properties", b"properties", "status", b"status", "tasks_max", b"tasks_max"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["connector_config", b"connector_config"]) -> typing_extensions.Literal["connector_config_mirrormaker", "connector_config_s3_sink"] | None: ...
+
 global___Connector = Connector
 
 class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SOURCE_CLUSTER_FIELD_NUMBER: builtins.int
     TARGET_CLUSTER_FIELD_NUMBER: builtins.int
     TOPICS_FIELD_NUMBER: builtins.int
@@ -471,127 +469,127 @@ class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
     @property
     def source_cluster(self) -> global___ClusterConnection:
         """Source cluster connection configuration."""
-        pass
     @property
     def target_cluster(self) -> global___ClusterConnection:
         """Target cluster connection configuration."""
-        pass
-    topics: typing.Text
+    topics: builtins.str
     """List of Kafka topics, separated by `,`."""
-
     @property
     def replication_factor(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Replication factor for automatically created topics."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        source_cluster: typing.Optional[global___ClusterConnection] = ...,
-        target_cluster: typing.Optional[global___ClusterConnection] = ...,
-        topics: typing.Text = ...,
-        replication_factor: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["replication_factor",b"replication_factor","source_cluster",b"source_cluster","target_cluster",b"target_cluster"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["replication_factor",b"replication_factor","source_cluster",b"source_cluster","target_cluster",b"target_cluster","topics",b"topics"]) -> None: ...
+        source_cluster: global___ClusterConnection | None = ...,
+        target_cluster: global___ClusterConnection | None = ...,
+        topics: builtins.str = ...,
+        replication_factor: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["replication_factor", b"replication_factor", "source_cluster", b"source_cluster", "target_cluster", b"target_cluster"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["replication_factor", b"replication_factor", "source_cluster", b"source_cluster", "target_cluster", b"target_cluster", "topics", b"topics"]) -> None: ...
+
 global___ConnectorConfigMirrorMaker = ConnectorConfigMirrorMaker
 
 class ClusterConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ALIAS_FIELD_NUMBER: builtins.int
     THIS_CLUSTER_FIELD_NUMBER: builtins.int
     EXTERNAL_CLUSTER_FIELD_NUMBER: builtins.int
-    alias: typing.Text
+    alias: builtins.str
     """Alias of cluster connection configuration.
     Examples: `source`, `target`.
     """
-
     @property
     def this_cluster(self) -> global___ThisCluster:
         """Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty."""
-        pass
     @property
     def external_cluster(self) -> global___ExternalClusterConnection:
         """Configuration of connection to an external cluster with all the necessary credentials."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        alias: typing.Text = ...,
-        this_cluster: typing.Optional[global___ThisCluster] = ...,
-        external_cluster: typing.Optional[global___ExternalClusterConnection] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cluster_connection",b"cluster_connection","external_cluster",b"external_cluster","this_cluster",b"this_cluster"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["alias",b"alias","cluster_connection",b"cluster_connection","external_cluster",b"external_cluster","this_cluster",b"this_cluster"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["cluster_connection",b"cluster_connection"]) -> typing.Optional[typing_extensions.Literal["this_cluster","external_cluster"]]: ...
+        alias: builtins.str = ...,
+        this_cluster: global___ThisCluster | None = ...,
+        external_cluster: global___ExternalClusterConnection | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cluster_connection", b"cluster_connection", "external_cluster", b"external_cluster", "this_cluster", b"this_cluster"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["alias", b"alias", "cluster_connection", b"cluster_connection", "external_cluster", b"external_cluster", "this_cluster", b"this_cluster"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["cluster_connection", b"cluster_connection"]) -> typing_extensions.Literal["this_cluster", "external_cluster"] | None: ...
+
 global___ClusterConnection = ClusterConnection
 
 class ThisCluster(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___ThisCluster = ThisCluster
 
 class ExternalClusterConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BOOTSTRAP_SERVERS_FIELD_NUMBER: builtins.int
     SASL_USERNAME_FIELD_NUMBER: builtins.int
     SASL_MECHANISM_FIELD_NUMBER: builtins.int
     SECURITY_PROTOCOL_FIELD_NUMBER: builtins.int
-    bootstrap_servers: typing.Text
+    bootstrap_servers: builtins.str
     """List of bootstrap servers of the cluster, separated by `,`."""
-
-    sasl_username: typing.Text
+    sasl_username: builtins.str
     """SASL username to use for connection to the cluster."""
-
-    sasl_mechanism: typing.Text
+    sasl_mechanism: builtins.str
     """SASL mechanism to use for connection to the cluster."""
-
-    security_protocol: typing.Text
+    security_protocol: builtins.str
     """Security protocol to use for connection to the cluster."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bootstrap_servers: typing.Text = ...,
-        sasl_username: typing.Text = ...,
-        sasl_mechanism: typing.Text = ...,
-        security_protocol: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bootstrap_servers",b"bootstrap_servers","sasl_mechanism",b"sasl_mechanism","sasl_username",b"sasl_username","security_protocol",b"security_protocol"]) -> None: ...
+        bootstrap_servers: builtins.str = ...,
+        sasl_username: builtins.str = ...,
+        sasl_mechanism: builtins.str = ...,
+        security_protocol: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bootstrap_servers", b"bootstrap_servers", "sasl_mechanism", b"sasl_mechanism", "sasl_username", b"sasl_username", "security_protocol", b"security_protocol"]) -> None: ...
+
 global___ExternalClusterConnection = ExternalClusterConnection
 
 class ConnectorConfigS3Sink(google.protobuf.message.Message):
     """An Apache Kafka® S3-Sink
     connector resource.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     TOPICS_FIELD_NUMBER: builtins.int
     FILE_COMPRESSION_TYPE_FIELD_NUMBER: builtins.int
     FILE_MAX_RECORDS_FIELD_NUMBER: builtins.int
     S3_CONNECTION_FIELD_NUMBER: builtins.int
-    topics: typing.Text
+    topics: builtins.str
     """List of Kafka topics, separated by ','."""
-
-    file_compression_type: typing.Text
+    file_compression_type: builtins.str
     """The compression type used for files put on GCS.
     The supported values are: `gzip`, `snappy`, `zstd`, `none`.
     Optional, the default is `none`.
     """
-
     @property
     def file_max_records(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Max records per file."""
-        pass
     @property
     def s3_connection(self) -> global___S3Connection:
         """Credentials for connecting to S3 storage."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        topics: typing.Text = ...,
-        file_compression_type: typing.Text = ...,
-        file_max_records: typing.Optional[google.protobuf.wrappers_pb2.Int64Value] = ...,
-        s3_connection: typing.Optional[global___S3Connection] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["file_max_records",b"file_max_records","s3_connection",b"s3_connection"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["file_compression_type",b"file_compression_type","file_max_records",b"file_max_records","s3_connection",b"s3_connection","topics",b"topics"]) -> None: ...
+        topics: builtins.str = ...,
+        file_compression_type: builtins.str = ...,
+        file_max_records: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        s3_connection: global___S3Connection | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["file_max_records", b"file_max_records", "s3_connection", b"s3_connection"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["file_compression_type", b"file_compression_type", "file_max_records", b"file_max_records", "s3_connection", b"s3_connection", "topics", b"topics"]) -> None: ...
+
 global___ConnectorConfigS3Sink = ConnectorConfigS3Sink
 
 class S3Connection(google.protobuf.message.Message):
@@ -600,37 +598,43 @@ class S3Connection(google.protobuf.message.Message):
     are source or target of Kafka S3-connectors.
     YC Object Storage is AWS-compatible.
     """
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     BUCKET_NAME_FIELD_NUMBER: builtins.int
     EXTERNAL_S3_FIELD_NUMBER: builtins.int
-    bucket_name: typing.Text
+    bucket_name: builtins.str
     @property
     def external_s3(self) -> global___ExternalS3Storage: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        bucket_name: typing.Text = ...,
-        external_s3: typing.Optional[global___ExternalS3Storage] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["external_s3",b"external_s3","storage",b"storage"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["bucket_name",b"bucket_name","external_s3",b"external_s3","storage",b"storage"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["storage",b"storage"]) -> typing.Optional[typing_extensions.Literal["external_s3"]]: ...
+        bucket_name: builtins.str = ...,
+        external_s3: global___ExternalS3Storage | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["external_s3", b"external_s3", "storage", b"storage"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["bucket_name", b"bucket_name", "external_s3", b"external_s3", "storage", b"storage"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["storage", b"storage"]) -> typing_extensions.Literal["external_s3"] | None: ...
+
 global___S3Connection = S3Connection
 
 class ExternalS3Storage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
     ENDPOINT_FIELD_NUMBER: builtins.int
     REGION_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
-    endpoint: typing.Text
-    region: typing.Text
+    access_key_id: builtins.str
+    endpoint: builtins.str
+    region: builtins.str
     """Default is 'us-east-1'"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        endpoint: typing.Text = ...,
-        region: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id","endpoint",b"endpoint","region",b"region"]) -> None: ...
+        access_key_id: builtins.str = ...,
+        endpoint: builtins.str = ...,
+        region: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id", "endpoint", b"endpoint", "region", b"region"]) -> None: ...
+
 global___ExternalS3Storage = ExternalS3Storage

@@ -12,70 +12,65 @@ class ExtensionServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.GetExtensionRequest,
-        yandex.cloud.mdb.elasticsearch.v1.extension_pb2.Extension]
+        yandex.cloud.mdb.elasticsearch.v1.extension_pb2.Extension,
+    ]
     """Returns the specified extension of Elasticsearch cluster."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.ListExtensionsRequest,
-        yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.ListExtensionsResponse]
+        yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.ListExtensionsResponse,
+    ]
     """Returns the list of available extensions for the specified Elasticsearch cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.CreateExtensionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates new extension version."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.UpdateExtensionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified extension."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.DeleteExtensionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified extension."""
-
 
 class ExtensionServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.GetExtensionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.elasticsearch.v1.extension_pb2.Extension:
         """Returns the specified extension of Elasticsearch cluster."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.ListExtensionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.ListExtensionsResponse:
         """Returns the list of available extensions for the specified Elasticsearch cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.CreateExtensionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates new extension version."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.UpdateExtensionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified extension."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.elasticsearch.v1.extension_service_pb2.DeleteExtensionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified extension."""
-        pass
-
 
 def add_ExtensionServiceServicer_to_server(servicer: ExtensionServiceServicer, server: grpc.Server) -> None: ...

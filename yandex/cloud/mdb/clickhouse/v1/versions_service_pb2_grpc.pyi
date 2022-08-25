@@ -8,22 +8,23 @@ import yandex.cloud.mdb.clickhouse.v1.versions_service_pb2
 
 class VersionsServiceStub:
     """A set of methods for managing ClickHouse versions."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.clickhouse.v1.versions_service_pb2.ListVersionsRequest,
-        yandex.cloud.mdb.clickhouse.v1.versions_service_pb2.ListVersionsResponse]
+        yandex.cloud.mdb.clickhouse.v1.versions_service_pb2.ListVersionsResponse,
+    ]
     """Returns list of available ClickHouse versions."""
-
 
 class VersionsServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing ClickHouse versions."""
+
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.clickhouse.v1.versions_service_pb2.ListVersionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.clickhouse.v1.versions_service_pb2.ListVersionsResponse:
         """Returns list of available ClickHouse versions."""
-        pass
-
 
 def add_VersionsServiceServicer_to_server(servicer: VersionsServiceServicer, server: grpc.Server) -> None: ...

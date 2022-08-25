@@ -3,71 +3,83 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ActivateProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PROVIDER_TYPE_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the activate provider belongs to."""
-
-    provider_type: typing.Text
+    provider_type: builtins.str
     """Specify provider brand/type.
 
     Possible values: `gcore`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        provider_type: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","provider_type",b"provider_type"]) -> None: ...
+        folder_id: builtins.str = ...,
+        provider_type: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "provider_type", b"provider_type"]) -> None: ...
+
 global___ActivateProviderRequest = ActivateProviderRequest
 
 class ActivateProviderMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FOLDER_ID_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
-    """ID of the folder that the activate provider belongs to."""
 
-    def __init__(self,
+    FOLDER_ID_FIELD_NUMBER: builtins.int
+    folder_id: builtins.str
+    """ID of the folder that the activate provider belongs to."""
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id"]) -> None: ...
+        folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id"]) -> None: ...
+
 global___ActivateProviderMetadata = ActivateProviderMetadata
 
 class ListActivatedProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FOLDER_ID_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
-    """ID of the folder that the activate provider belongs to."""
 
-    def __init__(self,
+    FOLDER_ID_FIELD_NUMBER: builtins.int
+    folder_id: builtins.str
+    """ID of the folder that the activate provider belongs to."""
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id"]) -> None: ...
+        folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id"]) -> None: ...
+
 global___ListActivatedProvidersRequest = ListActivatedProvidersRequest
 
 class ListActivatedProvidersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PROVIDERS_FIELD_NUMBER: builtins.int
     @property
-    def providers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def providers(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Creates a list of providers."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        providers: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["providers",b"providers"]) -> None: ...
+        providers: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["providers", b"providers"]) -> None: ...
+
 global___ListActivatedProvidersResponse = ListActivatedProvidersResponse

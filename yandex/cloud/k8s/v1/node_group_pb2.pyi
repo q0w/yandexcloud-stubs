@@ -3,99 +3,96 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.k8s.v1.maintenance_pb2
 import yandex.cloud.k8s.v1.node_pb2
 import yandex.cloud.k8s.v1.version_pb2
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class NodeGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[NodeGroup._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[NodeGroup._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: NodeGroup._Status.ValueType  # 0
         PROVISIONING: NodeGroup._Status.ValueType  # 1
         """Node group is waiting for resources to be allocated."""
-
         RUNNING: NodeGroup._Status.ValueType  # 2
         """Node group is running."""
-
         RECONCILING: NodeGroup._Status.ValueType  # 3
         """Node group is waiting for some work to be done, such as upgrading node software."""
-
         STOPPING: NodeGroup._Status.ValueType  # 4
         """Node group is being stopped."""
-
         STOPPED: NodeGroup._Status.ValueType  # 5
         """Node group stopped."""
-
         DELETING: NodeGroup._Status.ValueType  # 6
         """Node group is being deleted."""
-
         STARTING: NodeGroup._Status.ValueType  # 7
         """Node group is being started."""
 
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
-
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: NodeGroup.Status.ValueType  # 0
     PROVISIONING: NodeGroup.Status.ValueType  # 1
     """Node group is waiting for resources to be allocated."""
-
     RUNNING: NodeGroup.Status.ValueType  # 2
     """Node group is running."""
-
     RECONCILING: NodeGroup.Status.ValueType  # 3
     """Node group is waiting for some work to be done, such as upgrading node software."""
-
     STOPPING: NodeGroup.Status.ValueType  # 4
     """Node group is being stopped."""
-
     STOPPED: NodeGroup.Status.ValueType  # 5
     """Node group stopped."""
-
     DELETING: NodeGroup.Status.ValueType  # 6
     """Node group is being deleted."""
-
     STARTING: NodeGroup.Status.ValueType  # 7
     """Node group is being started."""
 
-
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class NodeLabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
@@ -115,190 +112,179 @@ class NodeGroup(google.protobuf.message.Message):
     ALLOWED_UNSAFE_SYSCTLS_FIELD_NUMBER: builtins.int
     NODE_TAINTS_FIELD_NUMBER: builtins.int
     NODE_LABELS_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the node group."""
-
-    cluster_id: typing.Text
+    cluster_id: builtins.str
     """ID of the cluster that the node group belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the node group.
     The name is unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the node group. 0-256 characters long."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs. Maximum of 64 per resource."""
-        pass
     status: global___NodeGroup.Status.ValueType
     """Status of the node group."""
-
     @property
     def node_template(self) -> yandex.cloud.k8s.v1.node_pb2.NodeTemplate:
         """Node template that specifies parameters of the compute instances for the node group."""
-        pass
     @property
     def scale_policy(self) -> global___ScalePolicy:
         """Scale policy of the node group.  For more information, see [Scaling policy](/docs/compute/concepts/instance-groups/policies#scale-policy)."""
-        pass
     @property
     def allocation_policy(self) -> global___NodeGroupAllocationPolicy:
         """Allocation policy by which resources for node group are allocated to zones and regions."""
-        pass
     @property
     def deploy_policy(self) -> global___DeployPolicy:
         """Deploy policy according to which the updates are rolled out."""
-        pass
-    instance_group_id: typing.Text
+    instance_group_id: builtins.str
     """ID of the managed instance group associated with this node group."""
-
-    node_version: typing.Text
+    node_version: builtins.str
     """Version of Kubernetes components that runs on the nodes.
     Deprecated. Use version_info.current_version.
     """
-
     @property
     def version_info(self) -> yandex.cloud.k8s.v1.version_pb2.VersionInfo:
         """Detailed information about the Kubernetes version that is running on the node."""
-        pass
     @property
     def maintenance_policy(self) -> global___NodeGroupMaintenancePolicy:
         """Maintenance policy of the node group."""
-        pass
     @property
-    def allowed_unsafe_sysctls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def allowed_unsafe_sysctls(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Support for unsafe sysctl parameters. For more details see [documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/)."""
-        pass
     @property
     def node_taints(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.k8s.v1.node_pb2.Taint]:
         """Taints that are applied to the nodes of the node group at creation time."""
-        pass
     @property
-    def node_labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def node_labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Labels that are assigned to the nodes of the node group at creation time."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        cluster_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        cluster_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         status: global___NodeGroup.Status.ValueType = ...,
-        node_template: typing.Optional[yandex.cloud.k8s.v1.node_pb2.NodeTemplate] = ...,
-        scale_policy: typing.Optional[global___ScalePolicy] = ...,
-        allocation_policy: typing.Optional[global___NodeGroupAllocationPolicy] = ...,
-        deploy_policy: typing.Optional[global___DeployPolicy] = ...,
-        instance_group_id: typing.Text = ...,
-        node_version: typing.Text = ...,
-        version_info: typing.Optional[yandex.cloud.k8s.v1.version_pb2.VersionInfo] = ...,
-        maintenance_policy: typing.Optional[global___NodeGroupMaintenancePolicy] = ...,
-        allowed_unsafe_sysctls: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        node_taints: typing.Optional[typing.Iterable[yandex.cloud.k8s.v1.node_pb2.Taint]] = ...,
-        node_labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","created_at",b"created_at","deploy_policy",b"deploy_policy","maintenance_policy",b"maintenance_policy","node_template",b"node_template","scale_policy",b"scale_policy","version_info",b"version_info"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy",b"allocation_policy","allowed_unsafe_sysctls",b"allowed_unsafe_sysctls","cluster_id",b"cluster_id","created_at",b"created_at","deploy_policy",b"deploy_policy","description",b"description","id",b"id","instance_group_id",b"instance_group_id","labels",b"labels","maintenance_policy",b"maintenance_policy","name",b"name","node_labels",b"node_labels","node_taints",b"node_taints","node_template",b"node_template","node_version",b"node_version","scale_policy",b"scale_policy","status",b"status","version_info",b"version_info"]) -> None: ...
+        node_template: yandex.cloud.k8s.v1.node_pb2.NodeTemplate | None = ...,
+        scale_policy: global___ScalePolicy | None = ...,
+        allocation_policy: global___NodeGroupAllocationPolicy | None = ...,
+        deploy_policy: global___DeployPolicy | None = ...,
+        instance_group_id: builtins.str = ...,
+        node_version: builtins.str = ...,
+        version_info: yandex.cloud.k8s.v1.version_pb2.VersionInfo | None = ...,
+        maintenance_policy: global___NodeGroupMaintenancePolicy | None = ...,
+        allowed_unsafe_sysctls: collections.abc.Iterable[builtins.str] | None = ...,
+        node_taints: collections.abc.Iterable[yandex.cloud.k8s.v1.node_pb2.Taint] | None = ...,
+        node_labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "created_at", b"created_at", "deploy_policy", b"deploy_policy", "maintenance_policy", b"maintenance_policy", "node_template", b"node_template", "scale_policy", b"scale_policy", "version_info", b"version_info"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "allowed_unsafe_sysctls", b"allowed_unsafe_sysctls", "cluster_id", b"cluster_id", "created_at", b"created_at", "deploy_policy", b"deploy_policy", "description", b"description", "id", b"id", "instance_group_id", b"instance_group_id", "labels", b"labels", "maintenance_policy", b"maintenance_policy", "name", b"name", "node_labels", b"node_labels", "node_taints", b"node_taints", "node_template", b"node_template", "node_version", b"node_version", "scale_policy", b"scale_policy", "status", b"status", "version_info", b"version_info"]) -> None: ...
+
 global___NodeGroup = NodeGroup
 
 class ScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class FixedScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         SIZE_FIELD_NUMBER: builtins.int
         size: builtins.int
         """Number of nodes in the node group."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             size: builtins.int = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["size",b"size"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["size", b"size"]) -> None: ...
 
     class AutoScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         MIN_SIZE_FIELD_NUMBER: builtins.int
         MAX_SIZE_FIELD_NUMBER: builtins.int
         INITIAL_SIZE_FIELD_NUMBER: builtins.int
         min_size: builtins.int
         """Minimum number of nodes in the node group."""
-
         max_size: builtins.int
         """Maximum number of nodes in the node group."""
-
         initial_size: builtins.int
         """Initial number of nodes in the node group."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             min_size: builtins.int = ...,
             max_size: builtins.int = ...,
             initial_size: builtins.int = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["initial_size",b"initial_size","max_size",b"max_size","min_size",b"min_size"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["initial_size", b"initial_size", "max_size", b"max_size", "min_size", b"min_size"]) -> None: ...
 
     FIXED_SCALE_FIELD_NUMBER: builtins.int
     AUTO_SCALE_FIELD_NUMBER: builtins.int
     @property
     def fixed_scale(self) -> global___ScalePolicy.FixedScale:
         """Fixed scale policy of the node group."""
-        pass
     @property
     def auto_scale(self) -> global___ScalePolicy.AutoScale:
         """Auto scale policy of the node group."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        fixed_scale: typing.Optional[global___ScalePolicy.FixedScale] = ...,
-        auto_scale: typing.Optional[global___ScalePolicy.AutoScale] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["auto_scale",b"auto_scale","fixed_scale",b"fixed_scale","scale_type",b"scale_type"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_scale",b"auto_scale","fixed_scale",b"fixed_scale","scale_type",b"scale_type"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["scale_type",b"scale_type"]) -> typing.Optional[typing_extensions.Literal["fixed_scale","auto_scale"]]: ...
+        fixed_scale: global___ScalePolicy.FixedScale | None = ...,
+        auto_scale: global___ScalePolicy.AutoScale | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["auto_scale", b"auto_scale", "fixed_scale", b"fixed_scale", "scale_type", b"scale_type"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_scale", b"auto_scale", "fixed_scale", b"fixed_scale", "scale_type", b"scale_type"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["scale_type", b"scale_type"]) -> typing_extensions.Literal["fixed_scale", "auto_scale"] | None: ...
+
 global___ScalePolicy = ScalePolicy
 
 class NodeGroupAllocationPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     LOCATIONS_FIELD_NUMBER: builtins.int
     @property
     def locations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___NodeGroupLocation]:
         """List of locations where resources for the node group will be allocated."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        locations: typing.Optional[typing.Iterable[global___NodeGroupLocation]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["locations",b"locations"]) -> None: ...
+        locations: collections.abc.Iterable[global___NodeGroupLocation] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["locations", b"locations"]) -> None: ...
+
 global___NodeGroupAllocationPolicy = NodeGroupAllocationPolicy
 
 class NodeGroupLocation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ZONE_ID_FIELD_NUMBER: builtins.int
     SUBNET_ID_FIELD_NUMBER: builtins.int
-    zone_id: typing.Text
+    zone_id: builtins.str
     """ID of the availability zone where the nodes may reside."""
-
-    subnet_id: typing.Text
+    subnet_id: builtins.str
     """ID of the subnet. If a network chosen for the Kubernetes cluster has only one subnet in the specified zone, subnet ID may be omitted."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        zone_id: typing.Text = ...,
-        subnet_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["subnet_id",b"subnet_id","zone_id",b"zone_id"]) -> None: ...
+        zone_id: builtins.str = ...,
+        subnet_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["subnet_id", b"subnet_id", "zone_id", b"zone_id"]) -> None: ...
+
 global___NodeGroupLocation = NodeGroupLocation
 
 class NodeGroupMaintenancePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     AUTO_UPGRADE_FIELD_NUMBER: builtins.int
     AUTO_REPAIR_FIELD_NUMBER: builtins.int
     MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
@@ -306,28 +292,28 @@ class NodeGroupMaintenancePolicy(google.protobuf.message.Message):
     """If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
     If set to false, automatic upgrades are disabled.
     """
-
     auto_repair: builtins.bool
     """If set to true, automatic repairs are enabled. Default value is false."""
-
     @property
     def maintenance_window(self) -> yandex.cloud.k8s.v1.maintenance_pb2.MaintenanceWindow:
         """Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
         The time is set in UTC.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
         auto_upgrade: builtins.bool = ...,
         auto_repair: builtins.bool = ...,
-        maintenance_window: typing.Optional[yandex.cloud.k8s.v1.maintenance_pb2.MaintenanceWindow] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["maintenance_window",b"maintenance_window"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_repair",b"auto_repair","auto_upgrade",b"auto_upgrade","maintenance_window",b"maintenance_window"]) -> None: ...
+        maintenance_window: yandex.cloud.k8s.v1.maintenance_pb2.MaintenanceWindow | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["maintenance_window", b"maintenance_window"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_repair", b"auto_repair", "auto_upgrade", b"auto_upgrade", "maintenance_window", b"maintenance_window"]) -> None: ...
+
 global___NodeGroupMaintenancePolicy = NodeGroupMaintenancePolicy
 
 class DeployPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     MAX_UNAVAILABLE_FIELD_NUMBER: builtins.int
     MAX_EXPANSION_FIELD_NUMBER: builtins.int
     max_unavailable: builtins.int
@@ -336,18 +322,18 @@ class DeployPolicy(google.protobuf.message.Message):
     If [max_expansion] is not specified or set to zero, [max_unavailable] must
     be set to a non-zero value.
     """
-
     max_expansion: builtins.int
     """The maximum number of instances that can be temporarily allocated above
     the group's target size during the update process.
     If [max_unavailable] is not specified or set to zero, [max_expansion] must
     be set to a non-zero value.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         max_unavailable: builtins.int = ...,
         max_expansion: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["max_expansion",b"max_expansion","max_unavailable",b"max_unavailable"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_expansion", b"max_expansion", "max_unavailable", b"max_unavailable"]) -> None: ...
+
 global___DeployPolicy = DeployPolicy

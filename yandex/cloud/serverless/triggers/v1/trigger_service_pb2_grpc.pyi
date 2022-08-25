@@ -10,55 +10,58 @@ import yandex.cloud.serverless.triggers.v1.trigger_service_pb2
 
 class TriggerServiceStub:
     """A set of methods for managing triggers for serverless functions."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.GetTriggerRequest,
-        yandex.cloud.serverless.triggers.v1.trigger_pb2.Trigger]
+        yandex.cloud.serverless.triggers.v1.trigger_pb2.Trigger,
+    ]
     """Returns the specified trigger.
 
     To get the list of all available triggers, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggersRequest,
-        yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggersResponse]
+        yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggersResponse,
+    ]
     """Retrieves the list of triggers in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.CreateTriggerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a trigger in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.UpdateTriggerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified trigger."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.DeleteTriggerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified trigger."""
-
     Pause: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.PauseTriggerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Pauses the specified trigger."""
-
     Resume: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ResumeTriggerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Restarts the specified trigger."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggerOperationsRequest,
-        yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggerOperationsResponse]
+        yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggerOperationsResponse,
+    ]
     """Lists operations for the specified trigger."""
-
 
 class TriggerServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing triggers for serverless functions."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.GetTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.triggers.v1.trigger_pb2.Trigger:
@@ -66,63 +69,54 @@ class TriggerServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of all available triggers, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggersResponse:
         """Retrieves the list of triggers in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.CreateTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a trigger in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.UpdateTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified trigger."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.DeleteTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified trigger."""
-        pass
-
     @abc.abstractmethod
-    def Pause(self,
+    def Pause(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.PauseTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Pauses the specified trigger."""
-        pass
-
     @abc.abstractmethod
-    def Resume(self,
+    def Resume(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ResumeTriggerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Restarts the specified trigger."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggerOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.triggers.v1.trigger_service_pb2.ListTriggerOperationsResponse:
         """Lists operations for the specified trigger."""
-        pass
-
 
 def add_TriggerServiceServicer_to_server(servicer: TriggerServiceServicer, server: grpc.Server) -> None: ...

@@ -10,35 +10,38 @@ import yandex.cloud.operation.operation_pb2
 
 class DatabaseServiceStub:
     """A set of methods for managing MySQL databases."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.GetDatabaseRequest,
-        yandex.cloud.mdb.mysql.v1alpha.database_pb2.Database]
+        yandex.cloud.mdb.mysql.v1alpha.database_pb2.Database,
+    ]
     """Returns the specified MySQL database.
 
     To get the list of available MySQL databases, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.ListDatabasesRequest,
-        yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.ListDatabasesResponse]
+        yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.ListDatabasesResponse,
+    ]
     """Retrieves the list of MySQL databases in the specified cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.CreateDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new MySQL database in the specified cluster."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.DeleteDatabaseRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified MySQL database."""
-
 
 class DatabaseServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing MySQL databases."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.GetDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.database_pb2.Database:
@@ -46,31 +49,26 @@ class DatabaseServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available MySQL databases, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.ListDatabasesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.ListDatabasesResponse:
         """Retrieves the list of MySQL databases in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.CreateDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new MySQL database in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.mysql.v1alpha.database_service_pb2.DeleteDatabaseRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified MySQL database."""
-        pass
-
 
 def add_DatabaseServiceServicer_to_server(servicer: DatabaseServiceServicer, server: grpc.Server) -> None: ...

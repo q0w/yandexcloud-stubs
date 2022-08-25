@@ -13,68 +13,68 @@ class OriginServiceStub:
     Origin management service.
     Origin is not a standalone entity. It can live only within origin group.
     """
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.origin_service_pb2.GetOriginRequest,
-        yandex.cloud.cdn.v1.origin_pb2.Origin]
+        yandex.cloud.cdn.v1.origin_pb2.Origin,
+    ]
     """Get origin in origin group."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.origin_service_pb2.ListOriginsRequest,
-        yandex.cloud.cdn.v1.origin_service_pb2.ListOriginsResponse]
+        yandex.cloud.cdn.v1.origin_service_pb2.ListOriginsResponse,
+    ]
     """Lists origins of origin group."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.origin_service_pb2.CreateOriginRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates origin inside origin group."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.origin_service_pb2.UpdateOriginRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified origin from the origin group.
 
     Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that
     use the origin via a [CacheService.Purge] request.
     """
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.cdn.v1.origin_service_pb2.DeleteOriginRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes origin from origin group."""
-
 
 class OriginServiceServicer(metaclass=abc.ABCMeta):
     """
     Origin management service.
     Origin is not a standalone entity. It can live only within origin group.
     """
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.cdn.v1.origin_service_pb2.GetOriginRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.origin_pb2.Origin:
         """Get origin in origin group."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.cdn.v1.origin_service_pb2.ListOriginsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.cdn.v1.origin_service_pb2.ListOriginsResponse:
         """Lists origins of origin group."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.cdn.v1.origin_service_pb2.CreateOriginRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates origin inside origin group."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.cdn.v1.origin_service_pb2.UpdateOriginRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -83,15 +83,12 @@ class OriginServiceServicer(metaclass=abc.ABCMeta):
         Changes may take up to 15 minutes to apply. Afterwards, it is recommended to purge cache of the resources that
         use the origin via a [CacheService.Purge] request.
         """
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.cdn.v1.origin_service_pb2.DeleteOriginRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes origin from origin group."""
-        pass
-
 
 def add_OriginServiceServicer_to_server(servicer: OriginServiceServicer, server: grpc.Server) -> None: ...

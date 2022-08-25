@@ -3,91 +3,94 @@
 isort:skip_file
 """
 import abc
+import collections.abc
 import grpc
-import typing
 import yandex.cloud.mdb.kafka.v1.cluster_pb2
 import yandex.cloud.mdb.kafka.v1.cluster_service_pb2
 import yandex.cloud.operation.operation_pb2
 
 class ClusterServiceStub:
     """A set of methods for managing Apache Kafka® clusters."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.GetClusterRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_pb2.Cluster]
+        yandex.cloud.mdb.kafka.v1.cluster_pb2.Cluster,
+    ]
     """Returns the specified Apache Kafka® cluster.
 
     To get the list of available Apache Kafka® clusters, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClustersRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClustersResponse]
+        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClustersResponse,
+    ]
     """Retrieves the list of Apache Kafka® clusters that belong to the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.CreateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a new Apache Kafka® cluster in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.UpdateClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified Apache Kafka® cluster."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.DeleteClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified Apache Kafka® cluster."""
-
     Move: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.MoveClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Moves the specified Apache Kafka® cluster to the specified folder."""
-
     Start: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StartClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Starts the specified Apache Kafka® cluster."""
-
     Stop: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StopClusterRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Stops the specified Apache Kafka® cluster."""
-
     RescheduleMaintenance: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.RescheduleMaintenanceRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Reschedule planned maintenance operation."""
-
     ListLogs: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterLogsRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterLogsResponse]
+        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterLogsResponse,
+    ]
     """Retrieves logs for the specified Apache Kafka® cluster.
 
     For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
     """
-
     StreamLogs: grpc.UnaryStreamMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamClusterLogsRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamLogRecord]
+        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamLogRecord,
+    ]
     """Same as [ListLogs] but using server-side streaming. Also allows for `tail -f` semantics."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterOperationsRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterOperationsResponse]
+        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterOperationsResponse,
+    ]
     """Retrieves the list of operations for the specified Apache Kafka® cluster."""
-
     ListHosts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterHostsRequest,
-        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterHostsResponse]
+        yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterHostsResponse,
+    ]
     """Retrieves a list of hosts for the specified Apache Kafka® cluster."""
-
 
 class ClusterServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Apache Kafka® clusters."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.GetClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.kafka.v1.cluster_pb2.Cluster:
@@ -95,74 +98,65 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Apache Kafka® clusters, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClustersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClustersResponse:
         """Retrieves the list of Apache Kafka® clusters that belong to the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.CreateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a new Apache Kafka® cluster in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.UpdateClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified Apache Kafka® cluster."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.DeleteClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified Apache Kafka® cluster."""
-        pass
-
     @abc.abstractmethod
-    def Move(self,
+    def Move(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.MoveClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Moves the specified Apache Kafka® cluster to the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Start(self,
+    def Start(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StartClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Starts the specified Apache Kafka® cluster."""
-        pass
-
     @abc.abstractmethod
-    def Stop(self,
+    def Stop(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StopClusterRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Stops the specified Apache Kafka® cluster."""
-        pass
-
     @abc.abstractmethod
-    def RescheduleMaintenance(self,
+    def RescheduleMaintenance(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.RescheduleMaintenanceRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Reschedule planned maintenance operation."""
-        pass
-
     @abc.abstractmethod
-    def ListLogs(self,
+    def ListLogs(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterLogsResponse:
@@ -170,31 +164,26 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
 
         For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
         """
-        pass
-
     @abc.abstractmethod
-    def StreamLogs(self,
+    def StreamLogs(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamClusterLogsRequest,
         context: grpc.ServicerContext,
-    ) -> typing.Iterator[yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamLogRecord]:
+    ) -> collections.abc.Iterator[yandex.cloud.mdb.kafka.v1.cluster_service_pb2.StreamLogRecord]:
         """Same as [ListLogs] but using server-side streaming. Also allows for `tail -f` semantics."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterOperationsResponse:
         """Retrieves the list of operations for the specified Apache Kafka® cluster."""
-        pass
-
     @abc.abstractmethod
-    def ListHosts(self,
+    def ListHosts(
+        self,
         request: yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterHostsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.kafka.v1.cluster_service_pb2.ListClusterHostsResponse:
         """Retrieves a list of hosts for the specified Apache Kafka® cluster."""
-        pass
-
 
 def add_ClusterServiceServicer_to_server(servicer: ClusterServiceServicer, server: grpc.Server) -> None: ...

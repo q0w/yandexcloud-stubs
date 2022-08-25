@@ -3,44 +3,51 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.iam.v1.awscompatibility.access_key_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
+    access_key_id: builtins.str
     """ID of the AccessKey resource to return.
     To get the access key ID, use a [AccessKeyService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id"]) -> None: ...
+        access_key_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id"]) -> None: ...
+
 global___GetAccessKeyRequest = GetAccessKeyRequest
 
 class ListAccessKeysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account to list access keys for.
     To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
     If not specified, it defaults to the subject that made the request.
     use current subject identity if this not set
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
@@ -48,31 +55,31 @@ class ListAccessKeysRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token]
     to the [ListAccessKeysResponse.next_page_token]
     returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
+        service_account_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","service_account_id",b"service_account_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___ListAccessKeysRequest = ListAccessKeysRequest
 
 class ListAccessKeysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEYS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def access_keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey]:
         """List of access keys."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListAccessKeysRequest.page_size], use
     the [next_page_token] as the value
@@ -80,135 +87,144 @@ class ListAccessKeysResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_keys: typing.Optional[typing.Iterable[yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_keys",b"access_keys","next_page_token",b"next_page_token"]) -> None: ...
+        access_keys: collections.abc.Iterable[yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_keys", b"access_keys", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListAccessKeysResponse = ListAccessKeysResponse
 
 class CreateAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SERVICE_ACCOUNT_ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account to create an access key for.
     To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List] request.
     If not specified, it defaults to the subject that made the request.
     use current subject identity if this not set
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the access key."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        service_account_id: typing.Text = ...,
-        description: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","service_account_id",b"service_account_id"]) -> None: ...
+        service_account_id: builtins.str = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "service_account_id", b"service_account_id"]) -> None: ...
+
 global___CreateAccessKeyRequest = CreateAccessKeyRequest
 
 class CreateAccessKeyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_FIELD_NUMBER: builtins.int
     SECRET_FIELD_NUMBER: builtins.int
     @property
     def access_key(self) -> yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey:
         """AccessKey resource."""
-        pass
-    secret: typing.Text
+    secret: builtins.str
     """Secret access key.
     The key is AWS compatible.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key: typing.Optional[yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey] = ...,
-        secret: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access_key",b"access_key"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key",b"access_key","secret",b"secret"]) -> None: ...
+        access_key: yandex.cloud.iam.v1.awscompatibility.access_key_pb2.AccessKey | None = ...,
+        secret: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access_key", b"access_key"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key", b"access_key", "secret", b"secret"]) -> None: ...
+
 global___CreateAccessKeyResponse = CreateAccessKeyResponse
 
 class UpdateAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
+    access_key_id: builtins.str
     """ID of the AccessKey resource to update.
     To get the access key ID, use a [AccessKeyService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the Accesskey resource are going to be updated."""
-        pass
-    description: typing.Text
+    description: builtins.str
     """Description of the access key."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        description: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id","description",b"description","update_mask",b"update_mask"]) -> None: ...
+        access_key_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        description: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id", "description", b"description", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateAccessKeyRequest = UpdateAccessKeyRequest
 
 class UpdateAccessKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
-    """ID of the AccessKey resource that is being updated."""
 
-    def __init__(self,
+    ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
+    access_key_id: builtins.str
+    """ID of the AccessKey resource that is being updated."""
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id"]) -> None: ...
+        access_key_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id"]) -> None: ...
+
 global___UpdateAccessKeyMetadata = UpdateAccessKeyMetadata
 
 class DeleteAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
+    access_key_id: builtins.str
     """ID of the access key to delete.
     To get the access key ID, use a [AccessKeyService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id"]) -> None: ...
+        access_key_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id"]) -> None: ...
+
 global___DeleteAccessKeyRequest = DeleteAccessKeyRequest
 
 class DeleteAccessKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
-    """ID of the access key that is being deleted."""
 
-    def __init__(self,
+    ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
+    access_key_id: builtins.str
+    """ID of the access key that is being deleted."""
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id"]) -> None: ...
+        access_key_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id"]) -> None: ...
+
 global___DeleteAccessKeyMetadata = DeleteAccessKeyMetadata
 
 class ListAccessKeyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ACCESS_KEY_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    access_key_id: typing.Text
+    access_key_id: builtins.str
     """ID of the key to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
@@ -216,40 +232,41 @@ class ListAccessKeyOperationsRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set [page_token] to the
     [ListAccessKeyOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        access_key_id: typing.Text = ...,
+        access_key_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access_key_id",b"access_key_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access_key_id", b"access_key_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListAccessKeyOperationsRequest = ListAccessKeyOperationsRequest
 
 class ListAccessKeyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified access key."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListAccessKeyOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListAccessKeyOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListAccessKeyOperationsResponse = ListAccessKeyOperationsResponse

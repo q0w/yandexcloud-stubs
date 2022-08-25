@@ -3,23 +3,31 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class SnapshotSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SnapshotSchedule._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SnapshotSchedule._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: SnapshotSchedule._Status.ValueType  # 0
         CREATING: SnapshotSchedule._Status.ValueType  # 1
@@ -27,9 +35,8 @@ class SnapshotSchedule(google.protobuf.message.Message):
         INACTIVE: SnapshotSchedule._Status.ValueType  # 3
         DELETING: SnapshotSchedule._Status.ValueType  # 4
         UPDATING: SnapshotSchedule._Status.ValueType  # 5
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: SnapshotSchedule.Status.ValueType  # 0
     CREATING: SnapshotSchedule.Status.ValueType  # 1
     ACTIVE: SnapshotSchedule.Status.ValueType  # 2
@@ -39,16 +46,18 @@ class SnapshotSchedule(google.protobuf.message.Message):
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -61,106 +70,106 @@ class SnapshotSchedule(google.protobuf.message.Message):
     RETENTION_PERIOD_FIELD_NUMBER: builtins.int
     SNAPSHOT_COUNT_FIELD_NUMBER: builtins.int
     SNAPSHOT_SPEC_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the snapshot schedule policy."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the scheduler policy belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    name: typing.Text
+    name: builtins.str
     """Name of the schedule policy.
     The name is unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the schedule policy."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
     status: global___SnapshotSchedule.Status.ValueType
     @property
     def schedule_policy(self) -> global___SchedulePolicy:
         """schedule properties"""
-        pass
     @property
     def retention_period(self) -> google.protobuf.duration_pb2.Duration: ...
     snapshot_count: builtins.int
     @property
     def snapshot_spec(self) -> global___SnapshotSpec:
         """properties to create snapshot with."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         status: global___SnapshotSchedule.Status.ValueType = ...,
-        schedule_policy: typing.Optional[global___SchedulePolicy] = ...,
-        retention_period: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
+        schedule_policy: global___SchedulePolicy | None = ...,
+        retention_period: google.protobuf.duration_pb2.Duration | None = ...,
         snapshot_count: builtins.int = ...,
-        snapshot_spec: typing.Optional[global___SnapshotSpec] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_spec",b"snapshot_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","retention_period",b"retention_period","retention_policy",b"retention_policy","schedule_policy",b"schedule_policy","snapshot_count",b"snapshot_count","snapshot_spec",b"snapshot_spec","status",b"status"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy",b"retention_policy"]) -> typing.Optional[typing_extensions.Literal["retention_period","snapshot_count"]]: ...
+        snapshot_spec: global___SnapshotSpec | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_spec", b"snapshot_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "retention_period", b"retention_period", "retention_policy", b"retention_policy", "schedule_policy", b"schedule_policy", "snapshot_count", b"snapshot_count", "snapshot_spec", b"snapshot_spec", "status", b"status"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["retention_policy", b"retention_policy"]) -> typing_extensions.Literal["retention_period", "snapshot_count"] | None: ...
+
 global___SnapshotSchedule = SnapshotSchedule
 
 class SchedulePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     START_AT_FIELD_NUMBER: builtins.int
     EXPRESSION_FIELD_NUMBER: builtins.int
     @property
     def start_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """start time for the first run."""
-        pass
-    expression: typing.Text
+    expression: builtins.str
     """cron format (* * * * *)"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        start_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        expression: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["start_at",b"start_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["expression",b"expression","start_at",b"start_at"]) -> None: ...
+        start_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        expression: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["start_at", b"start_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["expression", b"expression", "start_at", b"start_at"]) -> None: ...
+
 global___SchedulePolicy = SchedulePolicy
 
 class SnapshotSpec(google.protobuf.message.Message):
     """Properties of created snapshot backup"""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    description: typing.Text
+    description: builtins.str
     """Description of the created snapshot."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels"]) -> None: ...
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels"]) -> None: ...
+
 global___SnapshotSpec = SnapshotSpec

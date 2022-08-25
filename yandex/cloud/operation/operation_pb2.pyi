@@ -8,14 +8,20 @@ import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import google.rpc.status_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Operation(google.protobuf.message.Message):
     """An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
@@ -25,41 +31,33 @@ class Operation(google.protobuf.message.Message):
     METADATA_FIELD_NUMBER: builtins.int
     ERROR_FIELD_NUMBER: builtins.int
     RESPONSE_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the operation."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the operation. 0-256 characters long.
     ex: Create VM, Stop VM, Delete Disk, Snapshot Disk, etc
     """
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    created_by: typing.Text
+    created_by: builtins.str
     """ID of the user or service account who initiated the operation."""
-
     @property
     def modified_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The time when the Operation resource was last modified."""
-        pass
     done: builtins.bool
     """If the value is `false`, it means the operation is still in progress.
     If `true`, the operation is completed, and either `error` or `response` is available.
     """
-
     @property
     def metadata(self) -> google.protobuf.any_pb2.Any:
         """Service-specific metadata associated with the operation.
         It typically contains the ID of the target resource that the operation is performed on.
         Any method that returns a long-running operation should document the metadata type, if any.
         """
-        pass
     @property
     def error(self) -> google.rpc.status_pb2.Status:
         """The error result of the operation in case of failure or cancellation."""
-        pass
     @property
     def response(self) -> google.protobuf.any_pb2.Any:
         """The normal response of the operation in case of success.
@@ -69,20 +67,21 @@ class Operation(google.protobuf.message.Message):
         the response should be the target resource of the operation.
         Any method that returns a long-running operation should document the response type, if any.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        description: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        created_by: typing.Text = ...,
-        modified_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
+        id: builtins.str = ...,
+        description: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        created_by: builtins.str = ...,
+        modified_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         done: builtins.bool = ...,
-        metadata: typing.Optional[google.protobuf.any_pb2.Any] = ...,
-        error: typing.Optional[google.rpc.status_pb2.Status] = ...,
-        response: typing.Optional[google.protobuf.any_pb2.Any] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","error",b"error","metadata",b"metadata","modified_at",b"modified_at","response",b"response","result",b"result"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","created_by",b"created_by","description",b"description","done",b"done","error",b"error","id",b"id","metadata",b"metadata","modified_at",b"modified_at","response",b"response","result",b"result"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["result",b"result"]) -> typing.Optional[typing_extensions.Literal["error","response"]]: ...
+        metadata: google.protobuf.any_pb2.Any | None = ...,
+        error: google.rpc.status_pb2.Status | None = ...,
+        response: google.protobuf.any_pb2.Any | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "error", b"error", "metadata", b"metadata", "modified_at", b"modified_at", "response", b"response", "result", b"result"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "created_by", b"created_by", "description", b"description", "done", b"done", "error", b"error", "id", b"id", "metadata", b"metadata", "modified_at", b"modified_at", "response", b"response", "result", b"result"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["result", b"result"]) -> typing_extensions.Literal["error", "response"] | None: ...
+
 global___Operation = Operation

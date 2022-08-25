@@ -12,98 +12,97 @@ class SecurityGroupServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.GetSecurityGroupRequest,
-        yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup]
-
+        yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupsRequest,
-        yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupsResponse]
-
+        yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupsResponse,
+    ]
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.CreateSecurityGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     UpdateRules: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRulesRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     UpdateRule: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRuleRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """update rule description or labels"""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.DeleteSecurityGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     Move: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.MoveSecurityGroupRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupOperationsRequest,
-        yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupOperationsResponse]
-
+        yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupOperationsResponse,
+    ]
 
 class SecurityGroupServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.GetSecurityGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupsResponse: ...
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.CreateSecurityGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def UpdateRules(self,
+    def UpdateRules(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRulesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def UpdateRule(self,
+    def UpdateRule(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.UpdateSecurityGroupRuleRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """update rule description or labels"""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.DeleteSecurityGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def Move(self,
+    def Move(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.MoveSecurityGroupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.security_group_service_pb2.ListSecurityGroupOperationsResponse: ...
-
 
 def add_SecurityGroupServiceServicer_to_server(servicer: SecurityGroupServiceServicer, server: grpc.Server) -> None: ...

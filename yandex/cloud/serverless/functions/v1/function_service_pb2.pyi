@@ -3,87 +3,97 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.duration_pb2
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.operation.operation_pb2
 import yandex.cloud.serverless.functions.v1.function_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to return.
 
     To get a function ID make a [FunctionService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___GetFunctionRequest = GetFunctionRequest
 
 class GetFunctionVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
+    function_version_id: builtins.str
     """ID of the version to return.
 
     To get a version ID make a [FunctionService.ListVersions] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id"]) -> None: ...
+        function_version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id"]) -> None: ...
+
 global___GetFunctionVersionRequest = GetFunctionVersionRequest
 
 class GetFunctionVersionByTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function whose versions should be listed.
 
     To get a function ID use a [FunctionService.List] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Version tag.
 
     To get the history of version tags make a [FunctionService.ListTagHistory] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        tag: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id","tag",b"tag"]) -> None: ...
+        function_id: builtins.str = ...,
+        tag: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id", "tag", b"tag"]) -> None: ...
+
 global___GetFunctionVersionByTagRequest = GetFunctionVersionByTagRequest
 
 class ListFunctionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list functions in.
 
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token]
@@ -91,13 +101,11 @@ class ListFunctionsRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListFunctionsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters functions listed in the response.
 
     The expression must specify:
@@ -106,237 +114,252 @@ class ListFunctionsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `name="my-function"`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListFunctionsRequest = ListFunctionsRequest
 
 class ListFunctionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def functions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.Function]:
         """List of functions in the specified folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFunctionsRequest.page_size], use `nextPageToken` as the value
     for the [ListFunctionsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        functions: typing.Optional[typing.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Function]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["functions",b"functions","next_page_token",b"next_page_token"]) -> None: ...
+        functions: collections.abc.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Function] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["functions", b"functions", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListFunctionsResponse = ListFunctionsResponse
 
 class CreateFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to create a function in.
 
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the function.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the function."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `key:value` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name"]) -> None: ...
+
 global___CreateFunctionRequest = CreateFunctionRequest
 
 class CreateFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
-    """ID of the function that is being created."""
 
-    def __init__(self,
+    FUNCTION_ID_FIELD_NUMBER: builtins.int
+    function_id: builtins.str
+    """ID of the function that is being created."""
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___CreateFunctionMetadata = CreateFunctionMetadata
 
 class UpdateFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to update.
 
     To get a function ID make a [FunctionService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which attributes of the function should be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """New name for the function.
     The name must be unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """New description for the function."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Function labels as `key:value` pairs.
 
         Existing set of labels is completely replaced by the provided set, so if you just want
         to add or remove a label, request the current set of labels with a [FunctionService.Get] request.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","function_id",b"function_id","labels",b"labels","name",b"name","update_mask",b"update_mask"]) -> None: ...
+        function_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "function_id", b"function_id", "labels", b"labels", "name", b"name", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateFunctionRequest = UpdateFunctionRequest
 
 class UpdateFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
-    """ID of the function that is being updated."""
 
-    def __init__(self,
+    FUNCTION_ID_FIELD_NUMBER: builtins.int
+    function_id: builtins.str
+    """ID of the function that is being updated."""
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___UpdateFunctionMetadata = UpdateFunctionMetadata
 
 class DeleteFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to delete.
     To get a function ID make a [FunctionService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___DeleteFunctionRequest = DeleteFunctionRequest
 
 class DeleteFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
-    """ID of the function that is being deleted."""
 
-    def __init__(self,
+    FUNCTION_ID_FIELD_NUMBER: builtins.int
+    function_id: builtins.str
+    """ID of the function that is being deleted."""
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___DeleteFunctionMetadata = DeleteFunctionMetadata
 
 class ListRuntimesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___ListRuntimesRequest = ListRuntimesRequest
 
 class ListRuntimesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     RUNTIMES_FIELD_NUMBER: builtins.int
     @property
-    def runtimes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def runtimes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Runtime environments available for the specified function."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        runtimes: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["runtimes",b"runtimes"]) -> None: ...
+        runtimes: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["runtimes", b"runtimes"]) -> None: ...
+
 global___ListRuntimesResponse = ListRuntimesResponse
 
 class ListFunctionsVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list function versions for.
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to list versions for.
     To get a function ID use a [FunctionService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available results
     is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token]
@@ -344,13 +367,11 @@ class ListFunctionsVersionsRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListFunctionsVersionsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -359,53 +380,55 @@ class ListFunctionsVersionsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Example of a filter: `status="ACTIVE"`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        function_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
+        function_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","function_id",b"function_id","id",b"id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","function_id",b"function_id","id",b"id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["id",b"id"]) -> typing.Optional[typing_extensions.Literal["folder_id","function_id"]]: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "function_id", b"function_id", "id", b"id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "function_id", b"function_id", "id", b"id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["id", b"id"]) -> typing_extensions.Literal["folder_id", "function_id"] | None: ...
+
 global___ListFunctionsVersionsRequest = ListFunctionsVersionsRequest
 
 class ListFunctionsVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     VERSIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def versions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.Version]:
         """List of versions for the specified folder or function."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFunctionsVersionsRequest.page_size], use `nextPageToken` as the value
     for the [ListFunctionsVersionsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        versions: typing.Optional[typing.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Version]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","versions",b"versions"]) -> None: ...
+        versions: collections.abc.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Version] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "versions", b"versions"]) -> None: ...
+
 global___ListFunctionsVersionsResponse = ListFunctionsVersionsResponse
 
 class ListFunctionOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token]
@@ -413,13 +436,11 @@ class ListFunctionOperationsRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListFunctionOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -428,68 +449,75 @@ class ListFunctionOperationsRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     Examples of a filter: `done=false`, `created_by='John.Doe'`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
+        function_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","function_id",b"function_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "function_id", b"function_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListFunctionOperationsRequest = ListFunctionOperationsRequest
 
 class ListFunctionOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified function."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFunctionOperationsRequest.page_size], use `nextPageToken` as the value
     for the [ListFunctionOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListFunctionOperationsResponse = ListFunctionOperationsResponse
 
 class CreateFunctionVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class NamedServiceAccountsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     RUNTIME_FIELD_NUMBER: builtins.int
@@ -506,200 +534,192 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     NAMED_SERVICE_ACCOUNTS_FIELD_NUMBER: builtins.int
     SECRETS_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to create a version for.
 
     To get a function ID, make a [FunctionService.List] request.
     """
-
-    runtime: typing.Text
+    runtime: builtins.str
     """Runtime environment for the version."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the version"""
-
-    entrypoint: typing.Text
+    entrypoint: builtins.str
     """Entrypoint of the version."""
-
     @property
     def resources(self) -> yandex.cloud.serverless.functions.v1.function_pb2.Resources:
         """Resources allocated to the version."""
-        pass
     @property
     def execution_timeout(self) -> google.protobuf.duration_pb2.Duration:
         """Timeout for the execution of the version.
 
         If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.
         """
-        pass
-    service_account_id: typing.Text
+    service_account_id: builtins.str
     """ID of the service account to associate with the version."""
-
     @property
     def package(self) -> yandex.cloud.serverless.functions.v1.function_pb2.Package:
         """Functions deployment package."""
-        pass
     content: builtins.bytes
     """Content of the deployment package."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """ID of the version to be copied from. Source version must belong to the same folder as the created version
     and the user must have read permissions to the source version.
     """
-
     @property
-    def environment(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def environment(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Environment settings for the version."""
-        pass
     @property
-    def tag(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def tag(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag)."""
-        pass
     @property
     def connectivity(self) -> yandex.cloud.serverless.functions.v1.function_pb2.Connectivity:
         """Function version connectivity. If specified the version will be attached to specified network/subnet(s)."""
-        pass
     @property
-    def named_service_accounts(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def named_service_accounts(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Additional service accounts to be used by the version."""
-        pass
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.Secret]:
         """Lockbox secrets to be used by the version"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        runtime: typing.Text = ...,
-        description: typing.Text = ...,
-        entrypoint: typing.Text = ...,
-        resources: typing.Optional[yandex.cloud.serverless.functions.v1.function_pb2.Resources] = ...,
-        execution_timeout: typing.Optional[google.protobuf.duration_pb2.Duration] = ...,
-        service_account_id: typing.Text = ...,
-        package: typing.Optional[yandex.cloud.serverless.functions.v1.function_pb2.Package] = ...,
+        function_id: builtins.str = ...,
+        runtime: builtins.str = ...,
+        description: builtins.str = ...,
+        entrypoint: builtins.str = ...,
+        resources: yandex.cloud.serverless.functions.v1.function_pb2.Resources | None = ...,
+        execution_timeout: google.protobuf.duration_pb2.Duration | None = ...,
+        service_account_id: builtins.str = ...,
+        package: yandex.cloud.serverless.functions.v1.function_pb2.Package | None = ...,
         content: builtins.bytes = ...,
-        version_id: typing.Text = ...,
-        environment: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        tag: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        connectivity: typing.Optional[yandex.cloud.serverless.functions.v1.function_pb2.Connectivity] = ...,
-        named_service_accounts: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        secrets: typing.Optional[typing.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Secret]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","content",b"content","execution_timeout",b"execution_timeout","package",b"package","package_source",b"package_source","resources",b"resources","version_id",b"version_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connectivity",b"connectivity","content",b"content","description",b"description","entrypoint",b"entrypoint","environment",b"environment","execution_timeout",b"execution_timeout","function_id",b"function_id","named_service_accounts",b"named_service_accounts","package",b"package","package_source",b"package_source","resources",b"resources","runtime",b"runtime","secrets",b"secrets","service_account_id",b"service_account_id","tag",b"tag","version_id",b"version_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["package_source",b"package_source"]) -> typing.Optional[typing_extensions.Literal["package","content","version_id"]]: ...
+        version_id: builtins.str = ...,
+        environment: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        tag: collections.abc.Iterable[builtins.str] | None = ...,
+        connectivity: yandex.cloud.serverless.functions.v1.function_pb2.Connectivity | None = ...,
+        named_service_accounts: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        secrets: collections.abc.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Secret] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "execution_timeout", b"execution_timeout", "package", b"package", "package_source", b"package_source", "resources", b"resources", "version_id", b"version_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "description", b"description", "entrypoint", b"entrypoint", "environment", b"environment", "execution_timeout", b"execution_timeout", "function_id", b"function_id", "named_service_accounts", b"named_service_accounts", "package", b"package", "package_source", b"package_source", "resources", b"resources", "runtime", b"runtime", "secrets", b"secrets", "service_account_id", b"service_account_id", "tag", b"tag", "version_id", b"version_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["package_source", b"package_source"]) -> typing_extensions.Literal["package", "content", "version_id"] | None: ...
+
 global___CreateFunctionVersionRequest = CreateFunctionVersionRequest
 
 class CreateFunctionVersionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
-    """ID of the version that is being created."""
 
-    def __init__(self,
+    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
+    function_version_id: builtins.str
+    """ID of the version that is being created."""
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id"]) -> None: ...
+        function_version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id"]) -> None: ...
+
 global___CreateFunctionVersionMetadata = CreateFunctionVersionMetadata
 
 class SetFunctionTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
+    function_version_id: builtins.str
     """ID of the version to set the tag for.
 
     To get a version ID make a [FunctionService.ListVersions] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Tag to set for the version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        tag: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id","tag",b"tag"]) -> None: ...
+        function_version_id: builtins.str = ...,
+        tag: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id", "tag", b"tag"]) -> None: ...
+
 global___SetFunctionTagRequest = SetFunctionTagRequest
 
 class RemoveFunctionTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
+    function_version_id: builtins.str
     """ID of the version to remove a tag from.
 
     To get the a version ID make a [FunctionService.ListVersions] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Tag to remove from the specified version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        tag: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id","tag",b"tag"]) -> None: ...
+        function_version_id: builtins.str = ...,
+        tag: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id", "tag", b"tag"]) -> None: ...
+
 global___RemoveFunctionTagRequest = RemoveFunctionTagRequest
 
 class SetFunctionTagMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
-    """ID of the function versions that is being tagged."""
 
-    def __init__(self,
+    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
+    function_version_id: builtins.str
+    """ID of the function versions that is being tagged."""
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id"]) -> None: ...
+        function_version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id"]) -> None: ...
+
 global___SetFunctionTagMetadata = SetFunctionTagMetadata
 
 class RemoveFunctionTagMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
-    function_version_id: typing.Text
-    """ID of the function versions that is being untagged."""
 
-    def __init__(self,
+    FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
+    function_version_id: builtins.str
+    """ID of the function versions that is being untagged."""
+    def __init__(
+        self,
         *,
-        function_version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_version_id",b"function_version_id"]) -> None: ...
+        function_version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_version_id", b"function_version_id"]) -> None: ...
+
 global___RemoveFunctionTagMetadata = RemoveFunctionTagMetadata
 
 class ListFunctionTagHistoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to retrieve tag history for.
 
     To get a function ID, make a [FunctionService.List] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Specific tag that history should be limited to."""
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListFunctionOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
 
     The expression must specify:
@@ -708,89 +728,89 @@ class ListFunctionTagHistoryRequest(google.protobuf.message.Message):
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     For example, `effective_to>2021-01-01T12:00:00Z`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        tag: typing.Text = ...,
+        function_id: builtins.str = ...,
+        tag: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","function_id",b"function_id","page_size",b"page_size","page_token",b"page_token","tag",b"tag"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "function_id", b"function_id", "page_size", b"page_size", "page_token", b"page_token", "tag", b"tag"]) -> None: ...
+
 global___ListFunctionTagHistoryRequest = ListFunctionTagHistoryRequest
 
 class ListFunctionTagHistoryResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class FunctionTagHistoryRecord(google.protobuf.message.Message):
         """A record in the tag history."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         FUNCTION_ID_FIELD_NUMBER: builtins.int
         FUNCTION_VERSION_ID_FIELD_NUMBER: builtins.int
         TAG_FIELD_NUMBER: builtins.int
         EFFECTIVE_FROM_FIELD_NUMBER: builtins.int
         EFFECTIVE_TO_FIELD_NUMBER: builtins.int
-        function_id: typing.Text
+        function_id: builtins.str
         """ID of the function that the record is about."""
-
-        function_version_id: typing.Text
+        function_version_id: builtins.str
         """ID of the function version that the record is about."""
-
-        tag: typing.Text
+        tag: builtins.str
         """Tag that was set for the version at some point."""
-
         @property
         def effective_from(self) -> google.protobuf.timestamp_pb2.Timestamp:
             """Timestamp when the tag started being active for the function."""
-            pass
         @property
         def effective_to(self) -> google.protobuf.timestamp_pb2.Timestamp:
             """Timestamp when the tag stopped being active for the function."""
-            pass
-        def __init__(self,
+        def __init__(
+            self,
             *,
-            function_id: typing.Text = ...,
-            function_version_id: typing.Text = ...,
-            tag: typing.Text = ...,
-            effective_from: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-            effective_to: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["effective_from",b"effective_from","effective_to",b"effective_to"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["effective_from",b"effective_from","effective_to",b"effective_to","function_id",b"function_id","function_version_id",b"function_version_id","tag",b"tag"]) -> None: ...
+            function_id: builtins.str = ...,
+            function_version_id: builtins.str = ...,
+            tag: builtins.str = ...,
+            effective_from: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+            effective_to: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["effective_from", b"effective_from", "effective_to", b"effective_to"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["effective_from", b"effective_from", "effective_to", b"effective_to", "function_id", b"function_id", "function_version_id", b"function_version_id", "tag", b"tag"]) -> None: ...
 
     FUNCTION_TAG_HISTORY_RECORD_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def function_tag_history_record(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ListFunctionTagHistoryResponse.FunctionTagHistoryRecord]:
         """Set of relevant tag history records."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListFunctionTagHistoryRequest.page_size], use `nextPageToken` as the value
     for the [ListFunctionTagHistoryRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_tag_history_record: typing.Optional[typing.Iterable[global___ListFunctionTagHistoryResponse.FunctionTagHistoryRecord]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_tag_history_record",b"function_tag_history_record","next_page_token",b"next_page_token"]) -> None: ...
+        function_tag_history_record: collections.abc.Iterable[global___ListFunctionTagHistoryResponse.FunctionTagHistoryRecord] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_tag_history_record", b"function_tag_history_record", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListFunctionTagHistoryResponse = ListFunctionTagHistoryResponse
 
 class ListScalingPoliciesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to retrieve scaling policies for.
 
     To get a function ID, make a [FunctionService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.next_page_token]
@@ -798,136 +818,140 @@ class ListScalingPoliciesRequest(google.protobuf.message.Message):
 
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `pageToken` to the
     [ListScalingPoliciesResponse.next_page_token] returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
+        function_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListScalingPoliciesRequest = ListScalingPoliciesRequest
 
 class ListScalingPoliciesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SCALING_POLICIES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def scaling_policies(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.ScalingPolicy]:
         """Set of relevant scaling policies."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListScalingPoliciesRequest.page_size], use `nextPageToken` as the value
     for the [ListScalingPoliciesRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `nextPageToken` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        scaling_policies: typing.Optional[typing.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.ScalingPolicy]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","scaling_policies",b"scaling_policies"]) -> None: ...
+        scaling_policies: collections.abc.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.ScalingPolicy] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "scaling_policies", b"scaling_policies"]) -> None: ...
+
 global___ListScalingPoliciesResponse = ListScalingPoliciesResponse
 
 class SetScalingPolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
     PROVISIONED_INSTANCES_COUNT_FIELD_NUMBER: builtins.int
     ZONE_INSTANCES_LIMIT_FIELD_NUMBER: builtins.int
     ZONE_REQUESTS_LIMIT_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to retrieve scaling policies for.
 
     To get a function ID, make a [FunctionService.List] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Version tag.
 
     To get the history of version tags make a [FunctionService.ListTagHistory] request.
     """
-
     provisioned_instances_count: builtins.int
     """Minimum guaranteed provisioned instances count for all zones in total.
     Billed separately.
     """
-
     zone_instances_limit: builtins.int
     """Upper limit for instance count in each zone.
     0 means no limit.
     """
-
     zone_requests_limit: builtins.int
     """Upper limit of requests count in each zone.
     0 means no limit.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        tag: typing.Text = ...,
+        function_id: builtins.str = ...,
+        tag: builtins.str = ...,
         provisioned_instances_count: builtins.int = ...,
         zone_instances_limit: builtins.int = ...,
         zone_requests_limit: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id","provisioned_instances_count",b"provisioned_instances_count","tag",b"tag","zone_instances_limit",b"zone_instances_limit","zone_requests_limit",b"zone_requests_limit"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id", "provisioned_instances_count", b"provisioned_instances_count", "tag", b"tag", "zone_instances_limit", b"zone_instances_limit", "zone_requests_limit", b"zone_requests_limit"]) -> None: ...
+
 global___SetScalingPolicyRequest = SetScalingPolicyRequest
 
 class SetScalingPolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
-    """ID of the function for which scaling policy was set."""
 
-    def __init__(self,
+    FUNCTION_ID_FIELD_NUMBER: builtins.int
+    function_id: builtins.str
+    """ID of the function for which scaling policy was set."""
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___SetScalingPolicyMetadata = SetScalingPolicyMetadata
 
 class RemoveScalingPolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FUNCTION_ID_FIELD_NUMBER: builtins.int
     TAG_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
+    function_id: builtins.str
     """ID of the function to remove scaling policies for.
 
     To get a function ID, make a [FunctionService.List] request.
     """
-
-    tag: typing.Text
+    tag: builtins.str
     """Version tag.
 
     To get the history of version tags make a [FunctionService.ListTagHistory] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        tag: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id","tag",b"tag"]) -> None: ...
+        function_id: builtins.str = ...,
+        tag: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id", "tag", b"tag"]) -> None: ...
+
 global___RemoveScalingPolicyRequest = RemoveScalingPolicyRequest
 
 class RemoveScalingPolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    FUNCTION_ID_FIELD_NUMBER: builtins.int
-    function_id: typing.Text
-    """ID of the function for which scaling policy was removed."""
 
-    def __init__(self,
+    FUNCTION_ID_FIELD_NUMBER: builtins.int
+    function_id: builtins.str
+    """ID of the function for which scaling policy was removed."""
+    def __init__(
+        self,
         *,
-        function_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["function_id",b"function_id"]) -> None: ...
+        function_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["function_id", b"function_id"]) -> None: ...
+
 global___RemoveScalingPolicyMetadata = RemoveScalingPolicyMetadata

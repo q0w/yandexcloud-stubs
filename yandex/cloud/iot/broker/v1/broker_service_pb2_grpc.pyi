@@ -10,75 +10,78 @@ import yandex.cloud.operation.operation_pb2
 
 class BrokerServiceStub:
     """A set of methods for managing broker."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.GetBrokerRequest,
-        yandex.cloud.iot.broker.v1.broker_pb2.Broker]
+        yandex.cloud.iot.broker.v1.broker_pb2.Broker,
+    ]
     """Returns the specified broker.
 
     To get the list of available brokers, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokersRequest,
-        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokersResponse]
+        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokersResponse,
+    ]
     """Retrieves the list of brokers in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.CreateBrokerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a broker in the specified folder."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.UpdateBrokerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified broker."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified broker."""
-
     ListCertificates: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerCertificatesRequest,
-        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerCertificatesResponse]
+        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerCertificatesResponse,
+    ]
     """Retrieves the list of broker certificates for the specified broker."""
-
     AddCertificate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.AddBrokerCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds a certificate."""
-
     DeleteCertificate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerCertificateRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified broker certificate."""
-
     ListPasswords: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerPasswordsRequest,
-        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerPasswordsResponse]
+        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerPasswordsResponse,
+    ]
     """Retrieves the list of passwords for the specified broker."""
-
     AddPassword: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.AddBrokerPasswordRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds password for the specified broker."""
-
     DeletePassword: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerPasswordRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified password."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerOperationsRequest,
-        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerOperationsResponse]
+        yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerOperationsResponse,
+    ]
     """Lists operations for the specified broker."""
-
 
 class BrokerServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing broker."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.GetBrokerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_pb2.Broker:
@@ -86,95 +89,82 @@ class BrokerServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available brokers, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokersResponse:
         """Retrieves the list of brokers in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.CreateBrokerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a broker in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.UpdateBrokerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified broker."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified broker."""
-        pass
-
     @abc.abstractmethod
-    def ListCertificates(self,
+    def ListCertificates(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerCertificatesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerCertificatesResponse:
         """Retrieves the list of broker certificates for the specified broker."""
-        pass
-
     @abc.abstractmethod
-    def AddCertificate(self,
+    def AddCertificate(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.AddBrokerCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds a certificate."""
-        pass
-
     @abc.abstractmethod
-    def DeleteCertificate(self,
+    def DeleteCertificate(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerCertificateRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified broker certificate."""
-        pass
-
     @abc.abstractmethod
-    def ListPasswords(self,
+    def ListPasswords(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerPasswordsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerPasswordsResponse:
         """Retrieves the list of passwords for the specified broker."""
-        pass
-
     @abc.abstractmethod
-    def AddPassword(self,
+    def AddPassword(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.AddBrokerPasswordRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds password for the specified broker."""
-        pass
-
     @abc.abstractmethod
-    def DeletePassword(self,
+    def DeletePassword(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.DeleteBrokerPasswordRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified password."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_service_pb2.ListBrokerOperationsResponse:
         """Lists operations for the specified broker."""
-        pass
-
 
 def add_BrokerServiceServicer_to_server(servicer: BrokerServiceServicer, server: grpc.Server) -> None: ...

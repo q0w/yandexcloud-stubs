@@ -3,34 +3,42 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.operation.operation_pb2
 import yandex.cloud.organizationmanager.v1.organization_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetOrganizationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the Organization resource to return.
     To get the organization ID, use a [OrganizationService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        organization_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["organization_id",b"organization_id"]) -> None: ...
+        organization_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
+
 global___GetOrganizationRequest = GetOrganizationRequest
 
 class ListOrganizationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
@@ -41,39 +49,38 @@ class ListOrganizationsRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set [page_token]
     to the [ListOrganizationsResponse.next_page_token]
     returned by a previous list request to get the next page of results.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can use filtering only on the [Organization.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListOrganizationsRequest = ListOrganizationsRequest
 
 class ListOrganizationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORGANIZATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def organizations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.organizationmanager.v1.organization_pb2.Organization]:
         """List of Organization resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListOrganizationsRequest.page_size], use
     the [next_page_token] as the value
@@ -81,29 +88,33 @@ class ListOrganizationsResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        organizations: typing.Optional[typing.Iterable[yandex.cloud.organizationmanager.v1.organization_pb2.Organization]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","organizations",b"organizations"]) -> None: ...
+        organizations: collections.abc.Iterable[yandex.cloud.organizationmanager.v1.organization_pb2.Organization] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "organizations", b"organizations"]) -> None: ...
+
 global___ListOrganizationsResponse = ListOrganizationsResponse
 
 class UpdateOrganizationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -111,103 +122,102 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TITLE_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the organization to update.
     To get the organization ID, use a [OrganizationService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the organization are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the organization."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the organization."""
-
-    title: typing.Text
+    title: builtins.str
     """Display name of the organization."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        organization_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        title: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","organization_id",b"organization_id","title",b"title","update_mask",b"update_mask"]) -> None: ...
+        organization_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        title: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "organization_id", b"organization_id", "title", b"title", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateOrganizationRequest = UpdateOrganizationRequest
 
 class UpdateOrganizationMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
-    organization_id: typing.Text
-    """ID of the organization that is being updated."""
 
-    def __init__(self,
+    ORGANIZATION_ID_FIELD_NUMBER: builtins.int
+    organization_id: builtins.str
+    """ID of the organization that is being updated."""
+    def __init__(
+        self,
         *,
-        organization_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["organization_id",b"organization_id"]) -> None: ...
+        organization_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id"]) -> None: ...
+
 global___UpdateOrganizationMetadata = UpdateOrganizationMetadata
 
 class ListOrganizationOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the Organization resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListOrganizationOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Acceptable values are 0 to 1000, inclusive. Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set [page_token]
     to the [ListOrganizationOperationsResponse.next_page_token]
     returned by a previous list request to get the next page of results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        organization_id: typing.Text = ...,
+        organization_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["organization_id",b"organization_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["organization_id", b"organization_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListOrganizationOperationsRequest = ListOrganizationOperationsRequest
 
 class ListOrganizationOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified organization."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListOrganizationOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListOrganizationOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListOrganizationOperationsResponse = ListOrganizationOperationsResponse

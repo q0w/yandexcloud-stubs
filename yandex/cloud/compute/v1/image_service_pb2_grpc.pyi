@@ -10,57 +10,60 @@ import yandex.cloud.operation.operation_pb2
 
 class ImageServiceStub:
     """A set of methods for managing Image resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.GetImageRequest,
-        yandex.cloud.compute.v1.image_pb2.Image]
+        yandex.cloud.compute.v1.image_pb2.Image,
+    ]
     """Returns the specified Image resource.
 
     To get the list of available Image resources, make a [List] request.
     """
-
     GetLatestByFamily: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.GetImageLatestByFamilyRequest,
-        yandex.cloud.compute.v1.image_pb2.Image]
+        yandex.cloud.compute.v1.image_pb2.Image,
+    ]
     """Returns the latest image that is part of an image family."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.ListImagesRequest,
-        yandex.cloud.compute.v1.image_service_pb2.ListImagesResponse]
+        yandex.cloud.compute.v1.image_service_pb2.ListImagesResponse,
+    ]
     """Retrieves the list of Image resources in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.CreateImageRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates an image in the specified folder.
 
     You can create an image from a disk, snapshot, other image or URI.
     Method starts an asynchronous operation that can be cancelled while it is in progress.
     """
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.UpdateImageRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified image."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.DeleteImageRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified image.
 
     Deleting an image removes its data permanently and is irreversible.
     """
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.compute.v1.image_service_pb2.ListImageOperationsRequest,
-        yandex.cloud.compute.v1.image_service_pb2.ListImageOperationsResponse]
+        yandex.cloud.compute.v1.image_service_pb2.ListImageOperationsResponse,
+    ]
     """Lists operations for the specified image."""
-
 
 class ImageServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Image resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.GetImageRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.image_pb2.Image:
@@ -68,26 +71,23 @@ class ImageServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available Image resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def GetLatestByFamily(self,
+    def GetLatestByFamily(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.GetImageLatestByFamilyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.image_pb2.Image:
         """Returns the latest image that is part of an image family."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.ListImagesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.image_service_pb2.ListImagesResponse:
         """Retrieves the list of Image resources in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.CreateImageRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -96,18 +96,16 @@ class ImageServiceServicer(metaclass=abc.ABCMeta):
         You can create an image from a disk, snapshot, other image or URI.
         Method starts an asynchronous operation that can be cancelled while it is in progress.
         """
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.UpdateImageRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified image."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.DeleteImageRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -115,15 +113,12 @@ class ImageServiceServicer(metaclass=abc.ABCMeta):
 
         Deleting an image removes its data permanently and is irreversible.
         """
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.compute.v1.image_service_pb2.ListImageOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.image_service_pb2.ListImageOperationsResponse:
         """Lists operations for the specified image."""
-        pass
-
 
 def add_ImageServiceServicer_to_server(servicer: ImageServiceServicer, server: grpc.Server) -> None: ...

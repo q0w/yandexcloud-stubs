@@ -3,53 +3,60 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class SecurityGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Status:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SecurityGroup._Status.ValueType], builtins.type):
+
+    class _StatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SecurityGroup._Status.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: SecurityGroup._Status.ValueType  # 0
         CREATING: SecurityGroup._Status.ValueType  # 1
         ACTIVE: SecurityGroup._Status.ValueType  # 2
         UPDATING: SecurityGroup._Status.ValueType  # 3
         """updating is a long operation because we must update all instances in SG"""
-
         DELETING: SecurityGroup._Status.ValueType  # 4
-    class Status(_Status, metaclass=_StatusEnumTypeWrapper):
-        pass
 
+    class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: SecurityGroup.Status.ValueType  # 0
     CREATING: SecurityGroup.Status.ValueType  # 1
     ACTIVE: SecurityGroup.Status.ValueType  # 2
     UPDATING: SecurityGroup.Status.ValueType  # 3
     """updating is a long operation because we must update all instances in SG"""
-
     DELETING: SecurityGroup.Status.ValueType  # 4
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -61,65 +68,70 @@ class SecurityGroup(google.protobuf.message.Message):
     STATUS_FIELD_NUMBER: builtins.int
     RULES_FIELD_NUMBER: builtins.int
     DEFAULT_FOR_NETWORK_FIELD_NUMBER: builtins.int
-    id: typing.Text
-    folder_id: typing.Text
+    id: builtins.str
+    folder_id: builtins.str
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    name: typing.Text
-    description: typing.Text
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    network_id: typing.Text
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    network_id: builtins.str
     status: global___SecurityGroup.Status.ValueType
     @property
     def rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SecurityGroupRule]: ...
     default_for_network: builtins.bool
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        network_id: typing.Text = ...,
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        network_id: builtins.str = ...,
         status: global___SecurityGroup.Status.ValueType = ...,
-        rules: typing.Optional[typing.Iterable[global___SecurityGroupRule]] = ...,
+        rules: collections.abc.Iterable[global___SecurityGroupRule] | None = ...,
         default_for_network: builtins.bool = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","default_for_network",b"default_for_network","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","network_id",b"network_id","rules",b"rules","status",b"status"]) -> None: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "default_for_network", b"default_for_network", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "network_id", b"network_id", "rules", b"rules", "status", b"status"]) -> None: ...
+
 global___SecurityGroup = SecurityGroup
 
 class SecurityGroupRule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _Direction:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _DirectionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SecurityGroupRule._Direction.ValueType], builtins.type):
+
+    class _DirectionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[SecurityGroupRule._Direction.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         DIRECTION_UNSPECIFIED: SecurityGroupRule._Direction.ValueType  # 0
         INGRESS: SecurityGroupRule._Direction.ValueType  # 1
         EGRESS: SecurityGroupRule._Direction.ValueType  # 2
-    class Direction(_Direction, metaclass=_DirectionEnumTypeWrapper):
-        pass
 
+    class Direction(_Direction, metaclass=_DirectionEnumTypeWrapper): ...
     DIRECTION_UNSPECIFIED: SecurityGroupRule.Direction.ValueType  # 0
     INGRESS: SecurityGroupRule.Direction.ValueType  # 1
     EGRESS: SecurityGroupRule.Direction.ValueType  # 2
 
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
@@ -131,71 +143,76 @@ class SecurityGroupRule(google.protobuf.message.Message):
     CIDR_BLOCKS_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     PREDEFINED_TARGET_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """generated by api server after rule creation"""
-
-    description: typing.Text
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     direction: global___SecurityGroupRule.Direction.ValueType
     @property
     def ports(self) -> global___PortRange:
         """null value means any"""
-        pass
-    protocol_name: typing.Text
+    protocol_name: builtins.str
     """null value means any protocol
     values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
     """
-
     protocol_number: builtins.int
     @property
     def cidr_blocks(self) -> global___CidrBlocks: ...
-    security_group_id: typing.Text
-    predefined_target: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    predefined_target: builtins.str
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        id: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         direction: global___SecurityGroupRule.Direction.ValueType = ...,
-        ports: typing.Optional[global___PortRange] = ...,
-        protocol_name: typing.Text = ...,
+        ports: global___PortRange | None = ...,
+        protocol_name: builtins.str = ...,
         protocol_number: builtins.int = ...,
-        cidr_blocks: typing.Optional[global___CidrBlocks] = ...,
-        security_group_id: typing.Text = ...,
-        predefined_target: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cidr_blocks",b"cidr_blocks","ports",b"ports","predefined_target",b"predefined_target","security_group_id",b"security_group_id","target",b"target"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cidr_blocks",b"cidr_blocks","description",b"description","direction",b"direction","id",b"id","labels",b"labels","ports",b"ports","predefined_target",b"predefined_target","protocol_name",b"protocol_name","protocol_number",b"protocol_number","security_group_id",b"security_group_id","target",b"target"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["target",b"target"]) -> typing.Optional[typing_extensions.Literal["cidr_blocks","security_group_id","predefined_target"]]: ...
+        cidr_blocks: global___CidrBlocks | None = ...,
+        security_group_id: builtins.str = ...,
+        predefined_target: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cidr_blocks", b"cidr_blocks", "ports", b"ports", "predefined_target", b"predefined_target", "security_group_id", b"security_group_id", "target", b"target"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cidr_blocks", b"cidr_blocks", "description", b"description", "direction", b"direction", "id", b"id", "labels", b"labels", "ports", b"ports", "predefined_target", b"predefined_target", "protocol_name", b"protocol_name", "protocol_number", b"protocol_number", "security_group_id", b"security_group_id", "target", b"target"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["target", b"target"]) -> typing_extensions.Literal["cidr_blocks", "security_group_id", "predefined_target"] | None: ...
+
 global___SecurityGroupRule = SecurityGroupRule
 
 class PortRange(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FROM_PORT_FIELD_NUMBER: builtins.int
     TO_PORT_FIELD_NUMBER: builtins.int
     from_port: builtins.int
     to_port: builtins.int
-    def __init__(self,
+    def __init__(
+        self,
         *,
         from_port: builtins.int = ...,
         to_port: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["from_port",b"from_port","to_port",b"to_port"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["from_port", b"from_port", "to_port", b"to_port"]) -> None: ...
+
 global___PortRange = PortRange
 
 class CidrBlocks(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     V4_CIDR_BLOCKS_FIELD_NUMBER: builtins.int
     V6_CIDR_BLOCKS_FIELD_NUMBER: builtins.int
     @property
-    def v4_cidr_blocks(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
+    def v4_cidr_blocks(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
-    def v6_cidr_blocks(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def v6_cidr_blocks(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        v4_cidr_blocks: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        v6_cidr_blocks: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["v4_cidr_blocks",b"v4_cidr_blocks","v6_cidr_blocks",b"v6_cidr_blocks"]) -> None: ...
+        v4_cidr_blocks: collections.abc.Iterable[builtins.str] | None = ...,
+        v6_cidr_blocks: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["v4_cidr_blocks", b"v4_cidr_blocks", "v6_cidr_blocks", b"v6_cidr_blocks"]) -> None: ...
+
 global___CidrBlocks = CidrBlocks

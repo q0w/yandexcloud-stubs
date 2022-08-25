@@ -9,35 +9,35 @@ import yandex.cloud.mdb.greenplum.v1.backup_service_pb2
 
 class BackupServiceStub:
     """A set of methods for managing backups."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.backup_service_pb2.GetBackupRequest,
-        yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup]
+        yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup,
+    ]
     """Returns the specified backup of Greenplum® cluster."""
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.greenplum.v1.backup_service_pb2.ListBackupsRequest,
-        yandex.cloud.mdb.greenplum.v1.backup_service_pb2.ListBackupsResponse]
+        yandex.cloud.mdb.greenplum.v1.backup_service_pb2.ListBackupsResponse,
+    ]
     """Returns the list of available backups for the specified Greenplum® cluster."""
-
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing backups."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.greenplum.v1.backup_service_pb2.GetBackupRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.greenplum.v1.backup_pb2.Backup:
         """Returns the specified backup of Greenplum® cluster."""
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.greenplum.v1.backup_service_pb2.ListBackupsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.greenplum.v1.backup_service_pb2.ListBackupsResponse:
         """Returns the list of available backups for the specified Greenplum® cluster."""
-        pass
-
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

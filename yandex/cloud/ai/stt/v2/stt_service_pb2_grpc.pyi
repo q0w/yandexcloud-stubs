@@ -3,8 +3,8 @@
 isort:skip_file
 """
 import abc
+import collections.abc
 import grpc
-import typing
 import yandex.cloud.ai.stt.v2.stt_service_pb2
 import yandex.cloud.operation.operation_pb2
 
@@ -12,25 +12,25 @@ class SttServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     LongRunningRecognize: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.ai.stt.v2.stt_service_pb2.LongRunningRecognitionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
-
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     StreamingRecognize: grpc.StreamStreamMultiCallable[
         yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionRequest,
-        yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionResponse]
-
+        yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionResponse,
+    ]
 
 class SttServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def LongRunningRecognize(self,
+    def LongRunningRecognize(
+        self,
         request: yandex.cloud.ai.stt.v2.stt_service_pb2.LongRunningRecognitionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation: ...
-
     @abc.abstractmethod
-    def StreamingRecognize(self,
-        request_iterator: typing.Iterator[yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionRequest],
+    def StreamingRecognize(
+        self,
+        request_iterator: collections.abc.Iterator[yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionRequest],
         context: grpc.ServicerContext,
-    ) -> typing.Iterator[yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionResponse]: ...
-
+    ) -> collections.abc.Iterator[yandex.cloud.ai.stt.v2.stt_service_pb2.StreamingRecognitionResponse]: ...
 
 def add_SttServiceServicer_to_server(servicer: SttServiceServicer, server: grpc.Server) -> None: ...

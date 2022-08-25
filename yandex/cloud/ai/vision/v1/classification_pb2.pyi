@@ -3,16 +3,22 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ClassAnnotation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PROPERTIES_FIELD_NUMBER: builtins.int
     @property
     def properties(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Property]:
@@ -21,28 +27,30 @@ class ClassAnnotation(google.protobuf.message.Message):
         For example, if you ask to evaluate the image quality,
         the service could return such properties as `good` and `bad`.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        properties: typing.Optional[typing.Iterable[global___Property]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["properties",b"properties"]) -> None: ...
+        properties: collections.abc.Iterable[global___Property] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["properties", b"properties"]) -> None: ...
+
 global___ClassAnnotation = ClassAnnotation
 
 class Property(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     PROBABILITY_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Property name."""
-
     probability: builtins.float
     """Probability of the property, from 0 to 1."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
+        name: builtins.str = ...,
         probability: builtins.float = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["name",b"name","probability",b"probability"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "probability", b"probability"]) -> None: ...
+
 global___Property = Property

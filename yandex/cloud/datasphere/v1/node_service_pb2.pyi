@@ -6,47 +6,53 @@ import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
 import google.protobuf.struct_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class NodeExecutionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NODE_ID_FIELD_NUMBER: builtins.int
     INPUT_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that will be matched with Node ACL."""
-
-    node_id: typing.Text
+    node_id: builtins.str
     """ID of the Node to perform request on."""
-
     @property
     def input(self) -> google.protobuf.struct_pb2.Struct:
         """Input data for the execution."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        node_id: typing.Text = ...,
-        input: typing.Optional[google.protobuf.struct_pb2.Struct] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["input",b"input"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","input",b"input","node_id",b"node_id"]) -> None: ...
+        folder_id: builtins.str = ...,
+        node_id: builtins.str = ...,
+        input: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["input", b"input"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "input", b"input", "node_id", b"node_id"]) -> None: ...
+
 global___NodeExecutionRequest = NodeExecutionRequest
 
 class NodeExecutionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OUTPUT_FIELD_NUMBER: builtins.int
     @property
     def output(self) -> google.protobuf.struct_pb2.Struct:
         """Result of the execution."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        output: typing.Optional[google.protobuf.struct_pb2.Struct] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["output",b"output"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["output",b"output"]) -> None: ...
+        output: google.protobuf.struct_pb2.Struct | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["output", b"output"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["output", b"output"]) -> None: ...
+
 global___NodeExecutionResponse = NodeExecutionResponse

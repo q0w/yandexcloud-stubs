@@ -3,40 +3,45 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class ResourcePreset(google.protobuf.message.Message):
     """A resource preset that describes hardware configuration for a host."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ID_FIELD_NUMBER: builtins.int
     ZONE_IDS_FIELD_NUMBER: builtins.int
     MEMORY_FIELD_NUMBER: builtins.int
     CORES_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the resource preset."""
-
     @property
-    def zone_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def zone_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """IDs of availability zones where the resource preset is available."""
-        pass
     memory: builtins.int
     """RAM volume for a Redis host created with the preset, in bytes."""
-
     cores: builtins.int
     """Number of CPU cores for a Redis host created with the preset."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        zone_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
+        id: builtins.str = ...,
+        zone_ids: collections.abc.Iterable[builtins.str] | None = ...,
         memory: builtins.int = ...,
         cores: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cores",b"cores","id",b"id","memory",b"memory","zone_ids",b"zone_ids"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cores", b"cores", "id", b"id", "memory", b"memory", "zone_ids", b"zone_ids"]) -> None: ...
+
 global___ResourcePreset = ResourcePreset

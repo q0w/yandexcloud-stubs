@@ -11,100 +11,103 @@ import yandex.cloud.operation.operation_pb2
 
 class SymmetricKeyServiceStub:
     """Set of methods for managing symmetric KMS keys."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.CreateSymmetricKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """--- control plane
 
     Creates a symmetric KMS key in the specified folder.
     """
-
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.GetSymmetricKeyRequest,
-        yandex.cloud.kms.v1.symmetric_key_pb2.SymmetricKey]
+        yandex.cloud.kms.v1.symmetric_key_pb2.SymmetricKey,
+    ]
     """Returns the specified symmetric KMS key.
 
      To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeysRequest,
-        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeysResponse]
+        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeysResponse,
+    ]
     """Returns the list of symmetric KMS keys in the specified folder."""
-
     ListVersions: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyVersionsRequest,
-        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyVersionsResponse]
+        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyVersionsResponse,
+    ]
     """Returns the list of versions of the specified symmetric KMS key."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.UpdateSymmetricKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified symmetric KMS key."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.DeleteSymmetricKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified symmetric KMS key. This action also automatically schedules
     the destruction of all of the key's versions in 72 hours.
 
     The key and its versions appear absent in [SymmetricKeyService.Get] and [SymmetricKeyService.List]
     requests, but can be restored within 72 hours with a request to tech support.
     """
-
     SetPrimaryVersion: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.SetPrimarySymmetricKeyVersionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets the primary version for the specified key. The primary version is used
     by default for all encrypt/decrypt operations where no version ID is specified.
     """
-
     ScheduleVersionDestruction: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.ScheduleSymmetricKeyVersionDestructionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Schedules the specified key version for destruction.
 
     Scheduled destruction can be cancelled with the [SymmetricKeyService.CancelVersionDestruction] method.
     """
-
     CancelVersionDestruction: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.CancelSymmetricKeyVersionDestructionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Cancels previously scheduled version destruction, if the version hasn't been destroyed yet."""
-
     Rotate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.RotateSymmetricKeyRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Rotates the specified key: creates a new key version and makes it the primary version.
     The old version remains available for decryption of ciphertext encrypted with it.
     """
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyOperationsRequest,
-        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyOperationsResponse]
+        yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyOperationsResponse,
+    ]
     """Lists operations for the specified symmetric KMS key."""
-
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
-        yandex.cloud.access.access_pb2.ListAccessBindingsResponse]
+        yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
+    ]
     """Lists existing access bindings for the specified key."""
-
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Sets access bindings for the key."""
-
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates access bindings for the specified key."""
-
 
 class SymmetricKeyServiceServicer(metaclass=abc.ABCMeta):
     """Set of methods for managing symmetric KMS keys."""
+
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.CreateSymmetricKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -112,10 +115,9 @@ class SymmetricKeyServiceServicer(metaclass=abc.ABCMeta):
 
         Creates a symmetric KMS key in the specified folder.
         """
-        pass
-
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.GetSymmetricKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_key_pb2.SymmetricKey:
@@ -123,34 +125,30 @@ class SymmetricKeyServiceServicer(metaclass=abc.ABCMeta):
 
          To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeysRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeysResponse:
         """Returns the list of symmetric KMS keys in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def ListVersions(self,
+    def ListVersions(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyVersionsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyVersionsResponse:
         """Returns the list of versions of the specified symmetric KMS key."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.UpdateSymmetricKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified symmetric KMS key."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.DeleteSymmetricKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -160,20 +158,18 @@ class SymmetricKeyServiceServicer(metaclass=abc.ABCMeta):
         The key and its versions appear absent in [SymmetricKeyService.Get] and [SymmetricKeyService.List]
         requests, but can be restored within 72 hours with a request to tech support.
         """
-        pass
-
     @abc.abstractmethod
-    def SetPrimaryVersion(self,
+    def SetPrimaryVersion(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.SetPrimarySymmetricKeyVersionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets the primary version for the specified key. The primary version is used
         by default for all encrypt/decrypt operations where no version ID is specified.
         """
-        pass
-
     @abc.abstractmethod
-    def ScheduleVersionDestruction(self,
+    def ScheduleVersionDestruction(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.ScheduleSymmetricKeyVersionDestructionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
@@ -181,57 +177,49 @@ class SymmetricKeyServiceServicer(metaclass=abc.ABCMeta):
 
         Scheduled destruction can be cancelled with the [SymmetricKeyService.CancelVersionDestruction] method.
         """
-        pass
-
     @abc.abstractmethod
-    def CancelVersionDestruction(self,
+    def CancelVersionDestruction(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.CancelSymmetricKeyVersionDestructionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Cancels previously scheduled version destruction, if the version hasn't been destroyed yet."""
-        pass
-
     @abc.abstractmethod
-    def Rotate(self,
+    def Rotate(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.RotateSymmetricKeyRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Rotates the specified key: creates a new key version and makes it the primary version.
         The old version remains available for decryption of ciphertext encrypted with it.
         """
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.kms.v1.symmetric_key_service_pb2.ListSymmetricKeyOperationsResponse:
         """Lists operations for the specified symmetric KMS key."""
-        pass
-
     @abc.abstractmethod
-    def ListAccessBindings(self,
+    def ListAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
         """Lists existing access bindings for the specified key."""
-        pass
-
     @abc.abstractmethod
-    def SetAccessBindings(self,
+    def SetAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Sets access bindings for the key."""
-        pass
-
     @abc.abstractmethod
-    def UpdateAccessBindings(self,
+    def UpdateAccessBindings(
+        self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates access bindings for the specified key."""
-        pass
-
 
 def add_SymmetricKeyServiceServicer_to_server(servicer: SymmetricKeyServiceServicer, server: grpc.Server) -> None: ...

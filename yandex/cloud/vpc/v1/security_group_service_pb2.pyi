@@ -3,79 +3,96 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
+import sys
 import typing
-import typing_extensions
 import yandex.cloud.operation.operation_pb2
 import yandex.cloud.vpc.v1.security_group_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["security_group_id", b"security_group_id"]) -> None: ...
+
 global___GetSecurityGroupRequest = GetSecurityGroupRequest
 
 class ListSecurityGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     page_size: builtins.int
-    page_token: typing.Text
-    filter: typing.Text
+    page_token: builtins.str
+    filter: builtins.str
     """filter by network_id is here"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListSecurityGroupsRequest = ListSecurityGroupsRequest
 
 class ListSecurityGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def security_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup]: ...
-    next_page_token: typing.Text
-    def __init__(self,
+    next_page_token: builtins.str
+    def __init__(
+        self,
         *,
-        security_groups: typing.Optional[typing.Iterable[yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","security_groups",b"security_groups"]) -> None: ...
+        security_groups: collections.abc.Iterable[yandex.cloud.vpc.v1.security_group_pb2.SecurityGroup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "security_groups", b"security_groups"]) -> None: ...
+
 global___ListSecurityGroupsResponse = ListSecurityGroupsResponse
 
 class CreateSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -83,40 +100,45 @@ class CreateSecurityGroupRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     NETWORK_ID_FIELD_NUMBER: builtins.int
     RULE_SPECS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
-    name: typing.Text
-    description: typing.Text
+    folder_id: builtins.str
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    network_id: typing.Text
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    network_id: builtins.str
     @property
     def rule_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SecurityGroupRuleSpec]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        network_id: typing.Text = ...,
-        rule_specs: typing.Optional[typing.Iterable[global___SecurityGroupRuleSpec]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","folder_id",b"folder_id","labels",b"labels","name",b"name","network_id",b"network_id","rule_specs",b"rule_specs"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        network_id: builtins.str = ...,
+        rule_specs: collections.abc.Iterable[global___SecurityGroupRuleSpec] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "network_id", b"network_id", "rule_specs", b"rule_specs"]) -> None: ...
+
 global___CreateSecurityGroupRequest = CreateSecurityGroupRequest
 
 class SecurityGroupRuleSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
@@ -127,67 +149,73 @@ class SecurityGroupRuleSpec(google.protobuf.message.Message):
     CIDR_BLOCKS_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     PREDEFINED_TARGET_FIELD_NUMBER: builtins.int
-    description: typing.Text
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     direction: yandex.cloud.vpc.v1.security_group_pb2.SecurityGroupRule.Direction.ValueType
     @property
     def ports(self) -> yandex.cloud.vpc.v1.security_group_pb2.PortRange:
         """null value means any port"""
-        pass
-    protocol_name: typing.Text
+    protocol_name: builtins.str
     protocol_number: builtins.int
     @property
     def cidr_blocks(self) -> yandex.cloud.vpc.v1.security_group_pb2.CidrBlocks: ...
-    security_group_id: typing.Text
-    predefined_target: typing.Text
+    security_group_id: builtins.str
+    predefined_target: builtins.str
     """string subnet_id = .. ;"""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         direction: yandex.cloud.vpc.v1.security_group_pb2.SecurityGroupRule.Direction.ValueType = ...,
-        ports: typing.Optional[yandex.cloud.vpc.v1.security_group_pb2.PortRange] = ...,
-        protocol_name: typing.Text = ...,
+        ports: yandex.cloud.vpc.v1.security_group_pb2.PortRange | None = ...,
+        protocol_name: builtins.str = ...,
         protocol_number: builtins.int = ...,
-        cidr_blocks: typing.Optional[yandex.cloud.vpc.v1.security_group_pb2.CidrBlocks] = ...,
-        security_group_id: typing.Text = ...,
-        predefined_target: typing.Text = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["cidr_blocks",b"cidr_blocks","ports",b"ports","predefined_target",b"predefined_target","protocol",b"protocol","protocol_name",b"protocol_name","protocol_number",b"protocol_number","security_group_id",b"security_group_id","target",b"target"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cidr_blocks",b"cidr_blocks","description",b"description","direction",b"direction","labels",b"labels","ports",b"ports","predefined_target",b"predefined_target","protocol",b"protocol","protocol_name",b"protocol_name","protocol_number",b"protocol_number","security_group_id",b"security_group_id","target",b"target"]) -> None: ...
+        cidr_blocks: yandex.cloud.vpc.v1.security_group_pb2.CidrBlocks | None = ...,
+        security_group_id: builtins.str = ...,
+        predefined_target: builtins.str = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["cidr_blocks", b"cidr_blocks", "ports", b"ports", "predefined_target", b"predefined_target", "protocol", b"protocol", "protocol_name", b"protocol_name", "protocol_number", b"protocol_number", "security_group_id", b"security_group_id", "target", b"target"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cidr_blocks", b"cidr_blocks", "description", b"description", "direction", b"direction", "labels", b"labels", "ports", b"ports", "predefined_target", b"predefined_target", "protocol", b"protocol", "protocol_name", b"protocol_name", "protocol_number", b"protocol_number", "security_group_id", b"security_group_id", "target", b"target"]) -> None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["protocol",b"protocol"]) -> typing.Optional[typing_extensions.Literal["protocol_name","protocol_number"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["protocol", b"protocol"]) -> typing_extensions.Literal["protocol_name", "protocol_number"] | None: ...
     @typing.overload
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["target",b"target"]) -> typing.Optional[typing_extensions.Literal["cidr_blocks","security_group_id","predefined_target"]]: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["target", b"target"]) -> typing_extensions.Literal["cidr_blocks", "security_group_id", "predefined_target"] | None: ...
+
 global___SecurityGroupRuleSpec = SecurityGroupRuleSpec
 
 class CreateSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["security_group_id", b"security_group_id"]) -> None: ...
+
 global___CreateSecurityGroupMetadata = CreateSecurityGroupMetadata
 
 class UpdateSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
@@ -195,194 +223,226 @@ class UpdateSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     RULE_SPECS_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
+    security_group_id: builtins.str
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask: ...
-    name: typing.Text
-    description: typing.Text
+    name: builtins.str
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
     def rule_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SecurityGroupRuleSpec]:
         """all existing rules will be replaced with given list"""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        rule_specs: typing.Optional[typing.Iterable[global___SecurityGroupRuleSpec]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","rule_specs",b"rule_specs","security_group_id",b"security_group_id","update_mask",b"update_mask"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        rule_specs: collections.abc.Iterable[global___SecurityGroupRuleSpec] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "rule_specs", b"rule_specs", "security_group_id", b"security_group_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateSecurityGroupRequest = UpdateSecurityGroupRequest
 
 class UpdateSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     ADDED_RULE_IDS_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
+    security_group_id: builtins.str
     @property
-    def added_rule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]: ...
-    def __init__(self,
+    def added_rule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        added_rule_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["added_rule_ids",b"added_rule_ids","security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        added_rule_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["added_rule_ids", b"added_rule_ids", "security_group_id", b"security_group_id"]) -> None: ...
+
 global___UpdateSecurityGroupMetadata = UpdateSecurityGroupMetadata
 
 class UpdateSecurityGroupRulesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     DELETION_RULE_IDS_FIELD_NUMBER: builtins.int
     ADDITION_RULE_SPECS_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
+    security_group_id: builtins.str
     @property
-    def deletion_rule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def deletion_rule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """list of rules ids to delete"""
-        pass
     @property
     def addition_rule_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___SecurityGroupRuleSpec]: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        deletion_rule_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        addition_rule_specs: typing.Optional[typing.Iterable[global___SecurityGroupRuleSpec]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["addition_rule_specs",b"addition_rule_specs","deletion_rule_ids",b"deletion_rule_ids","security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        deletion_rule_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        addition_rule_specs: collections.abc.Iterable[global___SecurityGroupRuleSpec] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["addition_rule_specs", b"addition_rule_specs", "deletion_rule_ids", b"deletion_rule_ids", "security_group_id", b"security_group_id"]) -> None: ...
+
 global___UpdateSecurityGroupRulesRequest = UpdateSecurityGroupRulesRequest
 
 class UpdateSecurityGroupRuleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     RULE_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    rule_id: typing.Text
+    security_group_id: builtins.str
+    rule_id: builtins.str
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask: ...
-    description: typing.Text
+    description: builtins.str
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]: ...
-    def __init__(self,
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        rule_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","rule_id",b"rule_id","security_group_id",b"security_group_id","update_mask",b"update_mask"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        rule_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "rule_id", b"rule_id", "security_group_id", b"security_group_id", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateSecurityGroupRuleRequest = UpdateSecurityGroupRuleRequest
 
 class UpdateSecurityGroupRuleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     RULE_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    rule_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    rule_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        rule_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["rule_id",b"rule_id","security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        rule_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["rule_id", b"rule_id", "security_group_id", b"security_group_id"]) -> None: ...
+
 global___UpdateSecurityGroupRuleMetadata = UpdateSecurityGroupRuleMetadata
 
 class DeleteSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["security_group_id", b"security_group_id"]) -> None: ...
+
 global___DeleteSecurityGroupRequest = DeleteSecurityGroupRequest
 
 class DeleteSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["security_group_id", b"security_group_id"]) -> None: ...
+
 global___DeleteSecurityGroupMetadata = DeleteSecurityGroupMetadata
 
 class ListSecurityGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
+    security_group_id: builtins.str
     page_size: builtins.int
-    page_token: typing.Text
-    def __init__(self,
+    page_token: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
+        security_group_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["page_size",b"page_size","page_token",b"page_token","security_group_id",b"security_group_id"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["page_size", b"page_size", "page_token", b"page_token", "security_group_id", b"security_group_id"]) -> None: ...
+
 global___ListSecurityGroupOperationsRequest = ListSecurityGroupOperationsRequest
 
 class ListSecurityGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]: ...
-    next_page_token: typing.Text
-    def __init__(self,
+    next_page_token: builtins.str
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListSecurityGroupOperationsResponse = ListSecurityGroupOperationsResponse
 
 class MoveSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
     DESTINATION_FOLDER_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    destination_folder_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    destination_folder_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        destination_folder_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["destination_folder_id",b"destination_folder_id","security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+        destination_folder_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destination_folder_id", b"destination_folder_id", "security_group_id", b"security_group_id"]) -> None: ...
+
 global___MoveSecurityGroupRequest = MoveSecurityGroupRequest
 
 class MoveSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECURITY_GROUP_ID_FIELD_NUMBER: builtins.int
-    security_group_id: typing.Text
-    def __init__(self,
+    security_group_id: builtins.str
+    def __init__(
+        self,
         *,
-        security_group_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["security_group_id",b"security_group_id"]) -> None: ...
+        security_group_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["security_group_id", b"security_group_id"]) -> None: ...
+
 global___MoveSecurityGroupMetadata = MoveSecurityGroupMetadata

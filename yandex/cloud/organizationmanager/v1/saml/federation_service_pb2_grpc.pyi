@@ -10,55 +10,58 @@ import yandex.cloud.organizationmanager.v1.saml.federation_service_pb2
 
 class FederationServiceStub:
     """A set of methods for managing federations."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.GetFederationRequest,
-        yandex.cloud.organizationmanager.v1.saml.federation_pb2.Federation]
+        yandex.cloud.organizationmanager.v1.saml.federation_pb2.Federation,
+    ]
     """Returns the specified federation.
 
     To get the list of available federations, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationsRequest,
-        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationsResponse]
+        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationsResponse,
+    ]
     """Retrieves the list of federations in the specified organization."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.CreateFederationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a federation in the specified organization."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.UpdateFederationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified federation."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.DeleteFederationRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified federation."""
-
     AddUserAccounts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.AddFederatedUserAccountsRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Adds users to the specified federation."""
-
     ListUserAccounts: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederatedUserAccountsRequest,
-        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederatedUserAccountsResponse]
+        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederatedUserAccountsResponse,
+    ]
     """Lists users for the specified federation."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationOperationsRequest,
-        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationOperationsResponse]
+        yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationOperationsResponse,
+    ]
     """Lists operations for the specified federation."""
-
 
 class FederationServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing federations."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.GetFederationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.saml.federation_pb2.Federation:
@@ -66,63 +69,54 @@ class FederationServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available federations, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationsResponse:
         """Retrieves the list of federations in the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.CreateFederationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a federation in the specified organization."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.UpdateFederationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified federation."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.DeleteFederationRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified federation."""
-        pass
-
     @abc.abstractmethod
-    def AddUserAccounts(self,
+    def AddUserAccounts(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.AddFederatedUserAccountsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Adds users to the specified federation."""
-        pass
-
     @abc.abstractmethod
-    def ListUserAccounts(self,
+    def ListUserAccounts(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederatedUserAccountsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederatedUserAccountsResponse:
         """Lists users for the specified federation."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.organizationmanager.v1.saml.federation_service_pb2.ListFederationOperationsResponse:
         """Lists operations for the specified federation."""
-        pass
-
 
 def add_FederationServiceServicer_to_server(servicer: FederationServiceServicer, server: grpc.Server) -> None: ...

@@ -10,50 +10,53 @@ import yandex.cloud.operation.operation_pb2
 
 class UserServiceStub:
     """A set of methods for managing SQL Server users."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.GetUserRequest,
-        yandex.cloud.mdb.sqlserver.v1.user_pb2.User]
+        yandex.cloud.mdb.sqlserver.v1.user_pb2.User,
+    ]
     """Returns the specified SQL Server user.
 
     To get the list of available SQL Server users, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.ListUsersRequest,
-        yandex.cloud.mdb.sqlserver.v1.user_service_pb2.ListUsersResponse]
+        yandex.cloud.mdb.sqlserver.v1.user_service_pb2.ListUsersResponse,
+    ]
     """Retrieves a list of SQL Server users in the specified cluster."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.CreateUserRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates an SQL Server user in the specified cluster."""
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.UpdateUserRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Modifies the specified SQL Server user."""
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.DeleteUserRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified SQL Server user."""
-
     GrantPermission: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.GrantUserPermissionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Grants a permission to the specified SQL Server user."""
-
     RevokePermission: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.mdb.sqlserver.v1.user_service_pb2.RevokeUserPermissionRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Revokes a permission from the specified SQL Server user."""
-
 
 class UserServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing SQL Server users."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.GetUserRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.sqlserver.v1.user_pb2.User:
@@ -61,55 +64,47 @@ class UserServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available SQL Server users, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.ListUsersRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.sqlserver.v1.user_service_pb2.ListUsersResponse:
         """Retrieves a list of SQL Server users in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.CreateUserRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates an SQL Server user in the specified cluster."""
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.UpdateUserRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Modifies the specified SQL Server user."""
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.DeleteUserRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified SQL Server user."""
-        pass
-
     @abc.abstractmethod
-    def GrantPermission(self,
+    def GrantPermission(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.GrantUserPermissionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Grants a permission to the specified SQL Server user."""
-        pass
-
     @abc.abstractmethod
-    def RevokePermission(self,
+    def RevokePermission(
+        self,
         request: yandex.cloud.mdb.sqlserver.v1.user_service_pb2.RevokeUserPermissionRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Revokes a permission from the specified SQL Server user."""
-        pass
-
 
 def add_UserServiceServicer_to_server(servicer: UserServiceServicer, server: grpc.Server) -> None: ...

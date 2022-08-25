@@ -3,35 +3,43 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.operation.operation_pb2
 import yandex.cloud.resourcemanager.v1.cloud_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLOUD_ID_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
+    cloud_id: builtins.str
     """ID of the Cloud resource to return.
     To get the cloud ID, use a [CloudService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id"]) -> None: ...
+        cloud_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id"]) -> None: ...
+
 global___GetCloudRequest = GetCloudRequest
 
 class ListCloudsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
@@ -43,45 +51,43 @@ class ListCloudsRequest(google.protobuf.message.Message):
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set [page_token]
     to the [ListCloudsResponse.next_page_token]
     returned by a previous list request to get the next page of results.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     The expression must specify:
     1. The field name. Currently you can use filtering only on the [Cloud.name] field.
     2. An `=` operator.
     3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
     """
-
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the organization to list clouds in.
     To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        organization_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["filter",b"filter","organization_id",b"organization_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+        organization_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "organization_id", b"organization_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListCloudsRequest = ListCloudsRequest
 
 class ListCloudsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLOUDS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def clouds(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud]:
         """List of Cloud resources."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListCloudsRequest.page_size], use
     the [next_page_token] as the value
@@ -89,198 +95,205 @@ class ListCloudsResponse(google.protobuf.message.Message):
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        clouds: typing.Optional[typing.Iterable[yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["clouds",b"clouds","next_page_token",b"next_page_token"]) -> None: ...
+        clouds: collections.abc.Iterable[yandex.cloud.resourcemanager.v1.cloud_pb2.Cloud] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["clouds", b"clouds", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListCloudsResponse = ListCloudsResponse
 
 class CreateCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ORGANIZATION_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    organization_id: typing.Text
+    organization_id: builtins.str
     """ID of the organization to create a cloud in.
     To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the cloud."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the cloud."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        organization_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","labels",b"labels","name",b"name","organization_id",b"organization_id"]) -> None: ...
+        organization_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "labels", b"labels", "name", b"name", "organization_id", b"organization_id"]) -> None: ...
+
 global___CreateCloudRequest = CreateCloudRequest
 
 class CreateCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLOUD_ID_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
-    """ID of the cloud that is being created."""
 
-    def __init__(self,
+    CLOUD_ID_FIELD_NUMBER: builtins.int
+    cloud_id: builtins.str
+    """ID of the cloud that is being created."""
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id"]) -> None: ...
+        cloud_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id"]) -> None: ...
+
 global___CreateCloudMetadata = CreateCloudMetadata
 
 class ListCloudOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLOUD_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
+    cloud_id: builtins.str
     """ID of the Cloud resource to list operations for."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size], the service returns a [ListCloudOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Acceptable values are 0 to 1000, inclusive. Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. Set [page_token]
     to the [ListCloudOperationsResponse.next_page_token]
     returned by a previous list request to get the next page of results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
+        cloud_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListCloudOperationsRequest = ListCloudOperationsRequest
 
 class ListCloudOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified cloud."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """This token allows you to get the next page of results for list requests. If the number of results
     is larger than [ListCloudOperationsRequest.page_size], use the [next_page_token] as the value
     for the [ListCloudOperationsRequest.page_token] query parameter in the next list request.
     Each subsequent list request will have its own [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListCloudOperationsResponse = ListCloudOperationsResponse
 
 class UpdateCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     CLOUD_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
+    cloud_id: builtins.str
     """ID of the cloud to update.
     To get the cloud ID, use a [CloudService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the cloud are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the cloud."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the cloud."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Resource labels as `` key:value `` pairs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id","description",b"description","labels",b"labels","name",b"name","update_mask",b"update_mask"]) -> None: ...
+        cloud_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id", "description", b"description", "labels", b"labels", "name", b"name", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateCloudRequest = UpdateCloudRequest
 
 class UpdateCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    CLOUD_ID_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
-    """ID of the cloud that is being updated."""
 
-    def __init__(self,
+    CLOUD_ID_FIELD_NUMBER: builtins.int
+    cloud_id: builtins.str
+    """ID of the cloud that is being updated."""
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id"]) -> None: ...
+        cloud_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id"]) -> None: ...
+
 global___UpdateCloudMetadata = UpdateCloudMetadata
 
 class DeleteCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLOUD_ID_FIELD_NUMBER: builtins.int
     DELETE_AFTER_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
+    cloud_id: builtins.str
     """ID of the cloud to delete.
     To get the cloud ID, use a [CloudService.List] request.
     """
-
     @property
     def delete_after(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp after which the process of deleting the cloud should begin.
@@ -290,32 +303,34 @@ class DeleteCloudRequest(google.protobuf.message.Message):
         all the resources  of the cloud will be started. If [delete_after] is not specified it will be
         (now + 24 hours). To initiate an immediate deletion [delete_after] must be <= now.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        delete_after: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["delete_after",b"delete_after"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id","delete_after",b"delete_after"]) -> None: ...
+        cloud_id: builtins.str = ...,
+        delete_after: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["delete_after", b"delete_after"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id", "delete_after", b"delete_after"]) -> None: ...
+
 global___DeleteCloudRequest = DeleteCloudRequest
 
 class DeleteCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CLOUD_ID_FIELD_NUMBER: builtins.int
     DELETE_AFTER_FIELD_NUMBER: builtins.int
-    cloud_id: typing.Text
+    cloud_id: builtins.str
     """ID of the cloud that is being deleted."""
-
     @property
     def delete_after(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """The timestamp after which the process of deleting the cloud should begin."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        cloud_id: typing.Text = ...,
-        delete_after: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["delete_after",b"delete_after"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cloud_id",b"cloud_id","delete_after",b"delete_after"]) -> None: ...
+        cloud_id: builtins.str = ...,
+        delete_after: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["delete_after", b"delete_after"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cloud_id", b"cloud_id", "delete_after", b"delete_after"]) -> None: ...
+
 global___DeleteCloudMetadata = DeleteCloudMetadata

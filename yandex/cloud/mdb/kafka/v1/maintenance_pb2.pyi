@@ -7,41 +7,54 @@ import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
+import sys
 import typing
-import typing_extensions
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class MaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ANYTIME_FIELD_NUMBER: builtins.int
     WEEKLY_MAINTENANCE_WINDOW_FIELD_NUMBER: builtins.int
     @property
     def anytime(self) -> global___AnytimeMaintenanceWindow: ...
     @property
     def weekly_maintenance_window(self) -> global___WeeklyMaintenanceWindow: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        anytime: typing.Optional[global___AnytimeMaintenanceWindow] = ...,
-        weekly_maintenance_window: typing.Optional[global___WeeklyMaintenanceWindow] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["anytime",b"anytime","policy",b"policy","weekly_maintenance_window",b"weekly_maintenance_window"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["anytime",b"anytime","policy",b"policy","weekly_maintenance_window",b"weekly_maintenance_window"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["policy",b"policy"]) -> typing.Optional[typing_extensions.Literal["anytime","weekly_maintenance_window"]]: ...
+        anytime: global___AnytimeMaintenanceWindow | None = ...,
+        weekly_maintenance_window: global___WeeklyMaintenanceWindow | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["anytime", b"anytime", "policy", b"policy", "weekly_maintenance_window", b"weekly_maintenance_window"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["anytime", b"anytime", "policy", b"policy", "weekly_maintenance_window", b"weekly_maintenance_window"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["policy", b"policy"]) -> typing_extensions.Literal["anytime", "weekly_maintenance_window"] | None: ...
+
 global___MaintenanceWindow = MaintenanceWindow
 
 class AnytimeMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___AnytimeMaintenanceWindow = AnytimeMaintenanceWindow
 
 class WeeklyMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class _WeekDay:
-        ValueType = typing.NewType('ValueType', builtins.int)
+        ValueType = typing.NewType("ValueType", builtins.int)
         V: typing_extensions.TypeAlias = ValueType
-    class _WeekDayEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[WeeklyMaintenanceWindow._WeekDay.ValueType], builtins.type):
+
+    class _WeekDayEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[WeeklyMaintenanceWindow._WeekDay.ValueType], builtins.type):  # noqa: F821
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         WEEK_DAY_UNSPECIFIED: WeeklyMaintenanceWindow._WeekDay.ValueType  # 0
         MON: WeeklyMaintenanceWindow._WeekDay.ValueType  # 1
@@ -51,9 +64,8 @@ class WeeklyMaintenanceWindow(google.protobuf.message.Message):
         FRI: WeeklyMaintenanceWindow._WeekDay.ValueType  # 5
         SAT: WeeklyMaintenanceWindow._WeekDay.ValueType  # 6
         SUN: WeeklyMaintenanceWindow._WeekDay.ValueType  # 7
-    class WeekDay(_WeekDay, metaclass=_WeekDayEnumTypeWrapper):
-        pass
 
+    class WeekDay(_WeekDay, metaclass=_WeekDayEnumTypeWrapper): ...
     WEEK_DAY_UNSPECIFIED: WeeklyMaintenanceWindow.WeekDay.ValueType  # 0
     MON: WeeklyMaintenanceWindow.WeekDay.ValueType  # 1
     TUE: WeeklyMaintenanceWindow.WeekDay.ValueType  # 2
@@ -68,27 +80,31 @@ class WeeklyMaintenanceWindow(google.protobuf.message.Message):
     day: global___WeeklyMaintenanceWindow.WeekDay.ValueType
     hour: builtins.int
     """Hour of the day in UTC."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         day: global___WeeklyMaintenanceWindow.WeekDay.ValueType = ...,
         hour: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["day",b"day","hour",b"hour"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["day", b"day", "hour", b"hour"]) -> None: ...
+
 global___WeeklyMaintenanceWindow = WeeklyMaintenanceWindow
 
 class MaintenanceOperation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     INFO_FIELD_NUMBER: builtins.int
     DELAYED_UNTIL_FIELD_NUMBER: builtins.int
-    info: typing.Text
+    info: builtins.str
     @property
     def delayed_until(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        info: typing.Text = ...,
-        delayed_until: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["delayed_until",b"delayed_until"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["delayed_until",b"delayed_until","info",b"info"]) -> None: ...
+        info: builtins.str = ...,
+        delayed_until: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["delayed_until", b"delayed_until"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["delayed_until", b"delayed_until", "info", b"info"]) -> None: ...
+
 global___MaintenanceOperation = MaintenanceOperation

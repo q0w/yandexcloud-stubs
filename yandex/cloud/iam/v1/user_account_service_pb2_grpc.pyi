@@ -9,22 +9,23 @@ import yandex.cloud.iam.v1.user_account_service_pb2
 
 class UserAccountServiceStub:
     """A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport)."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.iam.v1.user_account_service_pb2.GetUserAccountRequest,
-        yandex.cloud.iam.v1.user_account_pb2.UserAccount]
+        yandex.cloud.iam.v1.user_account_pb2.UserAccount,
+    ]
     """Returns the specified UserAccount resource."""
-
 
 class UserAccountServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport)."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.iam.v1.user_account_service_pb2.GetUserAccountRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iam.v1.user_account_pb2.UserAccount:
         """Returns the specified UserAccount resource."""
-        pass
-
 
 def add_UserAccountServiceServicer_to_server(servicer: UserAccountServiceServicer, server: grpc.Server) -> None: ...

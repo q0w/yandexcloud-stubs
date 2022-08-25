@@ -5,25 +5,30 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetPayloadRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     SECRET_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
-    secret_id: typing.Text
+    secret_id: builtins.str
     """ID of the secret."""
-
-    version_id: typing.Text
+    version_id: builtins.str
     """Optional ID of the version."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        secret_id: typing.Text = ...,
-        version_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["secret_id",b"secret_id","version_id",b"version_id"]) -> None: ...
+        secret_id: builtins.str = ...,
+        version_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["secret_id", b"secret_id", "version_id", b"version_id"]) -> None: ...
+
 global___GetPayloadRequest = GetPayloadRequest

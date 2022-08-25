@@ -3,19 +3,25 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.rpc.status_pb2
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.logging.v1.log_entry_pb2
 import yandex.cloud.logging.v1.log_resource_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class WriteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DESTINATION_FIELD_NUMBER: builtins.int
     RESOURCE_FIELD_NUMBER: builtins.int
     ENTRIES_FIELD_NUMBER: builtins.int
@@ -26,49 +32,50 @@ class WriteRequest(google.protobuf.message.Message):
 
         See [Destination] for details.
         """
-        pass
     @property
     def resource(self) -> yandex.cloud.logging.v1.log_resource_pb2.LogEntryResource:
         """Common resource (type, ID) specification for log entries."""
-        pass
     @property
     def entries(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.logging.v1.log_entry_pb2.IncomingLogEntry]:
         """List of log entries."""
-        pass
     @property
     def defaults(self) -> yandex.cloud.logging.v1.log_entry_pb2.LogEntryDefaults:
         """Log entries defaults.
 
         See [LogEntryDefaults] for details.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        destination: typing.Optional[yandex.cloud.logging.v1.log_entry_pb2.Destination] = ...,
-        resource: typing.Optional[yandex.cloud.logging.v1.log_resource_pb2.LogEntryResource] = ...,
-        entries: typing.Optional[typing.Iterable[yandex.cloud.logging.v1.log_entry_pb2.IncomingLogEntry]] = ...,
-        defaults: typing.Optional[yandex.cloud.logging.v1.log_entry_pb2.LogEntryDefaults] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["defaults",b"defaults","destination",b"destination","resource",b"resource"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["defaults",b"defaults","destination",b"destination","entries",b"entries","resource",b"resource"]) -> None: ...
+        destination: yandex.cloud.logging.v1.log_entry_pb2.Destination | None = ...,
+        resource: yandex.cloud.logging.v1.log_resource_pb2.LogEntryResource | None = ...,
+        entries: collections.abc.Iterable[yandex.cloud.logging.v1.log_entry_pb2.IncomingLogEntry] | None = ...,
+        defaults: yandex.cloud.logging.v1.log_entry_pb2.LogEntryDefaults | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["defaults", b"defaults", "destination", b"destination", "resource", b"resource"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["defaults", b"defaults", "destination", b"destination", "entries", b"entries", "resource", b"resource"]) -> None: ...
+
 global___WriteRequest = WriteRequest
 
 class WriteResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class ErrorsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
         key: builtins.int
         @property
         def value(self) -> google.rpc.status_pb2.Status: ...
-        def __init__(self,
+        def __init__(
+            self,
             *,
             key: builtins.int = ...,
-            value: typing.Optional[google.rpc.status_pb2.Status] = ...,
-            ) -> None: ...
-        def HasField(self, field_name: typing_extensions.Literal["value",b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            value: google.rpc.status_pb2.Status | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ERRORS_FIELD_NUMBER: builtins.int
     @property
@@ -77,10 +84,11 @@ class WriteResponse(google.protobuf.message.Message):
 
         If entry with idx N is absent, it was ingested successfully.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        errors: typing.Optional[typing.Mapping[builtins.int, google.rpc.status_pb2.Status]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["errors",b"errors"]) -> None: ...
+        errors: collections.abc.Mapping[builtins.int, google.rpc.status_pb2.Status] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["errors", b"errors"]) -> None: ...
+
 global___WriteResponse = WriteResponse

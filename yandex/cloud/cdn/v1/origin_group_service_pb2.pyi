@@ -3,104 +3,110 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.wrappers_pb2
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.cdn.v1.origin_group_pb2
 import yandex.cloud.cdn.v1.origin_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetOriginGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the origin group belongs to."""
-
     origin_group_id: builtins.int
     """ID of the origin group to return.
 
     To get a origin group ID, make a [OriginGroupService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         origin_group_id: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","origin_group_id",b"origin_group_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "origin_group_id", b"origin_group_id"]) -> None: ...
+
 global___GetOriginGroupRequest = GetOriginGroupRequest
 
 class ListOriginGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the origin group belongs to.."""
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than [page_size],
     the service returns a [ListOriginGroupsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results,
     set [page_token] to the [ListOriginGroupsResponse.next_page_token]
     returned by a previous list request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListOriginGroupsRequest = ListOriginGroupsRequest
 
 class ListOriginGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORIGIN_GROUPS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def origin_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.cdn.v1.origin_group_pb2.OriginGroup]:
         """List of all Origin Groups associated with folder."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """[next_page_token] token allows you to get the next page of results for list requests.
     If the number of results is larger than [ListOriginGroupsRequest.page_size], use
     the [next_page_token] as the value for the [ListOriginGroupsRequest.page_token] query parameter
     in the next list request. Each subsequent list request will have its own
     [next_page_token] to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        origin_groups: typing.Optional[typing.Iterable[yandex.cloud.cdn.v1.origin_group_pb2.OriginGroup]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","origin_groups",b"origin_groups"]) -> None: ...
+        origin_groups: collections.abc.Iterable[yandex.cloud.cdn.v1.origin_group_pb2.OriginGroup] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "origin_groups", b"origin_groups"]) -> None: ...
+
 global___ListOriginGroupsResponse = ListOriginGroupsResponse
 
 class CreateOriginGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     USE_NEXT_FIELD_NUMBER: builtins.int
     ORIGINS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the origin group belongs to."""
-
-    name: typing.Text
+    name: builtins.str
     """Name of the origin group."""
-
     @property
     def use_next(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """This option have two possible conditions:
@@ -110,54 +116,54 @@ class CreateOriginGroupRequest(google.protobuf.message.Message):
 
          default value is true
         """
-        pass
     @property
     def origins(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.cdn.v1.origin_pb2.OriginParams]:
         """List of origins: IP addresses or Domain names of your origins and the port
         (if custom).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
-        name: typing.Text = ...,
-        use_next: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        origins: typing.Optional[typing.Iterable[yandex.cloud.cdn.v1.origin_pb2.OriginParams]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["use_next",b"use_next"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","name",b"name","origins",b"origins","use_next",b"use_next"]) -> None: ...
+        folder_id: builtins.str = ...,
+        name: builtins.str = ...,
+        use_next: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        origins: collections.abc.Iterable[yandex.cloud.cdn.v1.origin_pb2.OriginParams] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["use_next", b"use_next"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "name", b"name", "origins", b"origins", "use_next", b"use_next"]) -> None: ...
+
 global___CreateOriginGroupRequest = CreateOriginGroupRequest
 
 class CreateOriginGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
     origin_group_id: builtins.int
     """ID of created origin group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         origin_group_id: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id",b"origin_group_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id", b"origin_group_id"]) -> None: ...
+
 global___CreateOriginGroupMetadata = CreateOriginGroupMetadata
 
 class UpdateOriginGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
     GROUP_NAME_FIELD_NUMBER: builtins.int
     USE_NEXT_FIELD_NUMBER: builtins.int
     ORIGINS_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the origin group belongs to."""
-
     origin_group_id: builtins.int
     """ID of the origin group."""
-
     @property
     def group_name(self) -> google.protobuf.wrappers_pb2.StringValue:
         """Name of the origin group."""
-        pass
     @property
     def use_next(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """This option have two possible values:
@@ -166,65 +172,70 @@ class UpdateOriginGroupRequest(google.protobuf.message.Message):
                  codes, use the next origin from the list.
           False - The option is disabled.
         """
-        pass
     @property
     def origins(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.cdn.v1.origin_pb2.OriginParams]:
         """List of origins: IP addresses or Domain names of your origins and the port
         (if custom).
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         origin_group_id: builtins.int = ...,
-        group_name: typing.Optional[google.protobuf.wrappers_pb2.StringValue] = ...,
-        use_next: typing.Optional[google.protobuf.wrappers_pb2.BoolValue] = ...,
-        origins: typing.Optional[typing.Iterable[yandex.cloud.cdn.v1.origin_pb2.OriginParams]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["group_name",b"group_name","use_next",b"use_next"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","group_name",b"group_name","origin_group_id",b"origin_group_id","origins",b"origins","use_next",b"use_next"]) -> None: ...
+        group_name: google.protobuf.wrappers_pb2.StringValue | None = ...,
+        use_next: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        origins: collections.abc.Iterable[yandex.cloud.cdn.v1.origin_pb2.OriginParams] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["group_name", b"group_name", "use_next", b"use_next"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "group_name", b"group_name", "origin_group_id", b"origin_group_id", "origins", b"origins", "use_next", b"use_next"]) -> None: ...
+
 global___UpdateOriginGroupRequest = UpdateOriginGroupRequest
 
 class UpdateOriginGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
     origin_group_id: builtins.int
     """ID of the origin group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         origin_group_id: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id",b"origin_group_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id", b"origin_group_id"]) -> None: ...
+
 global___UpdateOriginGroupMetadata = UpdateOriginGroupMetadata
 
 class DeleteOriginGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     FOLDER_ID_FIELD_NUMBER: builtins.int
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the origin group belongs to."""
-
     origin_group_id: builtins.int
     """ID of the origin group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        folder_id: typing.Text = ...,
+        folder_id: builtins.str = ...,
         origin_group_id: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","origin_group_id",b"origin_group_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "origin_group_id", b"origin_group_id"]) -> None: ...
+
 global___DeleteOriginGroupRequest = DeleteOriginGroupRequest
 
 class DeleteOriginGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     ORIGIN_GROUP_ID_FIELD_NUMBER: builtins.int
     origin_group_id: builtins.int
     """ID of the origin group."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
         origin_group_id: builtins.int = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id",b"origin_group_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["origin_group_id", b"origin_group_id"]) -> None: ...
+
 global___DeleteOriginGroupMetadata = DeleteOriginGroupMetadata

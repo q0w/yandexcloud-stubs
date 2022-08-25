@@ -11,25 +11,25 @@ class ApiEndpointServiceStub:
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.endpoint.api_endpoint_service_pb2.GetApiEndpointRequest,
-        yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint]
-
+        yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint,
+    ]
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.endpoint.api_endpoint_service_pb2.ListApiEndpointsRequest,
-        yandex.cloud.endpoint.api_endpoint_service_pb2.ListApiEndpointsResponse]
-
+        yandex.cloud.endpoint.api_endpoint_service_pb2.ListApiEndpointsResponse,
+    ]
 
 class ApiEndpointServiceServicer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.endpoint.api_endpoint_service_pb2.GetApiEndpointRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.endpoint.api_endpoint_pb2.ApiEndpoint: ...
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.endpoint.api_endpoint_service_pb2.ListApiEndpointsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.endpoint.api_endpoint_service_pb2.ListApiEndpointsResponse: ...
-
 
 def add_ApiEndpointServiceServicer_to_server(servicer: ApiEndpointServiceServicer, server: grpc.Server) -> None: ...

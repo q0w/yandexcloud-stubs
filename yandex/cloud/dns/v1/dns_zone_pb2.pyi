@@ -3,30 +3,39 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
 import google.protobuf.timestamp_pb2
-import typing
-import typing_extensions
+import sys
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class DnsZone(google.protobuf.message.Message):
     """A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dns-zone)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
@@ -37,107 +46,107 @@ class DnsZone(google.protobuf.message.Message):
     ZONE_FIELD_NUMBER: builtins.int
     PRIVATE_VISIBILITY_FIELD_NUMBER: builtins.int
     PUBLIC_VISIBILITY_FIELD_NUMBER: builtins.int
-    id: typing.Text
+    id: builtins.str
     """ID of the DNS zone. Generated at creation time."""
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder that the DNS zone belongs to."""
-
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the DNS zone. 
     The name is unique within the folder.
     """
-
-    description: typing.Text
+    description: builtins.str
     """Description of the DNS zone."""
-
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """DNS zone labels as `key:value` pairs."""
-        pass
-    zone: typing.Text
+    zone: builtins.str
     """DNS zone suffix."""
-
     @property
     def private_visibility(self) -> global___PrivateVisibility:
         """Privately visible zone settings.
         Specifies whether records within the zone are visible from a VPC networks only.
         """
-        pass
     @property
     def public_visibility(self) -> global___PublicVisibility:
         """Publicly visible zone settings. 
         Indicates whether records within the zone are publicly visible.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        id: typing.Text = ...,
-        folder_id: typing.Text = ...,
-        created_at: typing.Optional[google.protobuf.timestamp_pb2.Timestamp] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        labels: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        zone: typing.Text = ...,
-        private_visibility: typing.Optional[global___PrivateVisibility] = ...,
-        public_visibility: typing.Optional[global___PublicVisibility] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["created_at",b"created_at","private_visibility",b"private_visibility","public_visibility",b"public_visibility"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["created_at",b"created_at","description",b"description","folder_id",b"folder_id","id",b"id","labels",b"labels","name",b"name","private_visibility",b"private_visibility","public_visibility",b"public_visibility","zone",b"zone"]) -> None: ...
+        id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        zone: builtins.str = ...,
+        private_visibility: global___PrivateVisibility | None = ...,
+        public_visibility: global___PublicVisibility | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "private_visibility", b"private_visibility", "public_visibility", b"public_visibility"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "name", b"name", "private_visibility", b"private_visibility", "public_visibility", b"public_visibility", "zone", b"zone"]) -> None: ...
+
 global___DnsZone = DnsZone
 
 class RecordSet(google.protobuf.message.Message):
     """A record set. For details about the concept, see [Resource record](/docs/dns/concepts/resource-record)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NAME_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     TTL_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    name: typing.Text
+    name: builtins.str
     """Domain name."""
-
-    type: typing.Text
+    type: builtins.str
     """Record type."""
-
     ttl: builtins.int
     """Time to live in seconds."""
-
     @property
-    def data(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def data(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Data of the record set."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        name: typing.Text = ...,
-        type: typing.Text = ...,
+        name: builtins.str = ...,
+        type: builtins.str = ...,
         ttl: builtins.int = ...,
-        data: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["data",b"data","name",b"name","ttl",b"ttl","type",b"type"]) -> None: ...
+        data: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["data", b"data", "name", b"name", "ttl", b"ttl", "type", b"type"]) -> None: ...
+
 global___RecordSet = RecordSet
 
 class PrivateVisibility(google.protobuf.message.Message):
     """Configuration for privately visible zones."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     NETWORK_IDS_FIELD_NUMBER: builtins.int
     @property
-    def network_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[typing.Text]:
+    def network_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Network IDs."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        network_ids: typing.Optional[typing.Iterable[typing.Text]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["network_ids",b"network_ids"]) -> None: ...
+        network_ids: collections.abc.Iterable[builtins.str] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["network_ids", b"network_ids"]) -> None: ...
+
 global___PrivateVisibility = PrivateVisibility
 
 class PublicVisibility(google.protobuf.message.Message):
     """Configuration for publicly visible zones."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    def __init__(self,
-        ) -> None: ...
+
+    def __init__(
+        self,
+    ) -> None: ...
+
 global___PublicVisibility = PublicVisibility

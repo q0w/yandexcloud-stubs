@@ -10,54 +10,57 @@ import yandex.cloud.vpc.v1.route_table_service_pb2
 
 class RouteTableServiceStub:
     """A set of methods for managing RouteTable resources."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.GetRouteTableRequest,
-        yandex.cloud.vpc.v1.route_table_pb2.RouteTable]
+        yandex.cloud.vpc.v1.route_table_pb2.RouteTable,
+    ]
     """Returns the specified RouteTable resource.
 
     To get the list of available RouteTable resources, make a [List] request.
     """
-
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTablesRequest,
-        yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTablesResponse]
+        yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTablesResponse,
+    ]
     """Retrieves the list of RouteTable resources in the specified folder."""
-
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.CreateRouteTableRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Creates a route table in the specified folder and network.
     Method starts an asynchronous operation that can be cancelled while it is in progress.
     """
-
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.UpdateRouteTableRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Updates the specified route table.
     Method starts an asynchronous operation that can be cancelled while it is in progress.
     """
-
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.DeleteRouteTableRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Deletes the specified route table."""
-
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTableOperationsRequest,
-        yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTableOperationsResponse]
+        yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTableOperationsResponse,
+    ]
     """List operations for the specified route table."""
-
     Move: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.vpc.v1.route_table_service_pb2.MoveRouteTableRequest,
-        yandex.cloud.operation.operation_pb2.Operation]
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
     """Move route table to another folder."""
-
 
 class RouteTableServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing RouteTable resources."""
+
     @abc.abstractmethod
-    def Get(self,
+    def Get(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.GetRouteTableRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.route_table_pb2.RouteTable:
@@ -65,59 +68,51 @@ class RouteTableServiceServicer(metaclass=abc.ABCMeta):
 
         To get the list of available RouteTable resources, make a [List] request.
         """
-        pass
-
     @abc.abstractmethod
-    def List(self,
+    def List(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTablesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTablesResponse:
         """Retrieves the list of RouteTable resources in the specified folder."""
-        pass
-
     @abc.abstractmethod
-    def Create(self,
+    def Create(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.CreateRouteTableRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Creates a route table in the specified folder and network.
         Method starts an asynchronous operation that can be cancelled while it is in progress.
         """
-        pass
-
     @abc.abstractmethod
-    def Update(self,
+    def Update(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.UpdateRouteTableRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Updates the specified route table.
         Method starts an asynchronous operation that can be cancelled while it is in progress.
         """
-        pass
-
     @abc.abstractmethod
-    def Delete(self,
+    def Delete(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.DeleteRouteTableRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Deletes the specified route table."""
-        pass
-
     @abc.abstractmethod
-    def ListOperations(self,
+    def ListOperations(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTableOperationsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.vpc.v1.route_table_service_pb2.ListRouteTableOperationsResponse:
         """List operations for the specified route table."""
-        pass
-
     @abc.abstractmethod
-    def Move(self,
+    def Move(
+        self,
         request: yandex.cloud.vpc.v1.route_table_service_pb2.MoveRouteTableRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Move route table to another folder."""
-        pass
-
 
 def add_RouteTableServiceServicer_to_server(servicer: RouteTableServiceServicer, server: grpc.Server) -> None: ...

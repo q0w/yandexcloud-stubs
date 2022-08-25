@@ -5,44 +5,49 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.monitoring.v3.chart_widget_pb2
 import yandex.cloud.monitoring.v3.text_widget_pb2
 import yandex.cloud.monitoring.v3.title_widget_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class Widget(google.protobuf.message.Message):
     """Widget."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class LayoutPosition(google.protobuf.message.Message):
         """Layout item for widget item positioning."""
+
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         X_FIELD_NUMBER: builtins.int
         Y_FIELD_NUMBER: builtins.int
         W_FIELD_NUMBER: builtins.int
         H_FIELD_NUMBER: builtins.int
         x: builtins.int
         """Required. X-axis top-left corner coordinate."""
-
         y: builtins.int
         """Required. Y-axis top-left corner coordinate."""
-
         w: builtins.int
         """Required. Weight."""
-
         h: builtins.int
         """Required. Height."""
-
-        def __init__(self,
+        def __init__(
+            self,
             *,
             x: builtins.int = ...,
             y: builtins.int = ...,
             w: builtins.int = ...,
             h: builtins.int = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["h",b"h","w",b"w","x",b"x","y",b"y"]) -> None: ...
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["h", b"h", "w", b"w", "x", b"x", "y", b"y"]) -> None: ...
 
     POSITION_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
@@ -51,27 +56,25 @@ class Widget(google.protobuf.message.Message):
     @property
     def position(self) -> global___Widget.LayoutPosition:
         """Required. Widget layout position."""
-        pass
     @property
     def text(self) -> yandex.cloud.monitoring.v3.text_widget_pb2.TextWidget:
         """Text widget."""
-        pass
     @property
     def title(self) -> yandex.cloud.monitoring.v3.title_widget_pb2.TitleWidget:
         """Title widget."""
-        pass
     @property
     def chart(self) -> yandex.cloud.monitoring.v3.chart_widget_pb2.ChartWidget:
         """Chart widget."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        position: typing.Optional[global___Widget.LayoutPosition] = ...,
-        text: typing.Optional[yandex.cloud.monitoring.v3.text_widget_pb2.TextWidget] = ...,
-        title: typing.Optional[yandex.cloud.monitoring.v3.title_widget_pb2.TitleWidget] = ...,
-        chart: typing.Optional[yandex.cloud.monitoring.v3.chart_widget_pb2.ChartWidget] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["chart",b"chart","position",b"position","text",b"text","title",b"title","widget",b"widget"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["chart",b"chart","position",b"position","text",b"text","title",b"title","widget",b"widget"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["widget",b"widget"]) -> typing.Optional[typing_extensions.Literal["text","title","chart"]]: ...
+        position: global___Widget.LayoutPosition | None = ...,
+        text: yandex.cloud.monitoring.v3.text_widget_pb2.TextWidget | None = ...,
+        title: yandex.cloud.monitoring.v3.title_widget_pb2.TitleWidget | None = ...,
+        chart: yandex.cloud.monitoring.v3.chart_widget_pb2.ChartWidget | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["chart", b"chart", "position", b"position", "text", b"text", "title", b"title", "widget", b"widget"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["chart", b"chart", "position", b"position", "text", b"text", "title", b"title", "widget", b"widget"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["widget", b"widget"]) -> typing_extensions.Literal["text", "title", "chart"] | None: ...
+
 global___Widget = Widget

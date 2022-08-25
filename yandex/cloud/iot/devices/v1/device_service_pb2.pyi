@@ -3,171 +3,181 @@
 isort:skip_file
 """
 import builtins
+import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.field_mask_pb2
 import google.protobuf.internal.containers
 import google.protobuf.message
-import typing
-import typing_extensions
+import sys
 import yandex.cloud.iot.devices.v1.device_pb2
 import yandex.cloud.operation.operation_pb2
+
+if sys.version_info >= (3, 8):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 class GetDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     DEVICE_VIEW_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to return.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
     device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType
     """Specifies which parts of the device resource should be returned
     in the response.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
+        device_id: builtins.str = ...,
         device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","device_view",b"device_view"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "device_view", b"device_view"]) -> None: ...
+
 global___GetDeviceRequest = GetDeviceRequest
 
 class GetByNameDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REGISTRY_ID_FIELD_NUMBER: builtins.int
     DEVICE_NAME_FIELD_NUMBER: builtins.int
     DEVICE_VIEW_FIELD_NUMBER: builtins.int
-    registry_id: typing.Text
+    registry_id: builtins.str
     """ID of the registry to get device.
 
     To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.
     """
-
-    device_name: typing.Text
+    device_name: builtins.str
     """Name of the device to return.
 
     To get a device name make a [DeviceService.List] request.
     """
-
     device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType
     """Specifies which parts of the device resource should be returned
     in the response.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        registry_id: typing.Text = ...,
-        device_name: typing.Text = ...,
+        registry_id: builtins.str = ...,
+        device_name: builtins.str = ...,
         device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_name",b"device_name","device_view",b"device_view","registry_id",b"registry_id"]) -> None: ...
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_name", b"device_name", "device_view", b"device_view", "registry_id", b"registry_id"]) -> None: ...
+
 global___GetByNameDeviceRequest = GetByNameDeviceRequest
 
 class ListDevicesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     REGISTRY_ID_FIELD_NUMBER: builtins.int
     FOLDER_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     DEVICE_VIEW_FIELD_NUMBER: builtins.int
-    registry_id: typing.Text
+    registry_id: builtins.str
     """ID of the registry to list devices in.
 
     To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.
     """
-
-    folder_id: typing.Text
+    folder_id: builtins.str
     """ID of the folder to list devices in.
 
     To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
     results is larger than `page_size`, the service returns a [ListDevicesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListDevicesResponse.next_page_token] returned by a previous list request.
     """
-
     device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType
     """Specifies which parts of the device resource should be returned
     in the response.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        registry_id: typing.Text = ...,
-        folder_id: typing.Text = ...,
+        registry_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
+        page_token: builtins.str = ...,
         device_view: yandex.cloud.iot.devices.v1.device_pb2.DeviceView.ValueType = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["folder_id",b"folder_id","id",b"id","registry_id",b"registry_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_view",b"device_view","folder_id",b"folder_id","id",b"id","page_size",b"page_size","page_token",b"page_token","registry_id",b"registry_id"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["id",b"id"]) -> typing.Optional[typing_extensions.Literal["registry_id","folder_id"]]: ...
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "id", b"id", "registry_id", b"registry_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_view", b"device_view", "folder_id", b"folder_id", "id", b"id", "page_size", b"page_size", "page_token", b"page_token", "registry_id", b"registry_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["id", b"id"]) -> typing_extensions.Literal["registry_id", "folder_id"] | None: ...
+
 global___ListDevicesRequest = ListDevicesRequest
 
 class ListDevicesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICES_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def devices(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.iot.devices.v1.device_pb2.Device]:
         """List of devices."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListDevicesRequest.page_size], use `next_page_token` as the value
     for the [ListDevicesRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        devices: typing.Optional[typing.Iterable[yandex.cloud.iot.devices.v1.device_pb2.Device]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["devices",b"devices","next_page_token",b"next_page_token"]) -> None: ...
+        devices: collections.abc.Iterable[yandex.cloud.iot.devices.v1.device_pb2.Device] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["devices", b"devices", "next_page_token", b"next_page_token"]) -> None: ...
+
 global___ListDevicesResponse = ListDevicesResponse
 
 class CreateDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class TopicAliasesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     class Certificate(google.protobuf.message.Message):
         """Specification of a device certificate."""
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-        CERTIFICATE_DATA_FIELD_NUMBER: builtins.int
-        certificate_data: typing.Text
-        """Public part of the device certificate."""
 
-        def __init__(self,
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CERTIFICATE_DATA_FIELD_NUMBER: builtins.int
+        certificate_data: builtins.str
+        """Public part of the device certificate."""
+        def __init__(
+            self,
             *,
-            certificate_data: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["certificate_data",b"certificate_data"]) -> None: ...
+            certificate_data: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["certificate_data", b"certificate_data"]) -> None: ...
 
     REGISTRY_ID_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
@@ -175,435 +185,455 @@ class CreateDeviceRequest(google.protobuf.message.Message):
     CERTIFICATES_FIELD_NUMBER: builtins.int
     TOPIC_ALIASES_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
-    registry_id: typing.Text
+    registry_id: builtins.str
     """ID of the registry to create a device in.
 
     To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List] request.
     """
-
-    name: typing.Text
+    name: builtins.str
     """Name of the device. The name must be unique within the registry."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the device."""
-
     @property
     def certificates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CreateDeviceRequest.Certificate]:
         """Device certificate."""
-        pass
     @property
-    def topic_aliases(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def topic_aliases(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Alias of a device topic.
 
         Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
         """
-        pass
-    password: typing.Text
+    password: builtins.str
     """Device password.
 
     The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        registry_id: typing.Text = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        certificates: typing.Optional[typing.Iterable[global___CreateDeviceRequest.Certificate]] = ...,
-        topic_aliases: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        password: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificates",b"certificates","description",b"description","name",b"name","password",b"password","registry_id",b"registry_id","topic_aliases",b"topic_aliases"]) -> None: ...
+        registry_id: builtins.str = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        certificates: collections.abc.Iterable[global___CreateDeviceRequest.Certificate] | None = ...,
+        topic_aliases: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        password: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificates", b"certificates", "description", b"description", "name", b"name", "password", b"password", "registry_id", b"registry_id", "topic_aliases", b"topic_aliases"]) -> None: ...
+
 global___CreateDeviceRequest = CreateDeviceRequest
 
 class CreateDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
-    """ID of the device that is being created."""
 
-    def __init__(self,
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    device_id: builtins.str
+    """ID of the device that is being created."""
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___CreateDeviceMetadata = CreateDeviceMetadata
 
 class UpdateDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     class TopicAliasesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
         KEY_FIELD_NUMBER: builtins.int
         VALUE_FIELD_NUMBER: builtins.int
-        key: typing.Text
-        value: typing.Text
-        def __init__(self,
+        key: builtins.str
+        value: builtins.str
+        def __init__(
+            self,
             *,
-            key: typing.Text = ...,
-            value: typing.Text = ...,
-            ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["key",b"key","value",b"value"]) -> None: ...
+            key: builtins.str = ...,
+            value: builtins.str = ...,
+        ) -> None: ...
+        def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
     DEVICE_ID_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     DESCRIPTION_FIELD_NUMBER: builtins.int
     TOPIC_ALIASES_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to update.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the device are going to be updated."""
-        pass
-    name: typing.Text
+    name: builtins.str
     """Name of the device. The name must be unique within the registry."""
-
-    description: typing.Text
+    description: builtins.str
     """Description of the device."""
-
     @property
-    def topic_aliases(self) -> google.protobuf.internal.containers.ScalarMap[typing.Text, typing.Text]:
+    def topic_aliases(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
         """Alias of a device topic.
 
         Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
         """
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        update_mask: typing.Optional[google.protobuf.field_mask_pb2.FieldMask] = ...,
-        name: typing.Text = ...,
-        description: typing.Text = ...,
-        topic_aliases: typing.Optional[typing.Mapping[typing.Text, typing.Text]] = ...,
-        ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask",b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["description",b"description","device_id",b"device_id","name",b"name","topic_aliases",b"topic_aliases","update_mask",b"update_mask"]) -> None: ...
+        device_id: builtins.str = ...,
+        update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
+        name: builtins.str = ...,
+        description: builtins.str = ...,
+        topic_aliases: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["description", b"description", "device_id", b"device_id", "name", b"name", "topic_aliases", b"topic_aliases", "update_mask", b"update_mask"]) -> None: ...
+
 global___UpdateDeviceRequest = UpdateDeviceRequest
 
 class UpdateDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
-    """ID of the device that is being updated."""
 
-    def __init__(self,
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    device_id: builtins.str
+    """ID of the device that is being updated."""
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___UpdateDeviceMetadata = UpdateDeviceMetadata
 
 class DeleteDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to delete.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___DeleteDeviceRequest = DeleteDeviceRequest
 
 class DeleteDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
-    """ID of the device that is being deleted."""
 
-    def __init__(self,
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    device_id: builtins.str
+    """ID of the device that is being deleted."""
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___DeleteDeviceMetadata = DeleteDeviceMetadata
 
 class ListDeviceCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
-    DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
-    """ID of the device to list certificates for."""
 
-    def __init__(self,
+    DEVICE_ID_FIELD_NUMBER: builtins.int
+    device_id: builtins.str
+    """ID of the device to list certificates for."""
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___ListDeviceCertificatesRequest = ListDeviceCertificatesRequest
 
 class ListDeviceCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     CERTIFICATES_FIELD_NUMBER: builtins.int
     @property
     def certificates(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.iot.devices.v1.device_pb2.DeviceCertificate]:
         """List of certificates for the specified device."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        certificates: typing.Optional[typing.Iterable[yandex.cloud.iot.devices.v1.device_pb2.DeviceCertificate]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificates",b"certificates"]) -> None: ...
+        certificates: collections.abc.Iterable[yandex.cloud.iot.devices.v1.device_pb2.DeviceCertificate] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificates", b"certificates"]) -> None: ...
+
 global___ListDeviceCertificatesResponse = ListDeviceCertificatesResponse
 
 class AddDeviceCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     CERTIFICATE_DATA_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device for which the certificate is being added.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
-    certificate_data: typing.Text
+    certificate_data: builtins.str
     """Public part of the certificate."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        certificate_data: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_data",b"certificate_data","device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+        certificate_data: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_data", b"certificate_data", "device_id", b"device_id"]) -> None: ...
+
 global___AddDeviceCertificateRequest = AddDeviceCertificateRequest
 
 class AddDeviceCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     FINGERPRINT_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device certificate that is being added."""
-
-    fingerprint: typing.Text
+    fingerprint: builtins.str
     """Fingerprint of the certificate that is being added."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        fingerprint: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","fingerprint",b"fingerprint"]) -> None: ...
+        device_id: builtins.str = ...,
+        fingerprint: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "fingerprint", b"fingerprint"]) -> None: ...
+
 global___AddDeviceCertificateMetadata = AddDeviceCertificateMetadata
 
 class DeleteDeviceCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     FINGERPRINT_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to delete a certificate for.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
-    fingerprint: typing.Text
+    fingerprint: builtins.str
     """Fingerprint of the certificate to delete."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        fingerprint: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","fingerprint",b"fingerprint"]) -> None: ...
+        device_id: builtins.str = ...,
+        fingerprint: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "fingerprint", b"fingerprint"]) -> None: ...
+
 global___DeleteDeviceCertificateRequest = DeleteDeviceCertificateRequest
 
 class DeleteDeviceCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     FINGERPRINT_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device certificate that is being deleted."""
-
-    fingerprint: typing.Text
+    fingerprint: builtins.str
     """Fingerprint of the certificate that is being deleted."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        fingerprint: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","fingerprint",b"fingerprint"]) -> None: ...
+        device_id: builtins.str = ...,
+        fingerprint: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "fingerprint", b"fingerprint"]) -> None: ...
+
 global___DeleteDeviceCertificateMetadata = DeleteDeviceCertificateMetadata
 
 class ListDevicePasswordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the registry to list passwords in.
 
     To get a registry ID make a [RegistryService.List] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id"]) -> None: ...
+        device_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id"]) -> None: ...
+
 global___ListDevicePasswordsRequest = ListDevicePasswordsRequest
 
 class ListDevicePasswordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     PASSWORDS_FIELD_NUMBER: builtins.int
     @property
     def passwords(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.iot.devices.v1.device_pb2.DevicePassword]:
         """List of passwords for the specified device."""
-        pass
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        passwords: typing.Optional[typing.Iterable[yandex.cloud.iot.devices.v1.device_pb2.DevicePassword]] = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["passwords",b"passwords"]) -> None: ...
+        passwords: collections.abc.Iterable[yandex.cloud.iot.devices.v1.device_pb2.DevicePassword] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["passwords", b"passwords"]) -> None: ...
+
 global___ListDevicePasswordsResponse = ListDevicePasswordsResponse
 
 class AddDevicePasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     PASSWORD_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to add a password for.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
-    password: typing.Text
+    password: builtins.str
     """Passwords for the device.
 
     The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        password: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","password",b"password"]) -> None: ...
+        device_id: builtins.str = ...,
+        password: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "password", b"password"]) -> None: ...
+
 global___AddDevicePasswordRequest = AddDevicePasswordRequest
 
 class AddDevicePasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     PASSWORD_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device for which the password is being added."""
-
-    password_id: typing.Text
+    password_id: builtins.str
     """ID of the password that is being added."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        password_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","password_id",b"password_id"]) -> None: ...
+        device_id: builtins.str = ...,
+        password_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "password_id", b"password_id"]) -> None: ...
+
 global___AddDevicePasswordMetadata = AddDevicePasswordMetadata
 
 class DeleteDevicePasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     PASSWORD_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to delete a password for.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
-    password_id: typing.Text
+    password_id: builtins.str
     """ID of the password to delete.
 
     To get a password ID make a [DeviceService.ListPasswords] request.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        password_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","password_id",b"password_id"]) -> None: ...
+        device_id: builtins.str = ...,
+        password_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "password_id", b"password_id"]) -> None: ...
+
 global___DeleteDevicePasswordRequest = DeleteDevicePasswordRequest
 
 class DeleteDevicePasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     PASSWORD_ID_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device for which the password is being deleted."""
-
-    password_id: typing.Text
+    password_id: builtins.str
     """ID of the password that is being deleted."""
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
-        password_id: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","password_id",b"password_id"]) -> None: ...
+        device_id: builtins.str = ...,
+        password_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "password_id", b"password_id"]) -> None: ...
+
 global___DeleteDevicePasswordMetadata = DeleteDevicePasswordMetadata
 
 class ListDeviceOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     DEVICE_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     FILTER_FIELD_NUMBER: builtins.int
-    device_id: typing.Text
+    device_id: builtins.str
     """ID of the device to list operations for.
 
     To get a device ID make a [DeviceService.List] request.
     """
-
     page_size: builtins.int
     """The maximum number of results per page that should be returned. If the number of available
     results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
     Default value: 100.
     """
-
-    page_token: typing.Text
+    page_token: builtins.str
     """Page token. To get the next page of results, set `page_token` to the
     [ListDeviceOperationsResponse.next_page_token] returned by a previous list request.
     """
-
-    filter: typing.Text
+    filter: builtins.str
     """A filter expression that filters resources listed in the response.
     Currently you can use filtering only on [Device.name] field.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        device_id: typing.Text = ...,
+        device_id: builtins.str = ...,
         page_size: builtins.int = ...,
-        page_token: typing.Text = ...,
-        filter: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["device_id",b"device_id","filter",b"filter","page_size",b"page_size","page_token",b"page_token"]) -> None: ...
+        page_token: builtins.str = ...,
+        filter: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_id", b"device_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+
 global___ListDeviceOperationsRequest = ListDeviceOperationsRequest
 
 class ListDeviceOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
     OPERATIONS_FIELD_NUMBER: builtins.int
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def operations(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.operation.operation_pb2.Operation]:
         """List of operations for the specified device certificate."""
-        pass
-    next_page_token: typing.Text
+    next_page_token: builtins.str
     """Token for getting the next page of the list. If the number of results is greater than
     the specified [ListDeviceOperationsRequest.page_size], use `next_page_token` as the value
     for the [ListDeviceOperationsRequest.page_token] parameter in the next list request.
 
     Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
-
-    def __init__(self,
+    def __init__(
+        self,
         *,
-        operations: typing.Optional[typing.Iterable[yandex.cloud.operation.operation_pb2.Operation]] = ...,
-        next_page_token: typing.Text = ...,
-        ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["next_page_token",b"next_page_token","operations",b"operations"]) -> None: ...
+        operations: collections.abc.Iterable[yandex.cloud.operation.operation_pb2.Operation] | None = ...,
+        next_page_token: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["next_page_token", b"next_page_token", "operations", b"operations"]) -> None: ...
+
 global___ListDeviceOperationsResponse = ListDeviceOperationsResponse
