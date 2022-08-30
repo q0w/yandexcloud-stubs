@@ -480,6 +480,27 @@ class UpsertRecordSetsMetadata(google.protobuf.message.Message):
 
 global___UpsertRecordSetsMetadata = UpsertRecordSetsMetadata
 
+class RecordSetDiff(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ADDITIONS_FIELD_NUMBER: builtins.int
+    DELETIONS_FIELD_NUMBER: builtins.int
+    @property
+    def additions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
+        """List of record sets that were added"""
+    @property
+    def deletions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet]:
+        """List of record sets that were deleted"""
+    def __init__(
+        self,
+        *,
+        additions: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+        deletions: collections.abc.Iterable[yandex.cloud.dns.v1.dns_zone_pb2.RecordSet] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["additions", b"additions", "deletions", b"deletions"]) -> None: ...
+
+global___RecordSetDiff = RecordSetDiff
+
 class ListDnsZoneOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

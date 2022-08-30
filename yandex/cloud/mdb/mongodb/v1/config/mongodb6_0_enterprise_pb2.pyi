@@ -17,9 +17,9 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
-class MongodConfig5_0(google.protobuf.message.Message):
+class MongodConfig6_0_enterprise(google.protobuf.message.Message):
     """Configuration of a mongod daemon. Supported options are a limited subset of all
-    options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/).
+    options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
     """
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -54,52 +54,52 @@ class MongodConfig5_0(google.protobuf.message.Message):
                     ValueType = typing.NewType("ValueType", builtins.int)
                     V: typing_extensions.TypeAlias = ValueType
 
-                class _CompressorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType], builtins.type):  # noqa: F821
+                class _CompressorEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType], builtins.type):  # noqa: F821
                     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-                    COMPRESSOR_UNSPECIFIED: MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 0
-                    NONE: MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 1
+                    COMPRESSOR_UNSPECIFIED: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 0
+                    NONE: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 1
                     """No compression."""
-                    SNAPPY: MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 2
-                    """The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression."""
-                    ZLIB: MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 3
-                    """The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression."""
-                    ZSTD: MongodConfig5_0.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 4
-                    """The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression."""
+                    SNAPPY: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 2
+                    """The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression."""
+                    ZLIB: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 3
+                    """The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression."""
+                    ZSTD: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 4
+                    """The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression."""
 
                 class Compressor(_Compressor, metaclass=_CompressorEnumTypeWrapper): ...
-                COMPRESSOR_UNSPECIFIED: MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 0
-                NONE: MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 1
+                COMPRESSOR_UNSPECIFIED: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 0
+                NONE: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 1
                 """No compression."""
-                SNAPPY: MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 2
-                """The [Snappy](https://docs.mongodb.com/v5.0/reference/glossary/#term-snappy) compression."""
-                ZLIB: MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 3
-                """The [zlib](https://docs.mongodb.com/v5.0/reference/glossary/#term-zlib) compression."""
-                ZSTD: MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 4
-                """The [zstd](https://docs.mongodb.com/v5.0/reference/glossary/#term-zstd) compression."""
+                SNAPPY: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 2
+                """The [Snappy](https://docs.mongodb.com/v6.0/reference/glossary/#term-snappy) compression."""
+                ZLIB: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 3
+                """The [zlib](https://docs.mongodb.com/v6.0/reference/glossary/#term-zlib) compression."""
+                ZSTD: MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 4
+                """The [zstd](https://docs.mongodb.com/v6.0/reference/glossary/#term-zstd) compression."""
 
                 BLOCK_COMPRESSOR_FIELD_NUMBER: builtins.int
-                block_compressor: global___MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType
+                block_compressor: global___MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType
                 """Default type of compression to use for collection data."""
                 def __init__(
                     self,
                     *,
-                    block_compressor: global___MongodConfig5_0.Storage.WiredTiger.CollectionConfig.Compressor.ValueType = ...,
+                    block_compressor: global___MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig.Compressor.ValueType = ...,
                 ) -> None: ...
                 def ClearField(self, field_name: typing_extensions.Literal["block_compressor", b"block_compressor"]) -> None: ...
 
             ENGINE_CONFIG_FIELD_NUMBER: builtins.int
             COLLECTION_CONFIG_FIELD_NUMBER: builtins.int
             @property
-            def engine_config(self) -> global___MongodConfig5_0.Storage.WiredTiger.EngineConfig:
+            def engine_config(self) -> global___MongodConfig6_0_enterprise.Storage.WiredTiger.EngineConfig:
                 """Engine configuration for WiredTiger."""
             @property
-            def collection_config(self) -> global___MongodConfig5_0.Storage.WiredTiger.CollectionConfig:
+            def collection_config(self) -> global___MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig:
                 """Collection configuration for WiredTiger."""
             def __init__(
                 self,
                 *,
-                engine_config: global___MongodConfig5_0.Storage.WiredTiger.EngineConfig | None = ...,
-                collection_config: global___MongodConfig5_0.Storage.WiredTiger.CollectionConfig | None = ...,
+                engine_config: global___MongodConfig6_0_enterprise.Storage.WiredTiger.EngineConfig | None = ...,
+                collection_config: global___MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig | None = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> None: ...
@@ -124,16 +124,16 @@ class MongodConfig5_0(google.protobuf.message.Message):
         WIRED_TIGER_FIELD_NUMBER: builtins.int
         JOURNAL_FIELD_NUMBER: builtins.int
         @property
-        def wired_tiger(self) -> global___MongodConfig5_0.Storage.WiredTiger:
+        def wired_tiger(self) -> global___MongodConfig6_0_enterprise.Storage.WiredTiger:
             """Configuration of the WiredTiger storage engine."""
         @property
-        def journal(self) -> global___MongodConfig5_0.Storage.Journal:
-            """Configuration of the MongoDB [journal](https://docs.mongodb.com/v5.0/reference/glossary/#term-journal)."""
+        def journal(self) -> global___MongodConfig6_0_enterprise.Storage.Journal:
+            """Configuration of the MongoDB [journal](https://docs.mongodb.com/v6.0/reference/glossary/#term-journal)."""
         def __init__(
             self,
             *,
-            wired_tiger: global___MongodConfig5_0.Storage.WiredTiger | None = ...,
-            journal: global___MongodConfig5_0.Storage.Journal | None = ...,
+            wired_tiger: global___MongodConfig6_0_enterprise.Storage.WiredTiger | None = ...,
+            journal: global___MongodConfig6_0_enterprise.Storage.Journal | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> None: ...
@@ -145,28 +145,28 @@ class MongodConfig5_0(google.protobuf.message.Message):
             ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
 
-        class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongodConfig5_0.OperationProfiling._Mode.ValueType], builtins.type):  # noqa: F821
+        class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongodConfig6_0_enterprise.OperationProfiling._Mode.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-            MODE_UNSPECIFIED: MongodConfig5_0.OperationProfiling._Mode.ValueType  # 0
-            OFF: MongodConfig5_0.OperationProfiling._Mode.ValueType  # 1
+            MODE_UNSPECIFIED: MongodConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 0
+            OFF: MongodConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 1
             """The profiler is off and does not collect any data."""
-            SLOW_OP: MongodConfig5_0.OperationProfiling._Mode.ValueType  # 2
+            SLOW_OP: MongodConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 2
             """The profiler collects data for operations that take longer than the value of [slow_op_threshold]."""
-            ALL: MongodConfig5_0.OperationProfiling._Mode.ValueType  # 3
+            ALL: MongodConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 3
             """The profiler collects data for all operations."""
 
         class Mode(_Mode, metaclass=_ModeEnumTypeWrapper): ...
-        MODE_UNSPECIFIED: MongodConfig5_0.OperationProfiling.Mode.ValueType  # 0
-        OFF: MongodConfig5_0.OperationProfiling.Mode.ValueType  # 1
+        MODE_UNSPECIFIED: MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 0
+        OFF: MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 1
         """The profiler is off and does not collect any data."""
-        SLOW_OP: MongodConfig5_0.OperationProfiling.Mode.ValueType  # 2
+        SLOW_OP: MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 2
         """The profiler collects data for operations that take longer than the value of [slow_op_threshold]."""
-        ALL: MongodConfig5_0.OperationProfiling.Mode.ValueType  # 3
+        ALL: MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 3
         """The profiler collects data for all operations."""
 
         MODE_FIELD_NUMBER: builtins.int
         SLOW_OP_THRESHOLD_FIELD_NUMBER: builtins.int
-        mode: global___MongodConfig5_0.OperationProfiling.Mode.ValueType
+        mode: global___MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType
         """Mode which specifies operations that should be profiled."""
         @property
         def slow_op_threshold(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -177,7 +177,7 @@ class MongodConfig5_0(google.protobuf.message.Message):
         def __init__(
             self,
             *,
-            mode: global___MongodConfig5_0.OperationProfiling.Mode.ValueType = ...,
+            mode: global___MongodConfig6_0_enterprise.OperationProfiling.Mode.ValueType = ...,
             slow_op_threshold: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
@@ -198,31 +198,131 @@ class MongodConfig5_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["max_incoming_connections", b"max_incoming_connections"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["max_incoming_connections", b"max_incoming_connections"]) -> None: ...
 
+    class Security(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        class KMIP(google.protobuf.message.Message):
+            DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+            SERVER_NAME_FIELD_NUMBER: builtins.int
+            PORT_FIELD_NUMBER: builtins.int
+            SERVER_CA_FIELD_NUMBER: builtins.int
+            CLIENT_CERTIFICATE_FIELD_NUMBER: builtins.int
+            KEY_IDENTIFIER_FIELD_NUMBER: builtins.int
+            server_name: builtins.str
+            """KMIP server name"""
+            @property
+            def port(self) -> google.protobuf.wrappers_pb2.Int64Value:
+                """KMIP server port"""
+            server_ca: builtins.str
+            """KMIP Server CA"""
+            client_certificate: builtins.str
+            """KMIP client certificate + private key (unencrypted)"""
+            key_identifier: builtins.str
+            """KMIP Key identifier (if any)"""
+            def __init__(
+                self,
+                *,
+                server_name: builtins.str = ...,
+                port: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+                server_ca: builtins.str = ...,
+                client_certificate: builtins.str = ...,
+                key_identifier: builtins.str = ...,
+            ) -> None: ...
+            def HasField(self, field_name: typing_extensions.Literal["port", b"port"]) -> builtins.bool: ...
+            def ClearField(self, field_name: typing_extensions.Literal["client_certificate", b"client_certificate", "key_identifier", b"key_identifier", "port", b"port", "server_ca", b"server_ca", "server_name", b"server_name"]) -> None: ...
+
+        ENABLE_ENCRYPTION_FIELD_NUMBER: builtins.int
+        KMIP_FIELD_NUMBER: builtins.int
+        @property
+        def enable_encryption(self) -> google.protobuf.wrappers_pb2.BoolValue:
+            """If encryption at rest should be enabled or not"""
+        @property
+        def kmip(self) -> global___MongodConfig6_0_enterprise.Security.KMIP:
+            """`kmip` section of mongod security config"""
+        def __init__(
+            self,
+            *,
+            enable_encryption: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+            kmip: global___MongodConfig6_0_enterprise.Security.KMIP | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["enable_encryption", b"enable_encryption", "kmip", b"kmip"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["enable_encryption", b"enable_encryption", "kmip", b"kmip"]) -> None: ...
+
+    class AuditLog(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        FILTER_FIELD_NUMBER: builtins.int
+        RUNTIME_CONFIGURATION_FIELD_NUMBER: builtins.int
+        filter: builtins.str
+        """Audit filter"""
+        @property
+        def runtime_configuration(self) -> google.protobuf.wrappers_pb2.BoolValue:
+            """Allows runtime configuration of audit filter and auditAuthorizationSuccess"""
+        def __init__(
+            self,
+            *,
+            filter: builtins.str = ...,
+            runtime_configuration: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["runtime_configuration", b"runtime_configuration"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "runtime_configuration", b"runtime_configuration"]) -> None: ...
+
+    class SetParameter(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        AUDIT_AUTHORIZATION_SUCCESS_FIELD_NUMBER: builtins.int
+        @property
+        def audit_authorization_success(self) -> google.protobuf.wrappers_pb2.BoolValue:
+            """Enables the auditing of authorization successes"""
+        def __init__(
+            self,
+            *,
+            audit_authorization_success: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["audit_authorization_success", b"audit_authorization_success"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["audit_authorization_success", b"audit_authorization_success"]) -> None: ...
+
     STORAGE_FIELD_NUMBER: builtins.int
     OPERATION_PROFILING_FIELD_NUMBER: builtins.int
     NET_FIELD_NUMBER: builtins.int
+    SECURITY_FIELD_NUMBER: builtins.int
+    AUDIT_LOG_FIELD_NUMBER: builtins.int
+    SET_PARAMETER_FIELD_NUMBER: builtins.int
     @property
-    def storage(self) -> global___MongodConfig5_0.Storage:
+    def storage(self) -> global___MongodConfig6_0_enterprise.Storage:
         """`storage` section of mongod configuration."""
     @property
-    def operation_profiling(self) -> global___MongodConfig5_0.OperationProfiling:
+    def operation_profiling(self) -> global___MongodConfig6_0_enterprise.OperationProfiling:
         """`operationProfiling` section of mongod configuration."""
     @property
-    def net(self) -> global___MongodConfig5_0.Network:
+    def net(self) -> global___MongodConfig6_0_enterprise.Network:
         """`net` section of mongod configuration."""
+    @property
+    def security(self) -> global___MongodConfig6_0_enterprise.Security:
+        """`security` section of mongod configuration."""
+    @property
+    def audit_log(self) -> global___MongodConfig6_0_enterprise.AuditLog:
+        """`AuditLog` section of mongod configuration."""
+    @property
+    def set_parameter(self) -> global___MongodConfig6_0_enterprise.SetParameter:
+        """`SetParameter` section of mongod configuration."""
     def __init__(
         self,
         *,
-        storage: global___MongodConfig5_0.Storage | None = ...,
-        operation_profiling: global___MongodConfig5_0.OperationProfiling | None = ...,
-        net: global___MongodConfig5_0.Network | None = ...,
+        storage: global___MongodConfig6_0_enterprise.Storage | None = ...,
+        operation_profiling: global___MongodConfig6_0_enterprise.OperationProfiling | None = ...,
+        net: global___MongodConfig6_0_enterprise.Network | None = ...,
+        security: global___MongodConfig6_0_enterprise.Security | None = ...,
+        audit_log: global___MongodConfig6_0_enterprise.AuditLog | None = ...,
+        set_parameter: global___MongodConfig6_0_enterprise.SetParameter | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["net", b"net", "operation_profiling", b"operation_profiling", "storage", b"storage"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["net", b"net", "operation_profiling", b"operation_profiling", "storage", b"storage"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "net", b"net", "operation_profiling", b"operation_profiling", "security", b"security", "set_parameter", b"set_parameter", "storage", b"storage"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "net", b"net", "operation_profiling", b"operation_profiling", "security", b"security", "set_parameter", b"set_parameter", "storage", b"storage"]) -> None: ...
 
-global___MongodConfig5_0 = MongodConfig5_0
+global___MongodConfig6_0_enterprise = MongodConfig6_0_enterprise
 
-class MongoCfgConfig5_0(google.protobuf.message.Message):
+class MongoCfgConfig6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     class Storage(google.protobuf.message.Message):
@@ -250,24 +350,24 @@ class MongoCfgConfig5_0(google.protobuf.message.Message):
 
             ENGINE_CONFIG_FIELD_NUMBER: builtins.int
             @property
-            def engine_config(self) -> global___MongoCfgConfig5_0.Storage.WiredTiger.EngineConfig:
+            def engine_config(self) -> global___MongoCfgConfig6_0_enterprise.Storage.WiredTiger.EngineConfig:
                 """Engine configuration for WiredTiger."""
             def __init__(
                 self,
                 *,
-                engine_config: global___MongoCfgConfig5_0.Storage.WiredTiger.EngineConfig | None = ...,
+                engine_config: global___MongoCfgConfig6_0_enterprise.Storage.WiredTiger.EngineConfig | None = ...,
             ) -> None: ...
             def HasField(self, field_name: typing_extensions.Literal["engine_config", b"engine_config"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["engine_config", b"engine_config"]) -> None: ...
 
         WIRED_TIGER_FIELD_NUMBER: builtins.int
         @property
-        def wired_tiger(self) -> global___MongoCfgConfig5_0.Storage.WiredTiger:
+        def wired_tiger(self) -> global___MongoCfgConfig6_0_enterprise.Storage.WiredTiger:
             """Configuration of the WiredTiger storage engine."""
         def __init__(
             self,
             *,
-            wired_tiger: global___MongoCfgConfig5_0.Storage.WiredTiger | None = ...,
+            wired_tiger: global___MongoCfgConfig6_0_enterprise.Storage.WiredTiger | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> None: ...
@@ -279,39 +379,39 @@ class MongoCfgConfig5_0(google.protobuf.message.Message):
             ValueType = typing.NewType("ValueType", builtins.int)
             V: typing_extensions.TypeAlias = ValueType
 
-        class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongoCfgConfig5_0.OperationProfiling._Mode.ValueType], builtins.type):  # noqa: F821
+        class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[MongoCfgConfig6_0_enterprise.OperationProfiling._Mode.ValueType], builtins.type):  # noqa: F821
             DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
-            MODE_UNSPECIFIED: MongoCfgConfig5_0.OperationProfiling._Mode.ValueType  # 0
-            OFF: MongoCfgConfig5_0.OperationProfiling._Mode.ValueType  # 1
+            MODE_UNSPECIFIED: MongoCfgConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 0
+            OFF: MongoCfgConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 1
             """The profiler is off and does not collect any data."""
-            SLOW_OP: MongoCfgConfig5_0.OperationProfiling._Mode.ValueType  # 2
+            SLOW_OP: MongoCfgConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 2
             """The profiler collects data for operations that take longer than the value of [slow_op_threshold]."""
-            ALL: MongoCfgConfig5_0.OperationProfiling._Mode.ValueType  # 3
+            ALL: MongoCfgConfig6_0_enterprise.OperationProfiling._Mode.ValueType  # 3
             """The profiler collects data for all operations."""
 
         class Mode(_Mode, metaclass=_ModeEnumTypeWrapper): ...
-        MODE_UNSPECIFIED: MongoCfgConfig5_0.OperationProfiling.Mode.ValueType  # 0
-        OFF: MongoCfgConfig5_0.OperationProfiling.Mode.ValueType  # 1
+        MODE_UNSPECIFIED: MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 0
+        OFF: MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 1
         """The profiler is off and does not collect any data."""
-        SLOW_OP: MongoCfgConfig5_0.OperationProfiling.Mode.ValueType  # 2
+        SLOW_OP: MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 2
         """The profiler collects data for operations that take longer than the value of [slow_op_threshold]."""
-        ALL: MongoCfgConfig5_0.OperationProfiling.Mode.ValueType  # 3
+        ALL: MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType  # 3
         """The profiler collects data for all operations."""
 
         MODE_FIELD_NUMBER: builtins.int
         SLOW_OP_THRESHOLD_FIELD_NUMBER: builtins.int
-        mode: global___MongoCfgConfig5_0.OperationProfiling.Mode.ValueType
+        mode: global___MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType
         """Mode which specifies operations that should be profiled."""
         @property
         def slow_op_threshold(self) -> google.protobuf.wrappers_pb2.Int64Value:
             """The slow operation time threshold, in milliseconds. Operations that run
             for longer than this threshold are considered slow, and are processed by the profiler
-            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v5.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
+            running in the SLOW_OP mode. For details see [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/#operationProfiling.slowOpThresholdMs).
             """
         def __init__(
             self,
             *,
-            mode: global___MongoCfgConfig5_0.OperationProfiling.Mode.ValueType = ...,
+            mode: global___MongoCfgConfig6_0_enterprise.OperationProfiling.Mode.ValueType = ...,
             slow_op_threshold: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         ) -> None: ...
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
@@ -336,27 +436,27 @@ class MongoCfgConfig5_0(google.protobuf.message.Message):
     OPERATION_PROFILING_FIELD_NUMBER: builtins.int
     NET_FIELD_NUMBER: builtins.int
     @property
-    def storage(self) -> global___MongoCfgConfig5_0.Storage:
+    def storage(self) -> global___MongoCfgConfig6_0_enterprise.Storage:
         """`storage` section of mongocfg configuration."""
     @property
-    def operation_profiling(self) -> global___MongoCfgConfig5_0.OperationProfiling:
+    def operation_profiling(self) -> global___MongoCfgConfig6_0_enterprise.OperationProfiling:
         """`operationProfiling` section of mongocfg configuration."""
     @property
-    def net(self) -> global___MongoCfgConfig5_0.Network:
+    def net(self) -> global___MongoCfgConfig6_0_enterprise.Network:
         """`net` section of mongocfg configuration."""
     def __init__(
         self,
         *,
-        storage: global___MongoCfgConfig5_0.Storage | None = ...,
-        operation_profiling: global___MongoCfgConfig5_0.OperationProfiling | None = ...,
-        net: global___MongoCfgConfig5_0.Network | None = ...,
+        storage: global___MongoCfgConfig6_0_enterprise.Storage | None = ...,
+        operation_profiling: global___MongoCfgConfig6_0_enterprise.OperationProfiling | None = ...,
+        net: global___MongoCfgConfig6_0_enterprise.Network | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["net", b"net", "operation_profiling", b"operation_profiling", "storage", b"storage"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["net", b"net", "operation_profiling", b"operation_profiling", "storage", b"storage"]) -> None: ...
 
-global___MongoCfgConfig5_0 = MongoCfgConfig5_0
+global___MongoCfgConfig6_0_enterprise = MongoCfgConfig6_0_enterprise
 
-class MongosConfig5_0(google.protobuf.message.Message):
+class MongosConfig6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     class Network(google.protobuf.message.Message):
@@ -376,101 +476,101 @@ class MongosConfig5_0(google.protobuf.message.Message):
 
     NET_FIELD_NUMBER: builtins.int
     @property
-    def net(self) -> global___MongosConfig5_0.Network:
+    def net(self) -> global___MongosConfig6_0_enterprise.Network:
         """Network settings for mongos."""
     def __init__(
         self,
         *,
-        net: global___MongosConfig5_0.Network | None = ...,
+        net: global___MongosConfig6_0_enterprise.Network | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["net", b"net"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["net", b"net"]) -> None: ...
 
-global___MongosConfig5_0 = MongosConfig5_0
+global___MongosConfig6_0_enterprise = MongosConfig6_0_enterprise
 
-class MongodConfigSet5_0(google.protobuf.message.Message):
+class MongodConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
-    def effective_config(self) -> global___MongodConfig5_0:
-        """Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
+    def effective_config(self) -> global___MongodConfig6_0_enterprise:
+        """Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
     @property
-    def user_config(self) -> global___MongodConfig5_0:
-        """User-defined mongod settings for a MongoDB 5.0 cluster."""
+    def user_config(self) -> global___MongodConfig6_0_enterprise:
+        """User-defined mongod settings for a MongoDB 6.0 cluster."""
     @property
-    def default_config(self) -> global___MongodConfig5_0:
-        """Default mongod configuration for a MongoDB 5.0 cluster."""
+    def default_config(self) -> global___MongodConfig6_0_enterprise:
+        """Default mongod configuration for a MongoDB 6.0 cluster."""
     def __init__(
         self,
         *,
-        effective_config: global___MongodConfig5_0 | None = ...,
-        user_config: global___MongodConfig5_0 | None = ...,
-        default_config: global___MongodConfig5_0 | None = ...,
+        effective_config: global___MongodConfig6_0_enterprise | None = ...,
+        user_config: global___MongodConfig6_0_enterprise | None = ...,
+        default_config: global___MongodConfig6_0_enterprise | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
 
-global___MongodConfigSet5_0 = MongodConfigSet5_0
+global___MongodConfigSet6_0_enterprise = MongodConfigSet6_0_enterprise
 
-class MongoCfgConfigSet5_0(google.protobuf.message.Message):
+class MongoCfgConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
-    def effective_config(self) -> global___MongoCfgConfig5_0:
-        """Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined
+    def effective_config(self) -> global___MongoCfgConfig6_0_enterprise:
+        """Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
     @property
-    def user_config(self) -> global___MongoCfgConfig5_0:
-        """User-defined mongocfg settings for a MongoDB 5.0 cluster."""
+    def user_config(self) -> global___MongoCfgConfig6_0_enterprise:
+        """User-defined mongocfg settings for a MongoDB 6.0 cluster."""
     @property
-    def default_config(self) -> global___MongoCfgConfig5_0:
-        """Default mongocfg configuration for a MongoDB 5.0 cluster."""
+    def default_config(self) -> global___MongoCfgConfig6_0_enterprise:
+        """Default mongocfg configuration for a MongoDB 6.0 cluster."""
     def __init__(
         self,
         *,
-        effective_config: global___MongoCfgConfig5_0 | None = ...,
-        user_config: global___MongoCfgConfig5_0 | None = ...,
-        default_config: global___MongoCfgConfig5_0 | None = ...,
+        effective_config: global___MongoCfgConfig6_0_enterprise | None = ...,
+        user_config: global___MongoCfgConfig6_0_enterprise | None = ...,
+        default_config: global___MongoCfgConfig6_0_enterprise | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
 
-global___MongoCfgConfigSet5_0 = MongoCfgConfigSet5_0
+global___MongoCfgConfigSet6_0_enterprise = MongoCfgConfigSet6_0_enterprise
 
-class MongosConfigSet5_0(google.protobuf.message.Message):
+class MongosConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     EFFECTIVE_CONFIG_FIELD_NUMBER: builtins.int
     USER_CONFIG_FIELD_NUMBER: builtins.int
     DEFAULT_CONFIG_FIELD_NUMBER: builtins.int
     @property
-    def effective_config(self) -> global___MongosConfig5_0:
-        """Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined
+    def effective_config(self) -> global___MongosConfig6_0_enterprise:
+        """Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
         in [user_config] and [default_config]).
         """
     @property
-    def user_config(self) -> global___MongosConfig5_0:
+    def user_config(self) -> global___MongosConfig6_0_enterprise:
         """User-defined mongos settings for a MongoDB 5.0 cluster."""
     @property
-    def default_config(self) -> global___MongosConfig5_0:
+    def default_config(self) -> global___MongosConfig6_0_enterprise:
         """Default mongos configuration for a MongoDB 5.0 cluster."""
     def __init__(
         self,
         *,
-        effective_config: global___MongosConfig5_0 | None = ...,
-        user_config: global___MongosConfig5_0 | None = ...,
-        default_config: global___MongosConfig5_0 | None = ...,
+        effective_config: global___MongosConfig6_0_enterprise | None = ...,
+        user_config: global___MongosConfig6_0_enterprise | None = ...,
+        default_config: global___MongosConfig6_0_enterprise | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing_extensions.Literal["default_config", b"default_config", "effective_config", b"effective_config", "user_config", b"user_config"]) -> None: ...
 
-global___MongosConfigSet5_0 = MongosConfigSet5_0
+global___MongosConfigSet6_0_enterprise = MongosConfigSet6_0_enterprise

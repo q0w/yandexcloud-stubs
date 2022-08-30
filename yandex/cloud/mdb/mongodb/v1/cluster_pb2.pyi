@@ -20,6 +20,8 @@ import yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_enterprise_pb2
 import yandex.cloud.mdb.mongodb.v1.config.mongodb4_4_pb2
 import yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_enterprise_pb2
 import yandex.cloud.mdb.mongodb.v1.config.mongodb5_0_pb2
+import yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2
+import yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2
 import yandex.cloud.mdb.mongodb.v1.maintenance_pb2
 
 if sys.version_info >= (3, 10):
@@ -50,7 +52,9 @@ class Cluster(google.protobuf.message.Message):
         are rolled out irrespective of backward compatibility.
         """
 
-    class Environment(_Environment, metaclass=_EnvironmentEnumTypeWrapper): ...
+    class Environment(_Environment, metaclass=_EnvironmentEnumTypeWrapper):
+        """Deployment environment."""
+
     ENVIRONMENT_UNSPECIFIED: Cluster.Environment.ValueType  # 0
     PRODUCTION: Cluster.Environment.ValueType  # 1
     """Stable environment with a conservative update policy: only hotfixes
@@ -265,13 +269,16 @@ class ClusterConfig(google.protobuf.message.Message):
     MONGODB_4_2_FIELD_NUMBER: builtins.int
     MONGODB_4_4_FIELD_NUMBER: builtins.int
     MONGODB_5_0_FIELD_NUMBER: builtins.int
+    MONGODB_6_0_FIELD_NUMBER: builtins.int
     MONGODB_4_4_ENTERPRISE_FIELD_NUMBER: builtins.int
     MONGODB_5_0_ENTERPRISE_FIELD_NUMBER: builtins.int
+    MONGODB_6_0_ENTERPRISE_FIELD_NUMBER: builtins.int
     BACKUP_WINDOW_START_FIELD_NUMBER: builtins.int
     BACKUP_RETAIN_PERIOD_DAYS_FIELD_NUMBER: builtins.int
+    PERFORMANCE_DIAGNOSTICS_FIELD_NUMBER: builtins.int
     ACCESS_FIELD_NUMBER: builtins.int
     version: builtins.str
-    """Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`."""
+    """Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`."""
     feature_compatibility_version: builtins.str
     """MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
@@ -281,6 +288,7 @@ class ClusterConfig(google.protobuf.message.Message):
     * `4.2` - persist data compatibility for version 4.2. After setting this option the data will not be compatible with 4.0 or lower.
     * `4.4` - persist data compatibility for version 4.4. After setting this option the data will not be compatible with 4.2 or lower.
     * `5.0` - persist data compatibility for version 5.0. After setting this option the data will not be compatible with 5.0 or lower.
+    * `6.0` - persist data compatibility for version 6.0. After setting this option the data will not be compatible with 6.0 or lower.
     """
     @property
     def mongodb_3_6(self) -> global___Mongodb3_6:
@@ -298,17 +306,26 @@ class ClusterConfig(google.protobuf.message.Message):
     def mongodb_5_0(self) -> global___Mongodb5_0:
         """Configuration and resource allocation for a MongoDB 5.0 cluster."""
     @property
+    def mongodb_6_0(self) -> global___Mongodb6_0:
+        """Configuration and resource allocation for a MongoDB 6.0 cluster."""
+    @property
     def mongodb_4_4_enterprise(self) -> global___Mongodb4_4_enterprise:
         """Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster."""
     @property
     def mongodb_5_0_enterprise(self) -> global___Mongodb5_0_enterprise:
         """Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster."""
     @property
+    def mongodb_6_0_enterprise(self) -> global___Mongodb6_0_enterprise:
+        """Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster."""
+    @property
     def backup_window_start(self) -> google.type.timeofday_pb2.TimeOfDay:
         """Time to start the daily backup, in the UTC timezone."""
     @property
     def backup_retain_period_days(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Retain period of automatically created backup in days"""
+    @property
+    def performance_diagnostics(self) -> global___PerformanceDiagnosticsConfig:
+        """Performance Diagnostic"""
     @property
     def access(self) -> global___Access:
         """Access policy to DB"""
@@ -322,15 +339,18 @@ class ClusterConfig(google.protobuf.message.Message):
         mongodb_4_2: global___Mongodb4_2 | None = ...,
         mongodb_4_4: global___Mongodb4_4 | None = ...,
         mongodb_5_0: global___Mongodb5_0 | None = ...,
+        mongodb_6_0: global___Mongodb6_0 | None = ...,
         mongodb_4_4_enterprise: global___Mongodb4_4_enterprise | None = ...,
         mongodb_5_0_enterprise: global___Mongodb5_0_enterprise | None = ...,
+        mongodb_6_0_enterprise: global___Mongodb6_0_enterprise | None = ...,
         backup_window_start: google.type.timeofday_pb2.TimeOfDay | None = ...,
         backup_retain_period_days: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        performance_diagnostics: global___PerformanceDiagnosticsConfig | None = ...,
         access: global___Access | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "mongodb", b"mongodb", "mongodb_3_6", b"mongodb_3_6", "mongodb_4_0", b"mongodb_4_0", "mongodb_4_2", b"mongodb_4_2", "mongodb_4_4", b"mongodb_4_4", "mongodb_4_4_enterprise", b"mongodb_4_4_enterprise", "mongodb_5_0", b"mongodb_5_0", "mongodb_5_0_enterprise", b"mongodb_5_0_enterprise"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "feature_compatibility_version", b"feature_compatibility_version", "mongodb", b"mongodb", "mongodb_3_6", b"mongodb_3_6", "mongodb_4_0", b"mongodb_4_0", "mongodb_4_2", b"mongodb_4_2", "mongodb_4_4", b"mongodb_4_4", "mongodb_4_4_enterprise", b"mongodb_4_4_enterprise", "mongodb_5_0", b"mongodb_5_0", "mongodb_5_0_enterprise", b"mongodb_5_0_enterprise", "version", b"version"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing_extensions.Literal["mongodb", b"mongodb"]) -> typing_extensions.Literal["mongodb_3_6", "mongodb_4_0", "mongodb_4_2", "mongodb_4_4", "mongodb_5_0", "mongodb_4_4_enterprise", "mongodb_5_0_enterprise"] | None: ...
+    def HasField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "mongodb", b"mongodb", "mongodb_3_6", b"mongodb_3_6", "mongodb_4_0", b"mongodb_4_0", "mongodb_4_2", b"mongodb_4_2", "mongodb_4_4", b"mongodb_4_4", "mongodb_4_4_enterprise", b"mongodb_4_4_enterprise", "mongodb_5_0", b"mongodb_5_0", "mongodb_5_0_enterprise", b"mongodb_5_0_enterprise", "mongodb_6_0", b"mongodb_6_0", "mongodb_6_0_enterprise", b"mongodb_6_0_enterprise", "performance_diagnostics", b"performance_diagnostics"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["access", b"access", "backup_retain_period_days", b"backup_retain_period_days", "backup_window_start", b"backup_window_start", "feature_compatibility_version", b"feature_compatibility_version", "mongodb", b"mongodb", "mongodb_3_6", b"mongodb_3_6", "mongodb_4_0", b"mongodb_4_0", "mongodb_4_2", b"mongodb_4_2", "mongodb_4_4", b"mongodb_4_4", "mongodb_4_4_enterprise", b"mongodb_4_4_enterprise", "mongodb_5_0", b"mongodb_5_0", "mongodb_5_0_enterprise", b"mongodb_5_0_enterprise", "mongodb_6_0", b"mongodb_6_0", "mongodb_6_0_enterprise", b"mongodb_6_0_enterprise", "performance_diagnostics", b"performance_diagnostics", "version", b"version"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["mongodb", b"mongodb"]) -> typing_extensions.Literal["mongodb_3_6", "mongodb_4_0", "mongodb_4_2", "mongodb_4_4", "mongodb_5_0", "mongodb_6_0", "mongodb_4_4_enterprise", "mongodb_5_0_enterprise", "mongodb_6_0_enterprise"] | None: ...
 
 global___ClusterConfig = ClusterConfig
 
@@ -385,7 +405,7 @@ class Mongodb3_6(google.protobuf.message.Message):
         def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb3_6_pb2.MongosConfigSet3_6: ...
         @property
         def resources(self) -> global___Resources:
-            """Resources allocated to mongocfg hosts."""
+            """Resources allocated to mongos hosts."""
         def __init__(
             self,
             *,
@@ -1137,6 +1157,236 @@ class Mongodb5_0_enterprise(google.protobuf.message.Message):
 
 global___Mongodb5_0_enterprise = Mongodb5_0_enterprise
 
+class Mongodb6_0(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class Mongod(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongodConfigSet6_0:
+            """Configuration for mongod 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongod hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongodConfigSet6_0 | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class MongoCfg(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongoCfgConfigSet6_0:
+            """Configuration for mongocfg 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongocfg hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongoCfgConfigSet6_0 | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class Mongos(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongosConfigSet6_0:
+            """Configuration for mongos 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongos hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongosConfigSet6_0 | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class MongoInfra(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_MONGOS_FIELD_NUMBER: builtins.int
+        CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongosConfigSet6_0: ...
+        @property
+        def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongoCfgConfigSet6_0: ...
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongoinfra (mongos+mongocfg) hosts."""
+        def __init__(
+            self,
+            *,
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongosConfigSet6_0 | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_pb2.MongoCfgConfigSet6_0 | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
+
+    MONGOD_FIELD_NUMBER: builtins.int
+    MONGOCFG_FIELD_NUMBER: builtins.int
+    MONGOS_FIELD_NUMBER: builtins.int
+    MONGOINFRA_FIELD_NUMBER: builtins.int
+    @property
+    def mongod(self) -> global___Mongodb6_0.Mongod:
+        """Configuration and resource allocation for mongod in a MongoDB 6.0 cluster."""
+    @property
+    def mongocfg(self) -> global___Mongodb6_0.MongoCfg:
+        """Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster."""
+    @property
+    def mongos(self) -> global___Mongodb6_0.Mongos:
+        """Configuration and resource allocation for mongos in a MongoDB 6.0 cluster."""
+    @property
+    def mongoinfra(self) -> global___Mongodb6_0.MongoInfra:
+        """Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster."""
+    def __init__(
+        self,
+        *,
+        mongod: global___Mongodb6_0.Mongod | None = ...,
+        mongocfg: global___Mongodb6_0.MongoCfg | None = ...,
+        mongos: global___Mongodb6_0.Mongos | None = ...,
+        mongoinfra: global___Mongodb6_0.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
+global___Mongodb6_0 = Mongodb6_0
+
+class Mongodb6_0_enterprise(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class Mongod(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongodConfigSet6_0_enterprise:
+            """Configuration for mongod 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongod hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongodConfigSet6_0_enterprise | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class MongoCfg(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongoCfgConfigSet6_0_enterprise:
+            """Configuration for mongocfg 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongocfg hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongoCfgConfigSet6_0_enterprise | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class Mongos(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongosConfigSet6_0_enterprise:
+            """Configuration for mongos 6.0 hosts."""
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongos hosts."""
+        def __init__(
+            self,
+            *,
+            config: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongosConfigSet6_0_enterprise | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
+
+    class MongoInfra(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        CONFIG_MONGOS_FIELD_NUMBER: builtins.int
+        CONFIG_MONGOCFG_FIELD_NUMBER: builtins.int
+        RESOURCES_FIELD_NUMBER: builtins.int
+        @property
+        def config_mongos(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongosConfigSet6_0_enterprise: ...
+        @property
+        def config_mongocfg(self) -> yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongoCfgConfigSet6_0_enterprise: ...
+        @property
+        def resources(self) -> global___Resources:
+            """Resources allocated to mongoinfra (mongos+mongocfg) hosts."""
+        def __init__(
+            self,
+            *,
+            config_mongos: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongosConfigSet6_0_enterprise | None = ...,
+            config_mongocfg: yandex.cloud.mdb.mongodb.v1.config.mongodb6_0_enterprise_pb2.MongoCfgConfigSet6_0_enterprise | None = ...,
+            resources: global___Resources | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["config_mongocfg", b"config_mongocfg", "config_mongos", b"config_mongos", "resources", b"resources"]) -> None: ...
+
+    MONGOD_FIELD_NUMBER: builtins.int
+    MONGOCFG_FIELD_NUMBER: builtins.int
+    MONGOS_FIELD_NUMBER: builtins.int
+    MONGOINFRA_FIELD_NUMBER: builtins.int
+    @property
+    def mongod(self) -> global___Mongodb6_0_enterprise.Mongod:
+        """Configuration and resource allocation for mongod in a MongoDB 6.0 cluster."""
+    @property
+    def mongocfg(self) -> global___Mongodb6_0_enterprise.MongoCfg:
+        """Configuration and resource allocation for mongocfg in a MongoDB 6.0 cluster."""
+    @property
+    def mongos(self) -> global___Mongodb6_0_enterprise.Mongos:
+        """Configuration and resource allocation for mongos in a MongoDB 6.0 cluster."""
+    @property
+    def mongoinfra(self) -> global___Mongodb6_0_enterprise.MongoInfra:
+        """Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a MongoDB 6.0 cluster."""
+    def __init__(
+        self,
+        *,
+        mongod: global___Mongodb6_0_enterprise.Mongod | None = ...,
+        mongocfg: global___Mongodb6_0_enterprise.MongoCfg | None = ...,
+        mongos: global___Mongodb6_0_enterprise.Mongos | None = ...,
+        mongoinfra: global___Mongodb6_0_enterprise.MongoInfra | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["mongocfg", b"mongocfg", "mongod", b"mongod", "mongoinfra", b"mongoinfra", "mongos", b"mongos"]) -> None: ...
+
+global___Mongodb6_0_enterprise = Mongodb6_0_enterprise
+
 class Shard(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1390,7 +1640,7 @@ class Access(google.protobuf.message.Message):
     DATA_LENS_FIELD_NUMBER: builtins.int
     DATA_TRANSFER_FIELD_NUMBER: builtins.int
     data_lens: builtins.bool
-    """Allow access for DataLens"""
+    """Allow access for DataLens."""
     data_transfer: builtins.bool
     """Allow access for DataTransfer."""
     def __init__(
@@ -1402,3 +1652,17 @@ class Access(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["data_lens", b"data_lens", "data_transfer", b"data_transfer"]) -> None: ...
 
 global___Access = Access
+
+class PerformanceDiagnosticsConfig(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    PROFILING_ENABLED_FIELD_NUMBER: builtins.int
+    profiling_enabled: builtins.bool
+    def __init__(
+        self,
+        *,
+        profiling_enabled: builtins.bool = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["profiling_enabled", b"profiling_enabled"]) -> None: ...
+
+global___PerformanceDiagnosticsConfig = PerformanceDiagnosticsConfig

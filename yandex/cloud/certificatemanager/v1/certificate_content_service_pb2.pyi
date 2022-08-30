@@ -6,15 +6,34 @@ import builtins
 import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
+import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
 import sys
+import typing
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 10):
     import typing as typing_extensions
 else:
     import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+
+class _PrivateKeyFormat:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _PrivateKeyFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PrivateKeyFormat.ValueType], builtins.type):  # noqa: F821
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    PRIVATE_KEY_FORMAT_UNSPECIFIED: _PrivateKeyFormat.ValueType  # 0
+    PKCS1: _PrivateKeyFormat.ValueType  # 1
+    PKCS8: _PrivateKeyFormat.ValueType  # 2
+
+class PrivateKeyFormat(_PrivateKeyFormat, metaclass=_PrivateKeyFormatEnumTypeWrapper): ...
+
+PRIVATE_KEY_FORMAT_UNSPECIFIED: PrivateKeyFormat.ValueType  # 0
+PKCS1: PrivateKeyFormat.ValueType  # 1
+PKCS8: PrivateKeyFormat.ValueType  # 2
+global___PrivateKeyFormat = PrivateKeyFormat
 
 class GetCertificateContentResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
@@ -45,16 +64,20 @@ class GetCertificateContentRequest(google.protobuf.message.Message):
 
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     VERSION_ID_FIELD_NUMBER: builtins.int
+    PRIVATE_KEY_FORMAT_FIELD_NUMBER: builtins.int
     certificate_id: builtins.str
     """ID of the certificate to download content."""
     version_id: builtins.str
     """Optional ID of the version."""
+    private_key_format: global___PrivateKeyFormat.ValueType
+    """Desired format of private key"""
     def __init__(
         self,
         *,
         certificate_id: builtins.str = ...,
         version_id: builtins.str = ...,
+        private_key_format: global___PrivateKeyFormat.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "version_id", b"version_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "private_key_format", b"private_key_format", "version_id", b"version_id"]) -> None: ...
 
 global___GetCertificateContentRequest = GetCertificateContentRequest

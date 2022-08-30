@@ -139,8 +139,8 @@ class CreateBucketRequest(google.protobuf.message.Message):
     To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List] request.
     """
     default_storage_class: builtins.str
-    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
-    cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
+    (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     max_size: builtins.int
@@ -217,8 +217,8 @@ class UpdateBucketRequest(google.protobuf.message.Message):
         For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
         """
     default_storage_class: builtins.str
-    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
-    cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
+    (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     max_size: builtins.int

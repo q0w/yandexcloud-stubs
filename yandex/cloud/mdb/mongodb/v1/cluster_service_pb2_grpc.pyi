@@ -77,7 +77,9 @@ class ClusterServiceStub:
         yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.ListClusterLogsRequest,
         yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.ListClusterLogsResponse,
     ]
-    """Retrieves logs for the specified MongoDB cluster."""
+    """Retrieves logs for the specified MongoDB cluster.
+    See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
+    """
     StreamLogs: grpc.UnaryStreamMultiCallable[
         yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.StreamClusterLogsRequest,
         yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.StreamLogRecord,
@@ -112,7 +114,8 @@ class ClusterServiceStub:
         yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.EnableClusterShardingRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
-    """Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
+    """Enables sharding for the cluster:
+    creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
     that would support adding and using shards in the cluster.
     """
     GetShard: grpc.UnaryUnaryMultiCallable[
@@ -242,7 +245,9 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.ListClusterLogsRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.ListClusterLogsResponse:
-        """Retrieves logs for the specified MongoDB cluster."""
+        """Retrieves logs for the specified MongoDB cluster.
+        See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
+        """
     @abc.abstractmethod
     def StreamLogs(
         self,
@@ -291,7 +296,8 @@ class ClusterServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.mdb.mongodb.v1.cluster_service_pb2.EnableClusterShardingRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
-        """Enables sharding for the cluster: creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
+        """Enables sharding for the cluster:
+        creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
         that would support adding and using shards in the cluster.
         """
     @abc.abstractmethod

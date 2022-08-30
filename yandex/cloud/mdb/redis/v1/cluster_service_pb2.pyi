@@ -543,6 +543,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     TLS_ENABLED_FIELD_NUMBER: builtins.int
     PERSISTENCE_MODE_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     backup_id: builtins.str
     """ID of the backup to create a cluster from.
     To get the backup ID, use a [ClusterService.ListBackups] request.
@@ -578,6 +579,8 @@ class RestoreClusterRequest(google.protobuf.message.Message):
         """TLS port and functionality on\\off"""
     persistence_mode: yandex.cloud.mdb.redis.v1.cluster_pb2.Cluster.PersistenceMode.ValueType
     """Persistence mode"""
+    deletion_protection: builtins.bool
+    """Deletion Protection inhibits deletion of the cluster"""
     def __init__(
         self,
         *,
@@ -593,9 +596,10 @@ class RestoreClusterRequest(google.protobuf.message.Message):
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         tls_enabled: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         persistence_mode: yandex.cloud.mdb.redis.v1.cluster_pb2.Cluster.PersistenceMode.ValueType = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["config_spec", b"config_spec", "tls_enabled", b"tls_enabled"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "config_spec", b"config_spec", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "persistence_mode", b"persistence_mode", "security_group_ids", b"security_group_ids", "tls_enabled", b"tls_enabled"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id", "config_spec", b"config_spec", "deletion_protection", b"deletion_protection", "description", b"description", "environment", b"environment", "folder_id", b"folder_id", "host_specs", b"host_specs", "labels", b"labels", "name", b"name", "network_id", b"network_id", "persistence_mode", b"persistence_mode", "security_group_ids", b"security_group_ids", "tls_enabled", b"tls_enabled"]) -> None: ...
 
 global___RestoreClusterRequest = RestoreClusterRequest
 

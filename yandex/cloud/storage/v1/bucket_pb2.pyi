@@ -114,8 +114,8 @@ class Bucket(google.protobuf.message.Message):
         For details, see [documentation](/docs/storage/concepts/bucket#bucket-access).
         """
     default_storage_class: builtins.str
-    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
-    cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+    """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
+    (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     versioning: global___Versioning.ValueType
@@ -696,10 +696,10 @@ class LifecycleRule(google.protobuf.message.Message):
             version is transitioned.
             """
         storage_class: builtins.str
-        """Storage class to which a non-current version of an object is transitioned.
+        """Storage class to which a non-current version of an object is transitioned from standard storage.
 
         The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
-        to standard storage are not allowed.
+        to standard storage and transitions to or from ice storage are not allowed.
         """
         def __init__(
             self,
@@ -744,10 +744,10 @@ class LifecycleRule(google.protobuf.message.Message):
             At most one of [days] and [date] fields can be specified.
             """
         storage_class: builtins.str
-        """Storage class to which an object is transitioned.
+        """Storage class to which an object is transitioned from standard storage.
 
         The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
-        to standard storage are not allowed.
+        to standard storage and transitions to or from ice storage are not allowed.
         """
         def __init__(
             self,
@@ -939,8 +939,8 @@ class OptionalSizeByClass(google.protobuf.message.Message):
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     CLASS_SIZE_FIELD_NUMBER: builtins.int
     storage_class: builtins.str
-    """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
-    `NEARLINE` all synonyms).
+    """Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
+    all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     @property
@@ -965,8 +965,8 @@ class SizeByClass(google.protobuf.message.Message):
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     CLASS_SIZE_FIELD_NUMBER: builtins.int
     storage_class: builtins.str
-    """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
-    `NEARLINE` all synonyms).
+    """Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
+    all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     class_size: builtins.int
@@ -989,8 +989,8 @@ class CountersByClass(google.protobuf.message.Message):
     STORAGE_CLASS_FIELD_NUMBER: builtins.int
     COUNTERS_FIELD_NUMBER: builtins.int
     storage_class: builtins.str
-    """Storage class. Supported classes are standard storage (`STANDARD`) and cold storage (`COLD`, `STANDARD_IA`,
-    `NEARLINE` all synonyms).
+    """Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
+    all synonyms), and ice storage (`ice` and `GLACIER` are synonyms).
     For details, see [documentation](/docs/storage/concepts/storage-class).
     """
     @property
@@ -1040,8 +1040,8 @@ class BucketStats(google.protobuf.message.Message):
         """Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes."""
     @property
     def default_storage_class(self) -> google.protobuf.wrappers_pb2.StringValue:
-        """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`) and
-        cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms).
+        """Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
+        (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
         For details, see [documentation](/docs/storage/concepts/storage-class).
         """
     @property

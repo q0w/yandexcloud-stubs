@@ -54,7 +54,7 @@ class Backup(google.protobuf.message.Message):
     SIZE_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """ID of the backup."""
+    """ID of the backup. Required."""
     folder_id: builtins.str
     """ID of the folder that the backup belongs to."""
     @property

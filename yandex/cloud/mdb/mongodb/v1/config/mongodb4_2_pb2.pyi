@@ -63,6 +63,8 @@ class MongodConfig4_2(google.protobuf.message.Message):
                     """The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression."""
                     ZLIB: MongodConfig4_2.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 3
                     """The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression."""
+                    ZSTD: MongodConfig4_2.Storage.WiredTiger.CollectionConfig._Compressor.ValueType  # 4
+                    """The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression."""
 
                 class Compressor(_Compressor, metaclass=_CompressorEnumTypeWrapper): ...
                 COMPRESSOR_UNSPECIFIED: MongodConfig4_2.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 0
@@ -72,6 +74,8 @@ class MongodConfig4_2(google.protobuf.message.Message):
                 """The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression."""
                 ZLIB: MongodConfig4_2.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 3
                 """The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression."""
+                ZSTD: MongodConfig4_2.Storage.WiredTiger.CollectionConfig.Compressor.ValueType  # 4
+                """The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression."""
 
                 BLOCK_COMPRESSOR_FIELD_NUMBER: builtins.int
                 block_compressor: global___MongodConfig4_2.Storage.WiredTiger.CollectionConfig.Compressor.ValueType
