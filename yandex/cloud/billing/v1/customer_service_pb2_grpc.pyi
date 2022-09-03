@@ -21,6 +21,11 @@ class CustomerServiceStub:
         yandex.cloud.operation.operation_pb2.Operation,
     ]
     """Invites customer to the specified reseller."""
+    CreateResellerServed: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.billing.v1.customer_service_pb2.CreateResellerServedCustomerRequest,
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
+    """Creates new reseller-served customer."""
     Activate: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.billing.v1.customer_service_pb2.ActivateCustomerRequest,
         yandex.cloud.operation.operation_pb2.Operation,
@@ -49,6 +54,13 @@ class CustomerServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.operation.operation_pb2.Operation:
         """Invites customer to the specified reseller."""
+    @abc.abstractmethod
+    def CreateResellerServed(
+        self,
+        request: yandex.cloud.billing.v1.customer_service_pb2.CreateResellerServedCustomerRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Creates new reseller-served customer."""
     @abc.abstractmethod
     def Activate(
         self,

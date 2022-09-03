@@ -142,6 +142,7 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
 
     CLUSTER_ID_FIELD_NUMBER: builtins.int
     DATABASE_NAME_FIELD_NUMBER: builtins.int
+    NEW_DATABASE_NAME_FIELD_NUMBER: builtins.int
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     EXTENSIONS_FIELD_NUMBER: builtins.int
     cluster_id: builtins.str
@@ -152,6 +153,8 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
     """Name of the database to update.
     To get the name of the database use a [DatabaseService.List] request.
     """
+    new_database_name: builtins.str
+    """Optional. New name of the database."""
     @property
     def update_mask(self) -> google.protobuf.field_mask_pb2.FieldMask:
         """Field mask that specifies which fields of the Database resource should be updated."""
@@ -167,11 +170,12 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
         *,
         cluster_id: builtins.str = ...,
         database_name: builtins.str = ...,
+        new_database_name: builtins.str = ...,
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
         extensions: collections.abc.Iterable[yandex.cloud.mdb.postgresql.v1.database_pb2.Extension] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "database_name", b"database_name", "extensions", b"extensions", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "database_name", b"database_name", "extensions", b"extensions", "new_database_name", b"new_database_name", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateDatabaseRequest = UpdateDatabaseRequest
 

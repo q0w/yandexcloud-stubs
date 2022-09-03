@@ -102,6 +102,31 @@ class InviteCustomerRequest(google.protobuf.message.Message):
 
 global___InviteCustomerRequest = InviteCustomerRequest
 
+class CreateResellerServedCustomerRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    RESELLER_ID_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    PERSON_FIELD_NUMBER: builtins.int
+    reseller_id: builtins.str
+    """ID of the reseller that customer will be associated with."""
+    name: builtins.str
+    """Name of the customer."""
+    @property
+    def person(self) -> yandex.cloud.billing.v1.customer_pb2.CustomerPerson:
+        """Person of the customer."""
+    def __init__(
+        self,
+        *,
+        reseller_id: builtins.str = ...,
+        name: builtins.str = ...,
+        person: yandex.cloud.billing.v1.customer_pb2.CustomerPerson | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["person", b"person"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "person", b"person", "reseller_id", b"reseller_id"]) -> None: ...
+
+global___CreateResellerServedCustomerRequest = CreateResellerServedCustomerRequest
+
 class ActivateCustomerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

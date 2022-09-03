@@ -421,6 +421,7 @@ class ServerlessDatabase(google.protobuf.message.Message):
     STORAGE_SIZE_LIMIT_FIELD_NUMBER: builtins.int
     ENABLE_THROTTLING_RCU_LIMIT_FIELD_NUMBER: builtins.int
     PROVISIONED_RCU_LIMIT_FIELD_NUMBER: builtins.int
+    TOPIC_WRITE_QUOTA_FIELD_NUMBER: builtins.int
     throttling_rcu_limit: builtins.int
     """Let's define 1 RU  - 1 request unit
     Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second.
@@ -437,6 +438,8 @@ class ServerlessDatabase(google.protobuf.message.Message):
     You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed.
     You will be charged for the on-demand consumption only if provisioned capacity is consumed.
     """
+    topic_write_quota: builtins.int
+    """write quota for topic service, defined in bytes per second."""
     def __init__(
         self,
         *,
@@ -444,8 +447,9 @@ class ServerlessDatabase(google.protobuf.message.Message):
         storage_size_limit: builtins.int = ...,
         enable_throttling_rcu_limit: builtins.bool = ...,
         provisioned_rcu_limit: builtins.int = ...,
+        topic_write_quota: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["enable_throttling_rcu_limit", b"enable_throttling_rcu_limit", "provisioned_rcu_limit", b"provisioned_rcu_limit", "storage_size_limit", b"storage_size_limit", "throttling_rcu_limit", b"throttling_rcu_limit"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["enable_throttling_rcu_limit", b"enable_throttling_rcu_limit", "provisioned_rcu_limit", b"provisioned_rcu_limit", "storage_size_limit", b"storage_size_limit", "throttling_rcu_limit", b"throttling_rcu_limit", "topic_write_quota", b"topic_write_quota"]) -> None: ...
 
 global___ServerlessDatabase = ServerlessDatabase
 
