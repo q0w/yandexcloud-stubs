@@ -90,6 +90,7 @@ class LoadBalancer(google.protobuf.message.Message):
     LOG_GROUP_ID_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
+    AUTO_SCALE_POLICY_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the application load balancer. Generated at creation time."""
     name: builtins.str
@@ -136,6 +137,9 @@ class LoadBalancer(google.protobuf.message.Message):
     @property
     def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
         """Creation timestamp."""
+    @property
+    def auto_scale_policy(self) -> global___AutoScalePolicy:
+        """Autoscale settings of the application load balancer."""
     def __init__(
         self,
         *,
@@ -152,9 +156,10 @@ class LoadBalancer(google.protobuf.message.Message):
         log_group_id: builtins.str = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
+        auto_scale_policy: global___AutoScalePolicy | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "created_at", b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "log_group_id", b"log_group_id", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "log_group_id", b"log_group_id", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids", "status", b"status"]) -> None: ...
 
 global___LoadBalancer = LoadBalancer
 
@@ -724,3 +729,22 @@ class TargetState(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["status", b"status", "target", b"target"]) -> None: ...
 
 global___TargetState = TargetState
+
+class AutoScalePolicy(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    MIN_ZONE_SIZE_FIELD_NUMBER: builtins.int
+    MAX_SIZE_FIELD_NUMBER: builtins.int
+    min_zone_size: builtins.int
+    """Lower limit for the number of resource units in each zone."""
+    max_size: builtins.int
+    """Upper limit for the total number of resource units across all zones."""
+    def __init__(
+        self,
+        *,
+        min_zone_size: builtins.int = ...,
+        max_size: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["max_size", b"max_size", "min_zone_size", b"min_zone_size"]) -> None: ...
+
+global___AutoScalePolicy = AutoScalePolicy

@@ -476,6 +476,25 @@ class Word(google.protobuf.message.Message):
 
 global___Word = Word
 
+class LanguageEstimation(google.protobuf.message.Message):
+    """Estimation of language probability"""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    LANGUAGE_CODE_FIELD_NUMBER: builtins.int
+    PROBABILITY_FIELD_NUMBER: builtins.int
+    language_code: builtins.str
+    probability: builtins.float
+    def __init__(
+        self,
+        *,
+        language_code: builtins.str = ...,
+        probability: builtins.float = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["language_code", b"language_code", "probability", b"probability"]) -> None: ...
+
+global___LanguageEstimation = LanguageEstimation
+
 class Alternative(google.protobuf.message.Message):
     """Recognition of specific time frame."""
 
@@ -486,6 +505,7 @@ class Alternative(google.protobuf.message.Message):
     START_TIME_MS_FIELD_NUMBER: builtins.int
     END_TIME_MS_FIELD_NUMBER: builtins.int
     CONFIDENCE_FIELD_NUMBER: builtins.int
+    LANGUAGES_FIELD_NUMBER: builtins.int
     @property
     def words(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Word]:
         """ Words in time frame."""
@@ -497,6 +517,9 @@ class Alternative(google.protobuf.message.Message):
     """End of time frame."""
     confidence: builtins.float
     """Hypothesis confidence. Currently is not used."""
+    @property
+    def languages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LanguageEstimation]:
+        """Distribution over possible languages"""
     def __init__(
         self,
         *,
@@ -505,8 +528,9 @@ class Alternative(google.protobuf.message.Message):
         start_time_ms: builtins.int = ...,
         end_time_ms: builtins.int = ...,
         confidence: builtins.float = ...,
+        languages: collections.abc.Iterable[global___LanguageEstimation] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["confidence", b"confidence", "end_time_ms", b"end_time_ms", "start_time_ms", b"start_time_ms", "text", b"text", "words", b"words"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["confidence", b"confidence", "end_time_ms", b"end_time_ms", "languages", b"languages", "start_time_ms", b"start_time_ms", "text", b"text", "words", b"words"]) -> None: ...
 
 global___Alternative = Alternative
 

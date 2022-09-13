@@ -89,21 +89,139 @@ class RouteOptions(google.protobuf.message.Message):
 
     MODIFY_REQUEST_HEADERS_FIELD_NUMBER: builtins.int
     MODIFY_RESPONSE_HEADERS_FIELD_NUMBER: builtins.int
+    RBAC_FIELD_NUMBER: builtins.int
     @property
     def modify_request_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Apply the following modifications to the request headers."""
     @property
     def modify_response_headers(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___HeaderModification]:
         """Apply the following modifications to the response headers."""
+    @property
+    def rbac(self) -> global___RBAC: ...
     def __init__(
         self,
         *,
         modify_request_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
         modify_response_headers: collections.abc.Iterable[global___HeaderModification] | None = ...,
+        rbac: global___RBAC | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["rbac", b"rbac"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "rbac", b"rbac"]) -> None: ...
 
 global___RouteOptions = RouteOptions
+
+class RBAC(google.protobuf.message.Message):
+    """Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
+    service. Requests are allowed or denied based on the `action` and whether a matching principal is
+    found. For instance, if the action is ALLOW and a matching principal is found the request should be
+    allowed.
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Action:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[RBAC._Action.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        ACTION_UNSPECIFIED: RBAC._Action.ValueType  # 0
+        ALLOW: RBAC._Action.ValueType  # 1
+        """Allows the request if and only if there is a principal that matches the request."""
+        DENY: RBAC._Action.ValueType  # 2
+        """Allows the request if and only if there are no principal that match the request."""
+
+    class Action(_Action, metaclass=_ActionEnumTypeWrapper): ...
+    ACTION_UNSPECIFIED: RBAC.Action.ValueType  # 0
+    ALLOW: RBAC.Action.ValueType  # 1
+    """Allows the request if and only if there is a principal that matches the request."""
+    DENY: RBAC.Action.ValueType  # 2
+    """Allows the request if and only if there are no principal that match the request."""
+
+    ACTION_FIELD_NUMBER: builtins.int
+    PRINCIPALS_FIELD_NUMBER: builtins.int
+    action: global___RBAC.Action.ValueType
+    """The action to take if a principal matches. Every action either allows or denies a request."""
+    @property
+    def principals(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Principals]:
+        """Required. A match occurs when at least one matches the request."""
+    def __init__(
+        self,
+        *,
+        action: global___RBAC.Action.ValueType = ...,
+        principals: collections.abc.Iterable[global___Principals] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "principals", b"principals"]) -> None: ...
+
+global___RBAC = RBAC
+
+class Principals(google.protobuf.message.Message):
+    """Principals define a group of identities for a request."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    AND_PRINCIPALS_FIELD_NUMBER: builtins.int
+    @property
+    def and_principals(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Principal]:
+        """Required. A match occurs when all principals match the request."""
+    def __init__(
+        self,
+        *,
+        and_principals: collections.abc.Iterable[global___Principal] | None = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["and_principals", b"and_principals"]) -> None: ...
+
+global___Principals = Principals
+
+class Principal(google.protobuf.message.Message):
+    """Principal defines an identity for a request."""
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class HeaderMatcher(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        NAME_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        name: builtins.str
+        """Specifies the name of the header in the request."""
+        @property
+        def value(self) -> global___StringMatch:
+            """Specifies how the header match will be performed to route the request.
+            In the absence of value a request that has specified header name will match,
+            regardless of the header's value.
+            """
+        def __init__(
+            self,
+            *,
+            name: builtins.str = ...,
+            value: global___StringMatch | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "value", b"value"]) -> None: ...
+
+    HEADER_FIELD_NUMBER: builtins.int
+    REMOTE_IP_FIELD_NUMBER: builtins.int
+    ANY_FIELD_NUMBER: builtins.int
+    @property
+    def header(self) -> global___Principal.HeaderMatcher:
+        """A header (or pseudo-header such as :path or :method) of the incoming HTTP request."""
+    remote_ip: builtins.str
+    """A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` ."""
+    any: builtins.bool
+    """When any is set, it matches any request."""
+    def __init__(
+        self,
+        *,
+        header: global___Principal.HeaderMatcher | None = ...,
+        remote_ip: builtins.str = ...,
+        any: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["any", b"any", "header", b"header", "identifier", b"identifier", "remote_ip", b"remote_ip"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["any", b"any", "header", b"header", "identifier", b"identifier", "remote_ip", b"remote_ip"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["identifier", b"identifier"]) -> typing_extensions.Literal["header", "remote_ip", "any"] | None: ...
+
+global___Principal = Principal
 
 class HeaderModification(google.protobuf.message.Message):
     """A header modification resource."""
