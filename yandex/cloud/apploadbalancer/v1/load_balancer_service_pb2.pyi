@@ -10,6 +10,7 @@ import google.protobuf.internal.containers
 import google.protobuf.message
 import sys
 import yandex.cloud.apploadbalancer.v1.load_balancer_pb2
+import yandex.cloud.apploadbalancer.v1.logging_pb2
 import yandex.cloud.operation.operation_pb2
 
 if sys.version_info >= (3, 8):
@@ -164,6 +165,8 @@ class UpdateLoadBalancerRequest(google.protobuf.message.Message):
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ALLOCATION_POLICY_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
+    AUTO_SCALE_POLICY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     load_balancer_id: builtins.str
     """ID of the application load balancer to update.
 
@@ -226,6 +229,12 @@ class UpdateLoadBalancerRequest(google.protobuf.message.Message):
         2. Add or remove a group in this set.
         3. Send the new set in this field.
         """
+    @property
+    def auto_scale_policy(self) -> yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AutoScalePolicy:
+        """Autoscale settings of the application load balancer."""
+    @property
+    def log_options(self) -> yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions:
+        """Cloud logging settings of the application load balancer."""
     def __init__(
         self,
         *,
@@ -237,9 +246,11 @@ class UpdateLoadBalancerRequest(google.protobuf.message.Message):
         listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
         allocation_policy: yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AllocationPolicy | None = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        auto_scale_policy: yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AutoScalePolicy | None = ...,
+        log_options: yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "description", b"description", "labels", b"labels", "listener_specs", b"listener_specs", "load_balancer_id", b"load_balancer_id", "name", b"name", "security_group_ids", b"security_group_ids", "update_mask", b"update_mask"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "log_options", b"log_options", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "description", b"description", "labels", b"labels", "listener_specs", b"listener_specs", "load_balancer_id", b"load_balancer_id", "log_options", b"log_options", "name", b"name", "security_group_ids", b"security_group_ids", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateLoadBalancerRequest = UpdateLoadBalancerRequest
 
@@ -285,6 +296,8 @@ class CreateLoadBalancerRequest(google.protobuf.message.Message):
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ALLOCATION_POLICY_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
+    AUTO_SCALE_POLICY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     folder_id: builtins.str
     """ID of the folder to create an application load balancer in.
 
@@ -329,6 +342,12 @@ class CreateLoadBalancerRequest(google.protobuf.message.Message):
         For details about the concept,
         see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups).
         """
+    @property
+    def auto_scale_policy(self) -> yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AutoScalePolicy:
+        """Autoscale settings of the application load balancer."""
+    @property
+    def log_options(self) -> yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions:
+        """Cloud logging settings of the application load balancer."""
     def __init__(
         self,
         *,
@@ -341,9 +360,11 @@ class CreateLoadBalancerRequest(google.protobuf.message.Message):
         listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
         allocation_policy: yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AllocationPolicy | None = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        auto_scale_policy: yandex.cloud.apploadbalancer.v1.load_balancer_pb2.AutoScalePolicy | None = ...,
+        log_options: yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "log_options", b"log_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "listener_specs", b"listener_specs", "log_options", b"log_options", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids"]) -> None: ...
 
 global___CreateLoadBalancerRequest = CreateLoadBalancerRequest
 

@@ -11,6 +11,7 @@ import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
 import typing
+import yandex.cloud.apploadbalancer.v1.logging_pb2
 import yandex.cloud.apploadbalancer.v1.target_group_pb2
 
 if sys.version_info >= (3, 10):
@@ -91,6 +92,7 @@ class LoadBalancer(google.protobuf.message.Message):
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
     CREATED_AT_FIELD_NUMBER: builtins.int
     AUTO_SCALE_POLICY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the application load balancer. Generated at creation time."""
     name: builtins.str
@@ -140,6 +142,9 @@ class LoadBalancer(google.protobuf.message.Message):
     @property
     def auto_scale_policy(self) -> global___AutoScalePolicy:
         """Autoscale settings of the application load balancer."""
+    @property
+    def log_options(self) -> yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions:
+        """Cloud logging settings of the application load balancer."""
     def __init__(
         self,
         *,
@@ -157,9 +162,10 @@ class LoadBalancer(google.protobuf.message.Message):
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
         created_at: google.protobuf.timestamp_pb2.Timestamp | None = ...,
         auto_scale_policy: global___AutoScalePolicy | None = ...,
+        log_options: yandex.cloud.apploadbalancer.v1.logging_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "log_group_id", b"log_group_id", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at", "log_options", b"log_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["allocation_policy", b"allocation_policy", "auto_scale_policy", b"auto_scale_policy", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "log_group_id", b"log_group_id", "log_options", b"log_options", "name", b"name", "network_id", b"network_id", "region_id", b"region_id", "security_group_ids", b"security_group_ids", "status", b"status"]) -> None: ...
 
 global___LoadBalancer = LoadBalancer
 

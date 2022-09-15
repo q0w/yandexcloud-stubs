@@ -345,6 +345,8 @@ class Host(google.protobuf.message.Message):
         """Host is inoperable, and cannot perform any of its essential functions."""
         DEGRADED: Host._Health.ValueType  # 3
         """Host is degraded, and can perform only some of its essential functions."""
+        READONLY: Host._Health.ValueType  # 4
+        """Host is alive, but in read-only mode."""
 
     class Health(_Health, metaclass=_HealthEnumTypeWrapper): ...
     HEALTH_UNKNOWN: Host.Health.ValueType  # 0
@@ -355,6 +357,8 @@ class Host(google.protobuf.message.Message):
     """Host is inoperable, and cannot perform any of its essential functions."""
     DEGRADED: Host.Health.ValueType  # 3
     """Host is degraded, and can perform only some of its essential functions."""
+    READONLY: Host.Health.ValueType  # 4
+    """Host is alive, but in read-only mode."""
 
     NAME_FIELD_NUMBER: builtins.int
     CLUSTER_ID_FIELD_NUMBER: builtins.int
@@ -449,6 +453,8 @@ class Service(google.protobuf.message.Message):
         """The service is working normally."""
         DEAD: Service._Health.ValueType  # 2
         """The service is dead or unresponsive."""
+        READONLY: Service._Health.ValueType  # 3
+        """The service is in read-only mode."""
 
     class Health(_Health, metaclass=_HealthEnumTypeWrapper): ...
     HEALTH_UNKNOWN: Service.Health.ValueType  # 0
@@ -457,6 +463,8 @@ class Service(google.protobuf.message.Message):
     """The service is working normally."""
     DEAD: Service.Health.ValueType  # 2
     """The service is dead or unresponsive."""
+    READONLY: Service.Health.ValueType  # 3
+    """The service is in read-only mode."""
 
     TYPE_FIELD_NUMBER: builtins.int
     HEALTH_FIELD_NUMBER: builtins.int
