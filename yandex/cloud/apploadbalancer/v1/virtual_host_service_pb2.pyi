@@ -109,6 +109,7 @@ class CreateVirtualHostRequest(google.protobuf.message.Message):
     ROUTES_FIELD_NUMBER: builtins.int
     MODIFY_REQUEST_HEADERS_FIELD_NUMBER: builtins.int
     MODIFY_RESPONSE_HEADERS_FIELD_NUMBER: builtins.int
+    ROUTE_OPTIONS_FIELD_NUMBER: builtins.int
     http_router_id: builtins.str
     """ID of the HTTP router to create a virtual host in.
 
@@ -150,6 +151,9 @@ class CreateVirtualHostRequest(google.protobuf.message.Message):
         """Modifications that are made to the headers of HTTP responses received from backends
         before responses are forwarded to clients.
         """
+    @property
+    def route_options(self) -> yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions:
+        """Route options for the virtual host."""
     def __init__(
         self,
         *,
@@ -159,8 +163,10 @@ class CreateVirtualHostRequest(google.protobuf.message.Message):
         routes: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.Route] | None = ...,
         modify_request_headers: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.HeaderModification] | None = ...,
         modify_response_headers: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.HeaderModification] | None = ...,
+        route_options: yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authority", b"authority", "http_router_id", b"http_router_id", "modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "name", b"name", "routes", b"routes"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["route_options", b"route_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authority", b"authority", "http_router_id", b"http_router_id", "modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "name", b"name", "route_options", b"route_options", "routes", b"routes"]) -> None: ...
 
 global___CreateVirtualHostRequest = CreateVirtualHostRequest
 
@@ -193,6 +199,7 @@ class UpdateVirtualHostRequest(google.protobuf.message.Message):
     ROUTES_FIELD_NUMBER: builtins.int
     MODIFY_REQUEST_HEADERS_FIELD_NUMBER: builtins.int
     MODIFY_RESPONSE_HEADERS_FIELD_NUMBER: builtins.int
+    ROUTE_OPTIONS_FIELD_NUMBER: builtins.int
     http_router_id: builtins.str
     """ID of the HTTP router to update a virtual host in.
 
@@ -253,6 +260,9 @@ class UpdateVirtualHostRequest(google.protobuf.message.Message):
 
         Existing list of modifications is completely replaced by the specified list.
         """
+    @property
+    def route_options(self) -> yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions:
+        """New route options for the virtual host."""
     def __init__(
         self,
         *,
@@ -263,9 +273,10 @@ class UpdateVirtualHostRequest(google.protobuf.message.Message):
         routes: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.Route] | None = ...,
         modify_request_headers: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.HeaderModification] | None = ...,
         modify_response_headers: collections.abc.Iterable[yandex.cloud.apploadbalancer.v1.virtual_host_pb2.HeaderModification] | None = ...,
+        route_options: yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["authority", b"authority", "http_router_id", b"http_router_id", "modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "routes", b"routes", "update_mask", b"update_mask", "virtual_host_name", b"virtual_host_name"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["route_options", b"route_options", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["authority", b"authority", "http_router_id", b"http_router_id", "modify_request_headers", b"modify_request_headers", "modify_response_headers", b"modify_response_headers", "route_options", b"route_options", "routes", b"routes", "update_mask", b"update_mask", "virtual_host_name", b"virtual_host_name"]) -> None: ...
 
 global___UpdateVirtualHostRequest = UpdateVirtualHostRequest
 
@@ -396,6 +407,7 @@ class UpdateRouteRequest(google.protobuf.message.Message):
     UPDATE_MASK_FIELD_NUMBER: builtins.int
     HTTP_FIELD_NUMBER: builtins.int
     GRPC_FIELD_NUMBER: builtins.int
+    ROUTE_OPTIONS_FIELD_NUMBER: builtins.int
     http_router_id: builtins.str
     """ID of the HTTP router to update a route in.
 
@@ -420,6 +432,9 @@ class UpdateRouteRequest(google.protobuf.message.Message):
     @property
     def grpc(self) -> yandex.cloud.apploadbalancer.v1.virtual_host_pb2.GrpcRoute:
         """New settings of the gRPC route."""
+    @property
+    def route_options(self) -> yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions:
+        """New route options for the route."""
     def __init__(
         self,
         *,
@@ -429,9 +444,10 @@ class UpdateRouteRequest(google.protobuf.message.Message):
         update_mask: google.protobuf.field_mask_pb2.FieldMask | None = ...,
         http: yandex.cloud.apploadbalancer.v1.virtual_host_pb2.HttpRoute | None = ...,
         grpc: yandex.cloud.apploadbalancer.v1.virtual_host_pb2.GrpcRoute | None = ...,
+        route_options: yandex.cloud.apploadbalancer.v1.virtual_host_pb2.RouteOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "route", b"route", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "http_router_id", b"http_router_id", "route", b"route", "route_name", b"route_name", "update_mask", b"update_mask", "virtual_host_name", b"virtual_host_name"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "route", b"route", "route_options", b"route_options", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["grpc", b"grpc", "http", b"http", "http_router_id", b"http_router_id", "route", b"route", "route_name", b"route_name", "route_options", b"route_options", "update_mask", b"update_mask", "virtual_host_name", b"virtual_host_name"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["route", b"route"]) -> typing_extensions.Literal["http", "grpc"] | None: ...
 
 global___UpdateRouteRequest = UpdateRouteRequest

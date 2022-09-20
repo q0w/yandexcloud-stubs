@@ -75,6 +75,7 @@ class LogOptions(google.protobuf.message.Message):
 
     LOG_GROUP_ID_FIELD_NUMBER: builtins.int
     DISCARD_RULES_FIELD_NUMBER: builtins.int
+    DISABLE_FIELD_NUMBER: builtins.int
     log_group_id: builtins.str
     """Cloud Logging log group ID to store access logs.
     If not set then logs will be stored in default log group for the folder
@@ -82,12 +83,15 @@ class LogOptions(google.protobuf.message.Message):
     """
     @property
     def discard_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogDiscardRule]: ...
+    disable: builtins.bool
+    """Do not send logs to Cloud Logging log group."""
     def __init__(
         self,
         *,
         log_group_id: builtins.str = ...,
         discard_rules: collections.abc.Iterable[global___LogDiscardRule] | None = ...,
+        disable: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["discard_rules", b"discard_rules", "log_group_id", b"log_group_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["disable", b"disable", "discard_rules", b"discard_rules", "log_group_id", b"log_group_id"]) -> None: ...
 
 global___LogOptions = LogOptions

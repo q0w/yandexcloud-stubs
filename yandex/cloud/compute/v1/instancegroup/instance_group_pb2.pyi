@@ -806,6 +806,7 @@ class InstanceTemplate(google.protobuf.message.Message):
     NAME_FIELD_NUMBER: builtins.int
     HOSTNAME_FIELD_NUMBER: builtins.int
     PLACEMENT_POLICY_FIELD_NUMBER: builtins.int
+    FILESYSTEM_SPECS_FIELD_NUMBER: builtins.int
     description: builtins.str
     """Description of the instance template."""
     @property
@@ -885,6 +886,15 @@ class InstanceTemplate(google.protobuf.message.Message):
     @property
     def placement_policy(self) -> global___PlacementPolicy:
         """Placement Group"""
+    @property
+    def filesystem_specs(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AttachedFilesystemSpec]:
+        """Array of filesystems to attach to the instance.
+
+        The filesystems must reside in the same availability zone as the instance.
+
+        To use the instance with an attached filesystem, the latter must be mounted.
+        For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+        """
     def __init__(
         self,
         *,
@@ -902,11 +912,60 @@ class InstanceTemplate(google.protobuf.message.Message):
         name: builtins.str = ...,
         hostname: builtins.str = ...,
         placement_policy: global___PlacementPolicy | None = ...,
+        filesystem_specs: collections.abc.Iterable[global___AttachedFilesystemSpec] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["boot_disk_spec", b"boot_disk_spec", "network_settings", b"network_settings", "placement_policy", b"placement_policy", "resources_spec", b"resources_spec", "scheduling_policy", b"scheduling_policy"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec", b"boot_disk_spec", "description", b"description", "hostname", b"hostname", "labels", b"labels", "metadata", b"metadata", "name", b"name", "network_interface_specs", b"network_interface_specs", "network_settings", b"network_settings", "placement_policy", b"placement_policy", "platform_id", b"platform_id", "resources_spec", b"resources_spec", "scheduling_policy", b"scheduling_policy", "secondary_disk_specs", b"secondary_disk_specs", "service_account_id", b"service_account_id"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["boot_disk_spec", b"boot_disk_spec", "description", b"description", "filesystem_specs", b"filesystem_specs", "hostname", b"hostname", "labels", b"labels", "metadata", b"metadata", "name", b"name", "network_interface_specs", b"network_interface_specs", "network_settings", b"network_settings", "placement_policy", b"placement_policy", "platform_id", b"platform_id", "resources_spec", b"resources_spec", "scheduling_policy", b"scheduling_policy", "secondary_disk_specs", b"secondary_disk_specs", "service_account_id", b"service_account_id"]) -> None: ...
 
 global___InstanceTemplate = InstanceTemplate
+
+class AttachedFilesystemSpec(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _Mode:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[AttachedFilesystemSpec._Mode.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        MODE_UNSPECIFIED: AttachedFilesystemSpec._Mode.ValueType  # 0
+        READ_ONLY: AttachedFilesystemSpec._Mode.ValueType  # 1
+        """Read-only access."""
+        READ_WRITE: AttachedFilesystemSpec._Mode.ValueType  # 2
+        """Read/Write access. Default value."""
+
+    class Mode(_Mode, metaclass=_ModeEnumTypeWrapper): ...
+    MODE_UNSPECIFIED: AttachedFilesystemSpec.Mode.ValueType  # 0
+    READ_ONLY: AttachedFilesystemSpec.Mode.ValueType  # 1
+    """Read-only access."""
+    READ_WRITE: AttachedFilesystemSpec.Mode.ValueType  # 2
+    """Read/Write access. Default value."""
+
+    MODE_FIELD_NUMBER: builtins.int
+    DEVICE_NAME_FIELD_NUMBER: builtins.int
+    FILESYSTEM_ID_FIELD_NUMBER: builtins.int
+    mode: global___AttachedFilesystemSpec.Mode.ValueType
+    """Mode of access to the filesystem that should be attached."""
+    device_name: builtins.str
+    """Name of the device representing the filesystem on the instance.
+
+    The name should be used for referencing the filesystem from within the instance
+    when it's being mounted, resized etc.
+
+    If not specified, a random value will be generated.
+    """
+    filesystem_id: builtins.str
+    """ID of the filesystem that should be attached."""
+    def __init__(
+        self,
+        *,
+        mode: global___AttachedFilesystemSpec.Mode.ValueType = ...,
+        device_name: builtins.str = ...,
+        filesystem_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["device_name", b"device_name", "filesystem_id", b"filesystem_id", "mode", b"mode"]) -> None: ...
+
+global___AttachedFilesystemSpec = AttachedFilesystemSpec
 
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
