@@ -51,3 +51,20 @@ COMPRESSION_TYPE_GZIP: CompressionType.ValueType  # 5
 COMPRESSION_TYPE_PRODUCER: CompressionType.ValueType  # 6
 """the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs)."""
 global___CompressionType = CompressionType
+
+class _SaslMechanism:
+    ValueType = typing.NewType("ValueType", builtins.int)
+    V: typing_extensions.TypeAlias = ValueType
+
+class _SaslMechanismEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SaslMechanism.ValueType], builtins.type):  # noqa: F821
+    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    SASL_MECHANISM_UNSPECIFIED: _SaslMechanism.ValueType  # 0
+    SASL_MECHANISM_SCRAM_SHA_256: _SaslMechanism.ValueType  # 1
+    SASL_MECHANISM_SCRAM_SHA_512: _SaslMechanism.ValueType  # 2
+
+class SaslMechanism(_SaslMechanism, metaclass=_SaslMechanismEnumTypeWrapper): ...
+
+SASL_MECHANISM_UNSPECIFIED: SaslMechanism.ValueType  # 0
+SASL_MECHANISM_SCRAM_SHA_256: SaslMechanism.ValueType  # 1
+SASL_MECHANISM_SCRAM_SHA_512: SaslMechanism.ValueType  # 2
+global___SaslMechanism = SaslMechanism

@@ -257,13 +257,10 @@ class AddDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
-    DOMAIN_ID_FIELD_NUMBER: builtins.int
     DOMAIN_NAME_FIELD_NUMBER: builtins.int
     CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     api_gateway_id: builtins.str
     """ID of the API gateway that the domain is attached to."""
-    domain_id: builtins.str
-    """ID of the attaching domain."""
     domain_name: builtins.str
     """Name of the attaching domain."""
     certificate_id: builtins.str
@@ -272,11 +269,10 @@ class AddDomainRequest(google.protobuf.message.Message):
         self,
         *,
         api_gateway_id: builtins.str = ...,
-        domain_id: builtins.str = ...,
         domain_name: builtins.str = ...,
         certificate_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "certificate_id", b"certificate_id", "domain_id", b"domain_id", "domain_name", b"domain_name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "certificate_id", b"certificate_id", "domain_name", b"domain_name"]) -> None: ...
 
 global___AddDomainRequest = AddDomainRequest
 
@@ -350,20 +346,24 @@ class AddDomainMetadata(google.protobuf.message.Message):
     API_GATEWAY_ID_FIELD_NUMBER: builtins.int
     DOMAIN_ID_FIELD_NUMBER: builtins.int
     DOMAIN_NAME_FIELD_NUMBER: builtins.int
+    CERTIFICATE_ID_FIELD_NUMBER: builtins.int
     api_gateway_id: builtins.str
     """ID of the API gateway that the domain is attached to."""
     domain_id: builtins.str
-    """ID of the attaching domain."""
+    """ID of the attached domain."""
     domain_name: builtins.str
     """Name of the attaching domain."""
+    certificate_id: builtins.str
+    """ID of the certificate for provided domain."""
     def __init__(
         self,
         *,
         api_gateway_id: builtins.str = ...,
         domain_id: builtins.str = ...,
         domain_name: builtins.str = ...,
+        certificate_id: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "domain_id", b"domain_id", "domain_name", b"domain_name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "certificate_id", b"certificate_id", "domain_id", b"domain_id", "domain_name", b"domain_name"]) -> None: ...
 
 global___AddDomainMetadata = AddDomainMetadata
 

@@ -666,6 +666,7 @@ class KafkaConfig2_8(google.protobuf.message.Message):
     REPLICA_FETCH_MAX_BYTES_FIELD_NUMBER: builtins.int
     SSL_CIPHER_SUITES_FIELD_NUMBER: builtins.int
     OFFSETS_RETENTION_MINUTES_FIELD_NUMBER: builtins.int
+    SASL_ENABLED_MECHANISMS_FIELD_NUMBER: builtins.int
     compression_type: yandex.cloud.mdb.kafka.v1.common_pb2.CompressionType.ValueType
     """Cluster topics compression type."""
     @property
@@ -749,6 +750,9 @@ class KafkaConfig2_8(google.protobuf.message.Message):
     @property
     def offsets_retention_minutes(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Offset storage time after a consumer group loses all its consumers. Default: 10080."""
+    @property
+    def sasl_enabled_mechanisms(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[yandex.cloud.mdb.kafka.v1.common_pb2.SaslMechanism.ValueType]:
+        """The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]."""
     def __init__(
         self,
         *,
@@ -771,9 +775,10 @@ class KafkaConfig2_8(google.protobuf.message.Message):
         replica_fetch_max_bytes: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         ssl_cipher_suites: collections.abc.Iterable[builtins.str] | None = ...,
         offsets_retention_minutes: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        sasl_enabled_mechanisms: collections.abc.Iterable[yandex.cloud.mdb.kafka.v1.common_pb2.SaslMechanism.ValueType] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "compression_type", b"compression_type", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes", "ssl_cipher_suites", b"ssl_cipher_suites"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "compression_type", b"compression_type", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "sasl_enabled_mechanisms", b"sasl_enabled_mechanisms", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes", "ssl_cipher_suites", b"ssl_cipher_suites"]) -> None: ...
 
 global___KafkaConfig2_8 = KafkaConfig2_8
 
@@ -801,6 +806,7 @@ class KafkaConfig3(google.protobuf.message.Message):
     REPLICA_FETCH_MAX_BYTES_FIELD_NUMBER: builtins.int
     SSL_CIPHER_SUITES_FIELD_NUMBER: builtins.int
     OFFSETS_RETENTION_MINUTES_FIELD_NUMBER: builtins.int
+    SASL_ENABLED_MECHANISMS_FIELD_NUMBER: builtins.int
     compression_type: yandex.cloud.mdb.kafka.v1.common_pb2.CompressionType.ValueType
     """Cluster topics compression type."""
     @property
@@ -884,6 +890,9 @@ class KafkaConfig3(google.protobuf.message.Message):
     @property
     def offsets_retention_minutes(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Offset storage time after a consumer group loses all its consumers. Default: 10080."""
+    @property
+    def sasl_enabled_mechanisms(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[yandex.cloud.mdb.kafka.v1.common_pb2.SaslMechanism.ValueType]:
+        """The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512]."""
     def __init__(
         self,
         *,
@@ -906,9 +915,10 @@ class KafkaConfig3(google.protobuf.message.Message):
         replica_fetch_max_bytes: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         ssl_cipher_suites: collections.abc.Iterable[builtins.str] | None = ...,
         offsets_retention_minutes: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        sasl_enabled_mechanisms: collections.abc.Iterable[yandex.cloud.mdb.kafka.v1.common_pb2.SaslMechanism.ValueType] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "compression_type", b"compression_type", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes", "ssl_cipher_suites", b"ssl_cipher_suites"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["auto_create_topics_enable", b"auto_create_topics_enable", "compression_type", b"compression_type", "default_replication_factor", b"default_replication_factor", "log_flush_interval_messages", b"log_flush_interval_messages", "log_flush_interval_ms", b"log_flush_interval_ms", "log_flush_scheduler_interval_ms", b"log_flush_scheduler_interval_ms", "log_preallocate", b"log_preallocate", "log_retention_bytes", b"log_retention_bytes", "log_retention_hours", b"log_retention_hours", "log_retention_minutes", b"log_retention_minutes", "log_retention_ms", b"log_retention_ms", "log_segment_bytes", b"log_segment_bytes", "message_max_bytes", b"message_max_bytes", "num_partitions", b"num_partitions", "offsets_retention_minutes", b"offsets_retention_minutes", "replica_fetch_max_bytes", b"replica_fetch_max_bytes", "sasl_enabled_mechanisms", b"sasl_enabled_mechanisms", "socket_receive_buffer_bytes", b"socket_receive_buffer_bytes", "socket_send_buffer_bytes", b"socket_send_buffer_bytes", "ssl_cipher_suites", b"ssl_cipher_suites"]) -> None: ...
 
 global___KafkaConfig3 = KafkaConfig3
 

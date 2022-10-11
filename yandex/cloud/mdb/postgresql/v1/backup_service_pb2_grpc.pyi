@@ -6,6 +6,7 @@ import abc
 import grpc
 import yandex.cloud.mdb.postgresql.v1.backup_pb2
 import yandex.cloud.mdb.postgresql.v1.backup_service_pb2
+import yandex.cloud.operation.operation_pb2
 
 class BackupServiceStub:
     """A set of methods for managing PostgreSQL Backup resources."""
@@ -24,6 +25,11 @@ class BackupServiceStub:
         yandex.cloud.mdb.postgresql.v1.backup_service_pb2.ListBackupsResponse,
     ]
     """Retrieves the list of Backup resources available for the specified folder."""
+    Delete: grpc.UnaryUnaryMultiCallable[
+        yandex.cloud.mdb.postgresql.v1.backup_service_pb2.DeleteBackupRequest,
+        yandex.cloud.operation.operation_pb2.Operation,
+    ]
+    """Deletes the specified PostgreSQL cluster backup."""
 
 class BackupServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing PostgreSQL Backup resources."""
@@ -45,5 +51,12 @@ class BackupServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.mdb.postgresql.v1.backup_service_pb2.ListBackupsResponse:
         """Retrieves the list of Backup resources available for the specified folder."""
+    @abc.abstractmethod
+    def Delete(
+        self,
+        request: yandex.cloud.mdb.postgresql.v1.backup_service_pb2.DeleteBackupRequest,
+        context: grpc.ServicerContext,
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Deletes the specified PostgreSQL cluster backup."""
 
 def add_BackupServiceServicer_to_server(servicer: BackupServiceServicer, server: grpc.Server) -> None: ...

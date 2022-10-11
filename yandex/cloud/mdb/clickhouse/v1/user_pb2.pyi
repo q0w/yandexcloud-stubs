@@ -210,23 +210,109 @@ class UserSettings(google.protobuf.message.Message):
     COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12: UserSettings.CountDistinctImplementation.ValueType  # 4
     COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT: UserSettings.CountDistinctImplementation.ValueType  # 5
 
+    class _JoinAlgorithm:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _JoinAlgorithmEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSettings._JoinAlgorithm.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        JOIN_ALGORITHM_UNSPECIFIED: UserSettings._JoinAlgorithm.ValueType  # 0
+        JOIN_ALGORITHM_HASH: UserSettings._JoinAlgorithm.ValueType  # 1
+        JOIN_ALGORITHM_PARALLEL_HASH: UserSettings._JoinAlgorithm.ValueType  # 2
+        JOIN_ALGORITHM_PARTIAL_MERGE: UserSettings._JoinAlgorithm.ValueType  # 3
+        JOIN_ALGORITHM_DIRECT: UserSettings._JoinAlgorithm.ValueType  # 4
+        JOIN_ALGORITHM_AUTO: UserSettings._JoinAlgorithm.ValueType  # 5
+        JOIN_ALGORITHM_FULL_SORTING_MERGE: UserSettings._JoinAlgorithm.ValueType  # 6
+        JOIN_ALGORITHM_PREFER_PARTIAL_MERGE: UserSettings._JoinAlgorithm.ValueType  # 7
+
+    class JoinAlgorithm(_JoinAlgorithm, metaclass=_JoinAlgorithmEnumTypeWrapper): ...
+    JOIN_ALGORITHM_UNSPECIFIED: UserSettings.JoinAlgorithm.ValueType  # 0
+    JOIN_ALGORITHM_HASH: UserSettings.JoinAlgorithm.ValueType  # 1
+    JOIN_ALGORITHM_PARALLEL_HASH: UserSettings.JoinAlgorithm.ValueType  # 2
+    JOIN_ALGORITHM_PARTIAL_MERGE: UserSettings.JoinAlgorithm.ValueType  # 3
+    JOIN_ALGORITHM_DIRECT: UserSettings.JoinAlgorithm.ValueType  # 4
+    JOIN_ALGORITHM_AUTO: UserSettings.JoinAlgorithm.ValueType  # 5
+    JOIN_ALGORITHM_FULL_SORTING_MERGE: UserSettings.JoinAlgorithm.ValueType  # 6
+    JOIN_ALGORITHM_PREFER_PARTIAL_MERGE: UserSettings.JoinAlgorithm.ValueType  # 7
+
+    class _FormatRegexpEscapingRule:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _FormatRegexpEscapingRuleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSettings._FormatRegexpEscapingRule.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED: UserSettings._FormatRegexpEscapingRule.ValueType  # 0
+        FORMAT_REGEXP_ESCAPING_RULE_ESCAPED: UserSettings._FormatRegexpEscapingRule.ValueType  # 1
+        FORMAT_REGEXP_ESCAPING_RULE_QUOTED: UserSettings._FormatRegexpEscapingRule.ValueType  # 2
+        FORMAT_REGEXP_ESCAPING_RULE_CSV: UserSettings._FormatRegexpEscapingRule.ValueType  # 3
+        FORMAT_REGEXP_ESCAPING_RULE_JSON: UserSettings._FormatRegexpEscapingRule.ValueType  # 4
+        FORMAT_REGEXP_ESCAPING_RULE_XML: UserSettings._FormatRegexpEscapingRule.ValueType  # 5
+        FORMAT_REGEXP_ESCAPING_RULE_RAW: UserSettings._FormatRegexpEscapingRule.ValueType  # 6
+
+    class FormatRegexpEscapingRule(_FormatRegexpEscapingRule, metaclass=_FormatRegexpEscapingRuleEnumTypeWrapper): ...
+    FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED: UserSettings.FormatRegexpEscapingRule.ValueType  # 0
+    FORMAT_REGEXP_ESCAPING_RULE_ESCAPED: UserSettings.FormatRegexpEscapingRule.ValueType  # 1
+    FORMAT_REGEXP_ESCAPING_RULE_QUOTED: UserSettings.FormatRegexpEscapingRule.ValueType  # 2
+    FORMAT_REGEXP_ESCAPING_RULE_CSV: UserSettings.FormatRegexpEscapingRule.ValueType  # 3
+    FORMAT_REGEXP_ESCAPING_RULE_JSON: UserSettings.FormatRegexpEscapingRule.ValueType  # 4
+    FORMAT_REGEXP_ESCAPING_RULE_XML: UserSettings.FormatRegexpEscapingRule.ValueType  # 5
+    FORMAT_REGEXP_ESCAPING_RULE_RAW: UserSettings.FormatRegexpEscapingRule.ValueType  # 6
+
+    class _DateTimeInputFormat:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _DateTimeInputFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSettings._DateTimeInputFormat.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        DATE_TIME_INPUT_FORMAT_UNSPECIFIED: UserSettings._DateTimeInputFormat.ValueType  # 0
+        DATE_TIME_INPUT_FORMAT_BEST_EFFORT: UserSettings._DateTimeInputFormat.ValueType  # 1
+        DATE_TIME_INPUT_FORMAT_BASIC: UserSettings._DateTimeInputFormat.ValueType  # 2
+        DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US: UserSettings._DateTimeInputFormat.ValueType  # 3
+
+    class DateTimeInputFormat(_DateTimeInputFormat, metaclass=_DateTimeInputFormatEnumTypeWrapper): ...
+    DATE_TIME_INPUT_FORMAT_UNSPECIFIED: UserSettings.DateTimeInputFormat.ValueType  # 0
+    DATE_TIME_INPUT_FORMAT_BEST_EFFORT: UserSettings.DateTimeInputFormat.ValueType  # 1
+    DATE_TIME_INPUT_FORMAT_BASIC: UserSettings.DateTimeInputFormat.ValueType  # 2
+    DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US: UserSettings.DateTimeInputFormat.ValueType  # 3
+
+    class _DateTimeOutputFormat:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _DateTimeOutputFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSettings._DateTimeOutputFormat.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED: UserSettings._DateTimeOutputFormat.ValueType  # 0
+        DATE_TIME_OUTPUT_FORMAT_SIMPLE: UserSettings._DateTimeOutputFormat.ValueType  # 1
+        DATE_TIME_OUTPUT_FORMAT_ISO: UserSettings._DateTimeOutputFormat.ValueType  # 2
+        DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP: UserSettings._DateTimeOutputFormat.ValueType  # 3
+
+    class DateTimeOutputFormat(_DateTimeOutputFormat, metaclass=_DateTimeOutputFormatEnumTypeWrapper): ...
+    DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED: UserSettings.DateTimeOutputFormat.ValueType  # 0
+    DATE_TIME_OUTPUT_FORMAT_SIMPLE: UserSettings.DateTimeOutputFormat.ValueType  # 1
+    DATE_TIME_OUTPUT_FORMAT_ISO: UserSettings.DateTimeOutputFormat.ValueType  # 2
+    DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP: UserSettings.DateTimeOutputFormat.ValueType  # 3
+
     READONLY_FIELD_NUMBER: builtins.int
     ALLOW_DDL_FIELD_NUMBER: builtins.int
-    INSERT_QUORUM_FIELD_NUMBER: builtins.int
+    ALLOW_INTROSPECTION_FUNCTIONS_FIELD_NUMBER: builtins.int
     CONNECT_TIMEOUT_FIELD_NUMBER: builtins.int
+    CONNECT_TIMEOUT_WITH_FAILOVER_FIELD_NUMBER: builtins.int
     RECEIVE_TIMEOUT_FIELD_NUMBER: builtins.int
     SEND_TIMEOUT_FIELD_NUMBER: builtins.int
+    TIMEOUT_BEFORE_CHECKING_EXECUTION_SPEED_FIELD_NUMBER: builtins.int
+    INSERT_QUORUM_FIELD_NUMBER: builtins.int
     INSERT_QUORUM_TIMEOUT_FIELD_NUMBER: builtins.int
+    INSERT_QUORUM_PARALLEL_FIELD_NUMBER: builtins.int
+    INSERT_NULL_AS_DEFAULT_FIELD_NUMBER: builtins.int
     SELECT_SEQUENTIAL_CONSISTENCY_FIELD_NUMBER: builtins.int
+    DEDUPLICATE_BLOCKS_IN_DEPENDENT_MATERIALIZED_VIEWS_FIELD_NUMBER: builtins.int
+    REPLICATION_ALTER_PARTITIONS_SYNC_FIELD_NUMBER: builtins.int
     MAX_REPLICA_DELAY_FOR_DISTRIBUTED_QUERIES_FIELD_NUMBER: builtins.int
     FALLBACK_TO_STALE_REPLICAS_FOR_DISTRIBUTED_QUERIES_FIELD_NUMBER: builtins.int
-    REPLICATION_ALTER_PARTITIONS_SYNC_FIELD_NUMBER: builtins.int
     DISTRIBUTED_PRODUCT_MODE_FIELD_NUMBER: builtins.int
     DISTRIBUTED_AGGREGATION_MEMORY_EFFICIENT_FIELD_NUMBER: builtins.int
     DISTRIBUTED_DDL_TASK_TIMEOUT_FIELD_NUMBER: builtins.int
     SKIP_UNAVAILABLE_SHARDS_FIELD_NUMBER: builtins.int
-    COMPILE_FIELD_NUMBER: builtins.int
-    MIN_COUNT_TO_COMPILE_FIELD_NUMBER: builtins.int
     COMPILE_EXPRESSIONS_FIELD_NUMBER: builtins.int
     MIN_COUNT_TO_COMPILE_EXPRESSION_FIELD_NUMBER: builtins.int
     MAX_BLOCK_SIZE_FIELD_NUMBER: builtins.int
@@ -249,6 +335,8 @@ class UserSettings(google.protobuf.message.Message):
     MAX_MEMORY_USAGE_FOR_USER_FIELD_NUMBER: builtins.int
     MAX_NETWORK_BANDWIDTH_FIELD_NUMBER: builtins.int
     MAX_NETWORK_BANDWIDTH_FOR_USER_FIELD_NUMBER: builtins.int
+    MAX_PARTITIONS_PER_INSERT_BLOCK_FIELD_NUMBER: builtins.int
+    MAX_CONCURRENT_QUERIES_FOR_USER_FIELD_NUMBER: builtins.int
     FORCE_INDEX_BY_DATE_FIELD_NUMBER: builtins.int
     FORCE_PRIMARY_KEY_FIELD_NUMBER: builtins.int
     MAX_ROWS_TO_READ_FIELD_NUMBER: builtins.int
@@ -276,6 +364,8 @@ class UserSettings(google.protobuf.message.Message):
     MAX_ROWS_IN_JOIN_FIELD_NUMBER: builtins.int
     MAX_BYTES_IN_JOIN_FIELD_NUMBER: builtins.int
     JOIN_OVERFLOW_MODE_FIELD_NUMBER: builtins.int
+    JOIN_ALGORITHM_FIELD_NUMBER: builtins.int
+    ANY_JOIN_DISTINCT_RIGHT_TABLE_KEYS_FIELD_NUMBER: builtins.int
     MAX_COLUMNS_TO_READ_FIELD_NUMBER: builtins.int
     MAX_TEMPORARY_COLUMNS_FIELD_NUMBER: builtins.int
     MAX_TEMPORARY_NON_CONST_COLUMNS_FIELD_NUMBER: builtins.int
@@ -288,13 +378,15 @@ class UserSettings(google.protobuf.message.Message):
     COUNT_DISTINCT_IMPLEMENTATION_FIELD_NUMBER: builtins.int
     INPUT_FORMAT_VALUES_INTERPRET_EXPRESSIONS_FIELD_NUMBER: builtins.int
     INPUT_FORMAT_DEFAULTS_FOR_OMITTED_FIELDS_FIELD_NUMBER: builtins.int
+    INPUT_FORMAT_NULL_AS_DEFAULT_FIELD_NUMBER: builtins.int
+    DATE_TIME_INPUT_FORMAT_FIELD_NUMBER: builtins.int
+    INPUT_FORMAT_WITH_NAMES_USE_HEADER_FIELD_NUMBER: builtins.int
     OUTPUT_FORMAT_JSON_QUOTE_64BIT_INTEGERS_FIELD_NUMBER: builtins.int
     OUTPUT_FORMAT_JSON_QUOTE_DENORMALS_FIELD_NUMBER: builtins.int
+    DATE_TIME_OUTPUT_FORMAT_FIELD_NUMBER: builtins.int
     LOW_CARDINALITY_ALLOW_IN_NATIVE_FORMAT_FIELD_NUMBER: builtins.int
+    ALLOW_SUSPICIOUS_LOW_CARDINALITY_TYPES_FIELD_NUMBER: builtins.int
     EMPTY_RESULT_FOR_AGGREGATION_BY_EMPTY_SET_FIELD_NUMBER: builtins.int
-    JOINED_SUBQUERY_REQUIRES_ALIAS_FIELD_NUMBER: builtins.int
-    JOIN_USE_NULLS_FIELD_NUMBER: builtins.int
-    TRANSFORM_NULL_IN_FIELD_NUMBER: builtins.int
     HTTP_CONNECTION_TIMEOUT_FIELD_NUMBER: builtins.int
     HTTP_RECEIVE_TIMEOUT_FIELD_NUMBER: builtins.int
     HTTP_SEND_TIMEOUT_FIELD_NUMBER: builtins.int
@@ -302,7 +394,27 @@ class UserSettings(google.protobuf.message.Message):
     SEND_PROGRESS_IN_HTTP_HEADERS_FIELD_NUMBER: builtins.int
     HTTP_HEADERS_PROGRESS_INTERVAL_FIELD_NUMBER: builtins.int
     ADD_HTTP_CORS_HEADER_FIELD_NUMBER: builtins.int
+    CANCEL_HTTP_READONLY_QUERIES_ON_CLIENT_CLOSE_FIELD_NUMBER: builtins.int
+    MAX_HTTP_GET_REDIRECTS_FIELD_NUMBER: builtins.int
+    JOINED_SUBQUERY_REQUIRES_ALIAS_FIELD_NUMBER: builtins.int
+    JOIN_USE_NULLS_FIELD_NUMBER: builtins.int
+    TRANSFORM_NULL_IN_FIELD_NUMBER: builtins.int
     QUOTA_MODE_FIELD_NUMBER: builtins.int
+    FLATTEN_NESTED_FIELD_NUMBER: builtins.int
+    FORMAT_REGEXP_FIELD_NUMBER: builtins.int
+    FORMAT_REGEXP_ESCAPING_RULE_FIELD_NUMBER: builtins.int
+    FORMAT_REGEXP_SKIP_UNMATCHED_FIELD_NUMBER: builtins.int
+    ASYNC_INSERT_FIELD_NUMBER: builtins.int
+    ASYNC_INSERT_THREADS_FIELD_NUMBER: builtins.int
+    WAIT_FOR_ASYNC_INSERT_FIELD_NUMBER: builtins.int
+    WAIT_FOR_ASYNC_INSERT_TIMEOUT_FIELD_NUMBER: builtins.int
+    ASYNC_INSERT_MAX_DATA_SIZE_FIELD_NUMBER: builtins.int
+    ASYNC_INSERT_BUSY_TIMEOUT_FIELD_NUMBER: builtins.int
+    ASYNC_INSERT_STALE_TIMEOUT_FIELD_NUMBER: builtins.int
+    MEMORY_PROFILER_STEP_FIELD_NUMBER: builtins.int
+    MEMORY_PROFILER_SAMPLE_PROBABILITY_FIELD_NUMBER: builtins.int
+    COMPILE_FIELD_NUMBER: builtins.int
+    MIN_COUNT_TO_COMPILE_FIELD_NUMBER: builtins.int
     @property
     def readonly(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use [allow_ddl] instead.
@@ -321,23 +433,18 @@ class UserSettings(google.protobuf.message.Message):
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
         """
     @property
-    def insert_quorum(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Enables or disables write quorum for ClickHouse cluster.
-        If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
-
-        When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the [insert_quorum_timeout] expires.
-        All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-        Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
-
-        You can use [select_sequential_consistency] setting to read the data written with write quorum.
-
-        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
-        """
+    def allow_introspection_functions(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions)."""
     @property
     def connect_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Connection timeout in milliseconds.
 
         Value must be greater than **0** (default: **10000**, 10 seconds).
+        """
+    @property
+    def connect_timeout_with_failover(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Connection timeout with failover in milliseconds.
+        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
         """
     @property
     def receive_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -352,6 +459,22 @@ class UserSettings(google.protobuf.message.Message):
         Value must be greater than **0** (default: **300000**, 300 seconds or 5 minutes).
         """
     @property
+    def timeout_before_checking_execution_speed(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Check that the speed is not too low after the specified time has elapsed."""
+    @property
+    def insert_quorum(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Enables or disables write quorum for ClickHouse cluster.
+        If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+
+        When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the [insert_quorum_timeout] expires.
+        All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
+        Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+
+        You can use [select_sequential_consistency] setting to read the data written with write quorum.
+
+        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum).
+        """
+    @property
     def insert_quorum_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Quorum write timeout in milliseconds.
 
@@ -361,10 +484,29 @@ class UserSettings(google.protobuf.message.Message):
         Minimum value: **1000**, 1 second (default: **60000**, 1 minute).
         """
     @property
+    def insert_quorum_parallel(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel)."""
+    @property
+    def insert_null_as_default(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default)."""
+    @property
     def select_sequential_consistency(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
 
         Default value: **false** (sequential consistency is disabled).
+        """
+    @property
+    def deduplicate_blocks_in_dependent_materialized_views(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views)."""
+    @property
+    def replication_alter_partitions_sync(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+
+        * **0**-do not wait for replicas.
+        * **1**-only wait for own execution (default).
+        * **2**-wait for all replicas.
+
+        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
         """
     @property
     def max_replica_delay_for_distributed_queries(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -383,16 +525,6 @@ class UserSettings(google.protobuf.message.Message):
         Default value: **true** (query forcing is enabled).
 
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
-        """
-    @property
-    def replication_alter_partitions_sync(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
-
-        * **0**-do not wait for replicas.
-        * **1**-only wait for own execution (default).
-        * **2**-wait for all replicas.
-
-        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries).
         """
     distributed_product_mode: global___UserSettings.DistributedProductMode.ValueType
     """Determine the behavior of distributed subqueries.
@@ -422,32 +554,6 @@ class UserSettings(google.protobuf.message.Message):
         Default value: **false** (silent skipping is disabled).
 
         See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
-        """
-    @property
-    def compile(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """Enables or disables query compilation.
-        If you execute a lot of structurally identical queries, then enable this setting.
-        As a result, such queries may be executed faster due to use of queries' compiled parts.
-
-        Use this setting in combination with [min_count_to_compile] setting.
-
-        Default value: **false** (compilation is disabled).
-
-        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#compile).
-        """
-    @property
-    def min_count_to_compile(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """How many structurally identical queries ClickHouse has to encounter before they are compiled.
-
-        Minimum value: **0** (default: **3**).
-
-        For the **0** value compilation is synchronous: a query waits for compilation process to complete prior to continuing execution.
-        It is recommended to set this value only for testing purposes.
-
-        For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-        When a compiled part of query is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
-
-        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#min-count-to-compile).
         """
     @property
     def compile_expressions(self) -> google.protobuf.wrappers_pb2.BoolValue:
@@ -658,6 +764,12 @@ class UserSettings(google.protobuf.message.Message):
         Minimal value and default value: **0**, no limitation is set.
         """
     @property
+    def max_partitions_per_insert_block(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block)."""
+    @property
+    def max_concurrent_queries_for_user(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum number of concurrent requests per user."""
+    @property
     def force_index_by_date(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """If enabled, query is not executed if the ClickHouse can't use index by date.
         This setting has effect only for tables of the MergeTree family.
@@ -817,6 +929,12 @@ class UserSettings(google.protobuf.message.Message):
     Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
     """
     @property
+    def join_algorithm(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___UserSettings.JoinAlgorithm.ValueType]:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm)."""
+    @property
+    def any_join_distinct_right_table_keys(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys)."""
+    @property
     def max_columns_to_read(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Limits the maximum number of columns that can be read from a table in a single query.
         If the query requires to read more columns to complete, then it will be aborted.
@@ -910,6 +1028,14 @@ class UserSettings(google.protobuf.message.Message):
         Default value: **true** (replacing is enabled).
         """
     @property
+    def input_format_null_as_default(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default)."""
+    date_time_input_format: global___UserSettings.DateTimeInputFormat.ValueType
+    """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_input_format)."""
+    @property
+    def input_format_with_names_use_header(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header)."""
+    @property
     def output_format_json_quote_64bit_integers(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enables quoting of 64-bit integers in JSON output format.
 
@@ -924,6 +1050,8 @@ class UserSettings(google.protobuf.message.Message):
 
         Default value: **false** (special values do not present in output).
         """
+    date_time_output_format: global___UserSettings.DateTimeOutputFormat.ValueType
+    """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_output_format)."""
     @property
     def low_cardinality_allow_in_native_format(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines whether to use LowCardinality type in Native format.
@@ -942,18 +1070,15 @@ class UserSettings(google.protobuf.message.Message):
         Default value: **true** (LowCardinality columns are used in Native format).
         """
     @property
+    def allow_suspicious_low_cardinality_types(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types)."""
+    @property
     def empty_result_for_aggregation_by_empty_set(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
 
         * **true**-ClickHouse will return an empty result for such queries.
         * **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
         """
-    @property
-    def joined_subquery_requires_alias(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    @property
-    def join_use_nulls(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
-    @property
-    def transform_null_in(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
     def http_connection_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """HTTP connection timeout, in milliseconds.
@@ -1005,28 +1130,87 @@ class UserSettings(google.protobuf.message.Message):
 
         Default value: **false** (header is not added).
         """
+    @property
+    def cancel_http_readonly_queries_on_client_close(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close)."""
+    @property
+    def max_http_get_redirects(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects)."""
+    @property
+    def joined_subquery_requires_alias(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
+    @property
+    def join_use_nulls(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
+    @property
+    def transform_null_in(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     quota_mode: global___UserSettings.QuotaMode.ValueType
     """Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP."""
+    @property
+    def flatten_nested(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested)."""
+    format_regexp: builtins.str
+    """Regular expression (for Regexp format)"""
+    format_regexp_escaping_rule: global___UserSettings.FormatRegexpEscapingRule.ValueType
+    """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_escaping_rule)."""
+    @property
+    def format_regexp_skip_unmatched(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched)."""
+    @property
+    def async_insert(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert)."""
+    @property
+    def async_insert_threads(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads)."""
+    @property
+    def wait_for_async_insert(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert)."""
+    @property
+    def wait_for_async_insert_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout)."""
+    @property
+    def async_insert_max_data_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size)."""
+    @property
+    def async_insert_busy_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms)."""
+    @property
+    def async_insert_stale_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms)."""
+    @property
+    def memory_profiler_step(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Whenever query memory usage becomes larger than every next step in number of bytes the memory profiler will collect the allocating stack trace. Zero means disabled memory profiler."""
+    @property
+    def memory_profiler_sample_probability(self) -> google.protobuf.wrappers_pb2.DoubleValue:
+        """Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation."""
+    @property
+    def compile(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """The setting is deprecated and has no effect."""
+    @property
+    def min_count_to_compile(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The setting is deprecated and has no effect."""
     def __init__(
         self,
         *,
         readonly: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         allow_ddl: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        insert_quorum: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        allow_introspection_functions: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         connect_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        connect_timeout_with_failover: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         receive_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         send_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        timeout_before_checking_execution_speed: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        insert_quorum: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         insert_quorum_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        insert_quorum_parallel: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        insert_null_as_default: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         select_sequential_consistency: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        deduplicate_blocks_in_dependent_materialized_views: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        replication_alter_partitions_sync: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_replica_delay_for_distributed_queries: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         fallback_to_stale_replicas_for_distributed_queries: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        replication_alter_partitions_sync: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         distributed_product_mode: global___UserSettings.DistributedProductMode.ValueType = ...,
         distributed_aggregation_memory_efficient: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         distributed_ddl_task_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         skip_unavailable_shards: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        compile: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        min_count_to_compile: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         compile_expressions: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         min_count_to_compile_expression: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_block_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
@@ -1049,6 +1233,8 @@ class UserSettings(google.protobuf.message.Message):
         max_memory_usage_for_user: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_network_bandwidth: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_network_bandwidth_for_user: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_partitions_per_insert_block: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_concurrent_queries_for_user: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         force_index_by_date: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         force_primary_key: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         max_rows_to_read: google.protobuf.wrappers_pb2.Int64Value | None = ...,
@@ -1076,6 +1262,8 @@ class UserSettings(google.protobuf.message.Message):
         max_rows_in_join: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_bytes_in_join: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         join_overflow_mode: global___UserSettings.OverflowMode.ValueType = ...,
+        join_algorithm: collections.abc.Iterable[global___UserSettings.JoinAlgorithm.ValueType] | None = ...,
+        any_join_distinct_right_table_keys: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         max_columns_to_read: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_temporary_columns: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         max_temporary_non_const_columns: google.protobuf.wrappers_pb2.Int64Value | None = ...,
@@ -1088,13 +1276,15 @@ class UserSettings(google.protobuf.message.Message):
         count_distinct_implementation: global___UserSettings.CountDistinctImplementation.ValueType = ...,
         input_format_values_interpret_expressions: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         input_format_defaults_for_omitted_fields: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        input_format_null_as_default: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        date_time_input_format: global___UserSettings.DateTimeInputFormat.ValueType = ...,
+        input_format_with_names_use_header: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         output_format_json_quote_64bit_integers: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         output_format_json_quote_denormals: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        date_time_output_format: global___UserSettings.DateTimeOutputFormat.ValueType = ...,
         low_cardinality_allow_in_native_format: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        allow_suspicious_low_cardinality_types: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         empty_result_for_aggregation_by_empty_set: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        joined_subquery_requires_alias: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        join_use_nulls: google.protobuf.wrappers_pb2.BoolValue | None = ...,
-        transform_null_in: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         http_connection_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         http_receive_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         http_send_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
@@ -1102,10 +1292,30 @@ class UserSettings(google.protobuf.message.Message):
         send_progress_in_http_headers: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         http_headers_progress_interval: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         add_http_cors_header: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        cancel_http_readonly_queries_on_client_close: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        max_http_get_redirects: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        joined_subquery_requires_alias: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        join_use_nulls: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        transform_null_in: google.protobuf.wrappers_pb2.BoolValue | None = ...,
         quota_mode: global___UserSettings.QuotaMode.ValueType = ...,
+        flatten_nested: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        format_regexp: builtins.str = ...,
+        format_regexp_escaping_rule: global___UserSettings.FormatRegexpEscapingRule.ValueType = ...,
+        format_regexp_skip_unmatched: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        async_insert: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        async_insert_threads: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        wait_for_async_insert: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        wait_for_async_insert_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        async_insert_max_data_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        async_insert_busy_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        async_insert_stale_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        memory_profiler_step: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        memory_profiler_sample_probability: google.protobuf.wrappers_pb2.DoubleValue | None = ...,
+        compile: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        min_count_to_compile: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["add_http_cors_header", b"add_http_cors_header", "allow_ddl", b"allow_ddl", "compile", b"compile", "compile_expressions", b"compile_expressions", "connect_timeout", b"connect_timeout", "distributed_aggregation_memory_efficient", b"distributed_aggregation_memory_efficient", "distributed_ddl_task_timeout", b"distributed_ddl_task_timeout", "empty_result_for_aggregation_by_empty_set", b"empty_result_for_aggregation_by_empty_set", "enable_http_compression", b"enable_http_compression", "fallback_to_stale_replicas_for_distributed_queries", b"fallback_to_stale_replicas_for_distributed_queries", "force_index_by_date", b"force_index_by_date", "force_primary_key", b"force_primary_key", "group_by_two_level_threshold", b"group_by_two_level_threshold", "group_by_two_level_threshold_bytes", b"group_by_two_level_threshold_bytes", "http_connection_timeout", b"http_connection_timeout", "http_headers_progress_interval", b"http_headers_progress_interval", "http_receive_timeout", b"http_receive_timeout", "http_send_timeout", b"http_send_timeout", "input_format_defaults_for_omitted_fields", b"input_format_defaults_for_omitted_fields", "input_format_values_interpret_expressions", b"input_format_values_interpret_expressions", "insert_quorum", b"insert_quorum", "insert_quorum_timeout", b"insert_quorum_timeout", "join_use_nulls", b"join_use_nulls", "joined_subquery_requires_alias", b"joined_subquery_requires_alias", "low_cardinality_allow_in_native_format", b"low_cardinality_allow_in_native_format", "max_ast_depth", b"max_ast_depth", "max_ast_elements", b"max_ast_elements", "max_block_size", b"max_block_size", "max_bytes_before_external_group_by", b"max_bytes_before_external_group_by", "max_bytes_before_external_sort", b"max_bytes_before_external_sort", "max_bytes_in_distinct", b"max_bytes_in_distinct", "max_bytes_in_join", b"max_bytes_in_join", "max_bytes_in_set", b"max_bytes_in_set", "max_bytes_to_read", b"max_bytes_to_read", "max_bytes_to_sort", b"max_bytes_to_sort", "max_bytes_to_transfer", b"max_bytes_to_transfer", "max_columns_to_read", b"max_columns_to_read", "max_execution_time", b"max_execution_time", "max_expanded_ast_elements", b"max_expanded_ast_elements", "max_insert_block_size", b"max_insert_block_size", "max_memory_usage", b"max_memory_usage", "max_memory_usage_for_user", b"max_memory_usage_for_user", "max_network_bandwidth", b"max_network_bandwidth", "max_network_bandwidth_for_user", b"max_network_bandwidth_for_user", "max_query_size", b"max_query_size", "max_replica_delay_for_distributed_queries", b"max_replica_delay_for_distributed_queries", "max_result_bytes", b"max_result_bytes", "max_result_rows", b"max_result_rows", "max_rows_in_distinct", b"max_rows_in_distinct", "max_rows_in_join", b"max_rows_in_join", "max_rows_in_set", b"max_rows_in_set", "max_rows_to_group_by", b"max_rows_to_group_by", "max_rows_to_read", b"max_rows_to_read", "max_rows_to_sort", b"max_rows_to_sort", "max_rows_to_transfer", b"max_rows_to_transfer", "max_temporary_columns", b"max_temporary_columns", "max_temporary_non_const_columns", b"max_temporary_non_const_columns", "max_threads", b"max_threads", "merge_tree_max_bytes_to_use_cache", b"merge_tree_max_bytes_to_use_cache", "merge_tree_max_rows_to_use_cache", b"merge_tree_max_rows_to_use_cache", "merge_tree_min_bytes_for_concurrent_read", b"merge_tree_min_bytes_for_concurrent_read", "merge_tree_min_rows_for_concurrent_read", b"merge_tree_min_rows_for_concurrent_read", "min_bytes_to_use_direct_io", b"min_bytes_to_use_direct_io", "min_count_to_compile", b"min_count_to_compile", "min_count_to_compile_expression", b"min_count_to_compile_expression", "min_execution_speed", b"min_execution_speed", "min_execution_speed_bytes", b"min_execution_speed_bytes", "min_insert_block_size_bytes", b"min_insert_block_size_bytes", "min_insert_block_size_rows", b"min_insert_block_size_rows", "output_format_json_quote_64bit_integers", b"output_format_json_quote_64bit_integers", "output_format_json_quote_denormals", b"output_format_json_quote_denormals", "priority", b"priority", "readonly", b"readonly", "receive_timeout", b"receive_timeout", "replication_alter_partitions_sync", b"replication_alter_partitions_sync", "select_sequential_consistency", b"select_sequential_consistency", "send_progress_in_http_headers", b"send_progress_in_http_headers", "send_timeout", b"send_timeout", "skip_unavailable_shards", b"skip_unavailable_shards", "transform_null_in", b"transform_null_in", "use_uncompressed_cache", b"use_uncompressed_cache"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["add_http_cors_header", b"add_http_cors_header", "allow_ddl", b"allow_ddl", "compile", b"compile", "compile_expressions", b"compile_expressions", "connect_timeout", b"connect_timeout", "count_distinct_implementation", b"count_distinct_implementation", "distinct_overflow_mode", b"distinct_overflow_mode", "distributed_aggregation_memory_efficient", b"distributed_aggregation_memory_efficient", "distributed_ddl_task_timeout", b"distributed_ddl_task_timeout", "distributed_product_mode", b"distributed_product_mode", "empty_result_for_aggregation_by_empty_set", b"empty_result_for_aggregation_by_empty_set", "enable_http_compression", b"enable_http_compression", "fallback_to_stale_replicas_for_distributed_queries", b"fallback_to_stale_replicas_for_distributed_queries", "force_index_by_date", b"force_index_by_date", "force_primary_key", b"force_primary_key", "group_by_overflow_mode", b"group_by_overflow_mode", "group_by_two_level_threshold", b"group_by_two_level_threshold", "group_by_two_level_threshold_bytes", b"group_by_two_level_threshold_bytes", "http_connection_timeout", b"http_connection_timeout", "http_headers_progress_interval", b"http_headers_progress_interval", "http_receive_timeout", b"http_receive_timeout", "http_send_timeout", b"http_send_timeout", "input_format_defaults_for_omitted_fields", b"input_format_defaults_for_omitted_fields", "input_format_values_interpret_expressions", b"input_format_values_interpret_expressions", "insert_quorum", b"insert_quorum", "insert_quorum_timeout", b"insert_quorum_timeout", "join_overflow_mode", b"join_overflow_mode", "join_use_nulls", b"join_use_nulls", "joined_subquery_requires_alias", b"joined_subquery_requires_alias", "low_cardinality_allow_in_native_format", b"low_cardinality_allow_in_native_format", "max_ast_depth", b"max_ast_depth", "max_ast_elements", b"max_ast_elements", "max_block_size", b"max_block_size", "max_bytes_before_external_group_by", b"max_bytes_before_external_group_by", "max_bytes_before_external_sort", b"max_bytes_before_external_sort", "max_bytes_in_distinct", b"max_bytes_in_distinct", "max_bytes_in_join", b"max_bytes_in_join", "max_bytes_in_set", b"max_bytes_in_set", "max_bytes_to_read", b"max_bytes_to_read", "max_bytes_to_sort", b"max_bytes_to_sort", "max_bytes_to_transfer", b"max_bytes_to_transfer", "max_columns_to_read", b"max_columns_to_read", "max_execution_time", b"max_execution_time", "max_expanded_ast_elements", b"max_expanded_ast_elements", "max_insert_block_size", b"max_insert_block_size", "max_memory_usage", b"max_memory_usage", "max_memory_usage_for_user", b"max_memory_usage_for_user", "max_network_bandwidth", b"max_network_bandwidth", "max_network_bandwidth_for_user", b"max_network_bandwidth_for_user", "max_query_size", b"max_query_size", "max_replica_delay_for_distributed_queries", b"max_replica_delay_for_distributed_queries", "max_result_bytes", b"max_result_bytes", "max_result_rows", b"max_result_rows", "max_rows_in_distinct", b"max_rows_in_distinct", "max_rows_in_join", b"max_rows_in_join", "max_rows_in_set", b"max_rows_in_set", "max_rows_to_group_by", b"max_rows_to_group_by", "max_rows_to_read", b"max_rows_to_read", "max_rows_to_sort", b"max_rows_to_sort", "max_rows_to_transfer", b"max_rows_to_transfer", "max_temporary_columns", b"max_temporary_columns", "max_temporary_non_const_columns", b"max_temporary_non_const_columns", "max_threads", b"max_threads", "merge_tree_max_bytes_to_use_cache", b"merge_tree_max_bytes_to_use_cache", "merge_tree_max_rows_to_use_cache", b"merge_tree_max_rows_to_use_cache", "merge_tree_min_bytes_for_concurrent_read", b"merge_tree_min_bytes_for_concurrent_read", "merge_tree_min_rows_for_concurrent_read", b"merge_tree_min_rows_for_concurrent_read", "min_bytes_to_use_direct_io", b"min_bytes_to_use_direct_io", "min_count_to_compile", b"min_count_to_compile", "min_count_to_compile_expression", b"min_count_to_compile_expression", "min_execution_speed", b"min_execution_speed", "min_execution_speed_bytes", b"min_execution_speed_bytes", "min_insert_block_size_bytes", b"min_insert_block_size_bytes", "min_insert_block_size_rows", b"min_insert_block_size_rows", "output_format_json_quote_64bit_integers", b"output_format_json_quote_64bit_integers", "output_format_json_quote_denormals", b"output_format_json_quote_denormals", "priority", b"priority", "quota_mode", b"quota_mode", "read_overflow_mode", b"read_overflow_mode", "readonly", b"readonly", "receive_timeout", b"receive_timeout", "replication_alter_partitions_sync", b"replication_alter_partitions_sync", "result_overflow_mode", b"result_overflow_mode", "select_sequential_consistency", b"select_sequential_consistency", "send_progress_in_http_headers", b"send_progress_in_http_headers", "send_timeout", b"send_timeout", "set_overflow_mode", b"set_overflow_mode", "skip_unavailable_shards", b"skip_unavailable_shards", "sort_overflow_mode", b"sort_overflow_mode", "timeout_overflow_mode", b"timeout_overflow_mode", "transfer_overflow_mode", b"transfer_overflow_mode", "transform_null_in", b"transform_null_in", "use_uncompressed_cache", b"use_uncompressed_cache"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["add_http_cors_header", b"add_http_cors_header", "allow_ddl", b"allow_ddl", "allow_introspection_functions", b"allow_introspection_functions", "allow_suspicious_low_cardinality_types", b"allow_suspicious_low_cardinality_types", "any_join_distinct_right_table_keys", b"any_join_distinct_right_table_keys", "async_insert", b"async_insert", "async_insert_busy_timeout", b"async_insert_busy_timeout", "async_insert_max_data_size", b"async_insert_max_data_size", "async_insert_stale_timeout", b"async_insert_stale_timeout", "async_insert_threads", b"async_insert_threads", "cancel_http_readonly_queries_on_client_close", b"cancel_http_readonly_queries_on_client_close", "compile", b"compile", "compile_expressions", b"compile_expressions", "connect_timeout", b"connect_timeout", "connect_timeout_with_failover", b"connect_timeout_with_failover", "deduplicate_blocks_in_dependent_materialized_views", b"deduplicate_blocks_in_dependent_materialized_views", "distributed_aggregation_memory_efficient", b"distributed_aggregation_memory_efficient", "distributed_ddl_task_timeout", b"distributed_ddl_task_timeout", "empty_result_for_aggregation_by_empty_set", b"empty_result_for_aggregation_by_empty_set", "enable_http_compression", b"enable_http_compression", "fallback_to_stale_replicas_for_distributed_queries", b"fallback_to_stale_replicas_for_distributed_queries", "flatten_nested", b"flatten_nested", "force_index_by_date", b"force_index_by_date", "force_primary_key", b"force_primary_key", "format_regexp_skip_unmatched", b"format_regexp_skip_unmatched", "group_by_two_level_threshold", b"group_by_two_level_threshold", "group_by_two_level_threshold_bytes", b"group_by_two_level_threshold_bytes", "http_connection_timeout", b"http_connection_timeout", "http_headers_progress_interval", b"http_headers_progress_interval", "http_receive_timeout", b"http_receive_timeout", "http_send_timeout", b"http_send_timeout", "input_format_defaults_for_omitted_fields", b"input_format_defaults_for_omitted_fields", "input_format_null_as_default", b"input_format_null_as_default", "input_format_values_interpret_expressions", b"input_format_values_interpret_expressions", "input_format_with_names_use_header", b"input_format_with_names_use_header", "insert_null_as_default", b"insert_null_as_default", "insert_quorum", b"insert_quorum", "insert_quorum_parallel", b"insert_quorum_parallel", "insert_quorum_timeout", b"insert_quorum_timeout", "join_use_nulls", b"join_use_nulls", "joined_subquery_requires_alias", b"joined_subquery_requires_alias", "low_cardinality_allow_in_native_format", b"low_cardinality_allow_in_native_format", "max_ast_depth", b"max_ast_depth", "max_ast_elements", b"max_ast_elements", "max_block_size", b"max_block_size", "max_bytes_before_external_group_by", b"max_bytes_before_external_group_by", "max_bytes_before_external_sort", b"max_bytes_before_external_sort", "max_bytes_in_distinct", b"max_bytes_in_distinct", "max_bytes_in_join", b"max_bytes_in_join", "max_bytes_in_set", b"max_bytes_in_set", "max_bytes_to_read", b"max_bytes_to_read", "max_bytes_to_sort", b"max_bytes_to_sort", "max_bytes_to_transfer", b"max_bytes_to_transfer", "max_columns_to_read", b"max_columns_to_read", "max_concurrent_queries_for_user", b"max_concurrent_queries_for_user", "max_execution_time", b"max_execution_time", "max_expanded_ast_elements", b"max_expanded_ast_elements", "max_http_get_redirects", b"max_http_get_redirects", "max_insert_block_size", b"max_insert_block_size", "max_memory_usage", b"max_memory_usage", "max_memory_usage_for_user", b"max_memory_usage_for_user", "max_network_bandwidth", b"max_network_bandwidth", "max_network_bandwidth_for_user", b"max_network_bandwidth_for_user", "max_partitions_per_insert_block", b"max_partitions_per_insert_block", "max_query_size", b"max_query_size", "max_replica_delay_for_distributed_queries", b"max_replica_delay_for_distributed_queries", "max_result_bytes", b"max_result_bytes", "max_result_rows", b"max_result_rows", "max_rows_in_distinct", b"max_rows_in_distinct", "max_rows_in_join", b"max_rows_in_join", "max_rows_in_set", b"max_rows_in_set", "max_rows_to_group_by", b"max_rows_to_group_by", "max_rows_to_read", b"max_rows_to_read", "max_rows_to_sort", b"max_rows_to_sort", "max_rows_to_transfer", b"max_rows_to_transfer", "max_temporary_columns", b"max_temporary_columns", "max_temporary_non_const_columns", b"max_temporary_non_const_columns", "max_threads", b"max_threads", "memory_profiler_sample_probability", b"memory_profiler_sample_probability", "memory_profiler_step", b"memory_profiler_step", "merge_tree_max_bytes_to_use_cache", b"merge_tree_max_bytes_to_use_cache", "merge_tree_max_rows_to_use_cache", b"merge_tree_max_rows_to_use_cache", "merge_tree_min_bytes_for_concurrent_read", b"merge_tree_min_bytes_for_concurrent_read", "merge_tree_min_rows_for_concurrent_read", b"merge_tree_min_rows_for_concurrent_read", "min_bytes_to_use_direct_io", b"min_bytes_to_use_direct_io", "min_count_to_compile", b"min_count_to_compile", "min_count_to_compile_expression", b"min_count_to_compile_expression", "min_execution_speed", b"min_execution_speed", "min_execution_speed_bytes", b"min_execution_speed_bytes", "min_insert_block_size_bytes", b"min_insert_block_size_bytes", "min_insert_block_size_rows", b"min_insert_block_size_rows", "output_format_json_quote_64bit_integers", b"output_format_json_quote_64bit_integers", "output_format_json_quote_denormals", b"output_format_json_quote_denormals", "priority", b"priority", "readonly", b"readonly", "receive_timeout", b"receive_timeout", "replication_alter_partitions_sync", b"replication_alter_partitions_sync", "select_sequential_consistency", b"select_sequential_consistency", "send_progress_in_http_headers", b"send_progress_in_http_headers", "send_timeout", b"send_timeout", "skip_unavailable_shards", b"skip_unavailable_shards", "timeout_before_checking_execution_speed", b"timeout_before_checking_execution_speed", "transform_null_in", b"transform_null_in", "use_uncompressed_cache", b"use_uncompressed_cache", "wait_for_async_insert", b"wait_for_async_insert", "wait_for_async_insert_timeout", b"wait_for_async_insert_timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["add_http_cors_header", b"add_http_cors_header", "allow_ddl", b"allow_ddl", "allow_introspection_functions", b"allow_introspection_functions", "allow_suspicious_low_cardinality_types", b"allow_suspicious_low_cardinality_types", "any_join_distinct_right_table_keys", b"any_join_distinct_right_table_keys", "async_insert", b"async_insert", "async_insert_busy_timeout", b"async_insert_busy_timeout", "async_insert_max_data_size", b"async_insert_max_data_size", "async_insert_stale_timeout", b"async_insert_stale_timeout", "async_insert_threads", b"async_insert_threads", "cancel_http_readonly_queries_on_client_close", b"cancel_http_readonly_queries_on_client_close", "compile", b"compile", "compile_expressions", b"compile_expressions", "connect_timeout", b"connect_timeout", "connect_timeout_with_failover", b"connect_timeout_with_failover", "count_distinct_implementation", b"count_distinct_implementation", "date_time_input_format", b"date_time_input_format", "date_time_output_format", b"date_time_output_format", "deduplicate_blocks_in_dependent_materialized_views", b"deduplicate_blocks_in_dependent_materialized_views", "distinct_overflow_mode", b"distinct_overflow_mode", "distributed_aggregation_memory_efficient", b"distributed_aggregation_memory_efficient", "distributed_ddl_task_timeout", b"distributed_ddl_task_timeout", "distributed_product_mode", b"distributed_product_mode", "empty_result_for_aggregation_by_empty_set", b"empty_result_for_aggregation_by_empty_set", "enable_http_compression", b"enable_http_compression", "fallback_to_stale_replicas_for_distributed_queries", b"fallback_to_stale_replicas_for_distributed_queries", "flatten_nested", b"flatten_nested", "force_index_by_date", b"force_index_by_date", "force_primary_key", b"force_primary_key", "format_regexp", b"format_regexp", "format_regexp_escaping_rule", b"format_regexp_escaping_rule", "format_regexp_skip_unmatched", b"format_regexp_skip_unmatched", "group_by_overflow_mode", b"group_by_overflow_mode", "group_by_two_level_threshold", b"group_by_two_level_threshold", "group_by_two_level_threshold_bytes", b"group_by_two_level_threshold_bytes", "http_connection_timeout", b"http_connection_timeout", "http_headers_progress_interval", b"http_headers_progress_interval", "http_receive_timeout", b"http_receive_timeout", "http_send_timeout", b"http_send_timeout", "input_format_defaults_for_omitted_fields", b"input_format_defaults_for_omitted_fields", "input_format_null_as_default", b"input_format_null_as_default", "input_format_values_interpret_expressions", b"input_format_values_interpret_expressions", "input_format_with_names_use_header", b"input_format_with_names_use_header", "insert_null_as_default", b"insert_null_as_default", "insert_quorum", b"insert_quorum", "insert_quorum_parallel", b"insert_quorum_parallel", "insert_quorum_timeout", b"insert_quorum_timeout", "join_algorithm", b"join_algorithm", "join_overflow_mode", b"join_overflow_mode", "join_use_nulls", b"join_use_nulls", "joined_subquery_requires_alias", b"joined_subquery_requires_alias", "low_cardinality_allow_in_native_format", b"low_cardinality_allow_in_native_format", "max_ast_depth", b"max_ast_depth", "max_ast_elements", b"max_ast_elements", "max_block_size", b"max_block_size", "max_bytes_before_external_group_by", b"max_bytes_before_external_group_by", "max_bytes_before_external_sort", b"max_bytes_before_external_sort", "max_bytes_in_distinct", b"max_bytes_in_distinct", "max_bytes_in_join", b"max_bytes_in_join", "max_bytes_in_set", b"max_bytes_in_set", "max_bytes_to_read", b"max_bytes_to_read", "max_bytes_to_sort", b"max_bytes_to_sort", "max_bytes_to_transfer", b"max_bytes_to_transfer", "max_columns_to_read", b"max_columns_to_read", "max_concurrent_queries_for_user", b"max_concurrent_queries_for_user", "max_execution_time", b"max_execution_time", "max_expanded_ast_elements", b"max_expanded_ast_elements", "max_http_get_redirects", b"max_http_get_redirects", "max_insert_block_size", b"max_insert_block_size", "max_memory_usage", b"max_memory_usage", "max_memory_usage_for_user", b"max_memory_usage_for_user", "max_network_bandwidth", b"max_network_bandwidth", "max_network_bandwidth_for_user", b"max_network_bandwidth_for_user", "max_partitions_per_insert_block", b"max_partitions_per_insert_block", "max_query_size", b"max_query_size", "max_replica_delay_for_distributed_queries", b"max_replica_delay_for_distributed_queries", "max_result_bytes", b"max_result_bytes", "max_result_rows", b"max_result_rows", "max_rows_in_distinct", b"max_rows_in_distinct", "max_rows_in_join", b"max_rows_in_join", "max_rows_in_set", b"max_rows_in_set", "max_rows_to_group_by", b"max_rows_to_group_by", "max_rows_to_read", b"max_rows_to_read", "max_rows_to_sort", b"max_rows_to_sort", "max_rows_to_transfer", b"max_rows_to_transfer", "max_temporary_columns", b"max_temporary_columns", "max_temporary_non_const_columns", b"max_temporary_non_const_columns", "max_threads", b"max_threads", "memory_profiler_sample_probability", b"memory_profiler_sample_probability", "memory_profiler_step", b"memory_profiler_step", "merge_tree_max_bytes_to_use_cache", b"merge_tree_max_bytes_to_use_cache", "merge_tree_max_rows_to_use_cache", b"merge_tree_max_rows_to_use_cache", "merge_tree_min_bytes_for_concurrent_read", b"merge_tree_min_bytes_for_concurrent_read", "merge_tree_min_rows_for_concurrent_read", b"merge_tree_min_rows_for_concurrent_read", "min_bytes_to_use_direct_io", b"min_bytes_to_use_direct_io", "min_count_to_compile", b"min_count_to_compile", "min_count_to_compile_expression", b"min_count_to_compile_expression", "min_execution_speed", b"min_execution_speed", "min_execution_speed_bytes", b"min_execution_speed_bytes", "min_insert_block_size_bytes", b"min_insert_block_size_bytes", "min_insert_block_size_rows", b"min_insert_block_size_rows", "output_format_json_quote_64bit_integers", b"output_format_json_quote_64bit_integers", "output_format_json_quote_denormals", b"output_format_json_quote_denormals", "priority", b"priority", "quota_mode", b"quota_mode", "read_overflow_mode", b"read_overflow_mode", "readonly", b"readonly", "receive_timeout", b"receive_timeout", "replication_alter_partitions_sync", b"replication_alter_partitions_sync", "result_overflow_mode", b"result_overflow_mode", "select_sequential_consistency", b"select_sequential_consistency", "send_progress_in_http_headers", b"send_progress_in_http_headers", "send_timeout", b"send_timeout", "set_overflow_mode", b"set_overflow_mode", "skip_unavailable_shards", b"skip_unavailable_shards", "sort_overflow_mode", b"sort_overflow_mode", "timeout_before_checking_execution_speed", b"timeout_before_checking_execution_speed", "timeout_overflow_mode", b"timeout_overflow_mode", "transfer_overflow_mode", b"transfer_overflow_mode", "transform_null_in", b"transform_null_in", "use_uncompressed_cache", b"use_uncompressed_cache", "wait_for_async_insert", b"wait_for_async_insert", "wait_for_async_insert_timeout", b"wait_for_async_insert_timeout"]) -> None: ...
 
 global___UserSettings = UserSettings
 

@@ -87,3 +87,33 @@ class ListBackupsResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["backups", b"backups", "next_page_token", b"next_page_token"]) -> None: ...
 
 global___ListBackupsResponse = ListBackupsResponse
+
+class DeleteBackupRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BACKUP_ID_FIELD_NUMBER: builtins.int
+    backup_id: builtins.str
+    """Required. ID of the backup to delete."""
+    def __init__(
+        self,
+        *,
+        backup_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id"]) -> None: ...
+
+global___DeleteBackupRequest = DeleteBackupRequest
+
+class DeleteBackupMetadata(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    BACKUP_ID_FIELD_NUMBER: builtins.int
+    backup_id: builtins.str
+    """Required. ID of the PostgreSQL backup that is currently being deleted."""
+    def __init__(
+        self,
+        *,
+        backup_id: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["backup_id", b"backup_id"]) -> None: ...
+
+global___DeleteBackupMetadata = DeleteBackupMetadata
