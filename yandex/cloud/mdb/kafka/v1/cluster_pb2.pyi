@@ -373,7 +373,7 @@ class Resources(google.protobuf.message.Message):
 global___Resources = Resources
 
 class KafkaConfig2_1(google.protobuf.message.Message):
-    """Kafka version 2.1 broker configuration."""
+    """Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -508,7 +508,7 @@ class KafkaConfig2_1(google.protobuf.message.Message):
 global___KafkaConfig2_1 = KafkaConfig2_1
 
 class KafkaConfig2_6(google.protobuf.message.Message):
-    """Kafka version 2.6 broker configuration."""
+    """Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

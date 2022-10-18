@@ -116,7 +116,7 @@ class TopicSpec(google.protobuf.message.Message):
 global___TopicSpec = TopicSpec
 
 class TopicConfig2_1(google.protobuf.message.Message):
-    """A topic settings for 2.1."""
+    """Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -238,7 +238,7 @@ class TopicConfig2_1(google.protobuf.message.Message):
 global___TopicConfig2_1 = TopicConfig2_1
 
 class TopicConfig2_6(google.protobuf.message.Message):
-    """A topic settings for 2.6"""
+    """Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
