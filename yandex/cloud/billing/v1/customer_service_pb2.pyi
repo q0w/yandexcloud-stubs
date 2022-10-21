@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListCustomersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,6 +48,7 @@ class ListCustomersRequest(google.protobuf.message.Message):
 
 global___ListCustomersRequest = ListCustomersRequest
 
+@typing_extensions.final
 class ListCustomersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -73,6 +75,7 @@ class ListCustomersResponse(google.protobuf.message.Message):
 
 global___ListCustomersResponse = ListCustomersResponse
 
+@typing_extensions.final
 class InviteCustomerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,6 +105,7 @@ class InviteCustomerRequest(google.protobuf.message.Message):
 
 global___InviteCustomerRequest = InviteCustomerRequest
 
+@typing_extensions.final
 class CreateResellerServedCustomerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -127,6 +131,7 @@ class CreateResellerServedCustomerRequest(google.protobuf.message.Message):
 
 global___CreateResellerServedCustomerRequest = CreateResellerServedCustomerRequest
 
+@typing_extensions.final
 class ActivateCustomerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -144,6 +149,7 @@ class ActivateCustomerRequest(google.protobuf.message.Message):
 
 global___ActivateCustomerRequest = ActivateCustomerRequest
 
+@typing_extensions.final
 class SuspendCustomerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -161,6 +167,7 @@ class SuspendCustomerRequest(google.protobuf.message.Message):
 
 global___SuspendCustomerRequest = SuspendCustomerRequest
 
+@typing_extensions.final
 class CustomerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

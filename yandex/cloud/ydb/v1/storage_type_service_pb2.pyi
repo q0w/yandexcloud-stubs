@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetStorageTypeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class GetStorageTypeRequest(google.protobuf.message.Message):
 
 global___GetStorageTypeRequest = GetStorageTypeRequest
 
+@typing_extensions.final
 class ListStorageTypesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class ListStorageTypesRequest(google.protobuf.message.Message):
 
 global___ListStorageTypesRequest = ListStorageTypesRequest
 
+@typing_extensions.final
 class ListStorageTypesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

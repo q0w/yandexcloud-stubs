@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBudgetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetBudgetRequest(google.protobuf.message.Message):
 
 global___GetBudgetRequest = GetBudgetRequest
 
+@typing_extensions.final
 class ListBudgetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -66,6 +68,7 @@ class ListBudgetsRequest(google.protobuf.message.Message):
 
 global___ListBudgetsRequest = ListBudgetsRequest
 
+@typing_extensions.final
 class ListBudgetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -92,6 +95,7 @@ class ListBudgetsResponse(google.protobuf.message.Message):
 
 global___ListBudgetsResponse = ListBudgetsResponse
 
+@typing_extensions.final
 class CreateBudgetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -130,6 +134,7 @@ class CreateBudgetRequest(google.protobuf.message.Message):
 
 global___CreateBudgetRequest = CreateBudgetRequest
 
+@typing_extensions.final
 class CreateBudgetMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

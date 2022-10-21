@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBackupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class GetBackupRequest(google.protobuf.message.Message):
 
 global___GetBackupRequest = GetBackupRequest
 
+@typing_extensions.final
 class ListBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -60,6 +62,7 @@ class ListBackupsRequest(google.protobuf.message.Message):
 
 global___ListBackupsRequest = ListBackupsRequest
 
+@typing_extensions.final
 class ListBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

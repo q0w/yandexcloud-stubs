@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ScanResult(google.protobuf.message.Message):
     """A ScanResult resource."""
 
@@ -76,6 +77,7 @@ class ScanResult(google.protobuf.message.Message):
 
 global___ScanResult = ScanResult
 
+@typing_extensions.final
 class VulnerabilityStats(google.protobuf.message.Message):
     """A VulnerabilityStats resource."""
 
@@ -113,6 +115,7 @@ class VulnerabilityStats(google.protobuf.message.Message):
 
 global___VulnerabilityStats = VulnerabilityStats
 
+@typing_extensions.final
 class Vulnerability(google.protobuf.message.Message):
     """A Vulnerability resource."""
 
@@ -201,6 +204,7 @@ class Vulnerability(google.protobuf.message.Message):
 
 global___Vulnerability = Vulnerability
 
+@typing_extensions.final
 class PackageVulnerability(google.protobuf.message.Message):
     """A PackageVulnerability resource."""
 

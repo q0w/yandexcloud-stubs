@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """A Kafka user.
     For more information, see the [Operations -> Accounts](/docs/managed-kafka/operations/cluster-accounts) section of the documentation.
@@ -49,6 +50,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -73,6 +75,7 @@ class UserSpec(google.protobuf.message.Message):
 
 global___UserSpec = UserSpec
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

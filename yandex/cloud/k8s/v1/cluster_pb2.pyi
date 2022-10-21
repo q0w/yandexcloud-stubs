@@ -25,7 +25,7 @@ class _ReleaseChannel:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ReleaseChannelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ReleaseChannel.ValueType], builtins.type):  # noqa: F821
+class _ReleaseChannelEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ReleaseChannel.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RELEASE_CHANNEL_UNSPECIFIED: _ReleaseChannel.ValueType  # 0
     RAPID: _ReleaseChannel.ValueType  # 1
@@ -50,6 +50,7 @@ STABLE: ReleaseChannel.ValueType  # 3
 """Only updates related to bug fixes or security improvements are added."""
 global___ReleaseChannel = ReleaseChannel
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """A Kubernetes cluster."""
 
@@ -113,6 +114,7 @@ class Cluster(google.protobuf.message.Message):
     UNHEALTHY: Cluster.Health.ValueType  # 2
     """Kubernetes cluster is inoperable."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,6 +228,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Master(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -280,6 +283,7 @@ class Master(google.protobuf.message.Message):
 
 global___Master = Master
 
+@typing_extensions.final
 class MasterAuth(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -295,6 +299,7 @@ class MasterAuth(google.protobuf.message.Message):
 
 global___MasterAuth = MasterAuth
 
+@typing_extensions.final
 class ZonalMaster(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -318,6 +323,7 @@ class ZonalMaster(google.protobuf.message.Message):
 
 global___ZonalMaster = ZonalMaster
 
+@typing_extensions.final
 class RegionalMaster(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -345,6 +351,7 @@ class RegionalMaster(google.protobuf.message.Message):
 
 global___RegionalMaster = RegionalMaster
 
+@typing_extensions.final
 class MasterEndpoints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -368,6 +375,7 @@ class MasterEndpoints(google.protobuf.message.Message):
 
 global___MasterEndpoints = MasterEndpoints
 
+@typing_extensions.final
 class IPAllocationPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -409,6 +417,7 @@ class IPAllocationPolicy(google.protobuf.message.Message):
 
 global___IPAllocationPolicy = IPAllocationPolicy
 
+@typing_extensions.final
 class MasterMaintenancePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -434,6 +443,7 @@ class MasterMaintenancePolicy(google.protobuf.message.Message):
 
 global___MasterMaintenancePolicy = MasterMaintenancePolicy
 
+@typing_extensions.final
 class NetworkPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -461,6 +471,7 @@ class NetworkPolicy(google.protobuf.message.Message):
 
 global___NetworkPolicy = NetworkPolicy
 
+@typing_extensions.final
 class KMSProvider(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -478,6 +489,7 @@ class KMSProvider(google.protobuf.message.Message):
 
 global___KMSProvider = KMSProvider
 
+@typing_extensions.final
 class Cilium(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

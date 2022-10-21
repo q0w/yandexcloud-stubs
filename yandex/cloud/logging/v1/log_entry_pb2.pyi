@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LogEntry(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -85,6 +86,7 @@ class LogEntry(google.protobuf.message.Message):
 
 global___LogEntry = LogEntry
 
+@typing_extensions.final
 class IncomingLogEntry(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,6 +124,7 @@ class IncomingLogEntry(google.protobuf.message.Message):
 
 global___IncomingLogEntry = IncomingLogEntry
 
+@typing_extensions.final
 class LogEntryDefaults(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -154,6 +157,7 @@ class LogEntryDefaults(google.protobuf.message.Message):
 
 global___LogEntryDefaults = LogEntryDefaults
 
+@typing_extensions.final
 class Destination(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,6 +179,7 @@ class Destination(google.protobuf.message.Message):
 
 global___Destination = Destination
 
+@typing_extensions.final
 class LogLevel(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

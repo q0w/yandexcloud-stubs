@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MysqlConfig8_0(google.protobuf.message.Message):
     """Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file."""
 
@@ -764,6 +765,7 @@ class MysqlConfig8_0(google.protobuf.message.Message):
 
 global___MysqlConfig8_0 = MysqlConfig8_0
 
+@typing_extensions.final
 class MysqlConfigSet8_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

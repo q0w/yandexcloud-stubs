@@ -23,7 +23,7 @@ class _DeviceView:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _DeviceViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceView.ValueType], builtins.type):  # noqa: F821
+class _DeviceViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_DeviceView.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BASIC: _DeviceView.ValueType  # 0
     """Server responses without monitoring data.
@@ -42,6 +42,7 @@ FULL: DeviceView.ValueType  # 1
 """Server responses with monitoring data."""
 global___DeviceView = DeviceView
 
+@typing_extensions.final
 class Device(google.protobuf.message.Message):
     """A device. For more information, see [Device](/docs/iot-core/concepts/index#device)."""
 
@@ -70,6 +71,7 @@ class Device(google.protobuf.message.Message):
     DELETING: Device.Status.ValueType  # 3
     """Device is being deleted."""
 
+    @typing_extensions.final
     class TopicAliasesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -132,6 +134,7 @@ class Device(google.protobuf.message.Message):
 
 global___Device = Device
 
+@typing_extensions.final
 class DeviceCertificate(google.protobuf.message.Message):
     """A device certificate. For more information, see [Managing device certificates](/docs/iot-core/operations/certificates/device-certificates)."""
 
@@ -163,6 +166,7 @@ class DeviceCertificate(google.protobuf.message.Message):
 
 global___DeviceCertificate = DeviceCertificate
 
+@typing_extensions.final
 class DevicePassword(google.protobuf.message.Message):
     """A device password."""
 
@@ -190,6 +194,7 @@ class DevicePassword(google.protobuf.message.Message):
 
 global___DevicePassword = DevicePassword
 
+@typing_extensions.final
 class DeviceMonitoringData(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

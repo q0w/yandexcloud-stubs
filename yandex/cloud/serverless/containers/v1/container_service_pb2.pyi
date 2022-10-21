@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetContainerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetContainerRequest(google.protobuf.message.Message):
 
 global___GetContainerRequest = GetContainerRequest
 
+@typing_extensions.final
 class ListContainersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class ListContainersRequest(google.protobuf.message.Message):
 
 global___ListContainersRequest = ListContainersRequest
 
+@typing_extensions.final
 class ListContainersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,9 +78,11 @@ class ListContainersResponse(google.protobuf.message.Message):
 
 global___ListContainersResponse = ListContainersResponse
 
+@typing_extensions.final
 class CreateContainerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -114,6 +119,7 @@ class CreateContainerRequest(google.protobuf.message.Message):
 
 global___CreateContainerRequest = CreateContainerRequest
 
+@typing_extensions.final
 class CreateContainerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,9 +134,11 @@ class CreateContainerMetadata(google.protobuf.message.Message):
 
 global___CreateContainerMetadata = CreateContainerMetadata
 
+@typing_extensions.final
 class UpdateContainerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +180,7 @@ class UpdateContainerRequest(google.protobuf.message.Message):
 
 global___UpdateContainerRequest = UpdateContainerRequest
 
+@typing_extensions.final
 class UpdateContainerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -186,6 +195,7 @@ class UpdateContainerMetadata(google.protobuf.message.Message):
 
 global___UpdateContainerMetadata = UpdateContainerMetadata
 
+@typing_extensions.final
 class DeleteContainerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -200,6 +210,7 @@ class DeleteContainerRequest(google.protobuf.message.Message):
 
 global___DeleteContainerRequest = DeleteContainerRequest
 
+@typing_extensions.final
 class DeleteContainerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -214,6 +225,7 @@ class DeleteContainerMetadata(google.protobuf.message.Message):
 
 global___DeleteContainerMetadata = DeleteContainerMetadata
 
+@typing_extensions.final
 class GetContainerRevisionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -228,6 +240,7 @@ class GetContainerRevisionRequest(google.protobuf.message.Message):
 
 global___GetContainerRevisionRequest = GetContainerRevisionRequest
 
+@typing_extensions.final
 class ListContainersRevisionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -256,6 +269,7 @@ class ListContainersRevisionsRequest(google.protobuf.message.Message):
 
 global___ListContainersRevisionsRequest = ListContainersRevisionsRequest
 
+@typing_extensions.final
 class ListContainersRevisionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -274,6 +288,7 @@ class ListContainersRevisionsResponse(google.protobuf.message.Message):
 
 global___ListContainersRevisionsResponse = ListContainersRevisionsResponse
 
+@typing_extensions.final
 class DeployContainerRevisionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -322,9 +337,11 @@ class DeployContainerRevisionRequest(google.protobuf.message.Message):
 
 global___DeployContainerRevisionRequest = DeployContainerRevisionRequest
 
+@typing_extensions.final
 class ImageSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -367,6 +384,7 @@ class ImageSpec(google.protobuf.message.Message):
 
 global___ImageSpec = ImageSpec
 
+@typing_extensions.final
 class DeployContainerRevisionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -381,6 +399,7 @@ class DeployContainerRevisionMetadata(google.protobuf.message.Message):
 
 global___DeployContainerRevisionMetadata = DeployContainerRevisionMetadata
 
+@typing_extensions.final
 class RollbackContainerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +417,7 @@ class RollbackContainerRequest(google.protobuf.message.Message):
 
 global___RollbackContainerRequest = RollbackContainerRequest
 
+@typing_extensions.final
 class RollbackContainerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -415,6 +435,7 @@ class RollbackContainerMetadata(google.protobuf.message.Message):
 
 global___RollbackContainerMetadata = RollbackContainerMetadata
 
+@typing_extensions.final
 class ListContainerOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -438,6 +459,7 @@ class ListContainerOperationsRequest(google.protobuf.message.Message):
 
 global___ListContainerOperationsRequest = ListContainerOperationsRequest
 
+@typing_extensions.final
 class ListContainerOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

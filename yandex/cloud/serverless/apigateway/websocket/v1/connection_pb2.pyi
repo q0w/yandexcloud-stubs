@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Connection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -50,6 +51,7 @@ class Connection(google.protobuf.message.Message):
 
 global___Connection = Connection
 
+@typing_extensions.final
 class Identity(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

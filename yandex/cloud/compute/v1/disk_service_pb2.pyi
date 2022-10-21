@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetDiskRequest(google.protobuf.message.Message):
 
 global___GetDiskRequest = GetDiskRequest
 
+@typing_extensions.final
 class ListDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +79,7 @@ class ListDisksRequest(google.protobuf.message.Message):
 
 global___ListDisksRequest = ListDisksRequest
 
+@typing_extensions.final
 class ListDisksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -103,9 +106,11 @@ class ListDisksResponse(google.protobuf.message.Message):
 
 global___ListDisksResponse = ListDisksResponse
 
+@typing_extensions.final
 class CreateDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -191,6 +196,7 @@ class CreateDiskRequest(google.protobuf.message.Message):
 
 global___CreateDiskRequest = CreateDiskRequest
 
+@typing_extensions.final
 class CreateDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -206,9 +212,11 @@ class CreateDiskMetadata(google.protobuf.message.Message):
 
 global___CreateDiskMetadata = CreateDiskMetadata
 
+@typing_extensions.final
 class UpdateDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -269,6 +277,7 @@ class UpdateDiskRequest(google.protobuf.message.Message):
 
 global___UpdateDiskRequest = UpdateDiskRequest
 
+@typing_extensions.final
 class UpdateDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -284,6 +293,7 @@ class UpdateDiskMetadata(google.protobuf.message.Message):
 
 global___UpdateDiskMetadata = UpdateDiskMetadata
 
+@typing_extensions.final
 class DeleteDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -301,6 +311,7 @@ class DeleteDiskRequest(google.protobuf.message.Message):
 
 global___DeleteDiskRequest = DeleteDiskRequest
 
+@typing_extensions.final
 class DeleteDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -316,6 +327,7 @@ class DeleteDiskMetadata(google.protobuf.message.Message):
 
 global___DeleteDiskMetadata = DeleteDiskMetadata
 
+@typing_extensions.final
 class ListDiskOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -344,6 +356,7 @@ class ListDiskOperationsRequest(google.protobuf.message.Message):
 
 global___ListDiskOperationsRequest = ListDiskOperationsRequest
 
+@typing_extensions.final
 class ListDiskOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -368,6 +381,7 @@ class ListDiskOperationsResponse(google.protobuf.message.Message):
 
 global___ListDiskOperationsResponse = ListDiskOperationsResponse
 
+@typing_extensions.final
 class MoveDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -393,6 +407,7 @@ class MoveDiskRequest(google.protobuf.message.Message):
 
 global___MoveDiskRequest = MoveDiskRequest
 
+@typing_extensions.final
 class MoveDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -416,6 +431,7 @@ class MoveDiskMetadata(google.protobuf.message.Message):
 
 global___MoveDiskMetadata = MoveDiskMetadata
 
+@typing_extensions.final
 class ListDiskSnapshotSchedulesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -444,6 +460,7 @@ class ListDiskSnapshotSchedulesRequest(google.protobuf.message.Message):
 
 global___ListDiskSnapshotSchedulesRequest = ListDiskSnapshotSchedulesRequest
 
+@typing_extensions.final
 class ListDiskSnapshotSchedulesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

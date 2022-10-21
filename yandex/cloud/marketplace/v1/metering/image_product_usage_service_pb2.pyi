@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class WriteImageProductUsageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -41,6 +42,7 @@ class WriteImageProductUsageRequest(google.protobuf.message.Message):
 
 global___WriteImageProductUsageRequest = WriteImageProductUsageRequest
 
+@typing_extensions.final
 class WriteImageProductUsageResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

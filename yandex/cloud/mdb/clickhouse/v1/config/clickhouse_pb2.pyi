@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ClickhouseConfig(google.protobuf.message.Message):
     """ClickHouse configuration options. Detailed description for each set of options
     is available in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server_settings/settings/).
@@ -49,6 +50,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
     WARNING: ClickhouseConfig.LogLevel.ValueType  # 4
     ERROR: ClickhouseConfig.LogLevel.ValueType  # 5
 
+    @typing_extensions.final
     class MergeTree(google.protobuf.message.Message):
         """Options specific to the MergeTree table engine."""
 
@@ -128,6 +130,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["allow_remote_fs_zero_copy_replication", b"allow_remote_fs_zero_copy_replication", "inactive_parts_to_delay_insert", b"inactive_parts_to_delay_insert", "inactive_parts_to_throw_insert", b"inactive_parts_to_throw_insert", "max_bytes_to_merge_at_max_space_in_pool", b"max_bytes_to_merge_at_max_space_in_pool", "max_bytes_to_merge_at_min_space_in_pool", b"max_bytes_to_merge_at_min_space_in_pool", "max_replicated_merges_in_queue", b"max_replicated_merges_in_queue", "min_bytes_for_wide_part", b"min_bytes_for_wide_part", "min_rows_for_wide_part", b"min_rows_for_wide_part", "number_of_free_entries_in_pool_to_lower_max_size_of_merge", b"number_of_free_entries_in_pool_to_lower_max_size_of_merge", "parts_to_delay_insert", b"parts_to_delay_insert", "parts_to_throw_insert", b"parts_to_throw_insert", "replicated_deduplication_window", b"replicated_deduplication_window", "replicated_deduplication_window_seconds", b"replicated_deduplication_window_seconds", "ttl_only_drop_parts", b"ttl_only_drop_parts"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["allow_remote_fs_zero_copy_replication", b"allow_remote_fs_zero_copy_replication", "inactive_parts_to_delay_insert", b"inactive_parts_to_delay_insert", "inactive_parts_to_throw_insert", b"inactive_parts_to_throw_insert", "max_bytes_to_merge_at_max_space_in_pool", b"max_bytes_to_merge_at_max_space_in_pool", "max_bytes_to_merge_at_min_space_in_pool", b"max_bytes_to_merge_at_min_space_in_pool", "max_replicated_merges_in_queue", b"max_replicated_merges_in_queue", "min_bytes_for_wide_part", b"min_bytes_for_wide_part", "min_rows_for_wide_part", b"min_rows_for_wide_part", "number_of_free_entries_in_pool_to_lower_max_size_of_merge", b"number_of_free_entries_in_pool_to_lower_max_size_of_merge", "parts_to_delay_insert", b"parts_to_delay_insert", "parts_to_throw_insert", b"parts_to_throw_insert", "replicated_deduplication_window", b"replicated_deduplication_window", "replicated_deduplication_window_seconds", b"replicated_deduplication_window_seconds", "ttl_only_drop_parts", b"ttl_only_drop_parts"]) -> None: ...
 
+    @typing_extensions.final
     class Kafka(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -187,6 +190,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["sasl_mechanism", b"sasl_mechanism", "sasl_password", b"sasl_password", "sasl_username", b"sasl_username", "security_protocol", b"security_protocol"]) -> None: ...
 
+    @typing_extensions.final
     class KafkaTopic(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -204,6 +208,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["settings", b"settings"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "settings", b"settings"]) -> None: ...
 
+    @typing_extensions.final
     class Rabbitmq(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -222,6 +227,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["password", b"password", "username", b"username", "vhost", b"vhost"]) -> None: ...
 
+    @typing_extensions.final
     class Compression(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -262,9 +268,11 @@ class ClickhouseConfig(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["method", b"method", "min_part_size", b"min_part_size", "min_part_size_ratio", b"min_part_size_ratio"]) -> None: ...
 
+    @typing_extensions.final
     class ExternalDictionary(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class HttpSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,9 +290,11 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["format", b"format", "url", b"url"]) -> None: ...
 
+        @typing_extensions.final
         class MysqlSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class Replica(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -359,6 +369,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "invalidate_query", b"invalidate_query", "password", b"password", "port", b"port", "replicas", b"replicas", "table", b"table", "user", b"user", "where", b"where"]) -> None: ...
 
+        @typing_extensions.final
         class ClickhouseSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -396,6 +407,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "host", b"host", "password", b"password", "port", b"port", "table", b"table", "user", b"user", "where", b"where"]) -> None: ...
 
+        @typing_extensions.final
         class MongodbSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -429,6 +441,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["collection", b"collection", "db", b"db", "host", b"host", "password", b"password", "port", b"port", "user", b"user"]) -> None: ...
 
+        @typing_extensions.final
         class PostgresqlSource(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -506,9 +519,11 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["db", b"db", "hosts", b"hosts", "invalidate_query", b"invalidate_query", "password", b"password", "port", b"port", "ssl_mode", b"ssl_mode", "table", b"table", "user", b"user"]) -> None: ...
 
+        @typing_extensions.final
         class Structure(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class Attribute(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -546,6 +561,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
                 ) -> None: ...
                 def ClearField(self, field_name: typing_extensions.Literal["expression", b"expression", "hierarchical", b"hierarchical", "injective", b"injective", "name", b"name", "null_value", b"null_value", "type", b"type"]) -> None: ...
 
+            @typing_extensions.final
             class Id(google.protobuf.message.Message):
                 """Numeric key."""
 
@@ -561,6 +577,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
                 ) -> None: ...
                 def ClearField(self, field_name: typing_extensions.Literal["name", b"name"]) -> None: ...
 
+            @typing_extensions.final
             class Key(google.protobuf.message.Message):
                 """Complex key."""
 
@@ -617,6 +634,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
             def HasField(self, field_name: typing_extensions.Literal["id", b"id", "key", b"key", "range_max", b"range_max", "range_min", b"range_min"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["attributes", b"attributes", "id", b"id", "key", b"key", "range_max", b"range_max", "range_min", b"range_min"]) -> None: ...
 
+        @typing_extensions.final
         class Layout(google.protobuf.message.Message):
             """Layout determining how to store the dictionary in memory."""
 
@@ -699,6 +717,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["size_in_cells", b"size_in_cells", "type", b"type"]) -> None: ...
 
+        @typing_extensions.final
         class Range(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -779,14 +798,17 @@ class ClickhouseConfig(google.protobuf.message.Message):
         @typing.overload
         def WhichOneof(self, oneof_group: typing_extensions.Literal["source", b"source"]) -> typing_extensions.Literal["http_source", "mysql_source", "clickhouse_source", "mongodb_source", "postgresql_source"] | None: ...
 
+    @typing_extensions.final
     class GraphiteRollup(google.protobuf.message.Message):
         """Rollup settings for the GraphiteMergeTree table engine."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class Pattern(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class Retention(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1087,6 +1109,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
 
 global___ClickhouseConfig = ClickhouseConfig
 
+@typing_extensions.final
 class ClickhouseConfigSet(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

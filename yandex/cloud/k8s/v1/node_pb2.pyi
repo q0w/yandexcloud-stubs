@@ -23,7 +23,7 @@ class _IpVersion:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):  # noqa: F821
+class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     IP_VERSION_UNSPECIFIED: _IpVersion.ValueType  # 0
     IPV4: _IpVersion.ValueType  # 1
@@ -40,6 +40,7 @@ IPV6: IpVersion.ValueType  # 2
 """IPv6 address, not available yet."""
 global___IpVersion = IpVersion
 
+@typing_extensions.final
 class Node(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -88,6 +89,7 @@ class Node(google.protobuf.message.Message):
     is deleted (this is our bug).
     """
 
+    @typing_extensions.final
     class KubernetesStatus(google.protobuf.message.Message):
         """Kubernetes node info"""
 
@@ -120,6 +122,7 @@ class Node(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["attached_volumes", b"attached_volumes", "conditions", b"conditions", "id", b"id", "taints", b"taints"]) -> None: ...
 
+    @typing_extensions.final
     class CloudStatus(google.protobuf.message.Message):
         """Cloud instance info"""
 
@@ -143,6 +146,7 @@ class Node(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["id", b"id", "status", b"status", "status_message", b"status_message"]) -> None: ...
 
+    @typing_extensions.final
     class Spec(google.protobuf.message.Message):
         """Node specification."""
 
@@ -197,6 +201,7 @@ class Node(google.protobuf.message.Message):
 
 global___Node = Node
 
+@typing_extensions.final
 class Condition(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -231,6 +236,7 @@ class Condition(google.protobuf.message.Message):
 
 global___Condition = Condition
 
+@typing_extensions.final
 class Taint(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,6 +295,7 @@ class Taint(google.protobuf.message.Message):
 
 global___Taint = Taint
 
+@typing_extensions.final
 class AttachedVolume(google.protobuf.message.Message):
     """AttachedVolume describes a volume attached to a node"""
 
@@ -310,9 +317,11 @@ class AttachedVolume(google.protobuf.message.Message):
 
 global___AttachedVolume = AttachedVolume
 
+@typing_extensions.final
 class NodeTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +337,7 @@ class NodeTemplate(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -343,6 +353,7 @@ class NodeTemplate(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NetworkSettings(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -376,6 +387,7 @@ class NodeTemplate(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["type", b"type"]) -> None: ...
 
+    @typing_extensions.final
     class ContainerRuntimeSettings(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -484,6 +496,7 @@ class NodeTemplate(google.protobuf.message.Message):
 
 global___NodeTemplate = NodeTemplate
 
+@typing_extensions.final
 class NetworkInterfaceSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -516,6 +529,7 @@ class NetworkInterfaceSpec(google.protobuf.message.Message):
 
 global___NetworkInterfaceSpec = NetworkInterfaceSpec
 
+@typing_extensions.final
 class NodeAddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -538,6 +552,7 @@ class NodeAddressSpec(google.protobuf.message.Message):
 
 global___NodeAddressSpec = NodeAddressSpec
 
+@typing_extensions.final
 class DnsRecordSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -565,6 +580,7 @@ class DnsRecordSpec(google.protobuf.message.Message):
 
 global___DnsRecordSpec = DnsRecordSpec
 
+@typing_extensions.final
 class OneToOneNatSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -580,6 +596,7 @@ class OneToOneNatSpec(google.protobuf.message.Message):
 
 global___OneToOneNatSpec = OneToOneNatSpec
 
+@typing_extensions.final
 class ResourcesSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -609,6 +626,7 @@ class ResourcesSpec(google.protobuf.message.Message):
 
 global___ResourcesSpec = ResourcesSpec
 
+@typing_extensions.final
 class DiskSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -628,6 +646,7 @@ class DiskSpec(google.protobuf.message.Message):
 
 global___DiskSpec = DiskSpec
 
+@typing_extensions.final
 class SchedulingPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -646,6 +665,7 @@ class SchedulingPolicy(google.protobuf.message.Message):
 
 global___SchedulingPolicy = SchedulingPolicy
 
+@typing_extensions.final
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

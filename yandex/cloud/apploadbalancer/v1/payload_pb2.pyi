@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Payload(google.protobuf.message.Message):
     """A health check payload resource."""
 

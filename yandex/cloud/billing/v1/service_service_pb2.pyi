@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetServiceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetServiceRequest(google.protobuf.message.Message):
 
 global___GetServiceRequest = GetServiceRequest
 
+@typing_extensions.final
 class ListServicesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -69,6 +71,7 @@ class ListServicesRequest(google.protobuf.message.Message):
 
 global___ListServicesRequest = ListServicesRequest
 
+@typing_extensions.final
 class ListServicesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

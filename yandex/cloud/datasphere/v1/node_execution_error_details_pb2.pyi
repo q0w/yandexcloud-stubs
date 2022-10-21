@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class NodeExecutionErrorDetails(google.protobuf.message.Message):
     """User code python execution's error details"""
 

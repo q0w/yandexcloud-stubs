@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """An Elasticsearch cluster resource.
     For more information, see the [Concepts](/docs/managed-elasticsearch/concepts) section of the documentation.
@@ -113,6 +114,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -218,6 +220,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Metadata of monitoring system."""
 
@@ -243,6 +246,7 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class ClusterConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -268,9 +272,11 @@ class ClusterConfig(google.protobuf.message.Message):
 
 global___ClusterConfig = ClusterConfig
 
+@typing_extensions.final
 class Elasticsearch(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class DataNode(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -292,6 +298,7 @@ class Elasticsearch(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "elasticsearch_config_set_7", b"elasticsearch_config_set_7", "resources", b"resources"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["config", b"config"]) -> typing_extensions.Literal["elasticsearch_config_set_7"] | None: ...
 
+    @typing_extensions.final
     class MasterNode(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -331,6 +338,7 @@ class Elasticsearch(google.protobuf.message.Message):
 
 global___Elasticsearch = Elasticsearch
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     """Computational resources."""
 
@@ -360,6 +368,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     """Cluster host metadata."""
 
@@ -458,6 +467,7 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class Service(google.protobuf.message.Message):
     """Cluster service metadata."""
 

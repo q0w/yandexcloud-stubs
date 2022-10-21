@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class TargetGroup(google.protobuf.message.Message):
     """A target group resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
@@ -24,6 +25,7 @@ class TargetGroup(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class TargetGroup(google.protobuf.message.Message):
 
 global___TargetGroup = TargetGroup
 
+@typing_extensions.final
 class Target(google.protobuf.message.Message):
     """A target resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).

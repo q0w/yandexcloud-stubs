@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Address(google.protobuf.message.Message):
     """An Address resource. For more information, see [Address](/docs/vpc/concepts/address)."""
 
@@ -62,6 +63,7 @@ class Address(google.protobuf.message.Message):
     IPV6: Address.IpVersion.ValueType  # 2
     """IPv6 address."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -135,6 +137,7 @@ class Address(google.protobuf.message.Message):
 
 global___Address = Address
 
+@typing_extensions.final
 class ExternalIpv4Address(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,6 +163,7 @@ class ExternalIpv4Address(google.protobuf.message.Message):
 
 global___ExternalIpv4Address = ExternalIpv4Address
 
+@typing_extensions.final
 class AddressRequirements(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

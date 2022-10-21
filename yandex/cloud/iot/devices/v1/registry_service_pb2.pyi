@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetRegistryRequest(google.protobuf.message.Message):
 
 global___GetRegistryRequest = GetRegistryRequest
 
+@typing_extensions.final
 class GetByNameRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -62,6 +64,7 @@ class GetByNameRegistryRequest(google.protobuf.message.Message):
 
 global___GetByNameRegistryRequest = GetByNameRegistryRequest
 
+@typing_extensions.final
 class ListRegistriesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -94,6 +97,7 @@ class ListRegistriesRequest(google.protobuf.message.Message):
 
 global___ListRegistriesRequest = ListRegistriesRequest
 
+@typing_extensions.final
 class ListRegistriesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -119,9 +123,11 @@ class ListRegistriesResponse(google.protobuf.message.Message):
 
 global___ListRegistriesResponse = ListRegistriesResponse
 
+@typing_extensions.final
 class CreateRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -137,6 +143,7 @@ class CreateRegistryRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class Certificate(google.protobuf.message.Message):
         """Specification of a registry certificate."""
 
@@ -192,6 +199,7 @@ class CreateRegistryRequest(google.protobuf.message.Message):
 
 global___CreateRegistryRequest = CreateRegistryRequest
 
+@typing_extensions.final
 class CreateRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -207,9 +215,11 @@ class CreateRegistryMetadata(google.protobuf.message.Message):
 
 global___CreateRegistryMetadata = CreateRegistryMetadata
 
+@typing_extensions.final
 class UpdateRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -262,6 +272,7 @@ class UpdateRegistryRequest(google.protobuf.message.Message):
 
 global___UpdateRegistryRequest = UpdateRegistryRequest
 
+@typing_extensions.final
 class UpdateRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -277,6 +288,7 @@ class UpdateRegistryMetadata(google.protobuf.message.Message):
 
 global___UpdateRegistryMetadata = UpdateRegistryMetadata
 
+@typing_extensions.final
 class DeleteRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -295,6 +307,7 @@ class DeleteRegistryRequest(google.protobuf.message.Message):
 
 global___DeleteRegistryRequest = DeleteRegistryRequest
 
+@typing_extensions.final
 class DeleteRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -310,6 +323,7 @@ class DeleteRegistryMetadata(google.protobuf.message.Message):
 
 global___DeleteRegistryMetadata = DeleteRegistryMetadata
 
+@typing_extensions.final
 class ListRegistryCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -325,6 +339,7 @@ class ListRegistryCertificatesRequest(google.protobuf.message.Message):
 
 global___ListRegistryCertificatesRequest = ListRegistryCertificatesRequest
 
+@typing_extensions.final
 class ListRegistryCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -341,6 +356,7 @@ class ListRegistryCertificatesResponse(google.protobuf.message.Message):
 
 global___ListRegistryCertificatesResponse = ListRegistryCertificatesResponse
 
+@typing_extensions.final
 class AddRegistryCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -363,6 +379,7 @@ class AddRegistryCertificateRequest(google.protobuf.message.Message):
 
 global___AddRegistryCertificateRequest = AddRegistryCertificateRequest
 
+@typing_extensions.final
 class AddRegistryCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -382,6 +399,7 @@ class AddRegistryCertificateMetadata(google.protobuf.message.Message):
 
 global___AddRegistryCertificateMetadata = AddRegistryCertificateMetadata
 
+@typing_extensions.final
 class DeleteRegistryCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -404,6 +422,7 @@ class DeleteRegistryCertificateRequest(google.protobuf.message.Message):
 
 global___DeleteRegistryCertificateRequest = DeleteRegistryCertificateRequest
 
+@typing_extensions.final
 class DeleteRegistryCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -423,6 +442,7 @@ class DeleteRegistryCertificateMetadata(google.protobuf.message.Message):
 
 global___DeleteRegistryCertificateMetadata = DeleteRegistryCertificateMetadata
 
+@typing_extensions.final
 class ListRegistryPasswordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -441,6 +461,7 @@ class ListRegistryPasswordsRequest(google.protobuf.message.Message):
 
 global___ListRegistryPasswordsRequest = ListRegistryPasswordsRequest
 
+@typing_extensions.final
 class ListRegistryPasswordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -457,6 +478,7 @@ class ListRegistryPasswordsResponse(google.protobuf.message.Message):
 
 global___ListRegistryPasswordsResponse = ListRegistryPasswordsResponse
 
+@typing_extensions.final
 class AddRegistryPasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -482,6 +504,7 @@ class AddRegistryPasswordRequest(google.protobuf.message.Message):
 
 global___AddRegistryPasswordRequest = AddRegistryPasswordRequest
 
+@typing_extensions.final
 class AddRegistryPasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -501,6 +524,7 @@ class AddRegistryPasswordMetadata(google.protobuf.message.Message):
 
 global___AddRegistryPasswordMetadata = AddRegistryPasswordMetadata
 
+@typing_extensions.final
 class DeleteRegistryPasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -526,6 +550,7 @@ class DeleteRegistryPasswordRequest(google.protobuf.message.Message):
 
 global___DeleteRegistryPasswordRequest = DeleteRegistryPasswordRequest
 
+@typing_extensions.final
 class DeleteRegistryPasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -548,6 +573,7 @@ class DeleteRegistryPasswordMetadata(google.protobuf.message.Message):
 
 global___DeleteRegistryPasswordMetadata = DeleteRegistryPasswordMetadata
 
+@typing_extensions.final
 class ListDeviceTopicAliasesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -580,6 +606,7 @@ class ListDeviceTopicAliasesRequest(google.protobuf.message.Message):
 
 global___ListDeviceTopicAliasesRequest = ListDeviceTopicAliasesRequest
 
+@typing_extensions.final
 class ListDeviceTopicAliasesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -605,6 +632,7 @@ class ListDeviceTopicAliasesResponse(google.protobuf.message.Message):
 
 global___ListDeviceTopicAliasesResponse = ListDeviceTopicAliasesResponse
 
+@typing_extensions.final
 class ListRegistryOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -640,6 +668,7 @@ class ListRegistryOperationsRequest(google.protobuf.message.Message):
 
 global___ListRegistryOperationsRequest = ListRegistryOperationsRequest
 
+@typing_extensions.final
 class ListRegistryOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

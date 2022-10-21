@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetRepositoryRequest(google.protobuf.message.Message):
 
 global___GetRepositoryRequest = GetRepositoryRequest
 
+@typing_extensions.final
 class GetRepositoryByNameRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -53,6 +55,7 @@ class GetRepositoryByNameRequest(google.protobuf.message.Message):
 
 global___GetRepositoryByNameRequest = GetRepositoryByNameRequest
 
+@typing_extensions.final
 class ListRepositoriesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +110,7 @@ class ListRepositoriesRequest(google.protobuf.message.Message):
 
 global___ListRepositoriesRequest = ListRepositoriesRequest
 
+@typing_extensions.final
 class ListRepositoriesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -133,6 +137,7 @@ class ListRepositoriesResponse(google.protobuf.message.Message):
 
 global___ListRepositoriesResponse = ListRepositoriesResponse
 
+@typing_extensions.final
 class UpsertRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -151,6 +156,7 @@ class UpsertRepositoryRequest(google.protobuf.message.Message):
 
 global___UpsertRepositoryRequest = UpsertRepositoryRequest
 
+@typing_extensions.final
 class UpsertRepositoryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -166,6 +172,7 @@ class UpsertRepositoryMetadata(google.protobuf.message.Message):
 
 global___UpsertRepositoryMetadata = UpsertRepositoryMetadata
 
+@typing_extensions.final
 class DeleteRepositoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -181,6 +188,7 @@ class DeleteRepositoryRequest(google.protobuf.message.Message):
 
 global___DeleteRepositoryRequest = DeleteRepositoryRequest
 
+@typing_extensions.final
 class DeleteRepositoryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

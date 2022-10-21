@@ -17,9 +17,11 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PlacementGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class PlacementGroup(google.protobuf.message.Message):
 
 global___PlacementGroup = PlacementGroup
 
+@typing_extensions.final
 class SpreadPlacementStrategy(google.protobuf.message.Message):
     """This is an empty structure that must be passed to explicitly
     specify the required placement strategy.

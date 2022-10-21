@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetLogGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class GetLogGroupRequest(google.protobuf.message.Message):
 
 global___GetLogGroupRequest = GetLogGroupRequest
 
+@typing_extensions.final
 class GetLogGroupStatsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class GetLogGroupStatsRequest(google.protobuf.message.Message):
 
 global___GetLogGroupStatsRequest = GetLogGroupStatsRequest
 
+@typing_extensions.final
 class ListLogGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,6 +104,7 @@ class ListLogGroupsRequest(google.protobuf.message.Message):
 
 global___ListLogGroupsRequest = ListLogGroupsRequest
 
+@typing_extensions.final
 class ListLogGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -126,9 +130,11 @@ class ListLogGroupsResponse(google.protobuf.message.Message):
 
 global___ListLogGroupsResponse = ListLogGroupsResponse
 
+@typing_extensions.final
 class CreateLogGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -190,6 +196,7 @@ class CreateLogGroupRequest(google.protobuf.message.Message):
 
 global___CreateLogGroupRequest = CreateLogGroupRequest
 
+@typing_extensions.final
 class CreateLogGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -205,9 +212,11 @@ class CreateLogGroupMetadata(google.protobuf.message.Message):
 
 global___CreateLogGroupMetadata = CreateLogGroupMetadata
 
+@typing_extensions.final
 class UpdateLogGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -276,6 +285,7 @@ class UpdateLogGroupRequest(google.protobuf.message.Message):
 
 global___UpdateLogGroupRequest = UpdateLogGroupRequest
 
+@typing_extensions.final
 class UpdateLogGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -291,6 +301,7 @@ class UpdateLogGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateLogGroupMetadata = UpdateLogGroupMetadata
 
+@typing_extensions.final
 class DeleteLogGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -309,6 +320,7 @@ class DeleteLogGroupRequest(google.protobuf.message.Message):
 
 global___DeleteLogGroupRequest = DeleteLogGroupRequest
 
+@typing_extensions.final
 class DeleteLogGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -324,6 +336,7 @@ class DeleteLogGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteLogGroupMetadata = DeleteLogGroupMetadata
 
+@typing_extensions.final
 class ListResourcesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -349,6 +362,7 @@ class ListResourcesRequest(google.protobuf.message.Message):
 
 global___ListResourcesRequest = ListResourcesRequest
 
+@typing_extensions.final
 class ListResourcesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -365,6 +379,7 @@ class ListResourcesResponse(google.protobuf.message.Message):
 
 global___ListResourcesResponse = ListResourcesResponse
 
+@typing_extensions.final
 class ListOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -409,6 +424,7 @@ class ListOperationsRequest(google.protobuf.message.Message):
 
 global___ListOperationsRequest = ListOperationsRequest
 
+@typing_extensions.final
 class ListOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -434,6 +450,7 @@ class ListOperationsResponse(google.protobuf.message.Message):
 
 global___ListOperationsResponse = ListOperationsResponse
 
+@typing_extensions.final
 class GetLogGroupStatsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class TranslateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,6 +96,7 @@ class TranslateRequest(google.protobuf.message.Message):
 
 global___TranslateRequest = TranslateRequest
 
+@typing_extensions.final
 class TranslateGlossaryConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -113,6 +115,7 @@ class TranslateGlossaryConfig(google.protobuf.message.Message):
 
 global___TranslateGlossaryConfig = TranslateGlossaryConfig
 
+@typing_extensions.final
 class GlossaryData(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -133,6 +136,7 @@ class GlossaryData(google.protobuf.message.Message):
 
 global___GlossaryData = GlossaryData
 
+@typing_extensions.final
 class GlossaryPair(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -155,6 +159,7 @@ class GlossaryPair(google.protobuf.message.Message):
 
 global___GlossaryPair = GlossaryPair
 
+@typing_extensions.final
 class TranslateResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -171,6 +176,7 @@ class TranslateResponse(google.protobuf.message.Message):
 
 global___TranslateResponse = TranslateResponse
 
+@typing_extensions.final
 class DetectLanguageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -202,6 +208,7 @@ class DetectLanguageRequest(google.protobuf.message.Message):
 
 global___DetectLanguageRequest = DetectLanguageRequest
 
+@typing_extensions.final
 class DetectLanguageResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +227,7 @@ class DetectLanguageResponse(google.protobuf.message.Message):
 
 global___DetectLanguageResponse = DetectLanguageResponse
 
+@typing_extensions.final
 class ListLanguagesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -238,6 +246,7 @@ class ListLanguagesRequest(google.protobuf.message.Message):
 
 global___ListLanguagesRequest = ListLanguagesRequest
 
+@typing_extensions.final
 class ListLanguagesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

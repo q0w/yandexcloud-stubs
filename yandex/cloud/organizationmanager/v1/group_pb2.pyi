@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Group(google.protobuf.message.Message):
     """A Group resource.
     For more information, see [Groups](/docs/organization/groups).

@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class VirtualHost(google.protobuf.message.Message):
     """A virtual host resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
@@ -84,6 +85,7 @@ class VirtualHost(google.protobuf.message.Message):
 
 global___VirtualHost = VirtualHost
 
+@typing_extensions.final
 class RouteOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -110,6 +112,7 @@ class RouteOptions(google.protobuf.message.Message):
 
 global___RouteOptions = RouteOptions
 
+@typing_extensions.final
 class RBAC(google.protobuf.message.Message):
     """Role Based Access Control (RBAC) provides router, virtual host, and route access control for the ALB
     service. Requests are allowed or denied based on the `action` and whether a matching principal is
@@ -155,6 +158,7 @@ class RBAC(google.protobuf.message.Message):
 
 global___RBAC = RBAC
 
+@typing_extensions.final
 class Principals(google.protobuf.message.Message):
     """Principals define a group of identities for a request."""
 
@@ -173,11 +177,13 @@ class Principals(google.protobuf.message.Message):
 
 global___Principals = Principals
 
+@typing_extensions.final
 class Principal(google.protobuf.message.Message):
     """Principal defines an identity for a request."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class HeaderMatcher(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -223,6 +229,7 @@ class Principal(google.protobuf.message.Message):
 
 global___Principal = Principal
 
+@typing_extensions.final
 class HeaderModification(google.protobuf.message.Message):
     """A header modification resource."""
 
@@ -268,6 +275,7 @@ class HeaderModification(google.protobuf.message.Message):
 
 global___HeaderModification = HeaderModification
 
+@typing_extensions.final
 class Route(google.protobuf.message.Message):
     """A route resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
@@ -303,6 +311,7 @@ class Route(google.protobuf.message.Message):
 
 global___Route = Route
 
+@typing_extensions.final
 class HttpRoute(google.protobuf.message.Message):
     """An HTTP route configuration resource."""
 
@@ -338,6 +347,7 @@ class HttpRoute(google.protobuf.message.Message):
 
 global___HttpRoute = HttpRoute
 
+@typing_extensions.final
 class GrpcRoute(google.protobuf.message.Message):
     """A gRPC route configuration resource."""
 
@@ -368,6 +378,7 @@ class GrpcRoute(google.protobuf.message.Message):
 
 global___GrpcRoute = GrpcRoute
 
+@typing_extensions.final
 class HttpRouteMatch(google.protobuf.message.Message):
     """An HTTP route condition (predicate) resource."""
 
@@ -395,6 +406,7 @@ class HttpRouteMatch(google.protobuf.message.Message):
 
 global___HttpRouteMatch = HttpRouteMatch
 
+@typing_extensions.final
 class GrpcRouteMatch(google.protobuf.message.Message):
     """A gRPC route condition (predicate) resource."""
 
@@ -419,6 +431,7 @@ class GrpcRouteMatch(google.protobuf.message.Message):
 
 global___GrpcRouteMatch = GrpcRouteMatch
 
+@typing_extensions.final
 class StringMatch(google.protobuf.message.Message):
     """A string matcher resource."""
 
@@ -446,6 +459,7 @@ class StringMatch(google.protobuf.message.Message):
 
 global___StringMatch = StringMatch
 
+@typing_extensions.final
 class RedirectAction(google.protobuf.message.Message):
     """A redirect action resource."""
 
@@ -537,6 +551,7 @@ class RedirectAction(google.protobuf.message.Message):
 
 global___RedirectAction = RedirectAction
 
+@typing_extensions.final
 class DirectResponseAction(google.protobuf.message.Message):
     """A direct response action resource."""
 
@@ -560,6 +575,7 @@ class DirectResponseAction(google.protobuf.message.Message):
 
 global___DirectResponseAction = DirectResponseAction
 
+@typing_extensions.final
 class GrpcStatusResponseAction(google.protobuf.message.Message):
     """A gRPC status response action resource."""
 
@@ -620,6 +636,7 @@ class GrpcStatusResponseAction(google.protobuf.message.Message):
 
 global___GrpcStatusResponseAction = GrpcStatusResponseAction
 
+@typing_extensions.final
 class HttpRouteAction(google.protobuf.message.Message):
     """An HTTP route action resource."""
 
@@ -691,6 +708,7 @@ class HttpRouteAction(google.protobuf.message.Message):
 
 global___HttpRouteAction = HttpRouteAction
 
+@typing_extensions.final
 class GrpcRouteAction(google.protobuf.message.Message):
     """A gRPC route action resource."""
 

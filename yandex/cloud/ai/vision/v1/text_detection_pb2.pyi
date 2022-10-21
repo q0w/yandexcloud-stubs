@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class TextAnnotation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class TextAnnotation(google.protobuf.message.Message):
 
 global___TextAnnotation = TextAnnotation
 
+@typing_extensions.final
 class Page(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -65,6 +67,7 @@ class Page(google.protobuf.message.Message):
 
 global___Page = Page
 
+@typing_extensions.final
 class Entity(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -84,6 +87,7 @@ class Entity(google.protobuf.message.Message):
 
 global___Entity = Entity
 
+@typing_extensions.final
 class Block(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +110,7 @@ class Block(google.protobuf.message.Message):
 
 global___Block = Block
 
+@typing_extensions.final
 class Line(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -132,9 +137,11 @@ class Line(google.protobuf.message.Message):
 
 global___Line = Line
 
+@typing_extensions.final
 class Word(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class DetectedLanguage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

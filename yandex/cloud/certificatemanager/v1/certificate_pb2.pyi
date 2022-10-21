@@ -23,7 +23,7 @@ class _CertificateType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateType.ValueType], builtins.type):  # noqa: F821
+class _CertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CertificateType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CERTIFICATE_TYPE_UNSPECIFIED: _CertificateType.ValueType  # 0
     IMPORTED: _CertificateType.ValueType  # 1
@@ -45,7 +45,7 @@ class _ChallengeType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ChallengeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChallengeType.ValueType], builtins.type):  # noqa: F821
+class _ChallengeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ChallengeType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CHALLENGE_TYPE_UNSPECIFIED: _ChallengeType.ValueType  # 0
     DNS: _ChallengeType.ValueType  # 1
@@ -63,6 +63,7 @@ HTTP: ChallengeType.ValueType  # 2
 """Domain validation type that using HTTP-files."""
 global___ChallengeType = ChallengeType
 
+@typing_extensions.final
 class Certificate(google.protobuf.message.Message):
     """A certificate. For details about the concept, see [documentation](docs/certificate-manager/concepts/)."""
 
@@ -103,6 +104,7 @@ class Certificate(google.protobuf.message.Message):
     RENEWAL_FAILED: Certificate.Status.ValueType  # 6
     """The certificate renewal is failed. Used only for managed certificates."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -209,6 +211,7 @@ class Certificate(google.protobuf.message.Message):
 
 global___Certificate = Certificate
 
+@typing_extensions.final
 class Challenge(google.protobuf.message.Message):
     """Domain validation challenge."""
 
@@ -241,6 +244,7 @@ class Challenge(google.protobuf.message.Message):
     INVALID: Challenge.Status.ValueType  # 4
     """The rights check for a specific domain failed or the one-week period allocated for the check expired."""
 
+    @typing_extensions.final
     class DnsRecord(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -262,6 +266,7 @@ class Challenge(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "type", b"type", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class HttpFile(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -329,6 +334,7 @@ class Challenge(google.protobuf.message.Message):
 
 global___Challenge = Challenge
 
+@typing_extensions.final
 class Version(google.protobuf.message.Message):
     """A certificate version"""
 

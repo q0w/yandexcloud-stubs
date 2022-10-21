@@ -20,7 +20,7 @@ class _FormatSchemaType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _FormatSchemaTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FormatSchemaType.ValueType], builtins.type):  # noqa: F821
+class _FormatSchemaTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_FormatSchemaType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     FORMAT_SCHEMA_TYPE_UNSPECIFIED: _FormatSchemaType.ValueType  # 0
     FORMAT_SCHEMA_TYPE_PROTOBUF: _FormatSchemaType.ValueType  # 1
@@ -33,6 +33,7 @@ FORMAT_SCHEMA_TYPE_PROTOBUF: FormatSchemaType.ValueType  # 1
 FORMAT_SCHEMA_TYPE_CAPNPROTO: FormatSchemaType.ValueType  # 2
 global___FormatSchemaType = FormatSchemaType
 
+@typing_extensions.final
 class FormatSchema(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

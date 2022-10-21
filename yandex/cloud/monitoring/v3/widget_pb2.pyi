@@ -17,11 +17,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Widget(google.protobuf.message.Message):
     """Widget."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LayoutPosition(google.protobuf.message.Message):
         """Layout item for widget item positioning."""
 

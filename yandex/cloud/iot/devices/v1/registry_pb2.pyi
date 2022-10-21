@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Registry(google.protobuf.message.Message):
     """A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry)."""
 
@@ -47,6 +48,7 @@ class Registry(google.protobuf.message.Message):
     DELETING: Registry.Status.ValueType  # 3
     """Registry is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +107,7 @@ class Registry(google.protobuf.message.Message):
 
 global___Registry = Registry
 
+@typing_extensions.final
 class RegistryCertificate(google.protobuf.message.Message):
     """A registry certificate. For more information, see [Managing registry certificates](/docs/iot-core/operations/certificates/registry-certificates)."""
 
@@ -136,6 +139,7 @@ class RegistryCertificate(google.protobuf.message.Message):
 
 global___RegistryCertificate = RegistryCertificate
 
+@typing_extensions.final
 class DeviceAlias(google.protobuf.message.Message):
     """A device topic alias.
 
@@ -164,6 +168,7 @@ class DeviceAlias(google.protobuf.message.Message):
 
 global___DeviceAlias = DeviceAlias
 
+@typing_extensions.final
 class RegistryPassword(google.protobuf.message.Message):
     """A registry password."""
 

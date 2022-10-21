@@ -22,7 +22,7 @@ class _ServerRole:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ServerRoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ServerRole.ValueType], builtins.type):  # noqa: F821
+class _ServerRoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ServerRole.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SERVER_ROLE_UNSPECIFIED: _ServerRole.ValueType  # 0
     MDB_MONITOR: _ServerRole.ValueType  # 1
@@ -46,6 +46,7 @@ No intrusive actions are allowed, so this is pretty safe to grant.
 """
 global___ServerRole = ServerRole
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """An SQL Server user."""
 
@@ -77,6 +78,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -146,6 +148,7 @@ class Permission(google.protobuf.message.Message):
 
 global___Permission = Permission
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

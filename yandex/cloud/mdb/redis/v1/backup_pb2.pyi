@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """Description of a Redis backup. For more information, see
     the Managed Service for Redis [documentation](/docs/managed-redis/concepts/backup).

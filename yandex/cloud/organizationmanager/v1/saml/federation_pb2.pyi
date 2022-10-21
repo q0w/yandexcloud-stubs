@@ -24,7 +24,7 @@ class _BindingType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _BindingTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BindingType.ValueType], builtins.type):  # noqa: F821
+class _BindingTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BindingType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BINDING_TYPE_UNSPECIFIED: _BindingType.ValueType  # 0
     POST: _BindingType.ValueType  # 1
@@ -45,6 +45,7 @@ ARTIFACT: BindingType.ValueType  # 3
 """HTTP artifact binding."""
 global___BindingType = BindingType
 
+@typing_extensions.final
 class Federation(google.protobuf.message.Message):
     """A federation.
     For more information, see [SAML-compatible identity federations](/docs/iam/concepts/users/identity-federations).
@@ -52,6 +53,7 @@ class Federation(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -149,6 +151,7 @@ class Federation(google.protobuf.message.Message):
 
 global___Federation = Federation
 
+@typing_extensions.final
 class FederationSecuritySettings(google.protobuf.message.Message):
     """Federation security settings."""
 

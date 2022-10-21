@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Folder(google.protobuf.message.Message):
     """A Folder resource. For more information, see [Folder](/docs/resource-manager/concepts/resources-hierarchy#folder)."""
 
@@ -47,6 +48,7 @@ class Folder(google.protobuf.message.Message):
     PENDING_DELETION: Folder.Status.ValueType  # 3
     """Stopping folder resources and waiting for the deletion start timestamp."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

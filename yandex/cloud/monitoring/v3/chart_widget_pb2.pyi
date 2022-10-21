@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ChartWidget(google.protobuf.message.Message):
     """Chart widget."""
 
@@ -53,11 +54,13 @@ class ChartWidget(google.protobuf.message.Message):
     FREEZE_DURATION_MONTH: ChartWidget.FreezeDuration.ValueType  # 4
     """Last 31 days."""
 
+    @typing_extensions.final
     class Queries(google.protobuf.message.Message):
         """Query settings."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class Target(google.protobuf.message.Message):
             """Query target."""
 
@@ -98,6 +101,7 @@ class ChartWidget(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["downsampling", b"downsampling"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["downsampling", b"downsampling", "targets", b"targets"]) -> None: ...
 
+    @typing_extensions.final
     class VisualizationSettings(google.protobuf.message.Message):
         """Visualization settings."""
 
@@ -233,9 +237,11 @@ class ChartWidget(google.protobuf.message.Message):
         SERIES_AGGREGATION_SUM: ChartWidget.VisualizationSettings.SeriesAggregation.ValueType  # 5
         """Sum."""
 
+        @typing_extensions.final
         class ColorSchemeSettings(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class AutomaticColorScheme(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -243,6 +249,7 @@ class ChartWidget(google.protobuf.message.Message):
                     self,
                 ) -> None: ...
 
+            @typing_extensions.final
             class StandardColorScheme(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -250,6 +257,7 @@ class ChartWidget(google.protobuf.message.Message):
                     self,
                 ) -> None: ...
 
+            @typing_extensions.final
             class GradientColorScheme(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +306,7 @@ class ChartWidget(google.protobuf.message.Message):
             def ClearField(self, field_name: typing_extensions.Literal["automatic", b"automatic", "gradient", b"gradient", "scheme", b"scheme", "standard", b"standard"]) -> None: ...
             def WhichOneof(self, oneof_group: typing_extensions.Literal["scheme", b"scheme"]) -> typing_extensions.Literal["automatic", "standard", "gradient"] | None: ...
 
+        @typing_extensions.final
         class HeatmapSettings(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -323,6 +332,7 @@ class ChartWidget(google.protobuf.message.Message):
             ) -> None: ...
             def ClearField(self, field_name: typing_extensions.Literal["green_value", b"green_value", "red_value", b"red_value", "violet_value", b"violet_value", "yellow_value", b"yellow_value"]) -> None: ...
 
+        @typing_extensions.final
         class Yaxis(google.protobuf.message.Message):
             """Y axis settings."""
 
@@ -360,6 +370,7 @@ class ChartWidget(google.protobuf.message.Message):
             def HasField(self, field_name: typing_extensions.Literal["precision", b"precision"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["max", b"max", "min", b"min", "precision", b"precision", "title", b"title", "type", b"type", "unit_format", b"unit_format"]) -> None: ...
 
+        @typing_extensions.final
         class YaxisSettings(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -426,6 +437,7 @@ class ChartWidget(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["color_scheme_settings", b"color_scheme_settings", "heatmap_settings", b"heatmap_settings", "yaxis_settings", b"yaxis_settings"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["aggregation", b"aggregation", "color_scheme_settings", b"color_scheme_settings", "heatmap_settings", b"heatmap_settings", "interpolate", b"interpolate", "normalize", b"normalize", "show_labels", b"show_labels", "title", b"title", "type", b"type", "yaxis_settings", b"yaxis_settings"]) -> None: ...
 
+    @typing_extensions.final
     class SeriesOverrides(google.protobuf.message.Message):
         """Series override settings."""
 
@@ -481,6 +493,7 @@ class ChartWidget(google.protobuf.message.Message):
         SERIES_VISUALIZATION_TYPE_POINTS: ChartWidget.SeriesOverrides.SeriesVisualizationType.ValueType  # 4
         """Points."""
 
+        @typing_extensions.final
         class SeriesOverrideSettings(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -535,6 +548,7 @@ class ChartWidget(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "settings", b"settings", "target_index", b"target_index", "type", b"type"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["type", b"type"]) -> typing_extensions.Literal["name", "target_index"] | None: ...
 
+    @typing_extensions.final
     class NameHidingSettings(google.protobuf.message.Message):
         """Name hiding settings."""
 

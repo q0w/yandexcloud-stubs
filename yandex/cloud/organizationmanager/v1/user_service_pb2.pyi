@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListMembersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,9 +48,11 @@ class ListMembersRequest(google.protobuf.message.Message):
 
 global___ListMembersRequest = ListMembersRequest
 
+@typing_extensions.final
 class ListMembersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class OrganizationUser(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -86,6 +89,7 @@ class ListMembersResponse(google.protobuf.message.Message):
 
 global___ListMembersResponse = ListMembersResponse
 
+@typing_extensions.final
 class DeleteMembershipRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +111,7 @@ class DeleteMembershipRequest(google.protobuf.message.Message):
 
 global___DeleteMembershipRequest = DeleteMembershipRequest
 
+@typing_extensions.final
 class DeleteMembershipMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -126,6 +131,7 @@ class DeleteMembershipMetadata(google.protobuf.message.Message):
 
 global___DeleteMembershipMetadata = DeleteMembershipMetadata
 
+@typing_extensions.final
 class DeleteMembershipResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,11 +17,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Gateway(google.protobuf.message.Message):
     """A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gateway)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class Gateway(google.protobuf.message.Message):
 
 global___Gateway = Gateway
 
+@typing_extensions.final
 class SharedEgressGateway(google.protobuf.message.Message):
     """Shared Egress Gateway configuration"""
 

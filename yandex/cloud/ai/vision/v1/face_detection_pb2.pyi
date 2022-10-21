@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class FaceAnnotation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -33,6 +34,7 @@ class FaceAnnotation(google.protobuf.message.Message):
 
 global___FaceAnnotation = FaceAnnotation
 
+@typing_extensions.final
 class Face(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

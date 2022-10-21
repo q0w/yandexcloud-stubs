@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetHttpRouterRequest(google.protobuf.message.Message):
 
 global___GetHttpRouterRequest = GetHttpRouterRequest
 
+@typing_extensions.final
 class ListHttpRoutersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class ListHttpRoutersRequest(google.protobuf.message.Message):
 
 global___ListHttpRoutersRequest = ListHttpRoutersRequest
 
+@typing_extensions.final
 class ListHttpRoutersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +109,7 @@ class ListHttpRoutersResponse(google.protobuf.message.Message):
 
 global___ListHttpRoutersResponse = ListHttpRoutersResponse
 
+@typing_extensions.final
 class DeleteHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -124,6 +128,7 @@ class DeleteHttpRouterRequest(google.protobuf.message.Message):
 
 global___DeleteHttpRouterRequest = DeleteHttpRouterRequest
 
+@typing_extensions.final
 class DeleteHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -139,9 +144,11 @@ class DeleteHttpRouterMetadata(google.protobuf.message.Message):
 
 global___DeleteHttpRouterMetadata = DeleteHttpRouterMetadata
 
+@typing_extensions.final
 class UpdateHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -218,6 +225,7 @@ class UpdateHttpRouterRequest(google.protobuf.message.Message):
 
 global___UpdateHttpRouterRequest = UpdateHttpRouterRequest
 
+@typing_extensions.final
 class UpdateHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -233,9 +241,11 @@ class UpdateHttpRouterMetadata(google.protobuf.message.Message):
 
 global___UpdateHttpRouterMetadata = UpdateHttpRouterMetadata
 
+@typing_extensions.final
 class CreateHttpRouterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +308,7 @@ class CreateHttpRouterRequest(google.protobuf.message.Message):
 
 global___CreateHttpRouterRequest = CreateHttpRouterRequest
 
+@typing_extensions.final
 class CreateHttpRouterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -313,6 +324,7 @@ class CreateHttpRouterMetadata(google.protobuf.message.Message):
 
 global___CreateHttpRouterMetadata = CreateHttpRouterMetadata
 
+@typing_extensions.final
 class ListHttpRouterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -345,6 +357,7 @@ class ListHttpRouterOperationsRequest(google.protobuf.message.Message):
 
 global___ListHttpRouterOperationsRequest = ListHttpRouterOperationsRequest
 
+@typing_extensions.final
 class ListHttpRouterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

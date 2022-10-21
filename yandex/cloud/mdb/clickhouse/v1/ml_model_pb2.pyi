@@ -20,7 +20,7 @@ class _MlModelType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _MlModelTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MlModelType.ValueType], builtins.type):  # noqa: F821
+class _MlModelTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MlModelType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ML_MODEL_TYPE_UNSPECIFIED: _MlModelType.ValueType  # 0
     ML_MODEL_TYPE_CATBOOST: _MlModelType.ValueType  # 1
@@ -33,6 +33,7 @@ ML_MODEL_TYPE_CATBOOST: MlModelType.ValueType  # 1
 """CatBoost model."""
 global___MlModelType = MlModelType
 
+@typing_extensions.final
 class MlModel(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

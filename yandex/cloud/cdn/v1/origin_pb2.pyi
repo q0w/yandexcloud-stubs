@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Origin(google.protobuf.message.Message):
     """An origin. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
 
@@ -64,6 +65,7 @@ class Origin(google.protobuf.message.Message):
 
 global___Origin = Origin
 
+@typing_extensions.final
 class OriginParams(google.protobuf.message.Message):
     """Origin parameters. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
 
@@ -107,6 +109,7 @@ class OriginParams(google.protobuf.message.Message):
 
 global___OriginParams = OriginParams
 
+@typing_extensions.final
 class OriginMeta(google.protobuf.message.Message):
     """Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
 
@@ -144,6 +147,7 @@ class OriginMeta(google.protobuf.message.Message):
 
 global___OriginMeta = OriginMeta
 
+@typing_extensions.final
 class OriginNamedMeta(google.protobuf.message.Message):
     """Origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
 
@@ -161,6 +165,7 @@ class OriginNamedMeta(google.protobuf.message.Message):
 
 global___OriginNamedMeta = OriginNamedMeta
 
+@typing_extensions.final
 class OriginBalancerMeta(google.protobuf.message.Message):
     """Application Load Balancer origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins)."""
 

@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SymmetricEncryptRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -49,6 +50,7 @@ class SymmetricEncryptRequest(google.protobuf.message.Message):
 
 global___SymmetricEncryptRequest = SymmetricEncryptRequest
 
+@typing_extensions.final
 class SymmetricEncryptResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +74,7 @@ class SymmetricEncryptResponse(google.protobuf.message.Message):
 
 global___SymmetricEncryptResponse = SymmetricEncryptResponse
 
+@typing_extensions.final
 class SymmetricDecryptRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -100,6 +103,7 @@ class SymmetricDecryptRequest(google.protobuf.message.Message):
 
 global___SymmetricDecryptRequest = SymmetricDecryptRequest
 
+@typing_extensions.final
 class SymmetricDecryptResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -123,6 +127,7 @@ class SymmetricDecryptResponse(google.protobuf.message.Message):
 
 global___SymmetricDecryptResponse = SymmetricDecryptResponse
 
+@typing_extensions.final
 class GenerateDataKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -161,6 +166,7 @@ class GenerateDataKeyRequest(google.protobuf.message.Message):
 
 global___GenerateDataKeyRequest = GenerateDataKeyRequest
 
+@typing_extensions.final
 class GenerateDataKeyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -191,6 +197,7 @@ class GenerateDataKeyResponse(google.protobuf.message.Message):
 
 global___GenerateDataKeyResponse = GenerateDataKeyResponse
 
+@typing_extensions.final
 class SymmetricReEncryptRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +241,7 @@ class SymmetricReEncryptRequest(google.protobuf.message.Message):
 
 global___SymmetricReEncryptRequest = SymmetricReEncryptRequest
 
+@typing_extensions.final
 class SymmetricReEncryptResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

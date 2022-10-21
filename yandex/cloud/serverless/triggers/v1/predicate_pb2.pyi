@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Predicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class Predicate(google.protobuf.message.Message):
 
 global___Predicate = Predicate
 
+@typing_extensions.final
 class AndPredicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -52,6 +54,7 @@ class AndPredicate(google.protobuf.message.Message):
 
 global___AndPredicate = AndPredicate
 
+@typing_extensions.final
 class FieldValuePredicate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

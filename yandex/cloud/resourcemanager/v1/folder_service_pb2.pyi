@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFolderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetFolderRequest(google.protobuf.message.Message):
 
 global___GetFolderRequest = GetFolderRequest
 
+@typing_extensions.final
 class ListFoldersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListFoldersRequest(google.protobuf.message.Message):
 
 global___ListFoldersRequest = ListFoldersRequest
 
+@typing_extensions.final
 class ListFoldersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,9 +108,11 @@ class ListFoldersResponse(google.protobuf.message.Message):
 
 global___ListFoldersResponse = ListFoldersResponse
 
+@typing_extensions.final
 class CreateFolderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +157,7 @@ class CreateFolderRequest(google.protobuf.message.Message):
 
 global___CreateFolderRequest = CreateFolderRequest
 
+@typing_extensions.final
 class CreateFolderMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -167,9 +173,11 @@ class CreateFolderMetadata(google.protobuf.message.Message):
 
 global___CreateFolderMetadata = CreateFolderMetadata
 
+@typing_extensions.final
 class UpdateFolderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +228,7 @@ class UpdateFolderRequest(google.protobuf.message.Message):
 
 global___UpdateFolderRequest = UpdateFolderRequest
 
+@typing_extensions.final
 class UpdateFolderMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -235,6 +244,7 @@ class UpdateFolderMetadata(google.protobuf.message.Message):
 
 global___UpdateFolderMetadata = UpdateFolderMetadata
 
+@typing_extensions.final
 class DeleteFolderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -264,6 +274,7 @@ class DeleteFolderRequest(google.protobuf.message.Message):
 
 global___DeleteFolderRequest = DeleteFolderRequest
 
+@typing_extensions.final
 class DeleteFolderMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -285,6 +296,7 @@ class DeleteFolderMetadata(google.protobuf.message.Message):
 
 global___DeleteFolderMetadata = DeleteFolderMetadata
 
+@typing_extensions.final
 class ListFolderOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -315,6 +327,7 @@ class ListFolderOperationsRequest(google.protobuf.message.Message):
 
 global___ListFolderOperationsRequest = ListFolderOperationsRequest
 
+@typing_extensions.final
 class ListFolderOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

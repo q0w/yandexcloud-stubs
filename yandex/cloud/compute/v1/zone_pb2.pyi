@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Zone(google.protobuf.message.Message):
     """Availability zone. For more information, see [Availability zones](/docs/overview/concepts/geo-scope)."""
 

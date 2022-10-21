@@ -23,7 +23,7 @@ class _TransferType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _TransferTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferType.ValueType], builtins.type):  # noqa: F821
+class _TransferTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRANSFER_TYPE_UNSPECIFIED: _TransferType.ValueType  # 0
     SNAPSHOT_AND_INCREMENT: _TransferType.ValueType  # 1
@@ -48,7 +48,7 @@ class _TransferStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _TransferStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferStatus.ValueType], builtins.type):  # noqa: F821
+class _TransferStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TransferStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRANSFER_STATUS_UNSPECIFIED: _TransferStatus.ValueType  # 0
     CREATING: _TransferStatus.ValueType  # 1
@@ -73,9 +73,11 @@ SNAPSHOTTING: TransferStatus.ValueType  # 7
 DONE: TransferStatus.ValueType  # 8
 global___TransferStatus = TransferStatus
 
+@typing_extensions.final
 class Transfer(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

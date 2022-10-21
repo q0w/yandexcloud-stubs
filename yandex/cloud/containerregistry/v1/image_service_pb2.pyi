@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListImagesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +81,7 @@ class ListImagesRequest(google.protobuf.message.Message):
 
 global___ListImagesRequest = ListImagesRequest
 
+@typing_extensions.final
 class ListImagesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +108,7 @@ class ListImagesResponse(google.protobuf.message.Message):
 
 global___ListImagesResponse = ListImagesResponse
 
+@typing_extensions.final
 class GetImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -124,6 +127,7 @@ class GetImageRequest(google.protobuf.message.Message):
 
 global___GetImageRequest = GetImageRequest
 
+@typing_extensions.final
 class DeleteImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -142,6 +146,7 @@ class DeleteImageRequest(google.protobuf.message.Message):
 
 global___DeleteImageRequest = DeleteImageRequest
 
+@typing_extensions.final
 class DeleteImageMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

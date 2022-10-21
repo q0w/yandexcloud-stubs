@@ -20,7 +20,7 @@ class _Health:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Health.ValueType], builtins.type):  # noqa: F821
+class _HealthEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Health.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     HEALTH_UNKNOWN: _Health.ValueType  # 0
     """Object is in unknown state (we have no data)."""
@@ -43,6 +43,7 @@ DEGRADED: Health.ValueType  # 3
 """Object is partially alive (it can perform some of its essential functions)."""
 global___Health = Health
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

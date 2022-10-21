@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Function(google.protobuf.message.Message):
     """A serverless function. For details about the concept, see [Functions](/docs/functions/concepts/function)."""
 
@@ -52,6 +53,7 @@ class Function(google.protobuf.message.Message):
     ERROR: Function.Status.ValueType  # 4
     """Function failed."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -114,6 +116,7 @@ class Function(google.protobuf.message.Message):
 
 global___Function = Function
 
+@typing_extensions.final
 class Version(google.protobuf.message.Message):
     """Version of a function. For details about the concept, see [Function versions](/docs/functions/concepts/function#version)."""
 
@@ -138,6 +141,7 @@ class Version(google.protobuf.message.Message):
     ACTIVE: Version.Status.ValueType  # 2
     """Version is ready to use."""
 
+    @typing_extensions.final
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +157,7 @@ class Version(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NamedServiceAccountsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -262,6 +267,7 @@ class Version(google.protobuf.message.Message):
 
 global___Version = Version
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     """Resources allocated to a version."""
 
@@ -279,6 +285,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class Package(google.protobuf.message.Message):
     """Version deployment package."""
 
@@ -304,6 +311,7 @@ class Package(google.protobuf.message.Message):
 
 global___Package = Package
 
+@typing_extensions.final
 class Connectivity(google.protobuf.message.Message):
     """Version connectivity specification."""
 
@@ -330,6 +338,7 @@ class Connectivity(google.protobuf.message.Message):
 
 global___Connectivity = Connectivity
 
+@typing_extensions.final
 class ScalingPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -378,6 +387,7 @@ class ScalingPolicy(google.protobuf.message.Message):
 
 global___ScalingPolicy = ScalingPolicy
 
+@typing_extensions.final
 class Secret(google.protobuf.message.Message):
     """Secret for serverless function"""
 

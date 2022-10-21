@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class BillingAccount(google.protobuf.message.Message):
     """A BillingAccount resource. For more information, see [BillingAccount](/docs/billing/concepts/billing-account)."""
 

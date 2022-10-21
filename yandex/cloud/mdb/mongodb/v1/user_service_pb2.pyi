@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetUserRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -41,6 +42,7 @@ class GetUserRequest(google.protobuf.message.Message):
 
 global___GetUserRequest = GetUserRequest
 
+@typing_extensions.final
 class ListUsersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -71,6 +73,7 @@ class ListUsersRequest(google.protobuf.message.Message):
 
 global___ListUsersRequest = ListUsersRequest
 
+@typing_extensions.final
 class ListUsersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,6 +98,7 @@ class ListUsersResponse(google.protobuf.message.Message):
 
 global___ListUsersResponse = ListUsersResponse
 
+@typing_extensions.final
 class CreateUserRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,6 +122,7 @@ class CreateUserRequest(google.protobuf.message.Message):
 
 global___CreateUserRequest = CreateUserRequest
 
+@typing_extensions.final
 class CreateUserMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -137,6 +142,7 @@ class CreateUserMetadata(google.protobuf.message.Message):
 
 global___CreateUserMetadata = CreateUserMetadata
 
+@typing_extensions.final
 class UpdateUserRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,6 +181,7 @@ class UpdateUserRequest(google.protobuf.message.Message):
 
 global___UpdateUserRequest = UpdateUserRequest
 
+@typing_extensions.final
 class UpdateUserMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -194,6 +201,7 @@ class UpdateUserMetadata(google.protobuf.message.Message):
 
 global___UpdateUserMetadata = UpdateUserMetadata
 
+@typing_extensions.final
 class DeleteUserRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,6 +225,7 @@ class DeleteUserRequest(google.protobuf.message.Message):
 
 global___DeleteUserRequest = DeleteUserRequest
 
+@typing_extensions.final
 class DeleteUserMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -236,6 +245,7 @@ class DeleteUserMetadata(google.protobuf.message.Message):
 
 global___DeleteUserMetadata = DeleteUserMetadata
 
+@typing_extensions.final
 class GrantUserPermissionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -265,6 +275,7 @@ class GrantUserPermissionRequest(google.protobuf.message.Message):
 
 global___GrantUserPermissionRequest = GrantUserPermissionRequest
 
+@typing_extensions.final
 class GrantUserPermissionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -286,6 +297,7 @@ class GrantUserPermissionMetadata(google.protobuf.message.Message):
 
 global___GrantUserPermissionMetadata = GrantUserPermissionMetadata
 
+@typing_extensions.final
 class RevokeUserPermissionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -313,6 +325,7 @@ class RevokeUserPermissionRequest(google.protobuf.message.Message):
 
 global___RevokeUserPermissionRequest = RevokeUserPermissionRequest
 
+@typing_extensions.final
 class RevokeUserPermissionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

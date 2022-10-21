@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PayloadEntryChange(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -46,6 +47,7 @@ class PayloadEntryChange(google.protobuf.message.Message):
 
 global___PayloadEntryChange = PayloadEntryChange
 
+@typing_extensions.final
 class GetSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -64,6 +66,7 @@ class GetSecretRequest(google.protobuf.message.Message):
 
 global___GetSecretRequest = GetSecretRequest
 
+@typing_extensions.final
 class ListSecretsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -93,6 +96,7 @@ class ListSecretsRequest(google.protobuf.message.Message):
 
 global___ListSecretsRequest = ListSecretsRequest
 
+@typing_extensions.final
 class ListSecretsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,9 +122,11 @@ class ListSecretsResponse(google.protobuf.message.Message):
 
 global___ListSecretsResponse = ListSecretsResponse
 
+@typing_extensions.final
 class CreateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -180,6 +186,7 @@ class CreateSecretRequest(google.protobuf.message.Message):
 
 global___CreateSecretRequest = CreateSecretRequest
 
+@typing_extensions.final
 class CreateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -199,9 +206,11 @@ class CreateSecretMetadata(google.protobuf.message.Message):
 
 global___CreateSecretMetadata = CreateSecretMetadata
 
+@typing_extensions.final
 class UpdateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -252,6 +261,7 @@ class UpdateSecretRequest(google.protobuf.message.Message):
 
 global___UpdateSecretRequest = UpdateSecretRequest
 
+@typing_extensions.final
 class UpdateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -267,6 +277,7 @@ class UpdateSecretMetadata(google.protobuf.message.Message):
 
 global___UpdateSecretMetadata = UpdateSecretMetadata
 
+@typing_extensions.final
 class DeleteSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,6 +293,7 @@ class DeleteSecretRequest(google.protobuf.message.Message):
 
 global___DeleteSecretRequest = DeleteSecretRequest
 
+@typing_extensions.final
 class DeleteSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -297,6 +309,7 @@ class DeleteSecretMetadata(google.protobuf.message.Message):
 
 global___DeleteSecretMetadata = DeleteSecretMetadata
 
+@typing_extensions.final
 class ActivateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -312,6 +325,7 @@ class ActivateSecretRequest(google.protobuf.message.Message):
 
 global___ActivateSecretRequest = ActivateSecretRequest
 
+@typing_extensions.final
 class ActivateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -327,6 +341,7 @@ class ActivateSecretMetadata(google.protobuf.message.Message):
 
 global___ActivateSecretMetadata = ActivateSecretMetadata
 
+@typing_extensions.final
 class DeactivateSecretRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -342,6 +357,7 @@ class DeactivateSecretRequest(google.protobuf.message.Message):
 
 global___DeactivateSecretRequest = DeactivateSecretRequest
 
+@typing_extensions.final
 class DeactivateSecretMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -357,6 +373,7 @@ class DeactivateSecretMetadata(google.protobuf.message.Message):
 
 global___DeactivateSecretMetadata = DeactivateSecretMetadata
 
+@typing_extensions.final
 class AddVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -385,6 +402,7 @@ class AddVersionRequest(google.protobuf.message.Message):
 
 global___AddVersionRequest = AddVersionRequest
 
+@typing_extensions.final
 class AddVersionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -404,6 +422,7 @@ class AddVersionMetadata(google.protobuf.message.Message):
 
 global___AddVersionMetadata = AddVersionMetadata
 
+@typing_extensions.final
 class ListVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -433,6 +452,7 @@ class ListVersionsRequest(google.protobuf.message.Message):
 
 global___ListVersionsRequest = ListVersionsRequest
 
+@typing_extensions.final
 class ListVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -458,6 +478,7 @@ class ListVersionsResponse(google.protobuf.message.Message):
 
 global___ListVersionsResponse = ListVersionsResponse
 
+@typing_extensions.final
 class ScheduleVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -485,6 +506,7 @@ class ScheduleVersionDestructionRequest(google.protobuf.message.Message):
 
 global___ScheduleVersionDestructionRequest = ScheduleVersionDestructionRequest
 
+@typing_extensions.final
 class ScheduleVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -510,6 +532,7 @@ class ScheduleVersionDestructionMetadata(google.protobuf.message.Message):
 
 global___ScheduleVersionDestructionMetadata = ScheduleVersionDestructionMetadata
 
+@typing_extensions.final
 class CancelVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -529,6 +552,7 @@ class CancelVersionDestructionRequest(google.protobuf.message.Message):
 
 global___CancelVersionDestructionRequest = CancelVersionDestructionRequest
 
+@typing_extensions.final
 class CancelVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -548,6 +572,7 @@ class CancelVersionDestructionMetadata(google.protobuf.message.Message):
 
 global___CancelVersionDestructionMetadata = CancelVersionDestructionMetadata
 
+@typing_extensions.final
 class ListSecretOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -577,6 +602,7 @@ class ListSecretOperationsRequest(google.protobuf.message.Message):
 
 global___ListSecretOperationsRequest = ListSecretOperationsRequest
 
+@typing_extensions.final
 class ListSecretOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

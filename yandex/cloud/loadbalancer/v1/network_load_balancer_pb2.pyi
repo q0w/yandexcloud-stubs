@@ -24,7 +24,7 @@ class _IpVersion:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):  # noqa: F821
+class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     IP_VERSION_UNSPECIFIED: _IpVersion.ValueType  # 0
     IPV4: _IpVersion.ValueType  # 1
@@ -44,6 +44,7 @@ IPV6: IpVersion.ValueType  # 2
 """IPv6"""
 global___IpVersion = IpVersion
 
+@typing_extensions.final
 class NetworkLoadBalancer(google.protobuf.message.Message):
     """A NetworkLoadBalancer resource. For more information, see [Network Load Balancer](/docs/network-load-balancer/concepts)."""
 
@@ -134,6 +135,7 @@ class NetworkLoadBalancer(google.protobuf.message.Message):
     CLIENT_IP_PORT_PROTO: NetworkLoadBalancer.SessionAffinity.ValueType  # 1
     """5-tuple affinity."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -210,6 +212,7 @@ class NetworkLoadBalancer(google.protobuf.message.Message):
 
 global___NetworkLoadBalancer = NetworkLoadBalancer
 
+@typing_extensions.final
 class AttachedTargetGroup(google.protobuf.message.Message):
     """An AttachedTargetGroup resource. For more information, see [Targets and groups](/docs/network-load-balancer/concepts/target-resources)."""
 
@@ -234,6 +237,7 @@ class AttachedTargetGroup(google.protobuf.message.Message):
 
 global___AttachedTargetGroup = AttachedTargetGroup
 
+@typing_extensions.final
 class Listener(google.protobuf.message.Message):
     """A Listener resource. For more information, see [Listener](/docs/network-load-balancer/concepts/listener)"""
 
@@ -292,6 +296,7 @@ class Listener(google.protobuf.message.Message):
 
 global___Listener = Listener
 
+@typing_extensions.final
 class TargetState(google.protobuf.message.Message):
     """State of the target that was returned after the last health check."""
 

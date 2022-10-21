@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Secret(google.protobuf.message.Message):
     """A secret that may contain several versions of the payload."""
 
@@ -59,6 +60,7 @@ class Secret(google.protobuf.message.Message):
     Can be set to ACTIVE using the [SecretService.Deactivate] method.
     """
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -126,6 +128,7 @@ class Secret(google.protobuf.message.Message):
 
 global___Secret = Secret
 
+@typing_extensions.final
 class Version(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

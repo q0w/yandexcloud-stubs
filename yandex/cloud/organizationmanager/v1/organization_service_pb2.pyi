@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetOrganizationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetOrganizationRequest(google.protobuf.message.Message):
 
 global___GetOrganizationRequest = GetOrganizationRequest
 
+@typing_extensions.final
 class ListOrganizationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +74,7 @@ class ListOrganizationsRequest(google.protobuf.message.Message):
 
 global___ListOrganizationsRequest = ListOrganizationsRequest
 
+@typing_extensions.final
 class ListOrganizationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -98,9 +101,11 @@ class ListOrganizationsResponse(google.protobuf.message.Message):
 
 global___ListOrganizationsResponse = ListOrganizationsResponse
 
+@typing_extensions.final
 class UpdateOrganizationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +158,7 @@ class UpdateOrganizationRequest(google.protobuf.message.Message):
 
 global___UpdateOrganizationRequest = UpdateOrganizationRequest
 
+@typing_extensions.final
 class UpdateOrganizationMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -168,6 +174,7 @@ class UpdateOrganizationMetadata(google.protobuf.message.Message):
 
 global___UpdateOrganizationMetadata = UpdateOrganizationMetadata
 
+@typing_extensions.final
 class ListOrganizationOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +205,7 @@ class ListOrganizationOperationsRequest(google.protobuf.message.Message):
 
 global___ListOrganizationOperationsRequest = ListOrganizationOperationsRequest
 
+@typing_extensions.final
 class ListOrganizationOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

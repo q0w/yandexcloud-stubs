@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFederationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetFederationRequest(google.protobuf.message.Message):
 
 global___GetFederationRequest = GetFederationRequest
 
+@typing_extensions.final
 class ListFederationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListFederationsRequest(google.protobuf.message.Message):
 
 global___ListFederationsRequest = ListFederationsRequest
 
+@typing_extensions.final
 class ListFederationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,9 +109,11 @@ class ListFederationsResponse(google.protobuf.message.Message):
 
 global___ListFederationsResponse = ListFederationsResponse
 
+@typing_extensions.final
 class CreateFederationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -202,6 +207,7 @@ class CreateFederationRequest(google.protobuf.message.Message):
 
 global___CreateFederationRequest = CreateFederationRequest
 
+@typing_extensions.final
 class CreateFederationMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,9 +223,11 @@ class CreateFederationMetadata(google.protobuf.message.Message):
 
 global___CreateFederationMetadata = CreateFederationMetadata
 
+@typing_extensions.final
 class UpdateFederationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -318,6 +326,7 @@ class UpdateFederationRequest(google.protobuf.message.Message):
 
 global___UpdateFederationRequest = UpdateFederationRequest
 
+@typing_extensions.final
 class UpdateFederationMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -333,6 +342,7 @@ class UpdateFederationMetadata(google.protobuf.message.Message):
 
 global___UpdateFederationMetadata = UpdateFederationMetadata
 
+@typing_extensions.final
 class DeleteFederationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -350,6 +360,7 @@ class DeleteFederationRequest(google.protobuf.message.Message):
 
 global___DeleteFederationRequest = DeleteFederationRequest
 
+@typing_extensions.final
 class DeleteFederationMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -365,6 +376,7 @@ class DeleteFederationMetadata(google.protobuf.message.Message):
 
 global___DeleteFederationMetadata = DeleteFederationMetadata
 
+@typing_extensions.final
 class AddFederatedUserAccountsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -387,6 +399,7 @@ class AddFederatedUserAccountsRequest(google.protobuf.message.Message):
 
 global___AddFederatedUserAccountsRequest = AddFederatedUserAccountsRequest
 
+@typing_extensions.final
 class AddFederatedUserAccountsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -402,6 +415,7 @@ class AddFederatedUserAccountsMetadata(google.protobuf.message.Message):
 
 global___AddFederatedUserAccountsMetadata = AddFederatedUserAccountsMetadata
 
+@typing_extensions.final
 class AddFederatedUserAccountsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -418,6 +432,7 @@ class AddFederatedUserAccountsResponse(google.protobuf.message.Message):
 
 global___AddFederatedUserAccountsResponse = AddFederatedUserAccountsResponse
 
+@typing_extensions.final
 class ListFederatedUserAccountsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -448,6 +463,7 @@ class ListFederatedUserAccountsRequest(google.protobuf.message.Message):
 
 global___ListFederatedUserAccountsRequest = ListFederatedUserAccountsRequest
 
+@typing_extensions.final
 class ListFederatedUserAccountsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -472,6 +488,7 @@ class ListFederatedUserAccountsResponse(google.protobuf.message.Message):
 
 global___ListFederatedUserAccountsResponse = ListFederatedUserAccountsResponse
 
+@typing_extensions.final
 class ListFederationOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -502,6 +519,7 @@ class ListFederationOperationsRequest(google.protobuf.message.Message):
 
 global___ListFederationOperationsRequest = ListFederationOperationsRequest
 
+@typing_extensions.final
 class ListFederationOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

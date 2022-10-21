@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDashboardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetDashboardRequest(google.protobuf.message.Message):
 
 global___GetDashboardRequest = GetDashboardRequest
 
+@typing_extensions.final
 class ListDashboardsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListDashboardsRequest(google.protobuf.message.Message):
 
 global___ListDashboardsRequest = ListDashboardsRequest
 
+@typing_extensions.final
 class ListDashboardsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,9 +98,11 @@ class ListDashboardsResponse(google.protobuf.message.Message):
 
 global___ListDashboardsResponse = ListDashboardsResponse
 
+@typing_extensions.final
 class CreateDashboardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -154,6 +159,7 @@ class CreateDashboardRequest(google.protobuf.message.Message):
 
 global___CreateDashboardRequest = CreateDashboardRequest
 
+@typing_extensions.final
 class CreateDashboardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -169,9 +175,11 @@ class CreateDashboardMetadata(google.protobuf.message.Message):
 
 global___CreateDashboardMetadata = CreateDashboardMetadata
 
+@typing_extensions.final
 class UpdateDashboardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +242,7 @@ class UpdateDashboardRequest(google.protobuf.message.Message):
 
 global___UpdateDashboardRequest = UpdateDashboardRequest
 
+@typing_extensions.final
 class UpdateDashboardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -249,6 +258,7 @@ class UpdateDashboardMetadata(google.protobuf.message.Message):
 
 global___UpdateDashboardMetadata = UpdateDashboardMetadata
 
+@typing_extensions.final
 class DeleteDashboardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -268,6 +278,7 @@ class DeleteDashboardRequest(google.protobuf.message.Message):
 
 global___DeleteDashboardRequest = DeleteDashboardRequest
 
+@typing_extensions.final
 class DeleteDashboardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -283,6 +294,7 @@ class DeleteDashboardMetadata(google.protobuf.message.Message):
 
 global___DeleteDashboardMetadata = DeleteDashboardMetadata
 
+@typing_extensions.final
 class ListDashboardOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -311,6 +323,7 @@ class ListDashboardOperationsRequest(google.protobuf.message.Message):
 
 global___ListDashboardOperationsRequest = ListDashboardOperationsRequest
 
+@typing_extensions.final
 class ListDashboardOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

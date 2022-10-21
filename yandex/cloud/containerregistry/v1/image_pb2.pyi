@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Image(google.protobuf.message.Message):
     """An Image resource. For more information, see [Docker image](/docs/cloud/container-registry/docker-image)."""
 

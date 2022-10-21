@@ -23,6 +23,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """An SQL Server cluster.
 
@@ -116,6 +117,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """Cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,6 +228,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -249,6 +252,7 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class ClusterConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -334,6 +338,7 @@ class ClusterConfig(google.protobuf.message.Message):
 
 global___ClusterConfig = ClusterConfig
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -438,6 +443,7 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class Service(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -493,6 +499,7 @@ class Service(google.protobuf.message.Message):
 
 global___Service = Service
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -525,6 +532,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class Access(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

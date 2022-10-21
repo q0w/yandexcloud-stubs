@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Container(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -42,6 +43,7 @@ class Container(google.protobuf.message.Message):
     DELETING: Container.Status.ValueType  # 3
     ERROR: Container.Status.ValueType  # 4
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -92,6 +94,7 @@ class Container(google.protobuf.message.Message):
 
 global___Container = Container
 
+@typing_extensions.final
 class Revision(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -167,9 +170,11 @@ class Revision(google.protobuf.message.Message):
 
 global___Revision = Revision
 
+@typing_extensions.final
 class Image(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -215,6 +220,7 @@ class Image(google.protobuf.message.Message):
 
 global___Image = Image
 
+@typing_extensions.final
 class Command(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -230,6 +236,7 @@ class Command(google.protobuf.message.Message):
 
 global___Command = Command
 
+@typing_extensions.final
 class Args(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -245,6 +252,7 @@ class Args(google.protobuf.message.Message):
 
 global___Args = Args
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -265,6 +273,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class ProvisionPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -279,6 +288,7 @@ class ProvisionPolicy(google.protobuf.message.Message):
 
 global___ProvisionPolicy = ProvisionPolicy
 
+@typing_extensions.final
 class Secret(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +314,7 @@ class Secret(google.protobuf.message.Message):
 
 global___Secret = Secret
 
+@typing_extensions.final
 class Connectivity(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

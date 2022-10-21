@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SnapshotSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -44,6 +45,7 @@ class SnapshotSchedule(google.protobuf.message.Message):
     DELETING: SnapshotSchedule.Status.ValueType  # 4
     UPDATING: SnapshotSchedule.Status.ValueType  # 5
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -116,6 +118,7 @@ class SnapshotSchedule(google.protobuf.message.Message):
 
 global___SnapshotSchedule = SnapshotSchedule
 
+@typing_extensions.final
 class SchedulePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -137,11 +140,13 @@ class SchedulePolicy(google.protobuf.message.Message):
 
 global___SchedulePolicy = SchedulePolicy
 
+@typing_extensions.final
 class SnapshotSpec(google.protobuf.message.Message):
     """Properties of created snapshot backup"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

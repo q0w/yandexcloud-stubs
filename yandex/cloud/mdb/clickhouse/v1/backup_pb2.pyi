@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """A ClickHouse Backup resource. See the [Developer's Guide](/docs/managed-clickhouse/concepts)
     for more information.

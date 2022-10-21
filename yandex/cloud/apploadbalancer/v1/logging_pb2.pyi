@@ -22,7 +22,7 @@ class _HttpCodeInterval:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _HttpCodeIntervalEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_HttpCodeInterval.ValueType], builtins.type):  # noqa: F821
+class _HttpCodeIntervalEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_HttpCodeInterval.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     HTTP_CODE_INTERVAL_UNSPECIFIED: _HttpCodeInterval.ValueType  # 0
     HTTP_CODE_INTERVAL_1XX: _HttpCodeInterval.ValueType  # 1
@@ -41,6 +41,7 @@ HTTP_CODE_INTERVAL_4XX: HttpCodeInterval.ValueType  # 4
 HTTP_CODE_INTERVAL_5XX: HttpCodeInterval.ValueType  # 5
 global___HttpCodeInterval = HttpCodeInterval
 
+@typing_extensions.final
 class LogDiscardRule(google.protobuf.message.Message):
     """LogDiscardRule discards a fraction of logs with certain codes.
     If neither codes or intervals are provided, rule applies to all logs.
@@ -70,6 +71,7 @@ class LogDiscardRule(google.protobuf.message.Message):
 
 global___LogDiscardRule = LogDiscardRule
 
+@typing_extensions.final
 class LogOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

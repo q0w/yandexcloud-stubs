@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PublishDeviceDataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class PublishDeviceDataRequest(google.protobuf.message.Message):
 
 global___PublishDeviceDataRequest = PublishDeviceDataRequest
 
+@typing_extensions.final
 class PublishDeviceDataResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

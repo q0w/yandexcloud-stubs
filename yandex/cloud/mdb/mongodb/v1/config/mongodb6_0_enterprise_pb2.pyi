@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MongodConfig6_0_enterprise(google.protobuf.message.Message):
     """Configuration of a mongod daemon. Supported options are a limited subset of all
     options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/reference/configuration-options/).
@@ -24,14 +25,17 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Storage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class WiredTiger(google.protobuf.message.Message):
             """Configuration of WiredTiger storage engine."""
 
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class EngineConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,6 +51,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
                 def HasField(self, field_name: typing_extensions.Literal["cache_size_gb", b"cache_size_gb"]) -> builtins.bool: ...
                 def ClearField(self, field_name: typing_extensions.Literal["cache_size_gb", b"cache_size_gb"]) -> None: ...
 
+            @typing_extensions.final
             class CollectionConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,6 +109,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
             def HasField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> None: ...
 
+        @typing_extensions.final
         class Journal(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,6 +144,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> None: ...
 
+    @typing_extensions.final
     class OperationProfiling(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +190,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["mode", b"mode", "slow_op_threshold", b"slow_op_threshold"]) -> None: ...
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,9 +206,11 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["max_incoming_connections", b"max_incoming_connections"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["max_incoming_connections", b"max_incoming_connections"]) -> None: ...
 
+    @typing_extensions.final
     class Security(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class KMIP(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -249,6 +259,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["enable_encryption", b"enable_encryption", "kmip", b"kmip"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["enable_encryption", b"enable_encryption", "kmip", b"kmip"]) -> None: ...
 
+    @typing_extensions.final
     class AuditLog(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -268,6 +279,7 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["runtime_configuration", b"runtime_configuration"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["filter", b"filter", "runtime_configuration", b"runtime_configuration"]) -> None: ...
 
+    @typing_extensions.final
     class SetParameter(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -322,17 +334,21 @@ class MongodConfig6_0_enterprise(google.protobuf.message.Message):
 
 global___MongodConfig6_0_enterprise = MongodConfig6_0_enterprise
 
+@typing_extensions.final
 class MongoCfgConfig6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Storage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class WiredTiger(google.protobuf.message.Message):
             """Configuration of WiredTiger storage engine."""
 
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class EngineConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -372,6 +388,7 @@ class MongoCfgConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> None: ...
 
+    @typing_extensions.final
     class OperationProfiling(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -417,6 +434,7 @@ class MongoCfgConfig6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["mode", b"mode", "slow_op_threshold", b"slow_op_threshold"]) -> None: ...
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -456,9 +474,11 @@ class MongoCfgConfig6_0_enterprise(google.protobuf.message.Message):
 
 global___MongoCfgConfig6_0_enterprise = MongoCfgConfig6_0_enterprise
 
+@typing_extensions.final
 class MongosConfig6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -488,6 +508,7 @@ class MongosConfig6_0_enterprise(google.protobuf.message.Message):
 
 global___MongosConfig6_0_enterprise = MongosConfig6_0_enterprise
 
+@typing_extensions.final
 class MongodConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -517,6 +538,7 @@ class MongodConfigSet6_0_enterprise(google.protobuf.message.Message):
 
 global___MongodConfigSet6_0_enterprise = MongodConfigSet6_0_enterprise
 
+@typing_extensions.final
 class MongoCfgConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -546,6 +568,7 @@ class MongoCfgConfigSet6_0_enterprise(google.protobuf.message.Message):
 
 global___MongoCfgConfigSet6_0_enterprise = MongoCfgConfigSet6_0_enterprise
 
+@typing_extensions.final
 class MongosConfigSet6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetServiceAccountRequest(google.protobuf.message.Message):
 
 global___GetServiceAccountRequest = GetServiceAccountRequest
 
+@typing_extensions.final
 class ListServiceAccountsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -78,6 +80,7 @@ class ListServiceAccountsRequest(google.protobuf.message.Message):
 
 global___ListServiceAccountsRequest = ListServiceAccountsRequest
 
+@typing_extensions.final
 class ListServiceAccountsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,9 +107,11 @@ class ListServiceAccountsResponse(google.protobuf.message.Message):
 
 global___ListServiceAccountsResponse = ListServiceAccountsResponse
 
+@typing_extensions.final
 class CreateServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -151,6 +156,7 @@ class CreateServiceAccountRequest(google.protobuf.message.Message):
 
 global___CreateServiceAccountRequest = CreateServiceAccountRequest
 
+@typing_extensions.final
 class CreateServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -166,9 +172,11 @@ class CreateServiceAccountMetadata(google.protobuf.message.Message):
 
 global___CreateServiceAccountMetadata = CreateServiceAccountMetadata
 
+@typing_extensions.final
 class UpdateServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -219,6 +227,7 @@ class UpdateServiceAccountRequest(google.protobuf.message.Message):
 
 global___UpdateServiceAccountRequest = UpdateServiceAccountRequest
 
+@typing_extensions.final
 class UpdateServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +243,7 @@ class UpdateServiceAccountMetadata(google.protobuf.message.Message):
 
 global___UpdateServiceAccountMetadata = UpdateServiceAccountMetadata
 
+@typing_extensions.final
 class DeleteServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -251,6 +261,7 @@ class DeleteServiceAccountRequest(google.protobuf.message.Message):
 
 global___DeleteServiceAccountRequest = DeleteServiceAccountRequest
 
+@typing_extensions.final
 class DeleteServiceAccountMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -266,6 +277,7 @@ class DeleteServiceAccountMetadata(google.protobuf.message.Message):
 
 global___DeleteServiceAccountMetadata = DeleteServiceAccountMetadata
 
+@typing_extensions.final
 class ListServiceAccountOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -296,6 +308,7 @@ class ListServiceAccountOperationsRequest(google.protobuf.message.Message):
 
 global___ListServiceAccountOperationsRequest = ListServiceAccountOperationsRequest
 
+@typing_extensions.final
 class ListServiceAccountOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

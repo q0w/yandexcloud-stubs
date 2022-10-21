@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ImageCopySearchAnnotation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class ImageCopySearchAnnotation(google.protobuf.message.Message):
 
 global___ImageCopySearchAnnotation = ImageCopySearchAnnotation
 
+@typing_extensions.final
 class CopyMatch(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

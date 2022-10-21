@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ElasticsearchConfig7(google.protobuf.message.Message):
     """Elasticsearch 7.x supported configuration options are listed here.
 
@@ -73,6 +74,7 @@ class ElasticsearchConfig7(google.protobuf.message.Message):
 
 global___ElasticsearchConfig7 = ElasticsearchConfig7
 
+@typing_extensions.final
 class ElasticsearchConfigSet7(google.protobuf.message.Message):
     """Elasticsearch 7.x data node configuration."""
 

@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetOriginRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetOriginRequest(google.protobuf.message.Message):
 
 global___GetOriginRequest = GetOriginRequest
 
+@typing_extensions.final
 class ListOriginsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -56,6 +58,7 @@ class ListOriginsRequest(google.protobuf.message.Message):
 
 global___ListOriginsRequest = ListOriginsRequest
 
+@typing_extensions.final
 class ListOriginsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +75,7 @@ class ListOriginsResponse(google.protobuf.message.Message):
 
 global___ListOriginsResponse = ListOriginsResponse
 
+@typing_extensions.final
 class CreateOriginRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -124,6 +128,7 @@ class CreateOriginRequest(google.protobuf.message.Message):
 
 global___CreateOriginRequest = CreateOriginRequest
 
+@typing_extensions.final
 class CreateOriginMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,6 +148,7 @@ class CreateOriginMetadata(google.protobuf.message.Message):
 
 global___CreateOriginMetadata = CreateOriginMetadata
 
+@typing_extensions.final
 class UpdateOriginRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +204,7 @@ class UpdateOriginRequest(google.protobuf.message.Message):
 
 global___UpdateOriginRequest = UpdateOriginRequest
 
+@typing_extensions.final
 class UpdateOriginMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,6 +224,7 @@ class UpdateOriginMetadata(google.protobuf.message.Message):
 
 global___UpdateOriginMetadata = UpdateOriginMetadata
 
+@typing_extensions.final
 class DeleteOriginRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -236,6 +244,7 @@ class DeleteOriginRequest(google.protobuf.message.Message):
 
 global___DeleteOriginRequest = DeleteOriginRequest
 
+@typing_extensions.final
 class DeleteOriginMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

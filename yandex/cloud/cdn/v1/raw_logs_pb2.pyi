@@ -20,7 +20,7 @@ class _RawLogsStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _RawLogsStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RawLogsStatus.ValueType], builtins.type):  # noqa: F821
+class _RawLogsStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RawLogsStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RAW_LOGS_STATUS_UNSPECIFIED: _RawLogsStatus.ValueType  # 0
     RAW_LOGS_STATUS_NOT_ACTIVATED: _RawLogsStatus.ValueType  # 1
@@ -42,6 +42,7 @@ RAW_LOGS_STATUS_FAILED: RawLogsStatus.ValueType  # 3
 """Raw logs was activated, but logs CDN provider has been failed to store logs."""
 global___RawLogsStatus = RawLogsStatus
 
+@typing_extensions.final
 class RawLogsSettings(google.protobuf.message.Message):
     """User settings for Raw logs."""
 

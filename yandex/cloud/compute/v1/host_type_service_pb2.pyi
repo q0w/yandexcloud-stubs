@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetHostTypeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetHostTypeRequest(google.protobuf.message.Message):
 
 global___GetHostTypeRequest = GetHostTypeRequest
 
+@typing_extensions.final
 class ListHostTypesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -61,6 +63,7 @@ class ListHostTypesRequest(google.protobuf.message.Message):
 
 global___ListHostTypesRequest = ListHostTypesRequest
 
+@typing_extensions.final
 class ListHostTypesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

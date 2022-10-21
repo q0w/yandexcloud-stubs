@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetExtensionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetExtensionRequest(google.protobuf.message.Message):
 
 global___GetExtensionRequest = GetExtensionRequest
 
+@typing_extensions.final
 class ListExtensionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -65,6 +67,7 @@ class ListExtensionsRequest(google.protobuf.message.Message):
 
 global___ListExtensionsRequest = ListExtensionsRequest
 
+@typing_extensions.final
 class ListExtensionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -90,6 +93,7 @@ class ListExtensionsResponse(google.protobuf.message.Message):
 
 global___ListExtensionsResponse = ListExtensionsResponse
 
+@typing_extensions.final
 class DeleteExtensionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -109,6 +113,7 @@ class DeleteExtensionRequest(google.protobuf.message.Message):
 
 global___DeleteExtensionRequest = DeleteExtensionRequest
 
+@typing_extensions.final
 class DeleteExtensionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,6 +133,7 @@ class DeleteExtensionMetadata(google.protobuf.message.Message):
 
 global___DeleteExtensionMetadata = DeleteExtensionMetadata
 
+@typing_extensions.final
 class UpdateExtensionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -151,6 +157,7 @@ class UpdateExtensionRequest(google.protobuf.message.Message):
 
 global___UpdateExtensionRequest = UpdateExtensionRequest
 
+@typing_extensions.final
 class UpdateExtensionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,6 +177,7 @@ class UpdateExtensionMetadata(google.protobuf.message.Message):
 
 global___UpdateExtensionMetadata = UpdateExtensionMetadata
 
+@typing_extensions.final
 class CreateExtensionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -197,6 +205,7 @@ class CreateExtensionRequest(google.protobuf.message.Message):
 
 global___CreateExtensionRequest = CreateExtensionRequest
 
+@typing_extensions.final
 class CreateExtensionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -23,7 +23,7 @@ class _MaintenancePolicy:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _MaintenancePolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MaintenancePolicy.ValueType], builtins.type):  # noqa: F821
+class _MaintenancePolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MaintenancePolicy.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     MAINTENANCE_POLICY_UNSPECIFIED: _MaintenancePolicy.ValueType  # 0
     RESTART: _MaintenancePolicy.ValueType  # 1
@@ -40,6 +40,7 @@ MIGRATE: MaintenancePolicy.ValueType  # 2
 """Migrate instances to another host before maintenance event."""
 global___MaintenancePolicy = MaintenancePolicy
 
+@typing_extensions.final
 class HostGroup(google.protobuf.message.Message):
     """Represents group of dedicated hosts"""
 
@@ -64,6 +65,7 @@ class HostGroup(google.protobuf.message.Message):
     UPDATING: HostGroup.Status.ValueType  # 3
     DELETING: HostGroup.Status.ValueType  # 4
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -135,6 +137,7 @@ class HostGroup(google.protobuf.message.Message):
 
 global___HostGroup = HostGroup
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     """Represents a dedicated host"""
 
@@ -175,9 +178,11 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class ScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class FixedScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

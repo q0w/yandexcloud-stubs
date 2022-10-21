@@ -18,9 +18,11 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class CreateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -66,6 +68,7 @@ class CreateTransferRequest(google.protobuf.message.Message):
 
 global___CreateTransferRequest = CreateTransferRequest
 
+@typing_extensions.final
 class CreateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,9 +83,11 @@ class CreateTransferMetadata(google.protobuf.message.Message):
 
 global___CreateTransferMetadata = CreateTransferMetadata
 
+@typing_extensions.final
 class UpdateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -133,6 +138,7 @@ class UpdateTransferRequest(google.protobuf.message.Message):
 
 global___UpdateTransferRequest = UpdateTransferRequest
 
+@typing_extensions.final
 class UpdateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -147,6 +153,7 @@ class UpdateTransferMetadata(google.protobuf.message.Message):
 
 global___UpdateTransferMetadata = UpdateTransferMetadata
 
+@typing_extensions.final
 class DeleteTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -161,6 +168,7 @@ class DeleteTransferRequest(google.protobuf.message.Message):
 
 global___DeleteTransferRequest = DeleteTransferRequest
 
+@typing_extensions.final
 class DeleteTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,6 +183,7 @@ class DeleteTransferMetadata(google.protobuf.message.Message):
 
 global___DeleteTransferMetadata = DeleteTransferMetadata
 
+@typing_extensions.final
 class ListTransfersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -206,6 +215,7 @@ class ListTransfersRequest(google.protobuf.message.Message):
 
 global___ListTransfersRequest = ListTransfersRequest
 
+@typing_extensions.final
 class ListTransfersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -233,6 +243,7 @@ class ListTransfersResponse(google.protobuf.message.Message):
 
 global___ListTransfersResponse = ListTransfersResponse
 
+@typing_extensions.final
 class GetTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -247,6 +258,7 @@ class GetTransferRequest(google.protobuf.message.Message):
 
 global___GetTransferRequest = GetTransferRequest
 
+@typing_extensions.final
 class DeactivateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -261,6 +273,7 @@ class DeactivateTransferRequest(google.protobuf.message.Message):
 
 global___DeactivateTransferRequest = DeactivateTransferRequest
 
+@typing_extensions.final
 class DeactivateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -275,6 +288,7 @@ class DeactivateTransferMetadata(google.protobuf.message.Message):
 
 global___DeactivateTransferMetadata = DeactivateTransferMetadata
 
+@typing_extensions.final
 class ActivateTransferRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,6 +303,7 @@ class ActivateTransferRequest(google.protobuf.message.Message):
 
 global___ActivateTransferRequest = ActivateTransferRequest
 
+@typing_extensions.final
 class ActivateTransferMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

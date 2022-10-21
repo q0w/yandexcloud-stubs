@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetSecurityGroupRequest(google.protobuf.message.Message):
 
 global___GetSecurityGroupRequest = GetSecurityGroupRequest
 
+@typing_extensions.final
 class ListSecurityGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -58,6 +60,7 @@ class ListSecurityGroupsRequest(google.protobuf.message.Message):
 
 global___ListSecurityGroupsRequest = ListSecurityGroupsRequest
 
+@typing_extensions.final
 class ListSecurityGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -76,9 +79,11 @@ class ListSecurityGroupsResponse(google.protobuf.message.Message):
 
 global___ListSecurityGroupsResponse = ListSecurityGroupsResponse
 
+@typing_extensions.final
 class CreateSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,9 +127,11 @@ class CreateSecurityGroupRequest(google.protobuf.message.Message):
 
 global___CreateSecurityGroupRequest = CreateSecurityGroupRequest
 
+@typing_extensions.final
 class SecurityGroupRuleSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -185,6 +192,7 @@ class SecurityGroupRuleSpec(google.protobuf.message.Message):
 
 global___SecurityGroupRuleSpec = SecurityGroupRuleSpec
 
+@typing_extensions.final
 class CreateSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -199,9 +207,11 @@ class CreateSecurityGroupMetadata(google.protobuf.message.Message):
 
 global___CreateSecurityGroupMetadata = CreateSecurityGroupMetadata
 
+@typing_extensions.final
 class UpdateSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -248,6 +258,7 @@ class UpdateSecurityGroupRequest(google.protobuf.message.Message):
 
 global___UpdateSecurityGroupRequest = UpdateSecurityGroupRequest
 
+@typing_extensions.final
 class UpdateSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -266,6 +277,7 @@ class UpdateSecurityGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateSecurityGroupMetadata = UpdateSecurityGroupMetadata
 
+@typing_extensions.final
 class UpdateSecurityGroupRulesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,9 +301,11 @@ class UpdateSecurityGroupRulesRequest(google.protobuf.message.Message):
 
 global___UpdateSecurityGroupRulesRequest = UpdateSecurityGroupRulesRequest
 
+@typing_extensions.final
 class UpdateSecurityGroupRuleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -333,6 +347,7 @@ class UpdateSecurityGroupRuleRequest(google.protobuf.message.Message):
 
 global___UpdateSecurityGroupRuleRequest = UpdateSecurityGroupRuleRequest
 
+@typing_extensions.final
 class UpdateSecurityGroupRuleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -350,6 +365,7 @@ class UpdateSecurityGroupRuleMetadata(google.protobuf.message.Message):
 
 global___UpdateSecurityGroupRuleMetadata = UpdateSecurityGroupRuleMetadata
 
+@typing_extensions.final
 class DeleteSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -364,6 +380,7 @@ class DeleteSecurityGroupRequest(google.protobuf.message.Message):
 
 global___DeleteSecurityGroupRequest = DeleteSecurityGroupRequest
 
+@typing_extensions.final
 class DeleteSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -378,6 +395,7 @@ class DeleteSecurityGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteSecurityGroupMetadata = DeleteSecurityGroupMetadata
 
+@typing_extensions.final
 class ListSecurityGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +416,7 @@ class ListSecurityGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListSecurityGroupOperationsRequest = ListSecurityGroupOperationsRequest
 
+@typing_extensions.final
 class ListSecurityGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -416,6 +435,7 @@ class ListSecurityGroupOperationsResponse(google.protobuf.message.Message):
 
 global___ListSecurityGroupOperationsResponse = ListSecurityGroupOperationsResponse
 
+@typing_extensions.final
 class MoveSecurityGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -433,6 +453,7 @@ class MoveSecurityGroupRequest(google.protobuf.message.Message):
 
 global___MoveSecurityGroupRequest = MoveSecurityGroupRequest
 
+@typing_extensions.final
 class MoveSecurityGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

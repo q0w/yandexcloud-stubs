@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Database(google.protobuf.message.Message):
     """An SQL Server database.
 
@@ -38,6 +39,7 @@ class Database(google.protobuf.message.Message):
 
 global___Database = Database
 
+@typing_extensions.final
 class DatabaseSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

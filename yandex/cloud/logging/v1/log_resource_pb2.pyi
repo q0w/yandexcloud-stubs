@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LogEntryResource(google.protobuf.message.Message):
     """Log entry resource specification.
 
@@ -40,6 +41,7 @@ class LogEntryResource(google.protobuf.message.Message):
 
 global___LogEntryResource = LogEntryResource
 
+@typing_extensions.final
 class LogGroupResource(google.protobuf.message.Message):
     """Log group resource."""
 

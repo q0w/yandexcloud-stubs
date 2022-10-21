@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """A MySQL backup. For more information, see
     the [documentation](/docs/managed-mysql/concepts/backup).

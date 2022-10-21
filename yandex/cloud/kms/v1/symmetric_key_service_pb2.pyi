@@ -21,9 +21,11 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class CreateSymmetricKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,6 +84,7 @@ class CreateSymmetricKeyRequest(google.protobuf.message.Message):
 
 global___CreateSymmetricKeyRequest = CreateSymmetricKeyRequest
 
+@typing_extensions.final
 class CreateSymmetricKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,6 +104,7 @@ class CreateSymmetricKeyMetadata(google.protobuf.message.Message):
 
 global___CreateSymmetricKeyMetadata = CreateSymmetricKeyMetadata
 
+@typing_extensions.final
 class GetSymmetricKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,6 +122,7 @@ class GetSymmetricKeyRequest(google.protobuf.message.Message):
 
 global___GetSymmetricKeyRequest = GetSymmetricKeyRequest
 
+@typing_extensions.final
 class ListSymmetricKeysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -147,6 +152,7 @@ class ListSymmetricKeysRequest(google.protobuf.message.Message):
 
 global___ListSymmetricKeysRequest = ListSymmetricKeysRequest
 
+@typing_extensions.final
 class ListSymmetricKeysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +178,7 @@ class ListSymmetricKeysResponse(google.protobuf.message.Message):
 
 global___ListSymmetricKeysResponse = ListSymmetricKeysResponse
 
+@typing_extensions.final
 class ListSymmetricKeyVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,6 +208,7 @@ class ListSymmetricKeyVersionsRequest(google.protobuf.message.Message):
 
 global___ListSymmetricKeyVersionsRequest = ListSymmetricKeyVersionsRequest
 
+@typing_extensions.final
 class ListSymmetricKeyVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,9 +234,11 @@ class ListSymmetricKeyVersionsResponse(google.protobuf.message.Message):
 
 global___ListSymmetricKeyVersionsResponse = ListSymmetricKeyVersionsResponse
 
+@typing_extensions.final
 class UpdateSymmetricKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +308,7 @@ class UpdateSymmetricKeyRequest(google.protobuf.message.Message):
 
 global___UpdateSymmetricKeyRequest = UpdateSymmetricKeyRequest
 
+@typing_extensions.final
 class UpdateSymmetricKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -313,6 +324,7 @@ class UpdateSymmetricKeyMetadata(google.protobuf.message.Message):
 
 global___UpdateSymmetricKeyMetadata = UpdateSymmetricKeyMetadata
 
+@typing_extensions.final
 class DeleteSymmetricKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +340,7 @@ class DeleteSymmetricKeyRequest(google.protobuf.message.Message):
 
 global___DeleteSymmetricKeyRequest = DeleteSymmetricKeyRequest
 
+@typing_extensions.final
 class DeleteSymmetricKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -343,6 +356,7 @@ class DeleteSymmetricKeyMetadata(google.protobuf.message.Message):
 
 global___DeleteSymmetricKeyMetadata = DeleteSymmetricKeyMetadata
 
+@typing_extensions.final
 class SetPrimarySymmetricKeyVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -362,6 +376,7 @@ class SetPrimarySymmetricKeyVersionRequest(google.protobuf.message.Message):
 
 global___SetPrimarySymmetricKeyVersionRequest = SetPrimarySymmetricKeyVersionRequest
 
+@typing_extensions.final
 class SetPrimarySymmetricKeyVersionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -381,6 +396,7 @@ class SetPrimarySymmetricKeyVersionMetadata(google.protobuf.message.Message):
 
 global___SetPrimarySymmetricKeyVersionMetadata = SetPrimarySymmetricKeyVersionMetadata
 
+@typing_extensions.final
 class RotateSymmetricKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -396,6 +412,7 @@ class RotateSymmetricKeyRequest(google.protobuf.message.Message):
 
 global___RotateSymmetricKeyRequest = RotateSymmetricKeyRequest
 
+@typing_extensions.final
 class RotateSymmetricKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -415,6 +432,7 @@ class RotateSymmetricKeyMetadata(google.protobuf.message.Message):
 
 global___RotateSymmetricKeyMetadata = RotateSymmetricKeyMetadata
 
+@typing_extensions.final
 class ScheduleSymmetricKeyVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -442,6 +460,7 @@ class ScheduleSymmetricKeyVersionDestructionRequest(google.protobuf.message.Mess
 
 global___ScheduleSymmetricKeyVersionDestructionRequest = ScheduleSymmetricKeyVersionDestructionRequest
 
+@typing_extensions.final
 class ScheduleSymmetricKeyVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -467,6 +486,7 @@ class ScheduleSymmetricKeyVersionDestructionMetadata(google.protobuf.message.Mes
 
 global___ScheduleSymmetricKeyVersionDestructionMetadata = ScheduleSymmetricKeyVersionDestructionMetadata
 
+@typing_extensions.final
 class CancelSymmetricKeyVersionDestructionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -486,6 +506,7 @@ class CancelSymmetricKeyVersionDestructionRequest(google.protobuf.message.Messag
 
 global___CancelSymmetricKeyVersionDestructionRequest = CancelSymmetricKeyVersionDestructionRequest
 
+@typing_extensions.final
 class CancelSymmetricKeyVersionDestructionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -505,6 +526,7 @@ class CancelSymmetricKeyVersionDestructionMetadata(google.protobuf.message.Messa
 
 global___CancelSymmetricKeyVersionDestructionMetadata = CancelSymmetricKeyVersionDestructionMetadata
 
+@typing_extensions.final
 class ListSymmetricKeyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -537,6 +559,7 @@ class ListSymmetricKeyOperationsRequest(google.protobuf.message.Message):
 
 global___ListSymmetricKeyOperationsRequest = ListSymmetricKeyOperationsRequest
 
+@typing_extensions.final
 class ListSymmetricKeyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

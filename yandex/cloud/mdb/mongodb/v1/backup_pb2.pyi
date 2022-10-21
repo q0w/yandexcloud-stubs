@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """A MongoDB Backup resource. For more information, see the 
     [Developer's Guide](/docs/managed-mongodb/concepts).

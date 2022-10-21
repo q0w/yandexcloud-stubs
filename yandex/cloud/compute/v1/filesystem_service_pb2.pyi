@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetFilesystemRequest(google.protobuf.message.Message):
 
 global___GetFilesystemRequest = GetFilesystemRequest
 
+@typing_extensions.final
 class ListFilesystemsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListFilesystemsRequest(google.protobuf.message.Message):
 
 global___ListFilesystemsRequest = ListFilesystemsRequest
 
+@typing_extensions.final
 class ListFilesystemsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,9 +108,11 @@ class ListFilesystemsResponse(google.protobuf.message.Message):
 
 global___ListFilesystemsResponse = ListFilesystemsResponse
 
+@typing_extensions.final
 class CreateFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -188,6 +193,7 @@ class CreateFilesystemRequest(google.protobuf.message.Message):
 
 global___CreateFilesystemRequest = CreateFilesystemRequest
 
+@typing_extensions.final
 class CreateFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -203,9 +209,11 @@ class CreateFilesystemMetadata(google.protobuf.message.Message):
 
 global___CreateFilesystemMetadata = CreateFilesystemMetadata
 
+@typing_extensions.final
 class UpdateFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -267,6 +275,7 @@ class UpdateFilesystemRequest(google.protobuf.message.Message):
 
 global___UpdateFilesystemRequest = UpdateFilesystemRequest
 
+@typing_extensions.final
 class UpdateFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,6 +291,7 @@ class UpdateFilesystemMetadata(google.protobuf.message.Message):
 
 global___UpdateFilesystemMetadata = UpdateFilesystemMetadata
 
+@typing_extensions.final
 class DeleteFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -300,6 +310,7 @@ class DeleteFilesystemRequest(google.protobuf.message.Message):
 
 global___DeleteFilesystemRequest = DeleteFilesystemRequest
 
+@typing_extensions.final
 class DeleteFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -315,6 +326,7 @@ class DeleteFilesystemMetadata(google.protobuf.message.Message):
 
 global___DeleteFilesystemMetadata = DeleteFilesystemMetadata
 
+@typing_extensions.final
 class ListFilesystemOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -346,6 +358,7 @@ class ListFilesystemOperationsRequest(google.protobuf.message.Message):
 
 global___ListFilesystemOperationsRequest = ListFilesystemOperationsRequest
 
+@typing_extensions.final
 class ListFilesystemOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

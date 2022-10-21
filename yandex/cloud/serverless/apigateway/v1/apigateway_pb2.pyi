@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ApiGateway(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -53,6 +54,7 @@ class ApiGateway(google.protobuf.message.Message):
     UPDATING: ApiGateway.Status.ValueType  # 5
     """API gateway is being updated."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -125,6 +127,7 @@ class ApiGateway(google.protobuf.message.Message):
 
 global___ApiGateway = ApiGateway
 
+@typing_extensions.final
 class AttachedDomain(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +155,7 @@ class AttachedDomain(google.protobuf.message.Message):
 
 global___AttachedDomain = AttachedDomain
 
+@typing_extensions.final
 class Connectivity(google.protobuf.message.Message):
     """Gateway connectivity specification."""
 

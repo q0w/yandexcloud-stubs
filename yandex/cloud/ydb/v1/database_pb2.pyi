@@ -24,7 +24,7 @@ class _AlertEvaluationStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _AlertEvaluationStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AlertEvaluationStatus.ValueType], builtins.type):  # noqa: F821
+class _AlertEvaluationStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AlertEvaluationStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ALERT_EVALUATION_STATUS_UNSPECIFIED: _AlertEvaluationStatus.ValueType  # 0
     ALERT_EVALUATION_STATUS_OK: _AlertEvaluationStatus.ValueType  # 1
@@ -43,6 +43,7 @@ ALERT_EVALUATION_STATUS_ALARM: AlertEvaluationStatus.ValueType  # 4
 ALERT_EVALUATION_STATUS_WARN: AlertEvaluationStatus.ValueType  # 5
 global___AlertEvaluationStatus = AlertEvaluationStatus
 
+@typing_extensions.final
 class Database(google.protobuf.message.Message):
     """YDB database."""
 
@@ -73,6 +74,7 @@ class Database(google.protobuf.message.Message):
     STARTING: Database.Status.ValueType  # 7
     STOPPED: Database.Status.ValueType  # 8
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,9 +185,11 @@ class Database(google.protobuf.message.Message):
 
 global___Database = Database
 
+@typing_extensions.final
 class AlertParameter(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class DoubleParameterValue(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -203,6 +207,7 @@ class AlertParameter(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class IntegerParameterValue(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +225,7 @@ class AlertParameter(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class TextParameterValue(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -237,6 +243,7 @@ class AlertParameter(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class TextListParameterValue(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -255,6 +262,7 @@ class AlertParameter(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["name", b"name", "values", b"values"]) -> None: ...
 
+    @typing_extensions.final
     class LabelListParameterValue(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -303,6 +311,7 @@ class AlertParameter(google.protobuf.message.Message):
 
 global___AlertParameter = AlertParameter
 
+@typing_extensions.final
 class NotificationChannel(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -324,6 +333,7 @@ class NotificationChannel(google.protobuf.message.Message):
 
 global___NotificationChannel = NotificationChannel
 
+@typing_extensions.final
 class Alert(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -366,6 +376,7 @@ class Alert(google.protobuf.message.Message):
 
 global___Alert = Alert
 
+@typing_extensions.final
 class MonitoringConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -381,6 +392,7 @@ class MonitoringConfig(google.protobuf.message.Message):
 
 global___MonitoringConfig = MonitoringConfig
 
+@typing_extensions.final
 class DedicatedDatabase(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -414,6 +426,7 @@ class DedicatedDatabase(google.protobuf.message.Message):
 
 global___DedicatedDatabase = DedicatedDatabase
 
+@typing_extensions.final
 class ServerlessDatabase(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -453,6 +466,7 @@ class ServerlessDatabase(google.protobuf.message.Message):
 
 global___ServerlessDatabase = ServerlessDatabase
 
+@typing_extensions.final
 class ZonalDatabase(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -467,6 +481,7 @@ class ZonalDatabase(google.protobuf.message.Message):
 
 global___ZonalDatabase = ZonalDatabase
 
+@typing_extensions.final
 class RegionalDatabase(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -481,9 +496,11 @@ class RegionalDatabase(google.protobuf.message.Message):
 
 global___RegionalDatabase = RegionalDatabase
 
+@typing_extensions.final
 class ScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class FixedScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -510,6 +527,7 @@ class ScalePolicy(google.protobuf.message.Message):
 
 global___ScalePolicy = ScalePolicy
 
+@typing_extensions.final
 class StorageConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -529,6 +547,7 @@ class StorageConfig(google.protobuf.message.Message):
 
 global___StorageConfig = StorageConfig
 
+@typing_extensions.final
 class StorageOption(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

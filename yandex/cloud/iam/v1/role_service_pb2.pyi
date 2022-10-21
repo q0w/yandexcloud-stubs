@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetRoleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetRoleRequest(google.protobuf.message.Message):
 
 global___GetRoleRequest = GetRoleRequest
 
+@typing_extensions.final
 class ListRolesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -65,6 +67,7 @@ class ListRolesRequest(google.protobuf.message.Message):
 
 global___ListRolesRequest = ListRolesRequest
 
+@typing_extensions.final
 class ListRolesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

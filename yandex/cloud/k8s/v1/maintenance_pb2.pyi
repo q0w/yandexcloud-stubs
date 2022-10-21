@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,6 +48,7 @@ class MaintenanceWindow(google.protobuf.message.Message):
 
 global___MaintenanceWindow = MaintenanceWindow
 
+@typing_extensions.final
 class AnytimeMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -56,6 +58,7 @@ class AnytimeMaintenanceWindow(google.protobuf.message.Message):
 
 global___AnytimeMaintenanceWindow = AnytimeMaintenanceWindow
 
+@typing_extensions.final
 class DailyMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -78,6 +81,7 @@ class DailyMaintenanceWindow(google.protobuf.message.Message):
 
 global___DailyMaintenanceWindow = DailyMaintenanceWindow
 
+@typing_extensions.final
 class DaysOfWeekMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +109,7 @@ class DaysOfWeekMaintenanceWindow(google.protobuf.message.Message):
 
 global___DaysOfWeekMaintenanceWindow = DaysOfWeekMaintenanceWindow
 
+@typing_extensions.final
 class WeeklyMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

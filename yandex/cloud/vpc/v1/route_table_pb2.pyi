@@ -18,11 +18,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class RouteTable(google.protobuf.message.Message):
     """A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,11 +84,13 @@ class RouteTable(google.protobuf.message.Message):
 
 global___RouteTable = RouteTable
 
+@typing_extensions.final
 class StaticRoute(google.protobuf.message.Message):
     """A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

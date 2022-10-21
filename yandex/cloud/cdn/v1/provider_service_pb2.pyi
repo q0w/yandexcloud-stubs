@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ActivateProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class ActivateProviderRequest(google.protobuf.message.Message):
 
 global___ActivateProviderRequest = ActivateProviderRequest
 
+@typing_extensions.final
 class ActivateProviderMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -53,6 +55,7 @@ class ActivateProviderMetadata(google.protobuf.message.Message):
 
 global___ActivateProviderMetadata = ActivateProviderMetadata
 
+@typing_extensions.final
 class ListActivatedProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -68,6 +71,7 @@ class ListActivatedProvidersRequest(google.protobuf.message.Message):
 
 global___ListActivatedProvidersRequest = ListActivatedProvidersRequest
 
+@typing_extensions.final
 class ListActivatedProvidersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetGatewayRequest(google.protobuf.message.Message):
 
 global___GetGatewayRequest = GetGatewayRequest
 
+@typing_extensions.final
 class ListGatewaysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListGatewaysRequest(google.protobuf.message.Message):
 
 global___ListGatewaysRequest = ListGatewaysRequest
 
+@typing_extensions.final
 class ListGatewaysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +108,7 @@ class ListGatewaysResponse(google.protobuf.message.Message):
 
 global___ListGatewaysResponse = ListGatewaysResponse
 
+@typing_extensions.final
 class ListGatewayOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -137,6 +141,7 @@ class ListGatewayOperationsRequest(google.protobuf.message.Message):
 
 global___ListGatewayOperationsRequest = ListGatewayOperationsRequest
 
+@typing_extensions.final
 class ListGatewayOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -162,6 +167,7 @@ class ListGatewayOperationsResponse(google.protobuf.message.Message):
 
 global___ListGatewayOperationsResponse = ListGatewayOperationsResponse
 
+@typing_extensions.final
 class SharedEgressGatewaySpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -171,9 +177,11 @@ class SharedEgressGatewaySpec(google.protobuf.message.Message):
 
 global___SharedEgressGatewaySpec = SharedEgressGatewaySpec
 
+@typing_extensions.final
 class CreateGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -225,6 +233,7 @@ class CreateGatewayRequest(google.protobuf.message.Message):
 
 global___CreateGatewayRequest = CreateGatewayRequest
 
+@typing_extensions.final
 class CreateGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -240,9 +249,11 @@ class CreateGatewayMetadata(google.protobuf.message.Message):
 
 global___CreateGatewayMetadata = CreateGatewayMetadata
 
+@typing_extensions.final
 class UpdateGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -306,6 +317,7 @@ class UpdateGatewayRequest(google.protobuf.message.Message):
 
 global___UpdateGatewayRequest = UpdateGatewayRequest
 
+@typing_extensions.final
 class UpdateGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -321,6 +333,7 @@ class UpdateGatewayMetadata(google.protobuf.message.Message):
 
 global___UpdateGatewayMetadata = UpdateGatewayMetadata
 
+@typing_extensions.final
 class DeleteGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -339,6 +352,7 @@ class DeleteGatewayRequest(google.protobuf.message.Message):
 
 global___DeleteGatewayRequest = DeleteGatewayRequest
 
+@typing_extensions.final
 class DeleteGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -354,6 +368,7 @@ class DeleteGatewayMetadata(google.protobuf.message.Message):
 
 global___DeleteGatewayMetadata = DeleteGatewayMetadata
 
+@typing_extensions.final
 class MoveGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -371,6 +386,7 @@ class MoveGatewayRequest(google.protobuf.message.Message):
 
 global___MoveGatewayRequest = MoveGatewayRequest
 
+@typing_extensions.final
 class MoveGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

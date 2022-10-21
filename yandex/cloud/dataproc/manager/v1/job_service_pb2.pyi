@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListJobsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -50,6 +51,7 @@ class ListJobsRequest(google.protobuf.message.Message):
 
 global___ListJobsRequest = ListJobsRequest
 
+@typing_extensions.final
 class ListJobsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListJobsResponse(google.protobuf.message.Message):
 
 global___ListJobsResponse = ListJobsResponse
 
+@typing_extensions.final
 class UpdateJobStatusRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,6 +107,7 @@ class UpdateJobStatusRequest(google.protobuf.message.Message):
 
 global___UpdateJobStatusRequest = UpdateJobStatusRequest
 
+@typing_extensions.final
 class UpdateJobStatusResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

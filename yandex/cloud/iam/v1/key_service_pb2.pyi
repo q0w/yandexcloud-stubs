@@ -25,7 +25,7 @@ class _KeyFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _KeyFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_KeyFormat.ValueType], builtins.type):  # noqa: F821
+class _KeyFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_KeyFormat.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     PEM_FILE: _KeyFormat.ValueType  # 0
     """Privacy-Enhanced Mail (PEM) format. Default value."""
@@ -36,6 +36,7 @@ PEM_FILE: KeyFormat.ValueType  # 0
 """Privacy-Enhanced Mail (PEM) format. Default value."""
 global___KeyFormat = KeyFormat
 
+@typing_extensions.final
 class GetKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +58,7 @@ class GetKeyRequest(google.protobuf.message.Message):
 
 global___GetKeyRequest = GetKeyRequest
 
+@typing_extensions.final
 class ListKeysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,6 +97,7 @@ class ListKeysRequest(google.protobuf.message.Message):
 
 global___ListKeysRequest = ListKeysRequest
 
+@typing_extensions.final
 class ListKeysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -121,6 +124,7 @@ class ListKeysResponse(google.protobuf.message.Message):
 
 global___ListKeysResponse = ListKeysResponse
 
+@typing_extensions.final
 class CreateKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +156,7 @@ class CreateKeyRequest(google.protobuf.message.Message):
 
 global___CreateKeyRequest = CreateKeyRequest
 
+@typing_extensions.final
 class CreateKeyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,6 +180,7 @@ class CreateKeyResponse(google.protobuf.message.Message):
 
 global___CreateKeyResponse = CreateKeyResponse
 
+@typing_extensions.final
 class UpdateKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -202,6 +208,7 @@ class UpdateKeyRequest(google.protobuf.message.Message):
 
 global___UpdateKeyRequest = UpdateKeyRequest
 
+@typing_extensions.final
 class UpdateKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,6 +224,7 @@ class UpdateKeyMetadata(google.protobuf.message.Message):
 
 global___UpdateKeyMetadata = UpdateKeyMetadata
 
+@typing_extensions.final
 class DeleteKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +242,7 @@ class DeleteKeyRequest(google.protobuf.message.Message):
 
 global___DeleteKeyRequest = DeleteKeyRequest
 
+@typing_extensions.final
 class DeleteKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -249,6 +258,7 @@ class DeleteKeyMetadata(google.protobuf.message.Message):
 
 global___DeleteKeyMetadata = DeleteKeyMetadata
 
+@typing_extensions.final
 class ListKeyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -279,6 +289,7 @@ class ListKeyOperationsRequest(google.protobuf.message.Message):
 
 global___ListKeyOperationsRequest = ListKeyOperationsRequest
 
+@typing_extensions.final
 class ListKeyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class GetEndpointRequest(google.protobuf.message.Message):
 
 global___GetEndpointRequest = GetEndpointRequest
 
+@typing_extensions.final
 class ListEndpointsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -63,6 +65,7 @@ class ListEndpointsRequest(google.protobuf.message.Message):
 
 global___ListEndpointsRequest = ListEndpointsRequest
 
+@typing_extensions.final
 class ListEndpointsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -90,9 +93,11 @@ class ListEndpointsResponse(google.protobuf.message.Message):
 
 global___ListEndpointsResponse = ListEndpointsResponse
 
+@typing_extensions.final
 class CreateEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -134,6 +139,7 @@ class CreateEndpointRequest(google.protobuf.message.Message):
 
 global___CreateEndpointRequest = CreateEndpointRequest
 
+@typing_extensions.final
 class CreateEndpointMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -148,9 +154,11 @@ class CreateEndpointMetadata(google.protobuf.message.Message):
 
 global___CreateEndpointMetadata = CreateEndpointMetadata
 
+@typing_extensions.final
 class UpdateEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -206,6 +214,7 @@ class UpdateEndpointRequest(google.protobuf.message.Message):
 
 global___UpdateEndpointRequest = UpdateEndpointRequest
 
+@typing_extensions.final
 class UpdateEndpointMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +229,7 @@ class UpdateEndpointMetadata(google.protobuf.message.Message):
 
 global___UpdateEndpointMetadata = UpdateEndpointMetadata
 
+@typing_extensions.final
 class DeleteEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +244,7 @@ class DeleteEndpointRequest(google.protobuf.message.Message):
 
 global___DeleteEndpointRequest = DeleteEndpointRequest
 
+@typing_extensions.final
 class DeleteEndpointMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

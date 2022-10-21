@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetProxyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetProxyRequest(google.protobuf.message.Message):
 
 global___GetProxyRequest = GetProxyRequest
 
+@typing_extensions.final
 class ListProxyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class ListProxyRequest(google.protobuf.message.Message):
 
 global___ListProxyRequest = ListProxyRequest
 
+@typing_extensions.final
 class ListProxyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,9 +109,11 @@ class ListProxyResponse(google.protobuf.message.Message):
 
 global___ListProxyResponse = ListProxyResponse
 
+@typing_extensions.final
 class CreateProxyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,6 +165,7 @@ class CreateProxyRequest(google.protobuf.message.Message):
 
 global___CreateProxyRequest = CreateProxyRequest
 
+@typing_extensions.final
 class CreateProxyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,9 +181,11 @@ class CreateProxyMetadata(google.protobuf.message.Message):
 
 global___CreateProxyMetadata = CreateProxyMetadata
 
+@typing_extensions.final
 class UpdateProxyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -231,6 +239,7 @@ class UpdateProxyRequest(google.protobuf.message.Message):
 
 global___UpdateProxyRequest = UpdateProxyRequest
 
+@typing_extensions.final
 class UpdateProxyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -246,6 +255,7 @@ class UpdateProxyMetadata(google.protobuf.message.Message):
 
 global___UpdateProxyMetadata = UpdateProxyMetadata
 
+@typing_extensions.final
 class DeleteProxyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -261,6 +271,7 @@ class DeleteProxyRequest(google.protobuf.message.Message):
 
 global___DeleteProxyRequest = DeleteProxyRequest
 
+@typing_extensions.final
 class DeleteProxyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -276,6 +287,7 @@ class DeleteProxyMetadata(google.protobuf.message.Message):
 
 global___DeleteProxyMetadata = DeleteProxyMetadata
 
+@typing_extensions.final
 class ListProxyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -317,6 +329,7 @@ class ListProxyOperationsRequest(google.protobuf.message.Message):
 
 global___ListProxyOperationsRequest = ListProxyOperationsRequest
 
+@typing_extensions.final
 class ListProxyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

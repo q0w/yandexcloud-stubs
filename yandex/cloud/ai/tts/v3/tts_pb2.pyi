@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class AudioContent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -40,6 +41,7 @@ class AudioContent(google.protobuf.message.Message):
 
 global___AudioContent = AudioContent
 
+@typing_extensions.final
 class AudioFormatOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -63,6 +65,7 @@ class AudioFormatOptions(google.protobuf.message.Message):
 
 global___AudioFormatOptions = AudioFormatOptions
 
+@typing_extensions.final
 class RawAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -97,6 +100,7 @@ class RawAudio(google.protobuf.message.Message):
 
 global___RawAudio = RawAudio
 
+@typing_extensions.final
 class ContainerAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -134,6 +138,7 @@ class ContainerAudio(google.protobuf.message.Message):
 
 global___ContainerAudio = ContainerAudio
 
+@typing_extensions.final
 class TextVariable(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +158,7 @@ class TextVariable(google.protobuf.message.Message):
 
 global___TextVariable = TextVariable
 
+@typing_extensions.final
 class AudioVariable(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -176,6 +182,7 @@ class AudioVariable(google.protobuf.message.Message):
 
 global___AudioVariable = AudioVariable
 
+@typing_extensions.final
 class UtteranceSynthesisResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -193,6 +200,7 @@ class UtteranceSynthesisResponse(google.protobuf.message.Message):
 
 global___UtteranceSynthesisResponse = UtteranceSynthesisResponse
 
+@typing_extensions.final
 class AudioTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +228,7 @@ class AudioTemplate(google.protobuf.message.Message):
 
 global___AudioTemplate = AudioTemplate
 
+@typing_extensions.final
 class AudioChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -235,6 +244,7 @@ class AudioChunk(google.protobuf.message.Message):
 
 global___AudioChunk = AudioChunk
 
+@typing_extensions.final
 class TextTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -261,6 +271,7 @@ class TextTemplate(google.protobuf.message.Message):
 
 global___TextTemplate = TextTemplate
 
+@typing_extensions.final
 class Hints(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +309,7 @@ class Hints(google.protobuf.message.Message):
 
 global___Hints = Hints
 
+@typing_extensions.final
 class UtteranceSynthesisRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

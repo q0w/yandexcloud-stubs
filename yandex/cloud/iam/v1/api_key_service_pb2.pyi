@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetApiKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetApiKeyRequest(google.protobuf.message.Message):
 
 global___GetApiKeyRequest = GetApiKeyRequest
 
+@typing_extensions.final
 class ListApiKeysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -71,6 +73,7 @@ class ListApiKeysRequest(google.protobuf.message.Message):
 
 global___ListApiKeysRequest = ListApiKeysRequest
 
+@typing_extensions.final
 class ListApiKeysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -97,6 +100,7 @@ class ListApiKeysResponse(google.protobuf.message.Message):
 
 global___ListApiKeysResponse = ListApiKeysResponse
 
+@typing_extensions.final
 class CreateApiKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -120,6 +124,7 @@ class CreateApiKeyRequest(google.protobuf.message.Message):
 
 global___CreateApiKeyRequest = CreateApiKeyRequest
 
+@typing_extensions.final
 class CreateApiKeyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -141,6 +146,7 @@ class CreateApiKeyResponse(google.protobuf.message.Message):
 
 global___CreateApiKeyResponse = CreateApiKeyResponse
 
+@typing_extensions.final
 class UpdateApiKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -168,6 +174,7 @@ class UpdateApiKeyRequest(google.protobuf.message.Message):
 
 global___UpdateApiKeyRequest = UpdateApiKeyRequest
 
+@typing_extensions.final
 class UpdateApiKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +190,7 @@ class UpdateApiKeyMetadata(google.protobuf.message.Message):
 
 global___UpdateApiKeyMetadata = UpdateApiKeyMetadata
 
+@typing_extensions.final
 class DeleteApiKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -200,6 +208,7 @@ class DeleteApiKeyRequest(google.protobuf.message.Message):
 
 global___DeleteApiKeyRequest = DeleteApiKeyRequest
 
+@typing_extensions.final
 class DeleteApiKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -215,6 +224,7 @@ class DeleteApiKeyMetadata(google.protobuf.message.Message):
 
 global___DeleteApiKeyMetadata = DeleteApiKeyMetadata
 
+@typing_extensions.final
 class ListApiKeyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -245,6 +255,7 @@ class ListApiKeyOperationsRequest(google.protobuf.message.Message):
 
 global___ListApiKeyOperationsRequest = ListApiKeyOperationsRequest
 
+@typing_extensions.final
 class ListApiKeyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetLocationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class GetLocationRequest(google.protobuf.message.Message):
 
 global___GetLocationRequest = GetLocationRequest
 
+@typing_extensions.final
 class ListLocationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class ListLocationsRequest(google.protobuf.message.Message):
 
 global___ListLocationsRequest = ListLocationsRequest
 
+@typing_extensions.final
 class ListLocationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

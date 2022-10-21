@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListZonesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -42,6 +43,7 @@ class ListZonesRequest(google.protobuf.message.Message):
 
 global___ListZonesRequest = ListZonesRequest
 
+@typing_extensions.final
 class ListZonesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -68,6 +70,7 @@ class ListZonesResponse(google.protobuf.message.Message):
 
 global___ListZonesResponse = ListZonesResponse
 
+@typing_extensions.final
 class GetZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

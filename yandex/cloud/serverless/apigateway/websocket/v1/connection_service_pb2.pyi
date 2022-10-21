@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetConnectionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -31,6 +32,7 @@ class GetConnectionRequest(google.protobuf.message.Message):
 
 global___GetConnectionRequest = GetConnectionRequest
 
+@typing_extensions.final
 class SendToConnectionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -73,6 +75,7 @@ class SendToConnectionRequest(google.protobuf.message.Message):
 
 global___SendToConnectionRequest = SendToConnectionRequest
 
+@typing_extensions.final
 class SendToConnectionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,6 +85,7 @@ class SendToConnectionResponse(google.protobuf.message.Message):
 
 global___SendToConnectionResponse = SendToConnectionResponse
 
+@typing_extensions.final
 class DisconnectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -97,6 +101,7 @@ class DisconnectRequest(google.protobuf.message.Message):
 
 global___DisconnectRequest = DisconnectRequest
 
+@typing_extensions.final
 class DisconnectResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

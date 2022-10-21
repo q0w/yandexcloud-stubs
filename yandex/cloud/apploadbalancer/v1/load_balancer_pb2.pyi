@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LoadBalancer(google.protobuf.message.Message):
     """An application load balancer resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer).
@@ -63,6 +64,7 @@ class LoadBalancer(google.protobuf.message.Message):
     DELETING: LoadBalancer.Status.ValueType  # 6
     """The application load balancer is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -169,6 +171,7 @@ class LoadBalancer(google.protobuf.message.Message):
 
 global___LoadBalancer = LoadBalancer
 
+@typing_extensions.final
 class Address(google.protobuf.message.Message):
     """An endpoint address resource."""
 
@@ -202,6 +205,7 @@ class Address(google.protobuf.message.Message):
 
 global___Address = Address
 
+@typing_extensions.final
 class ExternalIpv4Address(google.protobuf.message.Message):
     """A public (external) IPv4 endpoint address resource."""
 
@@ -219,6 +223,7 @@ class ExternalIpv4Address(google.protobuf.message.Message):
 
 global___ExternalIpv4Address = ExternalIpv4Address
 
+@typing_extensions.final
 class InternalIpv4Address(google.protobuf.message.Message):
     """An internal IPv4 endpoint address resource."""
 
@@ -240,6 +245,7 @@ class InternalIpv4Address(google.protobuf.message.Message):
 
 global___InternalIpv4Address = InternalIpv4Address
 
+@typing_extensions.final
 class ExternalIpv6Address(google.protobuf.message.Message):
     """A public (external) IPv4 endpoint address resource."""
 
@@ -257,6 +263,7 @@ class ExternalIpv6Address(google.protobuf.message.Message):
 
 global___ExternalIpv6Address = ExternalIpv6Address
 
+@typing_extensions.final
 class Location(google.protobuf.message.Message):
     """An application load balancer location resource.
 
@@ -293,6 +300,7 @@ class Location(google.protobuf.message.Message):
 
 global___Location = Location
 
+@typing_extensions.final
 class AllocationPolicy(google.protobuf.message.Message):
     """A locality settings (allocation policy) resource."""
 
@@ -311,6 +319,7 @@ class AllocationPolicy(google.protobuf.message.Message):
 
 global___AllocationPolicy = AllocationPolicy
 
+@typing_extensions.final
 class Listener(google.protobuf.message.Message):
     """A listener resource.
 
@@ -363,6 +372,7 @@ class Listener(google.protobuf.message.Message):
 
 global___Listener = Listener
 
+@typing_extensions.final
 class Endpoint(google.protobuf.message.Message):
     """An endpoint resource."""
 
@@ -386,6 +396,7 @@ class Endpoint(google.protobuf.message.Message):
 
 global___Endpoint = Endpoint
 
+@typing_extensions.final
 class HttpListener(google.protobuf.message.Message):
     """An HTTP listener resource."""
 
@@ -416,6 +427,7 @@ class HttpListener(google.protobuf.message.Message):
 
 global___HttpListener = HttpListener
 
+@typing_extensions.final
 class TlsListener(google.protobuf.message.Message):
     """TLS-encrypted (HTTP or TCP stream) listener resource."""
 
@@ -444,6 +456,7 @@ class TlsListener(google.protobuf.message.Message):
 
 global___TlsListener = TlsListener
 
+@typing_extensions.final
 class StreamListener(google.protobuf.message.Message):
     """A stream (TCP) listener resource."""
 
@@ -463,6 +476,7 @@ class StreamListener(google.protobuf.message.Message):
 
 global___StreamListener = StreamListener
 
+@typing_extensions.final
 class Http2Options(google.protobuf.message.Message):
     """An HTTP/2 options resource."""
 
@@ -480,6 +494,7 @@ class Http2Options(google.protobuf.message.Message):
 
 global___Http2Options = Http2Options
 
+@typing_extensions.final
 class StreamHandler(google.protobuf.message.Message):
     """A stream (TCP) handler resource."""
 
@@ -503,6 +518,7 @@ class StreamHandler(google.protobuf.message.Message):
 
 global___StreamHandler = StreamHandler
 
+@typing_extensions.final
 class HttpHandler(google.protobuf.message.Message):
     """An HTTP handler resource."""
 
@@ -538,6 +554,7 @@ class HttpHandler(google.protobuf.message.Message):
 
 global___HttpHandler = HttpHandler
 
+@typing_extensions.final
 class Redirects(google.protobuf.message.Message):
     """A listener redirects resource."""
 
@@ -559,6 +576,7 @@ class Redirects(google.protobuf.message.Message):
 
 global___Redirects = Redirects
 
+@typing_extensions.final
 class SniMatch(google.protobuf.message.Message):
     """A SNI handler resource."""
 
@@ -587,6 +605,7 @@ class SniMatch(google.protobuf.message.Message):
 
 global___SniMatch = SniMatch
 
+@typing_extensions.final
 class TlsHandler(google.protobuf.message.Message):
     """A TLS-encrypted (HTTP or TCP stream) handler resource."""
 
@@ -620,6 +639,7 @@ class TlsHandler(google.protobuf.message.Message):
 
 global___TlsHandler = TlsHandler
 
+@typing_extensions.final
 class TargetState(google.protobuf.message.Message):
     """A target state resource."""
 
@@ -672,6 +692,7 @@ class TargetState(google.protobuf.message.Message):
     """Target is being deleted and the application load balancer is no longer sending traffic to this target."""
     TIMEOUT: TargetState.Status.ValueType  # 5
 
+    @typing_extensions.final
     class HealthcheckStatus(google.protobuf.message.Message):
         """Health of the target."""
 
@@ -688,6 +709,7 @@ class TargetState(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["zone_statuses", b"zone_statuses"]) -> None: ...
 
+    @typing_extensions.final
     class ZoneHealthcheckStatus(google.protobuf.message.Message):
         """Health of the target in the availability zone."""
 
@@ -736,6 +758,7 @@ class TargetState(google.protobuf.message.Message):
 
 global___TargetState = TargetState
 
+@typing_extensions.final
 class AutoScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

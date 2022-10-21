@@ -23,7 +23,7 @@ class _BudgetStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _BudgetStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BudgetStatus.ValueType], builtins.type):  # noqa: F821
+class _BudgetStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BudgetStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BUDGET_STATUS_UNSPECIFIED: _BudgetStatus.ValueType  # 0
     CREATING: _BudgetStatus.ValueType  # 1
@@ -48,7 +48,7 @@ class _ResetPeriodType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ResetPeriodTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ResetPeriodType.ValueType], builtins.type):  # noqa: F821
+class _ResetPeriodTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ResetPeriodType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     RESET_PERIOD_TYPE_UNSPECIFIED: _ResetPeriodType.ValueType  # 0
     MONTHLY: _ResetPeriodType.ValueType  # 1
@@ -73,7 +73,7 @@ class _ThresholdType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ThresholdTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ThresholdType.ValueType], builtins.type):  # noqa: F821
+class _ThresholdTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ThresholdType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     THRESHOLD_TYPE_UNSPECIFIED: _ThresholdType.ValueType  # 0
     PERCENT: _ThresholdType.ValueType  # 1
@@ -91,6 +91,7 @@ AMOUNT: ThresholdType.ValueType  # 2
 """The same as budget amount."""
 global___ThresholdType = ThresholdType
 
+@typing_extensions.final
 class Budget(google.protobuf.message.Message):
     """A Budget resource. For more information, see [/docs/billing/concepts/budget]."""
 
@@ -142,6 +143,7 @@ class Budget(google.protobuf.message.Message):
 
 global___Budget = Budget
 
+@typing_extensions.final
 class CostBudgetSpec(google.protobuf.message.Message):
     """Cost budget specification describes budget that can be used to control cost of cloud resources usage."""
 
@@ -198,6 +200,7 @@ class CostBudgetSpec(google.protobuf.message.Message):
 
 global___CostBudgetSpec = CostBudgetSpec
 
+@typing_extensions.final
 class ExpenseBudgetSpec(google.protobuf.message.Message):
     """Expense budget specification describes budget that can be used to control expense of cloud resources usage."""
 
@@ -254,6 +257,7 @@ class ExpenseBudgetSpec(google.protobuf.message.Message):
 
 global___ExpenseBudgetSpec = ExpenseBudgetSpec
 
+@typing_extensions.final
 class BalanceBudgetSpec(google.protobuf.message.Message):
     """Balance budget specification describes budget that can be used to control [yandex.cloud.billing.v1.BillingAccount.balance]."""
 
@@ -297,6 +301,7 @@ class BalanceBudgetSpec(google.protobuf.message.Message):
 
 global___BalanceBudgetSpec = BalanceBudgetSpec
 
+@typing_extensions.final
 class ConsumptionFilter(google.protobuf.message.Message):
     """Filter that can be used for specific resources selection."""
 
@@ -326,6 +331,7 @@ class ConsumptionFilter(google.protobuf.message.Message):
 
 global___ConsumptionFilter = ConsumptionFilter
 
+@typing_extensions.final
 class CloudFoldersConsumptionFilter(google.protobuf.message.Message):
     """Filter that can be used for specific cloud and its folders selection."""
 
@@ -353,6 +359,7 @@ class CloudFoldersConsumptionFilter(google.protobuf.message.Message):
 
 global___CloudFoldersConsumptionFilter = CloudFoldersConsumptionFilter
 
+@typing_extensions.final
 class ThresholdRule(google.protobuf.message.Message):
     """Rules that define intermediate cost thresholds of the budget."""
 

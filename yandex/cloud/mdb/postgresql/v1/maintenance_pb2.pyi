@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MaintenanceWindow(google.protobuf.message.Message):
     """A maintenance window settings."""
 
@@ -42,6 +43,7 @@ class MaintenanceWindow(google.protobuf.message.Message):
 
 global___MaintenanceWindow = MaintenanceWindow
 
+@typing_extensions.final
 class AnytimeMaintenanceWindow(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -51,6 +53,7 @@ class AnytimeMaintenanceWindow(google.protobuf.message.Message):
 
 global___AnytimeMaintenanceWindow = AnytimeMaintenanceWindow
 
+@typing_extensions.final
 class WeeklyMaintenanceWindow(google.protobuf.message.Message):
     """Weelky maintenance window settings."""
 
@@ -97,6 +100,7 @@ class WeeklyMaintenanceWindow(google.protobuf.message.Message):
 
 global___WeeklyMaintenanceWindow = WeeklyMaintenanceWindow
 
+@typing_extensions.final
 class MaintenanceOperation(google.protobuf.message.Message):
     """A planned maintenance operation."""
 

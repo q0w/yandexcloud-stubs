@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class GetApiGatewayRequest(google.protobuf.message.Message):
 
 global___GetApiGatewayRequest = GetApiGatewayRequest
 
+@typing_extensions.final
 class ListApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -83,6 +85,7 @@ class ListApiGatewayRequest(google.protobuf.message.Message):
 
 global___ListApiGatewayRequest = ListApiGatewayRequest
 
+@typing_extensions.final
 class ListApiGatewayResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -108,9 +111,11 @@ class ListApiGatewayResponse(google.protobuf.message.Message):
 
 global___ListApiGatewayResponse = ListApiGatewayResponse
 
+@typing_extensions.final
 class CreateApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -167,9 +172,11 @@ class CreateApiGatewayRequest(google.protobuf.message.Message):
 
 global___CreateApiGatewayRequest = CreateApiGatewayRequest
 
+@typing_extensions.final
 class UpdateApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -235,6 +242,7 @@ class UpdateApiGatewayRequest(google.protobuf.message.Message):
 
 global___UpdateApiGatewayRequest = UpdateApiGatewayRequest
 
+@typing_extensions.final
 class DeleteApiGatewayRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -253,6 +261,7 @@ class DeleteApiGatewayRequest(google.protobuf.message.Message):
 
 global___DeleteApiGatewayRequest = DeleteApiGatewayRequest
 
+@typing_extensions.final
 class AddDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -276,6 +285,7 @@ class AddDomainRequest(google.protobuf.message.Message):
 
 global___AddDomainRequest = AddDomainRequest
 
+@typing_extensions.final
 class RemoveDomainRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -295,6 +305,7 @@ class RemoveDomainRequest(google.protobuf.message.Message):
 
 global___RemoveDomainRequest = RemoveDomainRequest
 
+@typing_extensions.final
 class CreateApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -310,6 +321,7 @@ class CreateApiGatewayMetadata(google.protobuf.message.Message):
 
 global___CreateApiGatewayMetadata = CreateApiGatewayMetadata
 
+@typing_extensions.final
 class UpdateApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -325,6 +337,7 @@ class UpdateApiGatewayMetadata(google.protobuf.message.Message):
 
 global___UpdateApiGatewayMetadata = UpdateApiGatewayMetadata
 
+@typing_extensions.final
 class DeleteApiGatewayMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -340,6 +353,7 @@ class DeleteApiGatewayMetadata(google.protobuf.message.Message):
 
 global___DeleteApiGatewayMetadata = DeleteApiGatewayMetadata
 
+@typing_extensions.final
 class AddDomainMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -367,6 +381,7 @@ class AddDomainMetadata(google.protobuf.message.Message):
 
 global___AddDomainMetadata = AddDomainMetadata
 
+@typing_extensions.final
 class RemoveDomainMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -386,6 +401,7 @@ class RemoveDomainMetadata(google.protobuf.message.Message):
 
 global___RemoveDomainMetadata = RemoveDomainMetadata
 
+@typing_extensions.final
 class ListOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -427,6 +443,7 @@ class ListOperationsRequest(google.protobuf.message.Message):
 
 global___ListOperationsRequest = ListOperationsRequest
 
+@typing_extensions.final
 class ListOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -452,6 +469,7 @@ class ListOperationsResponse(google.protobuf.message.Message):
 
 global___ListOperationsResponse = ListOperationsResponse
 
+@typing_extensions.final
 class GetOpenapiSpecRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -486,6 +504,7 @@ class GetOpenapiSpecRequest(google.protobuf.message.Message):
 
 global___GetOpenapiSpecRequest = GetOpenapiSpecRequest
 
+@typing_extensions.final
 class GetOpenapiSpecResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

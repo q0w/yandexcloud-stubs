@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LifecyclePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -89,6 +90,7 @@ class LifecyclePolicy(google.protobuf.message.Message):
 
 global___LifecyclePolicy = LifecyclePolicy
 
+@typing_extensions.final
 class LifecycleRule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

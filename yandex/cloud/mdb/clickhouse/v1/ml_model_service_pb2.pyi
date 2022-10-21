@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetMlModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -40,6 +41,7 @@ class GetMlModelRequest(google.protobuf.message.Message):
 
 global___GetMlModelRequest = GetMlModelRequest
 
+@typing_extensions.final
 class ListMlModelsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -69,6 +71,7 @@ class ListMlModelsRequest(google.protobuf.message.Message):
 
 global___ListMlModelsRequest = ListMlModelsRequest
 
+@typing_extensions.final
 class ListMlModelsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -94,6 +97,7 @@ class ListMlModelsResponse(google.protobuf.message.Message):
 
 global___ListMlModelsResponse = ListMlModelsResponse
 
+@typing_extensions.final
 class CreateMlModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -124,6 +128,7 @@ class CreateMlModelRequest(google.protobuf.message.Message):
 
 global___CreateMlModelRequest = CreateMlModelRequest
 
+@typing_extensions.final
 class CreateMlModelMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,6 +148,7 @@ class CreateMlModelMetadata(google.protobuf.message.Message):
 
 global___CreateMlModelMetadata = CreateMlModelMetadata
 
+@typing_extensions.final
 class UpdateMlModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -174,6 +180,7 @@ class UpdateMlModelRequest(google.protobuf.message.Message):
 
 global___UpdateMlModelRequest = UpdateMlModelRequest
 
+@typing_extensions.final
 class UpdateMlModelMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -193,6 +200,7 @@ class UpdateMlModelMetadata(google.protobuf.message.Message):
 
 global___UpdateMlModelMetadata = UpdateMlModelMetadata
 
+@typing_extensions.final
 class DeleteMlModelRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -215,6 +223,7 @@ class DeleteMlModelRequest(google.protobuf.message.Message):
 
 global___DeleteMlModelRequest = DeleteMlModelRequest
 
+@typing_extensions.final
 class DeleteMlModelMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

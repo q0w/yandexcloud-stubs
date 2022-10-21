@@ -25,7 +25,7 @@ class _Versioning:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Versioning.ValueType], builtins.type):  # noqa: F821
+class _VersioningEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Versioning.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     VERSIONING_UNSPECIFIED: _Versioning.ValueType  # 0
     VERSIONING_DISABLED: _Versioning.ValueType  # 1
@@ -78,6 +78,7 @@ To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService
 """
 global___Versioning = Versioning
 
+@typing_extensions.final
 class Bucket(google.protobuf.message.Message):
     """A bucket resource.
     For details about the concept, see [documentation](/docs/storage/concepts/bucket).
@@ -176,9 +177,11 @@ class Bucket(google.protobuf.message.Message):
 
 global___Bucket = Bucket
 
+@typing_extensions.final
 class ACL(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Grant(google.protobuf.message.Message):
         """A grant resource, used to specify the permission granted and the grantee."""
 
@@ -349,6 +352,7 @@ class ACL(google.protobuf.message.Message):
 
 global___ACL = ACL
 
+@typing_extensions.final
 class AnonymousAccessFlags(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -379,6 +383,7 @@ class AnonymousAccessFlags(google.protobuf.message.Message):
 
 global___AnonymousAccessFlags = AnonymousAccessFlags
 
+@typing_extensions.final
 class CorsRule(google.protobuf.message.Message):
     """A CORS rule resource.
     For details about the concept, see [documentation](/docs/storage/concepts/cors).
@@ -484,6 +489,7 @@ class CorsRule(google.protobuf.message.Message):
 
 global___CorsRule = CorsRule
 
+@typing_extensions.final
 class WebsiteSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -506,6 +512,7 @@ class WebsiteSettings(google.protobuf.message.Message):
     PROTOCOL_HTTPS: WebsiteSettings.Protocol.ValueType  # 2
     """`https` scheme."""
 
+    @typing_extensions.final
     class Scheme(google.protobuf.message.Message):
         """A configuration resource for redirecting all requests sent to the website."""
 
@@ -525,6 +532,7 @@ class WebsiteSettings(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["hostname", b"hostname", "protocol", b"protocol"]) -> None: ...
 
+    @typing_extensions.final
     class Condition(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -542,6 +550,7 @@ class WebsiteSettings(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["http_error_code_returned_equals", b"http_error_code_returned_equals", "key_prefix_equals", b"key_prefix_equals"]) -> None: ...
 
+    @typing_extensions.final
     class Redirect(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -580,6 +589,7 @@ class WebsiteSettings(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["hostname", b"hostname", "http_redirect_code", b"http_redirect_code", "protocol", b"protocol", "replace_key_prefix_with", b"replace_key_prefix_with", "replace_key_with", b"replace_key_with"]) -> None: ...
 
+    @typing_extensions.final
     class RoutingRule(google.protobuf.message.Message):
         """List of redirect rules."""
 
@@ -638,6 +648,7 @@ class WebsiteSettings(google.protobuf.message.Message):
 
 global___WebsiteSettings = WebsiteSettings
 
+@typing_extensions.final
 class LifecycleRule(google.protobuf.message.Message):
     """An object lifecycle rule resource for the bucket.
     For details about the concept, see [documentation](/docs/storage/concepts/lifecycles).
@@ -645,6 +656,7 @@ class LifecycleRule(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class AfterDays(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -662,6 +674,7 @@ class LifecycleRule(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["days_after_expiration", b"days_after_expiration"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["days_after_expiration", b"days_after_expiration"]) -> None: ...
 
+    @typing_extensions.final
     class NoncurrentExpiration(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -679,6 +692,7 @@ class LifecycleRule(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> None: ...
 
+    @typing_extensions.final
     class NoncurrentTransition(google.protobuf.message.Message):
         """List of transition rules for non-current versions of objects in a bucket with versioning enabled
         ([Bucket.versioning] is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
@@ -710,6 +724,7 @@ class LifecycleRule(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["noncurrent_days", b"noncurrent_days", "storage_class", b"storage_class"]) -> None: ...
 
+    @typing_extensions.final
     class Transition(google.protobuf.message.Message):
         """List of transition rules.
 
@@ -759,6 +774,7 @@ class LifecycleRule(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "storage_class", b"storage_class"]) -> None: ...
 
+    @typing_extensions.final
     class Expiration(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -797,6 +813,7 @@ class LifecycleRule(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "expired_object_delete_marker", b"expired_object_delete_marker"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["date", b"date", "days", b"days", "expired_object_delete_marker", b"expired_object_delete_marker"]) -> None: ...
 
+    @typing_extensions.final
     class RuleFilter(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -892,6 +909,7 @@ class LifecycleRule(google.protobuf.message.Message):
 
 global___LifecycleRule = LifecycleRule
 
+@typing_extensions.final
 class Counters(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -931,6 +949,7 @@ class Counters(google.protobuf.message.Message):
 
 global___Counters = Counters
 
+@typing_extensions.final
 class OptionalSizeByClass(google.protobuf.message.Message):
     """A resource for size of available space in a bucket for a storage class."""
 
@@ -957,6 +976,7 @@ class OptionalSizeByClass(google.protobuf.message.Message):
 
 global___OptionalSizeByClass = OptionalSizeByClass
 
+@typing_extensions.final
 class SizeByClass(google.protobuf.message.Message):
     """A resource for size of used space in a bucket for a storage class."""
 
@@ -981,6 +1001,7 @@ class SizeByClass(google.protobuf.message.Message):
 
 global___SizeByClass = SizeByClass
 
+@typing_extensions.final
 class CountersByClass(google.protobuf.message.Message):
     """A resource for object-related statistics for a storage class by type of upload (simple vs. multipart)."""
 
@@ -1007,6 +1028,7 @@ class CountersByClass(google.protobuf.message.Message):
 
 global___CountersByClass = CountersByClass
 
+@typing_extensions.final
 class BucketStats(google.protobuf.message.Message):
     """A bucket statistics resource."""
 
@@ -1074,6 +1096,7 @@ class BucketStats(google.protobuf.message.Message):
 
 global___BucketStats = BucketStats
 
+@typing_extensions.final
 class HTTPSConfig(google.protobuf.message.Message):
     """A resource for HTTPS configuration of a bucket."""
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class RedisConfig5_0(google.protobuf.message.Message):
     """Fields and structure of `RedisConfig` reflects Redis configuration file
     parameters.
@@ -75,6 +76,7 @@ class RedisConfig5_0(google.protobuf.message.Message):
     more memory to be used.
     """
 
+    @typing_extensions.final
     class ClientOutputBufferLimit(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -158,6 +160,7 @@ class RedisConfig5_0(google.protobuf.message.Message):
 
 global___RedisConfig5_0 = RedisConfig5_0
 
+@typing_extensions.final
 class RedisConfigSet5_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

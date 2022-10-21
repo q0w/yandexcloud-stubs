@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Image(google.protobuf.message.Message):
     """An Image resource."""
 
@@ -51,6 +52,7 @@ class Image(google.protobuf.message.Message):
     DELETING: Image.Status.ValueType  # 4
     """Image is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,6 +145,7 @@ class Image(google.protobuf.message.Message):
 
 global___Image = Image
 
+@typing_extensions.final
 class Os(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

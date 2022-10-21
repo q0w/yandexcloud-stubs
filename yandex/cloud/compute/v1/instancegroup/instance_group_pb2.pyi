@@ -24,7 +24,7 @@ class _IpVersion:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):  # noqa: F821
+class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     IP_VERSION_UNSPECIFIED: _IpVersion.ValueType  # 0
     IPV4: _IpVersion.ValueType  # 1
@@ -41,6 +41,7 @@ IPV6: IpVersion.ValueType  # 2
 """IPv6 address, not available yet."""
 global___IpVersion = IpVersion
 
+@typing_extensions.final
 class InstanceGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -121,6 +122,7 @@ class InstanceGroup(google.protobuf.message.Message):
     The group status will change to `ACTIVE`.
     """
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -256,6 +258,7 @@ class InstanceGroup(google.protobuf.message.Message):
 
 global___InstanceGroup = InstanceGroup
 
+@typing_extensions.final
 class ApplicationLoadBalancerState(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -275,6 +278,7 @@ class ApplicationLoadBalancerState(google.protobuf.message.Message):
 
 global___ApplicationLoadBalancerState = ApplicationLoadBalancerState
 
+@typing_extensions.final
 class Variable(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -292,6 +296,7 @@ class Variable(google.protobuf.message.Message):
 
 global___Variable = Variable
 
+@typing_extensions.final
 class LoadBalancerState(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -311,9 +316,11 @@ class LoadBalancerState(google.protobuf.message.Message):
 
 global___LoadBalancerState = LoadBalancerState
 
+@typing_extensions.final
 class ManagedInstancesState(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Statuses(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -387,9 +394,11 @@ class ManagedInstancesState(google.protobuf.message.Message):
 
 global___ManagedInstancesState = ManagedInstancesState
 
+@typing_extensions.final
 class ScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class AutoScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -478,6 +487,7 @@ class ScalePolicy(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["cpu_utilization_rule", b"cpu_utilization_rule", "measurement_duration", b"measurement_duration", "stabilization_duration", b"stabilization_duration", "warmup_duration", b"warmup_duration"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["auto_scale_type", b"auto_scale_type", "cpu_utilization_rule", b"cpu_utilization_rule", "custom_rules", b"custom_rules", "initial_size", b"initial_size", "max_size", b"max_size", "measurement_duration", b"measurement_duration", "min_zone_size", b"min_zone_size", "stabilization_duration", b"stabilization_duration", "warmup_duration", b"warmup_duration"]) -> None: ...
 
+    @typing_extensions.final
     class CpuUtilizationRule(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -491,6 +501,7 @@ class ScalePolicy(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["utilization_target", b"utilization_target"]) -> None: ...
 
+    @typing_extensions.final
     class CustomRule(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -564,6 +575,7 @@ class ScalePolicy(google.protobuf.message.Message):
         specified in the [AutoScale.measurement_duration] field.
         """
 
+        @typing_extensions.final
         class LabelsEntry(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -616,6 +628,7 @@ class ScalePolicy(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["folder_id", b"folder_id", "labels", b"labels", "metric_name", b"metric_name", "metric_type", b"metric_type", "rule_type", b"rule_type", "service", b"service", "target", b"target"]) -> None: ...
 
+    @typing_extensions.final
     class FixedScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -654,6 +667,7 @@ class ScalePolicy(google.protobuf.message.Message):
 
 global___ScalePolicy = ScalePolicy
 
+@typing_extensions.final
 class DeployPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -730,9 +744,11 @@ class DeployPolicy(google.protobuf.message.Message):
 
 global___DeployPolicy = DeployPolicy
 
+@typing_extensions.final
 class AllocationPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Zone(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -759,9 +775,11 @@ class AllocationPolicy(google.protobuf.message.Message):
 
 global___AllocationPolicy = AllocationPolicy
 
+@typing_extensions.final
 class InstanceTemplate(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -777,6 +795,7 @@ class InstanceTemplate(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -919,6 +938,7 @@ class InstanceTemplate(google.protobuf.message.Message):
 
 global___InstanceTemplate = InstanceTemplate
 
+@typing_extensions.final
 class AttachedFilesystemSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -967,9 +987,11 @@ class AttachedFilesystemSpec(google.protobuf.message.Message):
 
 global___AttachedFilesystemSpec = AttachedFilesystemSpec
 
+@typing_extensions.final
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class HostAffinityRule(google.protobuf.message.Message):
         """Affinity definition"""
 
@@ -1026,6 +1048,7 @@ class PlacementPolicy(google.protobuf.message.Message):
 
 global___PlacementPolicy = PlacementPolicy
 
+@typing_extensions.final
 class ResourcesSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1055,6 +1078,7 @@ class ResourcesSpec(google.protobuf.message.Message):
 
 global___ResourcesSpec = ResourcesSpec
 
+@typing_extensions.final
 class AttachedDiskSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1077,6 +1101,7 @@ class AttachedDiskSpec(google.protobuf.message.Message):
     READ_WRITE: AttachedDiskSpec.Mode.ValueType  # 2
     """Read/Write access."""
 
+    @typing_extensions.final
     class DiskSpec(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1146,6 +1171,7 @@ class AttachedDiskSpec(google.protobuf.message.Message):
 
 global___AttachedDiskSpec = AttachedDiskSpec
 
+@typing_extensions.final
 class NetworkInterfaceSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1182,6 +1208,7 @@ class NetworkInterfaceSpec(google.protobuf.message.Message):
 
 global___NetworkInterfaceSpec = NetworkInterfaceSpec
 
+@typing_extensions.final
 class PrimaryAddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1210,6 +1237,7 @@ class PrimaryAddressSpec(google.protobuf.message.Message):
 
 global___PrimaryAddressSpec = PrimaryAddressSpec
 
+@typing_extensions.final
 class OneToOneNatSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1234,6 +1262,7 @@ class OneToOneNatSpec(google.protobuf.message.Message):
 
 global___OneToOneNatSpec = OneToOneNatSpec
 
+@typing_extensions.final
 class DnsRecordSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1261,6 +1290,7 @@ class DnsRecordSpec(google.protobuf.message.Message):
 
 global___DnsRecordSpec = DnsRecordSpec
 
+@typing_extensions.final
 class SchedulingPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1279,6 +1309,7 @@ class SchedulingPolicy(google.protobuf.message.Message):
 
 global___SchedulingPolicy = SchedulingPolicy
 
+@typing_extensions.final
 class NetworkSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1311,6 +1342,7 @@ class NetworkSettings(google.protobuf.message.Message):
 
 global___NetworkSettings = NetworkSettings
 
+@typing_extensions.final
 class LoadBalancerSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1335,9 +1367,11 @@ class LoadBalancerSpec(google.protobuf.message.Message):
 
 global___LoadBalancerSpec = LoadBalancerSpec
 
+@typing_extensions.final
 class TargetGroupSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1374,6 +1408,7 @@ class TargetGroupSpec(google.protobuf.message.Message):
 
 global___TargetGroupSpec = TargetGroupSpec
 
+@typing_extensions.final
 class ApplicationLoadBalancerSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1398,9 +1433,11 @@ class ApplicationLoadBalancerSpec(google.protobuf.message.Message):
 
 global___ApplicationLoadBalancerSpec = ApplicationLoadBalancerSpec
 
+@typing_extensions.final
 class ApplicationTargetGroupSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1437,6 +1474,7 @@ class ApplicationTargetGroupSpec(google.protobuf.message.Message):
 
 global___ApplicationTargetGroupSpec = ApplicationTargetGroupSpec
 
+@typing_extensions.final
 class HealthChecksSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1461,9 +1499,11 @@ class HealthChecksSpec(google.protobuf.message.Message):
 
 global___HealthChecksSpec = HealthChecksSpec
 
+@typing_extensions.final
 class HealthCheckSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class TcpOptions(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1477,6 +1517,7 @@ class HealthCheckSpec(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["port", b"port"]) -> None: ...
 
+    @typing_extensions.final
     class HttpOptions(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1532,6 +1573,7 @@ class HealthCheckSpec(google.protobuf.message.Message):
 
 global___HealthCheckSpec = HealthCheckSpec
 
+@typing_extensions.final
 class ManagedInstance(google.protobuf.message.Message):
     """A ManagedInstance resource. For more information, see [Instance Groups Concepts](/docs/compute/concepts/instance-groups/)."""
 
@@ -1659,6 +1701,7 @@ class ManagedInstance(google.protobuf.message.Message):
 
 global___ManagedInstance = ManagedInstance
 
+@typing_extensions.final
 class NetworkInterface(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1695,6 +1738,7 @@ class NetworkInterface(google.protobuf.message.Message):
 
 global___NetworkInterface = NetworkInterface
 
+@typing_extensions.final
 class PrimaryAddress(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1723,6 +1767,7 @@ class PrimaryAddress(google.protobuf.message.Message):
 
 global___PrimaryAddress = PrimaryAddress
 
+@typing_extensions.final
 class OneToOneNat(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1747,6 +1792,7 @@ class OneToOneNat(google.protobuf.message.Message):
 
 global___OneToOneNat = OneToOneNat
 
+@typing_extensions.final
 class DnsRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1776,6 +1822,7 @@ class DnsRecord(google.protobuf.message.Message):
 
 global___DnsRecord = DnsRecord
 
+@typing_extensions.final
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

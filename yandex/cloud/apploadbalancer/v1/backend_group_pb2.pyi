@@ -27,7 +27,7 @@ class _LoadBalancingMode:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _LoadBalancingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LoadBalancingMode.ValueType], builtins.type):  # noqa: F821
+class _LoadBalancingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LoadBalancingMode.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ROUND_ROBIN: _LoadBalancingMode.ValueType  # 0
     """Round robin load balancing mode.
@@ -96,6 +96,7 @@ for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` inste
 """
 global___LoadBalancingMode = LoadBalancingMode
 
+@typing_extensions.final
 class BackendGroup(google.protobuf.message.Message):
     """A backend group resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group).
@@ -103,6 +104,7 @@ class BackendGroup(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +174,7 @@ class BackendGroup(google.protobuf.message.Message):
 
 global___BackendGroup = BackendGroup
 
+@typing_extensions.final
 class StreamBackendGroup(google.protobuf.message.Message):
     """A stream (TCP) backend group resource."""
 
@@ -200,6 +203,7 @@ class StreamBackendGroup(google.protobuf.message.Message):
 
 global___StreamBackendGroup = StreamBackendGroup
 
+@typing_extensions.final
 class HttpBackendGroup(google.protobuf.message.Message):
     """An HTTP backend group resource."""
 
@@ -238,6 +242,7 @@ class HttpBackendGroup(google.protobuf.message.Message):
 
 global___HttpBackendGroup = HttpBackendGroup
 
+@typing_extensions.final
 class GrpcBackendGroup(google.protobuf.message.Message):
     """A gRPC backend group resource."""
 
@@ -276,6 +281,7 @@ class GrpcBackendGroup(google.protobuf.message.Message):
 
 global___GrpcBackendGroup = GrpcBackendGroup
 
+@typing_extensions.final
 class HeaderSessionAffinity(google.protobuf.message.Message):
     """A resource for HTTP-header-field-based session affinity configuration."""
 
@@ -293,6 +299,7 @@ class HeaderSessionAffinity(google.protobuf.message.Message):
 
 global___HeaderSessionAffinity = HeaderSessionAffinity
 
+@typing_extensions.final
 class CookieSessionAffinity(google.protobuf.message.Message):
     """A resource for cookie-based session affinity configuration."""
 
@@ -322,6 +329,7 @@ class CookieSessionAffinity(google.protobuf.message.Message):
 
 global___CookieSessionAffinity = CookieSessionAffinity
 
+@typing_extensions.final
 class ConnectionSessionAffinity(google.protobuf.message.Message):
     """A resource for connection-based session affinity configuration."""
 
@@ -339,6 +347,7 @@ class ConnectionSessionAffinity(google.protobuf.message.Message):
 
 global___ConnectionSessionAffinity = ConnectionSessionAffinity
 
+@typing_extensions.final
 class LoadBalancingConfig(google.protobuf.message.Message):
     """A load balancing configuration resource."""
 
@@ -402,6 +411,7 @@ class LoadBalancingConfig(google.protobuf.message.Message):
 
 global___LoadBalancingConfig = LoadBalancingConfig
 
+@typing_extensions.final
 class StreamBackend(google.protobuf.message.Message):
     """A stream (TCP) backend resource."""
 
@@ -471,6 +481,7 @@ class StreamBackend(google.protobuf.message.Message):
 
 global___StreamBackend = StreamBackend
 
+@typing_extensions.final
 class HttpBackend(google.protobuf.message.Message):
     """An HTTP backend resource."""
 
@@ -553,6 +564,7 @@ class HttpBackend(google.protobuf.message.Message):
 
 global___HttpBackend = HttpBackend
 
+@typing_extensions.final
 class GrpcBackend(google.protobuf.message.Message):
     """A gRPC backend resource."""
 
@@ -616,6 +628,7 @@ class GrpcBackend(google.protobuf.message.Message):
 
 global___GrpcBackend = GrpcBackend
 
+@typing_extensions.final
 class TargetGroupsBackend(google.protobuf.message.Message):
     """A resource for target groups that belong to the backend."""
 
@@ -637,6 +650,7 @@ class TargetGroupsBackend(google.protobuf.message.Message):
 
 global___TargetGroupsBackend = TargetGroupsBackend
 
+@typing_extensions.final
 class PlaintextTransportSettings(google.protobuf.message.Message):
     """Transport settings to be used instead of the settings configured per-cluster"""
 
@@ -648,6 +662,7 @@ class PlaintextTransportSettings(google.protobuf.message.Message):
 
 global___PlaintextTransportSettings = PlaintextTransportSettings
 
+@typing_extensions.final
 class SecureTransportSettings(google.protobuf.message.Message):
     """Transport settings to be used instead of the settings configured per-cluster"""
 
@@ -671,6 +686,7 @@ class SecureTransportSettings(google.protobuf.message.Message):
 
 global___SecureTransportSettings = SecureTransportSettings
 
+@typing_extensions.final
 class BackendTls(google.protobuf.message.Message):
     """A resource for backend TLS settings."""
 
@@ -694,6 +710,7 @@ class BackendTls(google.protobuf.message.Message):
 
 global___BackendTls = BackendTls
 
+@typing_extensions.final
 class StorageBucketBackend(google.protobuf.message.Message):
     """A resource for Object Storage bucket used as a backend. For details about the concept,
     see [documentation](/docs/storage/concepts/bucket).
@@ -713,6 +730,7 @@ class StorageBucketBackend(google.protobuf.message.Message):
 
 global___StorageBucketBackend = StorageBucketBackend
 
+@typing_extensions.final
 class HealthCheck(google.protobuf.message.Message):
     """A health check resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
@@ -720,6 +738,7 @@ class HealthCheck(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class StreamHealthCheck(google.protobuf.message.Message):
         """A resource for TCP stream health check settings."""
 
@@ -748,6 +767,7 @@ class HealthCheck(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["receive", b"receive", "send", b"send"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["receive", b"receive", "send", b"send"]) -> None: ...
 
+    @typing_extensions.final
     class HttpHealthCheck(google.protobuf.message.Message):
         """A resource for HTTP health check settings."""
 
@@ -776,6 +796,7 @@ class HealthCheck(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["host", b"host", "path", b"path", "use_http2", b"use_http2"]) -> None: ...
 
+    @typing_extensions.final
     class GrpcHealthCheck(google.protobuf.message.Message):
         """A resource for gRPC health check settings."""
 

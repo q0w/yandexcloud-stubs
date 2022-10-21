@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ApiKey(google.protobuf.message.Message):
     """An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key)."""
 

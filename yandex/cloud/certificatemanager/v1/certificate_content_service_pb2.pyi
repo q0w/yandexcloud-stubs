@@ -22,7 +22,7 @@ class _PrivateKeyFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _PrivateKeyFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PrivateKeyFormat.ValueType], builtins.type):  # noqa: F821
+class _PrivateKeyFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PrivateKeyFormat.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     PRIVATE_KEY_FORMAT_UNSPECIFIED: _PrivateKeyFormat.ValueType  # 0
     PKCS1: _PrivateKeyFormat.ValueType  # 1
@@ -35,6 +35,7 @@ PKCS1: PrivateKeyFormat.ValueType  # 1
 PKCS8: PrivateKeyFormat.ValueType  # 2
 global___PrivateKeyFormat = PrivateKeyFormat
 
+@typing_extensions.final
 class GetCertificateContentResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -59,6 +60,7 @@ class GetCertificateContentResponse(google.protobuf.message.Message):
 
 global___GetCertificateContentResponse = GetCertificateContentResponse
 
+@typing_extensions.final
 class GetCertificateContentRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

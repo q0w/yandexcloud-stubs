@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LongRunningRecognitionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class LongRunningRecognitionRequest(google.protobuf.message.Message):
 
 global___LongRunningRecognitionRequest = LongRunningRecognitionRequest
 
+@typing_extensions.final
 class LongRunningRecognitionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -54,6 +56,7 @@ class LongRunningRecognitionResponse(google.protobuf.message.Message):
 
 global___LongRunningRecognitionResponse = LongRunningRecognitionResponse
 
+@typing_extensions.final
 class StreamingRecognitionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -74,6 +77,7 @@ class StreamingRecognitionRequest(google.protobuf.message.Message):
 
 global___StreamingRecognitionRequest = StreamingRecognitionRequest
 
+@typing_extensions.final
 class StreamingRecognitionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -89,6 +93,7 @@ class StreamingRecognitionResponse(google.protobuf.message.Message):
 
 global___StreamingRecognitionResponse = StreamingRecognitionResponse
 
+@typing_extensions.final
 class RecognitionAudio(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -108,6 +113,7 @@ class RecognitionAudio(google.protobuf.message.Message):
 
 global___RecognitionAudio = RecognitionAudio
 
+@typing_extensions.final
 class RecognitionConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -127,6 +133,7 @@ class RecognitionConfig(google.protobuf.message.Message):
 
 global___RecognitionConfig = RecognitionConfig
 
+@typing_extensions.final
 class RecognitionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +205,7 @@ class RecognitionSpec(google.protobuf.message.Message):
 
 global___RecognitionSpec = RecognitionSpec
 
+@typing_extensions.final
 class SpeechRecognitionChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -221,6 +229,7 @@ class SpeechRecognitionChunk(google.protobuf.message.Message):
 
 global___SpeechRecognitionChunk = SpeechRecognitionChunk
 
+@typing_extensions.final
 class SpeechRecognitionResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -239,6 +248,7 @@ class SpeechRecognitionResult(google.protobuf.message.Message):
 
 global___SpeechRecognitionResult = SpeechRecognitionResult
 
+@typing_extensions.final
 class SpeechRecognitionAlternative(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -260,6 +270,7 @@ class SpeechRecognitionAlternative(google.protobuf.message.Message):
 
 global___SpeechRecognitionAlternative = SpeechRecognitionAlternative
 
+@typing_extensions.final
 class WordInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetDnsZoneRequest(google.protobuf.message.Message):
 
 global___GetDnsZoneRequest = GetDnsZoneRequest
 
+@typing_extensions.final
 class ListDnsZonesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListDnsZonesRequest(google.protobuf.message.Message):
 
 global___ListDnsZonesRequest = ListDnsZonesRequest
 
+@typing_extensions.final
 class ListDnsZonesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,9 +107,11 @@ class ListDnsZonesResponse(google.protobuf.message.Message):
 
 global___ListDnsZonesResponse = ListDnsZonesResponse
 
+@typing_extensions.final
 class CreateDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -171,6 +176,7 @@ class CreateDnsZoneRequest(google.protobuf.message.Message):
 
 global___CreateDnsZoneRequest = CreateDnsZoneRequest
 
+@typing_extensions.final
 class CreateDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -186,9 +192,11 @@ class CreateDnsZoneMetadata(google.protobuf.message.Message):
 
 global___CreateDnsZoneMetadata = CreateDnsZoneMetadata
 
+@typing_extensions.final
 class UpdateDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -257,6 +265,7 @@ class UpdateDnsZoneRequest(google.protobuf.message.Message):
 
 global___UpdateDnsZoneRequest = UpdateDnsZoneRequest
 
+@typing_extensions.final
 class UpdateDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -272,6 +281,7 @@ class UpdateDnsZoneMetadata(google.protobuf.message.Message):
 
 global___UpdateDnsZoneMetadata = UpdateDnsZoneMetadata
 
+@typing_extensions.final
 class DeleteDnsZoneRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -290,6 +300,7 @@ class DeleteDnsZoneRequest(google.protobuf.message.Message):
 
 global___DeleteDnsZoneRequest = DeleteDnsZoneRequest
 
+@typing_extensions.final
 class DeleteDnsZoneMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -305,6 +316,7 @@ class DeleteDnsZoneMetadata(google.protobuf.message.Message):
 
 global___DeleteDnsZoneMetadata = DeleteDnsZoneMetadata
 
+@typing_extensions.final
 class GetDnsZoneRecordSetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -331,6 +343,7 @@ class GetDnsZoneRecordSetRequest(google.protobuf.message.Message):
 
 global___GetDnsZoneRecordSetRequest = GetDnsZoneRecordSetRequest
 
+@typing_extensions.final
 class ListDnsZoneRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -376,6 +389,7 @@ class ListDnsZoneRecordSetsRequest(google.protobuf.message.Message):
 
 global___ListDnsZoneRecordSetsRequest = ListDnsZoneRecordSetsRequest
 
+@typing_extensions.final
 class ListDnsZoneRecordSetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -401,6 +415,7 @@ class ListDnsZoneRecordSetsResponse(google.protobuf.message.Message):
 
 global___ListDnsZoneRecordSetsResponse = ListDnsZoneRecordSetsResponse
 
+@typing_extensions.final
 class UpdateRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -429,6 +444,7 @@ class UpdateRecordSetsRequest(google.protobuf.message.Message):
 
 global___UpdateRecordSetsRequest = UpdateRecordSetsRequest
 
+@typing_extensions.final
 class UpdateRecordSetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -438,6 +454,7 @@ class UpdateRecordSetsMetadata(google.protobuf.message.Message):
 
 global___UpdateRecordSetsMetadata = UpdateRecordSetsMetadata
 
+@typing_extensions.final
 class UpsertRecordSetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -471,6 +488,7 @@ class UpsertRecordSetsRequest(google.protobuf.message.Message):
 
 global___UpsertRecordSetsRequest = UpsertRecordSetsRequest
 
+@typing_extensions.final
 class UpsertRecordSetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -480,6 +498,7 @@ class UpsertRecordSetsMetadata(google.protobuf.message.Message):
 
 global___UpsertRecordSetsMetadata = UpsertRecordSetsMetadata
 
+@typing_extensions.final
 class RecordSetDiff(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -501,6 +520,7 @@ class RecordSetDiff(google.protobuf.message.Message):
 
 global___RecordSetDiff = RecordSetDiff
 
+@typing_extensions.final
 class ListDnsZoneOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -543,6 +563,7 @@ class ListDnsZoneOperationsRequest(google.protobuf.message.Message):
 
 global___ListDnsZoneOperationsRequest = ListDnsZoneOperationsRequest
 
+@typing_extensions.final
 class ListDnsZoneOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """An SQL Server backup resource.
 

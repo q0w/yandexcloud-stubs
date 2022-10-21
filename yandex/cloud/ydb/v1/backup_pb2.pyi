@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class BackupSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -54,6 +55,7 @@ class BackupSchedule(google.protobuf.message.Message):
 
 global___BackupSchedule = BackupSchedule
 
+@typing_extensions.final
 class RecurringBackupSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -78,6 +80,7 @@ class RecurringBackupSchedule(google.protobuf.message.Message):
 
 global___RecurringBackupSchedule = RecurringBackupSchedule
 
+@typing_extensions.final
 class DaysOfWeekBackupSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -98,6 +101,7 @@ class DaysOfWeekBackupSchedule(google.protobuf.message.Message):
 
 global___DaysOfWeekBackupSchedule = DaysOfWeekBackupSchedule
 
+@typing_extensions.final
 class WeeklyBackupSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -113,6 +117,7 @@ class WeeklyBackupSchedule(google.protobuf.message.Message):
 
 global___WeeklyBackupSchedule = WeeklyBackupSchedule
 
+@typing_extensions.final
 class DailyBackupSchedule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -129,6 +134,7 @@ class DailyBackupSchedule(google.protobuf.message.Message):
 
 global___DailyBackupSchedule = DailyBackupSchedule
 
+@typing_extensions.final
 class BackupSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -223,6 +229,7 @@ class BackupSettings(google.protobuf.message.Message):
 
 global___BackupSettings = BackupSettings
 
+@typing_extensions.final
 class BackupConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -238,6 +245,7 @@ class BackupConfig(google.protobuf.message.Message):
 
 global___BackupConfig = BackupConfig
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

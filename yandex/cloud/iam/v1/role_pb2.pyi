@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Role(google.protobuf.message.Message):
     """A Role resource. For more information, see [Roles](/docs/iam/concepts/access-control/roles)."""
 

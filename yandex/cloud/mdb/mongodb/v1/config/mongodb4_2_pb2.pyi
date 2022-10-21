@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MongodConfig4_2(google.protobuf.message.Message):
     """Configuration of a mongod daemon. Supported options are a limited subset of all
     options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/reference/configuration-options/).
@@ -24,14 +25,17 @@ class MongodConfig4_2(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Storage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class WiredTiger(google.protobuf.message.Message):
             """Configuration of WiredTiger storage engine."""
 
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class EngineConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,6 +51,7 @@ class MongodConfig4_2(google.protobuf.message.Message):
                 def HasField(self, field_name: typing_extensions.Literal["cache_size_gb", b"cache_size_gb"]) -> builtins.bool: ...
                 def ClearField(self, field_name: typing_extensions.Literal["cache_size_gb", b"cache_size_gb"]) -> None: ...
 
+            @typing_extensions.final
             class CollectionConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,6 +109,7 @@ class MongodConfig4_2(google.protobuf.message.Message):
             def HasField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> builtins.bool: ...
             def ClearField(self, field_name: typing_extensions.Literal["collection_config", b"collection_config", "engine_config", b"engine_config"]) -> None: ...
 
+        @typing_extensions.final
         class Journal(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,6 +144,7 @@ class MongodConfig4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["journal", b"journal", "wired_tiger", b"wired_tiger"]) -> None: ...
 
+    @typing_extensions.final
     class OperationProfiling(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +190,7 @@ class MongodConfig4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["mode", b"mode", "slow_op_threshold", b"slow_op_threshold"]) -> None: ...
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -222,17 +230,21 @@ class MongodConfig4_2(google.protobuf.message.Message):
 
 global___MongodConfig4_2 = MongodConfig4_2
 
+@typing_extensions.final
 class MongoCfgConfig4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Storage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class WiredTiger(google.protobuf.message.Message):
             """Configuration of WiredTiger storage engine."""
 
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+            @typing_extensions.final
             class EngineConfig(google.protobuf.message.Message):
                 DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -272,6 +284,7 @@ class MongoCfgConfig4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["wired_tiger", b"wired_tiger"]) -> None: ...
 
+    @typing_extensions.final
     class OperationProfiling(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -317,6 +330,7 @@ class MongoCfgConfig4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["slow_op_threshold", b"slow_op_threshold"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["mode", b"mode", "slow_op_threshold", b"slow_op_threshold"]) -> None: ...
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -356,9 +370,11 @@ class MongoCfgConfig4_2(google.protobuf.message.Message):
 
 global___MongoCfgConfig4_2 = MongoCfgConfig4_2
 
+@typing_extensions.final
 class MongosConfig4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Network(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -388,6 +404,7 @@ class MongosConfig4_2(google.protobuf.message.Message):
 
 global___MongosConfig4_2 = MongosConfig4_2
 
+@typing_extensions.final
 class MongodConfigSet4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -417,6 +434,7 @@ class MongodConfigSet4_2(google.protobuf.message.Message):
 
 global___MongodConfigSet4_2 = MongodConfigSet4_2
 
+@typing_extensions.final
 class MongoCfgConfigSet4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -446,6 +464,7 @@ class MongoCfgConfigSet4_2(google.protobuf.message.Message):
 
 global___MongoCfgConfigSet4_2 = MongoCfgConfigSet4_2
 
+@typing_extensions.final
 class MongosConfigSet4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

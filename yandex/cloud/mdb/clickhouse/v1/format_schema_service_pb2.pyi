@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFormatSchemaRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetFormatSchemaRequest(google.protobuf.message.Message):
 
 global___GetFormatSchemaRequest = GetFormatSchemaRequest
 
+@typing_extensions.final
 class ListFormatSchemasRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -55,6 +57,7 @@ class ListFormatSchemasRequest(google.protobuf.message.Message):
 
 global___ListFormatSchemasRequest = ListFormatSchemasRequest
 
+@typing_extensions.final
 class ListFormatSchemasResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -73,6 +76,7 @@ class ListFormatSchemasResponse(google.protobuf.message.Message):
 
 global___ListFormatSchemasResponse = ListFormatSchemasResponse
 
+@typing_extensions.final
 class CreateFormatSchemaRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -96,6 +100,7 @@ class CreateFormatSchemaRequest(google.protobuf.message.Message):
 
 global___CreateFormatSchemaRequest = CreateFormatSchemaRequest
 
+@typing_extensions.final
 class CreateFormatSchemaMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -113,6 +118,7 @@ class CreateFormatSchemaMetadata(google.protobuf.message.Message):
 
 global___CreateFormatSchemaMetadata = CreateFormatSchemaMetadata
 
+@typing_extensions.final
 class UpdateFormatSchemaRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,6 +144,7 @@ class UpdateFormatSchemaRequest(google.protobuf.message.Message):
 
 global___UpdateFormatSchemaRequest = UpdateFormatSchemaRequest
 
+@typing_extensions.final
 class UpdateFormatSchemaMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -155,6 +162,7 @@ class UpdateFormatSchemaMetadata(google.protobuf.message.Message):
 
 global___UpdateFormatSchemaMetadata = UpdateFormatSchemaMetadata
 
+@typing_extensions.final
 class DeleteFormatSchemaRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +180,7 @@ class DeleteFormatSchemaRequest(google.protobuf.message.Message):
 
 global___DeleteFormatSchemaRequest = DeleteFormatSchemaRequest
 
+@typing_extensions.final
 class DeleteFormatSchemaMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

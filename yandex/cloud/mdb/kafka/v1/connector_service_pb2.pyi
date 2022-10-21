@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class GetConnectorRequest(google.protobuf.message.Message):
 
 global___GetConnectorRequest = GetConnectorRequest
 
+@typing_extensions.final
 class ListConnectorsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListConnectorsRequest(google.protobuf.message.Message):
 
 global___ListConnectorsRequest = ListConnectorsRequest
 
+@typing_extensions.final
 class ListConnectorsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -98,6 +101,7 @@ class ListConnectorsResponse(google.protobuf.message.Message):
 
 global___ListConnectorsResponse = ListConnectorsResponse
 
+@typing_extensions.final
 class CreateConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,6 +126,7 @@ class CreateConnectorRequest(google.protobuf.message.Message):
 
 global___CreateConnectorRequest = CreateConnectorRequest
 
+@typing_extensions.final
 class CreateConnectorMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -141,6 +146,7 @@ class CreateConnectorMetadata(google.protobuf.message.Message):
 
 global___CreateConnectorMetadata = CreateConnectorMetadata
 
+@typing_extensions.final
 class UpdateConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -177,6 +183,7 @@ class UpdateConnectorRequest(google.protobuf.message.Message):
 
 global___UpdateConnectorRequest = UpdateConnectorRequest
 
+@typing_extensions.final
 class UpdateConnectorMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -196,6 +203,7 @@ class UpdateConnectorMetadata(google.protobuf.message.Message):
 
 global___UpdateConnectorMetadata = UpdateConnectorMetadata
 
+@typing_extensions.final
 class DeleteConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -221,6 +229,7 @@ class DeleteConnectorRequest(google.protobuf.message.Message):
 
 global___DeleteConnectorRequest = DeleteConnectorRequest
 
+@typing_extensions.final
 class DeleteConnectorMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -240,6 +249,7 @@ class DeleteConnectorMetadata(google.protobuf.message.Message):
 
 global___DeleteConnectorMetadata = DeleteConnectorMetadata
 
+@typing_extensions.final
 class ResumeConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -265,6 +275,7 @@ class ResumeConnectorRequest(google.protobuf.message.Message):
 
 global___ResumeConnectorRequest = ResumeConnectorRequest
 
+@typing_extensions.final
 class ResumeConnectorMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -284,6 +295,7 @@ class ResumeConnectorMetadata(google.protobuf.message.Message):
 
 global___ResumeConnectorMetadata = ResumeConnectorMetadata
 
+@typing_extensions.final
 class PauseConnectorRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -309,6 +321,7 @@ class PauseConnectorRequest(google.protobuf.message.Message):
 
 global___PauseConnectorRequest = PauseConnectorRequest
 
+@typing_extensions.final
 class PauseConnectorMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

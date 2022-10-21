@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ActivateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class ActivateRawLogsRequest(google.protobuf.message.Message):
 
 global___ActivateRawLogsRequest = ActivateRawLogsRequest
 
+@typing_extensions.final
 class ActivateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -51,6 +53,7 @@ class ActivateRawLogsMetadata(google.protobuf.message.Message):
 
 global___ActivateRawLogsMetadata = ActivateRawLogsMetadata
 
+@typing_extensions.final
 class ActivateRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +75,7 @@ class ActivateRawLogsResponse(google.protobuf.message.Message):
 
 global___ActivateRawLogsResponse = ActivateRawLogsResponse
 
+@typing_extensions.final
 class DeactivateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -87,6 +91,7 @@ class DeactivateRawLogsRequest(google.protobuf.message.Message):
 
 global___DeactivateRawLogsRequest = DeactivateRawLogsRequest
 
+@typing_extensions.final
 class DeactivateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,6 +107,7 @@ class DeactivateRawLogsMetadata(google.protobuf.message.Message):
 
 global___DeactivateRawLogsMetadata = DeactivateRawLogsMetadata
 
+@typing_extensions.final
 class GetRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -117,6 +123,7 @@ class GetRawLogsRequest(google.protobuf.message.Message):
 
 global___GetRawLogsRequest = GetRawLogsRequest
 
+@typing_extensions.final
 class GetRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,6 +145,7 @@ class GetRawLogsResponse(google.protobuf.message.Message):
 
 global___GetRawLogsResponse = GetRawLogsResponse
 
+@typing_extensions.final
 class UpdateRawLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -159,6 +167,7 @@ class UpdateRawLogsRequest(google.protobuf.message.Message):
 
 global___UpdateRawLogsRequest = UpdateRawLogsRequest
 
+@typing_extensions.final
 class UpdateRawLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -180,6 +189,7 @@ class UpdateRawLogsResponse(google.protobuf.message.Message):
 
 global___UpdateRawLogsResponse = UpdateRawLogsResponse
 
+@typing_extensions.final
 class UpdateRawLogsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

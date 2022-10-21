@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class BillableObject(google.protobuf.message.Message):
     """Represents a link to an object in other service.
     This object is being billed in the scope of a billing account.
@@ -40,6 +41,7 @@ class BillableObject(google.protobuf.message.Message):
 
 global___BillableObject = BillableObject
 
+@typing_extensions.final
 class BillableObjectBinding(google.protobuf.message.Message):
     """Represents a binding of the BillableObject to a BillingAccount."""
 

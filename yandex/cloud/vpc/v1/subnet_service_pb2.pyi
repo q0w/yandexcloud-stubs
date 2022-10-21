@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSubnetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetSubnetRequest(google.protobuf.message.Message):
 
 global___GetSubnetRequest = GetSubnetRequest
 
+@typing_extensions.final
 class ListSubnetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +79,7 @@ class ListSubnetsRequest(google.protobuf.message.Message):
 
 global___ListSubnetsRequest = ListSubnetsRequest
 
+@typing_extensions.final
 class ListSubnetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -103,9 +106,11 @@ class ListSubnetsResponse(google.protobuf.message.Message):
 
 global___ListSubnetsResponse = ListSubnetsResponse
 
+@typing_extensions.final
 class CreateSubnetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +188,7 @@ class CreateSubnetRequest(google.protobuf.message.Message):
 
 global___CreateSubnetRequest = CreateSubnetRequest
 
+@typing_extensions.final
 class CreateSubnetMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,9 +204,11 @@ class CreateSubnetMetadata(google.protobuf.message.Message):
 
 global___CreateSubnetMetadata = CreateSubnetMetadata
 
+@typing_extensions.final
 class UpdateSubnetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -257,6 +265,7 @@ class UpdateSubnetRequest(google.protobuf.message.Message):
 
 global___UpdateSubnetRequest = UpdateSubnetRequest
 
+@typing_extensions.final
 class UpdateSubnetMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -272,6 +281,7 @@ class UpdateSubnetMetadata(google.protobuf.message.Message):
 
 global___UpdateSubnetMetadata = UpdateSubnetMetadata
 
+@typing_extensions.final
 class AddSubnetCidrBlocksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -296,6 +306,7 @@ class AddSubnetCidrBlocksRequest(google.protobuf.message.Message):
 
 global___AddSubnetCidrBlocksRequest = AddSubnetCidrBlocksRequest
 
+@typing_extensions.final
 class AddSubnetCidrBlocksMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -311,6 +322,7 @@ class AddSubnetCidrBlocksMetadata(google.protobuf.message.Message):
 
 global___AddSubnetCidrBlocksMetadata = AddSubnetCidrBlocksMetadata
 
+@typing_extensions.final
 class RemoveSubnetCidrBlocksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -333,6 +345,7 @@ class RemoveSubnetCidrBlocksRequest(google.protobuf.message.Message):
 
 global___RemoveSubnetCidrBlocksRequest = RemoveSubnetCidrBlocksRequest
 
+@typing_extensions.final
 class RemoveSubnetCidrBlocksMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -348,6 +361,7 @@ class RemoveSubnetCidrBlocksMetadata(google.protobuf.message.Message):
 
 global___RemoveSubnetCidrBlocksMetadata = RemoveSubnetCidrBlocksMetadata
 
+@typing_extensions.final
 class DeleteSubnetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -365,6 +379,7 @@ class DeleteSubnetRequest(google.protobuf.message.Message):
 
 global___DeleteSubnetRequest = DeleteSubnetRequest
 
+@typing_extensions.final
 class DeleteSubnetMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -380,6 +395,7 @@ class DeleteSubnetMetadata(google.protobuf.message.Message):
 
 global___DeleteSubnetMetadata = DeleteSubnetMetadata
 
+@typing_extensions.final
 class ListSubnetOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -408,6 +424,7 @@ class ListSubnetOperationsRequest(google.protobuf.message.Message):
 
 global___ListSubnetOperationsRequest = ListSubnetOperationsRequest
 
+@typing_extensions.final
 class ListSubnetOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -432,6 +449,7 @@ class ListSubnetOperationsResponse(google.protobuf.message.Message):
 
 global___ListSubnetOperationsResponse = ListSubnetOperationsResponse
 
+@typing_extensions.final
 class MoveSubnetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -451,6 +469,7 @@ class MoveSubnetRequest(google.protobuf.message.Message):
 
 global___MoveSubnetRequest = MoveSubnetRequest
 
+@typing_extensions.final
 class MoveSubnetMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -466,6 +485,7 @@ class MoveSubnetMetadata(google.protobuf.message.Message):
 
 global___MoveSubnetMetadata = MoveSubnetMetadata
 
+@typing_extensions.final
 class ListUsedAddressesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -489,6 +509,7 @@ class ListUsedAddressesRequest(google.protobuf.message.Message):
 
 global___ListUsedAddressesRequest = ListUsedAddressesRequest
 
+@typing_extensions.final
 class ListUsedAddressesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -507,6 +528,7 @@ class ListUsedAddressesResponse(google.protobuf.message.Message):
 
 global___ListUsedAddressesResponse = ListUsedAddressesResponse
 
+@typing_extensions.final
 class UsedAddress(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

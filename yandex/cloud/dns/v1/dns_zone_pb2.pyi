@@ -17,11 +17,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class DnsZone(google.protobuf.message.Message):
     """A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dns-zone)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -92,6 +94,7 @@ class DnsZone(google.protobuf.message.Message):
 
 global___DnsZone = DnsZone
 
+@typing_extensions.final
 class RecordSet(google.protobuf.message.Message):
     """A record set. For details about the concept, see [Resource record](/docs/dns/concepts/resource-record)."""
 
@@ -122,6 +125,7 @@ class RecordSet(google.protobuf.message.Message):
 
 global___RecordSet = RecordSet
 
+@typing_extensions.final
 class PrivateVisibility(google.protobuf.message.Message):
     """Configuration for privately visible zones."""
 
@@ -140,6 +144,7 @@ class PrivateVisibility(google.protobuf.message.Message):
 
 global___PrivateVisibility = PrivateVisibility
 
+@typing_extensions.final
 class PublicVisibility(google.protobuf.message.Message):
     """Configuration for publicly visible zones."""
 

@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PublishBrokerDataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class PublishBrokerDataRequest(google.protobuf.message.Message):
 
 global___PublishBrokerDataRequest = PublishBrokerDataRequest
 
+@typing_extensions.final
 class PublishBrokerDataResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

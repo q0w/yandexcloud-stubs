@@ -22,7 +22,7 @@ class _CodeType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CodeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CodeType.ValueType], builtins.type):  # noqa: F821
+class _CodeTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CodeType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CODE_TYPE_UNSPECIFIED: _CodeType.ValueType  # 0
     WORKING: _CodeType.ValueType  # 1
@@ -43,6 +43,7 @@ CLOSED: CodeType.ValueType  # 3
 """after session was closed."""
 global___CodeType = CodeType
 
+@typing_extensions.final
 class TextNormalizationOptions(google.protobuf.message.Message):
     """options"""
 
@@ -88,6 +89,7 @@ class TextNormalizationOptions(google.protobuf.message.Message):
 
 global___TextNormalizationOptions = TextNormalizationOptions
 
+@typing_extensions.final
 class DefaultEouClassifier(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,6 +124,7 @@ class DefaultEouClassifier(google.protobuf.message.Message):
 
 global___DefaultEouClassifier = DefaultEouClassifier
 
+@typing_extensions.final
 class ExternalEouClassifier(google.protobuf.message.Message):
     """Use EOU provided by user"""
 
@@ -133,6 +136,7 @@ class ExternalEouClassifier(google.protobuf.message.Message):
 
 global___ExternalEouClassifier = ExternalEouClassifier
 
+@typing_extensions.final
 class EouClassifierOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -156,6 +160,7 @@ class EouClassifierOptions(google.protobuf.message.Message):
 
 global___EouClassifierOptions = EouClassifierOptions
 
+@typing_extensions.final
 class RawAudio(google.protobuf.message.Message):
     """RAW Audio format spec (no container to infer type). Used in AudioFormat options."""
 
@@ -196,6 +201,7 @@ class RawAudio(google.protobuf.message.Message):
 
 global___RawAudio = RawAudio
 
+@typing_extensions.final
 class ContainerAudio(google.protobuf.message.Message):
     """Audio with fixed type in container. Used in AudioFormat options."""
 
@@ -236,6 +242,7 @@ class ContainerAudio(google.protobuf.message.Message):
 
 global___ContainerAudio = ContainerAudio
 
+@typing_extensions.final
 class AudioFormatOptions(google.protobuf.message.Message):
     """Audio format options."""
 
@@ -261,6 +268,7 @@ class AudioFormatOptions(google.protobuf.message.Message):
 
 global___AudioFormatOptions = AudioFormatOptions
 
+@typing_extensions.final
 class LanguageRestrictionOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -294,6 +302,7 @@ class LanguageRestrictionOptions(google.protobuf.message.Message):
 
 global___LanguageRestrictionOptions = LanguageRestrictionOptions
 
+@typing_extensions.final
 class RecognitionModelOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -344,6 +353,7 @@ class RecognitionModelOptions(google.protobuf.message.Message):
 
 global___RecognitionModelOptions = RecognitionModelOptions
 
+@typing_extensions.final
 class StreamingOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -366,6 +376,7 @@ class StreamingOptions(google.protobuf.message.Message):
 
 global___StreamingOptions = StreamingOptions
 
+@typing_extensions.final
 class AudioChunk(google.protobuf.message.Message):
     """Data chunk with audio."""
 
@@ -383,6 +394,7 @@ class AudioChunk(google.protobuf.message.Message):
 
 global___AudioChunk = AudioChunk
 
+@typing_extensions.final
 class SilenceChunk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +410,7 @@ class SilenceChunk(google.protobuf.message.Message):
 
 global___SilenceChunk = SilenceChunk
 
+@typing_extensions.final
 class Eou(google.protobuf.message.Message):
     """Force EOU"""
 
@@ -409,6 +422,7 @@ class Eou(google.protobuf.message.Message):
 
 global___Eou = Eou
 
+@typing_extensions.final
 class StreamingRequest(google.protobuf.message.Message):
     """Streaming audio request
     Events are control messages from user.
@@ -448,6 +462,7 @@ class StreamingRequest(google.protobuf.message.Message):
 
 global___StreamingRequest = StreamingRequest
 
+@typing_extensions.final
 class Word(google.protobuf.message.Message):
     """Now response
 
@@ -476,6 +491,7 @@ class Word(google.protobuf.message.Message):
 
 global___Word = Word
 
+@typing_extensions.final
 class LanguageEstimation(google.protobuf.message.Message):
     """Estimation of language probability"""
 
@@ -495,6 +511,7 @@ class LanguageEstimation(google.protobuf.message.Message):
 
 global___LanguageEstimation = LanguageEstimation
 
+@typing_extensions.final
 class Alternative(google.protobuf.message.Message):
     """Recognition of specific time frame."""
 
@@ -534,6 +551,7 @@ class Alternative(google.protobuf.message.Message):
 
 global___Alternative = Alternative
 
+@typing_extensions.final
 class EouUpdate(google.protobuf.message.Message):
     """Update information from"""
 
@@ -551,6 +569,7 @@ class EouUpdate(google.protobuf.message.Message):
 
 global___EouUpdate = EouUpdate
 
+@typing_extensions.final
 class AlternativeUpdate(google.protobuf.message.Message):
     """Update of hypothesis."""
 
@@ -573,6 +592,7 @@ class AlternativeUpdate(google.protobuf.message.Message):
 
 global___AlternativeUpdate = AlternativeUpdate
 
+@typing_extensions.final
 class AudioCursors(google.protobuf.message.Message):
     """AudioCursors are state of ASR recognition stream."""
 
@@ -617,6 +637,7 @@ class AudioCursors(google.protobuf.message.Message):
 
 global___AudioCursors = AudioCursors
 
+@typing_extensions.final
 class FinalRefinement(google.protobuf.message.Message):
     """Refinement for final hypo. For example, text normalization is refinement."""
 
@@ -641,6 +662,7 @@ class FinalRefinement(google.protobuf.message.Message):
 
 global___FinalRefinement = FinalRefinement
 
+@typing_extensions.final
 class StatusCode(google.protobuf.message.Message):
     """Status message"""
 
@@ -662,6 +684,7 @@ class StatusCode(google.protobuf.message.Message):
 
 global___StatusCode = StatusCode
 
+@typing_extensions.final
 class SessionUuid(google.protobuf.message.Message):
     """Session identifier."""
 
@@ -683,6 +706,7 @@ class SessionUuid(google.protobuf.message.Message):
 
 global___SessionUuid = SessionUuid
 
+@typing_extensions.final
 class StreamingResponse(google.protobuf.message.Message):
     """Responses from server.
     Each response contains session uuid

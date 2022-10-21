@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Job(google.protobuf.message.Message):
     """Data Proc job."""
 
@@ -131,6 +132,7 @@ class Job(google.protobuf.message.Message):
 
 global___Job = Job
 
+@typing_extensions.final
 class ApplicationAttempt(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -150,6 +152,7 @@ class ApplicationAttempt(google.protobuf.message.Message):
 
 global___ApplicationAttempt = ApplicationAttempt
 
+@typing_extensions.final
 class ApplicationInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,9 +173,11 @@ class ApplicationInfo(google.protobuf.message.Message):
 
 global___ApplicationInfo = ApplicationInfo
 
+@typing_extensions.final
 class MapreduceJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -231,9 +236,11 @@ class MapreduceJob(google.protobuf.message.Message):
 
 global___MapreduceJob = MapreduceJob
 
+@typing_extensions.final
 class SparkJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -305,9 +312,11 @@ class SparkJob(google.protobuf.message.Message):
 
 global___SparkJob = SparkJob
 
+@typing_extensions.final
 class PysparkJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -380,6 +389,7 @@ class PysparkJob(google.protobuf.message.Message):
 
 global___PysparkJob = PysparkJob
 
+@typing_extensions.final
 class QueryList(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -395,9 +405,11 @@ class QueryList(google.protobuf.message.Message):
 
 global___QueryList = QueryList
 
+@typing_extensions.final
 class HiveJob(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -413,6 +425,7 @@ class HiveJob(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class ScriptVariablesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

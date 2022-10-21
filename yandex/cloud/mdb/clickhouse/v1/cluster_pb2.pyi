@@ -23,6 +23,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """A ClickHouse Cluster resource. For more information, see the
     [Cluster](/docs/managed-clickhouse/concepts) section in the Developer's Guide.
@@ -123,6 +124,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """Cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,6 +228,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Monitoring system metadata."""
 
@@ -251,9 +254,11 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class ClusterConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Clickhouse(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -274,6 +279,7 @@ class ClusterConfig(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Zookeeper(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -341,6 +347,7 @@ class ClusterConfig(google.protobuf.message.Message):
 
 global___ClusterConfig = ClusterConfig
 
+@typing_extensions.final
 class Shard(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -366,6 +373,7 @@ class Shard(google.protobuf.message.Message):
 
 global___Shard = Shard
 
+@typing_extensions.final
 class ShardGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -394,9 +402,11 @@ class ShardGroup(google.protobuf.message.Message):
 
 global___ShardGroup = ShardGroup
 
+@typing_extensions.final
 class ShardConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Clickhouse(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -438,6 +448,7 @@ class ShardConfig(google.protobuf.message.Message):
 
 global___ShardConfig = ShardConfig
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -539,6 +550,7 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class Service(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -598,6 +610,7 @@ class Service(google.protobuf.message.Message):
 
 global___Service = Service
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -628,6 +641,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class Access(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -669,6 +683,7 @@ class Access(google.protobuf.message.Message):
 
 global___Access = Access
 
+@typing_extensions.final
 class CloudStorage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

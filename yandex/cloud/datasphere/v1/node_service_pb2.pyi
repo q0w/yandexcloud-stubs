@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class NodeExecutionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -40,6 +41,7 @@ class NodeExecutionRequest(google.protobuf.message.Message):
 
 global___NodeExecutionRequest = NodeExecutionRequest
 
+@typing_extensions.final
 class NodeExecutionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class NodeExecutionResponse(google.protobuf.message.Message):
 
 global___NodeExecutionResponse = NodeExecutionResponse
 
+@typing_extensions.final
 class AliasExecutionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,6 +85,7 @@ class AliasExecutionRequest(google.protobuf.message.Message):
 
 global___AliasExecutionRequest = AliasExecutionRequest
 
+@typing_extensions.final
 class AliasExecutionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

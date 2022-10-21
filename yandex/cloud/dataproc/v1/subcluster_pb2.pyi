@@ -23,7 +23,7 @@ class _Role:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Role.ValueType], builtins.type):  # noqa: F821
+class _RoleEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_Role.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ROLE_UNSPECIFIED: _Role.ValueType  # 0
     MASTERNODE: _Role.ValueType  # 1
@@ -88,6 +88,7 @@ COMPUTENODE can run the following services, depending on the requested component
 """
 global___Role = Role
 
+@typing_extensions.final
 class AutoscalingConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -140,6 +141,7 @@ class AutoscalingConfig(google.protobuf.message.Message):
 
 global___AutoscalingConfig = AutoscalingConfig
 
+@typing_extensions.final
 class Subcluster(google.protobuf.message.Message):
     """A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/)."""
 
@@ -201,6 +203,7 @@ class Subcluster(google.protobuf.message.Message):
 
 global___Subcluster = Subcluster
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     """A Data Proc host. For details about the concept, see [documentation](/docs/data-proc/concepts/)."""
 

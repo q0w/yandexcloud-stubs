@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class OriginGroup(google.protobuf.message.Message):
     """Origin group parameters. For details about the concept, see [documentation](/docs/cdn/concepts/origins#groups)."""
 

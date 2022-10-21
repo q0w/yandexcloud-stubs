@@ -23,6 +23,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class BatchAnalyzeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -52,6 +53,7 @@ class BatchAnalyzeRequest(google.protobuf.message.Message):
 
 global___BatchAnalyzeRequest = BatchAnalyzeRequest
 
+@typing_extensions.final
 class AnalyzeSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -86,6 +88,7 @@ class AnalyzeSpec(google.protobuf.message.Message):
 
 global___AnalyzeSpec = AnalyzeSpec
 
+@typing_extensions.final
 class Feature(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -140,6 +143,7 @@ class Feature(google.protobuf.message.Message):
 
 global___Feature = Feature
 
+@typing_extensions.final
 class FeatureClassificationConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -155,6 +159,7 @@ class FeatureClassificationConfig(google.protobuf.message.Message):
 
 global___FeatureClassificationConfig = FeatureClassificationConfig
 
+@typing_extensions.final
 class FeatureTextDetectionConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -181,6 +186,7 @@ class FeatureTextDetectionConfig(google.protobuf.message.Message):
 
 global___FeatureTextDetectionConfig = FeatureTextDetectionConfig
 
+@typing_extensions.final
 class BatchAnalyzeResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -199,6 +205,7 @@ class BatchAnalyzeResponse(google.protobuf.message.Message):
 
 global___BatchAnalyzeResponse = BatchAnalyzeResponse
 
+@typing_extensions.final
 class AnalyzeResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -223,6 +230,7 @@ class AnalyzeResult(google.protobuf.message.Message):
 
 global___AnalyzeResult = AnalyzeResult
 
+@typing_extensions.final
 class FeatureResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -29,6 +29,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -46,6 +47,7 @@ class GetClusterRequest(google.protobuf.message.Message):
 
 global___GetClusterRequest = GetClusterRequest
 
+@typing_extensions.final
 class ListClustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -85,6 +87,7 @@ class ListClustersRequest(google.protobuf.message.Message):
 
 global___ListClustersRequest = ListClustersRequest
 
+@typing_extensions.final
 class ListClustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -109,9 +112,11 @@ class ListClustersResponse(google.protobuf.message.Message):
 
 global___ListClustersResponse = ListClustersResponse
 
+@typing_extensions.final
 class CreateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -200,6 +205,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
 
 global___CreateClusterRequest = CreateClusterRequest
 
+@typing_extensions.final
 class CreateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -215,9 +221,11 @@ class CreateClusterMetadata(google.protobuf.message.Message):
 
 global___CreateClusterMetadata = CreateClusterMetadata
 
+@typing_extensions.final
 class UpdateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -294,6 +302,7 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
 global___UpdateClusterRequest = UpdateClusterRequest
 
+@typing_extensions.final
 class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -309,6 +318,7 @@ class UpdateClusterMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
+@typing_extensions.final
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -326,6 +336,7 @@ class DeleteClusterRequest(google.protobuf.message.Message):
 
 global___DeleteClusterRequest = DeleteClusterRequest
 
+@typing_extensions.final
 class DeleteClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -341,6 +352,7 @@ class DeleteClusterMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterMetadata = DeleteClusterMetadata
 
+@typing_extensions.final
 class StartClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -356,6 +368,7 @@ class StartClusterRequest(google.protobuf.message.Message):
 
 global___StartClusterRequest = StartClusterRequest
 
+@typing_extensions.final
 class StartClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -371,6 +384,7 @@ class StartClusterMetadata(google.protobuf.message.Message):
 
 global___StartClusterMetadata = StartClusterMetadata
 
+@typing_extensions.final
 class StopClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -386,6 +400,7 @@ class StopClusterRequest(google.protobuf.message.Message):
 
 global___StopClusterRequest = StopClusterRequest
 
+@typing_extensions.final
 class StopClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -401,6 +416,7 @@ class StopClusterMetadata(google.protobuf.message.Message):
 
 global___StopClusterMetadata = StopClusterMetadata
 
+@typing_extensions.final
 class MoveClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -420,6 +436,7 @@ class MoveClusterRequest(google.protobuf.message.Message):
 
 global___MoveClusterRequest = MoveClusterRequest
 
+@typing_extensions.final
 class MoveClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -443,6 +460,7 @@ class MoveClusterMetadata(google.protobuf.message.Message):
 
 global___MoveClusterMetadata = MoveClusterMetadata
 
+@typing_extensions.final
 class AddClusterZookeeperRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -469,6 +487,7 @@ class AddClusterZookeeperRequest(google.protobuf.message.Message):
 
 global___AddClusterZookeeperRequest = AddClusterZookeeperRequest
 
+@typing_extensions.final
 class AddClusterZookeeperMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -484,6 +503,7 @@ class AddClusterZookeeperMetadata(google.protobuf.message.Message):
 
 global___AddClusterZookeeperMetadata = AddClusterZookeeperMetadata
 
+@typing_extensions.final
 class BackupClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -501,6 +521,7 @@ class BackupClusterRequest(google.protobuf.message.Message):
 
 global___BackupClusterRequest = BackupClusterRequest
 
+@typing_extensions.final
 class BackupClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -516,9 +537,11 @@ class BackupClusterMetadata(google.protobuf.message.Message):
 
 global___BackupClusterMetadata = BackupClusterMetadata
 
+@typing_extensions.final
 class RestoreClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -606,6 +629,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
 global___RestoreClusterRequest = RestoreClusterRequest
 
+@typing_extensions.final
 class RestoreClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -625,6 +649,7 @@ class RestoreClusterMetadata(google.protobuf.message.Message):
 
 global___RestoreClusterMetadata = RestoreClusterMetadata
 
+@typing_extensions.final
 class RescheduleMaintenanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -673,6 +698,7 @@ class RescheduleMaintenanceRequest(google.protobuf.message.Message):
 
 global___RescheduleMaintenanceRequest = RescheduleMaintenanceRequest
 
+@typing_extensions.final
 class RescheduleMaintenanceMetadata(google.protobuf.message.Message):
     """Rescheduled maintenance operation metadata."""
 
@@ -696,9 +722,11 @@ class RescheduleMaintenanceMetadata(google.protobuf.message.Message):
 
 global___RescheduleMaintenanceMetadata = RescheduleMaintenanceMetadata
 
+@typing_extensions.final
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class MessageEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -733,6 +761,7 @@ class LogRecord(google.protobuf.message.Message):
 
 global___LogRecord = LogRecord
 
+@typing_extensions.final
 class ListClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -800,6 +829,7 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
 global___ListClusterLogsRequest = ListClusterLogsRequest
 
+@typing_extensions.final
 class ListClusterLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -825,6 +855,7 @@ class ListClusterLogsResponse(google.protobuf.message.Message):
 
 global___ListClusterLogsResponse = ListClusterLogsResponse
 
+@typing_extensions.final
 class StreamLogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -850,6 +881,7 @@ class StreamLogRecord(google.protobuf.message.Message):
 
 global___StreamLogRecord = StreamLogRecord
 
+@typing_extensions.final
 class StreamClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -920,6 +952,7 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
 
 global___StreamClusterLogsRequest = StreamClusterLogsRequest
 
+@typing_extensions.final
 class ListClusterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -948,6 +981,7 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
 
 global___ListClusterOperationsRequest = ListClusterOperationsRequest
 
+@typing_extensions.final
 class ListClusterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -972,6 +1006,7 @@ class ListClusterOperationsResponse(google.protobuf.message.Message):
 
 global___ListClusterOperationsResponse = ListClusterOperationsResponse
 
+@typing_extensions.final
 class ListClusterBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1002,6 +1037,7 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
 
 global___ListClusterBackupsRequest = ListClusterBackupsRequest
 
+@typing_extensions.final
 class ListClusterBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1026,6 +1062,7 @@ class ListClusterBackupsResponse(google.protobuf.message.Message):
 
 global___ListClusterBackupsResponse = ListClusterBackupsResponse
 
+@typing_extensions.final
 class ListClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1056,6 +1093,7 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
 
 global___ListClusterHostsRequest = ListClusterHostsRequest
 
+@typing_extensions.final
 class ListClusterHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1080,6 +1118,7 @@ class ListClusterHostsResponse(google.protobuf.message.Message):
 
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
+@typing_extensions.final
 class AddClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1108,6 +1147,7 @@ class AddClusterHostsRequest(google.protobuf.message.Message):
 
 global___AddClusterHostsRequest = AddClusterHostsRequest
 
+@typing_extensions.final
 class AddClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1128,6 +1168,7 @@ class AddClusterHostsMetadata(google.protobuf.message.Message):
 
 global___AddClusterHostsMetadata = AddClusterHostsMetadata
 
+@typing_extensions.final
 class UpdateHostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1156,6 +1197,7 @@ class UpdateHostSpec(google.protobuf.message.Message):
 
 global___UpdateHostSpec = UpdateHostSpec
 
+@typing_extensions.final
 class UpdateClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1178,6 +1220,7 @@ class UpdateClusterHostsRequest(google.protobuf.message.Message):
 
 global___UpdateClusterHostsRequest = UpdateClusterHostsRequest
 
+@typing_extensions.final
 class UpdateClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1198,6 +1241,7 @@ class UpdateClusterHostsMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterHostsMetadata = UpdateClusterHostsMetadata
 
+@typing_extensions.final
 class DeleteClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1220,6 +1264,7 @@ class DeleteClusterHostsRequest(google.protobuf.message.Message):
 
 global___DeleteClusterHostsRequest = DeleteClusterHostsRequest
 
+@typing_extensions.final
 class DeleteClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1240,6 +1285,7 @@ class DeleteClusterHostsMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterHostsMetadata = DeleteClusterHostsMetadata
 
+@typing_extensions.final
 class GetClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1264,6 +1310,7 @@ class GetClusterShardRequest(google.protobuf.message.Message):
 
 global___GetClusterShardRequest = GetClusterShardRequest
 
+@typing_extensions.final
 class ListClusterShardsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1294,6 +1341,7 @@ class ListClusterShardsRequest(google.protobuf.message.Message):
 
 global___ListClusterShardsRequest = ListClusterShardsRequest
 
+@typing_extensions.final
 class ListClusterShardsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1318,6 +1366,7 @@ class ListClusterShardsResponse(google.protobuf.message.Message):
 
 global___ListClusterShardsResponse = ListClusterShardsResponse
 
+@typing_extensions.final
 class AddClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1355,6 +1404,7 @@ class AddClusterShardRequest(google.protobuf.message.Message):
 
 global___AddClusterShardRequest = AddClusterShardRequest
 
+@typing_extensions.final
 class AddClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1374,6 +1424,7 @@ class AddClusterShardMetadata(google.protobuf.message.Message):
 
 global___AddClusterShardMetadata = AddClusterShardMetadata
 
+@typing_extensions.final
 class UpdateClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1408,6 +1459,7 @@ class UpdateClusterShardRequest(google.protobuf.message.Message):
 
 global___UpdateClusterShardRequest = UpdateClusterShardRequest
 
+@typing_extensions.final
 class UpdateClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1427,6 +1479,7 @@ class UpdateClusterShardMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterShardMetadata = UpdateClusterShardMetadata
 
+@typing_extensions.final
 class DeleteClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1450,6 +1503,7 @@ class DeleteClusterShardRequest(google.protobuf.message.Message):
 
 global___DeleteClusterShardRequest = DeleteClusterShardRequest
 
+@typing_extensions.final
 class DeleteClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1469,6 +1523,7 @@ class DeleteClusterShardMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterShardMetadata = DeleteClusterShardMetadata
 
+@typing_extensions.final
 class GetClusterShardGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1494,6 +1549,7 @@ class GetClusterShardGroupRequest(google.protobuf.message.Message):
 
 global___GetClusterShardGroupRequest = GetClusterShardGroupRequest
 
+@typing_extensions.final
 class ListClusterShardGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1526,6 +1582,7 @@ class ListClusterShardGroupsRequest(google.protobuf.message.Message):
 
 global___ListClusterShardGroupsRequest = ListClusterShardGroupsRequest
 
+@typing_extensions.final
 class ListClusterShardGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1550,6 +1607,7 @@ class ListClusterShardGroupsResponse(google.protobuf.message.Message):
 
 global___ListClusterShardGroupsResponse = ListClusterShardGroupsResponse
 
+@typing_extensions.final
 class CreateClusterShardGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1584,6 +1642,7 @@ class CreateClusterShardGroupRequest(google.protobuf.message.Message):
 
 global___CreateClusterShardGroupRequest = CreateClusterShardGroupRequest
 
+@typing_extensions.final
 class CreateClusterShardGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1603,6 +1662,7 @@ class CreateClusterShardGroupMetadata(google.protobuf.message.Message):
 
 global___CreateClusterShardGroupMetadata = CreateClusterShardGroupMetadata
 
+@typing_extensions.final
 class UpdateClusterShardGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1642,6 +1702,7 @@ class UpdateClusterShardGroupRequest(google.protobuf.message.Message):
 
 global___UpdateClusterShardGroupRequest = UpdateClusterShardGroupRequest
 
+@typing_extensions.final
 class UpdateClusterShardGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1661,6 +1722,7 @@ class UpdateClusterShardGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterShardGroupMetadata = UpdateClusterShardGroupMetadata
 
+@typing_extensions.final
 class DeleteClusterShardGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1686,6 +1748,7 @@ class DeleteClusterShardGroupRequest(google.protobuf.message.Message):
 
 global___DeleteClusterShardGroupRequest = DeleteClusterShardGroupRequest
 
+@typing_extensions.final
 class DeleteClusterShardGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1705,6 +1768,7 @@ class DeleteClusterShardGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterShardGroupMetadata = DeleteClusterShardGroupMetadata
 
+@typing_extensions.final
 class CreateClusterExternalDictionaryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1728,6 +1792,7 @@ class CreateClusterExternalDictionaryRequest(google.protobuf.message.Message):
 
 global___CreateClusterExternalDictionaryRequest = CreateClusterExternalDictionaryRequest
 
+@typing_extensions.final
 class CreateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1743,6 +1808,7 @@ class CreateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
 
 global___CreateClusterExternalDictionaryMetadata = CreateClusterExternalDictionaryMetadata
 
+@typing_extensions.final
 class UpdateClusterExternalDictionaryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1771,6 +1837,7 @@ class UpdateClusterExternalDictionaryRequest(google.protobuf.message.Message):
 
 global___UpdateClusterExternalDictionaryRequest = UpdateClusterExternalDictionaryRequest
 
+@typing_extensions.final
 class UpdateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1790,6 +1857,7 @@ class UpdateClusterExternalDictionaryMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterExternalDictionaryMetadata = UpdateClusterExternalDictionaryMetadata
 
+@typing_extensions.final
 class DeleteClusterExternalDictionaryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1811,6 +1879,7 @@ class DeleteClusterExternalDictionaryRequest(google.protobuf.message.Message):
 
 global___DeleteClusterExternalDictionaryRequest = DeleteClusterExternalDictionaryRequest
 
+@typing_extensions.final
 class DeleteClusterExternalDictionaryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1826,6 +1895,7 @@ class DeleteClusterExternalDictionaryMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterExternalDictionaryMetadata = DeleteClusterExternalDictionaryMetadata
 
+@typing_extensions.final
 class HostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1870,9 +1940,11 @@ class HostSpec(google.protobuf.message.Message):
 
 global___HostSpec = HostSpec
 
+@typing_extensions.final
 class ConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Clickhouse(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1893,6 +1965,7 @@ class ConfigSpec(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Zookeeper(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1969,9 +2042,11 @@ class ConfigSpec(google.protobuf.message.Message):
 
 global___ConfigSpec = ConfigSpec
 
+@typing_extensions.final
 class ShardConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Clickhouse(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

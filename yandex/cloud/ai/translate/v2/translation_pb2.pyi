@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class TranslatedText(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class TranslatedText(google.protobuf.message.Message):
 
 global___TranslatedText = TranslatedText
 
+@typing_extensions.final
 class Language(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDiskTypeRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -34,6 +35,7 @@ class GetDiskTypeRequest(google.protobuf.message.Message):
 
 global___GetDiskTypeRequest = GetDiskTypeRequest
 
+@typing_extensions.final
 class ListDiskTypesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -59,6 +61,7 @@ class ListDiskTypesRequest(google.protobuf.message.Message):
 
 global___ListDiskTypesRequest = ListDiskTypesRequest
 
+@typing_extensions.final
 class ListDiskTypesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

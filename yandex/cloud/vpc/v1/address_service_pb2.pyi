@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetAddressRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetAddressRequest(google.protobuf.message.Message):
 
 global___GetAddressRequest = GetAddressRequest
 
+@typing_extensions.final
 class GetAddressByValueRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -53,6 +55,7 @@ class GetAddressByValueRequest(google.protobuf.message.Message):
 
 global___GetAddressByValueRequest = GetAddressByValueRequest
 
+@typing_extensions.final
 class ListAddressesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -96,6 +99,7 @@ class ListAddressesRequest(google.protobuf.message.Message):
 
 global___ListAddressesRequest = ListAddressesRequest
 
+@typing_extensions.final
 class ListAddressesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -121,9 +125,11 @@ class ListAddressesResponse(google.protobuf.message.Message):
 
 global___ListAddressesResponse = ListAddressesResponse
 
+@typing_extensions.final
 class CreateAddressRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,6 +181,7 @@ class CreateAddressRequest(google.protobuf.message.Message):
 
 global___CreateAddressRequest = CreateAddressRequest
 
+@typing_extensions.final
 class ExternalIpv4AddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -204,6 +211,7 @@ class ExternalIpv4AddressSpec(google.protobuf.message.Message):
 
 global___ExternalIpv4AddressSpec = ExternalIpv4AddressSpec
 
+@typing_extensions.final
 class CreateAddressMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -219,9 +227,11 @@ class CreateAddressMetadata(google.protobuf.message.Message):
 
 global___CreateAddressMetadata = CreateAddressMetadata
 
+@typing_extensions.final
 class UpdateAddressRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -284,6 +294,7 @@ class UpdateAddressRequest(google.protobuf.message.Message):
 
 global___UpdateAddressRequest = UpdateAddressRequest
 
+@typing_extensions.final
 class UpdateAddressMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -299,6 +310,7 @@ class UpdateAddressMetadata(google.protobuf.message.Message):
 
 global___UpdateAddressMetadata = UpdateAddressMetadata
 
+@typing_extensions.final
 class DeleteAddressRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -317,6 +329,7 @@ class DeleteAddressRequest(google.protobuf.message.Message):
 
 global___DeleteAddressRequest = DeleteAddressRequest
 
+@typing_extensions.final
 class DeleteAddressMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -332,6 +345,7 @@ class DeleteAddressMetadata(google.protobuf.message.Message):
 
 global___DeleteAddressMetadata = DeleteAddressMetadata
 
+@typing_extensions.final
 class ListAddressOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -364,6 +378,7 @@ class ListAddressOperationsRequest(google.protobuf.message.Message):
 
 global___ListAddressOperationsRequest = ListAddressOperationsRequest
 
+@typing_extensions.final
 class ListAddressOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -389,6 +404,7 @@ class ListAddressOperationsResponse(google.protobuf.message.Message):
 
 global___ListAddressOperationsResponse = ListAddressOperationsResponse
 
+@typing_extensions.final
 class MoveAddressRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -406,6 +422,7 @@ class MoveAddressRequest(google.protobuf.message.Message):
 
 global___MoveAddressRequest = MoveAddressRequest
 
+@typing_extensions.final
 class MoveAddressMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

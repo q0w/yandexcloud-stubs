@@ -22,7 +22,7 @@ class _AccessBindingAction:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _AccessBindingActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AccessBindingAction.ValueType], builtins.type):  # noqa: F821
+class _AccessBindingActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AccessBindingAction.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ACCESS_BINDING_ACTION_UNSPECIFIED: _AccessBindingAction.ValueType  # 0
     ADD: _AccessBindingAction.ValueType  # 1
@@ -39,6 +39,7 @@ REMOVE: AccessBindingAction.ValueType  # 2
 """Removal of an access binding."""
 global___AccessBindingAction = AccessBindingAction
 
+@typing_extensions.final
 class Subject(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -76,6 +77,7 @@ class Subject(google.protobuf.message.Message):
 
 global___Subject = Subject
 
+@typing_extensions.final
 class AccessBinding(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -99,6 +101,7 @@ class AccessBinding(google.protobuf.message.Message):
 
 global___AccessBinding = AccessBinding
 
+@typing_extensions.final
 class ListAccessBindingsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -134,6 +137,7 @@ class ListAccessBindingsRequest(google.protobuf.message.Message):
 
 global___ListAccessBindingsRequest = ListAccessBindingsRequest
 
+@typing_extensions.final
 class ListAccessBindingsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,6 +164,7 @@ class ListAccessBindingsResponse(google.protobuf.message.Message):
 
 global___ListAccessBindingsResponse = ListAccessBindingsResponse
 
+@typing_extensions.final
 class SetAccessBindingsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +188,7 @@ class SetAccessBindingsRequest(google.protobuf.message.Message):
 
 global___SetAccessBindingsRequest = SetAccessBindingsRequest
 
+@typing_extensions.final
 class SetAccessBindingsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +204,7 @@ class SetAccessBindingsMetadata(google.protobuf.message.Message):
 
 global___SetAccessBindingsMetadata = SetAccessBindingsMetadata
 
+@typing_extensions.final
 class UpdateAccessBindingsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -218,6 +225,7 @@ class UpdateAccessBindingsRequest(google.protobuf.message.Message):
 
 global___UpdateAccessBindingsRequest = UpdateAccessBindingsRequest
 
+@typing_extensions.final
 class UpdateAccessBindingsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -233,6 +241,7 @@ class UpdateAccessBindingsMetadata(google.protobuf.message.Message):
 
 global___UpdateAccessBindingsMetadata = UpdateAccessBindingsMetadata
 
+@typing_extensions.final
 class AccessBindingDelta(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -254,6 +263,7 @@ class AccessBindingDelta(google.protobuf.message.Message):
 
 global___AccessBindingDelta = AccessBindingDelta
 
+@typing_extensions.final
 class AccessBindingsOperationResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

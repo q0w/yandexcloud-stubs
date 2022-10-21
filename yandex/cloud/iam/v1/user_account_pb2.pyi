@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class UserAccount(google.protobuf.message.Message):
     """Currently represents only [Yandex account](/docs/iam/concepts/#passport)."""
 
@@ -45,6 +46,7 @@ class UserAccount(google.protobuf.message.Message):
 
 global___UserAccount = UserAccount
 
+@typing_extensions.final
 class YandexPassportUserAccount(google.protobuf.message.Message):
     """A YandexPassportUserAccount resource.
     For more information, see [Yandex account](/docs/iam/concepts/#passport).
@@ -68,6 +70,7 @@ class YandexPassportUserAccount(google.protobuf.message.Message):
 
 global___YandexPassportUserAccount = YandexPassportUserAccount
 
+@typing_extensions.final
 class SamlUserAccount(google.protobuf.message.Message):
     """A SAML federated user.
     For more information, see [federations](/docs/iam/concepts/users/saml-federations).
@@ -75,6 +78,7 @@ class SamlUserAccount(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Attribute(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -88,6 +92,7 @@ class SamlUserAccount(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class AttributesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

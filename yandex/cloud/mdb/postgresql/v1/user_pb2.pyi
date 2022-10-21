@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """A PostgreSQL User resource. For more information, see
     the [Developer's Guide](/docs/managed-postgresql/concepts).
@@ -79,6 +80,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -94,6 +96,7 @@ class Permission(google.protobuf.message.Message):
 
 global___Permission = Permission
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +155,7 @@ class UserSpec(google.protobuf.message.Message):
 
 global___UserSpec = UserSpec
 
+@typing_extensions.final
 class UserSettings(google.protobuf.message.Message):
     """PostgreSQL user settings."""
 

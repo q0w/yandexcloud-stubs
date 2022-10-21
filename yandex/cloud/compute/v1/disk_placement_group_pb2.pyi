@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class DiskPlacementGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class DiskPlacementGroup(google.protobuf.message.Message):
     READY: DiskPlacementGroup.Status.ValueType  # 2
     DELETING: DiskPlacementGroup.Status.ValueType  # 4
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +107,7 @@ class DiskPlacementGroup(google.protobuf.message.Message):
 
 global___DiskPlacementGroup = DiskPlacementGroup
 
+@typing_extensions.final
 class DiskSpreadPlacementStrategy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

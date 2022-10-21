@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PostgresqlConfig9_6(google.protobuf.message.Message):
     """Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
     parameters whose detailed description is available in
@@ -587,6 +588,7 @@ class PostgresqlConfig9_6(google.protobuf.message.Message):
 
 global___PostgresqlConfig9_6 = PostgresqlConfig9_6
 
+@typing_extensions.final
 class PostgresqlConfigSet9_6(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

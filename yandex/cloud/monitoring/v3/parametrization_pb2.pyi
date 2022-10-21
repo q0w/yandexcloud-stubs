@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class LabelValuesParameter(google.protobuf.message.Message):
     """Label values parameter."""
 
@@ -53,6 +54,7 @@ class LabelValuesParameter(google.protobuf.message.Message):
 
 global___LabelValuesParameter = LabelValuesParameter
 
+@typing_extensions.final
 class CustomParameter(google.protobuf.message.Message):
     """Custom parameter."""
 
@@ -80,6 +82,7 @@ class CustomParameter(google.protobuf.message.Message):
 
 global___CustomParameter = CustomParameter
 
+@typing_extensions.final
 class TextParameter(google.protobuf.message.Message):
     """Text parameter."""
 
@@ -97,6 +100,7 @@ class TextParameter(google.protobuf.message.Message):
 
 global___TextParameter = TextParameter
 
+@typing_extensions.final
 class DoubleParameter(google.protobuf.message.Message):
     """Double parameter."""
 
@@ -118,6 +122,7 @@ class DoubleParameter(google.protobuf.message.Message):
 
 global___DoubleParameter = DoubleParameter
 
+@typing_extensions.final
 class IntegerParameter(google.protobuf.message.Message):
     """Integer parameter."""
 
@@ -139,6 +144,7 @@ class IntegerParameter(google.protobuf.message.Message):
 
 global___IntegerParameter = IntegerParameter
 
+@typing_extensions.final
 class TextValuesParameter(google.protobuf.message.Message):
     """Text multiple values parameter."""
 
@@ -157,6 +163,7 @@ class TextValuesParameter(google.protobuf.message.Message):
 
 global___TextValuesParameter = TextValuesParameter
 
+@typing_extensions.final
 class Parameter(google.protobuf.message.Message):
     """Parameter."""
 
@@ -218,6 +225,7 @@ class Parameter(google.protobuf.message.Message):
 
 global___Parameter = Parameter
 
+@typing_extensions.final
 class Parametrization(google.protobuf.message.Message):
     """Parametrization."""
 

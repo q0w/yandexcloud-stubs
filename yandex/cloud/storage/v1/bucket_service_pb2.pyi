@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBucketRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -84,6 +85,7 @@ class GetBucketRequest(google.protobuf.message.Message):
 
 global___GetBucketRequest = GetBucketRequest
 
+@typing_extensions.final
 class ListBucketsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,6 +104,7 @@ class ListBucketsRequest(google.protobuf.message.Message):
 
 global___ListBucketsRequest = ListBucketsRequest
 
+@typing_extensions.final
 class ListBucketsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,6 +121,7 @@ class ListBucketsResponse(google.protobuf.message.Message):
 
 global___ListBucketsResponse = ListBucketsResponse
 
+@typing_extensions.final
 class CreateBucketRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +176,7 @@ class CreateBucketRequest(google.protobuf.message.Message):
 
 global___CreateBucketRequest = CreateBucketRequest
 
+@typing_extensions.final
 class CreateBucketMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -187,6 +192,7 @@ class CreateBucketMetadata(google.protobuf.message.Message):
 
 global___CreateBucketMetadata = CreateBucketMetadata
 
+@typing_extensions.final
 class UpdateBucketRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -274,6 +280,7 @@ class UpdateBucketRequest(google.protobuf.message.Message):
 
 global___UpdateBucketRequest = UpdateBucketRequest
 
+@typing_extensions.final
 class UpdateBucketMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,6 +296,7 @@ class UpdateBucketMetadata(google.protobuf.message.Message):
 
 global___UpdateBucketMetadata = UpdateBucketMetadata
 
+@typing_extensions.final
 class DeleteBucketRequest(google.protobuf.message.Message):
     """DeleteBucketRequest deletes requested bucket from the Cloud."""
 
@@ -309,6 +317,7 @@ class DeleteBucketRequest(google.protobuf.message.Message):
 
 global___DeleteBucketRequest = DeleteBucketRequest
 
+@typing_extensions.final
 class DeleteBucketMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -324,6 +333,7 @@ class DeleteBucketMetadata(google.protobuf.message.Message):
 
 global___DeleteBucketMetadata = DeleteBucketMetadata
 
+@typing_extensions.final
 class GetBucketStatsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -339,6 +349,7 @@ class GetBucketStatsRequest(google.protobuf.message.Message):
 
 global___GetBucketStatsRequest = GetBucketStatsRequest
 
+@typing_extensions.final
 class GetBucketHTTPSConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -354,6 +365,7 @@ class GetBucketHTTPSConfigRequest(google.protobuf.message.Message):
 
 global___GetBucketHTTPSConfigRequest = GetBucketHTTPSConfigRequest
 
+@typing_extensions.final
 class SelfManagedHTTPSConfigParams(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -373,6 +385,7 @@ class SelfManagedHTTPSConfigParams(google.protobuf.message.Message):
 
 global___SelfManagedHTTPSConfigParams = SelfManagedHTTPSConfigParams
 
+@typing_extensions.final
 class CertificateManagerHTTPSConfigParams(google.protobuf.message.Message):
     """A resource for a TLS certificate from Certificate Manager."""
 
@@ -394,6 +407,7 @@ class CertificateManagerHTTPSConfigParams(google.protobuf.message.Message):
 
 global___CertificateManagerHTTPSConfigParams = CertificateManagerHTTPSConfigParams
 
+@typing_extensions.final
 class SetBucketHTTPSConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -428,6 +442,7 @@ class SetBucketHTTPSConfigRequest(google.protobuf.message.Message):
 
 global___SetBucketHTTPSConfigRequest = SetBucketHTTPSConfigRequest
 
+@typing_extensions.final
 class SetBucketHTTPSConfigMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -443,6 +458,7 @@ class SetBucketHTTPSConfigMetadata(google.protobuf.message.Message):
 
 global___SetBucketHTTPSConfigMetadata = SetBucketHTTPSConfigMetadata
 
+@typing_extensions.final
 class DeleteBucketHTTPSConfigRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -458,6 +474,7 @@ class DeleteBucketHTTPSConfigRequest(google.protobuf.message.Message):
 
 global___DeleteBucketHTTPSConfigRequest = DeleteBucketHTTPSConfigRequest
 
+@typing_extensions.final
 class DeleteBucketHTTPSConfigMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

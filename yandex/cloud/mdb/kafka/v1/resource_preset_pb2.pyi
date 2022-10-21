@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ResourcePreset(google.protobuf.message.Message):
     """A ResourcePreset resource for describing hardware configuration presets."""
 

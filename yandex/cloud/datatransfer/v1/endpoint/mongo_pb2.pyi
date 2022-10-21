@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class OnPremiseMongo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class OnPremiseMongo(google.protobuf.message.Message):
 
 global___OnPremiseMongo = OnPremiseMongo
 
+@typing_extensions.final
 class MongoConnectionOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -73,6 +75,7 @@ class MongoConnectionOptions(google.protobuf.message.Message):
 
 global___MongoConnectionOptions = MongoConnectionOptions
 
+@typing_extensions.final
 class MongoConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -90,6 +93,7 @@ class MongoConnection(google.protobuf.message.Message):
 
 global___MongoConnection = MongoConnection
 
+@typing_extensions.final
 class MongoCollection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +111,7 @@ class MongoCollection(google.protobuf.message.Message):
 
 global___MongoCollection = MongoCollection
 
+@typing_extensions.final
 class MongoSource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -142,6 +147,7 @@ class MongoSource(google.protobuf.message.Message):
 
 global___MongoSource = MongoSource
 
+@typing_extensions.final
 class MongoTarget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

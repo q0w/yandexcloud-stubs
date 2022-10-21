@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MysqlConfig5_7(google.protobuf.message.Message):
     """Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file"""
 
@@ -53,6 +54,7 @@ class MysqlConfig5_7(google.protobuf.message.Message):
 
 global___MysqlConfig5_7 = MysqlConfig5_7
 
+@typing_extensions.final
 class MysqlConfigSet5_7(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

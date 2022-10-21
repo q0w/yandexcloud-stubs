@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetNodeGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetNodeGroupRequest(google.protobuf.message.Message):
 
 global___GetNodeGroupRequest = GetNodeGroupRequest
 
+@typing_extensions.final
 class ListNodeGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListNodeGroupsRequest(google.protobuf.message.Message):
 
 global___ListNodeGroupsRequest = ListNodeGroupsRequest
 
+@typing_extensions.final
 class ListNodeGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +108,7 @@ class ListNodeGroupsResponse(google.protobuf.message.Message):
 
 global___ListNodeGroupsResponse = ListNodeGroupsResponse
 
+@typing_extensions.final
 class ListNodeGroupNodesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -137,6 +141,7 @@ class ListNodeGroupNodesRequest(google.protobuf.message.Message):
 
 global___ListNodeGroupNodesRequest = ListNodeGroupNodesRequest
 
+@typing_extensions.final
 class ListNodeGroupNodesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -163,6 +168,7 @@ class ListNodeGroupNodesResponse(google.protobuf.message.Message):
 
 global___ListNodeGroupNodesResponse = ListNodeGroupNodesResponse
 
+@typing_extensions.final
 class DeleteNodeGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -180,6 +186,7 @@ class DeleteNodeGroupRequest(google.protobuf.message.Message):
 
 global___DeleteNodeGroupRequest = DeleteNodeGroupRequest
 
+@typing_extensions.final
 class DeleteNodeGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -195,9 +202,11 @@ class DeleteNodeGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteNodeGroupMetadata = DeleteNodeGroupMetadata
 
+@typing_extensions.final
 class UpdateNodeGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -213,6 +222,7 @@ class UpdateNodeGroupRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NodeLabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -315,6 +325,7 @@ class UpdateNodeGroupRequest(google.protobuf.message.Message):
 
 global___UpdateNodeGroupRequest = UpdateNodeGroupRequest
 
+@typing_extensions.final
 class UpdateNodeGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -330,9 +341,11 @@ class UpdateNodeGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateNodeGroupMetadata = UpdateNodeGroupMetadata
 
+@typing_extensions.final
 class CreateNodeGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -348,6 +361,7 @@ class CreateNodeGroupRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NodeLabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -439,6 +453,7 @@ class CreateNodeGroupRequest(google.protobuf.message.Message):
 
 global___CreateNodeGroupRequest = CreateNodeGroupRequest
 
+@typing_extensions.final
 class CreateNodeGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -454,6 +469,7 @@ class CreateNodeGroupMetadata(google.protobuf.message.Message):
 
 global___CreateNodeGroupMetadata = CreateNodeGroupMetadata
 
+@typing_extensions.final
 class AutoUpgradeNodeGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -469,6 +485,7 @@ class AutoUpgradeNodeGroupMetadata(google.protobuf.message.Message):
 
 global___AutoUpgradeNodeGroupMetadata = AutoUpgradeNodeGroupMetadata
 
+@typing_extensions.final
 class ListNodeGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -504,6 +521,7 @@ class ListNodeGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListNodeGroupOperationsRequest = ListNodeGroupOperationsRequest
 
+@typing_extensions.final
 class ListNodeGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

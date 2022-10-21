@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class HostType(google.protobuf.message.Message):
     """Represents host resources.
     Note: Platform can use hosts with different number of memory and cores.

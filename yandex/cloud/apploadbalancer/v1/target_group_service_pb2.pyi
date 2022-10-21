@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetTargetGroupRequest(google.protobuf.message.Message):
 
 global___GetTargetGroupRequest = GetTargetGroupRequest
 
+@typing_extensions.final
 class ListTargetGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListTargetGroupsRequest(google.protobuf.message.Message):
 
 global___ListTargetGroupsRequest = ListTargetGroupsRequest
 
+@typing_extensions.final
 class ListTargetGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +108,7 @@ class ListTargetGroupsResponse(google.protobuf.message.Message):
 
 global___ListTargetGroupsResponse = ListTargetGroupsResponse
 
+@typing_extensions.final
 class DeleteTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -123,6 +127,7 @@ class DeleteTargetGroupRequest(google.protobuf.message.Message):
 
 global___DeleteTargetGroupRequest = DeleteTargetGroupRequest
 
+@typing_extensions.final
 class DeleteTargetGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,9 +143,11 @@ class DeleteTargetGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteTargetGroupMetadata = DeleteTargetGroupMetadata
 
+@typing_extensions.final
 class UpdateTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -209,6 +216,7 @@ class UpdateTargetGroupRequest(google.protobuf.message.Message):
 
 global___UpdateTargetGroupRequest = UpdateTargetGroupRequest
 
+@typing_extensions.final
 class UpdateTargetGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -224,9 +232,11 @@ class UpdateTargetGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateTargetGroupMetadata = UpdateTargetGroupMetadata
 
+@typing_extensions.final
 class CreateTargetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -279,6 +289,7 @@ class CreateTargetGroupRequest(google.protobuf.message.Message):
 
 global___CreateTargetGroupRequest = CreateTargetGroupRequest
 
+@typing_extensions.final
 class CreateTargetGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -294,6 +305,7 @@ class CreateTargetGroupMetadata(google.protobuf.message.Message):
 
 global___CreateTargetGroupMetadata = CreateTargetGroupMetadata
 
+@typing_extensions.final
 class AddTargetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -317,6 +329,7 @@ class AddTargetsRequest(google.protobuf.message.Message):
 
 global___AddTargetsRequest = AddTargetsRequest
 
+@typing_extensions.final
 class AddTargetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -332,6 +345,7 @@ class AddTargetsMetadata(google.protobuf.message.Message):
 
 global___AddTargetsMetadata = AddTargetsMetadata
 
+@typing_extensions.final
 class RemoveTargetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -355,6 +369,7 @@ class RemoveTargetsRequest(google.protobuf.message.Message):
 
 global___RemoveTargetsRequest = RemoveTargetsRequest
 
+@typing_extensions.final
 class RemoveTargetsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -370,6 +385,7 @@ class RemoveTargetsMetadata(google.protobuf.message.Message):
 
 global___RemoveTargetsMetadata = RemoveTargetsMetadata
 
+@typing_extensions.final
 class ListTargetGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -402,6 +418,7 @@ class ListTargetGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListTargetGroupOperationsRequest = ListTargetGroupOperationsRequest
 
+@typing_extensions.final
 class ListTargetGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

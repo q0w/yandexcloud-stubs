@@ -25,7 +25,7 @@ class _TriggerType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TriggerType.ValueType], builtins.type):  # noqa: F821
+class _TriggerTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_TriggerType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     TRIGGER_TYPE_UNSPECIFIED: _TriggerType.ValueType  # 0
     TIMER: _TriggerType.ValueType  # 2
@@ -78,6 +78,7 @@ MAIL: TriggerType.ValueType  # 11
 """The trigger is activated by email"""
 global___TriggerType = TriggerType
 
+@typing_extensions.final
 class Trigger(google.protobuf.message.Message):
     """A trigger to invoke a serverless function. For more information, see [Triggers](/docs/functions/concepts/trigger)."""
 
@@ -134,6 +135,7 @@ class Trigger(google.protobuf.message.Message):
     ACTIVE: Trigger.Status.ValueType  # 1
     PAUSED: Trigger.Status.ValueType  # 2
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -149,6 +151,7 @@ class Trigger(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class Rule(google.protobuf.message.Message):
         """Description of a rule for trigger activation."""
 
@@ -209,6 +212,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["billing_budget", b"billing_budget", "cloud_logs", b"cloud_logs", "container_registry", b"container_registry", "data_stream", b"data_stream", "iot_broker_message", b"iot_broker_message", "iot_message", b"iot_message", "logging", b"logging", "mail", b"mail", "message_queue", b"message_queue", "object_storage", b"object_storage", "rule", b"rule", "timer", b"timer"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["rule", b"rule"]) -> typing_extensions.Literal["timer", "message_queue", "iot_message", "iot_broker_message", "object_storage", "container_registry", "cloud_logs", "logging", "billing_budget", "data_stream", "mail"] | None: ...
 
+    @typing_extensions.final
     class Timer(google.protobuf.message.Message):
         """Rule for activating a timed trigger."""
 
@@ -241,6 +245,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "cron_expression", b"cron_expression", "invoke_container_with_retry", b"invoke_container_with_retry", "invoke_function", b"invoke_function", "invoke_function_with_retry", b"invoke_function_with_retry"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_function_with_retry", "invoke_container_with_retry"] | None: ...
 
+    @typing_extensions.final
     class MessageQueue(google.protobuf.message.Message):
         """Rule for activating a message queue trigger."""
 
@@ -282,6 +287,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "queue_id", b"queue_id", "service_account_id", b"service_account_id", "visibility_timeout", b"visibility_timeout"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class IoTMessage(google.protobuf.message.Message):
         """Rule for activating a IoT Core trigger."""
 
@@ -317,6 +323,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "device_id", b"device_id", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "mqtt_topic", b"mqtt_topic", "registry_id", b"registry_id"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class IoTBrokerMessage(google.protobuf.message.Message):
         """Rule for activating a IoT Core Broker trigger."""
 
@@ -348,6 +355,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "broker_id", b"broker_id", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "mqtt_topic", b"mqtt_topic"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class ObjectStorage(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -386,6 +394,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "bucket_id", b"bucket_id", "event_type", b"event_type", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "prefix", b"prefix", "suffix", b"suffix"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class ContainerRegistry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -424,6 +433,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "event_type", b"event_type", "image_name", b"image_name", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "registry_id", b"registry_id", "tag", b"tag"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class CloudLogs(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -455,6 +465,7 @@ class Trigger(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["action", b"action", "batch_settings", b"batch_settings", "invoke_container", b"invoke_container", "invoke_function", b"invoke_function", "log_group_id", b"log_group_id"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["action", b"action"]) -> typing_extensions.Literal["invoke_function", "invoke_container"] | None: ...
 
+    @typing_extensions.final
     class Logging(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -541,6 +552,7 @@ class Trigger(google.protobuf.message.Message):
 
 global___Trigger = Trigger
 
+@typing_extensions.final
 class InvokeFunctionOnce(google.protobuf.message.Message):
     """A single function invocation."""
 
@@ -566,6 +578,7 @@ class InvokeFunctionOnce(google.protobuf.message.Message):
 
 global___InvokeFunctionOnce = InvokeFunctionOnce
 
+@typing_extensions.final
 class InvokeFunctionWithRetry(google.protobuf.message.Message):
     """A function invocation with retries."""
 
@@ -602,6 +615,7 @@ class InvokeFunctionWithRetry(google.protobuf.message.Message):
 
 global___InvokeFunctionWithRetry = InvokeFunctionWithRetry
 
+@typing_extensions.final
 class InvokeContainerOnce(google.protobuf.message.Message):
     """A single container invocation."""
 
@@ -627,6 +641,7 @@ class InvokeContainerOnce(google.protobuf.message.Message):
 
 global___InvokeContainerOnce = InvokeContainerOnce
 
+@typing_extensions.final
 class InvokeContainerWithRetry(google.protobuf.message.Message):
     """A container invocation with retries."""
 
@@ -663,6 +678,7 @@ class InvokeContainerWithRetry(google.protobuf.message.Message):
 
 global___InvokeContainerWithRetry = InvokeContainerWithRetry
 
+@typing_extensions.final
 class PutQueueMessage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -682,6 +698,7 @@ class PutQueueMessage(google.protobuf.message.Message):
 
 global___PutQueueMessage = PutQueueMessage
 
+@typing_extensions.final
 class BatchSettings(google.protobuf.message.Message):
     """Settings for batch processing of messages in a queue."""
 
@@ -709,6 +726,7 @@ class BatchSettings(google.protobuf.message.Message):
 
 global___BatchSettings = BatchSettings
 
+@typing_extensions.final
 class CloudLogsBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -734,6 +752,7 @@ class CloudLogsBatchSettings(google.protobuf.message.Message):
 
 global___CloudLogsBatchSettings = CloudLogsBatchSettings
 
+@typing_extensions.final
 class LoggingBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -759,6 +778,7 @@ class LoggingBatchSettings(google.protobuf.message.Message):
 
 global___LoggingBatchSettings = LoggingBatchSettings
 
+@typing_extensions.final
 class RetrySettings(google.protobuf.message.Message):
     """Settings for retrying to invoke a function."""
 
@@ -782,6 +802,7 @@ class RetrySettings(google.protobuf.message.Message):
 
 global___RetrySettings = RetrySettings
 
+@typing_extensions.final
 class BillingBudget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -809,6 +830,7 @@ class BillingBudget(google.protobuf.message.Message):
 
 global___BillingBudget = BillingBudget
 
+@typing_extensions.final
 class DataStreamBatchSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -834,6 +856,7 @@ class DataStreamBatchSettings(google.protobuf.message.Message):
 
 global___DataStreamBatchSettings = DataStreamBatchSettings
 
+@typing_extensions.final
 class DataStream(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -876,6 +899,7 @@ class DataStream(google.protobuf.message.Message):
 
 global___DataStream = DataStream
 
+@typing_extensions.final
 class Mail(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

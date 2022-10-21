@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Broker(google.protobuf.message.Message):
     """A broker."""
 
@@ -47,6 +48,7 @@ class Broker(google.protobuf.message.Message):
     DELETING: Broker.Status.ValueType  # 3
     """Broker is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,6 +103,7 @@ class Broker(google.protobuf.message.Message):
 
 global___Broker = Broker
 
+@typing_extensions.final
 class BrokerCertificate(google.protobuf.message.Message):
     """A broker certificate."""
 
@@ -132,6 +135,7 @@ class BrokerCertificate(google.protobuf.message.Message):
 
 global___BrokerCertificate = BrokerCertificate
 
+@typing_extensions.final
 class BrokerPassword(google.protobuf.message.Message):
     """A broker password."""
 

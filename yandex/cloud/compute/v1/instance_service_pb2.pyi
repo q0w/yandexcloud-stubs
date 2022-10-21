@@ -26,7 +26,7 @@ class _InstanceView:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _InstanceViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceView.ValueType], builtins.type):  # noqa: F821
+class _InstanceViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceView.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BASIC: _InstanceView.ValueType  # 0
     """Doesn't include the metadata of the instance in the server response."""
@@ -41,6 +41,7 @@ FULL: InstanceView.ValueType  # 1
 """Returns the metadata of the instance in the server response."""
 global___InstanceView = InstanceView
 
+@typing_extensions.final
 class GetInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -62,6 +63,7 @@ class GetInstanceRequest(google.protobuf.message.Message):
 
 global___GetInstanceRequest = GetInstanceRequest
 
+@typing_extensions.final
 class ListInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -103,6 +105,7 @@ class ListInstancesRequest(google.protobuf.message.Message):
 
 global___ListInstancesRequest = ListInstancesRequest
 
+@typing_extensions.final
 class ListInstancesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -129,9 +132,11 @@ class ListInstancesResponse(google.protobuf.message.Message):
 
 global___ListInstancesResponse = ListInstancesResponse
 
+@typing_extensions.final
 class CreateInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -147,6 +152,7 @@ class CreateInstanceRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -295,6 +301,7 @@ class CreateInstanceRequest(google.protobuf.message.Message):
 
 global___CreateInstanceRequest = CreateInstanceRequest
 
+@typing_extensions.final
 class CreateInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -310,9 +317,11 @@ class CreateInstanceMetadata(google.protobuf.message.Message):
 
 global___CreateInstanceMetadata = CreateInstanceMetadata
 
+@typing_extensions.final
 class UpdateInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +337,7 @@ class UpdateInstanceRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -437,6 +447,7 @@ class UpdateInstanceRequest(google.protobuf.message.Message):
 
 global___UpdateInstanceRequest = UpdateInstanceRequest
 
+@typing_extensions.final
 class UpdateInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -452,6 +463,7 @@ class UpdateInstanceMetadata(google.protobuf.message.Message):
 
 global___UpdateInstanceMetadata = UpdateInstanceMetadata
 
+@typing_extensions.final
 class DeleteInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -469,6 +481,7 @@ class DeleteInstanceRequest(google.protobuf.message.Message):
 
 global___DeleteInstanceRequest = DeleteInstanceRequest
 
+@typing_extensions.final
 class DeleteInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -484,9 +497,11 @@ class DeleteInstanceMetadata(google.protobuf.message.Message):
 
 global___DeleteInstanceMetadata = DeleteInstanceMetadata
 
+@typing_extensions.final
 class UpdateInstanceMetadataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class UpsertEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -524,6 +539,7 @@ class UpdateInstanceMetadataRequest(google.protobuf.message.Message):
 
 global___UpdateInstanceMetadataRequest = UpdateInstanceMetadataRequest
 
+@typing_extensions.final
 class UpdateInstanceMetadataMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -539,6 +555,7 @@ class UpdateInstanceMetadataMetadata(google.protobuf.message.Message):
 
 global___UpdateInstanceMetadataMetadata = UpdateInstanceMetadataMetadata
 
+@typing_extensions.final
 class GetInstanceSerialPortOutputRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -558,6 +575,7 @@ class GetInstanceSerialPortOutputRequest(google.protobuf.message.Message):
 
 global___GetInstanceSerialPortOutputRequest = GetInstanceSerialPortOutputRequest
 
+@typing_extensions.final
 class GetInstanceSerialPortOutputResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -575,6 +593,7 @@ class GetInstanceSerialPortOutputResponse(google.protobuf.message.Message):
 
 global___GetInstanceSerialPortOutputResponse = GetInstanceSerialPortOutputResponse
 
+@typing_extensions.final
 class StopInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -592,6 +611,7 @@ class StopInstanceRequest(google.protobuf.message.Message):
 
 global___StopInstanceRequest = StopInstanceRequest
 
+@typing_extensions.final
 class StopInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -607,6 +627,7 @@ class StopInstanceMetadata(google.protobuf.message.Message):
 
 global___StopInstanceMetadata = StopInstanceMetadata
 
+@typing_extensions.final
 class StartInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -624,6 +645,7 @@ class StartInstanceRequest(google.protobuf.message.Message):
 
 global___StartInstanceRequest = StartInstanceRequest
 
+@typing_extensions.final
 class StartInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -639,6 +661,7 @@ class StartInstanceMetadata(google.protobuf.message.Message):
 
 global___StartInstanceMetadata = StartInstanceMetadata
 
+@typing_extensions.final
 class RestartInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -656,6 +679,7 @@ class RestartInstanceRequest(google.protobuf.message.Message):
 
 global___RestartInstanceRequest = RestartInstanceRequest
 
+@typing_extensions.final
 class RestartInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -671,6 +695,7 @@ class RestartInstanceMetadata(google.protobuf.message.Message):
 
 global___RestartInstanceMetadata = RestartInstanceMetadata
 
+@typing_extensions.final
 class AttachInstanceDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -694,6 +719,7 @@ class AttachInstanceDiskRequest(google.protobuf.message.Message):
 
 global___AttachInstanceDiskRequest = AttachInstanceDiskRequest
 
+@typing_extensions.final
 class AttachInstanceDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -713,6 +739,7 @@ class AttachInstanceDiskMetadata(google.protobuf.message.Message):
 
 global___AttachInstanceDiskMetadata = AttachInstanceDiskMetadata
 
+@typing_extensions.final
 class DetachInstanceDiskRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -742,6 +769,7 @@ class DetachInstanceDiskRequest(google.protobuf.message.Message):
 
 global___DetachInstanceDiskRequest = DetachInstanceDiskRequest
 
+@typing_extensions.final
 class DetachInstanceDiskMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -761,6 +789,7 @@ class DetachInstanceDiskMetadata(google.protobuf.message.Message):
 
 global___DetachInstanceDiskMetadata = DetachInstanceDiskMetadata
 
+@typing_extensions.final
 class AttachInstanceFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -785,6 +814,7 @@ class AttachInstanceFilesystemRequest(google.protobuf.message.Message):
 
 global___AttachInstanceFilesystemRequest = AttachInstanceFilesystemRequest
 
+@typing_extensions.final
 class AttachInstanceFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -804,6 +834,7 @@ class AttachInstanceFilesystemMetadata(google.protobuf.message.Message):
 
 global___AttachInstanceFilesystemMetadata = AttachInstanceFilesystemMetadata
 
+@typing_extensions.final
 class DetachInstanceFilesystemRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -832,6 +863,7 @@ class DetachInstanceFilesystemRequest(google.protobuf.message.Message):
 
 global___DetachInstanceFilesystemRequest = DetachInstanceFilesystemRequest
 
+@typing_extensions.final
 class DetachInstanceFilesystemMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -851,6 +883,7 @@ class DetachInstanceFilesystemMetadata(google.protobuf.message.Message):
 
 global___DetachInstanceFilesystemMetadata = DetachInstanceFilesystemMetadata
 
+@typing_extensions.final
 class AddInstanceOneToOneNatRequest(google.protobuf.message.Message):
     """Enables One-to-one NAT on the network interface."""
 
@@ -886,6 +919,7 @@ class AddInstanceOneToOneNatRequest(google.protobuf.message.Message):
 
 global___AddInstanceOneToOneNatRequest = AddInstanceOneToOneNatRequest
 
+@typing_extensions.final
 class AddInstanceOneToOneNatMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -901,6 +935,7 @@ class AddInstanceOneToOneNatMetadata(google.protobuf.message.Message):
 
 global___AddInstanceOneToOneNatMetadata = AddInstanceOneToOneNatMetadata
 
+@typing_extensions.final
 class RemoveInstanceOneToOneNatRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -926,6 +961,7 @@ class RemoveInstanceOneToOneNatRequest(google.protobuf.message.Message):
 
 global___RemoveInstanceOneToOneNatRequest = RemoveInstanceOneToOneNatRequest
 
+@typing_extensions.final
 class RemoveInstanceOneToOneNatMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -941,6 +977,7 @@ class RemoveInstanceOneToOneNatMetadata(google.protobuf.message.Message):
 
 global___RemoveInstanceOneToOneNatMetadata = RemoveInstanceOneToOneNatMetadata
 
+@typing_extensions.final
 class UpdateInstanceNetworkInterfaceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -985,6 +1022,7 @@ class UpdateInstanceNetworkInterfaceRequest(google.protobuf.message.Message):
 
 global___UpdateInstanceNetworkInterfaceRequest = UpdateInstanceNetworkInterfaceRequest
 
+@typing_extensions.final
 class UpdateInstanceNetworkInterfaceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1004,6 +1042,7 @@ class UpdateInstanceNetworkInterfaceMetadata(google.protobuf.message.Message):
 
 global___UpdateInstanceNetworkInterfaceMetadata = UpdateInstanceNetworkInterfaceMetadata
 
+@typing_extensions.final
 class ListInstanceOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1032,6 +1071,7 @@ class ListInstanceOperationsRequest(google.protobuf.message.Message):
 
 global___ListInstanceOperationsRequest = ListInstanceOperationsRequest
 
+@typing_extensions.final
 class ListInstanceOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1056,6 +1096,7 @@ class ListInstanceOperationsResponse(google.protobuf.message.Message):
 
 global___ListInstanceOperationsResponse = ListInstanceOperationsResponse
 
+@typing_extensions.final
 class ResourcesSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1088,6 +1129,7 @@ class ResourcesSpec(google.protobuf.message.Message):
 
 global___ResourcesSpec = ResourcesSpec
 
+@typing_extensions.final
 class AttachedDiskSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1110,6 +1152,7 @@ class AttachedDiskSpec(google.protobuf.message.Message):
     READ_WRITE: AttachedDiskSpec.Mode.ValueType  # 2
     """Read/Write access. Default value."""
 
+    @typing_extensions.final
     class DiskSpec(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1192,6 +1235,7 @@ class AttachedDiskSpec(google.protobuf.message.Message):
 
 global___AttachedDiskSpec = AttachedDiskSpec
 
+@typing_extensions.final
 class AttachedLocalDiskSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1207,6 +1251,7 @@ class AttachedLocalDiskSpec(google.protobuf.message.Message):
 
 global___AttachedLocalDiskSpec = AttachedLocalDiskSpec
 
+@typing_extensions.final
 class AttachedFilesystemSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1255,6 +1300,7 @@ class AttachedFilesystemSpec(google.protobuf.message.Message):
 
 global___AttachedFilesystemSpec = AttachedFilesystemSpec
 
+@typing_extensions.final
 class NetworkInterfaceSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1286,6 +1332,7 @@ class NetworkInterfaceSpec(google.protobuf.message.Message):
 
 global___NetworkInterfaceSpec = NetworkInterfaceSpec
 
+@typing_extensions.final
 class PrimaryAddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1317,6 +1364,7 @@ class PrimaryAddressSpec(google.protobuf.message.Message):
 
 global___PrimaryAddressSpec = PrimaryAddressSpec
 
+@typing_extensions.final
 class OneToOneNatSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1343,6 +1391,7 @@ class OneToOneNatSpec(google.protobuf.message.Message):
 
 global___OneToOneNatSpec = OneToOneNatSpec
 
+@typing_extensions.final
 class DnsRecordSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1370,6 +1419,7 @@ class DnsRecordSpec(google.protobuf.message.Message):
 
 global___DnsRecordSpec = DnsRecordSpec
 
+@typing_extensions.final
 class MoveInstanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1395,6 +1445,7 @@ class MoveInstanceRequest(google.protobuf.message.Message):
 
 global___MoveInstanceRequest = MoveInstanceRequest
 
+@typing_extensions.final
 class MoveInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1418,6 +1469,7 @@ class MoveInstanceMetadata(google.protobuf.message.Message):
 
 global___MoveInstanceMetadata = MoveInstanceMetadata
 
+@typing_extensions.final
 class GuestStopInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1433,6 +1485,7 @@ class GuestStopInstanceMetadata(google.protobuf.message.Message):
 
 global___GuestStopInstanceMetadata = GuestStopInstanceMetadata
 
+@typing_extensions.final
 class PreemptInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1448,6 +1501,7 @@ class PreemptInstanceMetadata(google.protobuf.message.Message):
 
 global___PreemptInstanceMetadata = PreemptInstanceMetadata
 
+@typing_extensions.final
 class CrashInstanceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

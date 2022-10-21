@@ -19,7 +19,7 @@ class _UnitFormat:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _UnitFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_UnitFormat.ValueType], builtins.type):  # noqa: F821
+class _UnitFormatEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_UnitFormat.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     UNIT_FORMAT_UNSPECIFIED: _UnitFormat.ValueType  # 0
     UNIT_NONE: _UnitFormat.ValueType  # 1

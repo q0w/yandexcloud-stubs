@@ -23,7 +23,7 @@ class _OriginProtocol:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _OriginProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OriginProtocol.ValueType], builtins.type):  # noqa: F821
+class _OriginProtocolEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_OriginProtocol.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     ORIGIN_PROTOCOL_UNSPECIFIED: _OriginProtocol.ValueType  # 0
     HTTP: _OriginProtocol.ValueType  # 1
@@ -56,7 +56,7 @@ class _RewriteFlag:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _RewriteFlagEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RewriteFlag.ValueType], builtins.type):  # noqa: F821
+class _RewriteFlagEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_RewriteFlag.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     REWRITE_FLAG_UNSPECIFIED: _RewriteFlag.ValueType  # 0
     LAST: _RewriteFlag.ValueType  # 1
@@ -94,7 +94,7 @@ class _SSLCertificateType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _SSLCertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SSLCertificateType.ValueType], builtins.type):  # noqa: F821
+class _SSLCertificateTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SSLCertificateType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SSL_CERTIFICATE_TYPE_UNSPECIFIED: _SSLCertificateType.ValueType  # 0
     """SSL certificate is unspecified."""
@@ -122,7 +122,7 @@ class _SSLCertificateStatus:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _SSLCertificateStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SSLCertificateStatus.ValueType], builtins.type):  # noqa: F821
+class _SSLCertificateStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SSLCertificateStatus.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SSL_CERTIFICATE_STATUS_UNSPECIFIED: _SSLCertificateStatus.ValueType  # 0
     """SSL certificate is unspecified."""
@@ -142,6 +142,7 @@ CREATING: SSLCertificateStatus.ValueType  # 2
 """SSL certificate is creating."""
 global___SSLCertificateStatus = SSLCertificateStatus
 
+@typing_extensions.final
 class SecondaryHostnames(google.protobuf.message.Message):
     """List of secondary (alternative) CNAMEs."""
 
@@ -160,6 +161,7 @@ class SecondaryHostnames(google.protobuf.message.Message):
 
 global___SecondaryHostnames = SecondaryHostnames
 
+@typing_extensions.final
 class Resource(google.protobuf.message.Message):
     """
     A CDN resource - representation of providers resource.
@@ -232,11 +234,13 @@ class Resource(google.protobuf.message.Message):
 
 global___Resource = Resource
 
+@typing_extensions.final
 class ResourceOptions(google.protobuf.message.Message):
     """A major set of various resource options."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class BoolOption(google.protobuf.message.Message):
         """Set up bool values."""
 
@@ -258,6 +262,7 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class StringOption(google.protobuf.message.Message):
         """A set of the string parameters."""
 
@@ -279,6 +284,7 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class Int64Option(google.protobuf.message.Message):
         """A set of the numeric parameters."""
 
@@ -300,6 +306,7 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class StringsListOption(google.protobuf.message.Message):
         """A set of the string list parameters."""
 
@@ -322,11 +329,13 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class StringsMapOption(google.protobuf.message.Message):
         """A set of the strings map parameters."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class ValueEntry(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -359,11 +368,13 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class CachingTimes(google.protobuf.message.Message):
         """A set of the caching response time parameters."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class CustomValuesEntry(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -400,6 +411,7 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["custom_values", b"custom_values", "simple_value", b"simple_value"]) -> None: ...
 
+    @typing_extensions.final
     class EdgeCacheSettings(google.protobuf.message.Message):
         """A set of the edge cache parameters."""
 
@@ -432,11 +444,13 @@ class ResourceOptions(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["default_value", b"default_value", "enabled", b"enabled", "value", b"value", "values_variant", b"values_variant"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["values_variant", b"values_variant"]) -> typing_extensions.Literal["value", "default_value"] | None: ...
 
+    @typing_extensions.final
     class StringVariableMapOption(google.protobuf.message.Message):
         """A set of the string variable map parameters."""
 
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class OneofString(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -458,6 +472,7 @@ class ResourceOptions(google.protobuf.message.Message):
             def ClearField(self, field_name: typing_extensions.Literal["string_option", b"string_option", "value", b"value", "values", b"values"]) -> None: ...
             def WhichOneof(self, oneof_group: typing_extensions.Literal["string_option", b"string_option"]) -> typing_extensions.Literal["value", "values"] | None: ...
 
+        @typing_extensions.final
         class ValueEntry(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -492,6 +507,7 @@ class ResourceOptions(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["enabled", b"enabled", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class QueryParamsOptions(google.protobuf.message.Message):
         """A set of the query parameters."""
 
@@ -525,6 +541,7 @@ class ResourceOptions(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["ignore_query_string", b"ignore_query_string", "query_params_blacklist", b"query_params_blacklist", "query_params_variant", b"query_params_variant", "query_params_whitelist", b"query_params_whitelist"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["query_params_variant", b"query_params_variant"]) -> typing_extensions.Literal["ignore_query_string", "query_params_whitelist", "query_params_blacklist"] | None: ...
 
+    @typing_extensions.final
     class RedirectOptions(google.protobuf.message.Message):
         """A set of the redirect parameters."""
 
@@ -548,6 +565,7 @@ class ResourceOptions(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["redirect_http_to_https", b"redirect_http_to_https", "redirect_https_to_http", b"redirect_https_to_http", "redirect_variant", b"redirect_variant"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["redirect_variant", b"redirect_variant"]) -> typing_extensions.Literal["redirect_http_to_https", "redirect_https_to_http"] | None: ...
 
+    @typing_extensions.final
     class HostOptions(google.protobuf.message.Message):
         """A set of the host parameters."""
 
@@ -578,6 +596,7 @@ class ResourceOptions(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["forward_host_header", b"forward_host_header", "host", b"host", "host_variant", b"host_variant"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["host_variant", b"host_variant"]) -> typing_extensions.Literal["host", "forward_host_header"] | None: ...
 
+    @typing_extensions.final
     class CompressionOptions(google.protobuf.message.Message):
         """A set of the compression variant parameters."""
 
@@ -615,6 +634,7 @@ class ResourceOptions(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["brotli_compression", b"brotli_compression", "compression_variant", b"compression_variant", "fetch_compressed", b"fetch_compressed", "gzip_on", b"gzip_on"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["compression_variant", b"compression_variant"]) -> typing_extensions.Literal["fetch_compressed", "gzip_on", "brotli_compression"] | None: ...
 
+    @typing_extensions.final
     class RewriteOption(google.protobuf.message.Message):
         """An option for changing or redirecting query paths."""
 
@@ -777,6 +797,7 @@ class ResourceOptions(google.protobuf.message.Message):
 
 global___ResourceOptions = ResourceOptions
 
+@typing_extensions.final
 class SSLTargetCertificate(google.protobuf.message.Message):
     """A set of the personal SSL certificate parameters."""
 
@@ -800,6 +821,7 @@ class SSLTargetCertificate(google.protobuf.message.Message):
 
 global___SSLTargetCertificate = SSLTargetCertificate
 
+@typing_extensions.final
 class SSLCertificate(google.protobuf.message.Message):
     """A SSL certificate parameters."""
 
@@ -827,6 +849,7 @@ class SSLCertificate(google.protobuf.message.Message):
 
 global___SSLCertificate = SSLCertificate
 
+@typing_extensions.final
 class SSLCertificateData(google.protobuf.message.Message):
     """A certificate data parameters."""
 
@@ -849,6 +872,7 @@ class SSLCertificateData(google.protobuf.message.Message):
 
 global___SSLCertificateData = SSLCertificateData
 
+@typing_extensions.final
 class SSLCertificateCMData(google.protobuf.message.Message):
     """A certificate data custom parameters."""
 

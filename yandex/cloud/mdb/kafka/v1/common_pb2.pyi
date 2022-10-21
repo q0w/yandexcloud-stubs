@@ -19,7 +19,7 @@ class _CompressionType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CompressionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CompressionType.ValueType], builtins.type):  # noqa: F821
+class _CompressionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CompressionType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     COMPRESSION_TYPE_UNSPECIFIED: _CompressionType.ValueType  # 0
     COMPRESSION_TYPE_UNCOMPRESSED: _CompressionType.ValueType  # 1
@@ -56,7 +56,7 @@ class _SaslMechanism:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _SaslMechanismEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SaslMechanism.ValueType], builtins.type):  # noqa: F821
+class _SaslMechanismEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SaslMechanism.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SASL_MECHANISM_UNSPECIFIED: _SaslMechanism.ValueType  # 0
     SASL_MECHANISM_SCRAM_SHA_256: _SaslMechanism.ValueType  # 1

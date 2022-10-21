@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PublishRegistryDataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class PublishRegistryDataRequest(google.protobuf.message.Message):
 
 global___PublishRegistryDataRequest = PublishRegistryDataRequest
 
+@typing_extensions.final
 class PublishRegistryDataResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

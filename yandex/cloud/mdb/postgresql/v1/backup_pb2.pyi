@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Backup(google.protobuf.message.Message):
     """A PostgreSQL Backup resource. For more information, see
     the [Developer's Guide](/docs/managed-postgresql/concepts/backup).

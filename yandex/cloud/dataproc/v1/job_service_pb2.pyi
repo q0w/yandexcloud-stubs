@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class GetJobRequest(google.protobuf.message.Message):
 
 global___GetJobRequest = GetJobRequest
 
+@typing_extensions.final
 class ListJobsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListJobsRequest(google.protobuf.message.Message):
 
 global___ListJobsRequest = ListJobsRequest
 
+@typing_extensions.final
 class ListJobsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -104,6 +107,7 @@ class ListJobsResponse(google.protobuf.message.Message):
 
 global___ListJobsResponse = ListJobsResponse
 
+@typing_extensions.final
 class CreateJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -145,6 +149,7 @@ class CreateJobRequest(google.protobuf.message.Message):
 
 global___CreateJobRequest = CreateJobRequest
 
+@typing_extensions.final
 class CreateJobMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -164,6 +169,7 @@ class CreateJobMetadata(google.protobuf.message.Message):
 
 global___CreateJobMetadata = CreateJobMetadata
 
+@typing_extensions.final
 class CancelJobRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -183,6 +189,7 @@ class CancelJobRequest(google.protobuf.message.Message):
 
 global___CancelJobRequest = CancelJobRequest
 
+@typing_extensions.final
 class ListJobLogRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -216,6 +223,7 @@ class ListJobLogRequest(google.protobuf.message.Message):
 
 global___ListJobLogRequest = ListJobLogRequest
 
+@typing_extensions.final
 class ListJobLogResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

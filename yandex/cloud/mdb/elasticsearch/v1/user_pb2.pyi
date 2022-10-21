@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """An Elasticsearch user."""
 
@@ -35,6 +36,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class GetDeviceRequest(google.protobuf.message.Message):
 
 global___GetDeviceRequest = GetDeviceRequest
 
+@typing_extensions.final
 class GetByNameDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -74,6 +76,7 @@ class GetByNameDeviceRequest(google.protobuf.message.Message):
 
 global___GetByNameDeviceRequest = GetByNameDeviceRequest
 
+@typing_extensions.final
 class ListDevicesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -121,6 +124,7 @@ class ListDevicesRequest(google.protobuf.message.Message):
 
 global___ListDevicesRequest = ListDevicesRequest
 
+@typing_extensions.final
 class ListDevicesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -146,9 +150,11 @@ class ListDevicesResponse(google.protobuf.message.Message):
 
 global___ListDevicesResponse = ListDevicesResponse
 
+@typing_extensions.final
 class CreateDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class TopicAliasesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -164,6 +170,7 @@ class CreateDeviceRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class Certificate(google.protobuf.message.Message):
         """Specification of a device certificate."""
 
@@ -222,6 +229,7 @@ class CreateDeviceRequest(google.protobuf.message.Message):
 
 global___CreateDeviceRequest = CreateDeviceRequest
 
+@typing_extensions.final
 class CreateDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -237,9 +245,11 @@ class CreateDeviceMetadata(google.protobuf.message.Message):
 
 global___CreateDeviceMetadata = CreateDeviceMetadata
 
+@typing_extensions.final
 class UpdateDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class TopicAliasesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -292,6 +302,7 @@ class UpdateDeviceRequest(google.protobuf.message.Message):
 
 global___UpdateDeviceRequest = UpdateDeviceRequest
 
+@typing_extensions.final
 class UpdateDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -307,6 +318,7 @@ class UpdateDeviceMetadata(google.protobuf.message.Message):
 
 global___UpdateDeviceMetadata = UpdateDeviceMetadata
 
+@typing_extensions.final
 class DeleteDeviceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -325,6 +337,7 @@ class DeleteDeviceRequest(google.protobuf.message.Message):
 
 global___DeleteDeviceRequest = DeleteDeviceRequest
 
+@typing_extensions.final
 class DeleteDeviceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -340,6 +353,7 @@ class DeleteDeviceMetadata(google.protobuf.message.Message):
 
 global___DeleteDeviceMetadata = DeleteDeviceMetadata
 
+@typing_extensions.final
 class ListDeviceCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -355,6 +369,7 @@ class ListDeviceCertificatesRequest(google.protobuf.message.Message):
 
 global___ListDeviceCertificatesRequest = ListDeviceCertificatesRequest
 
+@typing_extensions.final
 class ListDeviceCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -371,6 +386,7 @@ class ListDeviceCertificatesResponse(google.protobuf.message.Message):
 
 global___ListDeviceCertificatesResponse = ListDeviceCertificatesResponse
 
+@typing_extensions.final
 class AddDeviceCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -393,6 +409,7 @@ class AddDeviceCertificateRequest(google.protobuf.message.Message):
 
 global___AddDeviceCertificateRequest = AddDeviceCertificateRequest
 
+@typing_extensions.final
 class AddDeviceCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -412,6 +429,7 @@ class AddDeviceCertificateMetadata(google.protobuf.message.Message):
 
 global___AddDeviceCertificateMetadata = AddDeviceCertificateMetadata
 
+@typing_extensions.final
 class DeleteDeviceCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -434,6 +452,7 @@ class DeleteDeviceCertificateRequest(google.protobuf.message.Message):
 
 global___DeleteDeviceCertificateRequest = DeleteDeviceCertificateRequest
 
+@typing_extensions.final
 class DeleteDeviceCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -453,6 +472,7 @@ class DeleteDeviceCertificateMetadata(google.protobuf.message.Message):
 
 global___DeleteDeviceCertificateMetadata = DeleteDeviceCertificateMetadata
 
+@typing_extensions.final
 class ListDevicePasswordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -471,6 +491,7 @@ class ListDevicePasswordsRequest(google.protobuf.message.Message):
 
 global___ListDevicePasswordsRequest = ListDevicePasswordsRequest
 
+@typing_extensions.final
 class ListDevicePasswordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -487,6 +508,7 @@ class ListDevicePasswordsResponse(google.protobuf.message.Message):
 
 global___ListDevicePasswordsResponse = ListDevicePasswordsResponse
 
+@typing_extensions.final
 class AddDevicePasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -512,6 +534,7 @@ class AddDevicePasswordRequest(google.protobuf.message.Message):
 
 global___AddDevicePasswordRequest = AddDevicePasswordRequest
 
+@typing_extensions.final
 class AddDevicePasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -531,6 +554,7 @@ class AddDevicePasswordMetadata(google.protobuf.message.Message):
 
 global___AddDevicePasswordMetadata = AddDevicePasswordMetadata
 
+@typing_extensions.final
 class DeleteDevicePasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -556,6 +580,7 @@ class DeleteDevicePasswordRequest(google.protobuf.message.Message):
 
 global___DeleteDevicePasswordRequest = DeleteDevicePasswordRequest
 
+@typing_extensions.final
 class DeleteDevicePasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -575,6 +600,7 @@ class DeleteDevicePasswordMetadata(google.protobuf.message.Message):
 
 global___DeleteDevicePasswordMetadata = DeleteDevicePasswordMetadata
 
+@typing_extensions.final
 class ListDeviceOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -613,6 +639,7 @@ class ListDeviceOperationsRequest(google.protobuf.message.Message):
 
 global___ListDeviceOperationsRequest = ListDeviceOperationsRequest
 
+@typing_extensions.final
 class ListDeviceOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

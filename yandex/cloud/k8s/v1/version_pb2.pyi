@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class VersionInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -48,6 +49,7 @@ class VersionInfo(google.protobuf.message.Message):
 
 global___VersionInfo = VersionInfo
 
+@typing_extensions.final
 class UpdateVersionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

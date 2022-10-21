@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PostgresObjectTransferSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -147,6 +148,7 @@ class PostgresObjectTransferSettings(google.protobuf.message.Message):
 
 global___PostgresObjectTransferSettings = PostgresObjectTransferSettings
 
+@typing_extensions.final
 class OnPremisePostgres(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -185,6 +187,7 @@ class OnPremisePostgres(google.protobuf.message.Message):
 
 global___OnPremisePostgres = OnPremisePostgres
 
+@typing_extensions.final
 class PostgresConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -213,6 +216,7 @@ class PostgresConnection(google.protobuf.message.Message):
 
 global___PostgresConnection = PostgresConnection
 
+@typing_extensions.final
 class PostgresSource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -300,6 +304,7 @@ class PostgresSource(google.protobuf.message.Message):
 
 global___PostgresSource = PostgresSource
 
+@typing_extensions.final
 class PostgresTarget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

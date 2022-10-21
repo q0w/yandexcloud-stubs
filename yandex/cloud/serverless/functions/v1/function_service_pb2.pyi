@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class GetFunctionRequest(google.protobuf.message.Message):
 
 global___GetFunctionRequest = GetFunctionRequest
 
+@typing_extensions.final
 class GetFunctionVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class GetFunctionVersionRequest(google.protobuf.message.Message):
 
 global___GetFunctionVersionRequest = GetFunctionVersionRequest
 
+@typing_extensions.final
 class GetFunctionVersionByTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -82,6 +85,7 @@ class GetFunctionVersionByTagRequest(google.protobuf.message.Message):
 
 global___GetFunctionVersionByTagRequest = GetFunctionVersionByTagRequest
 
+@typing_extensions.final
 class ListFunctionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -126,6 +130,7 @@ class ListFunctionsRequest(google.protobuf.message.Message):
 
 global___ListFunctionsRequest = ListFunctionsRequest
 
+@typing_extensions.final
 class ListFunctionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -151,9 +156,11 @@ class ListFunctionsResponse(google.protobuf.message.Message):
 
 global___ListFunctionsResponse = ListFunctionsResponse
 
+@typing_extensions.final
 class CreateFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -199,6 +206,7 @@ class CreateFunctionRequest(google.protobuf.message.Message):
 
 global___CreateFunctionRequest = CreateFunctionRequest
 
+@typing_extensions.final
 class CreateFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -214,9 +222,11 @@ class CreateFunctionMetadata(google.protobuf.message.Message):
 
 global___CreateFunctionMetadata = CreateFunctionMetadata
 
+@typing_extensions.final
 class UpdateFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -272,6 +282,7 @@ class UpdateFunctionRequest(google.protobuf.message.Message):
 
 global___UpdateFunctionRequest = UpdateFunctionRequest
 
+@typing_extensions.final
 class UpdateFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -287,6 +298,7 @@ class UpdateFunctionMetadata(google.protobuf.message.Message):
 
 global___UpdateFunctionMetadata = UpdateFunctionMetadata
 
+@typing_extensions.final
 class DeleteFunctionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +316,7 @@ class DeleteFunctionRequest(google.protobuf.message.Message):
 
 global___DeleteFunctionRequest = DeleteFunctionRequest
 
+@typing_extensions.final
 class DeleteFunctionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -319,6 +332,7 @@ class DeleteFunctionMetadata(google.protobuf.message.Message):
 
 global___DeleteFunctionMetadata = DeleteFunctionMetadata
 
+@typing_extensions.final
 class ListRuntimesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +342,7 @@ class ListRuntimesRequest(google.protobuf.message.Message):
 
 global___ListRuntimesRequest = ListRuntimesRequest
 
+@typing_extensions.final
 class ListRuntimesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -344,6 +359,7 @@ class ListRuntimesResponse(google.protobuf.message.Message):
 
 global___ListRuntimesResponse = ListRuntimesResponse
 
+@typing_extensions.final
 class ListFunctionsVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -395,6 +411,7 @@ class ListFunctionsVersionsRequest(google.protobuf.message.Message):
 
 global___ListFunctionsVersionsRequest = ListFunctionsVersionsRequest
 
+@typing_extensions.final
 class ListFunctionsVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -420,6 +437,7 @@ class ListFunctionsVersionsResponse(google.protobuf.message.Message):
 
 global___ListFunctionsVersionsResponse = ListFunctionsVersionsResponse
 
+@typing_extensions.final
 class ListFunctionOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -461,6 +479,7 @@ class ListFunctionOperationsRequest(google.protobuf.message.Message):
 
 global___ListFunctionOperationsRequest = ListFunctionOperationsRequest
 
+@typing_extensions.final
 class ListFunctionOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -486,9 +505,11 @@ class ListFunctionOperationsResponse(google.protobuf.message.Message):
 
 global___ListFunctionOperationsResponse = ListFunctionOperationsResponse
 
+@typing_extensions.final
 class CreateFunctionVersionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class EnvironmentEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -504,6 +525,7 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NamedServiceAccountsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -605,6 +627,7 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
 
 global___CreateFunctionVersionRequest = CreateFunctionVersionRequest
 
+@typing_extensions.final
 class CreateFunctionVersionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -620,6 +643,7 @@ class CreateFunctionVersionMetadata(google.protobuf.message.Message):
 
 global___CreateFunctionVersionMetadata = CreateFunctionVersionMetadata
 
+@typing_extensions.final
 class SetFunctionTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -642,6 +666,7 @@ class SetFunctionTagRequest(google.protobuf.message.Message):
 
 global___SetFunctionTagRequest = SetFunctionTagRequest
 
+@typing_extensions.final
 class RemoveFunctionTagRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -664,6 +689,7 @@ class RemoveFunctionTagRequest(google.protobuf.message.Message):
 
 global___RemoveFunctionTagRequest = RemoveFunctionTagRequest
 
+@typing_extensions.final
 class SetFunctionTagMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -679,6 +705,7 @@ class SetFunctionTagMetadata(google.protobuf.message.Message):
 
 global___SetFunctionTagMetadata = SetFunctionTagMetadata
 
+@typing_extensions.final
 class RemoveFunctionTagMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -694,6 +721,7 @@ class RemoveFunctionTagMetadata(google.protobuf.message.Message):
 
 global___RemoveFunctionTagMetadata = RemoveFunctionTagMetadata
 
+@typing_extensions.final
 class ListFunctionTagHistoryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -741,9 +769,11 @@ class ListFunctionTagHistoryRequest(google.protobuf.message.Message):
 
 global___ListFunctionTagHistoryRequest = ListFunctionTagHistoryRequest
 
+@typing_extensions.final
 class ListFunctionTagHistoryResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class FunctionTagHistoryRecord(google.protobuf.message.Message):
         """A record in the tag history."""
 
@@ -800,6 +830,7 @@ class ListFunctionTagHistoryResponse(google.protobuf.message.Message):
 
 global___ListFunctionTagHistoryResponse = ListFunctionTagHistoryResponse
 
+@typing_extensions.final
 class ListScalingPoliciesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -833,6 +864,7 @@ class ListScalingPoliciesRequest(google.protobuf.message.Message):
 
 global___ListScalingPoliciesRequest = ListScalingPoliciesRequest
 
+@typing_extensions.final
 class ListScalingPoliciesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -858,6 +890,7 @@ class ListScalingPoliciesResponse(google.protobuf.message.Message):
 
 global___ListScalingPoliciesResponse = ListScalingPoliciesResponse
 
+@typing_extensions.final
 class SetScalingPolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -901,6 +934,7 @@ class SetScalingPolicyRequest(google.protobuf.message.Message):
 
 global___SetScalingPolicyRequest = SetScalingPolicyRequest
 
+@typing_extensions.final
 class SetScalingPolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -916,6 +950,7 @@ class SetScalingPolicyMetadata(google.protobuf.message.Message):
 
 global___SetScalingPolicyMetadata = SetScalingPolicyMetadata
 
+@typing_extensions.final
 class RemoveScalingPolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -941,6 +976,7 @@ class RemoveScalingPolicyRequest(google.protobuf.message.Message):
 
 global___RemoveScalingPolicyRequest = RemoveScalingPolicyRequest
 
+@typing_extensions.final
 class RemoveScalingPolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

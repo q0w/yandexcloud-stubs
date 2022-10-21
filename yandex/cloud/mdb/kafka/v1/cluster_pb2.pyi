@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """An Apache Kafka® cluster resource.
     For more information, see the [Concepts](/docs/managed-kafka/concepts) section of the documentation.
@@ -114,6 +115,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +222,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Metadata of monitoring system."""
 
@@ -245,9 +248,11 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class ConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Kafka(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -280,6 +285,7 @@ class ConfigSpec(google.protobuf.message.Message):
         def ClearField(self, field_name: typing_extensions.Literal["kafka_config", b"kafka_config", "kafka_config_2_1", b"kafka_config_2_1", "kafka_config_2_6", b"kafka_config_2_6", "kafka_config_2_8", b"kafka_config_2_8", "kafka_config_3", b"kafka_config_3", "resources", b"resources"]) -> None: ...
         def WhichOneof(self, oneof_group: typing_extensions.Literal["kafka_config", b"kafka_config"]) -> typing_extensions.Literal["kafka_config_2_1", "kafka_config_2_6", "kafka_config_2_8", "kafka_config_3"] | None: ...
 
+    @typing_extensions.final
     class Zookeeper(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -347,6 +353,7 @@ class ConfigSpec(google.protobuf.message.Message):
 
 global___ConfigSpec = ConfigSpec
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -372,6 +379,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class KafkaConfig2_1(google.protobuf.message.Message):
     """Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud."""
 
@@ -507,6 +515,7 @@ class KafkaConfig2_1(google.protobuf.message.Message):
 
 global___KafkaConfig2_1 = KafkaConfig2_1
 
+@typing_extensions.final
 class KafkaConfig2_6(google.protobuf.message.Message):
     """Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud."""
 
@@ -642,6 +651,7 @@ class KafkaConfig2_6(google.protobuf.message.Message):
 
 global___KafkaConfig2_6 = KafkaConfig2_6
 
+@typing_extensions.final
 class KafkaConfig2_8(google.protobuf.message.Message):
     """Kafka version 2.8 broker configuration."""
 
@@ -782,6 +792,7 @@ class KafkaConfig2_8(google.protobuf.message.Message):
 
 global___KafkaConfig2_8 = KafkaConfig2_8
 
+@typing_extensions.final
 class KafkaConfig3(google.protobuf.message.Message):
     """Kafka version 3.x broker configuration."""
 
@@ -922,6 +933,7 @@ class KafkaConfig3(google.protobuf.message.Message):
 
 global___KafkaConfig3 = KafkaConfig3
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     """Cluster host metadata."""
 
@@ -1016,6 +1028,7 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class Access(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

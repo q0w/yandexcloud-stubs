@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PostgresqlHostConfig9_6(google.protobuf.message.Message):
     """Options and structure of `PostgresqlHostConfig` reflects parameters of a PostgreSQL
     configuration file. Detailed description is available in

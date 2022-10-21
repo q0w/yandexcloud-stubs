@@ -25,7 +25,7 @@ class _InstanceGroupView:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _InstanceGroupViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceGroupView.ValueType], builtins.type):  # noqa: F821
+class _InstanceGroupViewEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InstanceGroupView.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     BASIC: _InstanceGroupView.ValueType  # 0
     """Doesn't include the metadata of the instance template in the server response."""
@@ -40,6 +40,7 @@ FULL: InstanceGroupView.ValueType  # 1
 """Returns the metadata of the instance template in the server response."""
 global___InstanceGroupView = InstanceGroupView
 
+@typing_extensions.final
 class ResumeInstanceGroupProcessesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -60,6 +61,7 @@ class ResumeInstanceGroupProcessesRequest(google.protobuf.message.Message):
 
 global___ResumeInstanceGroupProcessesRequest = ResumeInstanceGroupProcessesRequest
 
+@typing_extensions.final
 class ResumeInstanceGroupProcessMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ResumeInstanceGroupProcessMetadata(google.protobuf.message.Message):
 
 global___ResumeInstanceGroupProcessMetadata = ResumeInstanceGroupProcessMetadata
 
+@typing_extensions.final
 class PauseInstanceGroupProcessesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,6 +98,7 @@ class PauseInstanceGroupProcessesRequest(google.protobuf.message.Message):
 
 global___PauseInstanceGroupProcessesRequest = PauseInstanceGroupProcessesRequest
 
+@typing_extensions.final
 class PauseInstanceGroupProcessMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -110,6 +114,7 @@ class PauseInstanceGroupProcessMetadata(google.protobuf.message.Message):
 
 global___PauseInstanceGroupProcessMetadata = PauseInstanceGroupProcessMetadata
 
+@typing_extensions.final
 class GetInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -131,9 +136,11 @@ class GetInstanceGroupRequest(google.protobuf.message.Message):
 
 global___GetInstanceGroupRequest = GetInstanceGroupRequest
 
+@typing_extensions.final
 class CreateInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -242,6 +249,7 @@ class CreateInstanceGroupRequest(google.protobuf.message.Message):
 
 global___CreateInstanceGroupRequest = CreateInstanceGroupRequest
 
+@typing_extensions.final
 class CreateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -263,6 +271,7 @@ class CreateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
 
 global___CreateInstanceGroupFromYamlRequest = CreateInstanceGroupFromYamlRequest
 
+@typing_extensions.final
 class CreateInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -278,9 +287,11 @@ class CreateInstanceGroupMetadata(google.protobuf.message.Message):
 
 global___CreateInstanceGroupMetadata = CreateInstanceGroupMetadata
 
+@typing_extensions.final
 class UpdateInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -386,6 +397,7 @@ class UpdateInstanceGroupRequest(google.protobuf.message.Message):
 
 global___UpdateInstanceGroupRequest = UpdateInstanceGroupRequest
 
+@typing_extensions.final
 class UpdateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -407,6 +419,7 @@ class UpdateInstanceGroupFromYamlRequest(google.protobuf.message.Message):
 
 global___UpdateInstanceGroupFromYamlRequest = UpdateInstanceGroupFromYamlRequest
 
+@typing_extensions.final
 class UpdateInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -424,6 +437,7 @@ class UpdateInstanceGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateInstanceGroupMetadata = UpdateInstanceGroupMetadata
 
+@typing_extensions.final
 class StartInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -441,6 +455,7 @@ class StartInstanceGroupRequest(google.protobuf.message.Message):
 
 global___StartInstanceGroupRequest = StartInstanceGroupRequest
 
+@typing_extensions.final
 class StartInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -456,6 +471,7 @@ class StartInstanceGroupMetadata(google.protobuf.message.Message):
 
 global___StartInstanceGroupMetadata = StartInstanceGroupMetadata
 
+@typing_extensions.final
 class StopInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -473,6 +489,7 @@ class StopInstanceGroupRequest(google.protobuf.message.Message):
 
 global___StopInstanceGroupRequest = StopInstanceGroupRequest
 
+@typing_extensions.final
 class StopInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -488,6 +505,7 @@ class StopInstanceGroupMetadata(google.protobuf.message.Message):
 
 global___StopInstanceGroupMetadata = StopInstanceGroupMetadata
 
+@typing_extensions.final
 class DeleteInstanceGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -505,6 +523,7 @@ class DeleteInstanceGroupRequest(google.protobuf.message.Message):
 
 global___DeleteInstanceGroupRequest = DeleteInstanceGroupRequest
 
+@typing_extensions.final
 class DeleteInstanceGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -522,6 +541,7 @@ class DeleteInstanceGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteInstanceGroupMetadata = DeleteInstanceGroupMetadata
 
+@typing_extensions.final
 class DeleteInstancesMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -537,6 +557,7 @@ class DeleteInstancesMetadata(google.protobuf.message.Message):
 
 global___DeleteInstancesMetadata = DeleteInstancesMetadata
 
+@typing_extensions.final
 class StopInstancesMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -552,6 +573,7 @@ class StopInstancesMetadata(google.protobuf.message.Message):
 
 global___StopInstancesMetadata = StopInstancesMetadata
 
+@typing_extensions.final
 class ListInstanceGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -594,6 +616,7 @@ class ListInstanceGroupsRequest(google.protobuf.message.Message):
 
 global___ListInstanceGroupsRequest = ListInstanceGroupsRequest
 
+@typing_extensions.final
 class ListInstanceGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -620,6 +643,7 @@ class ListInstanceGroupsResponse(google.protobuf.message.Message):
 
 global___ListInstanceGroupsResponse = ListInstanceGroupsResponse
 
+@typing_extensions.final
 class ListInstanceGroupInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -658,6 +682,7 @@ class ListInstanceGroupInstancesRequest(google.protobuf.message.Message):
 
 global___ListInstanceGroupInstancesRequest = ListInstanceGroupInstancesRequest
 
+@typing_extensions.final
 class ListInstanceGroupInstancesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -684,6 +709,7 @@ class ListInstanceGroupInstancesResponse(google.protobuf.message.Message):
 
 global___ListInstanceGroupInstancesResponse = ListInstanceGroupInstancesResponse
 
+@typing_extensions.final
 class DeleteInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -715,6 +741,7 @@ class DeleteInstancesRequest(google.protobuf.message.Message):
 
 global___DeleteInstancesRequest = DeleteInstancesRequest
 
+@typing_extensions.final
 class StopInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -740,6 +767,7 @@ class StopInstancesRequest(google.protobuf.message.Message):
 
 global___StopInstancesRequest = StopInstancesRequest
 
+@typing_extensions.final
 class ListInstanceGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -776,6 +804,7 @@ class ListInstanceGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListInstanceGroupOperationsRequest = ListInstanceGroupOperationsRequest
 
+@typing_extensions.final
 class ListInstanceGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -800,6 +829,7 @@ class ListInstanceGroupOperationsResponse(google.protobuf.message.Message):
 
 global___ListInstanceGroupOperationsResponse = ListInstanceGroupOperationsResponse
 
+@typing_extensions.final
 class ListInstanceGroupLogRecordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -838,6 +868,7 @@ class ListInstanceGroupLogRecordsRequest(google.protobuf.message.Message):
 
 global___ListInstanceGroupLogRecordsRequest = ListInstanceGroupLogRecordsRequest
 
+@typing_extensions.final
 class ListInstanceGroupLogRecordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetLifecyclePolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetLifecyclePolicyRequest(google.protobuf.message.Message):
 
 global___GetLifecyclePolicyRequest = GetLifecyclePolicyRequest
 
+@typing_extensions.final
 class ListLifecyclePoliciesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -86,6 +88,7 @@ class ListLifecyclePoliciesRequest(google.protobuf.message.Message):
 
 global___ListLifecyclePoliciesRequest = ListLifecyclePoliciesRequest
 
+@typing_extensions.final
 class ListLifecyclePoliciesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -111,6 +114,7 @@ class ListLifecyclePoliciesResponse(google.protobuf.message.Message):
 
 global___ListLifecyclePoliciesResponse = ListLifecyclePoliciesResponse
 
+@typing_extensions.final
 class CreateLifecyclePolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,6 +147,7 @@ class CreateLifecyclePolicyRequest(google.protobuf.message.Message):
 
 global___CreateLifecyclePolicyRequest = CreateLifecyclePolicyRequest
 
+@typing_extensions.final
 class UpdateLifecyclePolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -181,6 +186,7 @@ class UpdateLifecyclePolicyRequest(google.protobuf.message.Message):
 
 global___UpdateLifecyclePolicyRequest = UpdateLifecyclePolicyRequest
 
+@typing_extensions.final
 class DeleteLifecyclePolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -196,6 +202,7 @@ class DeleteLifecyclePolicyRequest(google.protobuf.message.Message):
 
 global___DeleteLifecyclePolicyRequest = DeleteLifecyclePolicyRequest
 
+@typing_extensions.final
 class CreateLifecyclePolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -211,6 +218,7 @@ class CreateLifecyclePolicyMetadata(google.protobuf.message.Message):
 
 global___CreateLifecyclePolicyMetadata = CreateLifecyclePolicyMetadata
 
+@typing_extensions.final
 class UpdateLifecyclePolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,6 +234,7 @@ class UpdateLifecyclePolicyMetadata(google.protobuf.message.Message):
 
 global___UpdateLifecyclePolicyMetadata = UpdateLifecyclePolicyMetadata
 
+@typing_extensions.final
 class DeleteLifecyclePolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -241,6 +250,7 @@ class DeleteLifecyclePolicyMetadata(google.protobuf.message.Message):
 
 global___DeleteLifecyclePolicyMetadata = DeleteLifecyclePolicyMetadata
 
+@typing_extensions.final
 class DryRunLifecyclePolicyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -256,6 +266,7 @@ class DryRunLifecyclePolicyRequest(google.protobuf.message.Message):
 
 global___DryRunLifecyclePolicyRequest = DryRunLifecyclePolicyRequest
 
+@typing_extensions.final
 class DryRunLifecyclePolicyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -275,6 +286,7 @@ class DryRunLifecyclePolicyMetadata(google.protobuf.message.Message):
 
 global___DryRunLifecyclePolicyMetadata = DryRunLifecyclePolicyMetadata
 
+@typing_extensions.final
 class DryRunLifecyclePolicyResult(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +316,7 @@ class DryRunLifecyclePolicyResult(google.protobuf.message.Message):
 
 global___DryRunLifecyclePolicyResult = DryRunLifecyclePolicyResult
 
+@typing_extensions.final
 class GetDryRunLifecyclePolicyResultRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -319,6 +332,7 @@ class GetDryRunLifecyclePolicyResultRequest(google.protobuf.message.Message):
 
 global___GetDryRunLifecyclePolicyResultRequest = GetDryRunLifecyclePolicyResultRequest
 
+@typing_extensions.final
 class ListDryRunLifecyclePolicyResultsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -364,6 +378,7 @@ class ListDryRunLifecyclePolicyResultsRequest(google.protobuf.message.Message):
 
 global___ListDryRunLifecyclePolicyResultsRequest = ListDryRunLifecyclePolicyResultsRequest
 
+@typing_extensions.final
 class ListDryRunLifecyclePolicyResultsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -389,6 +404,7 @@ class ListDryRunLifecyclePolicyResultsResponse(google.protobuf.message.Message):
 
 global___ListDryRunLifecyclePolicyResultsResponse = ListDryRunLifecyclePolicyResultsResponse
 
+@typing_extensions.final
 class ListDryRunLifecyclePolicyResultAffectedImagesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -433,6 +449,7 @@ class ListDryRunLifecyclePolicyResultAffectedImagesRequest(google.protobuf.messa
 
 global___ListDryRunLifecyclePolicyResultAffectedImagesRequest = ListDryRunLifecyclePolicyResultAffectedImagesRequest
 
+@typing_extensions.final
 class ListDryRunLifecyclePolicyResultAffectedImagesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

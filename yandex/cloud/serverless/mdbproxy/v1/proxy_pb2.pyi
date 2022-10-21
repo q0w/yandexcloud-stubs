@@ -17,9 +17,11 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Proxy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,9 +77,11 @@ class Proxy(google.protobuf.message.Message):
 
 global___Proxy = Proxy
 
+@typing_extensions.final
 class Target(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PostgreSQL(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +111,7 @@ class Target(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["cluster_id", b"cluster_id", "db", b"db", "endpoint", b"endpoint", "password", b"password", "user", b"user"]) -> None: ...
 
+    @typing_extensions.final
     class ClickHouse(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

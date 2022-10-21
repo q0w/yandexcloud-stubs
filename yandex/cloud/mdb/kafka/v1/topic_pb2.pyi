@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Topic(google.protobuf.message.Message):
     """An Kafka topic.
     For more information, see the [Concepts -> Topics and partitions](/docs/managed-kafka/concepts/topics) section of the documentation.
@@ -72,6 +73,7 @@ class Topic(google.protobuf.message.Message):
 
 global___Topic = Topic
 
+@typing_extensions.final
 class TopicSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -115,6 +117,7 @@ class TopicSpec(google.protobuf.message.Message):
 
 global___TopicSpec = TopicSpec
 
+@typing_extensions.final
 class TopicConfig2_1(google.protobuf.message.Message):
     """Deprecated. Version `2.1` of Kafka not supported in Yandex Cloud."""
 
@@ -237,6 +240,7 @@ class TopicConfig2_1(google.protobuf.message.Message):
 
 global___TopicConfig2_1 = TopicConfig2_1
 
+@typing_extensions.final
 class TopicConfig2_6(google.protobuf.message.Message):
     """Deprecated. Version `2.6` of Kafka not supported in Yandex Cloud."""
 
@@ -359,6 +363,7 @@ class TopicConfig2_6(google.protobuf.message.Message):
 
 global___TopicConfig2_6 = TopicConfig2_6
 
+@typing_extensions.final
 class TopicConfig2_8(google.protobuf.message.Message):
     """A topic settings for 2.8"""
 
@@ -481,6 +486,7 @@ class TopicConfig2_8(google.protobuf.message.Message):
 
 global___TopicConfig2_8 = TopicConfig2_8
 
+@typing_extensions.final
 class TopicConfig3(google.protobuf.message.Message):
     """A topic settings for 3.x"""
 

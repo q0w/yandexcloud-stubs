@@ -20,7 +20,7 @@ class _IpPermissionAction:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _IpPermissionActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpPermissionAction.ValueType], builtins.type):  # noqa: F821
+class _IpPermissionActionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpPermissionAction.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     IP_PERMISSION_ACTION_UNSPECIFIED: _IpPermissionAction.ValueType  # 0
     ADD: _IpPermissionAction.ValueType  # 1
@@ -37,6 +37,7 @@ REMOVE: IpPermissionAction.ValueType  # 2
 """Removal of an ip permission."""
 global___IpPermissionAction = IpPermissionAction
 
+@typing_extensions.final
 class IpPermission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -69,6 +70,7 @@ class IpPermission(google.protobuf.message.Message):
 
 global___IpPermission = IpPermission
 
+@typing_extensions.final
 class IpPermissionDelta(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

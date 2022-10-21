@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetVirtualHostRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class GetVirtualHostRequest(google.protobuf.message.Message):
 
 global___GetVirtualHostRequest = GetVirtualHostRequest
 
+@typing_extensions.final
 class ListVirtualHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListVirtualHostsRequest(google.protobuf.message.Message):
 
 global___ListVirtualHostsRequest = ListVirtualHostsRequest
 
+@typing_extensions.final
 class ListVirtualHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -100,6 +103,7 @@ class ListVirtualHostsResponse(google.protobuf.message.Message):
 
 global___ListVirtualHostsResponse = ListVirtualHostsResponse
 
+@typing_extensions.final
 class CreateVirtualHostRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,6 +174,7 @@ class CreateVirtualHostRequest(google.protobuf.message.Message):
 
 global___CreateVirtualHostRequest = CreateVirtualHostRequest
 
+@typing_extensions.final
 class CreateVirtualHostMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -189,6 +194,7 @@ class CreateVirtualHostMetadata(google.protobuf.message.Message):
 
 global___CreateVirtualHostMetadata = CreateVirtualHostMetadata
 
+@typing_extensions.final
 class UpdateVirtualHostRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -280,6 +286,7 @@ class UpdateVirtualHostRequest(google.protobuf.message.Message):
 
 global___UpdateVirtualHostRequest = UpdateVirtualHostRequest
 
+@typing_extensions.final
 class UpdateVirtualHostMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -299,6 +306,7 @@ class UpdateVirtualHostMetadata(google.protobuf.message.Message):
 
 global___UpdateVirtualHostMetadata = UpdateVirtualHostMetadata
 
+@typing_extensions.final
 class DeleteVirtualHostRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -324,6 +332,7 @@ class DeleteVirtualHostRequest(google.protobuf.message.Message):
 
 global___DeleteVirtualHostRequest = DeleteVirtualHostRequest
 
+@typing_extensions.final
 class DeleteVirtualHostMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -343,6 +352,7 @@ class DeleteVirtualHostMetadata(google.protobuf.message.Message):
 
 global___DeleteVirtualHostMetadata = DeleteVirtualHostMetadata
 
+@typing_extensions.final
 class RemoveRouteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -375,6 +385,7 @@ class RemoveRouteRequest(google.protobuf.message.Message):
 
 global___RemoveRouteRequest = RemoveRouteRequest
 
+@typing_extensions.final
 class RemoveRouteMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +409,7 @@ class RemoveRouteMetadata(google.protobuf.message.Message):
 
 global___RemoveRouteMetadata = RemoveRouteMetadata
 
+@typing_extensions.final
 class UpdateRouteRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -452,6 +464,7 @@ class UpdateRouteRequest(google.protobuf.message.Message):
 
 global___UpdateRouteRequest = UpdateRouteRequest
 
+@typing_extensions.final
 class UpdateRouteMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

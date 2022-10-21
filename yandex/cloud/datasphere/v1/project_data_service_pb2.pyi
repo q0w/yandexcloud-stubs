@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class FileMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class FileMetadata(google.protobuf.message.Message):
 
 global___FileMetadata = FileMetadata
 
+@typing_extensions.final
 class UploadFileRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -59,6 +61,7 @@ class UploadFileRequest(google.protobuf.message.Message):
 
 global___UploadFileRequest = UploadFileRequest
 
+@typing_extensions.final
 class UploadFileResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -76,6 +79,7 @@ class UploadFileResponse(google.protobuf.message.Message):
 
 global___UploadFileResponse = UploadFileResponse
 
+@typing_extensions.final
 class DownloadFileRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -95,6 +99,7 @@ class DownloadFileRequest(google.protobuf.message.Message):
 
 global___DownloadFileRequest = DownloadFileRequest
 
+@typing_extensions.final
 class DownloadFileResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetCertificateRequest(google.protobuf.message.Message):
 
 global___GetCertificateRequest = GetCertificateRequest
 
+@typing_extensions.final
 class ListCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +79,7 @@ class ListCertificatesRequest(google.protobuf.message.Message):
 
 global___ListCertificatesRequest = ListCertificatesRequest
 
+@typing_extensions.final
 class ListCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -103,6 +106,7 @@ class ListCertificatesResponse(google.protobuf.message.Message):
 
 global___ListCertificatesResponse = ListCertificatesResponse
 
+@typing_extensions.final
 class CreateCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -134,6 +138,7 @@ class CreateCertificateRequest(google.protobuf.message.Message):
 
 global___CreateCertificateRequest = CreateCertificateRequest
 
+@typing_extensions.final
 class CreateCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -149,6 +154,7 @@ class CreateCertificateMetadata(google.protobuf.message.Message):
 
 global___CreateCertificateMetadata = CreateCertificateMetadata
 
+@typing_extensions.final
 class UpdateCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -186,6 +192,7 @@ class UpdateCertificateRequest(google.protobuf.message.Message):
 
 global___UpdateCertificateRequest = UpdateCertificateRequest
 
+@typing_extensions.final
 class UpdateCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,6 +208,7 @@ class UpdateCertificateMetadata(google.protobuf.message.Message):
 
 global___UpdateCertificateMetadata = UpdateCertificateMetadata
 
+@typing_extensions.final
 class DeleteCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -218,6 +226,7 @@ class DeleteCertificateRequest(google.protobuf.message.Message):
 
 global___DeleteCertificateRequest = DeleteCertificateRequest
 
+@typing_extensions.final
 class DeleteCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -233,6 +242,7 @@ class DeleteCertificateMetadata(google.protobuf.message.Message):
 
 global___DeleteCertificateMetadata = DeleteCertificateMetadata
 
+@typing_extensions.final
 class ListCertificateOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -263,6 +273,7 @@ class ListCertificateOperationsRequest(google.protobuf.message.Message):
 
 global___ListCertificateOperationsRequest = ListCertificateOperationsRequest
 
+@typing_extensions.final
 class ListCertificateOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

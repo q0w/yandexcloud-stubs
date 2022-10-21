@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___GetSnapshotScheduleRequest = GetSnapshotScheduleRequest
 
+@typing_extensions.final
 class ListSnapshotSchedulesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListSnapshotSchedulesRequest(google.protobuf.message.Message):
 
 global___ListSnapshotSchedulesRequest = ListSnapshotSchedulesRequest
 
+@typing_extensions.final
 class ListSnapshotSchedulesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,9 +104,11 @@ class ListSnapshotSchedulesResponse(google.protobuf.message.Message):
 
 global___ListSnapshotSchedulesResponse = ListSnapshotSchedulesResponse
 
+@typing_extensions.final
 class CreateSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -163,6 +168,7 @@ class CreateSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___CreateSnapshotScheduleRequest = CreateSnapshotScheduleRequest
 
+@typing_extensions.final
 class CreateSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -177,9 +183,11 @@ class CreateSnapshotScheduleMetadata(google.protobuf.message.Message):
 
 global___CreateSnapshotScheduleMetadata = CreateSnapshotScheduleMetadata
 
+@typing_extensions.final
 class UpdateSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -240,6 +248,7 @@ class UpdateSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___UpdateSnapshotScheduleRequest = UpdateSnapshotScheduleRequest
 
+@typing_extensions.final
 class UpdateSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -254,6 +263,7 @@ class UpdateSnapshotScheduleMetadata(google.protobuf.message.Message):
 
 global___UpdateSnapshotScheduleMetadata = UpdateSnapshotScheduleMetadata
 
+@typing_extensions.final
 class DeleteSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -269,6 +279,7 @@ class DeleteSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___DeleteSnapshotScheduleRequest = DeleteSnapshotScheduleRequest
 
+@typing_extensions.final
 class DeleteSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -283,6 +294,7 @@ class DeleteSnapshotScheduleMetadata(google.protobuf.message.Message):
 
 global___DeleteSnapshotScheduleMetadata = DeleteSnapshotScheduleMetadata
 
+@typing_extensions.final
 class DisableSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +310,7 @@ class DisableSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___DisableSnapshotScheduleRequest = DisableSnapshotScheduleRequest
 
+@typing_extensions.final
 class DisableSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -312,6 +325,7 @@ class DisableSnapshotScheduleMetadata(google.protobuf.message.Message):
 
 global___DisableSnapshotScheduleMetadata = DisableSnapshotScheduleMetadata
 
+@typing_extensions.final
 class EnableSnapshotScheduleRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -327,6 +341,7 @@ class EnableSnapshotScheduleRequest(google.protobuf.message.Message):
 
 global___EnableSnapshotScheduleRequest = EnableSnapshotScheduleRequest
 
+@typing_extensions.final
 class EnableSnapshotScheduleMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -341,6 +356,7 @@ class EnableSnapshotScheduleMetadata(google.protobuf.message.Message):
 
 global___EnableSnapshotScheduleMetadata = EnableSnapshotScheduleMetadata
 
+@typing_extensions.final
 class ListSnapshotScheduleOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -369,6 +385,7 @@ class ListSnapshotScheduleOperationsRequest(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleOperationsRequest = ListSnapshotScheduleOperationsRequest
 
+@typing_extensions.final
 class ListSnapshotScheduleOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -393,6 +410,7 @@ class ListSnapshotScheduleOperationsResponse(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleOperationsResponse = ListSnapshotScheduleOperationsResponse
 
+@typing_extensions.final
 class ListSnapshotScheduleSnapshotsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -421,6 +439,7 @@ class ListSnapshotScheduleSnapshotsRequest(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleSnapshotsRequest = ListSnapshotScheduleSnapshotsRequest
 
+@typing_extensions.final
 class ListSnapshotScheduleSnapshotsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -445,6 +464,7 @@ class ListSnapshotScheduleSnapshotsResponse(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleSnapshotsResponse = ListSnapshotScheduleSnapshotsResponse
 
+@typing_extensions.final
 class ListSnapshotScheduleDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -473,6 +493,7 @@ class ListSnapshotScheduleDisksRequest(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleDisksRequest = ListSnapshotScheduleDisksRequest
 
+@typing_extensions.final
 class ListSnapshotScheduleDisksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -497,6 +518,7 @@ class ListSnapshotScheduleDisksResponse(google.protobuf.message.Message):
 
 global___ListSnapshotScheduleDisksResponse = ListSnapshotScheduleDisksResponse
 
+@typing_extensions.final
 class UpdateSnapshotScheduleDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -522,6 +544,7 @@ class UpdateSnapshotScheduleDisksRequest(google.protobuf.message.Message):
 
 global___UpdateSnapshotScheduleDisksRequest = UpdateSnapshotScheduleDisksRequest
 
+@typing_extensions.final
 class UpdateSnapshotScheduleDisksMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

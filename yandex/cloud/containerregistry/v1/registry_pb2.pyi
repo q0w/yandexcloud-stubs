@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Registry(google.protobuf.message.Message):
     """A Registry resource. For more information, see the [Registry](/docs/container-registry/concepts/registry) section of the documentation."""
 
@@ -47,6 +48,7 @@ class Registry(google.protobuf.message.Message):
     DELETING: Registry.Status.ValueType  # 3
     """Registry is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

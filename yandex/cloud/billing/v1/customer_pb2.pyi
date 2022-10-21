@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Customer(google.protobuf.message.Message):
     """A Customer resource."""
 
@@ -35,6 +36,7 @@ class Customer(google.protobuf.message.Message):
 
 global___Customer = Customer
 
+@typing_extensions.final
 class CustomerPerson(google.protobuf.message.Message):
     """Person of the customer. Contains legal information."""
 

@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Repository(google.protobuf.message.Message):
     """A Repository resource. For more information, see [Repository](/docs/cloud/container-registry/repository)."""
 

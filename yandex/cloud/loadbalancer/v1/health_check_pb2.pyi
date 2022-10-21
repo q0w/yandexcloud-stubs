@@ -15,11 +15,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class HealthCheck(google.protobuf.message.Message):
     """A HealthCheck resource. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class TcpOptions(google.protobuf.message.Message):
         """Configuration option for a TCP health check."""
 
@@ -35,6 +37,7 @@ class HealthCheck(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["port", b"port"]) -> None: ...
 
+    @typing_extensions.final
     class HttpOptions(google.protobuf.message.Message):
         """Configuration option for an HTTP health check."""
 

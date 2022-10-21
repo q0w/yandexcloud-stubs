@@ -23,7 +23,7 @@ class _IpVersion:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):  # noqa: F821
+class _IpVersionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_IpVersion.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     IP_VERSION_UNSPECIFIED: _IpVersion.ValueType  # 0
     IPV4: _IpVersion.ValueType  # 1
@@ -44,7 +44,7 @@ class _MetadataOption:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _MetadataOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MetadataOption.ValueType], builtins.type):  # noqa: F821
+class _MetadataOptionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_MetadataOption.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     METADATA_OPTION_UNSPECIFIED: _MetadataOption.ValueType  # 0
     ENABLED: _MetadataOption.ValueType  # 1
@@ -61,6 +61,7 @@ DISABLED: MetadataOption.ValueType  # 2
 """Option is disabled"""
 global___MetadataOption = MetadataOption
 
+@typing_extensions.final
 class Instance(google.protobuf.message.Message):
     """An Instance resource. For more information, see [Instances](/docs/compute/concepts/vm)."""
 
@@ -117,6 +118,7 @@ class Instance(google.protobuf.message.Message):
     DELETING: Instance.Status.ValueType  # 10
     """Instance is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -132,6 +134,7 @@ class Instance(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class MetadataEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -266,6 +269,7 @@ class Instance(google.protobuf.message.Message):
 
 global___Instance = Instance
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -295,6 +299,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class AttachedDisk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -345,6 +350,7 @@ class AttachedDisk(google.protobuf.message.Message):
 
 global___AttachedDisk = AttachedDisk
 
+@typing_extensions.final
 class AttachedLocalDisk(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -368,6 +374,7 @@ class AttachedLocalDisk(google.protobuf.message.Message):
 
 global___AttachedLocalDisk = AttachedLocalDisk
 
+@typing_extensions.final
 class AttachedFilesystem(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -414,6 +421,7 @@ class AttachedFilesystem(google.protobuf.message.Message):
 
 global___AttachedFilesystem = AttachedFilesystem
 
+@typing_extensions.final
 class NetworkInterface(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -455,6 +463,7 @@ class NetworkInterface(google.protobuf.message.Message):
 
 global___NetworkInterface = NetworkInterface
 
+@typing_extensions.final
 class PrimaryAddress(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -481,6 +490,7 @@ class PrimaryAddress(google.protobuf.message.Message):
 
 global___PrimaryAddress = PrimaryAddress
 
+@typing_extensions.final
 class OneToOneNat(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -505,6 +515,7 @@ class OneToOneNat(google.protobuf.message.Message):
 
 global___OneToOneNat = OneToOneNat
 
+@typing_extensions.final
 class DnsRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -534,6 +545,7 @@ class DnsRecord(google.protobuf.message.Message):
 
 global___DnsRecord = DnsRecord
 
+@typing_extensions.final
 class SchedulingPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -549,6 +561,7 @@ class SchedulingPolicy(google.protobuf.message.Message):
 
 global___SchedulingPolicy = SchedulingPolicy
 
+@typing_extensions.final
 class NetworkSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -587,9 +600,11 @@ class NetworkSettings(google.protobuf.message.Message):
 
 global___NetworkSettings = NetworkSettings
 
+@typing_extensions.final
 class PlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class HostAffinityRule(google.protobuf.message.Message):
         """Affinity definition"""
 
@@ -646,6 +661,7 @@ class PlacementPolicy(google.protobuf.message.Message):
 
 global___PlacementPolicy = PlacementPolicy
 
+@typing_extensions.final
 class MetadataOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

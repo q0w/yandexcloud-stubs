@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SQLServerConfig2017std(google.protobuf.message.Message):
     """SQL Server 2017 Standard edition supported configuration options are listed here.
 
@@ -88,6 +89,7 @@ class SQLServerConfig2017std(google.protobuf.message.Message):
 
 global___SQLServerConfig2017std = SQLServerConfig2017std
 
+@typing_extensions.final
 class SQLServerConfigSet2017std(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -115,6 +117,7 @@ class SQLServerConfigSet2017std(google.protobuf.message.Message):
 
 global___SQLServerConfigSet2017std = SQLServerConfigSet2017std
 
+@typing_extensions.final
 class SQLServerConfig2017ent(google.protobuf.message.Message):
     """SQL Server 2017 Enterprise edition supported configuration options are listed here.
 
@@ -187,6 +190,7 @@ class SQLServerConfig2017ent(google.protobuf.message.Message):
 
 global___SQLServerConfig2017ent = SQLServerConfig2017ent
 
+@typing_extensions.final
 class SQLServerConfigSet2017ent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

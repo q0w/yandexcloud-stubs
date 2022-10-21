@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetHostGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetHostGroupRequest(google.protobuf.message.Message):
 
 global___GetHostGroupRequest = GetHostGroupRequest
 
+@typing_extensions.final
 class ListHostGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListHostGroupsRequest(google.protobuf.message.Message):
 
 global___ListHostGroupsRequest = ListHostGroupsRequest
 
+@typing_extensions.final
 class ListHostGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,9 +104,11 @@ class ListHostGroupsResponse(google.protobuf.message.Message):
 
 global___ListHostGroupsResponse = ListHostGroupsResponse
 
+@typing_extensions.final
 class CreateHostGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -164,6 +169,7 @@ class CreateHostGroupRequest(google.protobuf.message.Message):
 
 global___CreateHostGroupRequest = CreateHostGroupRequest
 
+@typing_extensions.final
 class CreateHostGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -179,9 +185,11 @@ class CreateHostGroupMetadata(google.protobuf.message.Message):
 
 global___CreateHostGroupMetadata = CreateHostGroupMetadata
 
+@typing_extensions.final
 class UpdateHostGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -242,6 +250,7 @@ class UpdateHostGroupRequest(google.protobuf.message.Message):
 
 global___UpdateHostGroupRequest = UpdateHostGroupRequest
 
+@typing_extensions.final
 class UpdateHostGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -257,6 +266,7 @@ class UpdateHostGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateHostGroupMetadata = UpdateHostGroupMetadata
 
+@typing_extensions.final
 class DeleteHostGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -274,6 +284,7 @@ class DeleteHostGroupRequest(google.protobuf.message.Message):
 
 global___DeleteHostGroupRequest = DeleteHostGroupRequest
 
+@typing_extensions.final
 class DeleteHostGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,6 +300,7 @@ class DeleteHostGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteHostGroupMetadata = DeleteHostGroupMetadata
 
+@typing_extensions.final
 class ListHostGroupInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +340,7 @@ class ListHostGroupInstancesRequest(google.protobuf.message.Message):
 
 global___ListHostGroupInstancesRequest = ListHostGroupInstancesRequest
 
+@typing_extensions.final
 class ListHostGroupInstancesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -354,6 +367,7 @@ class ListHostGroupInstancesResponse(google.protobuf.message.Message):
 
 global___ListHostGroupInstancesResponse = ListHostGroupInstancesResponse
 
+@typing_extensions.final
 class ListHostGroupHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -386,6 +400,7 @@ class ListHostGroupHostsRequest(google.protobuf.message.Message):
 
 global___ListHostGroupHostsRequest = ListHostGroupHostsRequest
 
+@typing_extensions.final
 class ListHostGroupHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -412,6 +427,7 @@ class ListHostGroupHostsResponse(google.protobuf.message.Message):
 
 global___ListHostGroupHostsResponse = ListHostGroupHostsResponse
 
+@typing_extensions.final
 class ListHostGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -442,6 +458,7 @@ class ListHostGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListHostGroupOperationsRequest = ListHostGroupOperationsRequest
 
+@typing_extensions.final
 class ListHostGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

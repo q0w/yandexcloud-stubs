@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class HttpRouter(google.protobuf.message.Message):
     """An HTTP router resource.
     For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
@@ -25,6 +26,7 @@ class HttpRouter(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

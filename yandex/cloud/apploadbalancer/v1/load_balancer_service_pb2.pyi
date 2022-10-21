@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetLoadBalancerRequest(google.protobuf.message.Message):
 
 global___GetLoadBalancerRequest = GetLoadBalancerRequest
 
+@typing_extensions.final
 class ListLoadBalancersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class ListLoadBalancersRequest(google.protobuf.message.Message):
 
 global___ListLoadBalancersRequest = ListLoadBalancersRequest
 
+@typing_extensions.final
 class ListLoadBalancersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +109,7 @@ class ListLoadBalancersResponse(google.protobuf.message.Message):
 
 global___ListLoadBalancersResponse = ListLoadBalancersResponse
 
+@typing_extensions.final
 class DeleteLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -124,6 +128,7 @@ class DeleteLoadBalancerRequest(google.protobuf.message.Message):
 
 global___DeleteLoadBalancerRequest = DeleteLoadBalancerRequest
 
+@typing_extensions.final
 class DeleteLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -139,9 +144,11 @@ class DeleteLoadBalancerMetadata(google.protobuf.message.Message):
 
 global___DeleteLoadBalancerMetadata = DeleteLoadBalancerMetadata
 
+@typing_extensions.final
 class UpdateLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -254,6 +261,7 @@ class UpdateLoadBalancerRequest(google.protobuf.message.Message):
 
 global___UpdateLoadBalancerRequest = UpdateLoadBalancerRequest
 
+@typing_extensions.final
 class UpdateLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -269,9 +277,11 @@ class UpdateLoadBalancerMetadata(google.protobuf.message.Message):
 
 global___UpdateLoadBalancerMetadata = UpdateLoadBalancerMetadata
 
+@typing_extensions.final
 class CreateLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -368,6 +378,7 @@ class CreateLoadBalancerRequest(google.protobuf.message.Message):
 
 global___CreateLoadBalancerRequest = CreateLoadBalancerRequest
 
+@typing_extensions.final
 class CreateLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -383,6 +394,7 @@ class CreateLoadBalancerMetadata(google.protobuf.message.Message):
 
 global___CreateLoadBalancerMetadata = CreateLoadBalancerMetadata
 
+@typing_extensions.final
 class StartLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -403,6 +415,7 @@ class StartLoadBalancerRequest(google.protobuf.message.Message):
 
 global___StartLoadBalancerRequest = StartLoadBalancerRequest
 
+@typing_extensions.final
 class StartLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -418,6 +431,7 @@ class StartLoadBalancerMetadata(google.protobuf.message.Message):
 
 global___StartLoadBalancerMetadata = StartLoadBalancerMetadata
 
+@typing_extensions.final
 class StopLoadBalancerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -438,6 +452,7 @@ class StopLoadBalancerRequest(google.protobuf.message.Message):
 
 global___StopLoadBalancerRequest = StopLoadBalancerRequest
 
+@typing_extensions.final
 class StopLoadBalancerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -453,6 +468,7 @@ class StopLoadBalancerMetadata(google.protobuf.message.Message):
 
 global___StopLoadBalancerMetadata = StopLoadBalancerMetadata
 
+@typing_extensions.final
 class AddListenerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -474,6 +490,7 @@ class AddListenerRequest(google.protobuf.message.Message):
 
 global___AddListenerRequest = AddListenerRequest
 
+@typing_extensions.final
 class AddListenerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -493,6 +510,7 @@ class AddListenerMetadata(google.protobuf.message.Message):
 
 global___AddListenerMetadata = AddListenerMetadata
 
+@typing_extensions.final
 class RemoveListenerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -512,6 +530,7 @@ class RemoveListenerRequest(google.protobuf.message.Message):
 
 global___RemoveListenerRequest = RemoveListenerRequest
 
+@typing_extensions.final
 class RemoveListenerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -531,6 +550,7 @@ class RemoveListenerMetadata(google.protobuf.message.Message):
 
 global___RemoveListenerMetadata = RemoveListenerMetadata
 
+@typing_extensions.final
 class UpdateListenerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -557,6 +577,7 @@ class UpdateListenerRequest(google.protobuf.message.Message):
 
 global___UpdateListenerRequest = UpdateListenerRequest
 
+@typing_extensions.final
 class UpdateListenerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -576,6 +597,7 @@ class UpdateListenerMetadata(google.protobuf.message.Message):
 
 global___UpdateListenerMetadata = UpdateListenerMetadata
 
+@typing_extensions.final
 class AddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -607,6 +629,7 @@ class AddressSpec(google.protobuf.message.Message):
 
 global___AddressSpec = AddressSpec
 
+@typing_extensions.final
 class ExternalIpv4AddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -622,6 +645,7 @@ class ExternalIpv4AddressSpec(google.protobuf.message.Message):
 
 global___ExternalIpv4AddressSpec = ExternalIpv4AddressSpec
 
+@typing_extensions.final
 class InternalIpv4AddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -641,6 +665,7 @@ class InternalIpv4AddressSpec(google.protobuf.message.Message):
 
 global___InternalIpv4AddressSpec = InternalIpv4AddressSpec
 
+@typing_extensions.final
 class ExternalIpv6AddressSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -656,6 +681,7 @@ class ExternalIpv6AddressSpec(google.protobuf.message.Message):
 
 global___ExternalIpv6AddressSpec = ExternalIpv6AddressSpec
 
+@typing_extensions.final
 class EndpointSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -677,6 +703,7 @@ class EndpointSpec(google.protobuf.message.Message):
 
 global___EndpointSpec = EndpointSpec
 
+@typing_extensions.final
 class ListenerSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -722,6 +749,7 @@ class ListenerSpec(google.protobuf.message.Message):
 
 global___ListenerSpec = ListenerSpec
 
+@typing_extensions.final
 class GetTargetStatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -745,6 +773,7 @@ class GetTargetStatesRequest(google.protobuf.message.Message):
 
 global___GetTargetStatesRequest = GetTargetStatesRequest
 
+@typing_extensions.final
 class GetTargetStatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -761,6 +790,7 @@ class GetTargetStatesResponse(google.protobuf.message.Message):
 
 global___GetTargetStatesResponse = GetTargetStatesResponse
 
+@typing_extensions.final
 class AddSniMatchRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -795,6 +825,7 @@ class AddSniMatchRequest(google.protobuf.message.Message):
 
 global___AddSniMatchRequest = AddSniMatchRequest
 
+@typing_extensions.final
 class AddSniMatchMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -818,6 +849,7 @@ class AddSniMatchMetadata(google.protobuf.message.Message):
 
 global___AddSniMatchMetadata = AddSniMatchMetadata
 
+@typing_extensions.final
 class RemoveSniMatchRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -841,6 +873,7 @@ class RemoveSniMatchRequest(google.protobuf.message.Message):
 
 global___RemoveSniMatchRequest = RemoveSniMatchRequest
 
+@typing_extensions.final
 class RemoveSniMatchMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -864,6 +897,7 @@ class RemoveSniMatchMetadata(google.protobuf.message.Message):
 
 global___RemoveSniMatchMetadata = RemoveSniMatchMetadata
 
+@typing_extensions.final
 class UpdateSniMatchRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -910,6 +944,7 @@ class UpdateSniMatchRequest(google.protobuf.message.Message):
 
 global___UpdateSniMatchRequest = UpdateSniMatchRequest
 
+@typing_extensions.final
 class UpdateSniMatchMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -933,6 +968,7 @@ class UpdateSniMatchMetadata(google.protobuf.message.Message):
 
 global___UpdateSniMatchMetadata = UpdateSniMatchMetadata
 
+@typing_extensions.final
 class ListLoadBalancerOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -965,6 +1001,7 @@ class ListLoadBalancerOperationsRequest(google.protobuf.message.Message):
 
 global___ListLoadBalancerOperationsRequest = ListLoadBalancerOperationsRequest
 
+@typing_extensions.final
 class ListLoadBalancerOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

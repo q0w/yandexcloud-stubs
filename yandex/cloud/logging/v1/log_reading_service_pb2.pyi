@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ReadRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -45,6 +46,7 @@ class ReadRequest(google.protobuf.message.Message):
 
 global___ReadRequest = ReadRequest
 
+@typing_extensions.final
 class ReadResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -85,6 +87,7 @@ class ReadResponse(google.protobuf.message.Message):
 
 global___ReadResponse = ReadResponse
 
+@typing_extensions.final
 class Criteria(google.protobuf.message.Message):
     """Read criteria. Should be used in initial [ReadRequest]."""
 

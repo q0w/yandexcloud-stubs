@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SecurityGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class SecurityGroup(google.protobuf.message.Message):
     """updating is a long operation because we must update all instances in SG"""
     DELETING: SecurityGroup.Status.ValueType  # 4
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -100,6 +102,7 @@ class SecurityGroup(google.protobuf.message.Message):
 
 global___SecurityGroup = SecurityGroup
 
+@typing_extensions.final
 class SecurityGroupRule(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,6 +121,7 @@ class SecurityGroupRule(google.protobuf.message.Message):
     INGRESS: SecurityGroupRule.Direction.ValueType  # 1
     EGRESS: SecurityGroupRule.Direction.ValueType  # 2
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -181,6 +185,7 @@ class SecurityGroupRule(google.protobuf.message.Message):
 
 global___SecurityGroupRule = SecurityGroupRule
 
+@typing_extensions.final
 class PortRange(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +203,7 @@ class PortRange(google.protobuf.message.Message):
 
 global___PortRange = PortRange
 
+@typing_extensions.final
 class CidrBlocks(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

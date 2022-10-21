@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBillingAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -35,6 +36,7 @@ class GetBillingAccountRequest(google.protobuf.message.Message):
 
 global___GetBillingAccountRequest = GetBillingAccountRequest
 
+@typing_extensions.final
 class ListBillingAccountsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -61,6 +63,7 @@ class ListBillingAccountsRequest(google.protobuf.message.Message):
 
 global___ListBillingAccountsRequest = ListBillingAccountsRequest
 
+@typing_extensions.final
 class ListBillingAccountsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -87,6 +90,7 @@ class ListBillingAccountsResponse(google.protobuf.message.Message):
 
 global___ListBillingAccountsResponse = ListBillingAccountsResponse
 
+@typing_extensions.final
 class ListBillableObjectBindingsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -119,6 +123,7 @@ class ListBillableObjectBindingsRequest(google.protobuf.message.Message):
 
 global___ListBillableObjectBindingsRequest = ListBillableObjectBindingsRequest
 
+@typing_extensions.final
 class ListBillableObjectBindingsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -145,6 +150,7 @@ class ListBillableObjectBindingsResponse(google.protobuf.message.Message):
 
 global___ListBillableObjectBindingsResponse = ListBillableObjectBindingsResponse
 
+@typing_extensions.final
 class BindBillableObjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -168,6 +174,7 @@ class BindBillableObjectRequest(google.protobuf.message.Message):
 
 global___BindBillableObjectRequest = BindBillableObjectRequest
 
+@typing_extensions.final
 class BindBillableObjectMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

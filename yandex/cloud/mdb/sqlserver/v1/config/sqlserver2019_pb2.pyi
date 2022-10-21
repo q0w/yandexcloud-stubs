@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SQLServerConfig2019std(google.protobuf.message.Message):
     """SQL Server 2019 Standard edition supported configuration options are listed here.
 
@@ -88,6 +89,7 @@ class SQLServerConfig2019std(google.protobuf.message.Message):
 
 global___SQLServerConfig2019std = SQLServerConfig2019std
 
+@typing_extensions.final
 class SQLServerConfigSet2019std(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -115,6 +117,7 @@ class SQLServerConfigSet2019std(google.protobuf.message.Message):
 
 global___SQLServerConfigSet2019std = SQLServerConfigSet2019std
 
+@typing_extensions.final
 class SQLServerConfig2019ent(google.protobuf.message.Message):
     """SQL Server 2019 Enterprise edition supported configuration options are listed here.
 
@@ -187,6 +190,7 @@ class SQLServerConfig2019ent(google.protobuf.message.Message):
 
 global___SQLServerConfig2019ent = SQLServerConfig2019ent
 
+@typing_extensions.final
 class SQLServerConfigSet2019ent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

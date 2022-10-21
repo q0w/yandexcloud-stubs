@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Label(google.protobuf.message.Message):
     """Description of single label"""
 
@@ -40,6 +41,7 @@ class Label(google.protobuf.message.Message):
 
 global___Label = Label
 
+@typing_extensions.final
 class ClassAnnotation(google.protobuf.message.Message):
     """Image annotation for specific label"""
 
@@ -63,6 +65,7 @@ class ClassAnnotation(google.protobuf.message.Message):
 
 global___ClassAnnotation = ClassAnnotation
 
+@typing_extensions.final
 class ClassifierSpecification(google.protobuf.message.Message):
     """Specification of model used for annotation"""
 
@@ -100,6 +103,7 @@ class ClassifierSpecification(google.protobuf.message.Message):
 
 global___ClassifierSpecification = ClassifierSpecification
 
+@typing_extensions.final
 class AnnotationResponse(google.protobuf.message.Message):
     """"""
 
@@ -128,6 +132,7 @@ class AnnotationResponse(google.protobuf.message.Message):
 
 global___AnnotationResponse = AnnotationResponse
 
+@typing_extensions.final
 class AnnotationRequest(google.protobuf.message.Message):
     """request for annotation"""
 

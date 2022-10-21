@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class OnPremiseMysql(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -55,6 +56,7 @@ class OnPremiseMysql(google.protobuf.message.Message):
 
 global___OnPremiseMysql = OnPremiseMysql
 
+@typing_extensions.final
 class MysqlConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -83,6 +85,7 @@ class MysqlConnection(google.protobuf.message.Message):
 
 global___MysqlConnection = MysqlConnection
 
+@typing_extensions.final
 class MysqlObjectTransferSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -115,6 +118,7 @@ class MysqlObjectTransferSettings(google.protobuf.message.Message):
 
 global___MysqlObjectTransferSettings = MysqlObjectTransferSettings
 
+@typing_extensions.final
 class MysqlSource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -195,6 +199,7 @@ class MysqlSource(google.protobuf.message.Message):
 
 global___MysqlSource = MysqlSource
 
+@typing_extensions.final
 class MysqlTarget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

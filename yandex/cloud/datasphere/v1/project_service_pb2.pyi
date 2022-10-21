@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class CreateProjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +58,7 @@ class CreateProjectRequest(google.protobuf.message.Message):
 
 global___CreateProjectRequest = CreateProjectRequest
 
+@typing_extensions.final
 class CreateProjectMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +74,7 @@ class CreateProjectMetadata(google.protobuf.message.Message):
 
 global___CreateProjectMetadata = CreateProjectMetadata
 
+@typing_extensions.final
 class UpdateProjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -113,6 +116,7 @@ class UpdateProjectRequest(google.protobuf.message.Message):
 
 global___UpdateProjectRequest = UpdateProjectRequest
 
+@typing_extensions.final
 class UpdateProjectMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,6 +132,7 @@ class UpdateProjectMetadata(google.protobuf.message.Message):
 
 global___UpdateProjectMetadata = UpdateProjectMetadata
 
+@typing_extensions.final
 class DeleteProjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -145,6 +150,7 @@ class DeleteProjectRequest(google.protobuf.message.Message):
 
 global___DeleteProjectRequest = DeleteProjectRequest
 
+@typing_extensions.final
 class DeleteProjectMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,6 +166,7 @@ class DeleteProjectMetadata(google.protobuf.message.Message):
 
 global___DeleteProjectMetadata = DeleteProjectMetadata
 
+@typing_extensions.final
 class OpenProjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -177,6 +184,7 @@ class OpenProjectRequest(google.protobuf.message.Message):
 
 global___OpenProjectRequest = OpenProjectRequest
 
+@typing_extensions.final
 class OpenProjectMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -192,6 +200,7 @@ class OpenProjectMetadata(google.protobuf.message.Message):
 
 global___OpenProjectMetadata = OpenProjectMetadata
 
+@typing_extensions.final
 class OpenProjectResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -215,6 +224,7 @@ class OpenProjectResponse(google.protobuf.message.Message):
 
 global___OpenProjectResponse = OpenProjectResponse
 
+@typing_extensions.final
 class GetProjectRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -232,6 +242,7 @@ class GetProjectRequest(google.protobuf.message.Message):
 
 global___GetProjectRequest = GetProjectRequest
 
+@typing_extensions.final
 class ListProjectsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -263,6 +274,7 @@ class ListProjectsRequest(google.protobuf.message.Message):
 
 global___ListProjectsRequest = ListProjectsRequest
 
+@typing_extensions.final
 class ListProjectsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -289,6 +301,7 @@ class ListProjectsResponse(google.protobuf.message.Message):
 
 global___ListProjectsResponse = ListProjectsResponse
 
+@typing_extensions.final
 class GetUnitBalanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +317,7 @@ class GetUnitBalanceRequest(google.protobuf.message.Message):
 
 global___GetUnitBalanceRequest = GetUnitBalanceRequest
 
+@typing_extensions.final
 class GetUnitBalanceResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -321,6 +335,7 @@ class GetUnitBalanceResponse(google.protobuf.message.Message):
 
 global___GetUnitBalanceResponse = GetUnitBalanceResponse
 
+@typing_extensions.final
 class SetUnitBalanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -342,6 +357,7 @@ class SetUnitBalanceRequest(google.protobuf.message.Message):
 
 global___SetUnitBalanceRequest = SetUnitBalanceRequest
 
+@typing_extensions.final
 class ProjectExecutionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -377,6 +393,7 @@ class ProjectExecutionRequest(google.protobuf.message.Message):
 
 global___ProjectExecutionRequest = ProjectExecutionRequest
 
+@typing_extensions.final
 class ProjectExecutionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -402,6 +419,7 @@ class ProjectExecutionMetadata(google.protobuf.message.Message):
 
 global___ProjectExecutionMetadata = ProjectExecutionMetadata
 
+@typing_extensions.final
 class ProjectExecutionResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -423,6 +441,7 @@ class ProjectExecutionResponse(google.protobuf.message.Message):
 
 global___ProjectExecutionResponse = ProjectExecutionResponse
 
+@typing_extensions.final
 class CellOutputsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -452,6 +471,7 @@ class CellOutputsRequest(google.protobuf.message.Message):
 
 global___CellOutputsRequest = CellOutputsRequest
 
+@typing_extensions.final
 class CellOutputsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -468,6 +488,7 @@ class CellOutputsResponse(google.protobuf.message.Message):
 
 global___CellOutputsResponse = CellOutputsResponse
 
+@typing_extensions.final
 class GetStateVariablesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -496,6 +517,7 @@ class GetStateVariablesRequest(google.protobuf.message.Message):
 
 global___GetStateVariablesRequest = GetStateVariablesRequest
 
+@typing_extensions.final
 class GetStateVariablesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -513,6 +535,7 @@ class GetStateVariablesResponse(google.protobuf.message.Message):
 
 global___GetStateVariablesResponse = GetStateVariablesResponse
 
+@typing_extensions.final
 class GetNotebookMetadataRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -532,6 +555,7 @@ class GetNotebookMetadataRequest(google.protobuf.message.Message):
 
 global___GetNotebookMetadataRequest = GetNotebookMetadataRequest
 
+@typing_extensions.final
 class GetNotebookMetadataResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

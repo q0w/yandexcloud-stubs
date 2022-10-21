@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class NodeGroup(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -64,6 +65,7 @@ class NodeGroup(google.protobuf.message.Message):
     STARTING: NodeGroup.Status.ValueType  # 7
     """Node group is being started."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class NodeGroup(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class NodeLabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -190,9 +193,11 @@ class NodeGroup(google.protobuf.message.Message):
 
 global___NodeGroup = NodeGroup
 
+@typing_extensions.final
 class ScalePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class FixedScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -206,6 +211,7 @@ class ScalePolicy(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["size", b"size"]) -> None: ...
 
+    @typing_extensions.final
     class AutoScale(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -247,6 +253,7 @@ class ScalePolicy(google.protobuf.message.Message):
 
 global___ScalePolicy = ScalePolicy
 
+@typing_extensions.final
 class NodeGroupAllocationPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -263,6 +270,7 @@ class NodeGroupAllocationPolicy(google.protobuf.message.Message):
 
 global___NodeGroupAllocationPolicy = NodeGroupAllocationPolicy
 
+@typing_extensions.final
 class NodeGroupLocation(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,6 +290,7 @@ class NodeGroupLocation(google.protobuf.message.Message):
 
 global___NodeGroupLocation = NodeGroupLocation
 
+@typing_extensions.final
 class NodeGroupMaintenancePolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -311,6 +320,7 @@ class NodeGroupMaintenancePolicy(google.protobuf.message.Message):
 
 global___NodeGroupMaintenancePolicy = NodeGroupMaintenancePolicy
 
+@typing_extensions.final
 class DeployPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

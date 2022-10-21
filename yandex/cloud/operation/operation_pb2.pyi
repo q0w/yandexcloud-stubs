@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Operation(google.protobuf.message.Message):
     """An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation)."""
 

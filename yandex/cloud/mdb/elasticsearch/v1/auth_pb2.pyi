@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class AuthProviders(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -33,6 +34,7 @@ class AuthProviders(google.protobuf.message.Message):
 
 global___AuthProviders = AuthProviders
 
+@typing_extensions.final
 class AuthProvider(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -96,6 +98,7 @@ class AuthProvider(google.protobuf.message.Message):
 
 global___AuthProvider = AuthProvider
 
+@typing_extensions.final
 class SamlSettings(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

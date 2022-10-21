@@ -24,7 +24,7 @@ class _SymmetricAlgorithm:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _SymmetricAlgorithmEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SymmetricAlgorithm.ValueType], builtins.type):  # noqa: F821
+class _SymmetricAlgorithmEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SymmetricAlgorithm.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     SYMMETRIC_ALGORITHM_UNSPECIFIED: _SymmetricAlgorithm.ValueType  # 0
     AES_128: _SymmetricAlgorithm.ValueType  # 1
@@ -50,6 +50,7 @@ AES_256_HSM: SymmetricAlgorithm.ValueType  # 4
 """AES algorithm with 256-bit keys hosted by HSM"""
 global___SymmetricAlgorithm = SymmetricAlgorithm
 
+@typing_extensions.final
 class SymmetricKey(google.protobuf.message.Message):
     """A symmetric KMS key that may contain several versions of the cryptographic material."""
 
@@ -86,6 +87,7 @@ class SymmetricKey(google.protobuf.message.Message):
     Can be set to ACTIVE using the [SymmetricKeyService.Update] method.
     """
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -167,6 +169,7 @@ class SymmetricKey(google.protobuf.message.Message):
 
 global___SymmetricKey = SymmetricKey
 
+@typing_extensions.final
 class SymmetricKeyVersion(google.protobuf.message.Message):
     """Symmetric KMS key version: metadata about actual cryptographic data."""
 

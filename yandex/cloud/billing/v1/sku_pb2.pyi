@@ -23,7 +23,7 @@ class _PricingVersionType:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _PricingVersionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PricingVersionType.ValueType], builtins.type):  # noqa: F821
+class _PricingVersionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_PricingVersionType.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     PRICING_VERSION_TYPE_UNSPECIFIED: _PricingVersionType.ValueType  # 0
     STREET_PRICE: _PricingVersionType.ValueType  # 1
@@ -41,6 +41,7 @@ CONTRACT_PRICE: PricingVersionType.ValueType  # 2
 """Price is overridden by a contract. Defined in the scope of a billing account."""
 global___PricingVersionType = PricingVersionType
 
+@typing_extensions.final
 class Sku(google.protobuf.message.Message):
     """A Stock keeping unit resource."""
 
@@ -79,6 +80,7 @@ class Sku(google.protobuf.message.Message):
 
 global___Sku = Sku
 
+@typing_extensions.final
 class PricingVersion(google.protobuf.message.Message):
     """Pricing version of the SKU.
     Defines current and past prices for the sku.
@@ -111,6 +113,7 @@ class PricingVersion(google.protobuf.message.Message):
 
 global___PricingVersion = PricingVersion
 
+@typing_extensions.final
 class PricingExpression(google.protobuf.message.Message):
     """Pricing expression of the pricing version.
     Defines price for the sku.
@@ -131,6 +134,7 @@ class PricingExpression(google.protobuf.message.Message):
 
 global___PricingExpression = PricingExpression
 
+@typing_extensions.final
 class Rate(google.protobuf.message.Message):
     """Rate of the pricing expression.
     Define unit price for pricing quantity interval.

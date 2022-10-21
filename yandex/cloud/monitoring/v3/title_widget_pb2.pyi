@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class TitleWidget(google.protobuf.message.Message):
     """Title widget."""
 

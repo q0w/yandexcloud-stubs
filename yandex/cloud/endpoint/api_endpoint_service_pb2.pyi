@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetApiEndpointRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -31,6 +32,7 @@ class GetApiEndpointRequest(google.protobuf.message.Message):
 
 global___GetApiEndpointRequest = GetApiEndpointRequest
 
+@typing_extensions.final
 class ListApiEndpointsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -48,6 +50,7 @@ class ListApiEndpointsRequest(google.protobuf.message.Message):
 
 global___ListApiEndpointsRequest = ListApiEndpointsRequest
 
+@typing_extensions.final
 class ListApiEndpointsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

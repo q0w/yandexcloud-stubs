@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetRouteTableRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetRouteTableRequest(google.protobuf.message.Message):
 
 global___GetRouteTableRequest = GetRouteTableRequest
 
+@typing_extensions.final
 class ListRouteTablesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -76,6 +78,7 @@ class ListRouteTablesRequest(google.protobuf.message.Message):
 
 global___ListRouteTablesRequest = ListRouteTablesRequest
 
+@typing_extensions.final
 class ListRouteTablesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,9 +105,11 @@ class ListRouteTablesResponse(google.protobuf.message.Message):
 
 global___ListRouteTablesResponse = ListRouteTablesResponse
 
+@typing_extensions.final
 class CreateRouteTableRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -158,6 +163,7 @@ class CreateRouteTableRequest(google.protobuf.message.Message):
 
 global___CreateRouteTableRequest = CreateRouteTableRequest
 
+@typing_extensions.final
 class CreateRouteTableMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -173,9 +179,11 @@ class CreateRouteTableMetadata(google.protobuf.message.Message):
 
 global___CreateRouteTableMetadata = CreateRouteTableMetadata
 
+@typing_extensions.final
 class UpdateRouteTableRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -229,6 +237,7 @@ class UpdateRouteTableRequest(google.protobuf.message.Message):
 
 global___UpdateRouteTableRequest = UpdateRouteTableRequest
 
+@typing_extensions.final
 class UpdateRouteTableMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -244,6 +253,7 @@ class UpdateRouteTableMetadata(google.protobuf.message.Message):
 
 global___UpdateRouteTableMetadata = UpdateRouteTableMetadata
 
+@typing_extensions.final
 class DeleteRouteTableRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -261,6 +271,7 @@ class DeleteRouteTableRequest(google.protobuf.message.Message):
 
 global___DeleteRouteTableRequest = DeleteRouteTableRequest
 
+@typing_extensions.final
 class DeleteRouteTableMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -276,6 +287,7 @@ class DeleteRouteTableMetadata(google.protobuf.message.Message):
 
 global___DeleteRouteTableMetadata = DeleteRouteTableMetadata
 
+@typing_extensions.final
 class ListRouteTableOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +316,7 @@ class ListRouteTableOperationsRequest(google.protobuf.message.Message):
 
 global___ListRouteTableOperationsRequest = ListRouteTableOperationsRequest
 
+@typing_extensions.final
 class ListRouteTableOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -328,6 +341,7 @@ class ListRouteTableOperationsResponse(google.protobuf.message.Message):
 
 global___ListRouteTableOperationsResponse = ListRouteTableOperationsResponse
 
+@typing_extensions.final
 class MoveRouteTableRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -347,6 +361,7 @@ class MoveRouteTableRequest(google.protobuf.message.Message):
 
 global___MoveRouteTableRequest = MoveRouteTableRequest
 
+@typing_extensions.final
 class MoveRouteTableMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

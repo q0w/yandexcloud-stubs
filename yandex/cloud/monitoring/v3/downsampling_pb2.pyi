@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Downsampling(google.protobuf.message.Message):
     """List of available aggregate functions for downsampling."""
 

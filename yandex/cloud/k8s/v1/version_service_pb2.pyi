@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListVersionsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -26,6 +27,7 @@ class ListVersionsRequest(google.protobuf.message.Message):
 
 global___ListVersionsRequest = ListVersionsRequest
 
+@typing_extensions.final
 class ListVersionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -42,6 +44,7 @@ class ListVersionsResponse(google.protobuf.message.Message):
 
 global___ListVersionsResponse = ListVersionsResponse
 
+@typing_extensions.final
 class AvailableVersions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

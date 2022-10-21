@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetAccessKeyRequest(google.protobuf.message.Message):
 
 global___GetAccessKeyRequest = GetAccessKeyRequest
 
+@typing_extensions.final
 class ListAccessKeysRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -71,6 +73,7 @@ class ListAccessKeysRequest(google.protobuf.message.Message):
 
 global___ListAccessKeysRequest = ListAccessKeysRequest
 
+@typing_extensions.final
 class ListAccessKeysResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -97,6 +100,7 @@ class ListAccessKeysResponse(google.protobuf.message.Message):
 
 global___ListAccessKeysResponse = ListAccessKeysResponse
 
+@typing_extensions.final
 class CreateAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -120,6 +124,7 @@ class CreateAccessKeyRequest(google.protobuf.message.Message):
 
 global___CreateAccessKeyRequest = CreateAccessKeyRequest
 
+@typing_extensions.final
 class CreateAccessKeyResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,6 +148,7 @@ class CreateAccessKeyResponse(google.protobuf.message.Message):
 
 global___CreateAccessKeyResponse = CreateAccessKeyResponse
 
+@typing_extensions.final
 class UpdateAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,6 +176,7 @@ class UpdateAccessKeyRequest(google.protobuf.message.Message):
 
 global___UpdateAccessKeyRequest = UpdateAccessKeyRequest
 
+@typing_extensions.final
 class UpdateAccessKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -185,6 +192,7 @@ class UpdateAccessKeyMetadata(google.protobuf.message.Message):
 
 global___UpdateAccessKeyMetadata = UpdateAccessKeyMetadata
 
+@typing_extensions.final
 class DeleteAccessKeyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -202,6 +210,7 @@ class DeleteAccessKeyRequest(google.protobuf.message.Message):
 
 global___DeleteAccessKeyRequest = DeleteAccessKeyRequest
 
+@typing_extensions.final
 class DeleteAccessKeyMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -217,6 +226,7 @@ class DeleteAccessKeyMetadata(google.protobuf.message.Message):
 
 global___DeleteAccessKeyMetadata = DeleteAccessKeyMetadata
 
+@typing_extensions.final
 class ListAccessKeyOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -247,6 +257,7 @@ class ListAccessKeyOperationsRequest(google.protobuf.message.Message):
 
 global___ListAccessKeyOperationsRequest = ListAccessKeyOperationsRequest
 
+@typing_extensions.final
 class ListAccessKeyOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

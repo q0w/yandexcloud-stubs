@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetTriggerRequest(google.protobuf.message.Message):
 
 global___GetTriggerRequest = GetTriggerRequest
 
+@typing_extensions.final
 class ListTriggersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class ListTriggersRequest(google.protobuf.message.Message):
 
 global___ListTriggersRequest = ListTriggersRequest
 
+@typing_extensions.final
 class ListTriggersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,9 +109,11 @@ class ListTriggersResponse(google.protobuf.message.Message):
 
 global___ListTriggersResponse = ListTriggersResponse
 
+@typing_extensions.final
 class CreateTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -160,6 +165,7 @@ class CreateTriggerRequest(google.protobuf.message.Message):
 
 global___CreateTriggerRequest = CreateTriggerRequest
 
+@typing_extensions.final
 class CreateTriggerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -175,9 +181,11 @@ class CreateTriggerMetadata(google.protobuf.message.Message):
 
 global___CreateTriggerMetadata = CreateTriggerMetadata
 
+@typing_extensions.final
 class UpdateTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -233,6 +241,7 @@ class UpdateTriggerRequest(google.protobuf.message.Message):
 
 global___UpdateTriggerRequest = UpdateTriggerRequest
 
+@typing_extensions.final
 class UpdateTriggerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -248,6 +257,7 @@ class UpdateTriggerMetadata(google.protobuf.message.Message):
 
 global___UpdateTriggerMetadata = UpdateTriggerMetadata
 
+@typing_extensions.final
 class DeleteTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -266,6 +276,7 @@ class DeleteTriggerRequest(google.protobuf.message.Message):
 
 global___DeleteTriggerRequest = DeleteTriggerRequest
 
+@typing_extensions.final
 class DeleteTriggerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -281,6 +292,7 @@ class DeleteTriggerMetadata(google.protobuf.message.Message):
 
 global___DeleteTriggerMetadata = DeleteTriggerMetadata
 
+@typing_extensions.final
 class PauseTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -299,6 +311,7 @@ class PauseTriggerRequest(google.protobuf.message.Message):
 
 global___PauseTriggerRequest = PauseTriggerRequest
 
+@typing_extensions.final
 class PauseTriggerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -314,6 +327,7 @@ class PauseTriggerMetadata(google.protobuf.message.Message):
 
 global___PauseTriggerMetadata = PauseTriggerMetadata
 
+@typing_extensions.final
 class ResumeTriggerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -332,6 +346,7 @@ class ResumeTriggerRequest(google.protobuf.message.Message):
 
 global___ResumeTriggerRequest = ResumeTriggerRequest
 
+@typing_extensions.final
 class ResumeTriggerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -347,6 +362,7 @@ class ResumeTriggerMetadata(google.protobuf.message.Message):
 
 global___ResumeTriggerMetadata = ResumeTriggerMetadata
 
+@typing_extensions.final
 class ListTriggerOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -388,6 +404,7 @@ class ListTriggerOperationsRequest(google.protobuf.message.Message):
 
 global___ListTriggerOperationsRequest = ListTriggerOperationsRequest
 
+@typing_extensions.final
 class ListTriggerOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

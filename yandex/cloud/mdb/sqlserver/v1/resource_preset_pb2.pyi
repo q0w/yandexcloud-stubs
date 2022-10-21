@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ResourcePreset(google.protobuf.message.Message):
     """A preset of resources for hardware configuration of SQL Server hosts."""
 

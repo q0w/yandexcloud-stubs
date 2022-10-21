@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetResourceRequest(google.protobuf.message.Message):
     """A request to get a resource."""
 
@@ -36,6 +37,7 @@ class GetResourceRequest(google.protobuf.message.Message):
 
 global___GetResourceRequest = GetResourceRequest
 
+@typing_extensions.final
 class ListResourcesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -66,6 +68,7 @@ class ListResourcesRequest(google.protobuf.message.Message):
 
 global___ListResourcesRequest = ListResourcesRequest
 
+@typing_extensions.final
 class ListResourcesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -91,9 +94,11 @@ class ListResourcesResponse(google.protobuf.message.Message):
 
 global___ListResourcesResponse = ListResourcesResponse
 
+@typing_extensions.final
 class CreateResourceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Origin(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -169,6 +174,7 @@ class CreateResourceRequest(google.protobuf.message.Message):
 
 global___CreateResourceRequest = CreateResourceRequest
 
+@typing_extensions.final
 class ResourceOriginParams(google.protobuf.message.Message):
     """A set of resource origin parameters."""
 
@@ -192,6 +198,7 @@ class ResourceOriginParams(google.protobuf.message.Message):
 
 global___ResourceOriginParams = ResourceOriginParams
 
+@typing_extensions.final
 class CreateResourceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -207,6 +214,7 @@ class CreateResourceMetadata(google.protobuf.message.Message):
 
 global___CreateResourceMetadata = CreateResourceMetadata
 
+@typing_extensions.final
 class UpdateResourceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -255,6 +263,7 @@ class UpdateResourceRequest(google.protobuf.message.Message):
 
 global___UpdateResourceRequest = UpdateResourceRequest
 
+@typing_extensions.final
 class UpdateResourceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -270,6 +279,7 @@ class UpdateResourceMetadata(google.protobuf.message.Message):
 
 global___UpdateResourceMetadata = UpdateResourceMetadata
 
+@typing_extensions.final
 class DeleteResourceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -285,6 +295,7 @@ class DeleteResourceRequest(google.protobuf.message.Message):
 
 global___DeleteResourceRequest = DeleteResourceRequest
 
+@typing_extensions.final
 class DeleteResourceMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -300,6 +311,7 @@ class DeleteResourceMetadata(google.protobuf.message.Message):
 
 global___DeleteResourceMetadata = DeleteResourceMetadata
 
+@typing_extensions.final
 class GetProviderCNameRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -315,6 +327,7 @@ class GetProviderCNameRequest(google.protobuf.message.Message):
 
 global___GetProviderCNameRequest = GetProviderCNameRequest
 
+@typing_extensions.final
 class GetProviderCNameResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

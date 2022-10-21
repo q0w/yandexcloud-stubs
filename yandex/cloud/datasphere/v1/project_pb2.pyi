@@ -20,11 +20,13 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Project(google.protobuf.message.Message):
     """A Project resource."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Settings(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class Project(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["commit_mode", b"commit_mode", "data_proc_cluster_id", b"data_proc_cluster_id", "security_group_ids", b"security_group_ids", "service_account_id", b"service_account_id", "subnet_id", b"subnet_id"]) -> None: ...
 
+    @typing_extensions.final
     class Limits(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

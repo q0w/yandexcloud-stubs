@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListPathsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -46,6 +47,7 @@ class ListPathsRequest(google.protobuf.message.Message):
 
 global___ListPathsRequest = ListPathsRequest
 
+@typing_extensions.final
 class ListPathsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -64,6 +66,7 @@ class ListPathsResponse(google.protobuf.message.Message):
 
 global___ListPathsResponse = ListPathsResponse
 
+@typing_extensions.final
 class GetBackupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +82,7 @@ class GetBackupRequest(google.protobuf.message.Message):
 
 global___GetBackupRequest = GetBackupRequest
 
+@typing_extensions.final
 class ListBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +111,7 @@ class ListBackupsRequest(google.protobuf.message.Message):
 
 global___ListBackupsRequest = ListBackupsRequest
 
+@typing_extensions.final
 class ListBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -131,6 +136,7 @@ class ListBackupsResponse(google.protobuf.message.Message):
 
 global___ListBackupsResponse = ListBackupsResponse
 
+@typing_extensions.final
 class DeleteBackupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -145,6 +151,7 @@ class DeleteBackupRequest(google.protobuf.message.Message):
 
 global___DeleteBackupRequest = DeleteBackupRequest
 
+@typing_extensions.final
 class DeleteBackupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

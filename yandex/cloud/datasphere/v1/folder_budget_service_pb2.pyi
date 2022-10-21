@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetFolderBudgetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -31,6 +32,7 @@ class GetFolderBudgetRequest(google.protobuf.message.Message):
 
 global___GetFolderBudgetRequest = GetFolderBudgetRequest
 
+@typing_extensions.final
 class GetFolderBudgetResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -58,6 +60,7 @@ class GetFolderBudgetResponse(google.protobuf.message.Message):
 
 global___GetFolderBudgetResponse = GetFolderBudgetResponse
 
+@typing_extensions.final
 class SetFolderBudgetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

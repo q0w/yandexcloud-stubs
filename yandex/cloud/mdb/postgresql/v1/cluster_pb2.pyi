@@ -46,6 +46,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """A PostgreSQL Cluster resource. For more information, see
     the [Concepts](/docs/managed-postgresql/concepts) section of the documentation.
@@ -146,6 +147,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """Cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -252,6 +254,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Monitoring system."""
 
@@ -277,6 +280,7 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class ClusterConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -389,6 +393,7 @@ class ClusterConfig(google.protobuf.message.Message):
 
 global___ClusterConfig = ClusterConfig
 
+@typing_extensions.final
 class ConnectionPoolerConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -435,6 +440,7 @@ class ConnectionPoolerConfig(google.protobuf.message.Message):
 
 global___ConnectionPoolerConfig = ConnectionPoolerConfig
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -581,6 +587,7 @@ class Host(google.protobuf.message.Message):
 
 global___Host = Host
 
+@typing_extensions.final
 class HostConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -654,6 +661,7 @@ class HostConfig(google.protobuf.message.Message):
 
 global___HostConfig = HostConfig
 
+@typing_extensions.final
 class Service(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -717,6 +725,7 @@ class Service(google.protobuf.message.Message):
 
 global___Service = Service
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -747,6 +756,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class Access(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -777,6 +787,7 @@ class Access(google.protobuf.message.Message):
 
 global___Access = Access
 
+@typing_extensions.final
 class PerformanceDiagnostics(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

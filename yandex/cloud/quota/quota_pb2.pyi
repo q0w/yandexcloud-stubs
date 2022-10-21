@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class QuotaMetric(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class QuotaMetric(google.protobuf.message.Message):
 
 global___QuotaMetric = QuotaMetric
 
+@typing_extensions.final
 class MetricLimit(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -54,9 +56,11 @@ class MetricLimit(google.protobuf.message.Message):
 
 global___MetricLimit = MetricLimit
 
+@typing_extensions.final
 class QuotaFailure(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Violation(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Disk(google.protobuf.message.Message):
     """A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk)."""
 
@@ -51,6 +52,7 @@ class Disk(google.protobuf.message.Message):
     DELETING: Disk.Status.ValueType  # 4
     """Disk is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +154,7 @@ class Disk(google.protobuf.message.Message):
 
 global___Disk = Disk
 
+@typing_extensions.final
 class DiskPlacementPolicy(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

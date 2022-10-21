@@ -21,7 +21,7 @@ class _ObjectTransferStage:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ObjectTransferStageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ObjectTransferStage.ValueType], builtins.type):  # noqa: F821
+class _ObjectTransferStageEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ObjectTransferStage.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     OBJECT_TRANSFER_STAGE_UNSPECIFIED: _ObjectTransferStage.ValueType  # 0
     BEFORE_DATA: _ObjectTransferStage.ValueType  # 1
@@ -40,7 +40,7 @@ class _CleanupPolicy:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _CleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CleanupPolicy.ValueType], builtins.type):  # noqa: F821
+class _CleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_CleanupPolicy.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CLEANUP_POLICY_UNSPECIFIED: _CleanupPolicy.ValueType  # 0
     DISABLED: _CleanupPolicy.ValueType  # 1
@@ -55,6 +55,7 @@ DROP: CleanupPolicy.ValueType  # 2
 TRUNCATE: CleanupPolicy.ValueType  # 3
 global___CleanupPolicy = CleanupPolicy
 
+@typing_extensions.final
 class AltName(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -74,6 +75,7 @@ class AltName(google.protobuf.message.Message):
 
 global___AltName = AltName
 
+@typing_extensions.final
 class Secret(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -91,6 +93,7 @@ class Secret(google.protobuf.message.Message):
 
 global___Secret = Secret
 
+@typing_extensions.final
 class TLSMode(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -112,6 +115,7 @@ class TLSMode(google.protobuf.message.Message):
 
 global___TLSMode = TLSMode
 
+@typing_extensions.final
 class TLSConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -132,6 +136,7 @@ class TLSConfig(google.protobuf.message.Message):
 
 global___TLSConfig = TLSConfig
 
+@typing_extensions.final
 class ColumnValue(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetResourcePresetRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class GetResourcePresetRequest(google.protobuf.message.Message):
 
 global___GetResourcePresetRequest = GetResourcePresetRequest
 
+@typing_extensions.final
 class ListResourcePresetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class ListResourcePresetsRequest(google.protobuf.message.Message):
 
 global___ListResourcePresetsRequest = ListResourcePresetsRequest
 
+@typing_extensions.final
 class ListResourcePresetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

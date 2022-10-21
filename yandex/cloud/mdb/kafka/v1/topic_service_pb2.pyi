@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetTopicRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -43,6 +44,7 @@ class GetTopicRequest(google.protobuf.message.Message):
 
 global___GetTopicRequest = GetTopicRequest
 
+@typing_extensions.final
 class ListTopicsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListTopicsRequest(google.protobuf.message.Message):
 
 global___ListTopicsRequest = ListTopicsRequest
 
+@typing_extensions.final
 class ListTopicsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -99,6 +102,7 @@ class ListTopicsResponse(google.protobuf.message.Message):
 
 global___ListTopicsResponse = ListTopicsResponse
 
+@typing_extensions.final
 class CreateTopicRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -123,6 +127,7 @@ class CreateTopicRequest(google.protobuf.message.Message):
 
 global___CreateTopicRequest = CreateTopicRequest
 
+@typing_extensions.final
 class CreateTopicMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -142,6 +147,7 @@ class CreateTopicMetadata(google.protobuf.message.Message):
 
 global___CreateTopicMetadata = CreateTopicMetadata
 
+@typing_extensions.final
 class UpdateTopicRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -180,6 +186,7 @@ class UpdateTopicRequest(google.protobuf.message.Message):
 
 global___UpdateTopicRequest = UpdateTopicRequest
 
+@typing_extensions.final
 class UpdateTopicMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -199,6 +206,7 @@ class UpdateTopicMetadata(google.protobuf.message.Message):
 
 global___UpdateTopicMetadata = UpdateTopicMetadata
 
+@typing_extensions.final
 class DeleteTopicRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -224,6 +232,7 @@ class DeleteTopicRequest(google.protobuf.message.Message):
 
 global___DeleteTopicRequest = DeleteTopicRequest
 
+@typing_extensions.final
 class DeleteTopicMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -23,7 +23,7 @@ class _GlobalPermission:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _GlobalPermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_GlobalPermission.ValueType], builtins.type):  # noqa: F821
+class _GlobalPermissionEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_GlobalPermission.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     GLOBAL_PERMISSION_UNSPECIFIED: _GlobalPermission.ValueType  # 0
     REPLICATION_CLIENT: _GlobalPermission.ValueType  # 1
@@ -60,7 +60,7 @@ class _AuthPlugin:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AuthPlugin.ValueType], builtins.type):  # noqa: F821
+class _AuthPluginEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_AuthPlugin.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     AUTH_PLUGIN_UNSPECIFIED: _AuthPlugin.ValueType  # 0
     MYSQL_NATIVE_PASSWORD: _AuthPlugin.ValueType  # 1
@@ -81,6 +81,7 @@ SHA256_PASSWORD: AuthPlugin.ValueType  # 3
 """Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html)."""
 global___AuthPlugin = AuthPlugin
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """An object that represents MySQL user.
 
@@ -125,6 +126,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -245,6 +247,7 @@ class Permission(google.protobuf.message.Message):
 
 global___Permission = Permission
 
+@typing_extensions.final
 class ConnectionLimits(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -277,6 +280,7 @@ class ConnectionLimits(google.protobuf.message.Message):
 
 global___ConnectionLimits = ConnectionLimits
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

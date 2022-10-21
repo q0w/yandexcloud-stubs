@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ResourcePreset(google.protobuf.message.Message):
     """An object that represents MySQL resource preset.
     A resource preset defines hardware configuration for cluster hosts.

@@ -21,6 +21,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetGroupRequest(google.protobuf.message.Message):
 
 global___GetGroupRequest = GetGroupRequest
 
+@typing_extensions.final
 class ListGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListGroupsRequest(google.protobuf.message.Message):
 
 global___ListGroupsRequest = ListGroupsRequest
 
+@typing_extensions.final
 class ListGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +109,7 @@ class ListGroupsResponse(google.protobuf.message.Message):
 
 global___ListGroupsResponse = ListGroupsResponse
 
+@typing_extensions.final
 class CreateGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -133,6 +137,7 @@ class CreateGroupRequest(google.protobuf.message.Message):
 
 global___CreateGroupRequest = CreateGroupRequest
 
+@typing_extensions.final
 class CreateGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -148,6 +153,7 @@ class CreateGroupMetadata(google.protobuf.message.Message):
 
 global___CreateGroupMetadata = CreateGroupMetadata
 
+@typing_extensions.final
 class UpdateGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -181,6 +187,7 @@ class UpdateGroupRequest(google.protobuf.message.Message):
 
 global___UpdateGroupRequest = UpdateGroupRequest
 
+@typing_extensions.final
 class UpdateGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -196,6 +203,7 @@ class UpdateGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateGroupMetadata = UpdateGroupMetadata
 
+@typing_extensions.final
 class DeleteGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -213,6 +221,7 @@ class DeleteGroupRequest(google.protobuf.message.Message):
 
 global___DeleteGroupRequest = DeleteGroupRequest
 
+@typing_extensions.final
 class DeleteGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -228,6 +237,7 @@ class DeleteGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteGroupMetadata = DeleteGroupMetadata
 
+@typing_extensions.final
 class ListGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -258,6 +268,7 @@ class ListGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListGroupOperationsRequest = ListGroupOperationsRequest
 
+@typing_extensions.final
 class ListGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -282,6 +293,7 @@ class ListGroupOperationsResponse(google.protobuf.message.Message):
 
 global___ListGroupOperationsResponse = ListGroupOperationsResponse
 
+@typing_extensions.final
 class ListGroupMembersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -312,6 +324,7 @@ class ListGroupMembersRequest(google.protobuf.message.Message):
 
 global___ListGroupMembersRequest = ListGroupMembersRequest
 
+@typing_extensions.final
 class ListGroupMembersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -336,6 +349,7 @@ class ListGroupMembersResponse(google.protobuf.message.Message):
 
 global___ListGroupMembersResponse = ListGroupMembersResponse
 
+@typing_extensions.final
 class GroupMember(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -360,6 +374,7 @@ class GroupMember(google.protobuf.message.Message):
 
 global___GroupMember = GroupMember
 
+@typing_extensions.final
 class UpdateGroupMembersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -382,6 +397,7 @@ class UpdateGroupMembersRequest(google.protobuf.message.Message):
 
 global___UpdateGroupMembersRequest = UpdateGroupMembersRequest
 
+@typing_extensions.final
 class UpdateGroupMembersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -397,6 +413,7 @@ class UpdateGroupMembersMetadata(google.protobuf.message.Message):
 
 global___UpdateGroupMembersMetadata = UpdateGroupMembersMetadata
 
+@typing_extensions.final
 class MemberDelta(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetOperationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -29,6 +30,7 @@ class GetOperationRequest(google.protobuf.message.Message):
 
 global___GetOperationRequest = GetOperationRequest
 
+@typing_extensions.final
 class CancelOperationRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

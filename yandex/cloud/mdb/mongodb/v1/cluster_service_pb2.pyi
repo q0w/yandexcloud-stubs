@@ -37,6 +37,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -54,6 +55,7 @@ class GetClusterRequest(google.protobuf.message.Message):
 
 global___GetClusterRequest = GetClusterRequest
 
+@typing_extensions.final
 class ListClustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -94,6 +96,7 @@ class ListClustersRequest(google.protobuf.message.Message):
 
 global___ListClustersRequest = ListClustersRequest
 
+@typing_extensions.final
 class ListClustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -118,9 +121,11 @@ class ListClustersResponse(google.protobuf.message.Message):
 
 global___ListClustersResponse = ListClustersResponse
 
+@typing_extensions.final
 class CreateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,6 +206,7 @@ class CreateClusterRequest(google.protobuf.message.Message):
 
 global___CreateClusterRequest = CreateClusterRequest
 
+@typing_extensions.final
 class CreateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -216,9 +222,11 @@ class CreateClusterMetadata(google.protobuf.message.Message):
 
 global___CreateClusterMetadata = CreateClusterMetadata
 
+@typing_extensions.final
 class UpdateClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -291,6 +299,7 @@ class UpdateClusterRequest(google.protobuf.message.Message):
 
 global___UpdateClusterRequest = UpdateClusterRequest
 
+@typing_extensions.final
 class UpdateClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -306,6 +315,7 @@ class UpdateClusterMetadata(google.protobuf.message.Message):
 
 global___UpdateClusterMetadata = UpdateClusterMetadata
 
+@typing_extensions.final
 class DeleteClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -323,6 +333,7 @@ class DeleteClusterRequest(google.protobuf.message.Message):
 
 global___DeleteClusterRequest = DeleteClusterRequest
 
+@typing_extensions.final
 class DeleteClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -338,6 +349,7 @@ class DeleteClusterMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterMetadata = DeleteClusterMetadata
 
+@typing_extensions.final
 class StartClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -353,6 +365,7 @@ class StartClusterRequest(google.protobuf.message.Message):
 
 global___StartClusterRequest = StartClusterRequest
 
+@typing_extensions.final
 class StartClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -368,6 +381,7 @@ class StartClusterMetadata(google.protobuf.message.Message):
 
 global___StartClusterMetadata = StartClusterMetadata
 
+@typing_extensions.final
 class StopClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -383,6 +397,7 @@ class StopClusterRequest(google.protobuf.message.Message):
 
 global___StopClusterRequest = StopClusterRequest
 
+@typing_extensions.final
 class StopClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +413,7 @@ class StopClusterMetadata(google.protobuf.message.Message):
 
 global___StopClusterMetadata = StopClusterMetadata
 
+@typing_extensions.final
 class MoveClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -417,6 +433,7 @@ class MoveClusterRequest(google.protobuf.message.Message):
 
 global___MoveClusterRequest = MoveClusterRequest
 
+@typing_extensions.final
 class MoveClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -440,6 +457,7 @@ class MoveClusterMetadata(google.protobuf.message.Message):
 
 global___MoveClusterMetadata = MoveClusterMetadata
 
+@typing_extensions.final
 class BackupClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -457,6 +475,7 @@ class BackupClusterRequest(google.protobuf.message.Message):
 
 global___BackupClusterRequest = BackupClusterRequest
 
+@typing_extensions.final
 class BackupClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -472,9 +491,11 @@ class BackupClusterMetadata(google.protobuf.message.Message):
 
 global___BackupClusterMetadata = BackupClusterMetadata
 
+@typing_extensions.final
 class RestoreClusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -490,6 +511,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class RecoveryTargetSpec(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -573,6 +595,7 @@ class RestoreClusterRequest(google.protobuf.message.Message):
 
 global___RestoreClusterRequest = RestoreClusterRequest
 
+@typing_extensions.final
 class RestoreClusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -592,6 +615,7 @@ class RestoreClusterMetadata(google.protobuf.message.Message):
 
 global___RestoreClusterMetadata = RestoreClusterMetadata
 
+@typing_extensions.final
 class RescheduleMaintenanceRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -640,6 +664,7 @@ class RescheduleMaintenanceRequest(google.protobuf.message.Message):
 
 global___RescheduleMaintenanceRequest = RescheduleMaintenanceRequest
 
+@typing_extensions.final
 class RescheduleMaintenanceMetadata(google.protobuf.message.Message):
     """Rescheduled maintenance operation metadata."""
 
@@ -663,9 +688,11 @@ class RescheduleMaintenanceMetadata(google.protobuf.message.Message):
 
 global___RescheduleMaintenanceMetadata = RescheduleMaintenanceMetadata
 
+@typing_extensions.final
 class LogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class MessageEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -700,6 +727,7 @@ class LogRecord(google.protobuf.message.Message):
 
 global___LogRecord = LogRecord
 
+@typing_extensions.final
 class ListClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -776,6 +804,7 @@ class ListClusterLogsRequest(google.protobuf.message.Message):
 
 global___ListClusterLogsRequest = ListClusterLogsRequest
 
+@typing_extensions.final
 class ListClusterLogsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -801,6 +830,7 @@ class ListClusterLogsResponse(google.protobuf.message.Message):
 
 global___ListClusterLogsResponse = ListClusterLogsResponse
 
+@typing_extensions.final
 class StreamLogRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -826,6 +856,7 @@ class StreamLogRecord(google.protobuf.message.Message):
 
 global___StreamLogRecord = StreamLogRecord
 
+@typing_extensions.final
 class StreamClusterLogsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -902,6 +933,7 @@ class StreamClusterLogsRequest(google.protobuf.message.Message):
 
 global___StreamClusterLogsRequest = StreamClusterLogsRequest
 
+@typing_extensions.final
 class ListClusterOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -931,6 +963,7 @@ class ListClusterOperationsRequest(google.protobuf.message.Message):
 
 global___ListClusterOperationsRequest = ListClusterOperationsRequest
 
+@typing_extensions.final
 class ListClusterOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -955,6 +988,7 @@ class ListClusterOperationsResponse(google.protobuf.message.Message):
 
 global___ListClusterOperationsResponse = ListClusterOperationsResponse
 
+@typing_extensions.final
 class ListClusterBackupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -986,6 +1020,7 @@ class ListClusterBackupsRequest(google.protobuf.message.Message):
 
 global___ListClusterBackupsRequest = ListClusterBackupsRequest
 
+@typing_extensions.final
 class ListClusterBackupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1010,6 +1045,7 @@ class ListClusterBackupsResponse(google.protobuf.message.Message):
 
 global___ListClusterBackupsResponse = ListClusterBackupsResponse
 
+@typing_extensions.final
 class ListClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1041,6 +1077,7 @@ class ListClusterHostsRequest(google.protobuf.message.Message):
 
 global___ListClusterHostsRequest = ListClusterHostsRequest
 
+@typing_extensions.final
 class ListClusterHostsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1065,6 +1102,7 @@ class ListClusterHostsResponse(google.protobuf.message.Message):
 
 global___ListClusterHostsResponse = ListClusterHostsResponse
 
+@typing_extensions.final
 class AddClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1087,6 +1125,7 @@ class AddClusterHostsRequest(google.protobuf.message.Message):
 
 global___AddClusterHostsRequest = AddClusterHostsRequest
 
+@typing_extensions.final
 class AddClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1107,6 +1146,7 @@ class AddClusterHostsMetadata(google.protobuf.message.Message):
 
 global___AddClusterHostsMetadata = AddClusterHostsMetadata
 
+@typing_extensions.final
 class DeleteClusterHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1129,6 +1169,7 @@ class DeleteClusterHostsRequest(google.protobuf.message.Message):
 
 global___DeleteClusterHostsRequest = DeleteClusterHostsRequest
 
+@typing_extensions.final
 class DeleteClusterHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1149,9 +1190,11 @@ class DeleteClusterHostsMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterHostsMetadata = DeleteClusterHostsMetadata
 
+@typing_extensions.final
 class EnableClusterShardingRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1167,6 +1210,7 @@ class EnableClusterShardingRequest(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1182,6 +1226,7 @@ class EnableClusterShardingRequest(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1230,6 +1275,7 @@ class EnableClusterShardingRequest(google.protobuf.message.Message):
 
 global___EnableClusterShardingRequest = EnableClusterShardingRequest
 
+@typing_extensions.final
 class EnableClusterShardingMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1245,6 +1291,7 @@ class EnableClusterShardingMetadata(google.protobuf.message.Message):
 
 global___EnableClusterShardingMetadata = EnableClusterShardingMetadata
 
+@typing_extensions.final
 class GetClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1268,6 +1315,7 @@ class GetClusterShardRequest(google.protobuf.message.Message):
 
 global___GetClusterShardRequest = GetClusterShardRequest
 
+@typing_extensions.final
 class ListClusterShardsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1298,6 +1346,7 @@ class ListClusterShardsRequest(google.protobuf.message.Message):
 
 global___ListClusterShardsRequest = ListClusterShardsRequest
 
+@typing_extensions.final
 class ListClusterShardsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1322,6 +1371,7 @@ class ListClusterShardsResponse(google.protobuf.message.Message):
 
 global___ListClusterShardsResponse = ListClusterShardsResponse
 
+@typing_extensions.final
 class AddClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1348,6 +1398,7 @@ class AddClusterShardRequest(google.protobuf.message.Message):
 
 global___AddClusterShardRequest = AddClusterShardRequest
 
+@typing_extensions.final
 class AddClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1367,6 +1418,7 @@ class AddClusterShardMetadata(google.protobuf.message.Message):
 
 global___AddClusterShardMetadata = AddClusterShardMetadata
 
+@typing_extensions.final
 class DeleteClusterShardRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1390,6 +1442,7 @@ class DeleteClusterShardRequest(google.protobuf.message.Message):
 
 global___DeleteClusterShardRequest = DeleteClusterShardRequest
 
+@typing_extensions.final
 class DeleteClusterShardMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1409,6 +1462,7 @@ class DeleteClusterShardMetadata(google.protobuf.message.Message):
 
 global___DeleteClusterShardMetadata = DeleteClusterShardMetadata
 
+@typing_extensions.final
 class ResetupHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1429,6 +1483,7 @@ class ResetupHostsRequest(google.protobuf.message.Message):
 
 global___ResetupHostsRequest = ResetupHostsRequest
 
+@typing_extensions.final
 class ResetupHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1449,6 +1504,7 @@ class ResetupHostsMetadata(google.protobuf.message.Message):
 
 global___ResetupHostsMetadata = ResetupHostsMetadata
 
+@typing_extensions.final
 class RestartHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1469,6 +1525,7 @@ class RestartHostsRequest(google.protobuf.message.Message):
 
 global___RestartHostsRequest = RestartHostsRequest
 
+@typing_extensions.final
 class RestartHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1489,6 +1546,7 @@ class RestartHostsMetadata(google.protobuf.message.Message):
 
 global___RestartHostsMetadata = RestartHostsMetadata
 
+@typing_extensions.final
 class StepdownHostsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1509,6 +1567,7 @@ class StepdownHostsRequest(google.protobuf.message.Message):
 
 global___StepdownHostsRequest = StepdownHostsRequest
 
+@typing_extensions.final
 class StepdownHostsMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1529,6 +1588,7 @@ class StepdownHostsMetadata(google.protobuf.message.Message):
 
 global___StepdownHostsMetadata = StepdownHostsMetadata
 
+@typing_extensions.final
 class HostSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1573,9 +1633,11 @@ class HostSpec(google.protobuf.message.Message):
 
 global___HostSpec = HostSpec
 
+@typing_extensions.final
 class MongodbSpec3_6(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1596,6 +1658,7 @@ class MongodbSpec3_6(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1616,6 +1679,7 @@ class MongodbSpec3_6(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1636,6 +1700,7 @@ class MongodbSpec3_6(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1689,9 +1754,11 @@ class MongodbSpec3_6(google.protobuf.message.Message):
 
 global___MongodbSpec3_6 = MongodbSpec3_6
 
+@typing_extensions.final
 class MongodbSpec4_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1712,6 +1779,7 @@ class MongodbSpec4_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1732,6 +1800,7 @@ class MongodbSpec4_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1752,6 +1821,7 @@ class MongodbSpec4_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1805,9 +1875,11 @@ class MongodbSpec4_0(google.protobuf.message.Message):
 
 global___MongodbSpec4_0 = MongodbSpec4_0
 
+@typing_extensions.final
 class MongodbSpec4_2(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1828,6 +1900,7 @@ class MongodbSpec4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1848,6 +1921,7 @@ class MongodbSpec4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1868,6 +1942,7 @@ class MongodbSpec4_2(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1921,9 +1996,11 @@ class MongodbSpec4_2(google.protobuf.message.Message):
 
 global___MongodbSpec4_2 = MongodbSpec4_2
 
+@typing_extensions.final
 class MongodbSpec4_4(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1944,6 +2021,7 @@ class MongodbSpec4_4(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1964,6 +2042,7 @@ class MongodbSpec4_4(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -1984,6 +2063,7 @@ class MongodbSpec4_4(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2037,9 +2117,11 @@ class MongodbSpec4_4(google.protobuf.message.Message):
 
 global___MongodbSpec4_4 = MongodbSpec4_4
 
+@typing_extensions.final
 class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2060,6 +2142,7 @@ class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2080,6 +2163,7 @@ class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2100,6 +2184,7 @@ class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2153,9 +2238,11 @@ class MongodbSpec4_4_enterprise(google.protobuf.message.Message):
 
 global___MongodbSpec4_4_enterprise = MongodbSpec4_4_enterprise
 
+@typing_extensions.final
 class MongodbSpec5_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2176,6 +2263,7 @@ class MongodbSpec5_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2196,6 +2284,7 @@ class MongodbSpec5_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2216,6 +2305,7 @@ class MongodbSpec5_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2269,9 +2359,11 @@ class MongodbSpec5_0(google.protobuf.message.Message):
 
 global___MongodbSpec5_0 = MongodbSpec5_0
 
+@typing_extensions.final
 class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2292,6 +2384,7 @@ class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2312,6 +2405,7 @@ class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2332,6 +2426,7 @@ class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2385,9 +2480,11 @@ class MongodbSpec5_0_enterprise(google.protobuf.message.Message):
 
 global___MongodbSpec5_0_enterprise = MongodbSpec5_0_enterprise
 
+@typing_extensions.final
 class MongodbSpec6_0(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2408,6 +2505,7 @@ class MongodbSpec6_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2428,6 +2526,7 @@ class MongodbSpec6_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2448,6 +2547,7 @@ class MongodbSpec6_0(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2501,9 +2601,11 @@ class MongodbSpec6_0(google.protobuf.message.Message):
 
 global___MongodbSpec6_0 = MongodbSpec6_0
 
+@typing_extensions.final
 class MongodbSpec6_0_enterprise(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class Mongod(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2524,6 +2626,7 @@ class MongodbSpec6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoCfg(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2544,6 +2647,7 @@ class MongodbSpec6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class Mongos(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2564,6 +2668,7 @@ class MongodbSpec6_0_enterprise(google.protobuf.message.Message):
         def HasField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> builtins.bool: ...
         def ClearField(self, field_name: typing_extensions.Literal["config", b"config", "resources", b"resources"]) -> None: ...
 
+    @typing_extensions.final
     class MongoInfra(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -2617,6 +2722,7 @@ class MongodbSpec6_0_enterprise(google.protobuf.message.Message):
 
 global___MongodbSpec6_0_enterprise = MongodbSpec6_0_enterprise
 
+@typing_extensions.final
 class ConfigSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

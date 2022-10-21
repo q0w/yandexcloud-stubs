@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Key(google.protobuf.message.Message):
     """A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/authorization/key)."""
 

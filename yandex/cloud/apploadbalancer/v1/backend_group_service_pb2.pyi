@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetBackendGroupRequest(google.protobuf.message.Message):
 
 global___GetBackendGroupRequest = GetBackendGroupRequest
 
+@typing_extensions.final
 class ListBackendGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -80,6 +82,7 @@ class ListBackendGroupsRequest(google.protobuf.message.Message):
 
 global___ListBackendGroupsRequest = ListBackendGroupsRequest
 
+@typing_extensions.final
 class ListBackendGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,6 +108,7 @@ class ListBackendGroupsResponse(google.protobuf.message.Message):
 
 global___ListBackendGroupsResponse = ListBackendGroupsResponse
 
+@typing_extensions.final
 class DeleteBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -123,6 +127,7 @@ class DeleteBackendGroupRequest(google.protobuf.message.Message):
 
 global___DeleteBackendGroupRequest = DeleteBackendGroupRequest
 
+@typing_extensions.final
 class DeleteBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -138,9 +143,11 @@ class DeleteBackendGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteBackendGroupMetadata = DeleteBackendGroupMetadata
 
+@typing_extensions.final
 class UpdateBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -216,6 +223,7 @@ class UpdateBackendGroupRequest(google.protobuf.message.Message):
 
 global___UpdateBackendGroupRequest = UpdateBackendGroupRequest
 
+@typing_extensions.final
 class UpdateBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -231,9 +239,11 @@ class UpdateBackendGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateBackendGroupMetadata = UpdateBackendGroupMetadata
 
+@typing_extensions.final
 class CreateBackendGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -298,6 +308,7 @@ class CreateBackendGroupRequest(google.protobuf.message.Message):
 
 global___CreateBackendGroupRequest = CreateBackendGroupRequest
 
+@typing_extensions.final
 class CreateBackendGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -313,6 +324,7 @@ class CreateBackendGroupMetadata(google.protobuf.message.Message):
 
 global___CreateBackendGroupMetadata = CreateBackendGroupMetadata
 
+@typing_extensions.final
 class AddBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -348,6 +360,7 @@ class AddBackendRequest(google.protobuf.message.Message):
 
 global___AddBackendRequest = AddBackendRequest
 
+@typing_extensions.final
 class AddBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -367,6 +380,7 @@ class AddBackendMetadata(google.protobuf.message.Message):
 
 global___AddBackendMetadata = AddBackendMetadata
 
+@typing_extensions.final
 class UpdateBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -404,6 +418,7 @@ class UpdateBackendRequest(google.protobuf.message.Message):
 
 global___UpdateBackendRequest = UpdateBackendRequest
 
+@typing_extensions.final
 class UpdateBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -423,6 +438,7 @@ class UpdateBackendMetadata(google.protobuf.message.Message):
 
 global___UpdateBackendMetadata = UpdateBackendMetadata
 
+@typing_extensions.final
 class RemoveBackendRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -448,6 +464,7 @@ class RemoveBackendRequest(google.protobuf.message.Message):
 
 global___RemoveBackendRequest = RemoveBackendRequest
 
+@typing_extensions.final
 class RemoveBackendMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -467,6 +484,7 @@ class RemoveBackendMetadata(google.protobuf.message.Message):
 
 global___RemoveBackendMetadata = RemoveBackendMetadata
 
+@typing_extensions.final
 class ListBackendGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -499,6 +517,7 @@ class ListBackendGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListBackendGroupOperationsRequest = ListBackendGroupOperationsRequest
 
+@typing_extensions.final
 class ListBackendGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetDiskPlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetDiskPlacementGroupRequest(google.protobuf.message.Message):
 
 global___GetDiskPlacementGroupRequest = GetDiskPlacementGroupRequest
 
+@typing_extensions.final
 class ListDiskPlacementGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,6 +77,7 @@ class ListDiskPlacementGroupsRequest(google.protobuf.message.Message):
 
 global___ListDiskPlacementGroupsRequest = ListDiskPlacementGroupsRequest
 
+@typing_extensions.final
 class ListDiskPlacementGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,9 +104,11 @@ class ListDiskPlacementGroupsResponse(google.protobuf.message.Message):
 
 global___ListDiskPlacementGroupsResponse = ListDiskPlacementGroupsResponse
 
+@typing_extensions.final
 class CreateDiskPlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -159,6 +164,7 @@ class CreateDiskPlacementGroupRequest(google.protobuf.message.Message):
 
 global___CreateDiskPlacementGroupRequest = CreateDiskPlacementGroupRequest
 
+@typing_extensions.final
 class CreateDiskPlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -174,9 +180,11 @@ class CreateDiskPlacementGroupMetadata(google.protobuf.message.Message):
 
 global___CreateDiskPlacementGroupMetadata = CreateDiskPlacementGroupMetadata
 
+@typing_extensions.final
 class UpdateDiskPlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -228,6 +236,7 @@ class UpdateDiskPlacementGroupRequest(google.protobuf.message.Message):
 
 global___UpdateDiskPlacementGroupRequest = UpdateDiskPlacementGroupRequest
 
+@typing_extensions.final
 class UpdateDiskPlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -243,6 +252,7 @@ class UpdateDiskPlacementGroupMetadata(google.protobuf.message.Message):
 
 global___UpdateDiskPlacementGroupMetadata = UpdateDiskPlacementGroupMetadata
 
+@typing_extensions.final
 class DeleteDiskPlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -260,6 +270,7 @@ class DeleteDiskPlacementGroupRequest(google.protobuf.message.Message):
 
 global___DeleteDiskPlacementGroupRequest = DeleteDiskPlacementGroupRequest
 
+@typing_extensions.final
 class DeleteDiskPlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -275,6 +286,7 @@ class DeleteDiskPlacementGroupMetadata(google.protobuf.message.Message):
 
 global___DeleteDiskPlacementGroupMetadata = DeleteDiskPlacementGroupMetadata
 
+@typing_extensions.final
 class ListDiskPlacementGroupDisksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -307,6 +319,7 @@ class ListDiskPlacementGroupDisksRequest(google.protobuf.message.Message):
 
 global___ListDiskPlacementGroupDisksRequest = ListDiskPlacementGroupDisksRequest
 
+@typing_extensions.final
 class ListDiskPlacementGroupDisksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -333,6 +346,7 @@ class ListDiskPlacementGroupDisksResponse(google.protobuf.message.Message):
 
 global___ListDiskPlacementGroupDisksResponse = ListDiskPlacementGroupDisksResponse
 
+@typing_extensions.final
 class ListDiskPlacementGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -363,6 +377,7 @@ class ListDiskPlacementGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListDiskPlacementGroupOperationsRequest = ListDiskPlacementGroupOperationsRequest
 
+@typing_extensions.final
 class ListDiskPlacementGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

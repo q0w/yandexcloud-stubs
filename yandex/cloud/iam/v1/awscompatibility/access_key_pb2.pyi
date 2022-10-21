@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class AccessKey(google.protobuf.message.Message):
     """An access key.
     For more information, see [AWS-compatible access keys](/docs/iam/concepts/authorization/access-key).

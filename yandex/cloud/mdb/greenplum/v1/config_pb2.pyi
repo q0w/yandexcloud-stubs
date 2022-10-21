@@ -21,7 +21,7 @@ class _LogStatement:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LogStatement.ValueType], builtins.type):  # noqa: F821
+class _LogStatementEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_LogStatement.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     LOG_STATEMENT_UNSPECIFIED: _LogStatement.ValueType  # 0
     NONE: _LogStatement.ValueType  # 1
@@ -46,6 +46,7 @@ ALL: LogStatement.ValueType  # 4
 """Logs all statements."""
 global___LogStatement = LogStatement
 
+@typing_extensions.final
 class Resources(google.protobuf.message.Message):
     """A list of computational resources allocated to a host."""
 
@@ -74,6 +75,7 @@ class Resources(google.protobuf.message.Message):
 
 global___Resources = Resources
 
+@typing_extensions.final
 class ConnectionPoolerConfig(google.protobuf.message.Message):
     """Route server configuration."""
 
@@ -131,6 +133,7 @@ class ConnectionPoolerConfig(google.protobuf.message.Message):
 
 global___ConnectionPoolerConfig = ConnectionPoolerConfig
 
+@typing_extensions.final
 class MasterSubclusterConfig(google.protobuf.message.Message):
     """Configuration of the master subcluster."""
 
@@ -150,6 +153,7 @@ class MasterSubclusterConfig(google.protobuf.message.Message):
 
 global___MasterSubclusterConfig = MasterSubclusterConfig
 
+@typing_extensions.final
 class SegmentSubclusterConfig(google.protobuf.message.Message):
     """Configuration of the segment subcluster."""
 
@@ -169,6 +173,7 @@ class SegmentSubclusterConfig(google.protobuf.message.Message):
 
 global___SegmentSubclusterConfig = SegmentSubclusterConfig
 
+@typing_extensions.final
 class GreenplumConfig6_17(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -248,6 +253,7 @@ class GreenplumConfig6_17(google.protobuf.message.Message):
 
 global___GreenplumConfig6_17 = GreenplumConfig6_17
 
+@typing_extensions.final
 class GreenplumConfig6_19(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -353,6 +359,7 @@ class GreenplumConfig6_19(google.protobuf.message.Message):
 
 global___GreenplumConfig6_19 = GreenplumConfig6_19
 
+@typing_extensions.final
 class GreenplumConfigSet6_17(google.protobuf.message.Message):
     """Configuration settings version 6.17"""
 
@@ -382,6 +389,7 @@ class GreenplumConfigSet6_17(google.protobuf.message.Message):
 
 global___GreenplumConfigSet6_17 = GreenplumConfigSet6_17
 
+@typing_extensions.final
 class GreenplumConfigSet6_19(google.protobuf.message.Message):
     """Configuration settings version 6.19"""
 
@@ -411,6 +419,7 @@ class GreenplumConfigSet6_19(google.protobuf.message.Message):
 
 global___GreenplumConfigSet6_19 = GreenplumConfigSet6_19
 
+@typing_extensions.final
 class ConnectionPoolerConfigSet(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -24,7 +24,7 @@ class _ClickhouseCleanupPolicy:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _ClickhouseCleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClickhouseCleanupPolicy.ValueType], builtins.type):  # noqa: F821
+class _ClickhouseCleanupPolicyEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ClickhouseCleanupPolicy.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED: _ClickhouseCleanupPolicy.ValueType  # 0
     CLICKHOUSE_CLEANUP_POLICY_DISABLED: _ClickhouseCleanupPolicy.ValueType  # 1
@@ -37,6 +37,7 @@ CLICKHOUSE_CLEANUP_POLICY_DISABLED: ClickhouseCleanupPolicy.ValueType  # 1
 CLICKHOUSE_CLEANUP_POLICY_DROP: ClickhouseCleanupPolicy.ValueType  # 2
 global___ClickhouseCleanupPolicy = ClickhouseCleanupPolicy
 
+@typing_extensions.final
 class ClickhouseShard(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -55,6 +56,7 @@ class ClickhouseShard(google.protobuf.message.Message):
 
 global___ClickhouseShard = ClickhouseShard
 
+@typing_extensions.final
 class OnPremiseClickhouse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class OnPremiseClickhouse(google.protobuf.message.Message):
 
 global___OnPremiseClickhouse = OnPremiseClickhouse
 
+@typing_extensions.final
 class ClickhouseConnectionOptions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -111,6 +114,7 @@ class ClickhouseConnectionOptions(google.protobuf.message.Message):
 
 global___ClickhouseConnectionOptions = ClickhouseConnectionOptions
 
+@typing_extensions.final
 class ClickhouseConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,9 +132,11 @@ class ClickhouseConnection(google.protobuf.message.Message):
 
 global___ClickhouseConnection = ClickhouseConnection
 
+@typing_extensions.final
 class ClickhouseSharding(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class ColumnValueHash(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -143,9 +149,11 @@ class ClickhouseSharding(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["column_name", b"column_name"]) -> None: ...
 
+    @typing_extensions.final
     class ColumnValueMapping(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+        @typing_extensions.final
         class ValueToShard(google.protobuf.message.Message):
             DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -198,6 +206,7 @@ class ClickhouseSharding(google.protobuf.message.Message):
 
 global___ClickhouseSharding = ClickhouseSharding
 
+@typing_extensions.final
 class ClickhouseSource(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -229,6 +238,7 @@ class ClickhouseSource(google.protobuf.message.Message):
 
 global___ClickhouseSource = ClickhouseSource
 
+@typing_extensions.final
 class ClickhouseTarget(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Host(google.protobuf.message.Message):
     """A Greenplum® cluster host resource."""
 

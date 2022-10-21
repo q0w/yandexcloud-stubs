@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ConnectorSpec(google.protobuf.message.Message):
     """An object that represents an Apache Kafka® connector.
 
@@ -27,6 +28,7 @@ class ConnectorSpec(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -78,9 +80,11 @@ class ConnectorSpec(google.protobuf.message.Message):
 
 global___ConnectorSpec = ConnectorSpec
 
+@typing_extensions.final
 class UpdateConnectorSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,6 +132,7 @@ class UpdateConnectorSpec(google.protobuf.message.Message):
 
 global___UpdateConnectorSpec = UpdateConnectorSpec
 
+@typing_extensions.final
 class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -159,6 +164,7 @@ class ConnectorConfigMirrorMakerSpec(google.protobuf.message.Message):
 
 global___ConnectorConfigMirrorMakerSpec = ConnectorConfigMirrorMakerSpec
 
+@typing_extensions.final
 class ClusterConnectionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -188,6 +194,7 @@ class ClusterConnectionSpec(google.protobuf.message.Message):
 
 global___ClusterConnectionSpec = ClusterConnectionSpec
 
+@typing_extensions.final
 class ThisClusterSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -197,6 +204,7 @@ class ThisClusterSpec(google.protobuf.message.Message):
 
 global___ThisClusterSpec = ThisClusterSpec
 
+@typing_extensions.final
 class ExternalClusterConnectionSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +242,7 @@ class ExternalClusterConnectionSpec(google.protobuf.message.Message):
 
 global___ExternalClusterConnectionSpec = ExternalClusterConnectionSpec
 
+@typing_extensions.final
 class ConnectorConfigS3SinkSpec(google.protobuf.message.Message):
     """Specification for Kafka S3-Sink Connector."""
 
@@ -269,6 +278,7 @@ class ConnectorConfigS3SinkSpec(google.protobuf.message.Message):
 
 global___ConnectorConfigS3SinkSpec = ConnectorConfigS3SinkSpec
 
+@typing_extensions.final
 class UpdateConnectorConfigS3SinkSpec(google.protobuf.message.Message):
     """Specification for update Kafka S3-Sink Connector."""
 
@@ -297,6 +307,7 @@ class UpdateConnectorConfigS3SinkSpec(google.protobuf.message.Message):
 
 global___UpdateConnectorConfigS3SinkSpec = UpdateConnectorConfigS3SinkSpec
 
+@typing_extensions.final
 class S3ConnectionSpec(google.protobuf.message.Message):
     """Specification for S3Connection -
     settings of connection to AWS-compatible S3 storage, that
@@ -323,6 +334,7 @@ class S3ConnectionSpec(google.protobuf.message.Message):
 
 global___S3ConnectionSpec = S3ConnectionSpec
 
+@typing_extensions.final
 class ExternalS3StorageSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -347,6 +359,7 @@ class ExternalS3StorageSpec(google.protobuf.message.Message):
 
 global___ExternalS3StorageSpec = ExternalS3StorageSpec
 
+@typing_extensions.final
 class Connector(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -396,6 +409,7 @@ class Connector(google.protobuf.message.Message):
     PAUSED: Connector.Status.ValueType  # 3
     """Connector is paused."""
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -459,6 +473,7 @@ class Connector(google.protobuf.message.Message):
 
 global___Connector = Connector
 
+@typing_extensions.final
 class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -490,6 +505,7 @@ class ConnectorConfigMirrorMaker(google.protobuf.message.Message):
 
 global___ConnectorConfigMirrorMaker = ConnectorConfigMirrorMaker
 
+@typing_extensions.final
 class ClusterConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -519,6 +535,7 @@ class ClusterConnection(google.protobuf.message.Message):
 
 global___ClusterConnection = ClusterConnection
 
+@typing_extensions.final
 class ThisCluster(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -528,6 +545,7 @@ class ThisCluster(google.protobuf.message.Message):
 
 global___ThisCluster = ThisCluster
 
+@typing_extensions.final
 class ExternalClusterConnection(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -555,6 +573,7 @@ class ExternalClusterConnection(google.protobuf.message.Message):
 
 global___ExternalClusterConnection = ExternalClusterConnection
 
+@typing_extensions.final
 class ConnectorConfigS3Sink(google.protobuf.message.Message):
     """An Apache Kafka® S3-Sink
     connector resource.
@@ -592,6 +611,7 @@ class ConnectorConfigS3Sink(google.protobuf.message.Message):
 
 global___ConnectorConfigS3Sink = ConnectorConfigS3Sink
 
+@typing_extensions.final
 class S3Connection(google.protobuf.message.Message):
     """Resource for S3Connection -
     settings of connection to AWS-compatible S3 storage, that
@@ -618,6 +638,7 @@ class S3Connection(google.protobuf.message.Message):
 
 global___S3Connection = S3Connection
 
+@typing_extensions.final
 class ExternalS3Storage(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

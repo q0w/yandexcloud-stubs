@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class PurgeCacheRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -42,6 +43,7 @@ class PurgeCacheRequest(google.protobuf.message.Message):
 
 global___PurgeCacheRequest = PurgeCacheRequest
 
+@typing_extensions.final
 class PurgeCacheMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class PurgeCacheMetadata(google.protobuf.message.Message):
 
 global___PurgeCacheMetadata = PurgeCacheMetadata
 
+@typing_extensions.final
 class PrefetchCacheRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +80,7 @@ class PrefetchCacheRequest(google.protobuf.message.Message):
 
 global___PrefetchCacheRequest = PrefetchCacheRequest
 
+@typing_extensions.final
 class PrefetchCacheMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ScanRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class ScanRequest(google.protobuf.message.Message):
 
 global___ScanRequest = ScanRequest
 
+@typing_extensions.final
 class ScanMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -47,6 +49,7 @@ class ScanMetadata(google.protobuf.message.Message):
 
 global___ScanMetadata = ScanMetadata
 
+@typing_extensions.final
 class GetScanResultRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -62,6 +65,7 @@ class GetScanResultRequest(google.protobuf.message.Message):
 
 global___GetScanResultRequest = GetScanResultRequest
 
+@typing_extensions.final
 class GetLastScanResultRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +81,7 @@ class GetLastScanResultRequest(google.protobuf.message.Message):
 
 global___GetLastScanResultRequest = GetLastScanResultRequest
 
+@typing_extensions.final
 class ListScanResultsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -128,6 +133,7 @@ class ListScanResultsRequest(google.protobuf.message.Message):
 
 global___ListScanResultsRequest = ListScanResultsRequest
 
+@typing_extensions.final
 class ListScanResultsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -154,6 +160,7 @@ class ListScanResultsResponse(google.protobuf.message.Message):
 
 global___ListScanResultsResponse = ListScanResultsResponse
 
+@typing_extensions.final
 class ListVulnerabilitiesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,6 +208,7 @@ class ListVulnerabilitiesRequest(google.protobuf.message.Message):
 
 global___ListVulnerabilitiesRequest = ListVulnerabilitiesRequest
 
+@typing_extensions.final
 class ListVulnerabilitiesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

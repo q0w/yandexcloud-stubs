@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSubclusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -41,6 +42,7 @@ class GetSubclusterRequest(google.protobuf.message.Message):
 
 global___GetSubclusterRequest = GetSubclusterRequest
 
+@typing_extensions.final
 class ListSubclustersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -81,6 +83,7 @@ class ListSubclustersRequest(google.protobuf.message.Message):
 
 global___ListSubclustersRequest = ListSubclustersRequest
 
+@typing_extensions.final
 class ListSubclustersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +109,7 @@ class ListSubclustersResponse(google.protobuf.message.Message):
 
 global___ListSubclustersResponse = ListSubclustersResponse
 
+@typing_extensions.final
 class CreateSubclusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +157,7 @@ class CreateSubclusterRequest(google.protobuf.message.Message):
 
 global___CreateSubclusterRequest = CreateSubclusterRequest
 
+@typing_extensions.final
 class CreateSubclusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,6 +177,7 @@ class CreateSubclusterMetadata(google.protobuf.message.Message):
 
 global___CreateSubclusterMetadata = CreateSubclusterMetadata
 
+@typing_extensions.final
 class UpdateSubclusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -225,6 +231,7 @@ class UpdateSubclusterRequest(google.protobuf.message.Message):
 
 global___UpdateSubclusterRequest = UpdateSubclusterRequest
 
+@typing_extensions.final
 class UpdateSubclusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -244,6 +251,7 @@ class UpdateSubclusterMetadata(google.protobuf.message.Message):
 
 global___UpdateSubclusterMetadata = UpdateSubclusterMetadata
 
+@typing_extensions.final
 class DeleteSubclusterRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -270,6 +278,7 @@ class DeleteSubclusterRequest(google.protobuf.message.Message):
 
 global___DeleteSubclusterRequest = DeleteSubclusterRequest
 
+@typing_extensions.final
 class DeleteSubclusterMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

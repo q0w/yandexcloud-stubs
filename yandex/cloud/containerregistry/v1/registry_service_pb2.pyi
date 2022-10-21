@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetRegistryRequest(google.protobuf.message.Message):
 
 global___GetRegistryRequest = GetRegistryRequest
 
+@typing_extensions.final
 class ListRegistriesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListRegistriesRequest(google.protobuf.message.Message):
 
 global___ListRegistriesRequest = ListRegistriesRequest
 
+@typing_extensions.final
 class ListRegistriesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,9 +108,11 @@ class ListRegistriesResponse(google.protobuf.message.Message):
 
 global___ListRegistriesResponse = ListRegistriesResponse
 
+@typing_extensions.final
 class CreateRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -150,6 +155,7 @@ class CreateRegistryRequest(google.protobuf.message.Message):
 
 global___CreateRegistryRequest = CreateRegistryRequest
 
+@typing_extensions.final
 class CreateRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -165,9 +171,11 @@ class CreateRegistryMetadata(google.protobuf.message.Message):
 
 global___CreateRegistryMetadata = CreateRegistryMetadata
 
+@typing_extensions.final
 class UpdateRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -219,6 +227,7 @@ class UpdateRegistryRequest(google.protobuf.message.Message):
 
 global___UpdateRegistryRequest = UpdateRegistryRequest
 
+@typing_extensions.final
 class UpdateRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -234,6 +243,7 @@ class UpdateRegistryMetadata(google.protobuf.message.Message):
 
 global___UpdateRegistryMetadata = UpdateRegistryMetadata
 
+@typing_extensions.final
 class DeleteRegistryRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -249,6 +259,7 @@ class DeleteRegistryRequest(google.protobuf.message.Message):
 
 global___DeleteRegistryRequest = DeleteRegistryRequest
 
+@typing_extensions.final
 class DeleteRegistryMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -264,6 +275,7 @@ class DeleteRegistryMetadata(google.protobuf.message.Message):
 
 global___DeleteRegistryMetadata = DeleteRegistryMetadata
 
+@typing_extensions.final
 class SetIpPermissionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -284,6 +296,7 @@ class SetIpPermissionRequest(google.protobuf.message.Message):
 
 global___SetIpPermissionRequest = SetIpPermissionRequest
 
+@typing_extensions.final
 class UpdateIpPermissionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -304,6 +317,7 @@ class UpdateIpPermissionRequest(google.protobuf.message.Message):
 
 global___UpdateIpPermissionRequest = UpdateIpPermissionRequest
 
+@typing_extensions.final
 class ListIpPermissionRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -319,6 +333,7 @@ class ListIpPermissionRequest(google.protobuf.message.Message):
 
 global___ListIpPermissionRequest = ListIpPermissionRequest
 
+@typing_extensions.final
 class ListIpPermissionsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -335,6 +350,7 @@ class ListIpPermissionsResponse(google.protobuf.message.Message):
 
 global___ListIpPermissionsResponse = ListIpPermissionsResponse
 
+@typing_extensions.final
 class SetIpPermissionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -350,6 +366,7 @@ class SetIpPermissionMetadata(google.protobuf.message.Message):
 
 global___SetIpPermissionMetadata = SetIpPermissionMetadata
 
+@typing_extensions.final
 class UpdateIpPermissionMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSnapshotRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetSnapshotRequest(google.protobuf.message.Message):
 
 global___GetSnapshotRequest = GetSnapshotRequest
 
+@typing_extensions.final
 class ListSnapshotsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -76,6 +78,7 @@ class ListSnapshotsRequest(google.protobuf.message.Message):
 
 global___ListSnapshotsRequest = ListSnapshotsRequest
 
+@typing_extensions.final
 class ListSnapshotsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,9 +105,11 @@ class ListSnapshotsResponse(google.protobuf.message.Message):
 
 global___ListSnapshotsResponse = ListSnapshotsResponse
 
+@typing_extensions.final
 class CreateSnapshotRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +158,7 @@ class CreateSnapshotRequest(google.protobuf.message.Message):
 
 global___CreateSnapshotRequest = CreateSnapshotRequest
 
+@typing_extensions.final
 class CreateSnapshotMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -172,9 +178,11 @@ class CreateSnapshotMetadata(google.protobuf.message.Message):
 
 global___CreateSnapshotMetadata = CreateSnapshotMetadata
 
+@typing_extensions.final
 class UpdateSnapshotRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -226,6 +234,7 @@ class UpdateSnapshotRequest(google.protobuf.message.Message):
 
 global___UpdateSnapshotRequest = UpdateSnapshotRequest
 
+@typing_extensions.final
 class UpdateSnapshotMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -241,6 +250,7 @@ class UpdateSnapshotMetadata(google.protobuf.message.Message):
 
 global___UpdateSnapshotMetadata = UpdateSnapshotMetadata
 
+@typing_extensions.final
 class DeleteSnapshotRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -258,6 +268,7 @@ class DeleteSnapshotRequest(google.protobuf.message.Message):
 
 global___DeleteSnapshotRequest = DeleteSnapshotRequest
 
+@typing_extensions.final
 class DeleteSnapshotMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -273,6 +284,7 @@ class DeleteSnapshotMetadata(google.protobuf.message.Message):
 
 global___DeleteSnapshotMetadata = DeleteSnapshotMetadata
 
+@typing_extensions.final
 class ListSnapshotOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -301,6 +313,7 @@ class ListSnapshotOperationsRequest(google.protobuf.message.Message):
 
 global___ListSnapshotOperationsRequest = ListSnapshotOperationsRequest
 
+@typing_extensions.final
 class ListSnapshotOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

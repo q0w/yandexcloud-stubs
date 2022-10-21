@@ -18,6 +18,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """A MySQL user. For more information, see the [documentation](/docs/managed-mysql/concepts)."""
 
@@ -44,6 +45,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +155,7 @@ class Permission(google.protobuf.message.Message):
 
 global___Permission = Permission
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

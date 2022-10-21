@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetBrokerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetBrokerRequest(google.protobuf.message.Message):
 
 global___GetBrokerRequest = GetBrokerRequest
 
+@typing_extensions.final
 class ListBrokersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -69,6 +71,7 @@ class ListBrokersRequest(google.protobuf.message.Message):
 
 global___ListBrokersRequest = ListBrokersRequest
 
+@typing_extensions.final
 class ListBrokersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -94,9 +97,11 @@ class ListBrokersResponse(google.protobuf.message.Message):
 
 global___ListBrokersResponse = ListBrokersResponse
 
+@typing_extensions.final
 class CreateBrokerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -112,6 +117,7 @@ class CreateBrokerRequest(google.protobuf.message.Message):
         ) -> None: ...
         def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
 
+    @typing_extensions.final
     class Certificate(google.protobuf.message.Message):
         """Specification of a broker certificate."""
 
@@ -167,6 +173,7 @@ class CreateBrokerRequest(google.protobuf.message.Message):
 
 global___CreateBrokerRequest = CreateBrokerRequest
 
+@typing_extensions.final
 class CreateBrokerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -182,9 +189,11 @@ class CreateBrokerMetadata(google.protobuf.message.Message):
 
 global___CreateBrokerMetadata = CreateBrokerMetadata
 
+@typing_extensions.final
 class UpdateBrokerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -237,6 +246,7 @@ class UpdateBrokerRequest(google.protobuf.message.Message):
 
 global___UpdateBrokerRequest = UpdateBrokerRequest
 
+@typing_extensions.final
 class UpdateBrokerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -252,6 +262,7 @@ class UpdateBrokerMetadata(google.protobuf.message.Message):
 
 global___UpdateBrokerMetadata = UpdateBrokerMetadata
 
+@typing_extensions.final
 class DeleteBrokerRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -270,6 +281,7 @@ class DeleteBrokerRequest(google.protobuf.message.Message):
 
 global___DeleteBrokerRequest = DeleteBrokerRequest
 
+@typing_extensions.final
 class DeleteBrokerMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -285,6 +297,7 @@ class DeleteBrokerMetadata(google.protobuf.message.Message):
 
 global___DeleteBrokerMetadata = DeleteBrokerMetadata
 
+@typing_extensions.final
 class ListBrokerCertificatesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -300,6 +313,7 @@ class ListBrokerCertificatesRequest(google.protobuf.message.Message):
 
 global___ListBrokerCertificatesRequest = ListBrokerCertificatesRequest
 
+@typing_extensions.final
 class ListBrokerCertificatesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -316,6 +330,7 @@ class ListBrokerCertificatesResponse(google.protobuf.message.Message):
 
 global___ListBrokerCertificatesResponse = ListBrokerCertificatesResponse
 
+@typing_extensions.final
 class AddBrokerCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -338,6 +353,7 @@ class AddBrokerCertificateRequest(google.protobuf.message.Message):
 
 global___AddBrokerCertificateRequest = AddBrokerCertificateRequest
 
+@typing_extensions.final
 class AddBrokerCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -357,6 +373,7 @@ class AddBrokerCertificateMetadata(google.protobuf.message.Message):
 
 global___AddBrokerCertificateMetadata = AddBrokerCertificateMetadata
 
+@typing_extensions.final
 class DeleteBrokerCertificateRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -379,6 +396,7 @@ class DeleteBrokerCertificateRequest(google.protobuf.message.Message):
 
 global___DeleteBrokerCertificateRequest = DeleteBrokerCertificateRequest
 
+@typing_extensions.final
 class DeleteBrokerCertificateMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,6 +416,7 @@ class DeleteBrokerCertificateMetadata(google.protobuf.message.Message):
 
 global___DeleteBrokerCertificateMetadata = DeleteBrokerCertificateMetadata
 
+@typing_extensions.final
 class ListBrokerPasswordsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -416,6 +435,7 @@ class ListBrokerPasswordsRequest(google.protobuf.message.Message):
 
 global___ListBrokerPasswordsRequest = ListBrokerPasswordsRequest
 
+@typing_extensions.final
 class ListBrokerPasswordsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -432,6 +452,7 @@ class ListBrokerPasswordsResponse(google.protobuf.message.Message):
 
 global___ListBrokerPasswordsResponse = ListBrokerPasswordsResponse
 
+@typing_extensions.final
 class AddBrokerPasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -457,6 +478,7 @@ class AddBrokerPasswordRequest(google.protobuf.message.Message):
 
 global___AddBrokerPasswordRequest = AddBrokerPasswordRequest
 
+@typing_extensions.final
 class AddBrokerPasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -476,6 +498,7 @@ class AddBrokerPasswordMetadata(google.protobuf.message.Message):
 
 global___AddBrokerPasswordMetadata = AddBrokerPasswordMetadata
 
+@typing_extensions.final
 class DeleteBrokerPasswordRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -501,6 +524,7 @@ class DeleteBrokerPasswordRequest(google.protobuf.message.Message):
 
 global___DeleteBrokerPasswordRequest = DeleteBrokerPasswordRequest
 
+@typing_extensions.final
 class DeleteBrokerPasswordMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -523,6 +547,7 @@ class DeleteBrokerPasswordMetadata(google.protobuf.message.Message):
 
 global___DeleteBrokerPasswordMetadata = DeleteBrokerPasswordMetadata
 
+@typing_extensions.final
 class ListBrokerOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -558,6 +583,7 @@ class ListBrokerOperationsRequest(google.protobuf.message.Message):
 
 global___ListBrokerOperationsRequest = ListBrokerOperationsRequest
 
+@typing_extensions.final
 class ListBrokerOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

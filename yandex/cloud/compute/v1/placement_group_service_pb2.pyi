@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetPlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class GetPlacementGroupRequest(google.protobuf.message.Message):
 
 global___GetPlacementGroupRequest = GetPlacementGroupRequest
 
+@typing_extensions.final
 class ListPlacementGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -77,6 +79,7 @@ class ListPlacementGroupsRequest(google.protobuf.message.Message):
 
 global___ListPlacementGroupsRequest = ListPlacementGroupsRequest
 
+@typing_extensions.final
 class ListPlacementGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,9 +105,11 @@ class ListPlacementGroupsResponse(google.protobuf.message.Message):
 
 global___ListPlacementGroupsResponse = ListPlacementGroupsResponse
 
+@typing_extensions.final
 class CreatePlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -155,6 +160,7 @@ class CreatePlacementGroupRequest(google.protobuf.message.Message):
 
 global___CreatePlacementGroupRequest = CreatePlacementGroupRequest
 
+@typing_extensions.final
 class CreatePlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,9 +176,11 @@ class CreatePlacementGroupMetadata(google.protobuf.message.Message):
 
 global___CreatePlacementGroupMetadata = CreatePlacementGroupMetadata
 
+@typing_extensions.final
 class UpdatePlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -225,6 +233,7 @@ class UpdatePlacementGroupRequest(google.protobuf.message.Message):
 
 global___UpdatePlacementGroupRequest = UpdatePlacementGroupRequest
 
+@typing_extensions.final
 class UpdatePlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -240,6 +249,7 @@ class UpdatePlacementGroupMetadata(google.protobuf.message.Message):
 
 global___UpdatePlacementGroupMetadata = UpdatePlacementGroupMetadata
 
+@typing_extensions.final
 class DeletePlacementGroupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -258,6 +268,7 @@ class DeletePlacementGroupRequest(google.protobuf.message.Message):
 
 global___DeletePlacementGroupRequest = DeletePlacementGroupRequest
 
+@typing_extensions.final
 class DeletePlacementGroupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -273,6 +284,7 @@ class DeletePlacementGroupMetadata(google.protobuf.message.Message):
 
 global___DeletePlacementGroupMetadata = DeletePlacementGroupMetadata
 
+@typing_extensions.final
 class ListPlacementGroupInstancesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -306,6 +318,7 @@ class ListPlacementGroupInstancesRequest(google.protobuf.message.Message):
 
 global___ListPlacementGroupInstancesRequest = ListPlacementGroupInstancesRequest
 
+@typing_extensions.final
 class ListPlacementGroupInstancesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -332,6 +345,7 @@ class ListPlacementGroupInstancesResponse(google.protobuf.message.Message):
 
 global___ListPlacementGroupInstancesResponse = ListPlacementGroupInstancesResponse
 
+@typing_extensions.final
 class ListPlacementGroupOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -363,6 +377,7 @@ class ListPlacementGroupOperationsRequest(google.protobuf.message.Message):
 
 global___ListPlacementGroupOperationsRequest = ListPlacementGroupOperationsRequest
 
+@typing_extensions.final
 class ListPlacementGroupOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

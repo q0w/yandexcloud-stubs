@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetNetworkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -39,6 +40,7 @@ class GetNetworkRequest(google.protobuf.message.Message):
 
 global___GetNetworkRequest = GetNetworkRequest
 
+@typing_extensions.final
 class ListNetworksRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListNetworksRequest(google.protobuf.message.Message):
 
 global___ListNetworksRequest = ListNetworksRequest
 
+@typing_extensions.final
 class ListNetworksResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,9 +108,11 @@ class ListNetworksResponse(google.protobuf.message.Message):
 
 global___ListNetworksResponse = ListNetworksResponse
 
+@typing_extensions.final
 class CreateNetworkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +157,7 @@ class CreateNetworkRequest(google.protobuf.message.Message):
 
 global___CreateNetworkRequest = CreateNetworkRequest
 
+@typing_extensions.final
 class CreateNetworkMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -167,9 +173,11 @@ class CreateNetworkMetadata(google.protobuf.message.Message):
 
 global___CreateNetworkMetadata = CreateNetworkMetadata
 
+@typing_extensions.final
 class UpdateNetworkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -220,6 +228,7 @@ class UpdateNetworkRequest(google.protobuf.message.Message):
 
 global___UpdateNetworkRequest = UpdateNetworkRequest
 
+@typing_extensions.final
 class UpdateNetworkMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -235,6 +244,7 @@ class UpdateNetworkMetadata(google.protobuf.message.Message):
 
 global___UpdateNetworkMetadata = UpdateNetworkMetadata
 
+@typing_extensions.final
 class DeleteNetworkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -252,6 +262,7 @@ class DeleteNetworkRequest(google.protobuf.message.Message):
 
 global___DeleteNetworkRequest = DeleteNetworkRequest
 
+@typing_extensions.final
 class DeleteNetworkMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -267,6 +278,7 @@ class DeleteNetworkMetadata(google.protobuf.message.Message):
 
 global___DeleteNetworkMetadata = DeleteNetworkMetadata
 
+@typing_extensions.final
 class ListNetworkSubnetsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -297,6 +309,7 @@ class ListNetworkSubnetsRequest(google.protobuf.message.Message):
 
 global___ListNetworkSubnetsRequest = ListNetworkSubnetsRequest
 
+@typing_extensions.final
 class ListNetworkSubnetsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -323,6 +336,7 @@ class ListNetworkSubnetsResponse(google.protobuf.message.Message):
 
 global___ListNetworkSubnetsResponse = ListNetworkSubnetsResponse
 
+@typing_extensions.final
 class ListNetworkSecurityGroupsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -353,6 +367,7 @@ class ListNetworkSecurityGroupsRequest(google.protobuf.message.Message):
 
 global___ListNetworkSecurityGroupsRequest = ListNetworkSecurityGroupsRequest
 
+@typing_extensions.final
 class ListNetworkSecurityGroupsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -379,6 +394,7 @@ class ListNetworkSecurityGroupsResponse(google.protobuf.message.Message):
 
 global___ListNetworkSecurityGroupsResponse = ListNetworkSecurityGroupsResponse
 
+@typing_extensions.final
 class ListNetworkRouteTablesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -409,6 +425,7 @@ class ListNetworkRouteTablesRequest(google.protobuf.message.Message):
 
 global___ListNetworkRouteTablesRequest = ListNetworkRouteTablesRequest
 
+@typing_extensions.final
 class ListNetworkRouteTablesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -435,6 +452,7 @@ class ListNetworkRouteTablesResponse(google.protobuf.message.Message):
 
 global___ListNetworkRouteTablesResponse = ListNetworkRouteTablesResponse
 
+@typing_extensions.final
 class ListNetworkOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -463,6 +481,7 @@ class ListNetworkOperationsRequest(google.protobuf.message.Message):
 
 global___ListNetworkOperationsRequest = ListNetworkOperationsRequest
 
+@typing_extensions.final
 class ListNetworkOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -487,6 +506,7 @@ class ListNetworkOperationsResponse(google.protobuf.message.Message):
 
 global___ListNetworkOperationsResponse = ListNetworkOperationsResponse
 
+@typing_extensions.final
 class MoveNetworkRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -506,6 +526,7 @@ class MoveNetworkRequest(google.protobuf.message.Message):
 
 global___MoveNetworkRequest = MoveNetworkRequest
 
+@typing_extensions.final
 class MoveNetworkMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

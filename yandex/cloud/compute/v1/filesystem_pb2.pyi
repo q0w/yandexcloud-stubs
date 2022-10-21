@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Filesystem(google.protobuf.message.Message):
     """A filesystem resource.
     For details about the concept, see [documentation](/docs/compute/concepts/filesystem).
@@ -53,6 +54,7 @@ class Filesystem(google.protobuf.message.Message):
     DELETING: Filesystem.Status.ValueType  # 4
     """The filesystem is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class User(google.protobuf.message.Message):
     """A ClickHouse User resource. For more information, see 
     the [Developer's guide](/docs/managed-clickhouse/concepts).
@@ -57,6 +58,7 @@ class User(google.protobuf.message.Message):
 
 global___User = User
 
+@typing_extensions.final
 class Permission(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -72,6 +74,7 @@ class Permission(google.protobuf.message.Message):
 
 global___Permission = Permission
 
+@typing_extensions.final
 class UserSpec(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -106,6 +109,7 @@ class UserSpec(google.protobuf.message.Message):
 
 global___UserSpec = UserSpec
 
+@typing_extensions.final
 class UserSettings(google.protobuf.message.Message):
     """ClickHouse user settings. Supported settings are a limited subset of all settings
     described in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/).
@@ -1319,6 +1323,7 @@ class UserSettings(google.protobuf.message.Message):
 
 global___UserSettings = UserSettings
 
+@typing_extensions.final
 class UserQuota(google.protobuf.message.Message):
     """ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
     See in-depth description [ClickHouse documentation](https://clickhouse.com/docs/en/operations/quotas/).

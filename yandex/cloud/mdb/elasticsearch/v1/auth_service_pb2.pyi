@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class ListAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -32,6 +33,7 @@ class ListAuthProvidersRequest(google.protobuf.message.Message):
 
 global___ListAuthProvidersRequest = ListAuthProvidersRequest
 
+@typing_extensions.final
 class ListAuthProvidersResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -48,6 +50,7 @@ class ListAuthProvidersResponse(google.protobuf.message.Message):
 
 global___ListAuthProvidersResponse = ListAuthProvidersResponse
 
+@typing_extensions.final
 class GetAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -67,6 +70,7 @@ class GetAuthProviderRequest(google.protobuf.message.Message):
 
 global___GetAuthProviderRequest = GetAuthProviderRequest
 
+@typing_extensions.final
 class AddAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -87,6 +91,7 @@ class AddAuthProvidersRequest(google.protobuf.message.Message):
 
 global___AddAuthProvidersRequest = AddAuthProvidersRequest
 
+@typing_extensions.final
 class UpdateAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -107,6 +112,7 @@ class UpdateAuthProvidersRequest(google.protobuf.message.Message):
 
 global___UpdateAuthProvidersRequest = UpdateAuthProvidersRequest
 
+@typing_extensions.final
 class DeleteAuthProvidersRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -127,6 +133,7 @@ class DeleteAuthProvidersRequest(google.protobuf.message.Message):
 
 global___DeleteAuthProvidersRequest = DeleteAuthProvidersRequest
 
+@typing_extensions.final
 class UpdateAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -152,6 +159,7 @@ class UpdateAuthProviderRequest(google.protobuf.message.Message):
 
 global___UpdateAuthProviderRequest = UpdateAuthProviderRequest
 
+@typing_extensions.final
 class DeleteAuthProviderRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -171,6 +179,7 @@ class DeleteAuthProviderRequest(google.protobuf.message.Message):
 
 global___DeleteAuthProviderRequest = DeleteAuthProviderRequest
 
+@typing_extensions.final
 class AddAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -191,6 +200,7 @@ class AddAuthProvidersMetadata(google.protobuf.message.Message):
 
 global___AddAuthProvidersMetadata = AddAuthProvidersMetadata
 
+@typing_extensions.final
 class UpdateAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -211,6 +221,7 @@ class UpdateAuthProvidersMetadata(google.protobuf.message.Message):
 
 global___UpdateAuthProvidersMetadata = UpdateAuthProvidersMetadata
 
+@typing_extensions.final
 class DeleteAuthProvidersMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

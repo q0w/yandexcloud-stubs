@@ -16,6 +16,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Operation(google.protobuf.message.Message):
     """Operation is annotation for rpc that returns longrunning operation, describes
     message types that will be returned in metadata [google.protobuf.Any], and

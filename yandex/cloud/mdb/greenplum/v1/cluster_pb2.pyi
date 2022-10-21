@@ -22,6 +22,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """A Greenplum® cluster resource."""
 
@@ -118,6 +119,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 7
     """Cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -253,6 +255,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class ClusterConfigSet(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -279,6 +282,7 @@ class ClusterConfigSet(google.protobuf.message.Message):
 
 global___ClusterConfigSet = ClusterConfigSet
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Monitoring system metadata."""
 
@@ -304,6 +308,7 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class GreenplumConfig(google.protobuf.message.Message):
     """Greenplum® cluster configuration."""
 
@@ -349,6 +354,7 @@ class GreenplumConfig(google.protobuf.message.Message):
 
 global___GreenplumConfig = GreenplumConfig
 
+@typing_extensions.final
 class Access(google.protobuf.message.Message):
     """Greenplum® cluster access options."""
 
@@ -374,6 +380,7 @@ class Access(google.protobuf.message.Message):
 
 global___Access = Access
 
+@typing_extensions.final
 class GreenplumRestoreConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -422,6 +429,7 @@ class GreenplumRestoreConfig(google.protobuf.message.Message):
 
 global___GreenplumRestoreConfig = GreenplumRestoreConfig
 
+@typing_extensions.final
 class RestoreResources(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

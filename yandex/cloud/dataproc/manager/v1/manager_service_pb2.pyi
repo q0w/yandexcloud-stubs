@@ -23,7 +23,7 @@ class _InitActsState:
     ValueType = typing.NewType("ValueType", builtins.int)
     V: typing_extensions.TypeAlias = ValueType
 
-class _InitActsStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InitActsState.ValueType], builtins.type):  # noqa: F821
+class _InitActsStateEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_InitActsState.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     INIT_ACTS_STATE_UNSPECIFIED: _InitActsState.ValueType  # 0
     """No init acts on cluster"""
@@ -46,6 +46,7 @@ IN_PROGRESS: InitActsState.ValueType  # 3
 """Some init acts not finished"""
 global___InitActsState = InitActsState
 
+@typing_extensions.final
 class HbaseNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -69,6 +70,7 @@ class HbaseNodeInfo(google.protobuf.message.Message):
 
 global___HbaseNodeInfo = HbaseNodeInfo
 
+@typing_extensions.final
 class HbaseInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -100,6 +102,7 @@ class HbaseInfo(google.protobuf.message.Message):
 
 global___HbaseInfo = HbaseInfo
 
+@typing_extensions.final
 class HDFSNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -129,6 +132,7 @@ class HDFSNodeInfo(google.protobuf.message.Message):
 
 global___HDFSNodeInfo = HDFSNodeInfo
 
+@typing_extensions.final
 class HDFSInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -185,6 +189,7 @@ class HDFSInfo(google.protobuf.message.Message):
 
 global___HDFSInfo = HDFSInfo
 
+@typing_extensions.final
 class HiveInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -214,6 +219,7 @@ class HiveInfo(google.protobuf.message.Message):
 
 global___HiveInfo = HiveInfo
 
+@typing_extensions.final
 class YarnNodeInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -243,6 +249,7 @@ class YarnNodeInfo(google.protobuf.message.Message):
 
 global___YarnNodeInfo = YarnNodeInfo
 
+@typing_extensions.final
 class YarnInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -266,6 +273,7 @@ class YarnInfo(google.protobuf.message.Message):
 
 global___YarnInfo = YarnInfo
 
+@typing_extensions.final
 class ZookeeperInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -280,6 +288,7 @@ class ZookeeperInfo(google.protobuf.message.Message):
 
 global___ZookeeperInfo = ZookeeperInfo
 
+@typing_extensions.final
 class OozieInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -294,6 +303,7 @@ class OozieInfo(google.protobuf.message.Message):
 
 global___OozieInfo = OozieInfo
 
+@typing_extensions.final
 class LivyInfo(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -308,6 +318,7 @@ class LivyInfo(google.protobuf.message.Message):
 
 global___LivyInfo = LivyInfo
 
+@typing_extensions.final
 class InitActs(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -327,6 +338,7 @@ class InitActs(google.protobuf.message.Message):
 
 global___InitActs = InitActs
 
+@typing_extensions.final
 class Info(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -378,6 +390,7 @@ class Info(google.protobuf.message.Message):
 
 global___Info = Info
 
+@typing_extensions.final
 class ReportRequest(google.protobuf.message.Message):
     """The request message containing the host status report."""
 
@@ -406,6 +419,7 @@ class ReportRequest(google.protobuf.message.Message):
 
 global___ReportRequest = ReportRequest
 
+@typing_extensions.final
 class ReportReply(google.protobuf.message.Message):
     """The response message containing the agent commands to apply on host."""
 

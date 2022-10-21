@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -36,6 +37,7 @@ class GetImageRequest(google.protobuf.message.Message):
 
 global___GetImageRequest = GetImageRequest
 
+@typing_extensions.final
 class GetImageLatestByFamilyRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -57,6 +59,7 @@ class GetImageLatestByFamilyRequest(google.protobuf.message.Message):
 
 global___GetImageLatestByFamilyRequest = GetImageLatestByFamilyRequest
 
+@typing_extensions.final
 class ListImagesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -97,6 +100,7 @@ class ListImagesRequest(google.protobuf.message.Message):
 
 global___ListImagesRequest = ListImagesRequest
 
+@typing_extensions.final
 class ListImagesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -123,9 +127,11 @@ class ListImagesResponse(google.protobuf.message.Message):
 
 global___ListImagesResponse = ListImagesResponse
 
+@typing_extensions.final
 class CreateImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -228,6 +234,7 @@ class CreateImageRequest(google.protobuf.message.Message):
 
 global___CreateImageRequest = CreateImageRequest
 
+@typing_extensions.final
 class CreateImageMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -243,9 +250,11 @@ class CreateImageMetadata(google.protobuf.message.Message):
 
 global___CreateImageMetadata = CreateImageMetadata
 
+@typing_extensions.final
 class UpdateImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -303,6 +312,7 @@ class UpdateImageRequest(google.protobuf.message.Message):
 
 global___UpdateImageRequest = UpdateImageRequest
 
+@typing_extensions.final
 class UpdateImageMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -318,6 +328,7 @@ class UpdateImageMetadata(google.protobuf.message.Message):
 
 global___UpdateImageMetadata = UpdateImageMetadata
 
+@typing_extensions.final
 class DeleteImageRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -335,6 +346,7 @@ class DeleteImageRequest(google.protobuf.message.Message):
 
 global___DeleteImageRequest = DeleteImageRequest
 
+@typing_extensions.final
 class DeleteImageMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -350,6 +362,7 @@ class DeleteImageMetadata(google.protobuf.message.Message):
 
 global___DeleteImageMetadata = DeleteImageMetadata
 
+@typing_extensions.final
 class ListImageOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -378,6 +391,7 @@ class ListImageOperationsRequest(google.protobuf.message.Message):
 
 global___ListImageOperationsRequest = ListImageOperationsRequest
 
+@typing_extensions.final
 class ListImageOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

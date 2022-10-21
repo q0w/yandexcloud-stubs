@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class CreateIamTokenRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -40,6 +41,7 @@ class CreateIamTokenRequest(google.protobuf.message.Message):
 
 global___CreateIamTokenRequest = CreateIamTokenRequest
 
+@typing_extensions.final
 class CreateIamTokenResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -65,6 +67,7 @@ class CreateIamTokenResponse(google.protobuf.message.Message):
 
 global___CreateIamTokenResponse = CreateIamTokenResponse
 
+@typing_extensions.final
 class CreateIamTokenForServiceAccountRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

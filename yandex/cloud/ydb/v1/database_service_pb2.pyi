@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class MoveDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -38,6 +39,7 @@ class MoveDatabaseRequest(google.protobuf.message.Message):
 
 global___MoveDatabaseRequest = MoveDatabaseRequest
 
+@typing_extensions.final
 class MoveDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -55,6 +57,7 @@ class MoveDatabaseMetadata(google.protobuf.message.Message):
 
 global___MoveDatabaseMetadata = MoveDatabaseMetadata
 
+@typing_extensions.final
 class RestoreBackupRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -85,6 +88,7 @@ class RestoreBackupRequest(google.protobuf.message.Message):
 
 global___RestoreBackupRequest = RestoreBackupRequest
 
+@typing_extensions.final
 class RestoreBackupMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -102,6 +106,7 @@ class RestoreBackupMetadata(google.protobuf.message.Message):
 
 global___RestoreBackupMetadata = RestoreBackupMetadata
 
+@typing_extensions.final
 class BackupDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -122,6 +127,7 @@ class BackupDatabaseRequest(google.protobuf.message.Message):
 
 global___BackupDatabaseRequest = BackupDatabaseRequest
 
+@typing_extensions.final
 class BackupDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -139,6 +145,7 @@ class BackupDatabaseMetadata(google.protobuf.message.Message):
 
 global___BackupDatabaseMetadata = BackupDatabaseMetadata
 
+@typing_extensions.final
 class StartDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -153,6 +160,7 @@ class StartDatabaseRequest(google.protobuf.message.Message):
 
 global___StartDatabaseRequest = StartDatabaseRequest
 
+@typing_extensions.final
 class StartDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -170,6 +178,7 @@ class StartDatabaseMetadata(google.protobuf.message.Message):
 
 global___StartDatabaseMetadata = StartDatabaseMetadata
 
+@typing_extensions.final
 class StopDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -184,6 +193,7 @@ class StopDatabaseRequest(google.protobuf.message.Message):
 
 global___StopDatabaseRequest = StopDatabaseRequest
 
+@typing_extensions.final
 class StopDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,6 +211,7 @@ class StopDatabaseMetadata(google.protobuf.message.Message):
 
 global___StopDatabaseMetadata = StopDatabaseMetadata
 
+@typing_extensions.final
 class GetDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -216,6 +227,7 @@ class GetDatabaseRequest(google.protobuf.message.Message):
 
 global___GetDatabaseRequest = GetDatabaseRequest
 
+@typing_extensions.final
 class ListDatabasesRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -244,6 +256,7 @@ class ListDatabasesRequest(google.protobuf.message.Message):
 
 global___ListDatabasesRequest = ListDatabasesRequest
 
+@typing_extensions.final
 class ListDatabasesResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -268,9 +281,11 @@ class ListDatabasesResponse(google.protobuf.message.Message):
 
 global___ListDatabasesResponse = ListDatabasesResponse
 
+@typing_extensions.final
 class CreateDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -362,6 +377,7 @@ class CreateDatabaseRequest(google.protobuf.message.Message):
 
 global___CreateDatabaseRequest = CreateDatabaseRequest
 
+@typing_extensions.final
 class CreateDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -381,9 +397,11 @@ class CreateDatabaseMetadata(google.protobuf.message.Message):
 
 global___CreateDatabaseMetadata = CreateDatabaseMetadata
 
+@typing_extensions.final
 class UpdateDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -480,6 +498,7 @@ class UpdateDatabaseRequest(google.protobuf.message.Message):
 
 global___UpdateDatabaseRequest = UpdateDatabaseRequest
 
+@typing_extensions.final
 class UpdateDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -497,6 +516,7 @@ class UpdateDatabaseMetadata(google.protobuf.message.Message):
 
 global___UpdateDatabaseMetadata = UpdateDatabaseMetadata
 
+@typing_extensions.final
 class DeleteDatabaseRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -511,6 +531,7 @@ class DeleteDatabaseRequest(google.protobuf.message.Message):
 
 global___DeleteDatabaseRequest = DeleteDatabaseRequest
 
+@typing_extensions.final
 class DeleteDatabaseMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

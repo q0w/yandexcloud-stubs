@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Cluster(google.protobuf.message.Message):
     """A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/)."""
 
@@ -62,6 +63,7 @@ class Cluster(google.protobuf.message.Message):
     STARTING: Cluster.Status.ValueType  # 6
     """Cluster is starting."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -166,6 +168,7 @@ class Cluster(google.protobuf.message.Message):
 
 global___Cluster = Cluster
 
+@typing_extensions.final
 class Monitoring(google.protobuf.message.Message):
     """Metadata of a monitoring system for a Data Proc cluster."""
 
@@ -191,6 +194,7 @@ class Monitoring(google.protobuf.message.Message):
 
 global___Monitoring = Monitoring
 
+@typing_extensions.final
 class HadoopConfig(google.protobuf.message.Message):
     """Hadoop configuration that describes services installed in a cluster,
     their properties and settings.
@@ -235,6 +239,7 @@ class HadoopConfig(google.protobuf.message.Message):
     OOZIE: HadoopConfig.Service.ValueType  # 12
     LIVY: HadoopConfig.Service.ValueType  # 13
 
+    @typing_extensions.final
     class PropertiesEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -283,6 +288,7 @@ class HadoopConfig(google.protobuf.message.Message):
 
 global___HadoopConfig = HadoopConfig
 
+@typing_extensions.final
 class ClusterConfig(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -306,6 +312,7 @@ class ClusterConfig(google.protobuf.message.Message):
 
 global___ClusterConfig = ClusterConfig
 
+@typing_extensions.final
 class InitializationAction(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

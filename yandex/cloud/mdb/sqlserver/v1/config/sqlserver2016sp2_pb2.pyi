@@ -15,6 +15,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SQLServerConfig2016sp2std(google.protobuf.message.Message):
     """SQL Server 2016 SP2 Standard edition supported configuration options are listed here.
 
@@ -88,6 +89,7 @@ class SQLServerConfig2016sp2std(google.protobuf.message.Message):
 
 global___SQLServerConfig2016sp2std = SQLServerConfig2016sp2std
 
+@typing_extensions.final
 class SQLServerConfigSet2016sp2std(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -115,6 +117,7 @@ class SQLServerConfigSet2016sp2std(google.protobuf.message.Message):
 
 global___SQLServerConfigSet2016sp2std = SQLServerConfigSet2016sp2std
 
+@typing_extensions.final
 class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
     """SQL Server 2016 SP2 Enterprise edition supported configuration options are listed here.
 
@@ -187,6 +190,7 @@ class SQLServerConfig2016sp2ent(google.protobuf.message.Message):
 
 global___SQLServerConfig2016sp2ent = SQLServerConfig2016sp2ent
 
+@typing_extensions.final
 class SQLServerConfigSet2016sp2ent(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

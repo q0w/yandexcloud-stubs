@@ -14,6 +14,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class SubjectClaims(google.protobuf.message.Message):
     """Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims for details."""
 
@@ -83,6 +84,7 @@ class SubjectClaims(google.protobuf.message.Message):
 
 global___SubjectClaims = SubjectClaims
 
+@typing_extensions.final
 class Federation(google.protobuf.message.Message):
     """Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation"""
 

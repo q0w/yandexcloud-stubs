@@ -20,6 +20,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -37,6 +38,7 @@ class GetCloudRequest(google.protobuf.message.Message):
 
 global___GetCloudRequest = GetCloudRequest
 
+@typing_extensions.final
 class ListCloudsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -79,6 +81,7 @@ class ListCloudsRequest(google.protobuf.message.Message):
 
 global___ListCloudsRequest = ListCloudsRequest
 
+@typing_extensions.final
 class ListCloudsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -105,9 +108,11 @@ class ListCloudsResponse(google.protobuf.message.Message):
 
 global___ListCloudsResponse = ListCloudsResponse
 
+@typing_extensions.final
 class CreateCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -150,6 +155,7 @@ class CreateCloudRequest(google.protobuf.message.Message):
 
 global___CreateCloudRequest = CreateCloudRequest
 
+@typing_extensions.final
 class CreateCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -165,6 +171,7 @@ class CreateCloudMetadata(google.protobuf.message.Message):
 
 global___CreateCloudMetadata = CreateCloudMetadata
 
+@typing_extensions.final
 class ListCloudOperationsRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -195,6 +202,7 @@ class ListCloudOperationsRequest(google.protobuf.message.Message):
 
 global___ListCloudOperationsRequest = ListCloudOperationsRequest
 
+@typing_extensions.final
 class ListCloudOperationsResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -219,9 +227,11 @@ class ListCloudOperationsResponse(google.protobuf.message.Message):
 
 global___ListCloudOperationsResponse = ListCloudOperationsResponse
 
+@typing_extensions.final
 class UpdateCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -270,6 +280,7 @@ class UpdateCloudRequest(google.protobuf.message.Message):
 
 global___UpdateCloudRequest = UpdateCloudRequest
 
+@typing_extensions.final
 class UpdateCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -285,6 +296,7 @@ class UpdateCloudMetadata(google.protobuf.message.Message):
 
 global___UpdateCloudMetadata = UpdateCloudMetadata
 
+@typing_extensions.final
 class DeleteCloudRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -314,6 +326,7 @@ class DeleteCloudRequest(google.protobuf.message.Message):
 
 global___DeleteCloudRequest = DeleteCloudRequest
 
+@typing_extensions.final
 class DeleteCloudMetadata(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

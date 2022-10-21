@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class UsageRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -46,6 +47,7 @@ class UsageRecord(google.protobuf.message.Message):
 
 global___UsageRecord = UsageRecord
 
+@typing_extensions.final
 class AcceptedUsageRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -61,6 +63,7 @@ class AcceptedUsageRecord(google.protobuf.message.Message):
 
 global___AcceptedUsageRecord = AcceptedUsageRecord
 
+@typing_extensions.final
 class RejectedUsageRecord(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

@@ -17,6 +17,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class GetSkuRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -50,6 +51,7 @@ class GetSkuRequest(google.protobuf.message.Message):
 
 global___GetSkuRequest = GetSkuRequest
 
+@typing_extensions.final
 class ListSkusRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -101,6 +103,7 @@ class ListSkusRequest(google.protobuf.message.Message):
 
 global___ListSkusRequest = ListSkusRequest
 
+@typing_extensions.final
 class ListSkusResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

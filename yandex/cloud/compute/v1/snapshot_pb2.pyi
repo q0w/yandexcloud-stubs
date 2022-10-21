@@ -19,6 +19,7 @@ else:
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
+@typing_extensions.final
 class Snapshot(google.protobuf.message.Message):
     """A Snapshot resource. For more information, see [Snapshots](/docs/compute/concepts/snapshot)."""
 
@@ -51,6 +52,7 @@ class Snapshot(google.protobuf.message.Message):
     DELETING: Snapshot.Status.ValueType  # 4
     """Snapshot is being deleted."""
 
+    @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
