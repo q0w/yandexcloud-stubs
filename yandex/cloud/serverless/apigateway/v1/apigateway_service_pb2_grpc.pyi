@@ -18,7 +18,7 @@ class ApiGatewayServiceStub:
         yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway,
     ]
     """Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-    To get associated openapi specification, make a [GetOpenapiSpec] request.
+    To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request.
 
     To get the list of all available API gateways, make a [List] request.
     """
@@ -88,7 +88,7 @@ class ApiGatewayServiceServicer(metaclass=abc.ABCMeta):
         context: grpc.ServicerContext,
     ) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.ApiGateway:
         """Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-        To get associated openapi specification, make a [GetOpenapiSpec] request.
+        To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec) request.
 
         To get the list of all available API gateways, make a [List] request.
         """

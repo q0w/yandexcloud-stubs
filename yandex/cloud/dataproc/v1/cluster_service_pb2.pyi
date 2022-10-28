@@ -201,7 +201,7 @@ class CreateClusterConfigSpec(google.protobuf.message.Message):
     version_id: builtins.str
     """Version of the image for cluster provisioning.
 
-    All available versions are listed in the [documentation](/docs/data-proc/concepts/image-versions).
+    All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
     """
     @property
     def hadoop(self) -> yandex.cloud.dataproc.v1.cluster_pb2.HadoopConfig:

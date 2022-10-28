@@ -21,7 +21,7 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class Job(google.protobuf.message.Message):
-    """A Data Proc job. For details about the concept, see [documentation](/docs/dataproc/concepts/jobs)."""
+    """A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs)."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

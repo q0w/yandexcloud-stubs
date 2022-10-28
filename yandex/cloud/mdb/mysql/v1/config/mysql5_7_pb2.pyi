@@ -322,7 +322,7 @@ class MysqlConfig5_7(google.protobuf.message.Message):
     def audit_log(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enable writing of audit log of MySQL.
 
-        See [MySQL documentation](https://dev.mysql.com/doc/mysql-security-excerpt/5.6/en/audit-log-options-variables.html#option_mysqld_audit-log) for details.
+        See [MySQL documentation](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/audit-log-reference.html#audit-log-options-variables) for details.
         """
     @property
     def sql_mode(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___MysqlConfig5_7.SQLMode.ValueType]:

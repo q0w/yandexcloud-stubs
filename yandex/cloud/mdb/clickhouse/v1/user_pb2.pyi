@@ -438,7 +438,10 @@ class UserSettings(google.protobuf.message.Message):
         """
     @property
     def allow_introspection_functions(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions)."""
+        """Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions).
+        """
     @property
     def connect_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Connection timeout in milliseconds.
@@ -447,8 +450,11 @@ class UserSettings(google.protobuf.message.Message):
         """
     @property
     def connect_timeout_with_failover(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Connection timeout with failover in milliseconds.
-        See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
+        """The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+        Default value: **50**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms).
         """
     @property
     def receive_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
@@ -464,7 +470,10 @@ class UserSettings(google.protobuf.message.Message):
         """
     @property
     def timeout_before_checking_execution_speed(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Check that the speed is not too low after the specified time has elapsed."""
+        """Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in [min_execution_speed] parameter.
+
+        Default value: **10**.
+        """
     @property
     def insert_quorum(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Enables or disables write quorum for ClickHouse cluster.
@@ -492,7 +501,12 @@ class UserSettings(google.protobuf.message.Message):
         """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel)."""
     @property
     def insert_null_as_default(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default)."""
+        """Enables the insertion of default values instead of NULL into columns with not nullable data type.
+
+        Default value: **true**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default).
+        """
     @property
     def select_sequential_consistency(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
@@ -772,7 +786,9 @@ class UserSettings(google.protobuf.message.Message):
         """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block)."""
     @property
     def max_concurrent_queries_for_user(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """The maximum number of concurrent requests per user."""
+        """The maximum number of concurrent requests per user.
+        Default value: 0 (no limit).
+        """
     @property
     def force_index_by_date(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """If enabled, query is not executed if the ClickHouse can't use index by date.
@@ -1075,7 +1091,10 @@ class UserSettings(google.protobuf.message.Message):
         """
     @property
     def allow_suspicious_low_cardinality_types(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types)."""
+        """Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types).
+        """
     @property
     def empty_result_for_aggregation_by_empty_set(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
@@ -1136,10 +1155,20 @@ class UserSettings(google.protobuf.message.Message):
         """
     @property
     def cancel_http_readonly_queries_on_client_close(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close)."""
+        """Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+
+        Default value: **false**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close).
+        """
     @property
     def max_http_get_redirects(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects)."""
+        """Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+
+        If the parameter is set to **0** (default), no hops is allowed.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects).
+        """
     @property
     def joined_subquery_requires_alias(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
     @property
@@ -1150,7 +1179,10 @@ class UserSettings(google.protobuf.message.Message):
     """Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP."""
     @property
     def flatten_nested(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested)."""
+        """Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested).
+        """
     format_regexp: builtins.str
     """Regular expression (for Regexp format)"""
     format_regexp_escaping_rule: global___UserSettings.FormatRegexpEscapingRule.ValueType
@@ -1160,31 +1192,70 @@ class UserSettings(google.protobuf.message.Message):
         """See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched)."""
     @property
     def async_insert(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert)."""
+        """Enables asynchronous inserts.
+
+        Disabled by default.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert).
+        """
     @property
     def async_insert_threads(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads)."""
+        """The maximum number of threads for background data parsing and insertion.
+
+        If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads).
+        """
     @property
     def wait_for_async_insert(self) -> google.protobuf.wrappers_pb2.BoolValue:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert)."""
+        """Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert).
+        """
     @property
     def wait_for_async_insert_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout)."""
+        """The timeout (in seconds) for waiting for processing of asynchronous insertion.
+
+        Default value: **120**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout).
+        """
     @property
     def async_insert_max_data_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size)."""
+        """The maximum size of the unparsed data in bytes collected per query before being inserted.
+
+        If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size).
+        """
     @property
     def async_insert_busy_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms)."""
+        """The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+
+        If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms).
+        """
     @property
     def async_insert_stale_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """// See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms)."""
+        """The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the [async_insert_busy_timeout] with every INSERT query as long as [async_insert_max_data_size] is not exceeded.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-stale-timeout-ms).
+        """
     @property
     def memory_profiler_step(self) -> google.protobuf.wrappers_pb2.Int64Value:
-        """Whenever query memory usage becomes larger than every next step in number of bytes the memory profiler will collect the allocating stack trace. Zero means disabled memory profiler."""
+        """Memory profiler step (in bytes).
+
+        If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
+
+        Default value: **4194304** (4 MB). Zero means disabled memory profiler.
+        """
     @property
     def memory_profiler_sample_probability(self) -> google.protobuf.wrappers_pb2.DoubleValue:
-        """Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation."""
+        """Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
+
+        Possible values: from **0** to **1**. Default: **0**.
+        """
     @property
     def compile(self) -> google.protobuf.wrappers_pb2.BoolValue:
         """The setting is deprecated and has no effect."""

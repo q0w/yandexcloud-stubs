@@ -240,6 +240,7 @@ class Master(google.protobuf.message.Message):
     VERSION_INFO_FIELD_NUMBER: builtins.int
     MAINTENANCE_POLICY_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
+    MASTER_LOGGING_FIELD_NUMBER: builtins.int
     @property
     def zonal_master(self) -> global___ZonalMaster:
         """Parameters of the availability zone for the master."""
@@ -265,6 +266,9 @@ class Master(google.protobuf.message.Message):
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Master security groups."""
+    @property
+    def master_logging(self) -> global___MasterLogging:
+        """Cloud Logging for master components."""
     def __init__(
         self,
         *,
@@ -276,9 +280,10 @@ class Master(google.protobuf.message.Message):
         version_info: yandex.cloud.k8s.v1.version_pb2.VersionInfo | None = ...,
         maintenance_policy: global___MasterMaintenancePolicy | None = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        master_logging: global___MasterLogging | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["endpoints", b"endpoints", "maintenance_policy", b"maintenance_policy", "master_auth", b"master_auth", "master_type", b"master_type", "regional_master", b"regional_master", "version_info", b"version_info", "zonal_master", b"zonal_master"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["endpoints", b"endpoints", "maintenance_policy", b"maintenance_policy", "master_auth", b"master_auth", "master_type", b"master_type", "regional_master", b"regional_master", "security_group_ids", b"security_group_ids", "version", b"version", "version_info", b"version_info", "zonal_master", b"zonal_master"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["endpoints", b"endpoints", "maintenance_policy", b"maintenance_policy", "master_auth", b"master_auth", "master_logging", b"master_logging", "master_type", b"master_type", "regional_master", b"regional_master", "version_info", b"version_info", "zonal_master", b"zonal_master"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["endpoints", b"endpoints", "maintenance_policy", b"maintenance_policy", "master_auth", b"master_auth", "master_logging", b"master_logging", "master_type", b"master_type", "regional_master", b"regional_master", "security_group_ids", b"security_group_ids", "version", b"version", "version_info", b"version_info", "zonal_master", b"zonal_master"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["master_type", b"master_type"]) -> typing_extensions.Literal["zonal_master", "regional_master"] | None: ...
 
 global___Master = Master
@@ -442,6 +447,44 @@ class MasterMaintenancePolicy(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["auto_upgrade", b"auto_upgrade", "maintenance_window", b"maintenance_window"]) -> None: ...
 
 global___MasterMaintenancePolicy = MasterMaintenancePolicy
+
+@typing_extensions.final
+class MasterLogging(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ENABLED_FIELD_NUMBER: builtins.int
+    LOG_GROUP_ID_FIELD_NUMBER: builtins.int
+    FOLDER_ID_FIELD_NUMBER: builtins.int
+    CLUSTER_AUTOSCALER_ENABLED_FIELD_NUMBER: builtins.int
+    KUBE_APISERVER_ENABLED_FIELD_NUMBER: builtins.int
+    EVENTS_ENABLED_FIELD_NUMBER: builtins.int
+    enabled: builtins.bool
+    """Identifies whether Cloud Logging is enabled for master components."""
+    log_group_id: builtins.str
+    """ID of the log group where logs of master components should be stored."""
+    folder_id: builtins.str
+    """ID of the folder where logs should be stored (in default group)."""
+    cluster_autoscaler_enabled: builtins.bool
+    """Identifies whether Cloud Logging is enabled for cluster-autoscaler."""
+    kube_apiserver_enabled: builtins.bool
+    """Identifies whether Cloud Logging is enabled for kube-apiserver."""
+    events_enabled: builtins.bool
+    """Identifies whether Cloud Logging is enabled for events."""
+    def __init__(
+        self,
+        *,
+        enabled: builtins.bool = ...,
+        log_group_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        cluster_autoscaler_enabled: builtins.bool = ...,
+        kube_apiserver_enabled: builtins.bool = ...,
+        events_enabled: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destination", b"destination", "folder_id", b"folder_id", "log_group_id", b"log_group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["cluster_autoscaler_enabled", b"cluster_autoscaler_enabled", "destination", b"destination", "enabled", b"enabled", "events_enabled", b"events_enabled", "folder_id", b"folder_id", "kube_apiserver_enabled", b"kube_apiserver_enabled", "log_group_id", b"log_group_id"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["destination", b"destination"]) -> typing_extensions.Literal["log_group_id", "folder_id"] | None: ...
+
+global___MasterLogging = MasterLogging
 
 @typing_extensions.final
 class NetworkPolicy(google.protobuf.message.Message):

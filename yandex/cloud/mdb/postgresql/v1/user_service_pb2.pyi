@@ -191,7 +191,7 @@ class UpdateUserRequest(google.protobuf.message.Message):
         """
     @property
     def grants(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Roles and privileges that are granted to the user (`GRANT <role> TO <user>`).
+        """A set of roles and privileges that are granted to the user.
 
         For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
         """

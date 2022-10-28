@@ -296,7 +296,7 @@ class ClusterConfig(google.protobuf.message.Message):
     HADOOP_FIELD_NUMBER: builtins.int
     version_id: builtins.str
     """Image version for cluster provisioning.
-    All available versions are listed in the [documentation](/docs/managed-hadoop/concepts/image-versions).
+    All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
     """
     @property
     def hadoop(self) -> global___HadoopConfig:

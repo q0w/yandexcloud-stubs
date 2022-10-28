@@ -102,11 +102,23 @@ class ClickhouseConfig(google.protobuf.message.Message):
         @property
         def max_bytes_to_merge_at_max_space_in_pool(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
         @property
-        def min_bytes_for_wide_part(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
+        def min_bytes_for_wide_part(self) -> google.protobuf.wrappers_pb2.Int64Value:
+            """Minimum number of bytes in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+            """
         @property
-        def min_rows_for_wide_part(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
+        def min_rows_for_wide_part(self) -> google.protobuf.wrappers_pb2.Int64Value:
+            """Minimum number of rows in a data part that can be stored in **Wide** format.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/#min_bytes_for_wide_part).
+            """
         @property
-        def ttl_only_drop_parts(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
+        def ttl_only_drop_parts(self) -> google.protobuf.wrappers_pb2.BoolValue:
+            """Enables or disables complete dropping of data parts where all rows are expired in MergeTree tables.
+
+            More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#ttl_only_drop_parts).
+            """
         @property
         def allow_remote_fs_zero_copy_replication(self) -> google.protobuf.wrappers_pb2.BoolValue: ...
         def __init__(
@@ -216,8 +228,11 @@ class ClickhouseConfig(google.protobuf.message.Message):
         PASSWORD_FIELD_NUMBER: builtins.int
         VHOST_FIELD_NUMBER: builtins.int
         username: builtins.str
+        """[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) username"""
         password: builtins.str
+        """[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) password"""
         vhost: builtins.str
+        """[RabbitMQ](https://clickhouse.com/docs/en/engines/table-engines/integrations/rabbitmq/) virtual host"""
         def __init__(
             self,
             *,
@@ -254,7 +269,7 @@ class ClickhouseConfig(google.protobuf.message.Message):
         MIN_PART_SIZE_FIELD_NUMBER: builtins.int
         MIN_PART_SIZE_RATIO_FIELD_NUMBER: builtins.int
         method: global___ClickhouseConfig.Compression.Method.ValueType
-        """Compression method to use for the specified combination of `min_part_size` and `min_part_size_ratio`."""
+        """Compression method to use for the specified combination of [min_part_size] and [min_part_size_ratio]."""
         min_part_size: builtins.int
         """Minimum size of a part of a table."""
         min_part_size_ratio: builtins.float
@@ -1042,7 +1057,11 @@ class ClickhouseConfig(google.protobuf.message.Message):
     @property
     def background_schedule_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
-    def background_fetches_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
+    def background_fetches_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Sets the number of threads performing background fetches for tables with **ReplicatedMergeTree** engines. Default value: 8.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#background_fetches_pool_size).
+        """
     @property
     def background_move_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
@@ -1050,9 +1069,17 @@ class ClickhouseConfig(google.protobuf.message.Message):
     @property
     def background_buffer_flush_schedule_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
     @property
-    def default_database(self) -> google.protobuf.wrappers_pb2.StringValue: ...
+    def default_database(self) -> google.protobuf.wrappers_pb2.StringValue:
+        """The default database.
+
+        To get a list of cluster databases, see [Yandex Managed ClickHouse documentation](https://cloud.yandex.com/en/docs/managed-clickhouse/operations/databases#list-db).
+        """
     @property
-    def total_memory_profiler_step(self) -> google.protobuf.wrappers_pb2.Int64Value: ...
+    def total_memory_profiler_step(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Sets the memory size (in bytes) for a stack trace at every peak allocation step. Default value: **4194304**.
+
+        More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#total-memory-profiler-step).
+        """
     @property
     def total_memory_tracker_sample_probability(self) -> google.protobuf.wrappers_pb2.DoubleValue: ...
     def __init__(

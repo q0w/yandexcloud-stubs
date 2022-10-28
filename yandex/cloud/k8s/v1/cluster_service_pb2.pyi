@@ -305,6 +305,7 @@ class MasterUpdateSpec(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     MAINTENANCE_POLICY_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
+    MASTER_LOGGING_FIELD_NUMBER: builtins.int
     @property
     def version(self) -> yandex.cloud.k8s.v1.version_pb2.UpdateVersionSpec:
         """Specification of the master update."""
@@ -314,15 +315,19 @@ class MasterUpdateSpec(google.protobuf.message.Message):
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Master security groups."""
+    @property
+    def master_logging(self) -> yandex.cloud.k8s.v1.cluster_pb2.MasterLogging:
+        """Cloud Logging for master components."""
     def __init__(
         self,
         *,
         version: yandex.cloud.k8s.v1.version_pb2.UpdateVersionSpec | None = ...,
         maintenance_policy: yandex.cloud.k8s.v1.cluster_pb2.MasterMaintenancePolicy | None = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        master_logging: yandex.cloud.k8s.v1.cluster_pb2.MasterLogging | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "version", b"version"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "security_group_ids", b"security_group_ids", "version", b"version"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_logging", b"master_logging", "version", b"version"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_logging", b"master_logging", "security_group_ids", b"security_group_ids", "version", b"version"]) -> None: ...
 
 global___MasterUpdateSpec = MasterUpdateSpec
 
@@ -670,6 +675,7 @@ class MasterSpec(google.protobuf.message.Message):
     VERSION_FIELD_NUMBER: builtins.int
     MAINTENANCE_POLICY_FIELD_NUMBER: builtins.int
     SECURITY_GROUP_IDS_FIELD_NUMBER: builtins.int
+    MASTER_LOGGING_FIELD_NUMBER: builtins.int
     @property
     def zonal_master_spec(self) -> global___ZonalMasterSpec:
         """Specification of the zonal master."""
@@ -684,6 +690,9 @@ class MasterSpec(google.protobuf.message.Message):
     @property
     def security_group_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
         """Master security groups."""
+    @property
+    def master_logging(self) -> yandex.cloud.k8s.v1.cluster_pb2.MasterLogging:
+        """Cloud Logging for master components."""
     def __init__(
         self,
         *,
@@ -692,9 +701,10 @@ class MasterSpec(google.protobuf.message.Message):
         version: builtins.str = ...,
         maintenance_policy: yandex.cloud.k8s.v1.cluster_pb2.MasterMaintenancePolicy | None = ...,
         security_group_ids: collections.abc.Iterable[builtins.str] | None = ...,
+        master_logging: yandex.cloud.k8s.v1.cluster_pb2.MasterLogging | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_type", b"master_type", "regional_master_spec", b"regional_master_spec", "zonal_master_spec", b"zonal_master_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_type", b"master_type", "regional_master_spec", b"regional_master_spec", "security_group_ids", b"security_group_ids", "version", b"version", "zonal_master_spec", b"zonal_master_spec"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_logging", b"master_logging", "master_type", b"master_type", "regional_master_spec", b"regional_master_spec", "zonal_master_spec", b"zonal_master_spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["maintenance_policy", b"maintenance_policy", "master_logging", b"master_logging", "master_type", b"master_type", "regional_master_spec", b"regional_master_spec", "security_group_ids", b"security_group_ids", "version", b"version", "zonal_master_spec", b"zonal_master_spec"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["master_type", b"master_type"]) -> typing_extensions.Literal["zonal_master_spec", "regional_master_spec"] | None: ...
 
 global___MasterSpec = MasterSpec
