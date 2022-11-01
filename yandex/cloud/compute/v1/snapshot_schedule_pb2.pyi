@@ -22,6 +22,8 @@ DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing_extensions.final
 class SnapshotSchedule(google.protobuf.message.Message):
+    """A snapshot schedule. For details about the concept, see [documentation](/docs/compute/concepts/snapshot-schedule)."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     class _Status:
@@ -32,18 +34,32 @@ class SnapshotSchedule(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: SnapshotSchedule._Status.ValueType  # 0
         CREATING: SnapshotSchedule._Status.ValueType  # 1
+        """The snapshot schedule is being created."""
         ACTIVE: SnapshotSchedule._Status.ValueType  # 2
+        """The snapshot schedule is on: new disk snapshots will be created, old ones deleted
+        (if [SnapshotSchedule.retention_policy] is specified).
+        """
         INACTIVE: SnapshotSchedule._Status.ValueType  # 3
+        """The schedule is interrupted, snapshots won't be created or deleted."""
         DELETING: SnapshotSchedule._Status.ValueType  # 4
+        """The schedule is being deleted."""
         UPDATING: SnapshotSchedule._Status.ValueType  # 5
+        """Changes are being made to snapshot schedule settings or a list of attached disks."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: SnapshotSchedule.Status.ValueType  # 0
     CREATING: SnapshotSchedule.Status.ValueType  # 1
+    """The snapshot schedule is being created."""
     ACTIVE: SnapshotSchedule.Status.ValueType  # 2
+    """The snapshot schedule is on: new disk snapshots will be created, old ones deleted
+    (if [SnapshotSchedule.retention_policy] is specified).
+    """
     INACTIVE: SnapshotSchedule.Status.ValueType  # 3
+    """The schedule is interrupted, snapshots won't be created or deleted."""
     DELETING: SnapshotSchedule.Status.ValueType  # 4
+    """The schedule is being deleted."""
     UPDATING: SnapshotSchedule.Status.ValueType  # 5
+    """Changes are being made to snapshot schedule settings or a list of attached disks."""
 
     @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
@@ -73,30 +89,40 @@ class SnapshotSchedule(google.protobuf.message.Message):
     SNAPSHOT_COUNT_FIELD_NUMBER: builtins.int
     SNAPSHOT_SPEC_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """ID of the snapshot schedule policy."""
+    """ID of the snapshot schedule."""
     folder_id: builtins.str
-    """ID of the folder that the scheduler policy belongs to."""
+    """ID of the folder that the snapshot schedule belongs to."""
     @property
-    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Creation timestamp."""
     name: builtins.str
-    """Name of the schedule policy.
+    """Name of the snapshot schedule.
+
     The name is unique within the folder.
     """
     description: builtins.str
-    """Description of the schedule policy."""
+    """Description of the snapshot schedule."""
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Resource labels as `key:value` pairs."""
+        """Snapshot schedule labels as `key:value` pairs."""
     status: global___SnapshotSchedule.Status.ValueType
+    """Status of the snapshot schedule."""
     @property
     def schedule_policy(self) -> global___SchedulePolicy:
-        """schedule properties"""
+        """Frequency settings of the snapshot schedule."""
     @property
-    def retention_period(self) -> google.protobuf.duration_pb2.Duration: ...
+    def retention_period(self) -> google.protobuf.duration_pb2.Duration:
+        """Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is
+        automatically deleted.
+        """
     snapshot_count: builtins.int
+    """Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this
+    number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted
+    after the sixth one is created, the second is deleted after the seventh one is created, and so on.
+    """
     @property
     def snapshot_spec(self) -> global___SnapshotSpec:
-        """properties to create snapshot with."""
+        """Attributes of snapshots created by the snapshot schedule."""
     def __init__(
         self,
         *,
@@ -120,15 +146,22 @@ global___SnapshotSchedule = SnapshotSchedule
 
 @typing_extensions.final
 class SchedulePolicy(google.protobuf.message.Message):
+    """A resource for frequency settings of a snapshot schedule."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     START_AT_FIELD_NUMBER: builtins.int
     EXPRESSION_FIELD_NUMBER: builtins.int
     @property
     def start_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
-        """start time for the first run."""
+        """Timestamp for creating the first snapshot."""
     expression: builtins.str
-    """cron format (* * * * *)"""
+    """Cron expression for the snapshot schedule (UTC+0).
+
+    The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
+    nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
+    see [documentation](/docs/compute/concepts/snapshot-schedule#cron)
+    """
     def __init__(
         self,
         *,
@@ -142,7 +175,7 @@ global___SchedulePolicy = SchedulePolicy
 
 @typing_extensions.final
 class SnapshotSpec(google.protobuf.message.Message):
-    """Properties of created snapshot backup"""
+    """A resource for attributes of snapshots created by the snapshot schedule."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -168,7 +201,7 @@ class SnapshotSpec(google.protobuf.message.Message):
     """Description of the created snapshot."""
     @property
     def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
-        """Resource labels as `key:value` pairs."""
+        """Snapshot labels as `key:value` pairs."""
     def __init__(
         self,
         *,

@@ -32,16 +32,24 @@ class Container(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Container._Status.ValueType  # 0
         CREATING: Container._Status.ValueType  # 1
+        """Container is being created."""
         ACTIVE: Container._Status.ValueType  # 2
+        """Container is ready for use."""
         DELETING: Container._Status.ValueType  # 3
+        """Container is being deleted."""
         ERROR: Container._Status.ValueType  # 4
+        """Container failed. The only allowed action is delete."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Container.Status.ValueType  # 0
     CREATING: Container.Status.ValueType  # 1
+    """Container is being created."""
     ACTIVE: Container.Status.ValueType  # 2
+    """Container is ready for use."""
     DELETING: Container.Status.ValueType  # 3
+    """Container is being deleted."""
     ERROR: Container.Status.ValueType  # 4
+    """Container failed. The only allowed action is delete."""
 
     @typing_extensions.final
     class LabelsEntry(google.protobuf.message.Message):
@@ -68,15 +76,23 @@ class Container(google.protobuf.message.Message):
     URL_FIELD_NUMBER: builtins.int
     STATUS_FIELD_NUMBER: builtins.int
     id: builtins.str
+    """ID of the container. Generated at creation time."""
     folder_id: builtins.str
+    """ID of the folder that the container belongs to."""
     @property
-    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Creation timestamp for the container."""
     name: builtins.str
+    """Name of the container. The name is unique within the folder."""
     description: builtins.str
+    """Description of the container."""
     @property
-    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    def labels(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Container labels as `key:value` pairs."""
     url: builtins.str
+    """URL that needs to be requested to call the container."""
     status: global___Container.Status.ValueType
+    """Status of the container."""
     def __init__(
         self,
         *,
@@ -106,14 +122,20 @@ class Revision(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         STATUS_UNSPECIFIED: Revision._Status.ValueType  # 0
         CREATING: Revision._Status.ValueType  # 1
+        """Revision is being created."""
         ACTIVE: Revision._Status.ValueType  # 2
+        """Revision is currently used by the container."""
         OBSOLETE: Revision._Status.ValueType  # 3
+        """Revision is not used by the container. May be deleted later."""
 
     class Status(_Status, metaclass=_StatusEnumTypeWrapper): ...
     STATUS_UNSPECIFIED: Revision.Status.ValueType  # 0
     CREATING: Revision.Status.ValueType  # 1
+    """Revision is being created."""
     ACTIVE: Revision.Status.ValueType  # 2
+    """Revision is currently used by the container."""
     OBSOLETE: Revision.Status.ValueType  # 3
+    """Revision is not used by the container. May be deleted later."""
 
     ID_FIELD_NUMBER: builtins.int
     CONTAINER_ID_FIELD_NUMBER: builtins.int
@@ -129,25 +151,44 @@ class Revision(google.protobuf.message.Message):
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     PROVISION_POLICY_FIELD_NUMBER: builtins.int
     id: builtins.str
+    """ID of the revision."""
     container_id: builtins.str
+    """ID of the container that the revision belongs to."""
     description: builtins.str
+    """Description of the revision."""
     @property
-    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp: ...
+    def created_at(self) -> google.protobuf.timestamp_pb2.Timestamp:
+        """Creation timestamp for the revision."""
     @property
-    def image(self) -> global___Image: ...
+    def image(self) -> global___Image:
+        """Image configuration for the revision."""
     @property
-    def resources(self) -> global___Resources: ...
+    def resources(self) -> global___Resources:
+        """Resources allocated to the revision."""
     @property
-    def execution_timeout(self) -> google.protobuf.duration_pb2.Duration: ...
+    def execution_timeout(self) -> google.protobuf.duration_pb2.Duration:
+        """Timeout for the execution of the revision.
+
+        If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
+        """
     concurrency: builtins.int
+    """The number of concurrent requests allowed per container instance."""
     service_account_id: builtins.str
+    """ID of the service account associated with the revision."""
     status: global___Revision.Status.ValueType
+    """Status of the revision."""
     @property
-    def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Secret]: ...
+    def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Secret]:
+        """Yandex Lockbox secrets to be used by the revision."""
     @property
-    def connectivity(self) -> global___Connectivity: ...
+    def connectivity(self) -> global___Connectivity:
+        """Network access. If specified the revision will be attached to specified network/subnet(s)."""
     @property
-    def provision_policy(self) -> global___ProvisionPolicy: ...
+    def provision_policy(self) -> global___ProvisionPolicy:
+        """Policy for provisioning instances of the revision.
+
+        The policy is only applied when the revision is ACTIVE.
+        """
     def __init__(
         self,
         *,
@@ -172,6 +213,8 @@ global___Revision = Revision
 
 @typing_extensions.final
 class Image(google.protobuf.message.Message):
+    """Revision image specification."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     @typing_extensions.final
@@ -197,14 +240,20 @@ class Image(google.protobuf.message.Message):
     ENVIRONMENT_FIELD_NUMBER: builtins.int
     WORKING_DIR_FIELD_NUMBER: builtins.int
     image_url: builtins.str
+    """Image URL, that is used by the revision."""
     image_digest: builtins.str
+    """Digest of the image. Calculated at creation time."""
     @property
-    def command(self) -> global___Command: ...
+    def command(self) -> global___Command:
+        """Override for the image's ENTRYPOINT."""
     @property
-    def args(self) -> global___Args: ...
+    def args(self) -> global___Args:
+        """Override for the image's CMD."""
     @property
-    def environment(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    def environment(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]:
+        """Additional environment for the container."""
     working_dir: builtins.str
+    """Override for the image's WORKDIR."""
     def __init__(
         self,
         *,
@@ -226,7 +275,13 @@ class Command(google.protobuf.message.Message):
 
     COMMAND_FIELD_NUMBER: builtins.int
     @property
-    def command(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def command(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Command that will override ENTRYPOINT of an image.
+
+        Commands will be executed as is. The runtime will not substitute environment
+        variables or execute shell commands. If one wants to do that, they should
+        invoke shell interpreter with an appropriate shell script.
+        """
     def __init__(
         self,
         *,
@@ -242,7 +297,13 @@ class Args(google.protobuf.message.Message):
 
     ARGS_FIELD_NUMBER: builtins.int
     @property
-    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """Arguments that will override CMD of an image.
+
+        Arguments will be passed as is. The runtime will not substitute environment
+        variables or execute shell commands. If one wants to do that, they should
+        invoke shell interpreter with an appropriate shell script.
+        """
     def __init__(
         self,
         *,
@@ -254,14 +315,19 @@ global___Args = Args
 
 @typing_extensions.final
 class Resources(google.protobuf.message.Message):
+    """Resources allocated to a revision."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     MEMORY_FIELD_NUMBER: builtins.int
     CORES_FIELD_NUMBER: builtins.int
     CORE_FRACTION_FIELD_NUMBER: builtins.int
     memory: builtins.int
+    """Amount of memory available to the revision, specified in bytes."""
     cores: builtins.int
+    """Number of cores available to the revision."""
     core_fraction: builtins.int
+    """Specifies baseline performance for a core in percent."""
     def __init__(
         self,
         *,
@@ -279,6 +345,9 @@ class ProvisionPolicy(google.protobuf.message.Message):
 
     MIN_INSTANCES_FIELD_NUMBER: builtins.int
     min_instances: builtins.int
+    """Minimum number of guaranteed provisioned container instances for all zones
+    in total.
+    """
     def __init__(
         self,
         *,
@@ -290,6 +359,8 @@ global___ProvisionPolicy = ProvisionPolicy
 
 @typing_extensions.final
 class Secret(google.protobuf.message.Message):
+    """Secret that is available to the container at run time."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     ID_FIELD_NUMBER: builtins.int
@@ -297,9 +368,13 @@ class Secret(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     ENVIRONMENT_VARIABLE_FIELD_NUMBER: builtins.int
     id: builtins.str
+    """ID of Yandex Lockbox secret."""
     version_id: builtins.str
+    """ID of Yandex Lockbox secret."""
     key: builtins.str
+    """Key in secret's payload, which value to be delivered into container environment."""
     environment_variable: builtins.str
+    """Environment variable in which secret's value is delivered."""
     def __init__(
         self,
         *,
@@ -316,13 +391,20 @@ global___Secret = Secret
 
 @typing_extensions.final
 class Connectivity(google.protobuf.message.Message):
+    """Revision connectivity specification."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NETWORK_ID_FIELD_NUMBER: builtins.int
     SUBNET_IDS_FIELD_NUMBER: builtins.int
     network_id: builtins.str
+    """Network the revision will have access to."""
     @property
-    def subnet_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    def subnet_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
+        """The list of subnets (from the same network) the revision can be attached to.
+
+        Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+        """
     def __init__(
         self,
         *,

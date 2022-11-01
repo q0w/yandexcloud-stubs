@@ -240,7 +240,7 @@ class Version(google.protobuf.message.Message):
         """Additional service accounts to be used by the version."""
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Secret]:
-        """Lockbox secrets to be used by the version"""
+        """Yandex Lockbox secrets to be used by the version."""
     def __init__(
         self,
         *,
@@ -389,7 +389,7 @@ global___ScalingPolicy = ScalingPolicy
 
 @typing_extensions.final
 class Secret(google.protobuf.message.Message):
-    """Secret for serverless function"""
+    """Secret for serverless function."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -398,13 +398,13 @@ class Secret(google.protobuf.message.Message):
     KEY_FIELD_NUMBER: builtins.int
     ENVIRONMENT_VARIABLE_FIELD_NUMBER: builtins.int
     id: builtins.str
-    """ID of lockbox secret"""
+    """ID of Yandex Lockbox secret."""
     version_id: builtins.str
-    """ID of secret version"""
+    """ID of Yandex Lockbox version."""
     key: builtins.str
-    """Key in secret's payload, which value to be delivered into function environment"""
+    """Key in secret's payload, which value to be delivered into function environment."""
     environment_variable: builtins.str
-    """environment variable in which secret's value to be delivered"""
+    """environment variable in which secret's value to be delivered."""
     def __init__(
         self,
         *,

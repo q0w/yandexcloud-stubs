@@ -8,6 +8,8 @@ import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
+import google.protobuf.wrappers_pb2
+import google.rpc.code_pb2
 import sys
 import typing
 
@@ -25,20 +27,22 @@ class _HttpCodeInterval:
 class _HttpCodeIntervalEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_HttpCodeInterval.ValueType], builtins.type):
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     HTTP_CODE_INTERVAL_UNSPECIFIED: _HttpCodeInterval.ValueType  # 0
-    HTTP_CODE_INTERVAL_1XX: _HttpCodeInterval.ValueType  # 1
-    HTTP_CODE_INTERVAL_2XX: _HttpCodeInterval.ValueType  # 2
-    HTTP_CODE_INTERVAL_3XX: _HttpCodeInterval.ValueType  # 3
-    HTTP_CODE_INTERVAL_4XX: _HttpCodeInterval.ValueType  # 4
-    HTTP_CODE_INTERVAL_5XX: _HttpCodeInterval.ValueType  # 5
+    HTTP_1XX: _HttpCodeInterval.ValueType  # 1
+    HTTP_2XX: _HttpCodeInterval.ValueType  # 2
+    HTTP_3XX: _HttpCodeInterval.ValueType  # 3
+    HTTP_4XX: _HttpCodeInterval.ValueType  # 4
+    HTTP_5XX: _HttpCodeInterval.ValueType  # 5
+    HTTP_ALL: _HttpCodeInterval.ValueType  # 6
 
 class HttpCodeInterval(_HttpCodeInterval, metaclass=_HttpCodeIntervalEnumTypeWrapper): ...
 
 HTTP_CODE_INTERVAL_UNSPECIFIED: HttpCodeInterval.ValueType  # 0
-HTTP_CODE_INTERVAL_1XX: HttpCodeInterval.ValueType  # 1
-HTTP_CODE_INTERVAL_2XX: HttpCodeInterval.ValueType  # 2
-HTTP_CODE_INTERVAL_3XX: HttpCodeInterval.ValueType  # 3
-HTTP_CODE_INTERVAL_4XX: HttpCodeInterval.ValueType  # 4
-HTTP_CODE_INTERVAL_5XX: HttpCodeInterval.ValueType  # 5
+HTTP_1XX: HttpCodeInterval.ValueType  # 1
+HTTP_2XX: HttpCodeInterval.ValueType  # 2
+HTTP_3XX: HttpCodeInterval.ValueType  # 3
+HTTP_4XX: HttpCodeInterval.ValueType  # 4
+HTTP_5XX: HttpCodeInterval.ValueType  # 5
+HTTP_ALL: HttpCodeInterval.ValueType  # 6
 global___HttpCodeInterval = HttpCodeInterval
 
 @typing_extensions.final
@@ -49,25 +53,32 @@ class LogDiscardRule(google.protobuf.message.Message):
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    CODES_FIELD_NUMBER: builtins.int
-    INTERVALS_FIELD_NUMBER: builtins.int
-    PERCENT_FIELD_NUMBER: builtins.int
+    HTTP_CODES_FIELD_NUMBER: builtins.int
+    HTTP_CODE_INTERVALS_FIELD_NUMBER: builtins.int
+    GRPC_CODES_FIELD_NUMBER: builtins.int
+    DISCARD_PERCENT_FIELD_NUMBER: builtins.int
     @property
-    def codes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
+    def http_codes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.int]:
         """HTTP codes that should be discarded."""
     @property
-    def intervals(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___HttpCodeInterval.ValueType]:
+    def http_code_intervals(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[global___HttpCodeInterval.ValueType]:
         """Groups of HTTP codes like 4xx that should be discarded."""
-    percent: builtins.int
-    """Percent of logs to be discarded: 0 - keep all, 100 - keep none."""
+    @property
+    def grpc_codes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[google.rpc.code_pb2.Code.ValueType]:
+        """GRPC codes that should be discarded"""
+    @property
+    def discard_percent(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all"""
     def __init__(
         self,
         *,
-        codes: collections.abc.Iterable[builtins.int] | None = ...,
-        intervals: collections.abc.Iterable[global___HttpCodeInterval.ValueType] | None = ...,
-        percent: builtins.int = ...,
+        http_codes: collections.abc.Iterable[builtins.int] | None = ...,
+        http_code_intervals: collections.abc.Iterable[global___HttpCodeInterval.ValueType] | None = ...,
+        grpc_codes: collections.abc.Iterable[google.rpc.code_pb2.Code.ValueType] | None = ...,
+        discard_percent: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["codes", b"codes", "intervals", b"intervals", "percent", b"percent"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["discard_percent", b"discard_percent"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["discard_percent", b"discard_percent", "grpc_codes", b"grpc_codes", "http_code_intervals", b"http_code_intervals", "http_codes", b"http_codes"]) -> None: ...
 
 global___LogDiscardRule = LogDiscardRule
 
@@ -84,7 +95,8 @@ class LogOptions(google.protobuf.message.Message):
     where load balancer located.
     """
     @property
-    def discard_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogDiscardRule]: ...
+    def discard_rules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LogDiscardRule]:
+        """ordered list of rules, first matching rule applies"""
     disable: builtins.bool
     """Do not send logs to Cloud Logging log group."""
     def __init__(

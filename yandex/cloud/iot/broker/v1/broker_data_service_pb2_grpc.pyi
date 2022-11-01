@@ -14,7 +14,7 @@ class BrokerDataServiceStub:
         yandex.cloud.iot.broker.v1.broker_data_service_pb2.PublishBrokerDataRequest,
         yandex.cloud.iot.broker.v1.broker_data_service_pb2.PublishBrokerDataResponse,
     ]
-    """Publishes message on behalf of specified registry"""
+    """Publishes message on behalf of specified broker"""
 
 class BrokerDataServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods to work with IoT Core messages on behalf of broker"""
@@ -25,6 +25,6 @@ class BrokerDataServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.iot.broker.v1.broker_data_service_pb2.PublishBrokerDataRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.iot.broker.v1.broker_data_service_pb2.PublishBrokerDataResponse:
-        """Publishes message on behalf of specified registry"""
+        """Publishes message on behalf of specified broker"""
 
 def add_BrokerDataServiceServicer_to_server(servicer: BrokerDataServiceServicer, server: grpc.Server) -> None: ...

@@ -45,7 +45,7 @@ global___CodeType = CodeType
 
 @typing_extensions.final
 class TextNormalizationOptions(google.protobuf.message.Message):
-    """options"""
+    """Options"""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -75,7 +75,7 @@ class TextNormalizationOptions(google.protobuf.message.Message):
     LITERATURE_TEXT_FIELD_NUMBER: builtins.int
     text_normalization: global___TextNormalizationOptions.TextNormalization.ValueType
     profanity_filter: builtins.bool
-    """Filter profanity (default: false)."""
+    """Profanity filter (default: false)."""
     literature_text: builtins.bool
     """Rewrite text in literature style (default: false)."""
     def __init__(
@@ -113,7 +113,7 @@ class DefaultEouClassifier(google.protobuf.message.Message):
     type: global___DefaultEouClassifier.EouSensitivity.ValueType
     """EOU sensitivity. Currently two levels, faster with more error and more conservative (our default)."""
     max_pause_between_words_hint_ms: builtins.int
-    """Hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc)."""
+    """Hint for max pause between words. Our EOU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc)."""
     def __init__(
         self,
         *,
@@ -147,7 +147,7 @@ class EouClassifierOptions(google.protobuf.message.Message):
         """EOU classifier provided by SpeechKit. Default."""
     @property
     def external_classifier(self) -> global___ExternalEouClassifier:
-        """EoU is enforced by external messages from user."""
+        """EOU is enforced by external messages from user."""
     def __init__(
         self,
         *,
@@ -270,6 +270,8 @@ global___AudioFormatOptions = AudioFormatOptions
 
 @typing_extensions.final
 class LanguageRestrictionOptions(google.protobuf.message.Message):
+    """Type of restriction for the list of languages expected in the incoming speech stream."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     class _LanguageRestrictionType:
@@ -280,12 +282,16 @@ class LanguageRestrictionOptions(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
         LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED: LanguageRestrictionOptions._LanguageRestrictionType.ValueType  # 0
         WHITELIST: LanguageRestrictionOptions._LanguageRestrictionType.ValueType  # 1
+        """The allowing list. The incoming audio can contain only the listed languages."""
         BLACKLIST: LanguageRestrictionOptions._LanguageRestrictionType.ValueType  # 2
+        """The forbidding list. The incoming audio cannot contain the listed languages."""
 
     class LanguageRestrictionType(_LanguageRestrictionType, metaclass=_LanguageRestrictionTypeEnumTypeWrapper): ...
     LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED: LanguageRestrictionOptions.LanguageRestrictionType.ValueType  # 0
     WHITELIST: LanguageRestrictionOptions.LanguageRestrictionType.ValueType  # 1
+    """The allowing list. The incoming audio can contain only the listed languages."""
     BLACKLIST: LanguageRestrictionOptions.LanguageRestrictionType.ValueType  # 2
+    """The forbidding list. The incoming audio cannot contain the listed languages."""
 
     RESTRICTION_TYPE_FIELD_NUMBER: builtins.int
     LANGUAGE_CODE_FIELD_NUMBER: builtins.int
@@ -396,6 +402,8 @@ global___AudioChunk = AudioChunk
 
 @typing_extensions.final
 class SilenceChunk(google.protobuf.message.Message):
+    """Data chunk with silence."""
+
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     DURATION_MS_FIELD_NUMBER: builtins.int
@@ -438,7 +446,7 @@ class StreamingRequest(google.protobuf.message.Message):
     EOU_FIELD_NUMBER: builtins.int
     @property
     def session_options(self) -> global___StreamingOptions:
-        """Session options. should be first message from user"""
+        """Session options. Should be the first message from user."""
     @property
     def chunk(self) -> global___AudioChunk:
         """Chunk with audio data."""
@@ -447,7 +455,7 @@ class StreamingRequest(google.protobuf.message.Message):
         """Chunk with silence."""
     @property
     def eou(self) -> global___Eou:
-        """Request to end current utterance. Works only with external EoU detector."""
+        """Request to end current utterance. Works only with external EOU detector."""
     def __init__(
         self,
         *,
@@ -477,9 +485,9 @@ class Word(google.protobuf.message.Message):
     text: builtins.str
     """ Word text."""
     start_time_ms: builtins.int
-    """ Estimation of word start time in ms"""
+    """ Estimation of word start time in ms."""
     end_time_ms: builtins.int
-    """ Estimation of word end time in ms"""
+    """ Estimation of word end time in ms."""
     def __init__(
         self,
         *,
@@ -493,14 +501,16 @@ global___Word = Word
 
 @typing_extensions.final
 class LanguageEstimation(google.protobuf.message.Message):
-    """Estimation of language probability"""
+    """Estimation of language and its probability."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     LANGUAGE_CODE_FIELD_NUMBER: builtins.int
     PROBABILITY_FIELD_NUMBER: builtins.int
     language_code: builtins.str
+    """Language code in ISO 639-1 format."""
     probability: builtins.float
+    """Estimation of language probability."""
     def __init__(
         self,
         *,
@@ -525,18 +535,18 @@ class Alternative(google.protobuf.message.Message):
     LANGUAGES_FIELD_NUMBER: builtins.int
     @property
     def words(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Word]:
-        """ Words in time frame."""
+        """Words in time frame."""
     text: builtins.str
-    """ Text in time frame."""
+    """Text in time frame."""
     start_time_ms: builtins.int
     """Start of time frame."""
     end_time_ms: builtins.int
     """End of time frame."""
     confidence: builtins.float
-    """Hypothesis confidence. Currently is not used."""
+    """The hypothesis confidence. Currently is not used."""
     @property
     def languages(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___LanguageEstimation]:
-        """Distribution over possible languages"""
+        """Distribution over possible languages."""
     def __init__(
         self,
         *,
@@ -553,13 +563,13 @@ global___Alternative = Alternative
 
 @typing_extensions.final
 class EouUpdate(google.protobuf.message.Message):
-    """Update information from"""
+    """Update information for external End of Utterance."""
 
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TIME_MS_FIELD_NUMBER: builtins.int
     time_ms: builtins.int
-    """End of utterance estimated time."""
+    """EOU estimated time."""
     def __init__(
         self,
         *,

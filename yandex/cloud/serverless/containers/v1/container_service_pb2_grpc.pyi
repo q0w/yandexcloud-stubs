@@ -10,138 +10,184 @@ import yandex.cloud.serverless.containers.v1.container_pb2
 import yandex.cloud.serverless.containers.v1.container_service_pb2
 
 class ContainerServiceStub:
+    """A set of methods for managing serverless containers."""
+
     def __init__(self, channel: grpc.Channel) -> None: ...
     Get: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.GetContainerRequest,
         yandex.cloud.serverless.containers.v1.container_pb2.Container,
     ]
+    """Returns the specified container.
+
+    To get the list of all available containers, make a [List] request.
+    """
     List: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRequest,
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersResponse,
     ]
+    """Retrieves the list of containers in the specified folder."""
     Create: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.CreateContainerRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Creates a container in the specified folder."""
     Update: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.UpdateContainerRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Updates the specified container."""
     Delete: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.DeleteContainerRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Deletes the specified container."""
     DeployRevision: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.DeployContainerRevisionRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Deploys a revision for the specified container."""
     Rollback: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.RollbackContainerRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Rollback the specified container to an old revision."""
     GetRevision: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.GetContainerRevisionRequest,
         yandex.cloud.serverless.containers.v1.container_pb2.Revision,
     ]
+    """Returns the specified revision of a container.
+
+    To get the list of available revision, make a [ListRevisions] request.
+    """
     ListRevisions: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRevisionsRequest,
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRevisionsResponse,
     ]
+    """Retrieves the list of revisions for the specified container, or of all container revisions
+    in the specified folder.
+    """
     ListOperations: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainerOperationsRequest,
         yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainerOperationsResponse,
     ]
+    """Lists operations for the specified container."""
     ListAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         yandex.cloud.access.access_pb2.ListAccessBindingsResponse,
     ]
+    """Lists existing access bindings for the specified container."""
     SetAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Sets access bindings for the container."""
     UpdateAccessBindings: grpc.UnaryUnaryMultiCallable[
         yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         yandex.cloud.operation.operation_pb2.Operation,
     ]
+    """Updates access bindings for the specified container."""
 
 class ContainerServiceServicer(metaclass=abc.ABCMeta):
+    """A set of methods for managing serverless containers."""
+
     @abc.abstractmethod
     def Get(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.GetContainerRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.serverless.containers.v1.container_pb2.Container: ...
+    ) -> yandex.cloud.serverless.containers.v1.container_pb2.Container:
+        """Returns the specified container.
+
+        To get the list of all available containers, make a [List] request.
+        """
     @abc.abstractmethod
     def List(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersResponse: ...
+    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersResponse:
+        """Retrieves the list of containers in the specified folder."""
     @abc.abstractmethod
     def Create(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.CreateContainerRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Creates a container in the specified folder."""
     @abc.abstractmethod
     def Update(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.UpdateContainerRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Updates the specified container."""
     @abc.abstractmethod
     def Delete(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.DeleteContainerRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Deletes the specified container."""
     @abc.abstractmethod
     def DeployRevision(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.DeployContainerRevisionRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Deploys a revision for the specified container."""
     @abc.abstractmethod
     def Rollback(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.RollbackContainerRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Rollback the specified container to an old revision."""
     @abc.abstractmethod
     def GetRevision(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.GetContainerRevisionRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.serverless.containers.v1.container_pb2.Revision: ...
+    ) -> yandex.cloud.serverless.containers.v1.container_pb2.Revision:
+        """Returns the specified revision of a container.
+
+        To get the list of available revision, make a [ListRevisions] request.
+        """
     @abc.abstractmethod
     def ListRevisions(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRevisionsRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRevisionsResponse: ...
+    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainersRevisionsResponse:
+        """Retrieves the list of revisions for the specified container, or of all container revisions
+        in the specified folder.
+        """
     @abc.abstractmethod
     def ListOperations(
         self,
         request: yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainerOperationsRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainerOperationsResponse: ...
+    ) -> yandex.cloud.serverless.containers.v1.container_service_pb2.ListContainerOperationsResponse:
+        """Lists operations for the specified container."""
     @abc.abstractmethod
     def ListAccessBindings(
         self,
         request: yandex.cloud.access.access_pb2.ListAccessBindingsRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse: ...
+    ) -> yandex.cloud.access.access_pb2.ListAccessBindingsResponse:
+        """Lists existing access bindings for the specified container."""
     @abc.abstractmethod
     def SetAccessBindings(
         self,
         request: yandex.cloud.access.access_pb2.SetAccessBindingsRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Sets access bindings for the container."""
     @abc.abstractmethod
     def UpdateAccessBindings(
         self,
         request: yandex.cloud.access.access_pb2.UpdateAccessBindingsRequest,
         context: grpc.ServicerContext,
-    ) -> yandex.cloud.operation.operation_pb2.Operation: ...
+    ) -> yandex.cloud.operation.operation_pb2.Operation:
+        """Updates access bindings for the specified container."""
 
 def add_ContainerServiceServicer_to_server(servicer: ContainerServiceServicer, server: grpc.Server) -> None: ...

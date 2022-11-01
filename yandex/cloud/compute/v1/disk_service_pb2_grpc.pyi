@@ -64,7 +64,7 @@ class DiskServiceStub:
         yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesRequest,
         yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesResponse,
     ]
-    """List snapshot schedules containing the disk"""
+    """Retrieves the list of snapshot schedules the specified disk is attached to."""
 
 class DiskServiceServicer(metaclass=abc.ABCMeta):
     """A set of methods for managing Disk resources."""
@@ -137,6 +137,6 @@ class DiskServiceServicer(metaclass=abc.ABCMeta):
         request: yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesRequest,
         context: grpc.ServicerContext,
     ) -> yandex.cloud.compute.v1.disk_service_pb2.ListDiskSnapshotSchedulesResponse:
-        """List snapshot schedules containing the disk"""
+        """Retrieves the list of snapshot schedules the specified disk is attached to."""
 
 def add_DiskServiceServicer_to_server(servicer: DiskServiceServicer, server: grpc.Server) -> None: ...

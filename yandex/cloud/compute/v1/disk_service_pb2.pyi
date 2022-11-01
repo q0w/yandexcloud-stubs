@@ -173,7 +173,7 @@ class CreateDiskRequest(google.protobuf.message.Message):
         """Placement policy configuration."""
     @property
     def snapshot_schedule_ids(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]:
-        """Snapshot schedules"""
+        """List of IDs of the snapshot schedules to attach the disk to."""
     def __init__(
         self,
         *,
@@ -439,14 +439,16 @@ class ListDiskSnapshotSchedulesRequest(google.protobuf.message.Message):
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
     disk_id: builtins.str
-    """ID of the Disk resource to list snapshot schedules for."""
+    """ID of the disk to list snapshot schedules for."""
     page_size: builtins.int
     """The maximum number of results per page to return. If the number of available
-    results is larger than [page_size], the service returns a [ListDiskOperationsResponse.next_page_token]
+    results is larger than `page_size`, the service returns a [ListDiskSnapshotSchedulesResponse.next_page_token]
     that can be used to get the next page of results in subsequent list requests.
+
+    Default value: 100.
     """
     page_token: builtins.str
-    """Page token. To get the next page of results, set [page_token] to the
+    """Page token. To get the next page of results, set `page_token` to the
     [ListDiskSnapshotSchedulesResponse.next_page_token] returned by a previous list request.
     """
     def __init__(
@@ -468,12 +470,13 @@ class ListDiskSnapshotSchedulesResponse(google.protobuf.message.Message):
     NEXT_PAGE_TOKEN_FIELD_NUMBER: builtins.int
     @property
     def snapshot_schedules(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.compute.v1.snapshot_schedule_pb2.SnapshotSchedule]:
-        """List of snapshot schedules for the specified disk."""
+        """List of snapshot schedules the specified disk is attached to."""
     next_page_token: builtins.str
-    """This token allows you to get the next page of results for list requests. If the number of results
-    is larger than [ListDiskSnapshotSchedulesRequest.page_size], use the [next_page_token] as the value
-    for the [ListDiskSnapshotSchedulesRequest.page_token] query parameter in the next list request.
-    Each subsequent list request will have its own [next_page_token] to continue paging through the results.
+    """Token for getting the next page of the list. If the number of results is greater than
+    the specified [ListDiskSnapshotSchedulesRequest.page_size], use `next_page_token` as the value
+    for the [ListDiskSnapshotSchedulesRequest.page_token] parameter in the next list request.
+
+    Each subsequent page will have its own `next_page_token` to continue paging through the results.
     """
     def __init__(
         self,

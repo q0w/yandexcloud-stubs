@@ -601,7 +601,7 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
         """Additional service accounts to be used by the version."""
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.Secret]:
-        """Lockbox secrets to be used by the version"""
+        """Yandex Lockbox secrets to be used by the version."""
     def __init__(
         self,
         *,
