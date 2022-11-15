@@ -556,6 +556,7 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     NAMED_SERVICE_ACCOUNTS_FIELD_NUMBER: builtins.int
     SECRETS_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     function_id: builtins.str
     """ID of the function to create a version for.
 
@@ -602,6 +603,9 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.serverless.functions.v1.function_pb2.Secret]:
         """Yandex Lockbox secrets to be used by the version."""
+    @property
+    def log_options(self) -> yandex.cloud.serverless.functions.v1.function_pb2.LogOptions:
+        """Options for logging from the function"""
     def __init__(
         self,
         *,
@@ -620,9 +624,10 @@ class CreateFunctionVersionRequest(google.protobuf.message.Message):
         connectivity: yandex.cloud.serverless.functions.v1.function_pb2.Connectivity | None = ...,
         named_service_accounts: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         secrets: collections.abc.Iterable[yandex.cloud.serverless.functions.v1.function_pb2.Secret] | None = ...,
+        log_options: yandex.cloud.serverless.functions.v1.function_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "execution_timeout", b"execution_timeout", "package", b"package", "package_source", b"package_source", "resources", b"resources", "version_id", b"version_id"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "description", b"description", "entrypoint", b"entrypoint", "environment", b"environment", "execution_timeout", b"execution_timeout", "function_id", b"function_id", "named_service_accounts", b"named_service_accounts", "package", b"package", "package_source", b"package_source", "resources", b"resources", "runtime", b"runtime", "secrets", b"secrets", "service_account_id", b"service_account_id", "tag", b"tag", "version_id", b"version_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "execution_timeout", b"execution_timeout", "log_options", b"log_options", "package", b"package", "package_source", b"package_source", "resources", b"resources", "version_id", b"version_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "content", b"content", "description", b"description", "entrypoint", b"entrypoint", "environment", b"environment", "execution_timeout", b"execution_timeout", "function_id", b"function_id", "log_options", b"log_options", "named_service_accounts", b"named_service_accounts", "package", b"package", "package_source", b"package_source", "resources", b"resources", "runtime", b"runtime", "secrets", b"secrets", "service_account_id", b"service_account_id", "tag", b"tag", "version_id", b"version_id"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["package_source", b"package_source"]) -> typing_extensions.Literal["package", "content", "version_id"] | None: ...
 
 global___CreateFunctionVersionRequest = CreateFunctionVersionRequest

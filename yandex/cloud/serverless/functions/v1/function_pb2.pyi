@@ -12,6 +12,7 @@ import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
 import typing
+import yandex.cloud.logging.v1.log_entry_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -190,6 +191,7 @@ class Version(google.protobuf.message.Message):
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     NAMED_SERVICE_ACCOUNTS_FIELD_NUMBER: builtins.int
     SECRETS_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the version."""
     function_id: builtins.str
@@ -241,6 +243,9 @@ class Version(google.protobuf.message.Message):
     @property
     def secrets(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Secret]:
         """Yandex Lockbox secrets to be used by the version."""
+    @property
+    def log_options(self) -> global___LogOptions:
+        """Options for logging from the function"""
     def __init__(
         self,
         *,
@@ -261,9 +266,10 @@ class Version(google.protobuf.message.Message):
         connectivity: global___Connectivity | None = ...,
         named_service_accounts: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         secrets: collections.abc.Iterable[global___Secret] | None = ...,
+        log_options: global___LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "execution_timeout", b"execution_timeout", "resources", b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "description", b"description", "entrypoint", b"entrypoint", "environment", b"environment", "execution_timeout", b"execution_timeout", "function_id", b"function_id", "id", b"id", "image_size", b"image_size", "log_group_id", b"log_group_id", "named_service_accounts", b"named_service_accounts", "resources", b"resources", "runtime", b"runtime", "secrets", b"secrets", "service_account_id", b"service_account_id", "status", b"status", "tags", b"tags"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "execution_timeout", b"execution_timeout", "log_options", b"log_options", "resources", b"resources"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "description", b"description", "entrypoint", b"entrypoint", "environment", b"environment", "execution_timeout", b"execution_timeout", "function_id", b"function_id", "id", b"id", "image_size", b"image_size", "log_group_id", b"log_group_id", "log_options", b"log_options", "named_service_accounts", b"named_service_accounts", "resources", b"resources", "runtime", b"runtime", "secrets", b"secrets", "service_account_id", b"service_account_id", "status", b"status", "tags", b"tags"]) -> None: ...
 
 global___Version = Version
 
@@ -418,3 +424,36 @@ class Secret(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing_extensions.Literal["reference", b"reference"]) -> typing_extensions.Literal["environment_variable"] | None: ...
 
 global___Secret = Secret
+
+@typing_extensions.final
+class LogOptions(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DISABLED_FIELD_NUMBER: builtins.int
+    LOG_GROUP_ID_FIELD_NUMBER: builtins.int
+    FOLDER_ID_FIELD_NUMBER: builtins.int
+    MIN_LEVEL_FIELD_NUMBER: builtins.int
+    disabled: builtins.bool
+    """Is logging from function disabled."""
+    log_group_id: builtins.str
+    """Entry should be written to log group resolved by ID."""
+    folder_id: builtins.str
+    """Entry should be written to default log group for specified folder."""
+    min_level: yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType
+    """Minimum log entry level.
+
+    See [LogLevel.Level] for details.
+    """
+    def __init__(
+        self,
+        *,
+        disabled: builtins.bool = ...,
+        log_group_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        min_level: yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destination", b"destination", "folder_id", b"folder_id", "log_group_id", b"log_group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destination", b"destination", "disabled", b"disabled", "folder_id", b"folder_id", "log_group_id", b"log_group_id", "min_level", b"min_level"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["destination", b"destination"]) -> typing_extensions.Literal["log_group_id", "folder_id"] | None: ...
+
+global___LogOptions = LogOptions
