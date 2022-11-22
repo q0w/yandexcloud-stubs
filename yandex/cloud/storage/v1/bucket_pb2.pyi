@@ -99,6 +99,7 @@ class Bucket(google.protobuf.message.Message):
     CORS_FIELD_NUMBER: builtins.int
     WEBSITE_SETTINGS_FIELD_NUMBER: builtins.int
     LIFECYCLE_RULES_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the bucket. Always equal to [name], which has priority."""
     name: builtins.str
@@ -155,6 +156,11 @@ class Bucket(google.protobuf.message.Message):
         """List of object lifecycle rules for the bucket.
         For details, see [documentation](/docs/storage/concepts/lifecycles).
         """
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Tag]:
+        """List of object tag for the bucket.
+        TODO: documentation details.
+        """
     def __init__(
         self,
         *,
@@ -171,11 +177,30 @@ class Bucket(google.protobuf.message.Message):
         cors: collections.abc.Iterable[global___CorsRule] | None = ...,
         website_settings: global___WebsiteSettings | None = ...,
         lifecycle_rules: collections.abc.Iterable[global___LifecycleRule] | None = ...,
+        tags: collections.abc.Iterable[global___Tag] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "id", b"id", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "id", b"id", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
 
 global___Bucket = Bucket
+
+@typing_extensions.final
+class Tag(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    KEY_FIELD_NUMBER: builtins.int
+    VALUE_FIELD_NUMBER: builtins.int
+    key: builtins.str
+    value: builtins.str
+    def __init__(
+        self,
+        *,
+        key: builtins.str = ...,
+        value: builtins.str = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+global___Tag = Tag
 
 @typing_extensions.final
 class ACL(google.protobuf.message.Message):

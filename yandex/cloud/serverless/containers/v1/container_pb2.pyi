@@ -150,6 +150,7 @@ class Revision(google.protobuf.message.Message):
     SECRETS_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     PROVISION_POLICY_FIELD_NUMBER: builtins.int
+    SCALING_POLICY_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the revision."""
     container_id: builtins.str
@@ -189,6 +190,9 @@ class Revision(google.protobuf.message.Message):
 
         The policy is only applied when the revision is ACTIVE.
         """
+    @property
+    def scaling_policy(self) -> global___ScalingPolicy:
+        """Policy for scaling instances of the revision."""
     def __init__(
         self,
         *,
@@ -205,9 +209,10 @@ class Revision(google.protobuf.message.Message):
         secrets: collections.abc.Iterable[global___Secret] | None = ...,
         connectivity: global___Connectivity | None = ...,
         provision_policy: global___ProvisionPolicy | None = ...,
+        scaling_policy: global___ScalingPolicy | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "execution_timeout", b"execution_timeout", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["concurrency", b"concurrency", "connectivity", b"connectivity", "container_id", b"container_id", "created_at", b"created_at", "description", b"description", "execution_timeout", b"execution_timeout", "id", b"id", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources", "secrets", b"secrets", "service_account_id", b"service_account_id", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "execution_timeout", b"execution_timeout", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources", "scaling_policy", b"scaling_policy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["concurrency", b"concurrency", "connectivity", b"connectivity", "container_id", b"container_id", "created_at", b"created_at", "description", b"description", "execution_timeout", b"execution_timeout", "id", b"id", "image", b"image", "provision_policy", b"provision_policy", "resources", b"resources", "scaling_policy", b"scaling_policy", "secrets", b"secrets", "service_account_id", b"service_account_id", "status", b"status"]) -> None: ...
 
 global___Revision = Revision
 
@@ -414,3 +419,27 @@ class Connectivity(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["network_id", b"network_id", "subnet_ids", b"subnet_ids"]) -> None: ...
 
 global___Connectivity = Connectivity
+
+@typing_extensions.final
+class ScalingPolicy(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    ZONE_INSTANCES_LIMIT_FIELD_NUMBER: builtins.int
+    ZONE_REQUESTS_LIMIT_FIELD_NUMBER: builtins.int
+    zone_instances_limit: builtins.int
+    """Upper limit for instance count in each zone.
+    0 means no limit.
+    """
+    zone_requests_limit: builtins.int
+    """Upper limit of requests count in each zone.
+    0 means no limit.
+    """
+    def __init__(
+        self,
+        *,
+        zone_instances_limit: builtins.int = ...,
+        zone_requests_limit: builtins.int = ...,
+    ) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["zone_instances_limit", b"zone_instances_limit", "zone_requests_limit", b"zone_requests_limit"]) -> None: ...
+
+global___ScalingPolicy = ScalingPolicy

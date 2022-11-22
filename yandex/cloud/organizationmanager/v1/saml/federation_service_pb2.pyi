@@ -439,6 +439,7 @@ class ListFederatedUserAccountsRequest(google.protobuf.message.Message):
     FEDERATION_ID_FIELD_NUMBER: builtins.int
     PAGE_SIZE_FIELD_NUMBER: builtins.int
     PAGE_TOKEN_FIELD_NUMBER: builtins.int
+    FILTER_FIELD_NUMBER: builtins.int
     federation_id: builtins.str
     """ID of the federation to list user accounts for."""
     page_size: builtins.int
@@ -452,14 +453,23 @@ class ListFederatedUserAccountsRequest(google.protobuf.message.Message):
     to the [ListFederatedUserAccountsResponse.next_page_token]
     returned by a previous list request.
     """
+    filter: builtins.str
+    """A filter expression that filters resources listed in the response.
+    The expression must specify:
+    1. The field name. Currently you can use filtering only on the [name_id] field.
+    2. An `=` operator.
+    3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
+      `[a-z0-9A-Z/@_.\\-=+*\\\\]+`.
+    """
     def __init__(
         self,
         *,
         federation_id: builtins.str = ...,
         page_size: builtins.int = ...,
         page_token: builtins.str = ...,
+        filter: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["federation_id", b"federation_id", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["federation_id", b"federation_id", "filter", b"filter", "page_size", b"page_size", "page_token", b"page_token"]) -> None: ...
 
 global___ListFederatedUserAccountsRequest = ListFederatedUserAccountsRequest
 

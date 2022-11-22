@@ -397,6 +397,7 @@ class DeployContainerRevisionRequest(google.protobuf.message.Message):
     SECRETS_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
     PROVISION_POLICY_FIELD_NUMBER: builtins.int
+    SCALING_POLICY_FIELD_NUMBER: builtins.int
     container_id: builtins.str
     """ID of the container to create a revision for.
 
@@ -435,6 +436,9 @@ class DeployContainerRevisionRequest(google.protobuf.message.Message):
 
         The policy is only applied when the revision is ACTIVE.
         """
+    @property
+    def scaling_policy(self) -> yandex.cloud.serverless.containers.v1.container_pb2.ScalingPolicy:
+        """Policy for scaling instances of the revision."""
     def __init__(
         self,
         *,
@@ -448,9 +452,10 @@ class DeployContainerRevisionRequest(google.protobuf.message.Message):
         secrets: collections.abc.Iterable[yandex.cloud.serverless.containers.v1.container_pb2.Secret] | None = ...,
         connectivity: yandex.cloud.serverless.containers.v1.container_pb2.Connectivity | None = ...,
         provision_policy: yandex.cloud.serverless.containers.v1.container_pb2.ProvisionPolicy | None = ...,
+        scaling_policy: yandex.cloud.serverless.containers.v1.container_pb2.ScalingPolicy | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "execution_timeout", b"execution_timeout", "image_spec", b"image_spec", "provision_policy", b"provision_policy", "resources", b"resources"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["concurrency", b"concurrency", "connectivity", b"connectivity", "container_id", b"container_id", "description", b"description", "execution_timeout", b"execution_timeout", "image_spec", b"image_spec", "provision_policy", b"provision_policy", "resources", b"resources", "secrets", b"secrets", "service_account_id", b"service_account_id"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "execution_timeout", b"execution_timeout", "image_spec", b"image_spec", "provision_policy", b"provision_policy", "resources", b"resources", "scaling_policy", b"scaling_policy"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["concurrency", b"concurrency", "connectivity", b"connectivity", "container_id", b"container_id", "description", b"description", "execution_timeout", b"execution_timeout", "image_spec", b"image_spec", "provision_policy", b"provision_policy", "resources", b"resources", "scaling_policy", b"scaling_policy", "secrets", b"secrets", "service_account_id", b"service_account_id"]) -> None: ...
 
 global___DeployContainerRevisionRequest = DeployContainerRevisionRequest
 

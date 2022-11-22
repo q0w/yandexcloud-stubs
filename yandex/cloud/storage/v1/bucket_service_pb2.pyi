@@ -131,6 +131,7 @@ class CreateBucketRequest(google.protobuf.message.Message):
     MAX_SIZE_FIELD_NUMBER: builtins.int
     ANONYMOUS_ACCESS_FLAGS_FIELD_NUMBER: builtins.int
     ACL_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Name of the bucket.
 
@@ -161,6 +162,11 @@ class CreateBucketRequest(google.protobuf.message.Message):
         """Access control list (ACL) of the bucket.
         For details, see [documentation](/docs/storage/concepts/acl).
         """
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.storage.v1.bucket_pb2.Tag]:
+        """List of object tag for the bucket.
+        TODO: documentation details.
+        """
     def __init__(
         self,
         *,
@@ -170,9 +176,10 @@ class CreateBucketRequest(google.protobuf.message.Message):
         max_size: builtins.int = ...,
         anonymous_access_flags: yandex.cloud.storage.v1.bucket_pb2.AnonymousAccessFlags | None = ...,
         acl: yandex.cloud.storage.v1.bucket_pb2.ACL | None = ...,
+        tags: collections.abc.Iterable[yandex.cloud.storage.v1.bucket_pb2.Tag] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "max_size", b"max_size", "name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "max_size", b"max_size", "name", b"name", "tags", b"tags"]) -> None: ...
 
 global___CreateBucketRequest = CreateBucketRequest
 
@@ -207,6 +214,7 @@ class UpdateBucketRequest(google.protobuf.message.Message):
     LIFECYCLE_RULES_FIELD_NUMBER: builtins.int
     POLICY_FIELD_NUMBER: builtins.int
     ACL_FIELD_NUMBER: builtins.int
+    TAGS_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Name of the bucket to update.
 
@@ -260,6 +268,11 @@ class UpdateBucketRequest(google.protobuf.message.Message):
         """Access control list (ACL) of the bucket.
         For details, see [documentation](/docs/storage/concepts/acl).
         """
+    @property
+    def tags(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.storage.v1.bucket_pb2.Tag]:
+        """List of object tag for the bucket.
+        TODO: documentation details.
+        """
     def __init__(
         self,
         *,
@@ -274,9 +287,10 @@ class UpdateBucketRequest(google.protobuf.message.Message):
         lifecycle_rules: collections.abc.Iterable[yandex.cloud.storage.v1.bucket_pb2.LifecycleRule] | None = ...,
         policy: google.protobuf.struct_pb2.Struct | None = ...,
         acl: yandex.cloud.storage.v1.bucket_pb2.ACL | None = ...,
+        tags: collections.abc.Iterable[yandex.cloud.storage.v1.bucket_pb2.Tag] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "field_mask", b"field_mask", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "default_storage_class", b"default_storage_class", "field_mask", b"field_mask", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "default_storage_class", b"default_storage_class", "field_mask", b"field_mask", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
 
 global___UpdateBucketRequest = UpdateBucketRequest
 
