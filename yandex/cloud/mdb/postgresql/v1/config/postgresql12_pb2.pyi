@@ -215,6 +215,7 @@ class PostgresqlConfig12(google.protobuf.message.Message):
         SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12._SharedPreloadLibraries.ValueType  # 5
         SHARED_PRELOAD_LIBRARIES_PGLOGICAL: PostgresqlConfig12._SharedPreloadLibraries.ValueType  # 6
         SHARED_PRELOAD_LIBRARIES_PG_PREWARM: PostgresqlConfig12._SharedPreloadLibraries.ValueType  # 7
+        SHARED_PRELOAD_LIBRARIES_PGAUDIT: PostgresqlConfig12._SharedPreloadLibraries.ValueType  # 8
 
     class SharedPreloadLibraries(_SharedPreloadLibraries, metaclass=_SharedPreloadLibrariesEnumTypeWrapper): ...
     SHARED_PRELOAD_LIBRARIES_UNSPECIFIED: PostgresqlConfig12.SharedPreloadLibraries.ValueType  # 0
@@ -225,6 +226,7 @@ class PostgresqlConfig12(google.protobuf.message.Message):
     SHARED_PRELOAD_LIBRARIES_PG_CRON: PostgresqlConfig12.SharedPreloadLibraries.ValueType  # 5
     SHARED_PRELOAD_LIBRARIES_PGLOGICAL: PostgresqlConfig12.SharedPreloadLibraries.ValueType  # 6
     SHARED_PRELOAD_LIBRARIES_PG_PREWARM: PostgresqlConfig12.SharedPreloadLibraries.ValueType  # 7
+    SHARED_PRELOAD_LIBRARIES_PGAUDIT: PostgresqlConfig12.SharedPreloadLibraries.ValueType  # 8
 
     class _SynchronousCommit:
         ValueType = typing.NewType("ValueType", builtins.int)

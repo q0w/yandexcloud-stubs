@@ -294,6 +294,19 @@ class MysqlConfig5_7(google.protobuf.message.Message):
     MAX_SP_RECURSION_DEPTH_FIELD_NUMBER: builtins.int
     INNODB_COMPRESSION_LEVEL_FIELD_NUMBER: builtins.int
     BINLOG_TRANSACTION_DEPENDENCY_TRACKING_FIELD_NUMBER: builtins.int
+    AUTOCOMMIT_FIELD_NUMBER: builtins.int
+    INNODB_STATUS_OUTPUT_FIELD_NUMBER: builtins.int
+    INNODB_STRICT_MODE_FIELD_NUMBER: builtins.int
+    INNODB_PRINT_LOCK_WAIT_TIMEOUT_INFO_FIELD_NUMBER: builtins.int
+    LOG_ERROR_VERBOSITY_FIELD_NUMBER: builtins.int
+    MAX_DIGEST_LENGTH_FIELD_NUMBER: builtins.int
+    QUERY_CACHE_LIMIT_FIELD_NUMBER: builtins.int
+    QUERY_CACHE_SIZE_FIELD_NUMBER: builtins.int
+    QUERY_CACHE_TYPE_FIELD_NUMBER: builtins.int
+    LOCK_WAIT_TIMEOUT_FIELD_NUMBER: builtins.int
+    MAX_PREPARED_STMT_COUNT_FIELD_NUMBER: builtins.int
+    OPTIMIZER_SWITCH_FIELD_NUMBER: builtins.int
+    OPTIMIZER_SEARCH_DEPTH_FIELD_NUMBER: builtins.int
     @property
     def innodb_buffer_pool_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
         """Size of the InnoDB buffer pool used for caching table and index data.
@@ -701,8 +714,87 @@ class MysqlConfig5_7(google.protobuf.message.Message):
     binlog_transaction_dependency_tracking: global___MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType
     """Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
 
-    For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+    For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
     """
+    @property
+    def autocommit(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+        """
+    @property
+    def innodb_status_output(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """Enables or disables periodic output for the standard InnoDB Monitor.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+        """
+    @property
+    def innodb_strict_mode(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+        """
+    @property
+    def innodb_print_lock_wait_timeout_info(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+        For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+        """
+    @property
+    def log_error_verbosity(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """System variable specifies the verbosity for handling events intended for the error log
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+        """
+    @property
+    def max_digest_length(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+        """
+    @property
+    def query_cache_limit(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Do not cache results that are larger than this number of bytes.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+        """
+    @property
+    def query_cache_size(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The amount of memory allocated for caching query results.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+        """
+    @property
+    def query_cache_type(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Set the query cache type.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+        """
+    @property
+    def lock_wait_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """// This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+        """
+    @property
+    def max_prepared_stmt_count(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """This variable limits the total number of prepared statements in the server.
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+        """
+    optimizer_switch: builtins.str
+    """The system variable enables control over optimizer behavior.
+
+    For details, see [MySQL documentation for the variable]
+    https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+    https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+    """
+    @property
+    def optimizer_search_depth(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum depth of search performed by the query optimizer
+
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+        """
     def __init__(
         self,
         *,
@@ -777,9 +869,22 @@ class MysqlConfig5_7(google.protobuf.message.Message):
         max_sp_recursion_depth: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         innodb_compression_level: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         binlog_transaction_dependency_tracking: global___MysqlConfig5_7.BinlogTransactionDependencyTracking.ValueType = ...,
+        autocommit: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        innodb_status_output: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        innodb_strict_mode: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        innodb_print_lock_wait_timeout_info: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        log_error_verbosity: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_digest_length: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_cache_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_cache_size: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        query_cache_type: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        lock_wait_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        max_prepared_stmt_count: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        optimizer_switch: builtins.str = ...,
+        optimizer_search_depth: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_heap_table_size", b"max_heap_table_size", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "wait_timeout", b"wait_timeout"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_row_image", b"binlog_row_image", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "binlog_transaction_dependency_tracking", b"binlog_transaction_dependency_tracking", "character_set_server", b"character_set_server", "collation_server", b"collation_server", "default_authentication_plugin", b"default_authentication_plugin", "default_time_zone", b"default_time_zone", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "log_slow_filter", b"log_slow_filter", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_rate_type", b"log_slow_rate_type", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_heap_table_size", b"max_heap_table_size", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_type", b"slave_parallel_type", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sql_mode", b"sql_mode", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "transaction_isolation", b"transaction_isolation", "wait_timeout", b"wait_timeout"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "autocommit", b"autocommit", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_print_lock_wait_timeout_info", b"innodb_print_lock_wait_timeout_info", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_status_output", b"innodb_status_output", "innodb_strict_mode", b"innodb_strict_mode", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "lock_wait_timeout", b"lock_wait_timeout", "log_error_verbosity", b"log_error_verbosity", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_digest_length", b"max_digest_length", "max_heap_table_size", b"max_heap_table_size", "max_prepared_stmt_count", b"max_prepared_stmt_count", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "optimizer_search_depth", b"optimizer_search_depth", "query_cache_limit", b"query_cache_limit", "query_cache_size", b"query_cache_size", "query_cache_type", b"query_cache_type", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "wait_timeout", b"wait_timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["audit_log", b"audit_log", "auto_increment_increment", b"auto_increment_increment", "auto_increment_offset", b"auto_increment_offset", "autocommit", b"autocommit", "binlog_cache_size", b"binlog_cache_size", "binlog_group_commit_sync_delay", b"binlog_group_commit_sync_delay", "binlog_row_image", b"binlog_row_image", "binlog_rows_query_log_events", b"binlog_rows_query_log_events", "binlog_transaction_dependency_tracking", b"binlog_transaction_dependency_tracking", "character_set_server", b"character_set_server", "collation_server", b"collation_server", "default_authentication_plugin", b"default_authentication_plugin", "default_time_zone", b"default_time_zone", "explicit_defaults_for_timestamp", b"explicit_defaults_for_timestamp", "general_log", b"general_log", "group_concat_max_len", b"group_concat_max_len", "innodb_adaptive_hash_index", b"innodb_adaptive_hash_index", "innodb_buffer_pool_size", b"innodb_buffer_pool_size", "innodb_compression_level", b"innodb_compression_level", "innodb_flush_log_at_trx_commit", b"innodb_flush_log_at_trx_commit", "innodb_ft_max_token_size", b"innodb_ft_max_token_size", "innodb_ft_min_token_size", b"innodb_ft_min_token_size", "innodb_io_capacity", b"innodb_io_capacity", "innodb_io_capacity_max", b"innodb_io_capacity_max", "innodb_lock_wait_timeout", b"innodb_lock_wait_timeout", "innodb_log_buffer_size", b"innodb_log_buffer_size", "innodb_log_file_size", b"innodb_log_file_size", "innodb_numa_interleave", b"innodb_numa_interleave", "innodb_online_alter_log_max_size", b"innodb_online_alter_log_max_size", "innodb_page_size", b"innodb_page_size", "innodb_print_all_deadlocks", b"innodb_print_all_deadlocks", "innodb_print_lock_wait_timeout_info", b"innodb_print_lock_wait_timeout_info", "innodb_purge_threads", b"innodb_purge_threads", "innodb_read_io_threads", b"innodb_read_io_threads", "innodb_status_output", b"innodb_status_output", "innodb_strict_mode", b"innodb_strict_mode", "innodb_temp_data_file_max_size", b"innodb_temp_data_file_max_size", "innodb_thread_concurrency", b"innodb_thread_concurrency", "innodb_write_io_threads", b"innodb_write_io_threads", "interactive_timeout", b"interactive_timeout", "join_buffer_size", b"join_buffer_size", "lock_wait_timeout", b"lock_wait_timeout", "log_error_verbosity", b"log_error_verbosity", "log_slow_filter", b"log_slow_filter", "log_slow_rate_limit", b"log_slow_rate_limit", "log_slow_rate_type", b"log_slow_rate_type", "log_slow_sp_statements", b"log_slow_sp_statements", "long_query_time", b"long_query_time", "lower_case_table_names", b"lower_case_table_names", "max_allowed_packet", b"max_allowed_packet", "max_connections", b"max_connections", "max_digest_length", b"max_digest_length", "max_heap_table_size", b"max_heap_table_size", "max_prepared_stmt_count", b"max_prepared_stmt_count", "max_sp_recursion_depth", b"max_sp_recursion_depth", "mdb_offline_mode_disable_lag", b"mdb_offline_mode_disable_lag", "mdb_offline_mode_enable_lag", b"mdb_offline_mode_enable_lag", "mdb_preserve_binlog_bytes", b"mdb_preserve_binlog_bytes", "mdb_priority_choice_max_lag", b"mdb_priority_choice_max_lag", "net_read_timeout", b"net_read_timeout", "net_write_timeout", b"net_write_timeout", "optimizer_search_depth", b"optimizer_search_depth", "optimizer_switch", b"optimizer_switch", "query_cache_limit", b"query_cache_limit", "query_cache_size", b"query_cache_size", "query_cache_type", b"query_cache_type", "range_optimizer_max_mem_size", b"range_optimizer_max_mem_size", "rpl_semi_sync_master_wait_for_slave_count", b"rpl_semi_sync_master_wait_for_slave_count", "show_compatibility_56", b"show_compatibility_56", "slave_parallel_type", b"slave_parallel_type", "slave_parallel_workers", b"slave_parallel_workers", "slow_query_log", b"slow_query_log", "slow_query_log_always_write_time", b"slow_query_log_always_write_time", "sort_buffer_size", b"sort_buffer_size", "sql_mode", b"sql_mode", "sync_binlog", b"sync_binlog", "table_definition_cache", b"table_definition_cache", "table_open_cache", b"table_open_cache", "table_open_cache_instances", b"table_open_cache_instances", "thread_cache_size", b"thread_cache_size", "thread_stack", b"thread_stack", "tmp_table_size", b"tmp_table_size", "transaction_isolation", b"transaction_isolation", "wait_timeout", b"wait_timeout"]) -> None: ...
 
 global___MysqlConfig5_7 = MysqlConfig5_7
 
