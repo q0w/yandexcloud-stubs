@@ -134,6 +134,7 @@ class CreateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     TYPE_FIELD_NUMBER: builtins.int
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUPS_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     folder_id: builtins.str
     """ID of the folder to create a network load balancer in.
     To get the folder ID, use a [NetworkLoadBalancerService.List] request.
@@ -157,6 +158,8 @@ class CreateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     @property
     def attached_target_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]:
         """List of attached target groups for the network load balancer."""
+    deletion_protection: builtins.bool
+    """Specifies if network load balancer protected from deletion."""
     def __init__(
         self,
         *,
@@ -168,8 +171,9 @@ class CreateNetworkLoadBalancerRequest(google.protobuf.message.Message):
         type: yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.NetworkLoadBalancer.Type.ValueType = ...,
         listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
         attached_target_groups: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup] | None = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "region_id", b"region_id", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "deletion_protection", b"deletion_protection", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "region_id", b"region_id", "type", b"type"]) -> None: ...
 
 global___CreateNetworkLoadBalancerRequest = CreateNetworkLoadBalancerRequest
 
@@ -216,6 +220,7 @@ class UpdateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     LISTENER_SPECS_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUPS_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     network_load_balancer_id: builtins.str
     """ID of the network load balancer to update.
     To get the network load balancer ID, use a [NetworkLoadBalancerService.List] request.
@@ -241,6 +246,8 @@ class UpdateNetworkLoadBalancerRequest(google.protobuf.message.Message):
     @property
     def attached_target_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup]:
         """A list of attached target groups for the network load balancer."""
+    deletion_protection: builtins.bool
+    """Specifies if network load balancer protected from deletion."""
     def __init__(
         self,
         *,
@@ -251,9 +258,10 @@ class UpdateNetworkLoadBalancerRequest(google.protobuf.message.Message):
         labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         listener_specs: collections.abc.Iterable[global___ListenerSpec] | None = ...,
         attached_target_groups: collections.abc.Iterable[yandex.cloud.loadbalancer.v1.network_load_balancer_pb2.AttachedTargetGroup] | None = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "description", b"description", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "network_load_balancer_id", b"network_load_balancer_id", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "listener_specs", b"listener_specs", "name", b"name", "network_load_balancer_id", b"network_load_balancer_id", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateNetworkLoadBalancerRequest = UpdateNetworkLoadBalancerRequest
 

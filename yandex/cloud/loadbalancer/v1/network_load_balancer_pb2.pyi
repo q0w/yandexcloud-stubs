@@ -163,6 +163,7 @@ class NetworkLoadBalancer(google.protobuf.message.Message):
     SESSION_AFFINITY_FIELD_NUMBER: builtins.int
     LISTENERS_FIELD_NUMBER: builtins.int
     ATTACHED_TARGET_GROUPS_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the network load balancer."""
     folder_id: builtins.str
@@ -191,6 +192,8 @@ class NetworkLoadBalancer(google.protobuf.message.Message):
     @property
     def attached_target_groups(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___AttachedTargetGroup]:
         """List of target groups attached to the network load balancer."""
+    deletion_protection: builtins.bool
+    """Specifies if network load balancer protected from deletion."""
     def __init__(
         self,
         *,
@@ -206,9 +209,10 @@ class NetworkLoadBalancer(google.protobuf.message.Message):
         session_affinity: global___NetworkLoadBalancer.SessionAffinity.ValueType = ...,
         listeners: collections.abc.Iterable[global___Listener] | None = ...,
         attached_target_groups: collections.abc.Iterable[global___AttachedTargetGroup] | None = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["created_at", b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "created_at", b"created_at", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "name", b"name", "region_id", b"region_id", "session_affinity", b"session_affinity", "status", b"status", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_target_groups", b"attached_target_groups", "created_at", b"created_at", "deletion_protection", b"deletion_protection", "description", b"description", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "listeners", b"listeners", "name", b"name", "region_id", b"region_id", "session_affinity", b"session_affinity", "status", b"status", "type", b"type"]) -> None: ...
 
 global___NetworkLoadBalancer = NetworkLoadBalancer
 

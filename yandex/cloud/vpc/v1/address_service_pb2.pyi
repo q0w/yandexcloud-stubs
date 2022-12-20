@@ -150,6 +150,7 @@ class CreateAddressRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     EXTERNAL_IPV4_ADDRESS_SPEC_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     folder_id: builtins.str
     """ID of the folder to create a address in.
 
@@ -166,6 +167,8 @@ class CreateAddressRequest(google.protobuf.message.Message):
         """Address labels as `key:value` pairs."""
     @property
     def external_ipv4_address_spec(self) -> global___ExternalIpv4AddressSpec: ...
+    deletion_protection: builtins.bool
+    """Specifies if address protected from deletion."""
     def __init__(
         self,
         *,
@@ -174,9 +177,10 @@ class CreateAddressRequest(google.protobuf.message.Message):
         description: builtins.str = ...,
         labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         external_ipv4_address_spec: global___ExternalIpv4AddressSpec | None = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["address_spec", b"address_spec", "external_ipv4_address_spec", b"external_ipv4_address_spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address_spec", b"address_spec", "description", b"description", "external_ipv4_address_spec", b"external_ipv4_address_spec", "folder_id", b"folder_id", "labels", b"labels", "name", b"name"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address_spec", b"address_spec", "deletion_protection", b"deletion_protection", "description", b"description", "external_ipv4_address_spec", b"external_ipv4_address_spec", "folder_id", b"folder_id", "labels", b"labels", "name", b"name"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["address_spec", b"address_spec"]) -> typing_extensions.Literal["external_ipv4_address_spec"] | None: ...
 
 global___CreateAddressRequest = CreateAddressRequest
@@ -253,6 +257,7 @@ class UpdateAddressRequest(google.protobuf.message.Message):
     DESCRIPTION_FIELD_NUMBER: builtins.int
     LABELS_FIELD_NUMBER: builtins.int
     RESERVED_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     address_id: builtins.str
     """ID of the address to update.
 
@@ -279,6 +284,8 @@ class UpdateAddressRequest(google.protobuf.message.Message):
         """
     reserved: builtins.bool
     """Specifies if address is reserved or not."""
+    deletion_protection: builtins.bool
+    """Specifies if address protected from deletion."""
     def __init__(
         self,
         *,
@@ -288,9 +295,10 @@ class UpdateAddressRequest(google.protobuf.message.Message):
         description: builtins.str = ...,
         labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         reserved: builtins.bool = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address_id", b"address_id", "description", b"description", "labels", b"labels", "name", b"name", "reserved", b"reserved", "update_mask", b"update_mask"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address_id", b"address_id", "deletion_protection", b"deletion_protection", "description", b"description", "labels", b"labels", "name", b"name", "reserved", b"reserved", "update_mask", b"update_mask"]) -> None: ...
 
 global___UpdateAddressRequest = UpdateAddressRequest
 

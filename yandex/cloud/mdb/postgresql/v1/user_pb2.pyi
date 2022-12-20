@@ -268,12 +268,41 @@ class UserSettings(google.protobuf.message.Message):
     If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
     """
 
+    class _PoolingMode:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _PoolingModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[UserSettings._PoolingMode.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        POOLING_MODE_UNSPECIFIED: UserSettings._PoolingMode.ValueType  # 0
+        SESSION: UserSettings._PoolingMode.ValueType  # 1
+        """(default) server connection will be assigned to it for the whole duration the client stays connected"""
+        TRANSACTION: UserSettings._PoolingMode.ValueType  # 2
+        """server connection is assigned to a client only during a transaction"""
+        STATEMENT: UserSettings._PoolingMode.ValueType  # 3
+        """server connection will be put back into the pool immediately after a query completes"""
+
+    class PoolingMode(_PoolingMode, metaclass=_PoolingModeEnumTypeWrapper): ...
+    POOLING_MODE_UNSPECIFIED: UserSettings.PoolingMode.ValueType  # 0
+    SESSION: UserSettings.PoolingMode.ValueType  # 1
+    """(default) server connection will be assigned to it for the whole duration the client stays connected"""
+    TRANSACTION: UserSettings.PoolingMode.ValueType  # 2
+    """server connection is assigned to a client only during a transaction"""
+    STATEMENT: UserSettings.PoolingMode.ValueType  # 3
+    """server connection will be put back into the pool immediately after a query completes"""
+
     DEFAULT_TRANSACTION_ISOLATION_FIELD_NUMBER: builtins.int
     LOCK_TIMEOUT_FIELD_NUMBER: builtins.int
     LOG_MIN_DURATION_STATEMENT_FIELD_NUMBER: builtins.int
     SYNCHRONOUS_COMMIT_FIELD_NUMBER: builtins.int
     TEMP_FILE_LIMIT_FIELD_NUMBER: builtins.int
     LOG_STATEMENT_FIELD_NUMBER: builtins.int
+    POOL_MODE_FIELD_NUMBER: builtins.int
+    PREPARED_STATEMENTS_POOLING_FIELD_NUMBER: builtins.int
+    CATCHUP_TIMEOUT_FIELD_NUMBER: builtins.int
+    WAL_SENDER_TIMEOUT_FIELD_NUMBER: builtins.int
+    IDLE_IN_TRANSACTION_SESSION_TIMEOUT_FIELD_NUMBER: builtins.int
+    STATEMENT_TIMEOUT_FIELD_NUMBER: builtins.int
     default_transaction_isolation: global___UserSettings.TransactionIsolation.ValueType
     """SQL sets an isolation level for each transaction.
     This setting defines the default isolation level to be set for all new SQL transactions.
@@ -320,6 +349,53 @@ class UserSettings(google.protobuf.message.Message):
 
     See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
     """
+    pool_mode: global___UserSettings.PoolingMode.ValueType
+    """Mode that the connection pooler is working in with specified user.
+
+    See in-depth description in [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string)
+    """
+    @property
+    def prepared_statements_pooling(self) -> google.protobuf.wrappers_pb2.BoolValue:
+        """User can use prepared statements with transaction pooling.
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html)
+        """
+    @property
+    def catchup_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum time (in seconds) for synchronization between standby and primary
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+        """
+    @property
+    def wal_sender_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+)
+        Terminate replication connections that are inactive for longer than this amount of time. 
+
+        Default value: `6000` (60 seconds).
+
+        Value of `0` disables the timeout mechanism.
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)
+        """
+    @property
+    def idle_in_transaction_session_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.
+
+        Values of `0` (default) disables the timeout.
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+        """
+    @property
+    def statement_timeout(self) -> google.protobuf.wrappers_pb2.Int64Value:
+        """The maximum time (in milliseconds) to wait for statement
+        The timeout is measured from the time a command arrives at the server until it is completed by the server. 
+
+        If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged.
+
+        Value of `0` (default) disables the timeout
+
+        See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+        """
     def __init__(
         self,
         *,
@@ -329,8 +405,14 @@ class UserSettings(google.protobuf.message.Message):
         synchronous_commit: global___UserSettings.SynchronousCommit.ValueType = ...,
         temp_file_limit: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         log_statement: global___UserSettings.LogStatement.ValueType = ...,
+        pool_mode: global___UserSettings.PoolingMode.ValueType = ...,
+        prepared_statements_pooling: google.protobuf.wrappers_pb2.BoolValue | None = ...,
+        catchup_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        wal_sender_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        idle_in_transaction_session_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+        statement_timeout: google.protobuf.wrappers_pb2.Int64Value | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["lock_timeout", b"lock_timeout", "log_min_duration_statement", b"log_min_duration_statement", "temp_file_limit", b"temp_file_limit"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["default_transaction_isolation", b"default_transaction_isolation", "lock_timeout", b"lock_timeout", "log_min_duration_statement", b"log_min_duration_statement", "log_statement", b"log_statement", "synchronous_commit", b"synchronous_commit", "temp_file_limit", b"temp_file_limit"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["catchup_timeout", b"catchup_timeout", "idle_in_transaction_session_timeout", b"idle_in_transaction_session_timeout", "lock_timeout", b"lock_timeout", "log_min_duration_statement", b"log_min_duration_statement", "prepared_statements_pooling", b"prepared_statements_pooling", "statement_timeout", b"statement_timeout", "temp_file_limit", b"temp_file_limit", "wal_sender_timeout", b"wal_sender_timeout"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["catchup_timeout", b"catchup_timeout", "default_transaction_isolation", b"default_transaction_isolation", "idle_in_transaction_session_timeout", b"idle_in_transaction_session_timeout", "lock_timeout", b"lock_timeout", "log_min_duration_statement", b"log_min_duration_statement", "log_statement", b"log_statement", "pool_mode", b"pool_mode", "prepared_statements_pooling", b"prepared_statements_pooling", "statement_timeout", b"statement_timeout", "synchronous_commit", b"synchronous_commit", "temp_file_limit", b"temp_file_limit", "wal_sender_timeout", b"wal_sender_timeout"]) -> None: ...
 
 global___UserSettings = UserSettings

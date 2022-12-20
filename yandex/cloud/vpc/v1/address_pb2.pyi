@@ -90,6 +90,7 @@ class Address(google.protobuf.message.Message):
     USED_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     IP_VERSION_FIELD_NUMBER: builtins.int
+    DELETION_PROTECTION_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the address. Generated at creation time."""
     folder_id: builtins.str
@@ -116,6 +117,8 @@ class Address(google.protobuf.message.Message):
     """Type of the IP address."""
     ip_version: global___Address.IpVersion.ValueType
     """Vervion of the IP address."""
+    deletion_protection: builtins.bool
+    """Specifies if address protected from deletion."""
     def __init__(
         self,
         *,
@@ -130,9 +133,10 @@ class Address(google.protobuf.message.Message):
         used: builtins.bool = ...,
         type: global___Address.Type.ValueType = ...,
         ip_version: global___Address.IpVersion.ValueType = ...,
+        deletion_protection: builtins.bool = ...,
     ) -> None: ...
     def HasField(self, field_name: typing_extensions.Literal["address", b"address", "created_at", b"created_at", "external_ipv4_address", b"external_ipv4_address"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "created_at", b"created_at", "description", b"description", "external_ipv4_address", b"external_ipv4_address", "folder_id", b"folder_id", "id", b"id", "ip_version", b"ip_version", "labels", b"labels", "name", b"name", "reserved", b"reserved", "type", b"type", "used", b"used"]) -> None: ...
+    def ClearField(self, field_name: typing_extensions.Literal["address", b"address", "created_at", b"created_at", "deletion_protection", b"deletion_protection", "description", b"description", "external_ipv4_address", b"external_ipv4_address", "folder_id", b"folder_id", "id", b"id", "ip_version", b"ip_version", "labels", b"labels", "name", b"name", "reserved", b"reserved", "type", b"type", "used", b"used"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["address", b"address"]) -> typing_extensions.Literal["external_ipv4_address"] | None: ...
 
 global___Address = Address
