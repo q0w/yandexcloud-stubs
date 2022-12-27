@@ -137,6 +137,7 @@ class CreateApiGatewayRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     OPENAPI_SPEC_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     folder_id: builtins.str
     """ID of the folder to create an API gateway in.
 
@@ -156,6 +157,9 @@ class CreateApiGatewayRequest(google.protobuf.message.Message):
     @property
     def connectivity(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity:
         """Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s)."""
+    @property
+    def log_options(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.LogOptions:
+        """Options for logging from the API gateway."""
     def __init__(
         self,
         *,
@@ -165,9 +169,10 @@ class CreateApiGatewayRequest(google.protobuf.message.Message):
         labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         openapi_spec: builtins.str = ...,
         connectivity: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity | None = ...,
+        log_options: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "log_options", b"log_options", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "description", b"description", "folder_id", b"folder_id", "labels", b"labels", "log_options", b"log_options", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["spec", b"spec"]) -> typing_extensions.Literal["openapi_spec"] | None: ...
 
 global___CreateApiGatewayRequest = CreateApiGatewayRequest
@@ -199,6 +204,7 @@ class UpdateApiGatewayRequest(google.protobuf.message.Message):
     LABELS_FIELD_NUMBER: builtins.int
     OPENAPI_SPEC_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     api_gateway_id: builtins.str
     """ID of the API gateway to update.
 
@@ -225,6 +231,9 @@ class UpdateApiGatewayRequest(google.protobuf.message.Message):
     @property
     def connectivity(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity:
         """Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s)."""
+    @property
+    def log_options(self) -> yandex.cloud.serverless.apigateway.v1.apigateway_pb2.LogOptions:
+        """Options for logging from the API gateway."""
     def __init__(
         self,
         *,
@@ -235,9 +244,10 @@ class UpdateApiGatewayRequest(google.protobuf.message.Message):
         labels: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
         openapi_spec: builtins.str = ...,
         connectivity: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.Connectivity | None = ...,
+        log_options: yandex.cloud.serverless.apigateway.v1.apigateway_pb2.LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "connectivity", b"connectivity", "description", b"description", "labels", b"labels", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "log_options", b"log_options", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["api_gateway_id", b"api_gateway_id", "connectivity", b"connectivity", "description", b"description", "labels", b"labels", "log_options", b"log_options", "name", b"name", "openapi_spec", b"openapi_spec", "spec", b"spec", "update_mask", b"update_mask"]) -> None: ...
     def WhichOneof(self, oneof_group: typing_extensions.Literal["spec", b"spec"]) -> typing_extensions.Literal["openapi_spec"] | None: ...
 
 global___UpdateApiGatewayRequest = UpdateApiGatewayRequest

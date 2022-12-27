@@ -11,6 +11,7 @@ import google.protobuf.message
 import google.protobuf.timestamp_pb2
 import sys
 import typing
+import yandex.cloud.logging.v1.log_entry_pb2
 
 if sys.version_info >= (3, 10):
     import typing as typing_extensions
@@ -81,6 +82,7 @@ class ApiGateway(google.protobuf.message.Message):
     LOG_GROUP_ID_FIELD_NUMBER: builtins.int
     ATTACHED_DOMAINS_FIELD_NUMBER: builtins.int
     CONNECTIVITY_FIELD_NUMBER: builtins.int
+    LOG_OPTIONS_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the API gateway. Generated at creation time."""
     folder_id: builtins.str
@@ -107,6 +109,9 @@ class ApiGateway(google.protobuf.message.Message):
     @property
     def connectivity(self) -> global___Connectivity:
         """Network access. If specified the gateway will be attached to specified network/subnet(s)."""
+    @property
+    def log_options(self) -> global___LogOptions:
+        """Options for logging from the API gateway."""
     def __init__(
         self,
         *,
@@ -121,9 +126,10 @@ class ApiGateway(google.protobuf.message.Message):
         log_group_id: builtins.str = ...,
         attached_domains: collections.abc.Iterable[global___AttachedDomain] | None = ...,
         connectivity: global___Connectivity | None = ...,
+        log_options: global___LogOptions | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["attached_domains", b"attached_domains", "connectivity", b"connectivity", "created_at", b"created_at", "description", b"description", "domain", b"domain", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "log_group_id", b"log_group_id", "name", b"name", "status", b"status"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["connectivity", b"connectivity", "created_at", b"created_at", "log_options", b"log_options"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["attached_domains", b"attached_domains", "connectivity", b"connectivity", "created_at", b"created_at", "description", b"description", "domain", b"domain", "folder_id", b"folder_id", "id", b"id", "labels", b"labels", "log_group_id", b"log_group_id", "log_options", b"log_options", "name", b"name", "status", b"status"]) -> None: ...
 
 global___ApiGateway = ApiGateway
 
@@ -181,3 +187,36 @@ class Connectivity(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["network_id", b"network_id", "subnet_id", b"subnet_id"]) -> None: ...
 
 global___Connectivity = Connectivity
+
+@typing_extensions.final
+class LogOptions(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    DISABLED_FIELD_NUMBER: builtins.int
+    LOG_GROUP_ID_FIELD_NUMBER: builtins.int
+    FOLDER_ID_FIELD_NUMBER: builtins.int
+    MIN_LEVEL_FIELD_NUMBER: builtins.int
+    disabled: builtins.bool
+    """Is logging from API gateway disabled."""
+    log_group_id: builtins.str
+    """Entry should be written to log group resolved by ID."""
+    folder_id: builtins.str
+    """Entry should be written to default log group for specified folder."""
+    min_level: yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType
+    """Minimum log entry level.
+
+    See [LogLevel.Level] for details.
+    """
+    def __init__(
+        self,
+        *,
+        disabled: builtins.bool = ...,
+        log_group_id: builtins.str = ...,
+        folder_id: builtins.str = ...,
+        min_level: yandex.cloud.logging.v1.log_entry_pb2.LogLevel.Level.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["destination", b"destination", "folder_id", b"folder_id", "log_group_id", b"log_group_id"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["destination", b"destination", "disabled", b"disabled", "folder_id", b"folder_id", "log_group_id", b"log_group_id", "min_level", b"min_level"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing_extensions.Literal["destination", b"destination"]) -> typing_extensions.Literal["log_group_id", "folder_id"] | None: ...
+
+global___LogOptions = LogOptions

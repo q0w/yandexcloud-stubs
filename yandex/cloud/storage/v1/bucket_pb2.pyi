@@ -100,6 +100,7 @@ class Bucket(google.protobuf.message.Message):
     WEBSITE_SETTINGS_FIELD_NUMBER: builtins.int
     LIFECYCLE_RULES_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    OBJECT_LOCK_FIELD_NUMBER: builtins.int
     id: builtins.str
     """ID of the bucket. Always equal to [name], which has priority."""
     name: builtins.str
@@ -161,6 +162,11 @@ class Bucket(google.protobuf.message.Message):
         """List of object tag for the bucket.
         TODO: documentation details.
         """
+    @property
+    def object_lock(self) -> global___ObjectLock:
+        """Configuration for object lock on the bucket.
+        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
+        """
     def __init__(
         self,
         *,
@@ -178,9 +184,10 @@ class Bucket(google.protobuf.message.Message):
         website_settings: global___WebsiteSettings | None = ...,
         lifecycle_rules: collections.abc.Iterable[global___LifecycleRule] | None = ...,
         tags: collections.abc.Iterable[global___Tag] | None = ...,
+        object_lock: global___ObjectLock | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "id", b"id", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "created_at", b"created_at", "object_lock", b"object_lock", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "created_at", b"created_at", "default_storage_class", b"default_storage_class", "folder_id", b"folder_id", "id", b"id", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "object_lock", b"object_lock", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
 
 global___Bucket = Bucket
 
@@ -843,14 +850,25 @@ class LifecycleRule(google.protobuf.message.Message):
         DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
         PREFIX_FIELD_NUMBER: builtins.int
+        OBJECT_SIZE_GREATER_THAN_FIELD_NUMBER: builtins.int
+        OBJECT_SIZE_LESS_THAN_FIELD_NUMBER: builtins.int
         prefix: builtins.str
         """Key prefix that the object must have in order for the rule to apply."""
+        @property
+        def object_size_greater_than(self) -> google.protobuf.wrappers_pb2.Int64Value:
+            """Size that the object must be greater."""
+        @property
+        def object_size_less_than(self) -> google.protobuf.wrappers_pb2.Int64Value:
+            """Size that the object must be less t."""
         def __init__(
             self,
             *,
             prefix: builtins.str = ...,
+            object_size_greater_than: google.protobuf.wrappers_pb2.Int64Value | None = ...,
+            object_size_less_than: google.protobuf.wrappers_pb2.Int64Value | None = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing_extensions.Literal["prefix", b"prefix"]) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["object_size_greater_than", b"object_size_greater_than", "object_size_less_than", b"object_size_less_than"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["object_size_greater_than", b"object_size_greater_than", "object_size_less_than", b"object_size_less_than", "prefix", b"prefix"]) -> None: ...
 
     ID_FIELD_NUMBER: builtins.int
     ENABLED_FIELD_NUMBER: builtins.int
@@ -1197,3 +1215,86 @@ class HTTPSConfig(google.protobuf.message.Message):
     def ClearField(self, field_name: typing_extensions.Literal["certificate_id", b"certificate_id", "dns_names", b"dns_names", "issuer", b"issuer", "name", b"name", "not_after", b"not_after", "not_before", b"not_before", "source_type", b"source_type", "subject", b"subject"]) -> None: ...
 
 global___HTTPSConfig = HTTPSConfig
+
+@typing_extensions.final
+class ObjectLock(google.protobuf.message.Message):
+    """A resource for Object Lock configuration of a bucket.
+    For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
+    """
+
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    class _ObjectLockStatus:
+        ValueType = typing.NewType("ValueType", builtins.int)
+        V: typing_extensions.TypeAlias = ValueType
+
+    class _ObjectLockStatusEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ObjectLock._ObjectLockStatus.ValueType], builtins.type):  # noqa: F821
+        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+        OBJECT_LOCK_STATUS_UNSPECIFIED: ObjectLock._ObjectLockStatus.ValueType  # 0
+        OBJECT_LOCK_STATUS_DISABLED: ObjectLock._ObjectLockStatus.ValueType  # 1
+        OBJECT_LOCK_STATUS_ENABLED: ObjectLock._ObjectLockStatus.ValueType  # 2
+
+    class ObjectLockStatus(_ObjectLockStatus, metaclass=_ObjectLockStatusEnumTypeWrapper):
+        """Activity status of the object lock settings on the bucket"""
+
+    OBJECT_LOCK_STATUS_UNSPECIFIED: ObjectLock.ObjectLockStatus.ValueType  # 0
+    OBJECT_LOCK_STATUS_DISABLED: ObjectLock.ObjectLockStatus.ValueType  # 1
+    OBJECT_LOCK_STATUS_ENABLED: ObjectLock.ObjectLockStatus.ValueType  # 2
+
+    @typing_extensions.final
+    class DefaultRetention(google.protobuf.message.Message):
+        """Default lock configuration for added objects"""
+
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        class _Mode:
+            ValueType = typing.NewType("ValueType", builtins.int)
+            V: typing_extensions.TypeAlias = ValueType
+
+        class _ModeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ObjectLock.DefaultRetention._Mode.ValueType], builtins.type):  # noqa: F821
+            DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+            MODE_UNSPECIFIED: ObjectLock.DefaultRetention._Mode.ValueType  # 0
+            MODE_GOVERNANCE: ObjectLock.DefaultRetention._Mode.ValueType  # 1
+            MODE_COMPLIANCE: ObjectLock.DefaultRetention._Mode.ValueType  # 2
+
+        class Mode(_Mode, metaclass=_ModeEnumTypeWrapper):
+            """Lock type"""
+
+        MODE_UNSPECIFIED: ObjectLock.DefaultRetention.Mode.ValueType  # 0
+        MODE_GOVERNANCE: ObjectLock.DefaultRetention.Mode.ValueType  # 1
+        MODE_COMPLIANCE: ObjectLock.DefaultRetention.Mode.ValueType  # 2
+
+        MODE_FIELD_NUMBER: builtins.int
+        DAYS_FIELD_NUMBER: builtins.int
+        YEARS_FIELD_NUMBER: builtins.int
+        mode: global___ObjectLock.DefaultRetention.Mode.ValueType
+        days: builtins.int
+        """Number of days for locking"""
+        years: builtins.int
+        """Number of years for locking"""
+        def __init__(
+            self,
+            *,
+            mode: global___ObjectLock.DefaultRetention.Mode.ValueType = ...,
+            days: builtins.int = ...,
+            years: builtins.int = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing_extensions.Literal["days", b"days", "period", b"period", "years", b"years"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing_extensions.Literal["days", b"days", "mode", b"mode", "period", b"period", "years", b"years"]) -> None: ...
+        def WhichOneof(self, oneof_group: typing_extensions.Literal["period", b"period"]) -> typing_extensions.Literal["days", "years"] | None: ...
+
+    STATUS_FIELD_NUMBER: builtins.int
+    DEFAULT_RETENTION_FIELD_NUMBER: builtins.int
+    status: global___ObjectLock.ObjectLockStatus.ValueType
+    @property
+    def default_retention(self) -> global___ObjectLock.DefaultRetention: ...
+    def __init__(
+        self,
+        *,
+        status: global___ObjectLock.ObjectLockStatus.ValueType = ...,
+        default_retention: global___ObjectLock.DefaultRetention | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["default_retention", b"default_retention"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["default_retention", b"default_retention", "status", b"status"]) -> None: ...
+
+global___ObjectLock = ObjectLock

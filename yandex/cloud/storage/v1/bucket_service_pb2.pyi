@@ -215,6 +215,7 @@ class UpdateBucketRequest(google.protobuf.message.Message):
     POLICY_FIELD_NUMBER: builtins.int
     ACL_FIELD_NUMBER: builtins.int
     TAGS_FIELD_NUMBER: builtins.int
+    OBJECT_LOCK_FIELD_NUMBER: builtins.int
     name: builtins.str
     """Name of the bucket to update.
 
@@ -273,6 +274,11 @@ class UpdateBucketRequest(google.protobuf.message.Message):
         """List of object tag for the bucket.
         TODO: documentation details.
         """
+    @property
+    def object_lock(self) -> yandex.cloud.storage.v1.bucket_pb2.ObjectLock:
+        """Configuration for object lock on the bucket.
+        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
+        """
     def __init__(
         self,
         *,
@@ -288,9 +294,10 @@ class UpdateBucketRequest(google.protobuf.message.Message):
         policy: google.protobuf.struct_pb2.Struct | None = ...,
         acl: yandex.cloud.storage.v1.bucket_pb2.ACL | None = ...,
         tags: collections.abc.Iterable[yandex.cloud.storage.v1.bucket_pb2.Tag] | None = ...,
+        object_lock: yandex.cloud.storage.v1.bucket_pb2.ObjectLock | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "field_mask", b"field_mask", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "default_storage_class", b"default_storage_class", "field_mask", b"field_mask", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
+    def HasField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "field_mask", b"field_mask", "object_lock", b"object_lock", "policy", b"policy", "website_settings", b"website_settings"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing_extensions.Literal["acl", b"acl", "anonymous_access_flags", b"anonymous_access_flags", "cors", b"cors", "default_storage_class", b"default_storage_class", "field_mask", b"field_mask", "lifecycle_rules", b"lifecycle_rules", "max_size", b"max_size", "name", b"name", "object_lock", b"object_lock", "policy", b"policy", "tags", b"tags", "versioning", b"versioning", "website_settings", b"website_settings"]) -> None: ...
 
 global___UpdateBucketRequest = UpdateBucketRequest
 
